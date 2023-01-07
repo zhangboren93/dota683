@@ -1,0 +1,346 @@
+// Dota2 Editor
+// Get latest version: https://github.com/zombieJ/nw-dota2editor
+
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	"item_aghanims_shard"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_dragon_lance"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_overwhelming_blink"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_swift_blink"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_arcane_blink"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_faerie_fire"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_infused_raindrop"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_wind_lace"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_stout_shield"
+	{
+		"ItemPurchasable"	"1"
+		"IsObsolete"		"0"
+		"ShouldBeSuggested"	"1"
+	}
+
+	"item_moon_shard"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_crown"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_blitz_knucles"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_voodoo_mask"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_ring_of_tarrasque"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_enchanted_mango"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_courier_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1100"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass" 					"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"150"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemAliases"					"donkey;chicken;animal courier"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"7.0"
+		"ItemSupport"					"1"
+		"ItemPurchasable"				"1"
+		"ItemPermanent" 				"0"
+		"ItemInitialCharges"			"1"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"utilities.lua"
+				"Function"				"Test"
+			}
+			"SpawnUnit"
+			{
+				"UnitName"				"npc_dota_courier"
+            	"UnitCount"    			"1"
+            	"SpawnRadius"    		"200"
+            	"Target"        		"CASTER"
+			}
+			"SpendCharge"
+			{
+
+			}
+		}
+	}
+
+	"item_flying_courier"
+	{
+		"ItemPurchasable"	"1"
+	}
+
+	"item_recipe_travel_boots_2"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_fluffy_hat"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_witch_blade"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_poor_mans_shield"
+	{
+		"ItemPurchasable"	"1"
+	}
+	
+	"item_holy_locket"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_bloodthorn"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_echo_sabre"
+	{
+		"ItemPurchasable"	"0"
+	}
+	
+	"item_wind_waker"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_aether_lens"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_recipe_necronomicon"
+	{
+		"ItemPurchasable"	"1"
+		"IsObsolete"		"0"
+	}
+
+	"item_recipe_necronomicon_2"
+	{
+		"ItemPurchasable"	"1"
+		"IsObsolete"		"0"
+	}
+
+	"item_recipe_necronomicon_3"
+	{
+		"ItemPurchasable"	"1"
+		"IsObsolete"		"0"
+	}
+
+	"item_necronomicon"
+	{
+		"ItemPurchasable"	"1"
+		"IsObsolete"		"0"
+	}
+
+	"item_necronomicon_2"
+	{
+		"ItemPurchasable"	"1"
+		"IsObsolete"		"0"
+	}
+
+	"item_necronomicon_3"
+	{
+		"ItemPurchasable"	"1"
+		"IsObsolete"		"0"
+	}
+
+	"item_ultimate_scepter_2"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_lotus_orb"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_meteor_hammer"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_nullifier"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_aeon_disk"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_kaya"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_spirit_vessel"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_eternal_shroud"
+	{
+		"ItemPurchasable"	"0"
+	}
+	
+	"item_silver_edge"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_helm_of_the_overlord"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_gungir"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_octarine_core"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_blight_stone"	
+	{
+		"ItemPurchasable"	"0"
+	}
+	
+	"item_mage_slayer"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_boots_of_bearing"
+	{
+		"ItemPurchasable"	"0"
+	}
+	
+	"item_solar_crest"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_tome_of_knowledge"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_guardian_greaves"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+
+	"item_recipe_ring_of_aquila"
+	{
+		"ItemPurchasable"	"1"
+		"IsObsolete"		"0"
+		"ItemRequirements"
+		{
+			"01"	"item_wraith_band;item_ring_of_basilius"
+		}
+	}
+	"item_ring_of_aquila"
+	{
+		"ItemPurchasable"	"1"
+		"IsObsolete"		"0"
+		"ShouldBeSuggested"	"1"
+		"ItemSellable"		"1"
+		"ItemIsNeutralDrop"	"0"
+	}
+
+	"item_glimmer_cape"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_recipe_wraith_pact"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_wraith_pact"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_recipe_revenants_brooch"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_revenants_brooch"
+	{
+		"ItemPurchasable"	"0"
+	}
+	
+}
