@@ -1161,4 +1161,11 @@
 			}			
 		}
 	}
+
+	"item_tp_slot_block"
+	{
+		"ID"				"1202"
+		"BaseClass"			"item_lua"
+		"ItemDroppable"		"0"
+	}
 }

@@ -24,6 +24,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 19)
+	GameRules:GetGameModeEntity():SetTPScrollSlotItemOverride("item_tp_slot_block")
 end
 
 -- Evaluate the state of the game
