@@ -23,8 +23,26 @@ end
 function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+	
+	-- TODO: Add more attribute stat
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 19)
+	
 	GameRules:GetGameModeEntity():SetTPScrollSlotItemOverride("item_tp_slot_block")
+	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(15)
+	GameRules:GetGameModeEntity():SetCustomGlyphCooldown(-1)
+	GameRules:GetGameModeEntity():SetCustomScanCooldown(-1)
+	GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockAmount(0)
+	GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockPercent(0)
+	GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockPerLevelAmount(0)
+	GameRules:GetGameModeEntity():SetRandomHeroBonusItemGrantDisabled(true)
+	GameRules:GetGameModeEntity():SetGiveFreeTPOnDeath(false)
+	GameRules:GetGameModeEntity():SetAllowNeutralItemDrops(false)
+	GameRules:GetGameModeEntity():SetNeutralStashEnabled(false)
+
+	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
+	ListenToGameEvent('npc_spawned', function(event)
+		HandleNpcSpawned(event.entindex, event.is_respawn)
+	end, nil)
 end
 
 -- Evaluate the state of the game
@@ -35,4 +53,27 @@ function CAddonTemplateGameMode:OnThink()
 		return nil
 	end
 	return 1
+end
+
+function HandleNpcSpawned(entityIndex, is_respawn)
+    local entity = EntIndexToHScript(entityIndex)
+    if entity:IsRealHero() and is_respawn == 0 then
+		entity:SetThink(function()
+			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
+        end, "remove tpscroll", 0.5)
+    end
+end
+
+-- Add the order filter to your game mode entity
+-- TODO tell user glyph and scan are disabled
+function CAddonTemplateGameMode:OrderFilter(event)
+    --Check if the order is the glyph type
+    if event.order_type == DOTA_UNIT_ORDER_GLYPH then
+		return false
+    end
+	if event.order_type == DOTA_UNIT_ORDER_RADAR then
+		return false
+    end
+    --Return true by default to keep all other orders the same
+    return true
 end
