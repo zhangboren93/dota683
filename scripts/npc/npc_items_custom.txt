@@ -71,17 +71,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_block_melee"	"16"
+				"damage_block_melee"	"20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_block_ranged"	"8"
+				"damage_block_ranged"	"10"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"block_chance"			"50"
+				"block_chance"			"60"
 			}
 		}
 	}
@@ -396,7 +396,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"420"
+		"ItemCost"						"450"
 		"ItemShopTags"					"damage;tutorial"
 		"ItemQuality"					"component"
 		"ItemAliases"					"blades of attack"
@@ -501,6 +501,105 @@
 		}
 	}
 
+	//=================================================================================================================
+	// Javelin
+	//=================================================================================================================
+	"item_javelin"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"7"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1500"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"component"
+		"ItemAliases"					"javelin"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"21"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_chance"			"20"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_chance_damage"	"40"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Mithril Hammer
+	//=================================================================================================================
+	"item_mithril_hammer"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"8"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1600"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"component"
+		"ItemAliases"					"mithril hammer"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"24"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Platemail
+	//=================================================================================================================
+	"item_platemail"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"9"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1400"
+		"ItemShopTags"					"armor"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"platemail"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"10"
+			}
+		}
+	}
+
 	"item_quarterstaff"
 	{
 		// General
@@ -533,6 +632,7 @@
 		}
 	}
 
+	//TODO Adjust bonus damage
 	"item_quelling_blade"
 	{
 		// General
@@ -1123,6 +1223,100 @@
 				"var_type"				"FIELD_FLOAT"
 				"poison_duration"		"4.0"
 			}			
+		}
+	}
+
+	//=================================================================================================================
+	// Ring of Protection
+	//=================================================================================================================
+	"item_ring_of_protection"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"12"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"200"
+		"ItemShopTags"					"armor"
+		"ItemQuality"					"component"
+		"ItemAliases"					"rop;ring of protection"
+		"SideShop"						"0"
+		
+		// Sound
+		//-------------------------------------------------------------------------------------------------------------			
+		"UIPickupSound"					"Item.PickUpRingShop"
+		"UIDropSound"					"Item.DropRingShop"
+		"WorldDropSound"				"Item.DropRingWorld"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_armor"			"2"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Gauntlets
+	//=================================================================================================================
+	"item_gauntlets"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"13"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"150"
+		"ItemShopTags"					"str"
+		"ItemQuality"					"component"
+		"ItemAliases"					"gauntlets of strength"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"3"
+			}
+		}
+	}
+	
+	//=================================================================================================================
+	// Mantle
+	//=================================================================================================================
+	"item_mantle"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"15"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"150"
+		"ItemShopTags"					"int"
+		"ItemQuality"					"component"
+		"ItemAliases"					"mantle of intelligence"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"3"
+			}
 		}
 	}
 

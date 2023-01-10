@@ -26,9 +26,15 @@ function CAddonTemplateGameMode:InitGameMode()
 	
 	-- TODO: Add more attribute stat
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 19)
+	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.03)
+	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.17)
+	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 13)
+	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.04)
 	
 	GameRules:GetGameModeEntity():SetTPScrollSlotItemOverride("item_tp_slot_block")
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(15)
+	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1)
+	GameRules:GetGameModeEntity():SetCustomBuybackCooldownEnabled(true)
 	GameRules:GetGameModeEntity():SetCustomGlyphCooldown(-1)
 	GameRules:GetGameModeEntity():SetCustomScanCooldown(-1)
 	GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockAmount(0)
@@ -38,6 +44,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetGiveFreeTPOnDeath(false)
 	GameRules:GetGameModeEntity():SetAllowNeutralItemDrops(false)
 	GameRules:GetGameModeEntity():SetNeutralStashEnabled(false)
+	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(25)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 	ListenToGameEvent('npc_spawned', function(event)

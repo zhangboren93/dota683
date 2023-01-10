@@ -69,6 +69,7 @@
 		"item"		"item_claymore"				
 		"item"		"item_javelin"
 		"item"		"item_mithril_hammer"	
+		"item"		"item_platemail"
 	}
 			
 	"misc"
