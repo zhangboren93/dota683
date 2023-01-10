@@ -504,11 +504,12 @@
 	//=================================================================================================================
 	// Javelin
 	//=================================================================================================================
-	"item_javelin"
+	"item_javelin_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"7"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1203"			
+		"BaseClass" 					"item_datadriven"											// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		// Item Info
@@ -517,9 +518,26 @@
 		"ItemShopTags"					"damage"
 		"ItemQuality"					"component"
 		"ItemAliases"					"javelin"
+		"ItemKillable" 					"0"
+		"ItemSellable" 					"1"
+		"ItemPurchasable" 				"1"
+		"ItemDroppable" 				"1"
+		"ItemShareability" 				"ITEM_NOT_SHAREABLE"
 
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"item_custom_modifier"
+			{
+				"Passive" "1"
+				"IsHidden" "0"
+				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}	
+			}
+		}
+		//TODO add script for proc damage
 		"AbilitySpecial"
 		{
 			"01"
