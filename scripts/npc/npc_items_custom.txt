@@ -124,6 +124,7 @@
 		"BaseClass" 					"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+		"AbilityTextureName" 			"item_courier"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -827,6 +828,7 @@
 		"ID"							"1226"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass" 					"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName" 			"item_lifesteal"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
