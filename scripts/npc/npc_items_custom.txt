@@ -142,11 +142,6 @@
 		"ItemInitialCharges"			"1"
 		"OnSpellStart"
 		{
-			// "RunScript"
-			// {
-			// 	"ScriptFile"			"utilities.lua"
-			// 	"Function"				"Test"
-			// }
 			"SpawnUnit"
 			{
 				"UnitName"				"npc_dota_courier"
@@ -1171,7 +1166,72 @@
 			"duration_minutes_tooltip"				"7"
 		}
 	}
-	//TODO continue adding items
+	"item_ward_sentry"
+	{
+		"ItemCost"						"200"
+		"ItemInitialCharges"			"2"
+		"ItemStockMax"					"1"
+		"ItemStockInitial"				"1"
+		"ItemStockTime"					"0.1"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"lifetime"						"240"
+			"vision_range"					"0"
+			"true_sight_range"				"900"
+			"health"						"200"
+			"duration_minutes_tooltip"		"4"
+		}
+	}
+	"item_tango"
+	{
+		"ItemCost"						"125"
+		"ItemInitialCharges"			"4"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"health_regen"			"7.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"buff_duration"			"16.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_charges"				"4"
+			}
+		}
+	}
+	"item_tango_single"
+	{
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"health_regen"			"7.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"buff_duration"			"16.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration_to_use"	    "4000"
+			}
+		}
+	}
 	"item_tpscroll"
 	{
 		// General
@@ -1226,6 +1286,120 @@
 		}
 	}
 
+	//TODO use as tp scroll
+	"item_travel_boots"
+	{
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"100"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"maximum_distance"		"800"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"200"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tp_cooldown"			"50"
+			}
+		}
+	}
+	//TODO add new items & phase
+	//=================================================================================================================
+	// Phase Boots
+	//=================================================================================================================
+	"item_phase_boots"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"50"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1500"
+		"ItemShopTags"					"damage;move_speed;hard_to_tag"
+		"ItemQuality"					"common"
+		"ItemAliases"					"phase boots"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"45"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage_melee"			"18"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage_range"			"12"
+			}			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_block_melee"	"0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_block_ranged"	"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_chance"			"0"
+			}		
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"phase_movement_speed"  "20"
+			}		
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"phase_movement_speed_range"  "10"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"phase_duration"		"3.0"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"0"
+			}		
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"4"
+			}		
+		}
+	}
 	//=================================================================================================================
 	// Ring of Health
 	//=================================================================================================================
