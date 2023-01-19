@@ -31,7 +31,6 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 13)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.04)
 	
-	GameRules:GetGameModeEntity():SetTPScrollSlotItemOverride("item_tp_slot_block")
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(15)
 	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1)
 	GameRules:GetGameModeEntity():SetCustomBuybackCooldownEnabled(true)

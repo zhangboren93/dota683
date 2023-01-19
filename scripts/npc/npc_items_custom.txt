@@ -1286,7 +1286,7 @@
 		}
 	}
 
-	//TODO use as tp scroll
+	//TODO TP scroll Cooldown to be 50; don't use TP scroll
 	"item_travel_boots"
 	{
 		// Special	
@@ -1315,7 +1315,37 @@
 			}
 		}
 	}
-	//TODO add new items & phase
+	
+	"item_travel_boots_2"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+		
+	//=================================================================================================================
+	// Recipe: Phase Boots
+	//=================================================================================================================
+	"item_recipe_phase_boots"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"49"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+	
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_phase_boots"
+		"ItemRequirements"
+		{
+			"01"						"item_boots*;item_blades_of_attack;item_blades_of_attack"
+		}
+	}
 	//=================================================================================================================
 	// Phase Boots
 	//=================================================================================================================
@@ -1332,7 +1362,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
+		"ItemCost"						"1400"
 		"ItemShopTags"					"damage;move_speed;hard_to_tag"
 		"ItemQuality"					"common"
 		"ItemAliases"					"phase boots"
@@ -1346,17 +1376,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"45"
+				"bonus_movement_speed"	"50"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage_melee"			"18"
+				"bonus_damage_melee"			"24"
 			}			
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage_range"			"12"
+				"bonus_damage_range"			"24"
 			}			
 			"04"
 			{
@@ -1376,17 +1406,17 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"phase_movement_speed"  "20"
+				"phase_movement_speed"  "16"
 			}		
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"phase_movement_speed_range"  "10"
+				"phase_movement_speed_range"  "16"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"phase_duration"		"3.0"
+				"phase_duration"		"4.0"
 			}
 			"10"
 			{
@@ -1396,10 +1426,157 @@
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"4"
+				"bonus_armor"			"0"
 			}		
 		}
 	}
+	"item_demon_edge"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"51"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2400"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"demon edge"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"46"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Eagle Horn
+	//=================================================================================================================
+	"item_eagle"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"52"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3300"
+		"ItemShopTags"					"agi"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"eaglesong"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agility"			"25"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Reaver
+	//=================================================================================================================
+	"item_reaver"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"53"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3200"
+		"ItemShopTags"					"str"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"reaver"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"25"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Sacred Relic
+	//=================================================================================================================
+	"item_relic"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"54"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3800"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"sacred relic"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"60"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Hyperstone
+	//=================================================================================================================
+	"item_hyperstone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"55"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2000"
+		"ItemShopTags"					"attack_speed"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"hyperstone"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"55"
+			}
+		}
+	}
+
 	//=================================================================================================================
 	// Ring of Health
 	//=================================================================================================================
@@ -1436,7 +1613,68 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Void Stone
+	//=================================================================================================================
+	"item_void_stone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"57"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"875"
+		"ItemShopTags"					"regen_mana"
+		"ItemQuality"					"component"
+		"ItemAliases"					"void stone"
+		"SecretShop"					"1"		
+		//"SideShop"						"1"
 
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"1"
+			}
+		}
+	}
+
+		
+	//=================================================================================================================
+	// Mystic Staff
+	//=================================================================================================================
+	"item_mystic_staff"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"58"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2700"
+		"ItemShopTags"					"int"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"mystic staff"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"25"
+			}
+		}
+	}
+	
 	//=================================================================================================================
 	// Energy Booster
 	//=================================================================================================================
@@ -1449,7 +1687,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"900"
+		"ItemCost"						"1000"
 		"ItemShopTags"					"mana_pool"
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"energy booster"
@@ -1464,6 +1702,42 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bonus_mana"			"250"
+			}
+		}
+	}
+
+		//=================================================================================================================
+	// Point Booster
+	//=================================================================================================================
+	"item_point_booster"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"60"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1200"
+		"ItemShopTags"					"mana_pool;health_pool"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"point booster"
+		"SecretShop"					"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana"			"150"
+			}
+			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"200"
 			}
 		}
 	}
@@ -1499,6 +1773,130 @@
 		}
 	}
 
+	//=================================================================================================================
+	// Power Treads
+	//=================================================================================================================
+	"item_power_treads"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"63"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1400"
+		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
+		"ItemQuality"					"common"
+		"ItemAliases"					"power treads"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"  "50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_stat"			"8"
+			}	
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"			"30"
+			}		
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"0"
+			}		
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: Hand of Midas
+	//=================================================================================================================
+	"item_recipe_hand_of_midas"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"64"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1550"	
+		"ItemShopTags"					""
+		"ItemAliases"					"hom"
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_hand_of_midas"
+		"ItemRequirements"
+		{
+			"01"						"item_gloves*"		
+		}
+	}
+	
+	//=================================================================================================================
+	// Hand of Midas
+	//=================================================================================================================
+	"item_hand_of_midas"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"65"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"100.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"2050"
+		"ItemShopTags"					"attack_speed;hard_to_tag"
+		"ItemQuality"					"common"
+		"ItemAliases"					"hand of midas"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"xp_multiplier"			"2.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold"			"190"
+			}
+		}
+	}
+
+	// TODO Add more items
 	//=================================================================================================================
 	// Orb of Venom
 	//=================================================================================================================
