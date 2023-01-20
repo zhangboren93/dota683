@@ -44,6 +44,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetAllowNeutralItemDrops(false)
 	GameRules:GetGameModeEntity():SetNeutralStashEnabled(false)
 	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(25)
+	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 	ListenToGameEvent('npc_spawned', function(event)

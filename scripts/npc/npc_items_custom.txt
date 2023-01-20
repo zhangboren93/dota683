@@ -55,7 +55,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"200"
+		"ItemCost"						"250"
 		"ItemShopTags"					"block"
 		"ItemQuality"					"component"
 		"ItemAliases"					"stout shield"
@@ -116,50 +116,50 @@
 		"ItemPurchasable"	"0"
 	}
 
-	"item_courier_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1100"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass" 					"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
-		"AbilityTextureName" 			"item_courier"
+	// "item_courier_2"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ID"							"1100"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+	// 	"BaseClass" 					"item_datadriven"
+	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	// 	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+	// 	"AbilityTextureName" 			"item_courier"
 		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"150"
-		"ItemShopTags"					"consumable"
-		"ItemQuality"					"consumable"
-		"ItemAliases"					"donkey;chicken;animal courier"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemStockMax"					"1"
-		"ItemStockTime"					"7.0"
-		"ItemSupport"					"1"
-		"ItemPurchasable"				"1"
-		"ItemPermanent" 				"0"
-		"ItemStackable"					"1"
-		"ItemInitialCharges"			"1"
-		"OnSpellStart"
-		{
-			"SpawnUnit"
-			{
-				"UnitName"				"npc_dota_courier"
-            	"UnitCount"    			"1"
-            	"SpawnRadius"    		"200"
-            	"Target"        		"CASTER"
-			}
-			"SpendCharge"
-			{
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"						"150"
+	// 	"ItemShopTags"					"consumable"
+	// 	"ItemQuality"					"consumable"
+	// 	"ItemAliases"					"donkey;chicken;animal courier"
+	// 	"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+	// 	"ItemStockMax"					"1"
+	// 	"ItemStockTime"					"7.0"
+	// 	"ItemSupport"					"1"
+	// 	"ItemPurchasable"				"1"
+	// 	"ItemPermanent" 				"0"
+	// 	"ItemStackable"					"1"
+	// 	"ItemInitialCharges"			"1"
+	// 	"OnSpellStart"
+	// 	{
+	// 		"SpawnUnit"
+	// 		{
+	// 			"UnitName"				"npc_dota_courier"
+    //         	"UnitCount"    			"1"
+    //         	"SpawnRadius"    		"200"
+    //         	"Target"        		"CASTER"
+	// 		}
+	// 		"SpendCharge"
+	// 		{
 
-			}
-		}
-	}
+	// 		}
+	// 	}
+	// }
 
-	"item_flying_courier"
-	{
-		"ItemPurchasable"	"1"
-	}
+	// "item_flying_courier"
+	// {
+	// 	"ItemPurchasable"	"1"
+	// }
 
 	"item_recipe_travel_boots_2"
 	{
@@ -179,8 +179,64 @@
 	"item_poor_mans_shield"
 	{
 		"ItemPurchasable"	"1"
+		"ItemIsNeutralDrop"	"0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agility"			"6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_block_melee"	"20"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_block_ranged"	"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_chance"			"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_chance_hero"		"100"
+			}			
+		}
 	}
 	
+	//=================================================================================================================
+	// Recipe: Poor Man's Shield
+	//=================================================================================================================
+	"item_recipe_poor_mans_shield"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"70"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"IsObsolete"					"0"
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_poor_mans_shield"
+		"ItemPurchasable"				"1"
+		"ItemRequirements"
+		{
+			"01"						"item_slippers;item_slippers;item_stout_shield*"
+		}
+	}
+
 	"item_holy_locket"
 	{
 		"ItemPurchasable"	"0"
@@ -1896,7 +1952,421 @@
 		}
 	}
 
-	// TODO Add more items
+	//=================================================================================================================
+	// Recipe: Oblivion Staff
+	//=================================================================================================================
+	"item_recipe_oblivion_staff"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"66"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_oblivion_staff"
+		"ItemRequirements"
+		{
+			"01"						"item_quarterstaff;item_sobi_mask;item_robe"
+		}
+	}
+
+	//=================================================================================================================
+	// Oblivion Staff
+	//=================================================================================================================
+	"item_oblivion_staff"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"67"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1500"
+		"ItemShopTags"					"damage;int;attack_speed;regen_mana"
+		"ItemQuality"					"common"
+		"ItemAliases"					"oblivion staff"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"	"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"0.75"
+			}
+		}
+	}
+
+	"item_recipe_witch_blade"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	//=================================================================================================================
+	// Recipe: Perseverence
+	//=================================================================================================================
+	"item_recipe_pers"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"68"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_pers_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_ring_of_health;item_void_stone"
+		}
+	}
+	
+	//=================================================================================================================
+	// Perseverence
+	//=================================================================================================================
+	"item_pers_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1269"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"           			"item_datadriven"
+		"AbilityTextureName" 			"item_pers"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		//-------------------------------------------------------------------------------------------------------------
+		// Item Info
+		"ItemCost"						"1750"
+		"ItemShopTags"					"regen_health;regen_mana"		
+		"ItemQuality"					"common"
+		"ItemAliases"					"perseverance"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemKillable" 					"1"
+		"ItemSellable" 					"1"
+		"ItemPurchasable" 				"1"
+		"ItemDroppable" 				"1"
+		
+		"Modifiers"
+		{
+			"item_custom_modifier"
+			{
+				"Passive" 				"1"
+				"IsHidden" 				"1"
+				"Attributes" 			"MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%bonus_damage"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%bonus_health_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "%bonus_mana_regen"
+				}
+			}
+		}
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_health_regen"	"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"1.25"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"10"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Circlet
+	//=================================================================================================================
+	"item_circlet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"20"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"165"
+		"ItemShopTags"					"agi;int;str"
+		"ItemQuality"					"component"
+		"ItemAliases"					"circlet"
+		"ShouldBeInitiallySuggested"	"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"2"
+			}
+		}
+	}
+
+
+	//=================================================================================================================
+	// Bracer
+	//=================================================================================================================
+	"item_bracer"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"73"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxUpgradeLevel"				"2"
+		"ItemBaseLevel"					"1"
+		"ItemLevelByGameTime"			"25"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"525"
+		"ItemShopTags"					"damage;int;agi;str"
+		"ItemQuality"					"common"
+		"ItemAliases"					"bracer"
+		"ShouldBeInitiallySuggested"	"1"
+		"ShouldBeSuggested"				"1"
+		
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_strength"		"6 6"
+			"bonus_agility"			"3 3"
+			"bonus_intellect"		"3 3"
+			"bonus_damage"			"3 3"
+			"bonus_health_regen"	"0 0"
+			"clock_time"			"25"
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: Wraith Band
+	//=================================================================================================================
+	"item_recipe_wraith_band"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"74"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"170"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_wraith_band_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_circlet;item_slippers"
+		}
+	}
+
+	//=================================================================================================================
+	// Wraith Band
+	//=================================================================================================================
+	"item_wraith_band_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1275"
+		"BaseClass"           			"item_datadriven"
+		"AbilityTextureName" 			"item_wraith_band"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"485"
+		"ItemShopTags"					"damage;int;agi;str"
+		"ItemQuality"					"common"
+		"ItemAliases"					"wraith band"
+		"ShouldBeInitiallySuggested"	"1"
+		"ShouldBeSuggested"				"1"
+		"ItemKillable" 					"1"
+		"ItemSellable" 					"1"
+		"ItemPurchasable" 				"1"
+		"ItemDroppable" 				"1"
+
+		"Modifiers"
+		{
+			"item_custom_modifier"
+			{
+				"Passive" 				"1"
+				"IsHidden" 				"1"
+				"Attributes" 			"MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%bonus_agility"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%bonus_damage"
+				}
+			}
+		}
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agility"			"6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"			"3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"3"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: Null Talisman
+	//=================================================================================================================
+	"item_recipe_null_talisman"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"76"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"155"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_null_talisman_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_circlet;item_mantle"
+		}
+	}
+
+	//=================================================================================================================
+	// Null Talisman
+	//=================================================================================================================
+	"item_null_talisman_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1277"	
+		"BaseClass"           			"item_datadriven"
+		"AbilityTextureName" 			"item_null_talisman"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"470"
+		"ItemShopTags"					"damage;int;agi;str"
+		"ItemQuality"					"common"
+		"ItemAliases"					"null talisman"
+		"ShouldBeInitiallySuggested"	"1"
+		"ShouldBeSuggested"				"1"
+		"ItemKillable" 					"1"
+		"ItemSellable" 					"1"
+		"ItemPurchasable" 				"1"
+		"ItemDroppable" 				"1"
+
+		"Modifiers"
+		{
+			"item_custom_modifier"
+			{
+				"Passive" 				"1"
+				"IsHidden" 				"1"
+				"Attributes" 			"MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%bonus_agility"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%bonus_damage"
+				}
+			}
+		}
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agility"			"3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"			"3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"			"6"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"3"
+			}
+		}
+	}
+	//TODO add more items
+	
 	//=================================================================================================================
 	// Orb of Venom
 	//=================================================================================================================
