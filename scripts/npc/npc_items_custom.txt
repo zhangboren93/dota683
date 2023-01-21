@@ -556,7 +556,6 @@
 	//=================================================================================================================
 	// Javelin
 	//=================================================================================================================
-	// TODO +21 damage, 20% proc 42 magical damage
 	"item_javelin_datadriven"
 	{
 		// General
@@ -720,12 +719,17 @@
 		}
 	}
 
-	//TODO Adjust bonus damage to 32%/12%, cost to 250
 	"item_quelling_blade"
+	{
+		"ItemPurchasable"	"0"
+	}
+	//TODO cut down wards
+	"item_quelling_blade_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"11"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass" 					"item_datadriven"
+		"ID"							"1211"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
@@ -733,17 +737,48 @@
 		"AbilityCastRange"				"350"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"4.0"
+		"AbilityCastAnimation"   		"ACT_DOTA_IDLE"
 		"Model"							"models/props_gameplay/quelling_blade.vmdl"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-		"ItemCost"						"200"
+		"ItemCost"						"250"
 		"ItemShopTags"					"damage"
 		"ItemQuality"					"component"
 		"ItemAliases"					"quelling blade"
 		"SideShop"						"1"
-		
+		"AbilityTextureName" 			"item_quelling_blade"
+		"ItemKillable" 					"1"
+		"ItemSellable" 					"1"
+		"ItemPurchasable" 				"1"
+		"ItemDroppable" 				"1"
+
+		"Modifiers"
+		{
+			"item_quelling_blade_modifier"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_quelling_blade.lua"
+						"Function"		"quelling_blade_attack_landed"
+					}
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_quelling_blade.lua"
+				"Function"		"quelling_blade_kill_tree"
+			}
+		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -751,12 +786,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_bonus"			"24"
+				"damage_bonus"			"33"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_bonus_ranged"	"7"
+				"damage_bonus_ranged"	"12"
 			}
 			"03"
 			{
@@ -1002,15 +1037,51 @@
 		}		
 	}
 
-	//TODO to percentage mana regen
-	"item_sobi_mask"
+	"item_sobi_mask" {
+		"ItemPurchasable"	"0"
+	}
+	"item_sobi_mask_datadriven"
 	{
+		"BaseClass" 			"item_datadriven"
+		"ID"					"1228"
+		"AbilityTextureName" 	"item_sobi_mask"	
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemCost" 				"325"
+		"ItemKillable" 			"0"
+		"ItemSellable" 			"1"
+		"ItemPurchasable" 		"1"
+		"ItemDroppable" 		"1"
+		"ItemShareability"  	"ITEM_PARTIALLY_SHAREABLE"
+		"Modifiers"
+		{
+		    "item_custom_modifier"
+		    {
+		        "Passive" "1"
+		        "IsHidden" "1"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"	"TARGET"
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"items/item_sobi_mask.lua"
+								"Function"		"item_sobi_mask_gen_mana"
+							}
+						}
+					}
+				}
+		    }
+		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen"		"0.5"
+				"bonus_mana_regen"		"50"
 			}
 		}
 	}
@@ -1713,6 +1784,7 @@
 			}
 		}
 	}
+	//TODO mana regen percentage
 	//=================================================================================================================
 	// Void Stone
 	//=================================================================================================================
@@ -2021,6 +2093,7 @@
 		}
 	}
 
+	//TODO mana regen percentage
 	//=================================================================================================================
 	// Oblivion Staff
 	//=================================================================================================================
@@ -2095,6 +2168,7 @@
 		}
 	}
 	
+	//TODO mana regen percentage
 	//=================================================================================================================
 	// Perseverence
 	//=================================================================================================================
