@@ -2089,7 +2089,7 @@
 		"ItemResult"					"item_oblivion_staff"
 		"ItemRequirements"
 		{
-			"01"						"item_quarterstaff;item_sobi_mask;item_robe"
+			"01"						"item_quarterstaff;item_sobi_mask_datadriven;item_robe"
 		}
 	}
 
@@ -3019,7 +3019,7 @@
 		"ItemResult"					"item_ring_of_basilius_datadriven"
 		"ItemRequirements"
 		{
-			"01"						"item_sobi_mask;item_ring_of_protection"
+			"01"						"item_sobi_mask_datadriven;item_ring_of_protection"
 		}
 	}
 
@@ -3234,7 +3234,319 @@
 		}
 	}
 
-	//TODO Add more items - Pipe
+	//TODO Add Pipe
+
+	//TODO Urn add strength
+	//=================================================================================================================
+	// Recipe: Urn of Shadows
+	//=================================================================================================================
+	"item_recipe_urn_of_shadows"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"91"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"250"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_urn_of_shadows"
+		"ItemRequirements"
+		{
+			"01"						"item_sobi_mask_datadriven;item_gauntlets;item_gauntlets"
+		}
+	}
+	
+	//=================================================================================================================
+	// Urn of Shadows
+	//=================================================================================================================
+	"item_urn_of_shadows"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"92"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"875"
+		"AbilityCastPoint"				"0.0"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7.0"
+		"AbilitySharedCooldown"			"urn"
+
+		// Items
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"1"
+		"ItemDisassembleRule"				"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"875"
+		"ItemShopTags"					"regen_mana;str;boost_health"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"urn of shadows"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_regen"			"0.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_armor"			"0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"soul_radius"			"1400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"soul_initial_charge"	"2"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"soul_additional_charges"	"1"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"soul_heal_amount"		"50"
+			}			
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"soul_damage_amount"	"20"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"	"8.0"
+			}
+		}
+	}
+
+
+	//=================================================================================================================
+	// Recipe: Headdress
+	//=================================================================================================================
+	"item_recipe_headdress" {
+		"ItemPurchasable"	"0"
+	}	
+	"item_headdress" {
+		"ItemPurchasable"	"0"
+	}	
+	"item_recipe_headdress_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1293"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"200"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_headdress_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_ring_of_regen;item_branches"
+		}
+	}
+    // Rewrite of Headdress
+    // Author: Rook
+    // Date: January 26, 2015
+    
+    "item_headdress_datadriven"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"						"item_datadriven"
+    	"ID"							"1294"  //Valve's version of this item uses the ID "94".
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"Model"							"models/props_gameplay/red_box.vmdl" 
+    	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+    	"AbilityTextureName"			"item_headdress"
+    	
+    	// Item Info
+    	//-------------------------------------------------------------------------------------------------------------
+    	"ItemCost"						"600"
+    	"ItemShopTags"					"str;int;agi;regen_health"
+    	"ItemQuality"					"rare"
+    	"ItemAliases"					"headdress"
+    	
+    	"AbilitySpecial"
+    	{
+    		"01"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"bonus_all_stats"		"2"
+    		}
+    		"02"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"aura_radius"			"750"
+    		}
+    		"03"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"aura_health_regen"		"3"
+    		}
+    	}
+    	
+    	"Modifiers"
+    	{
+    		"modifier_item_headdress_datadriven"
+    		{
+    			"Passive"			"1"
+    			"IsHidden"			"1"
+    			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+    			
+    			"Properties"
+    			{
+    				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+    				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+    				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+    			}
+    		}
+    		"modifier_item_headdress_datadriven_aura_emitter"
+    		{
+    			"Passive"				"1"
+    			"IsHidden"				"1"
+    			
+    			"Aura" 					"modifier_item_headdress_datadriven_aura"
+    			"Aura_Radius" 			"%aura_radius"
+    			"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    			"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    			"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    			"Aura_ApplyToCaster" 	"1"
+    		}
+    		"modifier_item_headdress_datadriven_aura"
+    		{
+    			"Passive"			"0"
+    			"IsHidden"			"0"
+    			
+    			"Properties"
+    			{
+    				"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"			"%aura_health_regen"
+    			}
+    		}
+    	}
+    }
+
+
+	//TODO mana regen percentage
+	//=================================================================================================================
+	// Sheepstick
+	//=================================================================================================================
+	"item_sheepstick"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"96"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"2"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"20.0"
+
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"250"
+		"ItemCost"						"5675"
+		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"hex;sheepstick;scythe of vyse"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agility"			"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"35"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"0.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"sheep_duration"		"3.5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"sheep_movement_speed"	"140"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"upgrade_radius"	"200"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen_percentage"		"150"
+			}
+		}
+	}
+
 	//=================================================================================================================
 	// Orb of Venom
 	//=================================================================================================================
@@ -3372,11 +3684,5 @@
 				"bonus_intellect"		"3"
 			}
 		}
-	}
-
-	"item_tp_slot_block"
-	{
-		"ID"					"1202"
-		"BaseClass"				"item_lua"
 	}
 }

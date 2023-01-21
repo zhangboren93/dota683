@@ -50,6 +50,10 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(event.entindex, event.is_respawn)
 	end, nil)
+
+	ListenToGameEvent("dota_hero_inventory_item_change", function(event)
+		HandleInventoryChanged(event.hero_entindex, event.item_entindex)
+	end, nil)
 end
 
 -- Evaluate the state of the game
@@ -60,15 +64,6 @@ function CAddonTemplateGameMode:OnThink()
 		return nil
 	end
 	return 1
-end
-
-function HandleNpcSpawned(entityIndex, is_respawn)
-    local entity = EntIndexToHScript(entityIndex)
-    if entity:IsRealHero() and is_respawn == 0 then
-		entity:SetThink(function()
-			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
-        end, "remove tpscroll", 0.5)
-    end
 end
 
 -- Add the order filter to your game mode entity
@@ -83,4 +78,20 @@ function CAddonTemplateGameMode:OrderFilter(event)
     end
     --Return true by default to keep all other orders the same
     return true
+end
+
+function HandleNpcSpawned(entityIndex, is_respawn)
+    local entity = EntIndexToHScript(entityIndex)
+    if entity:IsRealHero() and is_respawn == 0 then
+		entity:SetThink(function()
+			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
+        end, "remove tpscroll", 0.5)
+    end
+end
+
+function HandleInventoryChanged(heroidx, itemidx)
+    local hero = EntIndexToHScript(heroidx)
+    local item = EntIndexToHScript(itemidx)
+	print("HandleInventoryChanged")
+	print(item:GetName())
 end
