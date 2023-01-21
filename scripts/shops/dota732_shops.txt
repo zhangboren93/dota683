@@ -76,7 +76,7 @@
 	{
 		//"item"		"item_wind_lace"
 		"item"		"item_magic_stick"
-		"item"		"item_sobi_mask_2"
+		"item"		"item_sobi_mask"
 		"item"		"item_ring_of_regen"
 		//"item"		"item_ward_dispenser"
 		"item"		"item_boots"
@@ -113,10 +113,10 @@
 	// Level 2 - Blue Recipes
 	"support"
 	{
-		"item"		"item_ring_of_basilius"
+		"item"		"item_ring_of_basilius_datadriven"
 		"item"		"item_iron_talon"	
 		"item"		"item_headdress"
-		"item"		"item_buckler"
+		"item"		"item_buckler_2"
 		"item"		"item_urn_of_shadows"
 		"item"		"item_tranquil_boots"
 		//"item"		"item_natures_mend"
