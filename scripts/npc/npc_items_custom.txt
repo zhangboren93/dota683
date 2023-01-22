@@ -10,6 +10,10 @@
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_dragon_lance"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_dragon_lance"
 	{
 		"ItemPurchasable"	"0"
@@ -260,11 +264,19 @@
 		"ItemPurchasable"	"0"
 	}
 	
+	"item_recipe_wind_waker"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_wind_waker"
 	{
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_aether_lens"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_aether_lens"
 	{
 		"ItemPurchasable"	"0"
@@ -306,46 +318,82 @@
 		"IsObsolete"		"0"
 	}
 
+	"item_recipe_ultimate_scepter_2"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_ultimate_scepter_2"
 	{
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_lotus_orb"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_lotus_orb"
 	{
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_meteor_hammer"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_meteor_hammer"
 	{
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_nullifier"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_nullifier"
 	{
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_aeon_disk"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_aeon_disk"
 	{
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_kaya"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_kaya"
 	{
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_spirit_vessel"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_spirit_vessel"
 	{
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_eternal_shroud"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_eternal_shroud"
 	{
 		"ItemPurchasable"	"0"
 	}
 	
+	"item_recipe_silver_edge"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_silver_edge"
 	{
 		"ItemPurchasable"	"0"
@@ -438,6 +486,14 @@
 		"ItemPurchasable"	"0"
 	}
 	
+	"item_recipe_hurricane_pike"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_hurricane_pike"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_blink"
 	{
 		// General
@@ -3628,6 +3684,33 @@
 	}
 
 	//TODO add item Cyclone
+	//TODO add forcestaff
+	//TODO add dagon
+	//TODO add necronomicon
+	//TODO add refresher
+	//TODO add assault
+	//TODO add heart
+	//TODO add bkb
+	//TODO add shivas guard
+	//TODO add bloodstone
+	//TODO add sphere
+	//TODO add vanguard
+	//TODO add crimson guard
+	//TODO add blade mail
+	//TODO add hood of defiance
+	//TODO add mkb
+	//TODO add radiance
+	//TODO add butterfly
+	//TODO add greater crit
+	//TODO add basher
+	//TODO add bfury(battle furry)
+	//TODO add menta
+	//TODO add lesser crit
+	//TODO add armlet
+	//TODO add invis sword
+	//TODO add sage and yasha
+	//TODO add more items
+
 	//=================================================================================================================
 	// Orb of Venom
 	//=================================================================================================================
