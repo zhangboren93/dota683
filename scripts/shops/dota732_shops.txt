@@ -169,7 +169,7 @@
 		"item"		"item_sphere"
 		"item"		"item_hurricane_pike"	
 		"item"		"item_assault"
-		"item"		"item_heart"	
+		"item"		"item_heart_datadriven"	
 		//"item"		"item_spirit_helix"	
 	}
 			
@@ -255,7 +255,7 @@
 		"item"		"item_energy_booster"
 		"item"		"item_vitality_booster"
 		"item"		"item_point_booster"
-		"item"		"item_platemail"
+		//"item"		"item_platemail"
 		"item"		"item_hyperstone"
 		//"item"		"item_ultimate_orb"
 		"item"		"item_demon_edge"

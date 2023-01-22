@@ -27,7 +27,7 @@ function item_dagon_modifier_lua:OnIntervalThink()
     if item == null then item = hParent:FindItemInInventory("item_dagon_4") end
     if item == null then item = hParent:FindItemInInventory("item_dagon_5") end
     if item ~= nil and item:GetItemState() == 1 then
-        if hParent:FindModifierByName("modifier_dagon_damage_lua") == nil then
+        if not hParent:HasModifier("modifier_dagon_damage_lua") then
             print("Adding damage modifier " .. item:GetSpecialValueFor("bonus_damage"))
             hParent:AddNewModifier(
                 hParent, nil, 

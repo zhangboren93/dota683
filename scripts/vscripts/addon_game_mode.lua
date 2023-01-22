@@ -25,12 +25,14 @@ function Activate()
 	LinkLuaModifier( "item_force_staff_health_regen_modifier", "items/item_force_staff.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_necronomicon_intellect_modifier", "items/item_necronomicon.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_dagon_modifier_lua", "items/item_dagon.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "item_refresher_modifier_lua", "items/item_refresher.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bonus_strength_lua", "modifiers/bonus_strength.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_necronomicon_bonus_intellect", "modifiers/necronomicon_bonus_intellect.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_necronomicon_2_bonus_intellect", "modifiers/necronomicon_2_bonus_intellect.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_necronomicon_3_bonus_intellect", "modifiers/necronomicon_3_bonus_intellect.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_dagon_damage_lua", "modifiers/dagon_bonus_damage.lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_refresher_bonus_lua", "modifiers/refresher_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -102,5 +104,6 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "item_force_staff_health_regen_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_dagon_modifier_lua", {})
 		entity:AddNewModifier(entity, nil, "item_necronomicon_intellect_modifier", {})
+		entity:AddNewModifier(entity, nil, "item_refresher_modifier_lua", {})
     end
 end

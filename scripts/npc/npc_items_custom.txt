@@ -1390,7 +1390,7 @@
 	}
 	"item_ward_observer"
 	{
-		"ItemCost"						"200"
+		"ItemCost"						"150"
 		"ItemInitialCharges"			"2"
 		"ItemStockMax"					"2"
 		"ItemStockTime"					"360"
@@ -1849,7 +1849,6 @@
 			}
 		}
 	}
-	//TODO mana regen percentage
 	//=================================================================================================================
 	// Void Stone
 	//=================================================================================================================
@@ -3407,7 +3406,6 @@
 		}
 	}
 
-	//TODO
 	//=================================================================================================================
 	// Recipe: Pipe
 	//=================================================================================================================
@@ -3479,7 +3477,6 @@
 		}
 	}
 
-	//TODO Urn add strength
 	//=================================================================================================================
 	// Recipe: Urn of Shadows
 	//=================================================================================================================
@@ -4821,12 +4818,738 @@
 			}
 		}
 	}
-	//TODO add refresher
-	//TODO add assault
-	//TODO add heart
-	//TODO add bkb
-	//TODO add shivas guard
-	//TODO add bloodstone
+	//=================================================================================================================
+	// Recipe: Refresher
+	//=================================================================================================================
+	"item_recipe_refresher"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"109"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"FightRecapLevel"				"2"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1800"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_refresher"
+		"ItemRequirements"
+		{
+			"01"						"item_pers_datadriven;item_oblivion_staff_datadriven"
+		}
+	}
+	//=================================================================================================================
+	// Refresher
+	//=================================================================================================================
+	"item_refresher"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"110"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"195.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"375"
+		"ItemCost"						"5225"
+		"ItemShopTags"					"regen_health;regen_mana;hard_to_tag"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"refresher orb"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"0"
+			}		
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana_regen_percentage"	"200"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"40"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"10"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"6"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Assault Cuirass
+	//=================================================================================================================
+	"item_recipe_assault"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"111"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1300"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_assault"
+		"ItemRequirements"
+		{
+			"01"						"item_platemail;item_hyperstone;item_chainmail"
+		}
+	}
+	//=================================================================================================================
+	// Assault Cuirass
+	//=================================================================================================================
+	"item_assault"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"112"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCastRange"				"900"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5250"
+		"ItemShopTags"					"attack_speed;armor;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"ac;assault cuirass"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"35"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"900"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_attack_speed"		"20"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_positive_armor"	"5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_negative_armor"	"-5"
+			}			
+		}
+	}
+	"item_recipe_heart"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_heart"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_heart_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1313"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1200"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_heart_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_vitality_booster;item_reaver"
+		}
+	}
+	// Rewrite of Heart of Tarrasque
+	// Author: Rook
+	// Date: January 28, 2015
+	
+	"item_heart_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1314"  //Valve's version of this item uses the ID "114".
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_heart"
+		
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0"
+			
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5500"
+		"ItemShopTags"					"str;regen_health;health_pool"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"hot;heart of tarrasque"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+	
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_strength"					"40"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_health"						"300"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"health_regen_percent_per_second"	"2"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"cooldown_melee"					"4"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"heal_interval"						".03"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_heart_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%bonus_health"
+				}
+			}
+			"modifier_item_heart_datadriven_regen"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				
+				"ThinkInterval" 		"%heal_interval"
+				"OnIntervalThink"  //Heal the unit if the item is not on cooldown.
+				{
+					"RunScript"
+					{
+						"ScriptFile"					"items/item_heart.lua"
+						"Function"						"modifier_item_heart_datadriven_regen_on_interval_think"
+						"HealthRegenPercentPerSecond"	"%health_regen_percent_per_second"
+						"HealInterval"					"%heal_interval"
+					}
+				}
+				
+				"OnTakeDamage"  //Put the item on cooldown if the damage came from Roshan or a hero.
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_heart.lua"
+						"Function"			"modifier_item_heart_datadriven_regen_on_take_damage"
+						"CooldownMelee"		"%cooldown_melee"
+					}
+				}
+				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_heart.lua"
+						"Function"			"modifier_item_heart_datadriven_regen_on_destroy"
+					}
+				}
+			}
+			"modifier_item_heart_datadriven_regen_visible"  //A modifier that will appear on the unit's modifier bar while they are being healed.
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Black King Bar
+	//=================================================================================================================
+	"item_black_king_bar"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"116"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"FightRecapLevel"				"2"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"80 75 70 65 60 55"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"4050"
+		"ItemShopTags"					"str;damage;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"bkb;black king bar"
+		"ItemSellable"					"1"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilityManaCost"				"0"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_strength"		"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"24"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10.0 9.0 8.0 7.0 6.0 5.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_level"				"6"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"model_scale"			"30"     // Percentage over model scale
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Shiva's Guard
+	//=================================================================================================================
+	"item_recipe_shivas_guard"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"118"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"600"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_shivas_guard"
+		"ItemRequirements"
+		{
+			"01"						"item_platemail;item_mystic_staff"
+		}
+	}
+	//=================================================================================================================
+	// Shiva's
+	//=================================================================================================================
+	"item_shivas_guard"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"119"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+		"AbilityCastRange"				"1000"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		"ItemCost"						"4700"
+		"ItemShopTags"					"int;armor;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"shiva's guard;shivas"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"15"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"1000"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_attack_speed"		"-40"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_damage"			"200"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_movement_speed"	"-40"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"blast_debuff_duration"	"4.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_radius"			"900"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"blast_speed"			"350"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_regen_degen_aura"	"0"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Bloodstone
+	//=================================================================================================================
+	"item_recipe_bloodstone"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_bloodstone"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_bloodstone_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1320"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"800"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_bloodstone_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_soul_ring;item_soul_booster"
+		}
+	}
+	// Rewrite of Bloodstone
+	// Author: Rook
+	// Date: January 29, 2015
+	// Known bugs:
+	//     Buying back does not prematurely end the vision in the spot the hero died at.
+	//     Dying with a Bloodstone in your inventory, then moving the Bloodstone out of your inventory will halt the experience
+	//         gained in the area of your death.
+	// Note: The "entity_killed" engine event is listened to for this item.  Ideally, an engine event should only be
+	//     listened to one time per mod.
+	
+	"item_bloodstone_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1321"  //Valve's version of this item uses the ID "121".
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_bloodstone"
+		"FightRecapLevel"				"2"
+		
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"150"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"300.0"
+		"AbilityManaCost"				"0"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"4900"
+		"ItemShopTags"					"regen_health;regen_mana;mana_pool;health_pool"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"bs;bloodstone"
+		"ItemInitialCharges"			"8"
+		"ItemDisplayCharges"			"1"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_health"						"500"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_mana"						"400"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_health_regen"				"9"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_mana_regen_percentage"		"200"
+			}
+			"05"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"charge_range"						"1600"
+			}
+			"06"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"heal_on_death_range"				"1675"
+			}
+			"07"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"heal_on_death_base"				"500"
+			}
+			"08"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"heal_on_death_per_charge"			"30"
+			}
+			"09"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"vision_on_death_radius"			"1800"
+			}
+			"10"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"respawn_time_reduction_per_charge"	"4.0"
+			}
+			"11"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"death_gold_reduction_per_charge"	"-25"
+			}
+			"12"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"on_death_charge_percent"			"0.67" //33% gone.
+			}
+			"13"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_mana_regen_per_charge"		"1"
+			}
+			"14"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"experience_on_death_range"			"1200"  //This value is hardcoded into modifier_item_bloodstone_datadriven_aura_emitter_on_death().
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"					"items/item_bloodstone.lua"
+				"Function"						"item_bloodstone_datadriven_on_spell_start"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_bloodstone_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%bonus_health"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"%bonus_mana"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
+					//"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"		"%bonus_mana_regen_percentage"
+					//TODO add mana regen percentage
+				}
+			}
+			"modifier_item_bloodstone_datadriven_aura_emitter"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				
+				"Aura" 					"modifier_item_bloodstone_datadriven_aura"
+				"Aura_Radius" 			"%charge_range"
+				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster" 	"0"
+				
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/item_bloodstone.lua"
+						"Function"				"item_bloodstone_datadriven_recalculate_charge_bonuses"
+					}
+				}
+				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/item_bloodstone.lua"
+						"Function"				"item_bloodstone_datadriven_recalculate_charge_bonuses"
+					}
+				}
+				
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/item_bloodstone.lua"
+						"Function"				"modifier_item_bloodstone_datadriven_aura_emitter_on_hero_kill"
+					}
+				}
+				
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"						"items/item_bloodstone.lua"
+						"Function"							"modifier_item_bloodstone_datadriven_aura_emitter_on_death"
+						"HealOnDeathRange"					"%heal_on_death_range"
+						"HealOnDeathBase"					"%heal_on_death_base"
+						"HealOnDeathPerCharge"				"%heal_on_death_per_charge"
+						"VisionOnDeathRadius"				"%vision_on_death_radius"
+						"OnDeathChargePercent"				"%on_death_charge_percent"
+						"RespawnTimeReductionPerCharge"		"%respawn_time_reduction_per_charge"
+					}
+				}
+			}
+			"modifier_item_bloodstone_datadriven_aura"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_bloodstone.lua"
+						"Function"			"modifier_item_bloodstone_datadriven_aura_on_death"
+					}
+				}
+			}
+			"modifier_item_bloodstone_datadriven_charge"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DEATHGOLDCOST"			"%death_gold_reduction_per_charge"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%bonus_mana_regen_per_charge"
+				}
+			}
+		}
+	}
+	//TODO debug bloodstone
 	//TODO add sphere
 	//TODO add vanguard
 	//TODO add crimson guard

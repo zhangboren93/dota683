@@ -35,7 +35,7 @@ function item_urn_bonus_modifier:OnIntervalThink()
 
 
         -- add strength bonus modifier
-        if hParent:FindModifierByNameAndCaster("modifier_bonus_strength_lua", hParent) == nil then
+        if not hParent:HasModifier("modifier_bonus_strength_lua") then
             print("adding strength bonus modifier")
             hParent:AddNewModifier(hParent, nil, "modifier_bonus_strength_lua", {})
         end

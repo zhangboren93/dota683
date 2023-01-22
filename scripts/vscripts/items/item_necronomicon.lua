@@ -23,7 +23,7 @@ function item_necronomicon_intellect_modifier:OnIntervalThink()
     end
     local item = hParent:FindItemInInventory("item_necronomicon")
     if item ~= nil and item:GetItemState() == 1 then
-        if hParent:FindModifierByName("modifier_necronomicon_bonus_intellect") == nil then
+        if not hParent:HasModifier("modifier_necronomicon_bonus_intellect") then
             print("adding intellect bonus modifier")
             hParent:AddNewModifier(
                 hParent, nil, 
@@ -35,7 +35,7 @@ function item_necronomicon_intellect_modifier:OnIntervalThink()
     end
     item = hParent:FindItemInInventory("item_necronomicon_2")
     if item ~= nil and item:GetItemState() == 1 then
-        if hParent:FindModifierByName("modifier_necronomicon_2_bonus_intellect") == nil then
+        if not hParent:HasModifier("modifier_necronomicon_2_bonus_intellect") then
             print("adding intellect bonus modifier")
             hParent:AddNewModifier(
                 hParent, nil, 
@@ -47,7 +47,7 @@ function item_necronomicon_intellect_modifier:OnIntervalThink()
     end
     item = hParent:FindItemInInventory("item_necronomicon_3")
     if item ~= nil and item:GetItemState() == 1 then
-        if hParent:FindModifierByName("modifier_necronomicon_3_bonus_intellect") == nil then
+        if not hParent:HasModifier("modifier_necronomicon_3_bonus_intellect") then
             print("adding intellect bonus modifier")
             hParent:AddNewModifier(
                 hParent, nil, 
