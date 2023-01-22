@@ -1,13 +1,13 @@
-if item_sheep_stick_regen_percentage_modifier == nil then
-    item_sheep_stick_regen_percentage_modifier = class({})
+if item_orchid_regen_percentage_modifier == nil then
+    item_orchid_regen_percentage_modifier = class({})
 end
 
-function item_sheep_stick_regen_percentage_modifier:GetAttributes()
+function item_orchid_regen_percentage_modifier:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function item_sheep_stick_regen_percentage_modifier:OnCreated(kv)
---    print("item_sheep_stick_regen_percentage_modifier:OnCreated")
+function item_orchid_regen_percentage_modifier:OnCreated(kv)
+--    print("item_orchid_regen_percentage_modifier:OnCreated")
     self:StartIntervalThink(0.5)
 end
 
@@ -15,13 +15,13 @@ function item_orchid_regen_percentage_modifier:IsHidden()
     return true
 end
 
-function item_sheep_stick_regen_percentage_modifier:OnIntervalThink()
+function item_orchid_regen_percentage_modifier:OnIntervalThink()
     --print("interval think")
     local hParent = self:GetParent() --the unit.
     if hParent == nil then
         return
     end
-    local item = hParent:FindItemInInventory("item_sheepstick")
+    local item = hParent:FindItemInInventory("item_orchid")
     if item ~= nil and item:GetItemState() == 1 then
         --print("sheepstick state: " .. item:GetItemState())
         
@@ -30,7 +30,7 @@ function item_sheep_stick_regen_percentage_modifier:OnIntervalThink()
         local bonus_mana = mana_gen * mana_gen_bonus / 100
         -- think interval is 0.5s
         bonus_mana = bonus_mana / 2
-      --  print("bonus mana " .. bonus_mana)
+        -- print("orchid bonus mana " .. bonus_mana)
         hParent:GiveMana(bonus_mana)
     end
 end

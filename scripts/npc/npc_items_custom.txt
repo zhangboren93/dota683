@@ -242,11 +242,19 @@
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_bloodthorn"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_bloodthorn"
 	{
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_echo_sabre"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_echo_sabre"
 	{
 		"ItemPurchasable"	"0"
@@ -3607,15 +3615,19 @@
 
 		"AbilityValues"
 		{
-				"bonus_attack_speed"	"30"
-				"bonus_damage"			"30"
-				"bonus_mana_regen"		"0"
-				"bonus_intellect"		"25" // TODO bonus intel and mana regen
-				"silence_damage_percent"	"30"
-				"silence_duration"		"5"
+				"bonus_attack_speed"			"30"
+				"bonus_damage"					"30"
+				"bonus_mana_regen"				"0"
+				// bonux mana regen handled in item_orchid.lua
+				"bonus_mana_regen_percentage"	"150" 
+				"bonus_intellect"				"25" 
+				"silence_damage_percent"		"30"
+				"silence_duration"				"5"
 		}
 		
 	}
+
+	//TODO add item Cyclone
 	//=================================================================================================================
 	// Orb of Venom
 	//=================================================================================================================

@@ -19,6 +19,7 @@ function Activate()
 	GameRules.AddonTemplate = CAddonTemplateGameMode()
 	GameRules.AddonTemplate:InitGameMode()
 	LinkLuaModifier( "item_sheep_stick_regen_percentage_modifier", "items/item_sheepstick.lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "item_orchid_regen_percentage_modifier", "items/item_orchid.lua", LUA_MODIFIER_MOTION_NONE )
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -84,5 +85,6 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
         end, "remove tpscroll", 0.5)
 		entity:AddNewModifier(entity, nil, "item_sheep_stick_regen_percentage_modifier", {})
+		entity:AddNewModifier(entity, nil, "item_orchid_regen_percentage_modifier", {})
     end
 end
