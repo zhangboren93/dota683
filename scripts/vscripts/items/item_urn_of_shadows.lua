@@ -1,27 +1,27 @@
-if item_orchid_regen_percentage_modifier == nil then
-    item_orchid_regen_percentage_modifier = class({})
+if item_urn_bonus_modifier == nil then
+    item_urn_bonus_modifier = class({})
 end
 
-function item_orchid_regen_percentage_modifier:GetAttributes()
+function item_urn_bonus_modifier:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function item_orchid_regen_percentage_modifier:OnCreated(kv)
+function item_urn_bonus_modifier:OnCreated(kv)
 --    print("item_orchid_regen_percentage_modifier:OnCreated")
     self:StartIntervalThink(0.5)
 end
 
-function item_orchid_regen_percentage_modifier:IsHidden()
+function item_urn_bonus_modifier:IsHidden()
     return true
 end
 
-function item_orchid_regen_percentage_modifier:OnIntervalThink()
+function item_urn_bonus_modifier:OnIntervalThink()
     --print("interval think")
     local hParent = self:GetParent() --the unit.
     if hParent == nil or hParent.FindItemInInventory == nil then
         return
     end
-    local item = hParent:FindItemInInventory("item_orchid")
+    local item = hParent:FindItemInInventory("item_urn_of_shadows")
     if item ~= nil and item:GetItemState() == 1 then
         --print("sheepstick state: " .. item:GetItemState())
         
@@ -32,5 +32,14 @@ function item_orchid_regen_percentage_modifier:OnIntervalThink()
         bonus_mana = bonus_mana / 2
         -- print("orchid bonus mana " .. bonus_mana)
         hParent:GiveMana(bonus_mana)
+
+
+        -- add strength bonus modifier
+        if hParent:FindModifierByNameAndCaster("modifier_bonus_strength_lua", hParent) == nil then
+            print("adding strength bonus modifier")
+            hParent:AddNewModifier(hParent, nil, "modifier_bonus_strength_lua", {})
+        end
+    else
+        hParent:RemoveModifierByNameAndCaster("modifier_bonus_strength_lua", hParent)
     end
 end

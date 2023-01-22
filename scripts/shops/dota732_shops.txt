@@ -103,7 +103,7 @@
 		"item"		"item_soul_ring"
 		"item"		"item_phase_boots"
 		"item"		"item_power_treads"
-		"item"		"item_oblivion_staff"
+		"item"		"item_oblivion_staff_datadriven"
 		"item"		"item_pers"
 		"item"		"item_hand_of_midas"
 		"item"		"item_travel_boots"		
@@ -263,7 +263,7 @@
 		"item"		"item_reaver"
 		"item"		"item_eagle"
 		"item"		"item_relic"
-		"item"		"item_void_stone"
+		"item"		"item_void_stone_datadriven"
 		"item"		"item_ring_of_health"
 	}	
 }
