@@ -18,6 +18,7 @@ end
 function Activate()
 	GameRules.AddonTemplate = CAddonTemplateGameMode()
 	GameRules.AddonTemplate:InitGameMode()
+	LinkLuaModifier( "item_sheep_stick_regen_percentage_modifier", "items/item_sheepstick.lua", LUA_MODIFIER_MOTION_NONE )
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -49,10 +50,6 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(event.entindex, event.is_respawn)
-	end, nil)
-
-	ListenToGameEvent("dota_hero_inventory_item_change", function(event)
-		HandleInventoryChanged(event.hero_entindex, event.item_entindex)
 	end, nil)
 end
 
@@ -86,12 +83,6 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		entity:SetThink(function()
 			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
         end, "remove tpscroll", 0.5)
+		entity:AddNewModifier(entity, nil, "item_sheep_stick_regen_percentage_modifier", {})
     end
-end
-
-function HandleInventoryChanged(heroidx, itemidx)
-    local hero = EntIndexToHScript(heroidx)
-    local item = EntIndexToHScript(itemidx)
-	print("HandleInventoryChanged")
-	print(item:GetName())
 end
