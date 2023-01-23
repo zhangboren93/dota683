@@ -3431,7 +3431,7 @@
 		"ItemResult"					"item_pipe"
 		"ItemRequirements"
 		{
-			"01"						"item_hood_of_defiance*;item_headdress_datadriven"
+			"01"						"item_hood_of_defiance_datadriven;item_headdress_datadriven"
 		}
 	}
 	
@@ -5578,13 +5578,550 @@
 			}
 		}
 	}
-	//TODO debug bloodstone
-	//TODO add sphere
-	//TODO add vanguard
-	//TODO add crimson guard
-	//TODO add blade mail
-	//TODO add hood of defiance
-	//TODO add mkb
+	//=================================================================================================================
+	// Recipe: Sphere
+	//=================================================================================================================
+	"item_recipe_sphere"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"122"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1325"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_sphere"
+		"ItemRequirements"
+		{
+			"01"						"item_ultimate_orb;item_pers_datadriven"
+		}
+	}
+	
+	//=================================================================================================================
+	// Sphere
+	//=================================================================================================================
+	"item_sphere"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"123"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"FightRecapLevel"				"1"
+
+		
+		"AbilityCastRange"				"700"
+		"AbilityCooldown"				"17.0"
+
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5175"
+		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"ls;linken's sphere"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ActiveDescriptionLine"			"2"
+		"ShouldBeSuggested"				"1"
+
+		"AbilityValues"
+		{
+			"bonus_damage"						"10"
+			"bonus_mana_regen_percentage"		"150"
+			"bonus_mana_regen"					"0"
+			"bonus_health_regen"				"6"
+			"bonus_all_stats"					"15"
+		}
+	}
+
+	//=================================================================================================================
+	// Ultimate Orb
+	//=================================================================================================================
+	"item_ultimate_orb"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"24"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2100"
+		"ItemShopTags"					"agi;int;str"
+		"ItemQuality"					"secret_shop"
+		"ItemAliases"					"ultimate orb"
+		"SecretShop"					"0"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"10"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: Vanguard
+	//=================================================================================================================
+	"item_recipe_vanguard"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"124"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_vanguard"
+		"ItemRequirements"
+		{
+			"01"						"item_ring_of_health;item_vitality_booster;item_stout_shield"
+		}
+	}
+	
+	//=================================================================================================================
+	// Vanguard
+	//=================================================================================================================
+	"item_vanguard"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"125"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2225"
+		"ItemShopTags"					"regen_health;block;health_pool"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"vg;vanguard"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"250"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_health_regen"	"6.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_damage_melee"	"40"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_damage_ranged"	"20"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"block_chance"			"80"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Crimson Guard
+	//=================================================================================================================
+	"item_recipe_crimson_guard"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"243"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"825"	
+		"ItemShopTags"					""
+		
+		
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_crimson_guard"
+		"ItemRequirements"
+		{
+			"01"						"item_vanguard;item_buckler_2"
+		}
+	}
+	
+	// TODO active block 50 and add 2 armor
+	//=================================================================================================================
+	// Crimson Guard
+	//=================================================================================================================
+	"item_crimson_guard"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"242"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"70.0"
+		"AbilityCastRange"				"750"
+
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3850"
+		"ItemShopTags"					"armor;boost_armor;regen_health;block;health_pool"
+		"ItemQuality"					"epic"
+		"ItemAlertable"					"1"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_health"					"250"
+			"bonus_health_regen"			"6"
+			"bonus_armor"					"5"
+			"block_damage_melee"			"40"
+			"block_damage_ranged"			"20"
+			"block_chance"					"80"
+			"duration"						"10"
+			"bonus_aoe_radius"				"750"
+			"block_damage_melee_active"		"75" 				
+			"block_damage_ranged_active"	"75"
+			"block_chance_active"			"100"
+			"tooltip_reapply_time"			"35"
+			"bonus_strength"				"2"
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: Blade Mail
+	//=================================================================================================================
+	"item_recipe_blade_mail"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"126"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"FightRecapLevel"				"1"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_blade_mail"
+		"ItemRequirements"
+		{
+			"01"						"item_broadsword;item_chainmail;item_robe"
+		}
+	}
+	//=================================================================================================================
+	// Blade Mail
+	//=================================================================================================================
+	"item_blade_mail"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"127"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"17.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"25"
+		"ItemCost"						"2200"
+		"ItemShopTags"					"damage;armor;int;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"bm;blade mail;blademail"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"22"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_intellect"		"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"passive_reflection_constant"			"0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"passive_reflection_pct"			"0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_reflection_pct"			"100"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Hood of Defiance
+	//=================================================================================================================
+	"item_recipe_hood_of_defiance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"130"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						""	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_hood_of_defiance"
+		"ItemRequirements"
+		{
+			"01"						"item_ring_of_health;item_cloak;item_ring_of_regen;item_ring_of_regen"
+		}
+	}
+	
+	//=================================================================================================================
+	// Hood of Defiance
+	//=================================================================================================================
+	"item_hood_of_defiance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"131"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2125"
+		"ItemShopTags"					"regen_health;magic_resist"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"hood of defiance"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_spell_resist"	"30"
+			"bonus_health_regen"	"9"
+			"tooltip_resist"		"30"
+			"barrier_block"			"0"
+			"barrier_duration"		"0"
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Monkey King Bar
+	//=================================================================================================================
+	"item_monkey_king_bar"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_monkey_king_bar"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"134"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_monkey_king_bar_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_demon_edge;item_javelin_datadriven;item_javelin_datadriven"
+		}
+	}
+	
+    // Rewrite of Monkey King Bar
+    // Author: Rook
+    // Date: January 30, 2015
+    
+    "item_monkey_king_bar_datadriven"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"						"item_datadriven"
+    	"ID"							"1135"  //Valve's version of this item uses the ID "135".
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"Model"							"models/props_gameplay/red_box.vmdl" 
+    	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+    	"AbilityTextureName"			"item_monkey_king_bar"
+    	
+    	// Item Info
+    	//-------------------------------------------------------------------------------------------------------------
+    	"ItemCost"						"5400"
+    	"ItemShopTags"					"damage;attack_speed;hard_to_tag"
+    	"ItemQuality"					"epic"
+    	"ItemAliases"					"mkb;monkey king bar"
+    	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+    
+    	// Special	
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilitySpecial"
+    	{
+    		"01"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"bonus_damage"			"88"
+    		}
+    		"02"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"bonus_attack_speed"	"15"
+    		}
+    		"03"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"bash_chance"			"35"
+    		}
+    		"04"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"bash_damage"			"100"
+    		}
+    		"05"
+    		{
+    			"var_type"				"FIELD_FLOAT"
+    			"bash_stun"				"0.01"
+    		}
+    	}
+    	
+    	"Modifiers"
+    	{
+    		"modifier_item_monkey_king_bar_datadriven"
+    		{
+    			"Passive"			"1"
+    			"IsHidden"			"1"
+    			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+    			
+    			"Properties"
+    			{
+    				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+    				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+    			}
+    			
+    			"States"
+    			{
+    				"MODIFIER_STATE_CANNOT_MISS"			"MODIFIER_STATE_VALUE_ENABLED"  //When attacking uphill, cannot miss units but can still miss buildings.
+    			}
+    			
+    			"OnAttackLanded"
+    			{
+    				"Random"
+    				{
+    					"Chance"			"%bash_chance"
+    					"PseudoRandom"		"DOTA_PSEUDO_RANDOM_ITEM_MKB"
+    					"OnSuccess"
+    					{
+    						"Damage"
+    						{
+    							"Target"		"TARGET"
+    							"Type"			"DAMAGE_TYPE_MAGICAL"
+    							"Damage"		"%bash_damage"
+    						}
+    						
+    						"ApplyModifier"
+    						{
+    							"Target"			"TARGET"
+    							"ModifierName"		"modifier_item_monkey_king_bar_datadriven_bash"
+    						}
+    						
+    						"FireSound"
+    						{
+    							"EffectName"		"DOTA_Item.MKB.Minibash"
+    							"Target"			"TARGET"
+    						}
+    					}
+    				}
+    			}
+    		}
+    		"modifier_item_monkey_king_bar_datadriven_bash"
+    		{
+    			"Duration"              "%bash_stun"
+    			"Passive"				"0"
+    			"IsHidden"				"0"
+    			"IsBuff"				"0"
+    			"IsDebuff"				"1"
+    			"IsPurgable"			"1"
+    			
+    			"EffectName"            "particles/generic_gameplay/generic_stunned.vpcf"
+    			"EffectAttachType"      "follow_overhead"
+    			"OverrideAnimation"     "ACT_DOTA_DISABLED"
+    			
+    			"States"
+    			{
+    				"MODIFIER_STATE_STUNNED" 		"MODIFIER_STATE_VALUE_ENABLED"
+    			}
+    		}
+    	}
+    }
 	//TODO add radiance
 	//TODO add butterfly
 	//TODO add greater crit
