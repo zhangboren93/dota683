@@ -1135,6 +1135,7 @@
 								"ScriptFile"	"items/item_sobi_mask.lua"
 								"Function"		"item_sobi_mask_gen_mana"
 								"ItemName"		"item_sobi_mask_datadriven"
+								"bonus_mana_regen_percentage"	"%bonus_mana_regen"
 							}
 						}
 					}
@@ -1145,7 +1146,7 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
+				"var_type"							"FIELD_INTEGER"
 				"bonus_mana_regen"		"50"
 			}
 		}
@@ -1883,8 +1884,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"100"
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana_regen_percentage"		"100"
 			}
 		}
 		"Modifiers"
@@ -1906,6 +1907,7 @@
 								"ScriptFile"	"items/item_sobi_mask.lua"
 								"Function"		"item_sobi_mask_gen_mana"
 								"ItemName"		"item_void_stone_datadriven"
+								"bonus_mana_regen_percentage"	"%bonus_mana_regen_percentage"
 							}
 						}
 					}
@@ -2269,6 +2271,7 @@
 								"ScriptFile"	"items/item_sobi_mask.lua"
 								"Function"		"item_sobi_mask_gen_mana"
 								"ItemName"		"item_oblivion_staff_datadriven"
+								"bonus_mana_regen_percentage"	"%bonus_mana_regen"
 							}
 						}
 					}
@@ -2374,6 +2377,7 @@
 								"ScriptFile"	"items/item_sobi_mask.lua"
 								"Function"		"item_sobi_mask_gen_mana"
 								"ItemName"		"item_pers_datadriven"
+								"bonus_mana_regen_percentage"	"%bonus_mana_regen"
 							}
 						}
 					}
@@ -5449,7 +5453,7 @@
 				"Function"						"item_bloodstone_datadriven_on_spell_start"
 			}
 		}
-		
+
 		"Modifiers"
 		{
 			"modifier_item_bloodstone_datadriven"
@@ -5463,10 +5467,54 @@
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%bonus_health"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"%bonus_mana"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
-					//"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"		"%bonus_mana_regen_percentage"
-					//TODO add mana regen percentage
 				}
 			}
+		    "item_bloodstone_mana_regen_datadriven"
+		    {
+		        "Passive" "1"
+		        "IsHidden" "1"
+				"ThinkInterval"  	"0.5"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"	"TARGET"
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"items/item_sobi_mask.lua"
+								"Function"		"item_sobi_mask_gen_mana"
+								"ItemName"		"item_bloodstone_datadriven"
+								"bonus_mana_regen_percentage"	"%bonus_mana_regen_percentage"
+							}
+						}
+					}
+				}
+		    }
+			"item_bloodstone_extra_mana_regen_datadriven"
+			{
+		        "Passive" "1"
+		        "IsHidden" "0"
+				"ThinkInterval"  	"0.5"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"	"TARGET"
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"items/item_bloodstone.lua"
+								"Function"		"item_bloodstone_extra_mana_regen"
+								"ItemName"		"item_bloodstone_datadriven"
+								"bonus_mana_regen_per_charge"	"%bonus_mana_regen_per_charge"
+							}
+						}
+					}
+				}
+		    }
 			"modifier_item_bloodstone_datadriven_aura_emitter"
 			{
 				"Passive"			"1"
@@ -5478,25 +5526,7 @@
 				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Aura_ApplyToCaster" 	"0"
-				
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"items/item_bloodstone.lua"
-						"Function"				"item_bloodstone_datadriven_recalculate_charge_bonuses"
-					}
-				}
-				
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"items/item_bloodstone.lua"
-						"Function"				"item_bloodstone_datadriven_recalculate_charge_bonuses"
-					}
-				}
-				
+
 				"OnKill"
 				{
 					"RunScript"
@@ -5538,13 +5568,12 @@
 			"modifier_item_bloodstone_datadriven_charge"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DEATHGOLDCOST"			"%death_gold_reduction_per_charge"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%bonus_mana_regen_per_charge"
 				}
 			}
 		}

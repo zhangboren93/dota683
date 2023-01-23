@@ -4,7 +4,7 @@ function item_sobi_mask_gen_mana(keys)
     local itemname = keys.ItemName
 
     local mana_gen = caster:GetManaRegen();
-    local mana_gen_bonus = ability:GetSpecialValueFor("bonus_mana_regen")
+    local mana_gen_bonus = keys.bonus_mana_regen_percentage
     local bonus_mana = mana_gen * mana_gen_bonus / 100
     -- think interval is 0.5s
     bonus_mana = bonus_mana / 2
@@ -18,5 +18,6 @@ function item_sobi_mask_gen_mana(keys)
 		end
 	end
     bonus_mana = bonus_mana * itemcount
+    caster:GiveMana(bonus_mana)
     --print(bonus_mana .. " " .. itemcount)
 end
