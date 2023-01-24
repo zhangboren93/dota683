@@ -1,8 +1,0 @@
-dota732
-{
-	material materials/overviews/dota732.vmat
-	pos_x -8192
-	pos_y 8192
-	scale 16.000
-}
-
