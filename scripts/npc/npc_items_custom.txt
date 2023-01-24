@@ -6960,7 +6960,7 @@
 	{
 		"ItemPurchasable"	"0"
 	}
-	"item_recipe_sange_and_yasha"
+	"item_recipe_sange_and_yasha_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -6980,7 +6980,7 @@
 		"ItemResult"					"item_sange_and_yasha_datadriven"
 		"ItemRequirements"
 		{
-			"01"						"item_yasha;item_sange"
+			"01"						"item_yasha;item_sange_datadriven"
 		}
 	}
     // Rewrite of Sange and Yasha
@@ -7255,11 +7255,527 @@
 		}
 	}
 
-	//TODO add satanic
-	//TODO add mjollnir
-	//TODO add skadi
-	//TODO add Sange
-	//TODO add helm
+	//=================================================================================================================
+	// Recipe: Satanic
+	//=================================================================================================================
+	"item_recipe_satanic"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"155"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1100"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_satanic"
+		"ItemRequirements"
+		{
+			"01"						"item_helm_of_the_dominator;item_reaver"
+		}
+	}
+	//=================================================================================================================
+	// Satanic
+	//=================================================================================================================
+	"item_satanic"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"156"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"FightRecapLevel"				"2"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"35.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"6150"
+		"ItemShopTags"					"damage;str;armor;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"satanic"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_strength"		"25"
+			"bonus_damage"			"20"
+			"lifesteal_percent"		"25"
+			"unholy_lifesteal_percent"	"200"
+			"unholy_lifesteal_total_tooltip"	"225"
+			"unholy_duration"		"3.5"
+		}
+	}
+	//=================================================================================================================
+	// Mjollnir
+	//=================================================================================================================
+	"item_mjollnir"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"158"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"35.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+		"ItemCost"						"5700"
+		"ItemShopTags"					"damage;attack_speed;unique"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"mjollnir"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		"AbilityValues"
+		{
+			"bonus_attack_speed"	"80"
+			"chain_damage"			"150"
+			"chain_chance"			"25"
+			"static_damage"			"200"
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Skadi
+	//=================================================================================================================
+	"item_skadi"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_skadi"
+	{
+		"ItemPurchasable"	"0"
+		"ItemRequirements"
+		{
+			"01"						"item_ultimate_orb;item_ultimate_orb;item_point_booster;item_apex"
+		}
+	}
+	"item_recipe_skadi_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1359"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityTextureName"			"item_recipe"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_skadi_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_ultimate_orb;item_ultimate_orb;item_point_booster;item_orb_of_venom"
+		}
+	}
+	//=================================================================================================================
+	// Skadi
+	//=================================================================================================================
+	"item_skadi_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1360"  //Valve's version of this item uses the ID "160".
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_skadi"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5675"
+		"ItemShopTags"					"agi;str;int;hard_to_tag;mana_pool;health_pool;unique"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"eos;eye of skadi"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"250"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_mana"			"250"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cold_movement_speed"	"-35"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cold_attack_speed"		"-35"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_duration_melee"	"5.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cold_duration_ranged"	"3.0"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_skadi_datadriven"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes" 			"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%bonus_health"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"%bonus_mana"
+				}
+
+				"Orb"
+				{
+					"Priority"				"DOTA_ORB_PRIORITY_ITEM"
+					"Label"					"DOTA_ORB_LABEL_SKADI"  //This does not currently seem to have an effect.  "Label" may not be the right key.
+					"ProjectileName"		"particles/items2_fx/skadi_projectile.vpcf"
+					"CastAttack"			"0"
+				}
+
+				"OnOrbImpact"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/item_skadi.lua"
+						"Function"				"modifier_item_skadi_datadriven_on_orb_impact"
+						"ColdDurationMelee"		"%cold_duration_melee"
+						"ColdDurationRanged"	"%cold_duration_ranged"
+					}
+				}
+			}
+			"modifier_item_skadi_datadriven_cold_attack"
+			{
+				"Passive"				"0"
+				"IsHidden"				"0"
+
+				"StatusEffectName"     "particles/status_fx/status_effect_frost.vpcf"
+				"StatusEffectPriority" "10"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%cold_attack_speed"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%cold_movement_speed"
+				}
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Sange
+	//=================================================================================================================
+	"item_recipe_sange"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_sange"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_sange_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1361"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"600"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_sange_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_ogre_axe;item_belt_of_strength"
+		}
+	}
+    // Rewrite of Sange
+    // Author: Rook
+    // Date: February 4, 2015
+    
+    "item_sange_datadriven"
+    {
+    	// General
+    	//-------------------------------------------------------------------------------------------------------------
+    	"BaseClass"						"item_datadriven"
+    	"ID"							"1362"  //Valve's version of this item uses the ID "162".
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"Model"							"models/props_gameplay/red_box.vmdl" 
+    	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+    	"AbilityTextureName"			"item_sange"
+    	
+    	// Item Info
+    	//-------------------------------------------------------------------------------------------------------------
+    	"ItemCost"						"2050"
+    	"ItemShopTags"					"damage;str;unique"
+    	"ItemQuality"					"artifact"
+    	"ItemAliases"					"sange"
+    		
+    	// Special	
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilitySpecial"
+    	{
+    		"01"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"maim_chance"			"15"
+    		}
+    		"02"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"maim_movement_speed"	"-20"
+    		}
+    		"03"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"maim_attack_speed"		"-20"
+    		}
+    		"04"
+    		{
+    			"var_type"				"FIELD_FLOAT"
+    			"maim_duration"			"4.0"
+    		}
+    		"05"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"bonus_damage"			"10"
+    		}
+    		"06"
+    		{
+    			"var_type"				"FIELD_INTEGER"
+    			"bonus_strength"		"16"
+    		}
+    	}
+    	
+    	"Modifiers"
+    	{
+    		"modifier_item_sange_datadriven"
+    		{
+    			"Passive"			"1"
+    			"IsHidden"			"1"
+    			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+    			
+    			"Properties"
+    			{
+    				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"						"%bonus_damage"
+    				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"						"%bonus_strength"
+    			}
+    			
+    			"OnAttackLanded"
+    			{
+    				"Random"
+    				{
+    					"Chance"		"%maim_chance"
+    					"OnSuccess"
+    					{
+    						"RunScript"
+    						{
+    							"ScriptFile"			"items/item_sange.lua"
+    							"Function"				"modifier_item_sange_datadriven_on_attack_landed_random_on_success"
+    						}
+    					}
+    				}
+    			}
+    		}
+    		"modifier_item_sange_datadriven_lesser_maim"
+    		{
+    			"Duration"				"%maim_duration"
+    			"Passive"				"0"
+    			"IsHidden"				"0"
+    			"IsBuff"				"0"
+    			"IsDebuff"				"1"
+    			"IsPurgable"			"1"
+    			
+    			"EffectName"            "particles/items2_fx/sange_maim.vpcf"
+    			"EffectAttachType"      "PATTACH_ABSORIGIN"
+    			
+    			"Properties"
+    			{
+    				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%maim_attack_speed"
+    				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%maim_movement_speed"
+    			}
+    		}
+    	}
+    }
+	//=================================================================================================================
+	// Recipe: Helm of the Dominator
+	//=================================================================================================================
+	"item_recipe_helm_of_the_dominator"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"163"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"975"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_helm_of_the_dominator"
+		"ItemRequirements"
+		{
+			"01"						"item_helm_of_iron_will;item_lifesteal_datadriven"
+		}
+	}
+	//=================================================================================================================
+	// Helm of the Dominator
+	//=================================================================================================================
+	"item_helm_of_the_dominator"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"164"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"60.0"
+		"MaxUpgradeLevel"				"2"
+		"ItemBaseLevel"					"1"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+		"ItemCost"						"1850"
+		"ItemShopTags"					"damage;armor;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"hotd;helm of the dominator"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_stats"			"0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_regen"			"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_min"			"1000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed_base"			"380"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bounty_gold"			"100"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"creep_bonus_damage"			"0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"creep_bonus_hp_regen"			"0"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"creep_bonus_mp_regen"			"0"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"creep_bonus_armor"			"0"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"model_scale"			"0"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"count_limit"			"1"
+			}
+			"13"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"20"
+			}
+			"14"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"lifesteal_percent"		"15"
+			}
+		}
+	}
 	//TODO add maelstrom
 	//TODO add desolator
 	//TODO add yasha
