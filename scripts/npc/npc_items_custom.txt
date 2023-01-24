@@ -7658,7 +7658,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"975"	
+		"ItemCost"						"0"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -7776,9 +7776,190 @@
 			}
 		}
 	}
-	//TODO add maelstrom
-	//TODO add desolator
-	//TODO add yasha
+	//=================================================================================================================
+	// Recipe: Maelstrom
+	//=================================================================================================================
+	"item_recipe_maelstrom"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"165"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"700"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_maelstrom"
+		"ItemRequirements"
+		{
+			"01"						"item_gloves;item_mithril_hammer"
+		}
+	}
+	//=================================================================================================================
+	// Maelstrom
+	//=================================================================================================================
+	"item_maelstrom"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"166"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2800"
+		"ItemShopTags"					"damage;attack_speed;unique"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"maelstrom"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"24"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_chance"			"25"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_damage"			"120"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_strikes"			"4"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chain_radius"			"650"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"chain_delay"			"0.25"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"chain_cooldown"		"0.2"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_attack_speed"	"25"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Recipe: Desolator
+	//=================================================================================================================
+	"item_recipe_desolator"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"167"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"900"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_desolator"
+		"ItemRequirements"
+		{
+			"01"						"item_mithril_hammer;item_mithril_hammer"
+		}
+	}
+	//=================================================================================================================
+	// Desolator
+	//=================================================================================================================
+	"item_desolator"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"168"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"4100"
+		"ItemShopTags"					"damage;unique"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"desolator"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"ShouldBeSuggested"				"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_damage"			"60"
+				"corruption_armor"		"-7"
+				"corruption_duration"	"15"
+				"bonus_damage_per_kill"	"0"
+				"bonus_damage_per_assist"	"0"
+				"max_damage"			"0"
+		}
+	}
+	//=================================================================================================================
+	// Yasha
+	//=================================================================================================================
+	"item_yasha"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"170"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2050"
+		"ItemShopTags"					"agi;attack_speed;move_speed"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"yasha"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agility"			"16"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"	"15"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed_percent_bonus"	"10"
+			}
+		}
+	}
 	//TODO add mask of madness
 	//TODO add diffusal
 	//TODO add ethereal blade
