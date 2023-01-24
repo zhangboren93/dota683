@@ -7960,9 +7960,548 @@
 			}
 		}
 	}
-	//TODO add mask of madness
-	//TODO add diffusal
-	//TODO add ethereal blade
+	//=================================================================================================================
+	// Recipe: Mask of Madness
+	//=================================================================================================================
+	"item_recipe_mask_of_madness"
+	{
+		"ItemPurchasable"		"0"
+	}
+	"item_mask_of_madness"
+	{
+		"ItemPurchasable"		"0"
+	}
+	"item_recipe_mask_of_madness_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1371"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"900"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_mask_of_madness_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_lifesteal_datadriven"
+		}
+	}
+// Rewrite of Mask of Madness
+// Author: Rook
+// Date: February 4, 2015
+
+"item_mask_of_madness_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"item_datadriven"
+	"ID"							"1372"  //Valve's version of this item uses the ID "172".
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+	"Model"							"models/props_gameplay/red_box.vmdl" 
+	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+	"AbilityTextureName"			"item_mask_of_madness"
+	
+	// Stats		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.0"
+	"AbilityCooldown"				"25.0"
+	"AbilityManaCost"				"25"
+	
+	// Item Info
+	//-------------------------------------------------------------------------------------------------------------
+	"ItemCost"						"1800"
+	"ItemShopTags"					"unique;hard_to_tag"
+	"ItemQuality"					"artifact"
+	"ItemAliases"					"mom;mask of madness"
+	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+	
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"										"FIELD_INTEGER"
+			"lifesteal_percent"								"20"
+		}
+		"02"
+		{
+			"var_type"										"FIELD_INTEGER"
+			"berserk_bonus_attack_speed"					"100"
+		}
+		"03"
+		{
+			"var_type"										"FIELD_INTEGER"
+			"berserk_bonus_movement_speed_percentage"		"30"
+		}
+		"04"
+		{
+			"var_type"										"FIELD_INTEGER"
+			"berserk_extra_incoming_damage_percentage"		"30"
+		}
+		"05"
+		{
+			"var_type"										"FIELD_FLOAT"
+			"berserk_duration"								"12.0"
+		}
+	}
+	
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"			"CASTER"
+			"ModifierName"		"modifier_item_mask_of_madness_datadriven_berserk"
+		}
+		
+		"FireSound"
+		{
+			"EffectName"		"DOTA_Item.MaskOfMadness.Activate"
+			"Target"			"CASTER"
+		}
+	}
+	
+	"Modifiers"
+	{
+		"modifier_item_mask_of_madness_datadriven"
+		{
+			"Passive"			"1"
+			"IsHidden"			"1"
+			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			
+			"Orb"
+			{
+				"Priority"		"DOTA_ORB_PRIORITY_ITEM"
+			}
+
+			"OnOrbImpact"
+			{
+				"RunScript"
+				{
+					"ScriptFile"			"items/item_mask_of_madness.lua"
+					"Function"				"modifier_item_mask_of_madness_datadriven_on_orb_impact"
+				}
+			}
+		}
+		"modifier_item_mask_of_madness_datadriven_berserk"
+		{
+			"Duration"			"%berserk_duration"
+			"Passive"			"0"
+			"IsHidden"			"0"
+			
+			"EffectName"			"particles/items2_fx/mask_of_madness.vpcf"
+			"EffectAttachType"		"follow_origin"
+				
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%berserk_bonus_movement_speed_percentage"
+				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%berserk_bonus_attack_speed"
+				"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%berserk_extra_incoming_damage_percentage"
+			}
+		}
+		"modifier_item_mask_of_madness_datadriven_lifesteal"
+		{
+			"Passive"			"0"
+			"IsHidden"			"1"
+			
+			"OnDealDamage"
+			{
+				"Lifesteal"
+				{
+					"Target"			"ATTACKER"
+					"LifestealPercent"	"%lifesteal_percent"
+				}
+			}
+		}
+	}
+}
+
+	//TODO add effect and sound, destroy summonned unit
+	//=================================================================================================================
+	// Recipe: Diffusal Blade
+	//=================================================================================================================
+	"item_recipe_diffusal_blade"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_diffusal_blade"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_diffusal_blade_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1373"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"700"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_diffusal_blade_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_blade_of_alacrity;item_blade_of_alacrity;item_robe"
+		}
+	}
+	"item_recipe_diffusal_blade_2_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"2373"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_diffusal_blade_2_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_recipe_diffusal_blade_datadriven;item_diffusal_blade_datadriven"
+		}
+	}
+	"item_recipe_diffusal_blade_refresh_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"3373"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_diffusal_blade_2_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_recipe_diffusal_blade_datadriven;item_diffusal_blade_2_datadriven"
+		}
+	}
+	"item_diffusal_blade_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1374"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityTextureName"			"item_diffusal_blade"
+
+		//TODO datadriven diffusal blade
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"8.0"
+		"AbilitySharedCooldown"			"diffusal"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"3150"
+		"ItemShopTags"					"agi;int;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"diffusal blade 1"
+		"ItemPermanent"					"1"
+		"ItemInitialCharges" 			"8" //How many charges should the item start with - Tango x3
+		"ItemDisplayCharges" 			"1" //Hide the charges of the item - Aegis
+		"ItemRequiresCharges" 			"1" //The active ability needs charges to be used - Urn
+
+		"UpgradesItems"					"item_diffusal_blade_2_datadriven"
+		"UpgradeRecipe"					"item_recipe_diffusal_blade"
+		"ShouldBeSuggested"				"1"
+		
+		"OnSpellStart"
+		{
+			"SpendCharge"
+			{
+				
+			}	
+			"ApplyModifier"
+			{
+				"Target"	"TARGET"
+				"ModifierName"	"modifier_diffusal_purge_slow_datadriven"
+			}
+			"RunScript"
+			{
+    			"Target"		"TARGET"
+    			"ScriptFile"	"items/item_diffusal.lua"
+				"Function"		"purge"
+			}
+		}
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_agility"			"20"
+			"bonus_intellect"		"6"
+			"feedback_mana_burn"	"25"
+			"feedback_mana_burn_illusion_melee"	"25"
+			"feedback_mana_burn_illusion_ranged"	"25"
+			"purge_movespeed"			"-80"
+			"purge_slow_duration"	"4.0"
+		}
+    	"Modifiers"
+    	{
+    		"modifier_item_difussal_datadriven"
+    		{
+    			"Passive"			"1"
+    			"IsHidden"			"1"
+    			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+    			
+    			"Properties"
+    			{
+    				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agility"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
+    			}
+    			
+    			"OnAttackLanded"
+    			{
+    				"RunScript"
+    				{
+    					"Target"		"TARGET"
+    					"ScriptFile"	"items/item_diffusal.lua"
+						"Function"		"manaBurn"
+						"feedback_mana_burn"	"%feedback_mana_burn"
+    				}
+    			}
+    		}
+			"modifier_diffusal_purge_slow_datadriven"
+			{
+			    "Duration"				"%purge_slow_duration"
+			    "Passive"				"0"
+			    "IsHidden"				"0"
+			    "IsBuff"				"0"
+			    "IsDebuff"				"1"
+			    "IsPurgable"			"1"
+			
+			    "Properties"
+			    {
+			    	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%purge_movespeed"
+			    }
+			}
+    	}
+	}
+	
+	"item_diffusal_blade_2_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"2374"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityTextureName"			"item_diffusal_blade_2"
+
+		//TODO datadriven diffusal blade
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"8.0"
+		"AbilitySharedCooldown"			"diffusal"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"3850"
+		"ItemShopTags"					"agi;int;unique;hard_to_tag"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"diffusal blade 1"
+		"ItemPermanent"					"1"
+		"ItemInitialCharges" 			"8" //How many charges should the item start with - Tango x3
+		"ItemDisplayCharges" 			"1" //Hide the charges of the item - Aegis
+		"ItemRequiresCharges" 			"1" //The active ability needs charges to be used - Urn
+
+		"UpgradesItems"					"item_diffusal_blade_2_datadriven"
+		"UpgradeRecipe"					"item_recipe_diffusal_blade_datadriven"
+		"ShouldBeSuggested"				"1"
+		
+		"OnSpellStart"
+		{
+			"SpendCharge"
+			{
+				
+			}	
+			"ApplyModifier"
+			{
+				"Target"	"TARGET"
+				"ModifierName"	"modifier_diffusal_2_purge_slow_datadriven"
+			}
+			"RunScript"
+			{
+    			"Target"		"TARGET"
+    			"ScriptFile"	"items/item_diffusal.lua"
+				"Function"		"purge"
+			}
+		}
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_agility"			"35"
+			"bonus_intellect"		"10"
+			"feedback_mana_burn"	"25"
+			"feedback_mana_burn_illusion_melee"	"25"
+			"feedback_mana_burn_illusion_ranged"	"25"
+			"purge_movespeed"			"-80"
+			"purge_slow_duration"	"4.0"
+		}
+    	"Modifiers"
+    	{
+    		"modifier_item_difussal_2_datadriven"
+    		{
+    			"Passive"			"1"
+    			"IsHidden"			"1"
+    			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+    			
+    			"Properties"
+    			{
+    				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agility"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
+    			}
+    			
+    			"OnAttackLanded"
+    			{
+    				"RunScript"
+    				{
+    					"Target"		"TARGET"
+    					"ScriptFile"	"items/item_diffusal.lua"
+						"Function"		"manaBurn"
+						"feedback_mana_burn"	"%feedback_mana_burn"
+    				}
+    			}
+    		}
+			"modifier_diffusal_2_purge_slow_datadriven"
+			{
+			    "Duration"				"%purge_slow_duration"
+			    "Passive"				"0"
+			    "IsHidden"				"0"
+			    "IsBuff"				"0"
+			    "IsDebuff"				"1"
+			    "IsPurgable"			"1"
+			
+			    "Properties"
+			    {
+			    	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%purge_movespeed"
+			    }
+			}
+    	}
+	}
+	
+
+	//=================================================================================================================
+	// Recipe: Ethereal Blade
+	//=================================================================================================================
+	"item_recipe_ethereal_blade"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"175"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_ethereal_blade"
+		"ItemRequirements"
+		{
+			"01"						"item_eagle;item_ghost*"
+		}
+	}	
+
+	//=================================================================================================================
+	// Ethereal Blade
+	//=================================================================================================================
+	"item_ethereal_blade"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"176"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"30.0"	    
+		"AbilitySharedCooldown"			"ethereal"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150"
+		"ItemCost"						"4900"
+		"ItemShopTags"					"agi;str;int;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemAliases"					"eb;ethereal blade;eblade"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_agility"			"40"
+			"bonus_strength"		"10"
+			"bonus_intellect"		"10"
+			"spell_amp"			"0"
+			"spell_lifesteal_amp"			"0"
+			"mana_regen_multiplier"		"0"
+			"blast_movement_slow"	"-80"
+			"duration"				"3.0"
+			"blast_agility_multiplier"			"2"
+			"blast_damage_base"			"75"
+			"duration_ally"				"4.0"
+			"ethereal_damage_bonus"		"-40"
+			"projectile_speed"			"1275"
+		}
+	}
 	//TODO add soul ring
 	//TODO add arcane boots
 	//TODO add medallion
