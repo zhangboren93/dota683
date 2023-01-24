@@ -28,6 +28,7 @@ function Activate()
 	LinkLuaModifier( "item_refresher_modifier_lua", "items/item_refresher.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_sphere_bonus_modifier", "items/item_sphere.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_crimson_guard_bonus_modifier", "items/item_crimson_guard.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "item_bfury_regen_percentage_modifier", "items/item_bfury.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bonus_strength_lua", "modifiers/bonus_strength.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_necronomicon_bonus_intellect", "modifiers/necronomicon_bonus_intellect.lua", LUA_MODIFIER_MOTION_NONE )
@@ -111,5 +112,6 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "item_refresher_modifier_lua", {})
 		entity:AddNewModifier(entity, nil, "item_sphere_bonus_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_crimson_guard_bonus_modifier", {})
+		entity:AddNewModifier(entity, nil, "item_bfury_regen_percentage_modifier", {})
     end
 end
