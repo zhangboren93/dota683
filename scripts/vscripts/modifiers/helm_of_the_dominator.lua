@@ -5,6 +5,11 @@ function modifier_helm_damage_lifesteal_lua:OnCreated(kv)
     self.kv = kv
     print(kv.bonus_damage)
 end
+
+function modifier_helm_damage_lifesteal_lua:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
 function modifier_helm_damage_lifesteal_lua:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,

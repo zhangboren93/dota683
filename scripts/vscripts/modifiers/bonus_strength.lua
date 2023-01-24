@@ -2,6 +2,10 @@ if modifier_bonus_strength_lua == nil then
     modifier_bonus_strength_lua = class({})
 end
 
+function modifier_bonus_strength_lua:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
 function modifier_bonus_strength_lua:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_STATS_STRENGTH_BONUS

@@ -1,27 +1,27 @@
-if item_urn_bonus_modifier == nil then
-    item_urn_bonus_modifier = class({})
+if item_soul_ring_bonus_modifier == nil then
+    item_soul_ring_bonus_modifier = class({})
 end
 
-function item_urn_bonus_modifier:GetAttributes()
+function item_soul_ring_bonus_modifier:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function item_urn_bonus_modifier:OnCreated(kv)
+function item_soul_ring_bonus_modifier:OnCreated(kv)
 --    print("item_orchid_regen_percentage_modifier:OnCreated")
     self:StartIntervalThink(0.5)
 end
 
-function item_urn_bonus_modifier:IsHidden()
+function item_soul_ring_bonus_modifier:IsHidden()
     return true
 end
 
-function item_urn_bonus_modifier:OnIntervalThink()
+function item_soul_ring_bonus_modifier:OnIntervalThink()
     --print("interval think")
     local hParent = self:GetParent() --the unit.
     if hParent == nil or hParent.FindItemInInventory == nil then
         return
     end
-    local item = hParent:FindItemInInventory("item_urn_of_shadows")
+    local item = hParent:FindItemInInventory("item_soul_ring")
     if item ~= nil and item:GetItemState() == 1 then
         --print("sheepstick state: " .. item:GetItemState())
         
@@ -33,13 +33,15 @@ function item_urn_bonus_modifier:OnIntervalThink()
         -- print("orchid bonus mana " .. bonus_mana)
         hParent:GiveMana(bonus_mana)
 
-
         -- add strength bonus modifier
-        if not hParent:HasModifier("modifier_bonus_strength_lua") then
-            print("adding strength bonus modifier")
-            hParent:AddNewModifier(hParent, nil, "modifier_bonus_strength_lua", {})
-        end
+        if not hParent:HasModifier("modifier_soul_ring_health_regen_lua") then
+             print("adding health regen bonus modifier")
+             hParent:AddNewModifier(
+                hParent, nil, 
+                "modifier_soul_ring_health_regen_lua",
+                { bonus_health_regen = item:GetSpecialValueFor("bonus_health_regen")})
+         end
     else
-        hParent:RemoveModifierByNameAndCaster("modifier_bonus_strength_lua", hParent)
+        hParent:RemoveModifierByNameAndCaster("modifier_soul_ring_health_regen_lua", hParent)
     end
 end

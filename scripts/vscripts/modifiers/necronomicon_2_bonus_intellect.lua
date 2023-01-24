@@ -4,6 +4,11 @@ end
 function modifier_necronomicon_2_bonus_intellect:OnCreated(kv)
     self.kv = kv
 end
+
+function modifier_necronomicon_2_bonus_intellect:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
 function modifier_necronomicon_2_bonus_intellect:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_STATS_INTELLECT_BONUS

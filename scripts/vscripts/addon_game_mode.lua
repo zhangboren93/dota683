@@ -31,6 +31,8 @@ function Activate()
 	LinkLuaModifier( "item_bfury_regen_percentage_modifier", "items/item_bfury.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_helm_of_the_dominator_modifier_lua", "items/item_helm_of_the_dominator.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_maelstrom_modifier_lua", "items/item_maelstrom.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "item_soul_ring_bonus_modifier", "items/item_soul_ring.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "item_medallion_regen_percentage_modifier", "items/item_medallion.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bonus_strength_lua", "modifiers/bonus_strength.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_necronomicon_bonus_intellect", "modifiers/necronomicon_bonus_intellect.lua", LUA_MODIFIER_MOTION_NONE )
@@ -41,6 +43,7 @@ function Activate()
 	LinkLuaModifier( "modifier_sphere_bonus_damage_lua", "modifiers/sphere_bonus_damage.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_helm_damage_lifesteal_lua", "modifiers/helm_of_the_dominator.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_maelstrom_as_lua", "modifiers/maelstrom_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_soul_ring_health_regen_lua", "modifiers/soul_ring_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -118,5 +121,7 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "item_bfury_regen_percentage_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_helm_of_the_dominator_modifier_lua", {})
 		entity:AddNewModifier(entity, nil, "item_maelstrom_modifier_lua", {})
+		entity:AddNewModifier(entity, nil, "item_soul_ring_bonus_modifier", {})
+		entity:AddNewModifier(entity, nil, "item_medallion_regen_percentage_modifier", {})
     end
 end
