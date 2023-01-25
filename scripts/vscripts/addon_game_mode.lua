@@ -72,8 +72,11 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetNeutralStashEnabled(false)
 	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(25)
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
+	--GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(false)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY, true)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
+	GameRules:GetGameModeEntity():SetRuneSpawnFilter(Dynamic_Wrap(CAddonTemplateGameMode, "RuneSpawnFilter"), self)
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(event.entindex, event.is_respawn)
 	end, nil)
@@ -104,6 +107,15 @@ function CAddonTemplateGameMode:OrderFilter(event)
     end
     --Return true by default to keep all other orders the same
     return true
+end
+
+function CAddonTemplateGameMode:RuneSpawnFilter(event)
+	DeepPrintTable(event)
+	local time = GameRules:GetDOTATime(false, false) 
+	if time < 10 then
+		event.rune_type = DOTA_RUNE_BOUNTY 
+	end
+	return true
 end
 
 function HandleNpcSpawned(entityIndex, is_respawn)
