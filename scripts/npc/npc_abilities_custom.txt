@@ -46,4 +46,41 @@
 			}
 		}
 	}
+	"glyph_datadriven"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"    "glyph"
+		"AbilityCooldown"     	"300"
+		"AbilityCastRange"				"1"
+		"AbilityCastPoint"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityChannelTime"			"0"
+
+		"OnSpellStart"
+		{
+		    "RunScript"
+		    {
+		    	"ScriptFile"			"modifiers/glyph.lua"
+		    	"Function"				"enableGlyph"
+				"Target"				"CASTER"
+		    }
+		}
+		"Modifiers"
+		{
+			"modifier_glyph_active_datadriven"
+			{
+				"IsHidden"				"0"
+				"Passive"				"0"
+    			"EffectName"            "particles\items_fx\black_king_bar_avatar.vpcf"
+    			"EffectAttachType"      "follow_origin"
+				"Duration"				"5"
+
+				"States"
+        		{
+            		"MODIFIER_STATE_INVULNERABLE" "MODIFIER_STATE_VALUE_ENABLED"
+        		}
+			}
+		}
+	}
 }

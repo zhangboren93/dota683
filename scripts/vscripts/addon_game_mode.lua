@@ -91,6 +91,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent('modifier_event', function(event)
 		HandleModifierEvent(event.eventname, event.caster, event.ability)
 	end, nil)
+	ListenToGameEvent('entity_killed', function(event)
+		HandleEntityKilled(event.entindex_killed)
+	end, nil)
 end
 
 -- Evaluate the state of the game
@@ -108,6 +111,16 @@ end
 function CAddonTemplateGameMode:OrderFilter(event)
     --Check if the order is the glyph type
     if event.order_type == DOTA_UNIT_ORDER_GLYPH then
+		local player = PlayerResource:GetPlayer(event.issuer_player_id_const)
+		local team = player:GetTeam()
+		local fountain = nil
+		if team == DOTA_TEAM_GOODGUYS then
+			fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
+		else
+			fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
+		end
+		local glyph = fountain:FindAbilityByName("glyph_datadriven")
+		glyph:CastAbility()
 		return false
     end
 	if event.order_type == DOTA_UNIT_ORDER_RADAR then
@@ -183,6 +196,16 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "item_soul_ring_bonus_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_medallion_regen_percentage_modifier", {})
     	entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
+		local fountain = nil
+		if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
+			fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
+		elseif entity:GetTeam() == DOTA_TEAM_BADGUYS then
+			fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
+		end
+		if fountain ~= nil then
+			fountain:SetControllableByPlayer(entity:GetPlayerID(), true)
+		end
+		fountain:FindAbilityByName("glyph_datadriven"):CastAbility()
     end
 
 	if entity:GetName() == "npc_dota_creep_lane" then
@@ -191,5 +214,21 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
 			entity:SetBaseMagicalResistanceValue(0)
 		end, "remove flag bearer bonus", 1)
+	end
+end
+
+function HandleEntityKilled(entityIdx)
+	local entity = EntIndexToHScript(entityIdx)
+	local name = entity:GetName()
+	if name == "dota_badguys_tower1_mid"
+		or name == "dota_badguys_tower1_top"
+		or name == "dota_badguys_tower1_bot" then
+		local fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
+		fountain:FindAbilityByName("glyph_datadriven"):EndCooldown()
+	elseif name == "dota_goodguys_tower1_mid"
+		or name == "dota_goodguys_tower1_top"
+		or name == "dota_goodguys_tower1_bot" then
+		local fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
+		fountain:FindAbilityByName("glyph_datadriven"):EndCooldown()
 	end
 end

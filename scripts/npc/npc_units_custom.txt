@@ -89,4 +89,8 @@
 			"XPGain"					"15"
 		}
 	}
+	"dota_fountain"
+	{
+		"Ability2"					"glyph_datadriven"			// Ability 2.
+	}	
 }
