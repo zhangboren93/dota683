@@ -72,11 +72,19 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetNeutralStashEnabled(false)
 	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(25)
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
-	--GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(false)
-	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY, true)
+	GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(false)
+	GameRules:GetGameModeEntity():SetBountyRuneSpawnInterval(10000)
+	--GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY, false)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
-	GameRules:GetGameModeEntity():SetRuneSpawnFilter(Dynamic_Wrap(CAddonTemplateGameMode, "RuneSpawnFilter"), self)
+
+	-- rune 2 bounty at time 0 and 1 bounty & other per spawn afterwards
+	self.runeSpawnedAtTime = {}
+	GameRules:GetGameModeEntity():SetRuneSpawnFilter(
+		Dynamic_Wrap(CAddonTemplateGameMode, "RuneSpawnFilter"), self)
+	GameRules:GetGameModeEntity():SetBountyRunePickupFilter(
+		Dynamic_Wrap(CAddonTemplateGameMode, "BountyRunePickupFilter"), self)
+
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(event.entindex, event.is_respawn)
 	end, nil)
@@ -110,10 +118,45 @@ function CAddonTemplateGameMode:OrderFilter(event)
 end
 
 function CAddonTemplateGameMode:RuneSpawnFilter(event)
-	DeepPrintTable(event)
 	local time = GameRules:GetDOTATime(false, false) 
 	if time < 10 then
 		event.rune_type = DOTA_RUNE_BOUNTY 
+	else
+		local nthRuneSpawned = math.floor((time + 10) / 60)
+		local recentRuneSpawn = self.runeSpawnedAtTime[nthRuneSpawned]
+		if recentRuneSpawn == nil then
+			if RandomInt(0, 1) == 0 then
+				event.rune_type = DOTA_RUNE_BOUNTY
+			end
+			self.runeSpawnedAtTime[nthRuneSpawned] = event.rune_type
+		else
+			if recentRuneSpawn ~= DOTA_RUNE_BOUNTY then
+				event.rune_type = DOTA_RUNE_BOUNTY
+			end
+		end
+	end
+	return true
+end
+
+function CAddonTemplateGameMode:BountyRunePickupFilter(event)
+	local playerid = event.player_id_const
+  	local player = PlayerResource:GetPlayer(playerid)
+	local hero = player:GetAssignedHero()
+	local time = GameRules:GetDOTATime(false, false)
+	local bounty = 100
+	local exp = 100
+	if time > 90 then
+		bounty = 50 + 2 * math.floor(time / 60)
+		exp = 50 + 5 * math.floor(time / 60)
+	end
+	print("bounty picked up " .. bounty .. " " .. exp)
+	hero:ModifyGold(bounty, true, DOTA_ModifyGold_BountyRune)
+	hero:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, true)
+	event.xp_bounty = 0
+	event.gold_bounty = 0
+	local bottle = hero:FindItemInInventory("item_bottle")
+	if bottle ~= nil and bottle:GetItemState() == 1 then
+		bottle:SetCurrentCharges(3)
 	end
 	return true
 end

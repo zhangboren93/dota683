@@ -1394,6 +1394,7 @@
 		"ItemCost"						"150"
 		"ItemInitialCharges"			"2"
 		"ItemStockMax"					"2"
+		"ItemStockInitial"				"1"
 		"ItemStockTime"					"360"
 		"AbilityValues"
 		{
