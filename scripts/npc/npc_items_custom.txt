@@ -9765,4 +9765,29 @@
 		    }
 	    }
     }
+	"item_debug_area_units"
+	{
+		"BaseClass"		"item_datadriven"
+		"ID"			"4351"
+    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+    	"AbilityTextureName"			"item_veil_of_discord"
+    	
+    	// Stats		
+    	//-------------------------------------------------------------------------------------------------------------
+    	"AbilityCooldown"				"1"
+    	"AbilityCastRange"				"1000"
+    	"AbilityCastPoint"				"0.0"
+    	"AbilityManaCost"				"1"
+    	"AOEradius"						"600"
+    	
+    	// Item Info
+    	//-------------------------------------------------------------------------------------------------------------
+    	"ItemCost"						"1"
+		
+		"OnSpellStart"
+		{
+			"ScriptFile"		"items/debug.lua"
+			"Function"			"debugunitsaround"
+		}
+	}
 }
