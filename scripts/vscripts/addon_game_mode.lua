@@ -44,13 +44,14 @@ function Activate()
 	LinkLuaModifier( "modifier_helm_damage_lifesteal_lua", "modifiers/helm_of_the_dominator.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_maelstrom_as_lua", "modifiers/maelstrom_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_soul_ring_health_regen_lua", "modifiers/soul_ring_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	
-	-- TODO: Add more attribute stat
+	GameRules:SetStartingGold(650)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 19)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.03)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.17)
@@ -75,6 +76,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(event.entindex, event.is_respawn)
+	end, nil)
+	ListenToGameEvent('modifier_event', function(event)
+		HandleModifierEvent(event.eventname, event.caster, event.ability)
 	end, nil)
 end
 
@@ -123,5 +127,14 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "item_maelstrom_modifier_lua", {})
 		entity:AddNewModifier(entity, nil, "item_soul_ring_bonus_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_medallion_regen_percentage_modifier", {})
+    	entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
     end
+
+	if entity:GetName() == "npc_dota_creep_lane" then
+		entity:SetThink(function()
+			entity:RemoveModifierByName("modifier_creep_bonus_xp")
+			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
+			entity:SetBaseMagicalResistanceValue(0)
+		end, "remove flag bearer bonus", 1)
+	end
 end

@@ -8244,6 +8244,11 @@
 		
 		"OnSpellStart"
 		{
+		    "FireSound"
+		    {
+		    	"EffectName"			"DOTA_Item.DiffusalBlade.Activate"
+		    	"Target"				"TARGET"
+		    }
 			"SpendCharge"
 			{
 				
@@ -8306,6 +8311,9 @@
 			    "IsDebuff"				"1"
 			    "IsPurgable"			"1"
 			
+		    	"EffectName"            "particles/items_fx/diffusal_slow.vpcf"
+		    	"EffectAttachType"      "PATTACH_ABSORIGIN"
+				
 			    "Properties"
 			    {
 			    	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%purge_movespeed"
@@ -8355,6 +8363,11 @@
 		
 		"OnSpellStart"
 		{
+		    "FireSound"
+		    {
+		    	"EffectName"			"DOTA_Item.DiffusalBlade.Activate"
+		    	"Target"				"TARGET"
+		    }
 			"SpendCharge"
 			{
 				
@@ -8416,6 +8429,10 @@
 			    "IsBuff"				"0"
 			    "IsDebuff"				"1"
 			    "IsPurgable"			"1"
+
+		    	"EffectName"            "particles/items_fx/diffusal_slow.vpcf"
+		    	"EffectAttachType"      "PATTACH_ABSORIGIN"
+				
 			
 			    "Properties"
 			    {
@@ -9052,8 +9069,8 @@
 	    {
 	    	"FireSound"
 	    	{
-	    		"EffectName"			"DOTA_Item.RodofAtos.Activate"
-	    		"Target"				"CASTER"
+	    		"EffectName"			"DOTA_Item.RodofAtos.Target"
+	    		"Target"				"TARGET"
 	    	}
 
            	"ApplyModifier"
@@ -9553,7 +9570,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"							"184"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1384"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
 		
@@ -9569,6 +9586,30 @@
 		"ItemRequirements"
 		{
 			"01"						"item_bracer;item_robe"
+		}
+	}
+
+	"item_recipe_ancient_janggo_datadriven_refresh"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"2384"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_ancient_janggo_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_recipe_ancient_janggo_datadriven;item_ancient_janggo_datadriven"
 		}
 	}
 

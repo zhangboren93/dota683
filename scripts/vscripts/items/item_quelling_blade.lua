@@ -2,7 +2,7 @@ function quelling_blade_attack_landed(keys)
 	local target = keys.target
     local attacker = keys.attacker
     local ability = keys.ability
-    if target:IsCreep() then
+    if target:IsCreep() and target:GetTeamNumber() ~= attacker:GetTeamNumber() then
         local damage_bonus = 0
         if attacker:IsRangedAttacker() then
             damage_bonus = ability:GetSpecialValueFor("damage_bonus_ranged")
