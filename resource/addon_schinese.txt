@@ -1,0 +1,9 @@
+"lang" {
+	"Language" "SChinese"
+	"Tokens" {
+		"DOTA_Tooltip_modifier_attribute_regen_adjust"		"减少力量生命恢复和智力魔法恢复"
+		"DOTA_Tooltip_modifier_soul_ring_health_regen_lua"	"恢复生命和魔法"
+		"DOTA_Tooltip_Ability_item_quelling_blade_datadriven"	"补刀斧"
+		"DOTA_Tooltip_Ability_item_quelling_blade_datadriven_Description"	"对小兵 +33%%/13%%(近战/远程)攻击力"
+	}
+}

@@ -101,7 +101,7 @@ function CAddonTemplateGameMode:InitGameMode()
         29900,
         32400,
 	})
-	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
+	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(false)
 	GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(false)
 	GameRules:GetGameModeEntity():SetBountyRuneSpawnInterval(10000)
 	--GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY, false)
@@ -161,7 +161,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		GameRules:SendCustomMessage("无法使用扫描", 0, 0)
 		return false
     end
-    --Return true by default to keep all other orders the same
     return true
 end
 
@@ -254,6 +253,7 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 
 	if entity:GetName() == "npc_dota_creep_lane" then
 		entity:SetThink(function()
+			--print(entity:GetMinimumGoldBounty() .. " " .. entity:GetMaximumGoldBounty() .. " " .. entity:GetGoldBounty())
 			entity:RemoveModifierByName("modifier_creep_bonus_xp")
 			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
 			entity:SetBaseMagicalResistanceValue(0)
@@ -266,6 +266,23 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		entity:RemoveItem(entity:FindItemInInventory("item_ultimate_scepter_roshan"))
 		entity:RemoveItem(entity:FindItemInInventory("item_refresher_shard"))
 		end, "remove refresher shard, ags shard and ags", 0.5)
+	end
+
+	-- courier fix speed and health
+	if entity:GetName() == "npc_dota_courier" or
+		entity:GetName() == "npc_dota_flying_courier" then
+	    entity:SetThink(function()
+			if entity:HasAbility("courier_share") then
+				entity:FindAbilityByName("courier_share"):SetLevel(1)
+			end
+			if entity:GetLevel() >= 4 then
+				entity:SetBaseMoveSpeed(430)
+				entity:SetBaseMaxHealth(150)
+				return
+			end
+	        entity:RemoveModifierByName("modifier_courier_passive_bonus")
+			return 1
+    	end, nil, "fix speed", 1)
 	end
 end
 

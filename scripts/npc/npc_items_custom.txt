@@ -120,50 +120,49 @@
 		"ItemPurchasable"	"0"
 	}
 
-	// "item_courier_2"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"1100"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-	// 	"BaseClass" 					"item_datadriven"
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	// 	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
-	// 	"AbilityTextureName" 			"item_courier"
-		
-	// 	// Item Info
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemCost"						"150"
-	// 	"ItemShopTags"					"consumable"
-	// 	"ItemQuality"					"consumable"
-	// 	"ItemAliases"					"donkey;chicken;animal courier"
-	// 	"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-	// 	"ItemStockMax"					"1"
-	// 	"ItemStockTime"					"7.0"
-	// 	"ItemSupport"					"1"
-	// 	"ItemPurchasable"				"1"
-	// 	"ItemPermanent" 				"0"
-	// 	"ItemStackable"					"1"
-	// 	"ItemInitialCharges"			"1"
-	// 	"OnSpellStart"
-	// 	{
-	// 		"SpawnUnit"
-	// 		{
-	// 			"UnitName"				"npc_dota_courier"
-    //         	"UnitCount"    			"1"
-    //         	"SpawnRadius"    		"200"
-    //         	"Target"        		"CASTER"
-	// 		}
-	// 		"SpendCharge"
-	// 		{
+	"item_courier_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1100"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass" 					"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+		"AbilityTextureName" 			"item_courier"
+	
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"120"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemAliases"					"donkey;chicken;animal courier"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"7.0"
+		"ItemSupport"					"1"
+		"ItemPurchasable"				"1"
+		"ItemPermanent" 				"0"
+		"ItemStackable"					"1"
+		"ItemInitialCharges"			"1"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"items/item_courier.lua"
+				"Function"				"enableCourier"
+             	"Target"        		"CASTER"
+	        }
+	        "SpendCharge"
+	        {
 
-	// 		}
-	// 	}
-	// }
+	        }
+	    }
+	}
 
-	// "item_flying_courier"
-	// {
-	// 	"ItemPurchasable"	"1"
-	// }
+	//"item_flying_courier"
+	//{
+	//	"ItemPurchasable"	"1"
+	//}
 
 	"item_recipe_travel_boots_2"
 	{

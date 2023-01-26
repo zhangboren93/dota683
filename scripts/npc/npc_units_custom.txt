@@ -334,4 +334,16 @@
 		"BountyGoldMin"				"43"		// Gold earned min.
 		"BountyGoldMax"				"43"		// Gold earned max.
 	}
+	"npc_dota_creep_goodguys_melee"
+	{
+		"BountyXP"					"62"		// Experience earn.
+		"BountyGoldMin"				"43"		// Gold earned min.
+		"BountyGoldMax"				"43"		// Gold earned max.
+	}
+	"npc_dota_courier"
+	{
+		"MovementSpeed"				"350"		// Speed
+		"Ability6"					"courier_share"		
+		"StatusHealth"				"75"		// Base health.
+	}
 }
