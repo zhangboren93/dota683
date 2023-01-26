@@ -45,6 +45,8 @@ function Activate()
 	LinkLuaModifier( "modifier_maelstrom_as_lua", "modifiers/maelstrom_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_soul_ring_health_regen_lua", "modifiers/soul_ring_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
+
+	LinkLuaModifier( "modifier_attribute_regen_adjust", "modifiers/attribute_regen.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -53,10 +55,10 @@ function CAddonTemplateGameMode:InitGameMode()
 	
 	GameRules:SetStartingGold(650)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 19)
-	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.03)
+	-- GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.03)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.17)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 13)
-	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.04)
+	-- GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.04)
 	
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(15)
 	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1)
@@ -70,7 +72,35 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetGiveFreeTPOnDeath(false)
 	GameRules:GetGameModeEntity():SetAllowNeutralItemDrops(false)
 	GameRules:GetGameModeEntity():SetNeutralStashEnabled(false)
+	GameRules:GetGameModeEntity():SetUseCustomHeroLevels(true)
 	GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(25)
+    GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel({
+		0,
+		200,
+		500,
+		900,
+		1400,
+		2000,
+		2600,
+		3200,
+        4400,
+        5400,
+        6000,
+        8200,
+        9000,
+        10400,
+        11900,
+        13500,
+        15200,
+        17000,
+        18900,
+        20900,
+        23000,
+        25200,
+        27500,
+        29900,
+        32400,
+	})
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
 	GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(false)
 	GameRules:GetGameModeEntity():SetBountyRuneSpawnInterval(10000)
@@ -123,7 +153,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		if glyph:IsCooldownReady() then
 			glyph:CastAbility()
 		else
-			GameRules:SendCustomMessage("塔防CD"..math.floor(glyph:GetCooldownTimeRemaining()).."秒", 0, 0)
+			GameRules:SendCustomMessage("塔防CD "..math.floor(glyph:GetCooldownTimeRemaining()).."秒", 0, 0)
 		end
 		return false
     end
@@ -201,6 +231,7 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "item_soul_ring_bonus_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_medallion_regen_percentage_modifier", {})
     	entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
+    	entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
 
 		-- add custom glyph to fountain
 		local fountain = nil
@@ -219,7 +250,6 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		if PlayerResource:HasRandomed(player:GetPlayerID()) then
 			entity:ModifyGold(200, true, DOTA_ModifyGold_Unspecified)
 		end
-
     end
 
 	if entity:GetName() == "npc_dota_creep_lane" then
