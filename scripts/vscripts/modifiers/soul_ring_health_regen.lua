@@ -16,10 +16,15 @@ function modifier_soul_ring_health_regen_lua:DeclareFunctions()
     return funcs
 end
 
+-- TODO show soul ring icon & regen values
 function modifier_soul_ring_health_regen_lua:IsHidden()
     return true
 end
 
 function modifier_soul_ring_health_regen_lua:GetModifierConstantHealthRegen()
     return self.kv.bonus_health_regen
+end
+
+function modifier_soul_ring_health_regen_lua:GetTexture()
+    return "item_soul_ring"
 end

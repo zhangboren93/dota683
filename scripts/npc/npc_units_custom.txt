@@ -152,9 +152,9 @@
 		"Ability2"					""			// Ability 2
 		"MagicalResistance"			"100"		// Magical protection.  
 		"ArmorPhysical"				"2"			// Physical protection.
-		"BountyXP"					"58"		// Experience earn.
-		"BountyGoldMin"				"88"		// Gold earned min.
-		"BountyGoldMax"				"88"		// Gold earned max.
+		"BountyXP"					"88"		// Experience earn.
+		"BountyGoldMin"				"58"		// Gold earned min.
+		"BountyGoldMax"				"58"		// Gold earned max.
 	}
 	"npc_dota_neutral_ogre_mauler"
 	{

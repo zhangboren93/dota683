@@ -130,6 +130,13 @@ end
 function CAddonTemplateGameMode:OnThink()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		--print( "Template addon script is running." )
+		-- TODO spawn creep at 30 seconds
+		local time = GameRules:GetDOTATime(false, false) 
+		if time >= 30 and self.hasSpawnNeutralsAt30s == nil then
+			print("Spawn creep at 30s")
+			GameRules:SpawnNeutralCreeps()
+			self.hasSpawnNeutralsAt30s = true
+		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
 	end
