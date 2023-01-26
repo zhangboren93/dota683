@@ -120,10 +120,15 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
 		end
 		local glyph = fountain:FindAbilityByName("glyph_datadriven")
-		glyph:CastAbility()
+		if glyph:IsCooldownReady() then
+			glyph:CastAbility()
+		else
+			GameRules:SendCustomMessage("塔防CD"..math.floor(glyph:GetCooldownTimeRemaining()).."秒", 0, 0)
+		end
 		return false
     end
 	if event.order_type == DOTA_UNIT_ORDER_RADAR then
+		GameRules:SendCustomMessage("无法使用扫描", 0, 0)
 		return false
     end
     --Return true by default to keep all other orders the same
@@ -196,6 +201,8 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "item_soul_ring_bonus_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_medallion_regen_percentage_modifier", {})
     	entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
+
+		-- add custom glyph to fountain
 		local fountain = nil
 		if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
 			fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
@@ -206,6 +213,13 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 			fountain:SetControllableByPlayer(entity:GetPlayerID(), true)
 		end
 		fountain:FindAbilityByName("glyph_datadriven"):CastAbility()
+		
+		-- give 200 gold to randomed player
+		local player = entity:GetPlayerOwner()
+		if PlayerResource:HasRandomed(player:GetPlayerID()) then
+			entity:ModifyGold(200, true, DOTA_ModifyGold_Unspecified)
+		end
+
     end
 
 	if entity:GetName() == "npc_dota_creep_lane" then
@@ -214,6 +228,14 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
 			entity:SetBaseMagicalResistanceValue(0)
 		end, "remove flag bearer bonus", 1)
+	end
+
+	if entity:GetName() == "npc_dota_roshan" then
+		entity:SetThink(function()
+		entity:RemoveItem(entity:FindItemInInventory("item_aghanims_shard_roshan"))
+		entity:RemoveItem(entity:FindItemInInventory("item_ultimate_scepter_roshan"))
+		entity:RemoveItem(entity:FindItemInInventory("item_refresher_shard"))
+		end, "remove refresher shard, ags shard and ags", 0.5)
 	end
 end
 

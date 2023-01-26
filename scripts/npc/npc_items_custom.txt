@@ -451,7 +451,7 @@
 		"IsObsolete"		"0"
 		"ItemRequirements"
 		{
-			"01"	"item_wraith_band_datadriven;item_ring_of_basilius"
+			"01"	"item_wraith_band_datadriven;item_ring_of_basilius_datadriven"
 		}
 	}
 	"item_ring_of_aquila"
@@ -2574,9 +2574,19 @@
 	//=================================================================================================================
 	"item_recipe_null_talisman"
 	{
+		"ItemPurchasable"	"0"
+	}
+	"item_null_talisman"
+	{
+		"ItemPurchasable"	"false"
+	}
+	"item_null_talisman_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"76"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"ID"							"1276"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3432,7 +3442,7 @@
 		"ItemResult"					"item_pipe"
 		"ItemRequirements"
 		{
-			"01"						"item_hood_of_defiance_datadriven;item_headdress_datadriven"
+			"01"						"item_hood_of_defiance;item_headdress_datadriven"
 		}
 	}
 	
@@ -3823,7 +3833,7 @@
 		"ItemResult"					"item_orchid"
 		"ItemRequirements"
 		{
-			"01"						"item_oblivion_staff;item_oblivion_staff"
+			"01"						"item_oblivion_staff_datadriven;item_oblivion_staff_datadriven"
 		}
 	}
 	
@@ -6306,7 +6316,7 @@
     			"Properties"
     			{
     				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agility"
-    				"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"			"%bonus_damage"
+    				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
     				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
     			}
     			

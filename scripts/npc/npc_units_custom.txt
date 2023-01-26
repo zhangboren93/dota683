@@ -93,4 +93,245 @@
 	{
 		"Ability2"					"glyph_datadriven"			// Ability 2.
 	}	
+	"npc_dota_neutral_kobold"
+	{
+		"BountyXP"					"17"		// Experience earn.
+		"BountyGoldMin"				"6"			// Gold earned min.
+		"BountyGoldMax"				"8"			// Gold earned max.
+	}
+	"npc_dota_neutral_kobold_tunneler"
+	{
+		"Ability1"					""			// Ability 1
+		"BountyXP"					"17"		// Experience earn.
+		"BountyGoldMin"				"14"		// Gold earned min.
+		"BountyGoldMax"				"18"		// Gold earned max.
+	}
+	"npc_dota_neutral_kobold_taskmaster"
+	{
+		"BountyXP"					"28"		// Experience earn.
+		"BountyGoldMin"				"20"		// Gold earned min.
+		"BountyGoldMax"				"25"		// Gold earned max.
+	}
+	"npc_dota_neutral_centaur_outrunner"
+	{
+		"Ability1"					""			// Ability 1
+		"BountyXP"					"31"		// Experience earn.
+		"BountyGoldMin"				"16"		// Gold earned min.
+		"BountyGoldMax"				"19"		// Gold earned max.
+	}
+	"npc_dota_neutral_centaur_khan"
+	{
+		"BountyXP"					"90"		// Experience earn.
+		"BountyGoldMin"				"53"		// Gold earned min.
+		"BountyGoldMax"				"62"		// Gold earned max.
+	}
+	"npc_dota_neutral_fel_beast"
+	{
+		"Ability1"					"0"			// Ability 1
+		"BountyXP"					"28"		// Experience earn.
+		"BountyGoldMin"				"17"		// Gold earned min.
+		"BountyGoldMax"				"20"		// Gold earned max.
+	}
+	"npc_dota_neutral_polar_furbolg_champion"
+	{
+		"Ability1"					""			// Ability 1
+		"Ability2"					""			// Ability 2
+		"BountyXP"					"66"		// Experience earn.
+		"BountyGoldMin"				"36"		// Gold earned min.
+		"BountyGoldMax"				"44"		// Gold earned max.
+	}
+	"npc_dota_neutral_polar_furbolg_ursa_warrior"
+	{
+		"Ability2"					""			// Ability 2
+		"BountyXP"					"90"		// Experience earn.
+		"BountyGoldMin"				"61"		// Gold earned min.
+		"BountyGoldMax"				"79"		// Gold earned max.
+	}
+	"npc_dota_neutral_mud_golem"
+	{
+		"Ability2"					""			// Ability 2
+		"MagicalResistance"			"100"		// Magical protection.  
+		"ArmorPhysical"				"2"			// Physical protection.
+		"BountyXP"					"58"		// Experience earn.
+		"BountyGoldMin"				"88"		// Gold earned min.
+		"BountyGoldMax"				"88"		// Gold earned max.
+	}
+	"npc_dota_neutral_ogre_mauler"
+	{
+		"Ability1"					""			// Ability 1
+		"BountyXP"					"31"		// Experience earn.
+		"BountyGoldMin"				"24"		// Gold earned min.
+		"BountyGoldMax"				"28"		// Gold earned max.
+	}
+	"npc_dota_neutral_ogre_magi"
+	{
+		"BountyXP"					"47"		// Experience earn.
+		"BountyGoldMin"				"52"		// Gold earned min.
+		"BountyGoldMax"				"52"		// Gold earned max.
+	}
+	"npc_dota_neutral_giant_wolf"
+	{
+		"Ability1"					""			// Ability 1
+		"BountyXP"					"47"		// Experience earn.
+		"BountyGoldMin"				"18"		// Gold earned min.
+		"BountyGoldMax"				"21"		// Gold earned max.
+	}
+	"npc_dota_neutral_alpha_wolf"
+	{
+		"BountyXP"					"66"		// Experience earn.
+		"BountyGoldMin"				"30"		// Gold earned min.
+		"BountyGoldMax"				"36"		// Gold earned max.
+	}
+	"npc_dota_neutral_wildkin"
+	{
+		"Ability1"					""			// Ability 1
+		"BountyXP"					"19"		// Experience earn.
+		"BountyGoldMin"				"12"		// Gold earned min.
+		"BountyGoldMax"				"16"		// Gold earned max.
+	}
+	"npc_dota_neutral_enraged_wildkin"
+	{
+		"Ability1"					""			// Ability 1
+		"BountyXP"					"90"		// Experience earn.
+		"BountyGoldMin"				"54"		// Gold earned min.
+		"BountyGoldMax"				"70"		// Gold earned max.
+	}
+	"npc_dota_neutral_satyr_soulstealer"
+	{
+		"BountyXP"					"47"		// Experience earn.
+		"BountyGoldMin"				"22"		// Gold earned min.
+		"BountyGoldMax"				"26"		// Gold earned max.
+	}
+	"npc_dota_neutral_satyr_hellcaller"
+	{
+		"BountyXP"					"47"		// Experience earn.
+		"BountyGoldMin"				"104"		// Gold earned min.
+		"BountyGoldMax"				"104"		// Gold earned max.
+	}
+	"npc_dota_neutral_rock_golem"
+	{
+		"MagicalResistance"			"100"		// Magical protection.
+		"Ability1"					""			// Ability 1
+	}
+	"npc_dota_neutral_granite_golem"
+	{
+		"MagicalResistance"			"100"		// Magical protection.
+		"BountyGoldMin"				"78"		// Gold earned min.
+		"BountyGoldMax"				"88"		// Gold earned max.
+	}
+	"npc_dota_neutral_big_thunder_lizard"
+	{
+		"MagicalResistance"				"100"		// Magical protection.
+		"BountyXP"					"124"		// Experience earn.
+		"BountyGoldMin"				"64"		// Gold earned min.
+		"BountyGoldMax"				"71"		// Gold earned max.
+	}
+	"npc_dota_neutral_small_thunder_lizard"
+	{
+		"BountyXP"					"95"		// Experience earn.
+		"BountyGoldMin"				"41"		// Gold earned min.
+		"BountyGoldMax"				"48"		// Gold earned max.
+	}
+	"npc_dota_neutral_gnoll_assassin"	
+	{
+		"BountyXP"					"28"		// Experience earn.
+		"BountyGoldMin"				"19"		// Gold earned min.
+		"BountyGoldMax"				"22"		// Gold earned max.
+	}
+	"npc_dota_neutral_ghost"	
+	{
+		"BountyXP"					"44"		// Experience earn.
+		"BountyGoldMin"				"28"		// Gold earned min.
+		"BountyGoldMax"				"34"		// Gold earned max.
+	}
+	"npc_dota_neutral_dark_troll"	
+	{
+		"Ability1"					"dark_troll_warlord_ensnare"			// Ability 1
+		"BountyXP"					"47"		// Experience earn.
+		"BountyGoldMin"				"21"		// Gold earned min.
+		"BountyGoldMax"				"26"		// Gold earned max.
+	}
+	"npc_dota_neutral_dark_troll_warlord"	
+	{
+		"Ability1"					""			// Ability 1
+		"BountyXP"					"90"		// Experience earn.
+		"BountyGoldMin"				"43"		// Gold earned min.
+		"BountyGoldMax"				"50"		// Gold earned max.
+	}
+	"dark_troll_warlord_skeleton_warrior"
+	{
+		"Ability1"					""			// Ability 1.
+		"BountyXP"					"12"		// Experience earn.
+		"BountyGoldMin"				"6"			// Gold earned min.
+		"BountyGoldMax"				"12"		// Gold earned max.
+	}
+	"npc_dota_neutral_satyr_trickster"	
+	{
+		"BountyXP"					"31"		// Experience earn.
+		"BountyGoldMin"				"12"		// Gold earned min.
+		"BountyGoldMax"				"14"		// Gold earned max.
+	}
+	"npc_dota_neutral_forest_troll_berserker"	
+	{
+		"Ability1"					""			// Ability 1
+		"BountyXP"					"28"		// Experience earn.
+		"BountyGoldMin"				"20"		// Gold earned min.
+		"BountyGoldMax"				"23"		// Gold earned max.
+	}
+	"npc_dota_neutral_forest_troll_high_priest"	
+	{
+		"Ability2"					""			// Ability 2
+		"BountyXP"					"26"		// Experience earn.
+		"BountyGoldMin"				"19"		// Gold earned min.
+		"BountyGoldMax"				"22"		// Gold earned max.
+	}
+	"npc_dota_neutral_harpy_scout"	
+	{
+		"Ability1"					""			// Ability 1
+		"BountyXP"					"28"		// Experience earn.
+		"BountyGoldMin"				"21"		// Gold earned min.
+		"BountyGoldMax"				"24"		// Gold earned max.
+	}
+	"npc_dota_neutral_harpy_storm"	
+	{
+		"BountyXP"					"44"		// Experience earn.
+		"BountyGoldMin"				"29"		// Gold earned min.
+		"BountyGoldMax"				"33"		// Gold earned max.
+	}
+	"npc_dota_neutral_black_drake"	
+	{
+		"Ability1"					""			// Ability 1
+		"BountyXP"					"50"		// Experience earn.
+		"BountyGoldMin"				"26"		// Gold earned min.
+		"BountyGoldMax"				"33"		// Gold earned max.
+	}
+	"npc_dota_neutral_black_dragon"	
+	{
+		"MagicalResistance"				"100"		// Magical protection.
+		"BountyXP"					"124"		// Experience earn.
+		"BountyGoldMin"				"108"		// Gold earned min.
+		"BountyGoldMax"				"137"		// Gold earned max.
+	}
+	"npc_dota_necronomicon_archer_3"
+	{
+		"Ability1"					""			// Ability 1.
+	}
+	"npc_dota_creep_badguys_ranged"
+	{
+		"BountyXP"					"41"		// Experience earn.
+		"BountyGoldMin"				"48"		// Gold earned min.
+		"BountyGoldMax"				"48"		// Gold earned max.
+	}
+	"npc_dota_creep_goodguys_ranged"
+	{
+		"BountyXP"					"41"		// Experience earn.
+		"BountyGoldMin"				"48"		// Gold earned min.
+		"BountyGoldMax"				"48"		// Gold earned max.
+	}
+	"npc_dota_creep_badguys_melee"
+	{
+		"BountyXP"					"62"		// Experience earn.
+		"BountyGoldMin"				"43"		// Gold earned min.
+		"BountyGoldMax"				"43"		// Gold earned max.
+	}
 }
