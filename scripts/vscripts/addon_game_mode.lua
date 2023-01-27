@@ -197,6 +197,9 @@ function CAddonTemplateGameMode:RuneSpawnFilter(event)
 end
 
 function CAddonTemplateGameMode:BountyRunePickupFilter(event)
+	if not isServer() then
+		return false
+	end
 	local playerid = event.player_id_const
   	local player = PlayerResource:GetPlayer(playerid)
 	local hero = player:GetAssignedHero()
