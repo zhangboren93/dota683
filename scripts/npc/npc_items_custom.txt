@@ -49,6 +49,11 @@
 		"ItemPurchasable"	"0"
 	}
 
+	"item_yasha_and_kaya"
+	{
+		"ItemPurchasable"	"0"
+	}
+
 	"item_stout_shield"
 	{
 		// General
@@ -159,11 +164,6 @@
 	    }
 	}
 
-	//"item_flying_courier"
-	//{
-	//	"ItemPurchasable"	"1"
-	//}
-
 	"item_recipe_travel_boots_2"
 	{
 		"ItemPurchasable"	"0"
@@ -179,6 +179,14 @@
 		"ItemPurchasable"	"0"
 	}
 
+	"item_recipe_falcon_blade"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_falcon_blade"
+	{
+		"ItemPurchasable"	"0"
+	}
 	"item_poor_mans_shield"
 	{
 		"ItemPurchasable"	"1"
@@ -593,7 +601,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"900"
+		"ItemCost"						"950"
 		"ItemShopTags"					"armor;regen_health"
 		"ItemQuality"					"component"
 		"ItemAliases"					"helm of iron will"
@@ -1873,7 +1881,7 @@
 		"ItemQuality"					"component"
 		"ItemAliases"					"void stone"
 		"SecretShop"					"1"		
-		"ItemKillable" 			"0"
+		"ItemKillable" 			"1"
 		"ItemSellable" 			"1"
 		"ItemPurchasable" 		"1"
 		"ItemDroppable" 		"1"
@@ -2221,7 +2229,7 @@
 		"ItemShopTags"					"damage;int;attack_speed;regen_mana"
 		"ItemQuality"					"common"
 		"ItemAliases"					"oblivion staff"
-		"ItemKillable" 					"0"
+		"ItemKillable" 					"1"
 		"ItemSellable" 					"1"
 		"ItemPurchasable" 				"1"
 		"ItemDroppable" 				"1"
@@ -2481,9 +2489,19 @@
 	//=================================================================================================================
 	"item_recipe_wraith_band"
 	{
+		"ItemPurchasable"	"0"
+	}
+	"item_wraith_band"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_wraith_band_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"74"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"ID"							"1274"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2577,9 +2595,9 @@
 	}
 	"item_null_talisman"
 	{
-		"ItemPurchasable"	"false"
+		"ItemPurchasable"	"0"
 	}
-	"item_null_talisman_datadriven"
+	"item_recipe_null_talisman_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -2693,7 +2711,7 @@
 		"ItemResult"					"item_mekansm_2"
 		"ItemRequirements"
 		{
-			"01"						"item_headdress;item_buckler"
+			"01"						"item_headdress_datadriven;item_buckler_2"
 		}
 	}
 
@@ -3027,6 +3045,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_datadriven"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityTextureName"			"item_recipe"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3636,6 +3655,7 @@
     	"BaseClass"						"item_datadriven"
 		"ID"							"1293"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3735,6 +3755,27 @@
 	//=================================================================================================================
 	// Sheepstick
 	//=================================================================================================================
+	"item_recipe_sheepstick"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"95"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_sheepstick"
+		"ItemRequirements"
+		{
+			"01"						"item_mystic_staff;item_ultimate_orb;item_void_stone_datadriven"
+		}
+	}
 	"item_sheepstick"
 	{
 		// General
@@ -6207,6 +6248,10 @@
 	"item_recipe_butterfly"
 	{
 		"ItemPurchasable"	"0"
+		"ItemRequirements"
+		{
+			"01"						"item_eagle;item_talisman_of_evasion;item_quarterstaff;item_falcon_blade"
+		}
 	}
 	"item_recipe_butterfly_datadriven"
 	{
@@ -7143,6 +7188,7 @@
 		"ItemQuality"					"component"
 		"ItemAliases"					"orb of venom"
 		"SideShop"						"1"
+		"SecretShop"					"1"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

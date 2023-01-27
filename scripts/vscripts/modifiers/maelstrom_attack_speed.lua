@@ -18,7 +18,7 @@ function modifier_maelstrom_as_lua:DeclareFunctions()
 end
 
 function modifier_maelstrom_as_lua:IsHidden()
-    return false
+    return true
 end
 
 function modifier_maelstrom_as_lua:GetModifierAttackSpeedBonus_Constant()

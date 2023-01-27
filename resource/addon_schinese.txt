@@ -34,5 +34,6 @@
 		"DOTA_Tooltip_Ability_item_rod_of_atos_datadriven"		"阿托斯"
 		"DOTA_Tooltip_Ability_item_heavens_halberd_datadriven"	"天堂"
 		"DOTA_Tooltip_Ability_item_ancient_janggo_datadriven"	"战鼓"
+		"DOTA_Tooltip_Ability_item_null_talisman_datadriven"	"挂件"
 	}
 }

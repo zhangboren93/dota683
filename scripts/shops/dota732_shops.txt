@@ -218,7 +218,7 @@
 	{
 		"item"		"item_tpscroll"
 		"item"		"item_magic_stick"
-		"item"		"item_orb_of_venom"
+		//"item"		"item_orb_of_venom"
 		"item"		"item_sobi_mask_datadriven"
 		"item"		"item_ring_of_regen"
 		"item"		"item_boots"
@@ -265,5 +265,6 @@
 		"item"		"item_relic"
 		"item"		"item_void_stone_datadriven"
 		"item"		"item_ring_of_health"
+		"item"		"item_orb_of_venom"
 	}	
 }
