@@ -172,6 +172,18 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			event.issuer_player_id_const)
 		return false
     end
+	for i,v in pairs(event.units) do
+		local unit = EntIndexToHScript(v)
+		if unit:GetName() == "npc_dota_courier" then
+ 			if unit.isSharedWithTeam == nil
+			    and unit:GetPlayerOwnerID() ~= event.issuer_player_id_const then
+				GameRules:SendCustomMessage("信使未分享",
+		        	event.issuer_player_id_const,
+		        	event.issuer_player_id_const)
+				event.units[i] = nil
+			end
+		end
+	end
     return true
 end
 
@@ -260,6 +272,16 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		if PlayerResource:HasRandomed(player:GetPlayerID()) then
 			entity:ModifyGold(200, true, DOTA_ModifyGold_Unspecified)
 		end
+
+		--give 90 gold per minute
+		player:SetThink(function()
+			local time = GameRules:GetDOTATime(false, false) 
+			if time >= 2 then
+			-- give passive gold to all players
+				entity:ModifyGold(3, true, DOTA_ModifyGold_GameTick)
+			end
+			return 2
+		end, "give 90 gold per minute after game start", 2)
     end
 
 	if entity:GetName() == "npc_dota_creep_lane" then
