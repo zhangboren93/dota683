@@ -160,12 +160,16 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		if glyph:IsCooldownReady() then
 			glyph:CastAbility()
 		else
-			GameRules:SendCustomMessage("塔防CD "..math.floor(glyph:GetCooldownTimeRemaining()).."秒", 0, 0)
+			GameRules:SendCustomMessage("塔防CD "..math.floor(glyph:GetCooldownTimeRemaining()).."秒",
+				event.issuer_player_id_const,
+				event.issuer_player_id_const)
 		end
 		return false
     end
 	if event.order_type == DOTA_UNIT_ORDER_RADAR then
-		GameRules:SendCustomMessage("无法使用扫描", 0, 0)
+		GameRules:SendCustomMessage("无法使用扫描",
+			event.issuer_player_id_const,
+			event.issuer_player_id_const)
 		return false
     end
     return true

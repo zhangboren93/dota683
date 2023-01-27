@@ -32,6 +32,7 @@ function purge(event)
         modifier_dark_seer_ion_shell = true,
         modifier_warlock_shadow_word = true,
         modifier_windrunner_windrun = true,
+        modifier_necrolyte_sadist_active = true,
         -- TODO add more purgeable modifiers here
     }
 

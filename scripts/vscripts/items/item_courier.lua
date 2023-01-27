@@ -11,6 +11,9 @@ function toggle_share(event)
         print("Sharing courier with player " .. playerId)
         event.caster:SetControllableByPlayer(playerId, false)
     end
-    GameRules:SendCustomMessage("已分享信使", 0, 0)
+    GameRules:SendCustomMessageToTeam("已分享信使",
+        event.caster:GetPlayerOwnerID(),
+        event.caster:GetPlayerOwnerID(),
+        team)
     event.ability:Destroy()
 end
