@@ -215,15 +215,15 @@
 	{
 		"Ability1"					""			// Ability 1
 		"BountyXP"					"50"		// Experience earn.
-		"BountyGoldMin"				"26"		// Gold earned min.
-		"BountyGoldMax"				"33"		// Gold earned max.
+		"BountyGoldMin"				"50"		// Gold earned min.
+		"BountyGoldMax"				"50"		// Gold earned max.
 	}
 	"npc_dota_neutral_black_dragon"	
 	{
 		"MagicalResistance"				"100"		// Magical protection.
 		"BountyXP"					"124"		// Experience earn.
-		"BountyGoldMin"				"108"		// Gold earned min.
-		"BountyGoldMax"				"137"		// Gold earned max.
+		"BountyGoldMin"				"199"		// Gold earned min.
+		"BountyGoldMax"				"199"		// Gold earned max.
 	}
 	"npc_dota_necronomicon_archer_3"
 	{

@@ -5,9 +5,6 @@ end
 
 function toggle_share(event)
     event.caster.isSharedWithTeam = true
-    GameRules:SendCustomMessageToTeam("已分享信使",
-        event.caster:GetPlayerOwnerID(),
-        event.caster:GetPlayerOwnerID(),
-        event.caster:GetTeam())
+    -- TODO share courier alert to team
     event.ability:Destroy()
 end

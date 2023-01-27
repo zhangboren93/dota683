@@ -157,19 +157,10 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
 		end
 		local glyph = fountain:FindAbilityByName("glyph_datadriven")
-		if glyph:IsCooldownReady() then
-			glyph:CastAbility()
-		else
-			GameRules:SendCustomMessage("塔防CD "..math.floor(glyph:GetCooldownTimeRemaining()).."秒",
-				event.issuer_player_id_const,
-				event.issuer_player_id_const)
-		end
+		glyph:CastAbility()
 		return false
     end
 	if event.order_type == DOTA_UNIT_ORDER_RADAR then
-		GameRules:SendCustomMessage("无法使用扫描",
-			event.issuer_player_id_const,
-			event.issuer_player_id_const)
 		return false
     end
 	for i,v in pairs(event.units) do
@@ -177,9 +168,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		if unit:GetName() == "npc_dota_courier" then
  			if unit.isSharedWithTeam == nil
 			    and unit:GetPlayerOwnerID() ~= event.issuer_player_id_const then
-				GameRules:SendCustomMessage("信使未分享",
-		        	event.issuer_player_id_const,
-		        	event.issuer_player_id_const)
 				event.units[i] = nil
 			end
 		end
