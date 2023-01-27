@@ -197,8 +197,11 @@ function CAddonTemplateGameMode:RuneSpawnFilter(event)
 end
 
 function CAddonTemplateGameMode:BountyRunePickupFilter(event)
-	if not isServer() then
-		return false
+	if not IsServer() then
+		-- returning false here will tigger the default bounty rune gain here
+    	event.xp_bounty = 0
+    	event.gold_bounty = 0
+		return true
 	end
 	local playerid = event.player_id_const
   	local player = PlayerResource:GetPlayer(playerid)
