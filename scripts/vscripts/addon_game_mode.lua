@@ -104,7 +104,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(false)
 	GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(false)
 	GameRules:GetGameModeEntity():SetBountyRuneSpawnInterval(10000)
-	--GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY, false)
+--	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY, false)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 
@@ -123,6 +123,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	end, nil)
 	ListenToGameEvent('entity_killed', function(event)
 		HandleEntityKilled(event.entindex_killed)
+	end, nil)
+	ListenToGameEvent('dota_rune_activated_server', function(event)
+		HandleRuneActivated(event.PlayerID, event.rune)
 	end, nil)
 end
 
@@ -197,31 +200,8 @@ function CAddonTemplateGameMode:RuneSpawnFilter(event)
 end
 
 function CAddonTemplateGameMode:BountyRunePickupFilter(event)
-	if not IsServer() then
-		-- returning false here will tigger the default bounty rune gain here
-    	event.xp_bounty = 0
-    	event.gold_bounty = 0
-		return true
-	end
-	local playerid = event.player_id_const
-  	local player = PlayerResource:GetPlayer(playerid)
-	local hero = player:GetAssignedHero()
-	local time = GameRules:GetDOTATime(false, false)
-	local bounty = 100
-	local exp = 100
-	if time > 90 then
-		bounty = 50 + 2 * math.floor(time / 60)
-		exp = 50 + 5 * math.floor(time / 60)
-	end
-	print("bounty picked up " .. bounty .. " " .. exp)
-	hero:ModifyGold(bounty, true, DOTA_ModifyGold_BountyRune)
-	hero:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, true)
 	event.xp_bounty = 0
 	event.gold_bounty = 0
-	local bottle = hero:FindItemInInventory("item_bottle")
-	if bottle ~= nil and bottle:GetItemState() == 1 then
-		bottle:SetCurrentCharges(3)
-	end
 	return true
 end
 
@@ -326,5 +306,26 @@ function HandleEntityKilled(entityIdx)
 		or name == "dota_goodguys_tower1_bot" then
 		local fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		fountain:FindAbilityByName("glyph_datadriven"):EndCooldown()
+	end
+end
+
+function HandleRuneActivated(playerid, rune)
+	if rune == DOTA_RUNE_BOUNTY then
+	  	local player = PlayerResource:GetPlayer(playerid)
+		local hero = player:GetAssignedHero()
+		local time = GameRules:GetDOTATime(false, false)
+		local bounty = 100
+		local exp = 100
+		if time > 90 then
+			bounty = 50 + 2 * math.floor(time / 60)
+			exp = 50 + 5 * math.floor(time / 60)
+		end
+		print("bounty picked up " .. bounty .. " " .. exp)
+		hero:ModifyGold(bounty, true, DOTA_ModifyGold_BountyRune)
+		hero:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, true)
+		local bottle = hero:FindItemInInventory("item_bottle")
+		if bottle ~= nil and bottle:GetItemState() == 1 then
+			bottle:SetCurrentCharges(3)
+		end
 	end
 end
