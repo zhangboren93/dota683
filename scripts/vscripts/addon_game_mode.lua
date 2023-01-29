@@ -133,7 +133,6 @@ end
 function CAddonTemplateGameMode:OnThink()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		--print( "Template addon script is running." )
-		-- TODO spawn creep at 30 seconds
 		local time = GameRules:GetDOTATime(false, false) 
 		if time >= 30 and self.hasSpawnNeutralsAt30s == nil then
 			print("Spawn creep at 30s")
@@ -147,7 +146,6 @@ function CAddonTemplateGameMode:OnThink()
 end
 
 -- Add the order filter to your game mode entity
--- TODO tell user glyph and scan are disabled
 function CAddonTemplateGameMode:OrderFilter(event)
     --Check if the order is the glyph type
     if event.order_type == DOTA_UNIT_ORDER_GLYPH then
@@ -260,10 +258,21 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 
 	if entity:GetName() == "npc_dota_creep_lane" then
 		entity:SetThink(function()
-			--print(entity:GetMinimumGoldBounty() .. " " .. entity:GetMaximumGoldBounty() .. " " .. entity:GetGoldBounty())
+			local unitname = entity:GetUnitName()
+			-- unset gold and experience gain for ranged creep. 
+			-- Current value +8 exp, +6 gold per level. Value after adjustment is +0 exp, and +1 gold per level.
+			if unitname == "npc_dota_creep_goodguys_ranged" or unitname == "npc_dota_creep_badguys_ranged" then
+    			local time = GameRules:GetDOTATime(false, false) 
+				local creeplevel = math.floor((time + 5) / 450)
+				--print(time .. " creeplevel " .. creeplevel)
+    			entity:SetDeathXP(entity:GetDeathXP() - creeplevel * 8)
+    			entity:SetMinimumGoldBounty(entity:GetMinimumGoldBounty() - creeplevel * 5)
+    			entity:SetMaximumGoldBounty(entity:GetMaximumGoldBounty() - creeplevel * 5)
+			end
 			entity:RemoveModifierByName("modifier_creep_bonus_xp")
 			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
 			entity:SetBaseMagicalResistanceValue(0)
+
 		end, "remove flag bearer bonus", 1)
 	end
 
