@@ -229,6 +229,7 @@
 	{
 		"Ability1"					""			// Ability 1.
 	}
+	// TODO Ranged creep each level +1 gold, +0 experience; current behavior +6gold, +8experience
 	"npc_dota_creep_badguys_ranged"
 	{
 		"BountyXP"					"41"		// Experience earn.
