@@ -122,7 +122,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		HandleModifierEvent(event.eventname, event.caster, event.ability)
 	end, nil)
 	ListenToGameEvent('entity_killed', function(event)
-		HandleEntityKilled(event.entindex_killed)
+		HandleEntityKilled(event.entindex_killed, event.entindex_attacker)
 	end, nil)
 	ListenToGameEvent('dota_rune_activated_server', function(event)
 		HandleRuneActivated(event.PlayerID, event.rune)
@@ -311,8 +311,9 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 	end
 end
 
-function HandleEntityKilled(entityIdx)
+function HandleEntityKilled(entityIdx, attackerIdx)
 	local entity = EntIndexToHScript(entityIdx)
+	local attacker = EntIndexToHScript(attackerIdx)
 	local name = entity:GetName()
 	if name == "dota_badguys_tower1_mid"
 		or name == "dota_badguys_tower1_top"
@@ -324,6 +325,11 @@ function HandleEntityKilled(entityIdx)
 		or name == "dota_goodguys_tower1_bot" then
 		local fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		fountain:FindAbilityByName("glyph_datadriven"):EndCooldown()
+	end
+	if IsServer() and entity:IsHero() and not entity:IsIllusion() and attacker:IsHero() then
+		print("gives extra 100 gold")
+		attacker:ModifyGold(100, true, DOTA_ModifyGold_HeroKill)
+		attacker:AddExperience(50, DOTA_ModifyXP_HeroKill, false, false)
 	end
 end
 
@@ -340,7 +346,7 @@ function HandleRuneActivated(playerid, rune)
 		end
 		print("bounty picked up " .. bounty .. " " .. exp)
 		hero:ModifyGold(bounty, true, DOTA_ModifyGold_BountyRune)
-		hero:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, true)
+		hero:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, false)
 		local bottle = hero:FindItemInInventory("item_bottle")
 		if bottle ~= nil and bottle:GetItemState() == 1 then
 			bottle:SetCurrentCharges(3)
