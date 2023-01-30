@@ -136,7 +136,16 @@ function CAddonTemplateGameMode:OnThink()
 		local time = GameRules:GetDOTATime(false, false) 
 		if time >= 30 and self.hasSpawnNeutralsAt30s == nil then
 			print("Spawn creep at 30s")
-			GameRules:SpawnNeutralCreeps()
+			local spawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
+			for i,v in pairs(spawners) do
+				v:CreatePendingUnits()
+				v:CreatePendingUnits()
+				v:CreatePendingUnits()
+				v:CreatePendingUnits()
+				v:CreatePendingUnits()
+				v:SpawnNextBatch(false)
+			end
+			--GameRules:SpawnNeutralCreeps()
 			self.hasSpawnNeutralsAt30s = true
 		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
