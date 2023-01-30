@@ -1,7 +1,28 @@
-# dota6.83
+# dota6.83 - dota2 custom game
 
 #### Description
-{**When you're done, you can delete the content in this README and update the file with details for others getting started with your repository**}
+An attempt to migrate dota 6.83's balence.
+
+Features:
+- All Pick
+- Remove talents, Ags shard, and new heroes introduced after Monkyey King
+- Cap hero level to 25, and adjust experience table
+- Adjust items and remove neutral items
+- Addd side shops(near the tree trunks), remove watch tower, remove bounty rune spawner, remove flag bearer creep, remove tower aura.
+- Adjust attribute bonus (health gain, regen for strength and mana gain, regen for intellect)
+- Adjust neutral creep's experience & gold. Spawn first wave of neutral creeps 30 seconds into the game
+- Courier needs to be bought and shared with it's ability. Courier upgrades to flying at level 4, doesn't increase its speed or health with time
+- Backpack cooldown to 15s
+- Remove melee hero's innate block. Stout sheild can be bought.
+- Rewrite TD. Check TD cooldown at the fountain.
+- Disable Scan
+- Bounty rune now give personal gold and experience, and not to the team.
+- Randoming hero pick gives 200 extra gold
+- No free TP after death
+
+mod is open-source ：https://gitee.com/bobo1993324/dota6.83
+Bug report at：https://gitee.com/bobo1993324/dota6.83/issues
+Thanks to SpellLibrary for implementation of some of the items：https://github.com/Pizzalol/SpellLibrary
 
 #### Software Architecture
 Software architecture description
