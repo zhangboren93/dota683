@@ -5,6 +5,12 @@
 {
 	"npc_dota_hero_abaddon"				
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "2.7"
+ "AttributeBaseAgility"  "17"
+ "AttributeAgilityGain"   "1.5"  
+ "AttributeBaseIntelligence" "21"  
+ "AttributeIntelligenceGain"  "2"    
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -16,6 +22,12 @@
 	}
 	"npc_dota_hero_ancient_apparition" 	
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "1.4"
+ "AttributeBaseAgility"  "20"
+ "AttributeAgilityGain"   "2.2"  
+ "AttributeBaseIntelligence" "25"  
+ "AttributeIntelligenceGain"  "2.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -27,6 +39,12 @@
 	}
 	"npc_dota_hero_antimage"			
 	{
+"AttributeBaseStrength"   "22"
+ "AttributeStrengthGain"   "1.2"
+ "AttributeBaseAgility"  "22"
+ "AttributeAgilityGain"   "2.8"  
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "1.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -38,6 +56,7 @@
 	}
 	"npc_dota_hero_arc_warden"			
 	{
+		//TODO fix attributes
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -49,6 +68,12 @@
 	}
 	"npc_dota_hero_axe"					
 	{
+"AttributeBaseStrength"   "25"
+ "AttributeStrengthGain"   "2.5"
+ "AttributeBaseAgility"  "20"
+ "AttributeAgilityGain"   "2.2"  
+ "AttributeBaseIntelligence" "18"  
+ "AttributeIntelligenceGain"  "1.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -60,6 +85,12 @@
 	}
 	"npc_dota_hero_bane"				
 	{
+"AttributeBaseStrength"   "22"
+ "AttributeStrengthGain"   "2.1"
+ "AttributeBaseAgility"  "22"
+ "AttributeAgilityGain"   "2.1"  
+ "AttributeBaseIntelligence" "22"  
+ "AttributeIntelligenceGain"  "2.1"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -71,6 +102,12 @@
 	}
 	"npc_dota_hero_beastmaster"			
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "2.2"
+ "AttributeBaseAgility"  "18"
+ "AttributeAgilityGain"   "1.6"  
+ "AttributeBaseIntelligence" "16"  
+ "AttributeIntelligenceGain"  "1.9"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -82,6 +119,12 @@
 	}
 	"npc_dota_hero_brewmaster"			
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "2.9"
+ "AttributeBaseAgility"  "22"
+ "AttributeAgilityGain"   "1.95" 
+ "AttributeBaseIntelligence"  "14" 
+ "AttributeIntelligenceGain"   "1.25"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -93,6 +136,12 @@
 	}
 	"npc_dota_hero_centaur"				
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "3.8"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "2"    
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "1.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -104,6 +153,12 @@
 	}
 	"npc_dota_hero_chaos_knight"		
 	{
+"AttributeBaseStrength"   "20"
+ "AttributeStrengthGain"   "2.9"
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "2.1"  
+ "AttributeBaseIntelligence" "16"  
+ "AttributeIntelligenceGain"  "1.2"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -115,6 +170,12 @@
 	}
 	"npc_dota_hero_crystal_maiden"		
 	{
+"AttributeBaseStrength"   "16"
+ "AttributeStrengthGain"   "1.7"
+ "AttributeBaseAgility"  "16"
+ "AttributeAgilityGain"   "1.6"  
+ "AttributeBaseIntelligence" "16"  
+ "AttributeIntelligenceGain"  "2.9"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -126,6 +187,12 @@
 	}
 	"npc_dota_hero_dazzle"				
 	{
+"AttributeBaseStrength"   "16"
+ "AttributeStrengthGain"   "1.85"
+ "AttributeBaseAgility"  "21"
+"AttributeAgilityGain"   "1.7"  
+ "AttributeBaseIntelligence" "27"  
+ "AttributeIntelligenceGain"  "3.4"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -137,6 +204,12 @@
 	}
 	"npc_dota_hero_dragon_knight"		
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "2.8"
+ "AttributeBaseAgility"  "19"
+ "AttributeAgilityGain"   "2.2"  
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "1.7"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -148,6 +221,12 @@
 	}
 	"npc_dota_hero_drow_ranger"			
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "1.9"
+ "AttributeBaseAgility"  "26"
+ "AttributeAgilityGain"   "1.9"  
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "1.4"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -159,6 +238,12 @@
 	}
 	"npc_dota_hero_earthshaker"			
 	{
+"AttributeBaseStrength"   "22"
+ "AttributeStrengthGain"   "2.9"
+ "AttributeBaseAgility"  "12"
+ "AttributeAgilityGain"   "1.4"  
+ "AttributeBaseIntelligence" "16"  
+ "AttributeIntelligenceGain"  "1.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -170,6 +255,12 @@
 	}
 	"npc_dota_hero_faceless_void"		
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "1.6"
+ "AttributeBaseAgility"  "23"
+ "AttributeAgilityGain"   "2.65" 
+ "AttributeBaseIntelligence"  "15" 
+ "AttributeIntelligenceGain"   "1.5" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -181,6 +272,12 @@
 	}
 	"npc_dota_hero_juggernaut"			
 	{
+"AttributeBaseStrength"   "20"
+ "AttributeStrengthGain"   "1.9"
+ "AttributeBaseAgility"  "26"
+ "AttributeAgilityGain"   "2.85" 
+ "AttributeBaseIntelligence"  "14" 
+ "AttributeIntelligenceGain"   "1.4" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -192,6 +289,12 @@
 	}
 	"npc_dota_hero_leshrac"				
 	{
+"AttributeBaseStrength"   "14"
+ "AttributeStrengthGain"   "1.65"
+ "AttributeBaseAgility"  "20"
+"AttributeAgilityGain"   "2.5"  
+ "AttributeBaseIntelligence" "19"  
+ "AttributeIntelligenceGain"  "1.85" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -203,6 +306,12 @@
 	}
 	"npc_dota_hero_lich"				
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "1.55"
+ "AttributeBaseAgility"  "15"
+"AttributeAgilityGain"   "2"    
+ "AttributeBaseIntelligence" "18"  
+ "AttributeIntelligenceGain"  "3.25" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -214,6 +323,12 @@
 	}
 	"npc_dota_hero_life_stealer"		
 	{
+"AttributeBaseStrength"   "25"
+ "AttributeStrengthGain"   "2.4"
+ "AttributeBaseAgility"  "18"
+ "AttributeAgilityGain"   "1.9"  
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "1.75" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -225,6 +340,12 @@
 	}
 	"npc_dota_hero_lina"				
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "1.5"
+ "AttributeBaseAgility"  "16"
+ "AttributeAgilityGain"   "1.5"  
+ "AttributeBaseIntelligence" "27"  
+ "AttributeIntelligenceGain"  "3.2"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -236,6 +357,12 @@
 	}
 	"npc_dota_hero_lion"				
 	{
+"AttributeBaseStrength"   "16"
+ "AttributeStrengthGain"   "1.7"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "1.5"  
+ "AttributeBaseIntelligence" "22"  
+ "AttributeIntelligenceGain"  "3.0"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -247,6 +374,12 @@
 	}
 	"npc_dota_hero_luna"				
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "1.6"
+ "AttributeBaseAgility"  "16"
+ "AttributeAgilityGain"   "1.6"  
+ "AttributeBaseIntelligence" "21"  
+ "AttributeIntelligenceGain"  "3.0"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -258,6 +391,12 @@
 	}
 	"npc_dota_hero_lycan"				
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "2.7"
+ "AttributeBaseAgility"  "21"
+ "AttributeAgilityGain"   "2"    
+ "AttributeBaseIntelligence" "14"  
+ "AttributeIntelligenceGain"  "1.3"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -269,6 +408,12 @@
 	}
 	"npc_dota_hero_magnataur"			
 	{
+"AttributeBaseStrength"   "21"
+ "AttributeStrengthGain"   "2.75"
+ "AttributeBaseAgility"  "15"
+"AttributeAgilityGain"   "2.5"  
+ "AttributeBaseIntelligence" "19"  
+ "AttributeIntelligenceGain"  "1.65" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -280,6 +425,12 @@
 	}
 	"npc_dota_hero_medusa"				
 	{
+"AttributeBaseStrength"   "14"
+ "AttributeStrengthGain"   "1.65"
+ "AttributeBaseAgility"  "20"
+"AttributeAgilityGain"   "2.5"  
+ "AttributeBaseIntelligence" "19"  
+ "AttributeIntelligenceGain"  "1.85" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -291,6 +442,12 @@
 	}
 	"npc_dota_hero_morphling"			
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "2"    
+ "AttributeBaseAgility"  "23"
+ "AttributeAgilityGain"   "2.2"
+ "AttributeBaseIntelligence"   "16"
+ "AttributeIntelligenceGain"    "1.9"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -302,6 +459,12 @@
 	}
 	"npc_dota_hero_naga_siren"			
 	{
+"AttributeBaseStrength"   "21"
+ "AttributeStrengthGain"   "2.3"
+ "AttributeBaseAgility"  "21"
+ "AttributeAgilityGain"   "2.75" 
+ "AttributeBaseIntelligence"  "18" 
+ "AttributeIntelligenceGain"   "1.95"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -313,6 +476,12 @@
 	}
 	"npc_dota_hero_nevermore"			
 	{
+"AttributeBaseStrength"   "15"
+ "AttributeStrengthGain"   "2"    
+ "AttributeBaseAgility"  "20"
+ "AttributeAgilityGain"   "2.9"
+ "AttributeBaseIntelligence"   "18"
+ "AttributeIntelligenceGain"    "2"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -324,6 +493,12 @@
 	}
 	"npc_dota_hero_night_stalker"		
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "2.8"
+ "AttributeBaseAgility"  "18"
+ "AttributeAgilityGain"   "2.25" 
+ "AttributeBaseIntelligence"  "16" 
+ "AttributeIntelligenceGain"   "1.6" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -335,6 +510,12 @@
 	}
 	"npc_dota_hero_nyx_assassin"		
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "2"    
+ "AttributeBaseAgility"  "19"
+ "AttributeAgilityGain"   "2.2"
+ "AttributeBaseIntelligence"   "18"
+ "AttributeIntelligenceGain"    "2.1"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -346,6 +527,12 @@
 	}
 	"npc_dota_hero_obsidian_destroyer"	
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "1.85"
+ "AttributeBaseAgility"  "24"
+"AttributeAgilityGain"   "2"    
+ "AttributeBaseIntelligence" "26"  
+ "AttributeIntelligenceGain"  "3.3"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -357,6 +544,12 @@
 	}
 	"npc_dota_hero_ogre_magi"			
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "3.2"
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "1.55" 
+ "AttributeBaseIntelligence"  "17" 
+ "AttributeIntelligenceGain"   "2.4" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -368,6 +561,12 @@
 	}
 	"npc_dota_hero_omniknight"			
 	{
+"AttributeBaseStrength"   "20"
+ "AttributeStrengthGain"   "2.65"
+ "AttributeBaseAgility"  "15"
+"AttributeAgilityGain"   "1.75" 
+ "AttributeBaseIntelligence"  "17" 
+ "AttributeIntelligenceGain"   "1.8" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -379,6 +578,12 @@
 	}
 	"npc_dota_hero_oracle"				
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "1.9"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "1.7"  
+ "AttributeBaseIntelligence" "23"  
+ "AttributeIntelligenceGain"  "2.9"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -390,6 +595,12 @@
 	}
 	"npc_dota_hero_pugna"				
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "1.2"
+ "AttributeBaseAgility"  "16"
+ "AttributeAgilityGain"   "1.0"  
+ "AttributeBaseIntelligence" "26"  
+ "AttributeIntelligenceGain"  "4"    
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -401,6 +612,12 @@
 	}
 	"npc_dota_hero_rattletrap"			
 	{
+"AttributeBaseStrength"   "24"
+ "AttributeStrengthGain"   "2.7"
+ "AttributeBaseAgility"  "13"
+ "AttributeAgilityGain"   "2.3"  
+ "AttributeBaseIntelligence" "17"  
+ "AttributeIntelligenceGain"  "1.3"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -412,6 +629,12 @@
 	}
 	"npc_dota_hero_razor"				
 	{
+"AttributeBaseStrength"   "21"
+ "AttributeStrengthGain"   "2.3"
+ "AttributeBaseAgility"  "22"
+ "AttributeAgilityGain"   "2"    
+ "AttributeBaseIntelligence" "19"  
+ "AttributeIntelligenceGain"  "1.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -423,6 +646,12 @@
 	}
 	"npc_dota_hero_shadow_demon"		
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "1.9"
+ "AttributeBaseAgility"  "18"
+ "AttributeAgilityGain"   "2.2"  
+ "AttributeBaseIntelligence" "23"  
+ "AttributeIntelligenceGain"  "2.7"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -434,6 +663,12 @@
 	}
 	"npc_dota_hero_shadow_shaman"		
 	{
+"AttributeBaseStrength"   "16"
+ "AttributeStrengthGain"   "1.8"
+ "AttributeBaseAgility"  "13"
+ "AttributeAgilityGain"   "1.4"  
+ "AttributeBaseIntelligence" "24"  
+ "AttributeIntelligenceGain"  "2.9"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -445,6 +680,12 @@
 	}
 	"npc_dota_hero_skeleton_king"		
 	{
+"AttributeBaseStrength"   "22"
+ "AttributeStrengthGain"   "2.9"
+ "AttributeBaseAgility"  "18"
+ "AttributeAgilityGain"   "1.7"  
+ "AttributeBaseIntelligence" "18"  
+ "AttributeIntelligenceGain"  "1.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -456,6 +697,12 @@
 	}
 	"npc_dota_hero_skywrath_mage"		
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "1.5"
+ "AttributeBaseAgility"  "13"
+ "AttributeAgilityGain"   "0.8"  
+ "AttributeBaseIntelligence" "27"  
+ "AttributeIntelligenceGain"  "3.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -467,6 +714,12 @@
 	}
 	"npc_dota_hero_slardar"				
 	{
+"AttributeBaseStrength"   "21"
+ "AttributeStrengthGain"   "2.8"
+ "AttributeBaseAgility"  "17"
+ "AttributeAgilityGain"   "2.4"  
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "1.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -478,6 +731,12 @@
 	}
 	"npc_dota_hero_slark"				
 	{
+"AttributeBaseStrength"   "21"
+ "AttributeStrengthGain"   "1.8"
+ "AttributeBaseAgility"  "21"
+ "AttributeAgilityGain"   "1.5"  
+ "AttributeBaseIntelligence" "16"  
+ "AttributeIntelligenceGain"  "1.9"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -489,6 +748,12 @@
 	}
 	"npc_dota_hero_sniper"				
 	{
+"AttributeBaseStrength"   "16"
+ "AttributeStrengthGain"   "1.7"
+ "AttributeBaseAgility"  "21"
+ "AttributeAgilityGain"   "2.9"  
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "2.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -500,6 +765,12 @@
 	}
 	"npc_dota_hero_spirit_breaker"		
 	{
+"AttributeBaseStrength"   "29"
+ "AttributeStrengthGain"   "2.4"
+ "AttributeBaseAgility"  "17"
+ "AttributeAgilityGain"   "1.7"  
+ "AttributeBaseIntelligence" "14"  
+ "AttributeIntelligenceGain"  "1.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -511,6 +782,12 @@
 	}
 	"npc_dota_hero_sven"				
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "2.7"
+ "AttributeBaseAgility"  "21"
+ "AttributeAgilityGain"   "2"    
+ "AttributeBaseIntelligence" "14"  
+ "AttributeIntelligenceGain"  "1.3"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -522,6 +799,12 @@
 	}
 	"npc_dota_hero_terrorblade"			
 	{
+"AttributeBaseStrength"   "15"
+ "AttributeStrengthGain"   "1.4"
+ "AttributeBaseAgility"  "22"
+ "AttributeAgilityGain"   "3.2"  
+ "AttributeBaseIntelligence" "19"  
+ "AttributeIntelligenceGain"  "1.75" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -533,6 +816,12 @@
 	}
 	"npc_dota_hero_tidehunter"			
 	{
+"AttributeBaseStrength"   "22"
+ "AttributeStrengthGain"   "3.0"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "1.5"  
+ "AttributeBaseIntelligence" "16"  
+ "AttributeIntelligenceGain"  "1.7"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -544,6 +833,12 @@
 	}
 	"npc_dota_hero_troll_warlord"		
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "2.2"
+ "AttributeBaseAgility"  "21"
+ "AttributeAgilityGain"   "2.75" 
+ "AttributeBaseIntelligence"  "13" 
+ "AttributeIntelligenceGain"   "1.0" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -555,6 +850,12 @@
 	}
 	"npc_dota_hero_tusk"				
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "2.3"
+ "AttributeBaseAgility"  "23"
+ "AttributeAgilityGain"   "2.1"  
+ "AttributeBaseIntelligence" "18"  
+ "AttributeIntelligenceGain"  "1.7"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -566,6 +867,12 @@
 	}
 	"npc_dota_hero_vengefulspirit"		
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "2.6"
+ "AttributeBaseAgility"  "27"
+ "AttributeAgilityGain"   "2.8"  
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "1.75" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -577,6 +884,12 @@
 	}
 	"npc_dota_hero_viper"				
 	{
+"AttributeBaseStrength"   "20"
+ "AttributeStrengthGain"   "1.9"
+ "AttributeBaseAgility"  "21"
+ "AttributeAgilityGain"   "2.5"  
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "1.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -588,6 +901,12 @@
 	}
 	"npc_dota_hero_visage"				
 	{
+"AttributeBaseStrength"   "22"
+ "AttributeStrengthGain"   "2.4"
+ "AttributeBaseAgility"  "11"
+ "AttributeAgilityGain"   "1.3"  
+ "AttributeBaseIntelligence" "24"  
+ "AttributeIntelligenceGain"  "2.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -599,6 +918,12 @@
 	}
 	"npc_dota_hero_warlock"				
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "2.5"
+ "AttributeBaseAgility"  "10"
+ "AttributeAgilityGain"   "1.0"  
+ "AttributeBaseIntelligence" "24"  
+ "AttributeIntelligenceGain"  "2.7"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -610,6 +935,12 @@
 	}
 	"npc_dota_hero_weaver"				
 	{
+"AttributeBaseStrength"   "15"
+ "AttributeStrengthGain"   "1.5"
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "2.5"  
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "1.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -621,6 +952,12 @@
 	}
 	"npc_dota_hero_windrunner"			
 	{
+"AttributeBaseStrength"   "15"
+ "AttributeStrengthGain"   "2.5"
+ "AttributeBaseAgility"  "17"
+ "AttributeAgilityGain"   "1.4"  
+ "AttributeBaseIntelligence" "22"  
+ "AttributeIntelligenceGain"  "2.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -632,6 +969,12 @@
 	}
 	"npc_dota_hero_witch_doctor"		
 	{
+"AttributeBaseStrength"   "16"
+ "AttributeStrengthGain"   "1.8"
+ "AttributeBaseAgility"  "13"
+ "AttributeAgilityGain"   "1.4"  
+ "AttributeBaseIntelligence" "24"  
+ "AttributeIntelligenceGain"  "2.9"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -643,6 +986,7 @@
 	}
 	"npc_dota_hero_abyssal_underlord"	
 	{
+		//TODO add attribute gains
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -654,6 +998,12 @@
 	}
 	"npc_dota_hero_alchemist"			
 	{
+"AttributeBaseStrength"   "25"
+ "AttributeStrengthGain"   "1.8"
+ "AttributeBaseAgility"  "11"
+ "AttributeAgilityGain"   "1.2"  
+ "AttributeBaseIntelligence" "25"  
+ "AttributeIntelligenceGain"  "1.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -665,6 +1015,12 @@
 	}
 	"npc_dota_hero_bounty_hunter"		
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "1.8"
+ "AttributeBaseAgility"  "21"
+ "AttributeAgilityGain"   "3.0"  
+ "AttributeBaseIntelligence" "19"  
+ "AttributeIntelligenceGain"  "1.4"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -676,6 +1032,12 @@
 	}
 	"npc_dota_hero_clinkz"				
 	{
+"AttributeBaseStrength"   "16"
+ "AttributeStrengthGain"   "1.5"
+ "AttributeBaseAgility"  "23"
+ "AttributeAgilityGain"   "1.7"  
+ "AttributeBaseIntelligence" "26"  
+ "AttributeIntelligenceGain"  "3.0"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -687,6 +1049,12 @@
 	}
 	"npc_dota_hero_death_prophet"		
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "1.9"
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "1.4"  
+ "AttributeBaseIntelligence" "20"  
+ "AttributeIntelligenceGain"  "3.0"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -698,6 +1066,12 @@
 	}
 	"npc_dota_hero_disruptor"			
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "1.9"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "1.4"  
+ "AttributeBaseIntelligence" "22"  
+ "AttributeIntelligenceGain"  "2.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -709,6 +1083,12 @@
 	}
 	"npc_dota_hero_earth_spirit"		
 	{
+"AttributeBaseStrength"   "21"
+ "AttributeStrengthGain"   "2.9"
+ "AttributeBaseAgility"  "17"
+ "AttributeAgilityGain"   "1.5"  
+ "AttributeBaseIntelligence" "18"  
+ "AttributeIntelligenceGain"  "2.4"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -720,6 +1100,12 @@
 	}
 	"npc_dota_hero_elder_titan"			
 	{
+"AttributeBaseStrength"   "24"
+ "AttributeStrengthGain"   "2.3"
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "1.5"  
+ "AttributeBaseIntelligence" "23"  
+ "AttributeIntelligenceGain"  "1.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -731,6 +1117,12 @@
 	}
 	"npc_dota_hero_ember_spirit"		
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "2"    
+ "AttributeBaseAgility"  "22"
+ "AttributeAgilityGain"   "1.8"
+ "AttributeBaseIntelligence"   "20"
+ "AttributeIntelligenceGain"    "1.8"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -742,6 +1134,12 @@
 	}
 	"npc_dota_hero_enigma"					
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "2.1"
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "1.0"  
+ "AttributeBaseIntelligence" "20"  
+ "AttributeIntelligenceGain"  "3.4"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -753,6 +1151,12 @@
 	}
 	"npc_dota_hero_gyrocopter"			
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "1.8"
+ "AttributeBaseAgility"  "24"
+ "AttributeAgilityGain"   "2.8"  
+ "AttributeBaseIntelligence" "23"  
+ "AttributeIntelligenceGain"  "2.1"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -764,6 +1168,12 @@
 	}
 	"npc_dota_hero_huskar"				
 	{
+"AttributeBaseStrength"   "21"
+ "AttributeStrengthGain"   "2.4"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "1.4"  
+ "AttributeBaseIntelligence" "18"  
+ "AttributeIntelligenceGain"  "1.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -775,6 +1185,12 @@
 	}
 	"npc_dota_hero_invoker"				
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "1.7"
+ "AttributeBaseAgility"  "20"
+ "AttributeAgilityGain"   "1.9"  
+ "AttributeBaseIntelligence" "22"  
+ "AttributeIntelligenceGain"  "2.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -786,6 +1202,12 @@
 	}
 	"npc_dota_hero_jakiro"					
 	{
+"AttributeBaseStrength"   "24"
+ "AttributeStrengthGain"   "2.3"
+ "AttributeBaseAgility"  "10"
+ "AttributeAgilityGain"   "1.2"  
+ "AttributeBaseIntelligence" "28"  
+ "AttributeIntelligenceGain"  "2.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -797,6 +1219,12 @@
 	}
 	"npc_dota_hero_keeper_of_the_light"	
 	{
+"AttributeBaseStrength"   "14"
+ "AttributeStrengthGain"   "1.8"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "1.6"  
+ "AttributeBaseIntelligence" "22"  
+ "AttributeIntelligenceGain"  "2.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -808,6 +1236,12 @@
 	}
 	"npc_dota_hero_phantom_assassin"	
 	{
+"AttributeBaseStrength"   "20"
+ "AttributeStrengthGain"   "1.85"
+ "AttributeBaseAgility"  "23"
+"AttributeAgilityGain"   "3.15" 
+ "AttributeBaseIntelligence"  "13" 
+ "AttributeIntelligenceGain"   "1.0" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -819,6 +1253,12 @@
 	}
 	"npc_dota_hero_phoenix"				
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "2.9"
+ "AttributeBaseAgility"  "12"
+ "AttributeAgilityGain"   "1.3"  
+ "AttributeBaseIntelligence" "18"  
+ "AttributeIntelligenceGain"  "1.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -830,6 +1270,12 @@
 	}
 	"npc_dota_hero_sand_king"			
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "2.6"
+ "AttributeBaseAgility"  "19"
+ "AttributeAgilityGain"   "2.1"  
+ "AttributeBaseIntelligence" "16"  
+ "AttributeIntelligenceGain"  "1.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -841,6 +1287,12 @@
 	}
 	"npc_dota_hero_silencer"			
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "2.2"
+ "AttributeBaseAgility"  "16"
+ "AttributeAgilityGain"   "3.0"  
+ "AttributeBaseIntelligence" "27"  
+ "AttributeIntelligenceGain"  "2.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -852,6 +1304,12 @@
 	}
 	"npc_dota_hero_tinker"				
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "2"    
+ "AttributeBaseAgility"  "13"
+ "AttributeAgilityGain"   "1.2"
+ "AttributeBaseIntelligence"   "27"
+ "AttributeIntelligenceGain"    "2.2"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -863,6 +1321,12 @@
 	}
 	"npc_dota_hero_tiny"				
 	{
+"AttributeBaseStrength"   "24"
+ "AttributeStrengthGain"   "3.0"
+ "AttributeBaseAgility"  "9" 
+ "AttributeAgilityGain"   "0.9"  
+ "AttributeBaseIntelligence" "14"  
+ "AttributeIntelligenceGain"  "1.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -874,6 +1338,12 @@
 	}
 	"npc_dota_hero_treant"					
 	{
+"AttributeBaseStrength"   "25"
+ "AttributeStrengthGain"   "3.3"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "2"    
+ "AttributeBaseIntelligence" "17"  
+ "AttributeIntelligenceGain"  "1.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -885,6 +1355,12 @@
 	}
 	"npc_dota_hero_venomancer"			
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "1.85"
+ "AttributeBaseAgility"  "22"
+"AttributeAgilityGain"   "2.6"  
+ "AttributeBaseIntelligence" "15"  
+ "AttributeIntelligenceGain"  "1.75" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -896,6 +1372,7 @@
 	}
 	"npc_dota_hero_winter_wyvern"		
 	{
+		//TODO add attributes
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -907,6 +1384,12 @@
 	}
 	"npc_dota_hero_bristleback"			
 	{
+"AttributeBaseStrength"   "22"
+ "AttributeStrengthGain"   "2.2"
+ "AttributeBaseAgility"  "17"
+ "AttributeAgilityGain"   "1.8"  
+ "AttributeBaseIntelligence" "14"  
+ "AttributeIntelligenceGain"  "2.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -918,6 +1401,12 @@
 	}
 	"npc_dota_hero_storm_spirit"		
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "1.5"
+ "AttributeBaseAgility"  "22"
+ "AttributeAgilityGain"   "1.8"  
+ "AttributeBaseIntelligence" "23"  
+ "AttributeIntelligenceGain"  "2.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -929,6 +1418,12 @@
 	}
 	"npc_dota_hero_wisp"				
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "1.9"
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "1.6"  
+ "AttributeBaseIntelligence" "23"  
+ "AttributeIntelligenceGain"  "1.7"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -940,6 +1435,12 @@
 	}
 	"npc_dota_hero_dark_seer"			
 	{
+"AttributeBaseStrength"   "22"
+ "AttributeStrengthGain"   "2.3"
+ "AttributeBaseAgility"  "12"
+ "AttributeAgilityGain"   "1.2"  
+ "AttributeBaseIntelligence" "29"  
+ "AttributeIntelligenceGain"  "2.7"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -951,6 +1452,12 @@
 	}
 	"npc_dota_hero_lone_druid"			
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "2.1"
+ "AttributeBaseAgility"  "24"
+ "AttributeAgilityGain"   "2.7"  
+ "AttributeBaseIntelligence" "13"  
+ "AttributeIntelligenceGain"  "1.4"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -962,6 +1469,12 @@
 	}
 	"npc_dota_hero_mirana"				
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "1.85"
+ "AttributeBaseAgility"  "20"
+"AttributeAgilityGain"   "2.75" 
+ "AttributeBaseIntelligence"  "17" 
+ "AttributeIntelligenceGain"   "1.65"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -973,6 +1486,12 @@
 	}
 	"npc_dota_hero_necrolyte"			
 	{
+"AttributeBaseStrength"   "16"
+ "AttributeStrengthGain"   "2"    
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "1.7"
+ "AttributeBaseIntelligence"   "22"
+ "AttributeIntelligenceGain"    "2.5"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -984,6 +1503,12 @@
 	}
 	"npc_dota_hero_puck"				
 	{
+"AttributeBaseStrength"   "15"
+ "AttributeStrengthGain"   "1.7"
+ "AttributeBaseAgility"  "22"
+ "AttributeAgilityGain"   "1.7"  
+ "AttributeBaseIntelligence" "25"  
+ "AttributeIntelligenceGain"  "2.4"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -995,6 +1520,12 @@
 	}
 	"npc_dota_hero_pudge"				
 	{
+"AttributeBaseStrength"   "25"
+ "AttributeStrengthGain"   "3.2"
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "1.5"  
+ "AttributeBaseIntelligence" "14"  
+ "AttributeIntelligenceGain"  "1.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1006,6 +1537,12 @@
 	}
 	"npc_dota_hero_queenofpain"			
 	{
+"AttributeBaseStrength"   "16"
+ "AttributeStrengthGain"   "1.7"
+ "AttributeBaseAgility"  "18"
+ "AttributeAgilityGain"   "2"    
+ "AttributeBaseIntelligence" "24"  
+ "AttributeIntelligenceGain"  "2.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1017,6 +1554,12 @@
 	}
 	"npc_dota_hero_riki"				
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "2"    
+ "AttributeBaseAgility"  "34"
+ "AttributeAgilityGain"   "2.9"
+ "AttributeBaseIntelligence"   "14"
+ "AttributeIntelligenceGain"    "1.3"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1028,6 +1571,12 @@
 	}
 	"npc_dota_hero_rubick"				
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "1.5"
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "1.6"  
+ "AttributeBaseIntelligence" "27"  
+ "AttributeIntelligenceGain"  "2.4"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1039,6 +1588,12 @@
 	}
 	"npc_dota_hero_techies"				
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "2"    
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "1.3"
+ "AttributeBaseIntelligence"   "22"
+ "AttributeIntelligenceGain"    "2.9"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1050,6 +1605,12 @@
 	}
 	"npc_dota_hero_templar_assassin"	
 	{
+"AttributeBaseStrength"   "18"
+ "AttributeStrengthGain"   "2.1"
+ "AttributeBaseAgility"  "23"
+ "AttributeAgilityGain"   "2.7"  
+ "AttributeBaseIntelligence" "20"  
+ "AttributeIntelligenceGain"  "2"    
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1061,6 +1622,12 @@
 	}
 	"npc_dota_hero_zuus"				
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "2.3"
+ "AttributeBaseAgility"  "11"
+ "AttributeAgilityGain"   "1.2"  
+ "AttributeBaseIntelligence" "20"  
+ "AttributeIntelligenceGain"  "2.7"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1072,6 +1639,12 @@
 	}
 	"npc_dota_hero_batrider"			
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "2.4"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "1.5"  
+ "AttributeBaseIntelligence" "24"  
+ "AttributeIntelligenceGain"  "2.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1083,6 +1656,12 @@
 	}
 	"npc_dota_hero_bloodseeker"			
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "2"    
+ "AttributeBaseAgility"  "24"
+ "AttributeAgilityGain"  "3.0" 
+ "AttributeBaseIntelligence"  "18" 
+ "AttributeIntelligenceGain"   "1.7" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1094,6 +1673,12 @@
 	}
 	"npc_dota_hero_broodmother"			
 	{
+"AttributeBaseStrength"   "17"
+ "AttributeStrengthGain"   "2.5"
+ "AttributeBaseAgility"  "18"
+ "AttributeAgilityGain"   "2.2"  
+ "AttributeBaseIntelligence" "18"  
+ "AttributeIntelligenceGain"  "2"    
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1105,6 +1690,12 @@
 	}
 	"npc_dota_hero_chen"				
 	{
+"AttributeBaseStrength"   "20"
+ "AttributeStrengthGain"   "1.5"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "2.1"  
+ "AttributeBaseIntelligence" "21"  
+ "AttributeIntelligenceGain"  "2.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1116,6 +1707,12 @@
 	}
 	"npc_dota_hero_doom_bringer"		
 	{
+"AttributeBaseStrength"   "26"
+ "AttributeStrengthGain"   "3.2"
+ "AttributeBaseAgility"  "11"
+ "AttributeAgilityGain"   "0.9"  
+ "AttributeBaseIntelligence" "13"  
+ "AttributeIntelligenceGain"  "2.1"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1127,6 +1724,12 @@
 	}
 	"npc_dota_hero_enchantress"			
 	{
+"AttributeBaseStrength"   "16"
+ "AttributeStrengthGain"   "1.0"
+ "AttributeBaseAgility"  "19"
+ "AttributeAgilityGain"   "1.8"  
+ "AttributeBaseIntelligence" "16"  
+ "AttributeIntelligenceGain"  "2.8"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1138,6 +1741,12 @@
 	}
 	"npc_dota_hero_furion"				
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "1.8"
+ "AttributeBaseAgility"  "18"
+ "AttributeAgilityGain"   "1.9"  
+ "AttributeBaseIntelligence" "21"  
+ "AttributeIntelligenceGain"  "2.9"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1149,6 +1758,12 @@
 	}
 	"npc_dota_hero_kunkka"				
 	{
+"AttributeBaseStrength"   "24"
+ "AttributeStrengthGain"   "3.0"
+ "AttributeBaseAgility"  "14"
+ "AttributeAgilityGain"   "1.3"  
+ "AttributeBaseIntelligence" "18"  
+ "AttributeIntelligenceGain"  "1.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1160,6 +1775,12 @@
 	}
 	"npc_dota_hero_legion_commander"	
 	{
+"AttributeBaseStrength"   "26"
+ "AttributeStrengthGain"   "2.6"
+ "AttributeBaseAgility"  "18"
+ "AttributeAgilityGain"   "1.7"  
+ "AttributeBaseIntelligence" "20"  
+ "AttributeIntelligenceGain"  "2.2"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1171,6 +1792,12 @@
 	}
 	"npc_dota_hero_meepo"				
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "1.6"
+ "AttributeBaseAgility"  "23"
+ "AttributeAgilityGain"   "1.9"  
+ "AttributeBaseIntelligence" "20"  
+ "AttributeIntelligenceGain"  "1.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1182,6 +1809,7 @@
 	}
 	"npc_dota_hero_monkey_king"			
 	{
+		// TODO fix attributes
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1193,6 +1821,12 @@
 	}
 	"npc_dota_hero_phantom_lancer"		
 	{
+"AttributeBaseStrength"   "21"
+ "AttributeStrengthGain"   "1.7"
+ "AttributeBaseAgility"  "29"
+ "AttributeAgilityGain"   "3.0"  
+ "AttributeBaseIntelligence" "21"  
+ "AttributeIntelligenceGain"  "2"    
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1204,6 +1838,12 @@
 	}
 	"npc_dota_hero_spectre"				
 	{
+"AttributeBaseStrength"   "19"
+ "AttributeStrengthGain"   "2"    
+ "AttributeBaseAgility"  "23"
+ "AttributeAgilityGain"   "2.2"
+ "AttributeBaseIntelligence"   "16"
+ "AttributeIntelligenceGain"    "1.9"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1215,6 +1855,12 @@
 	}
 	"npc_dota_hero_undying"				
 	{
+"AttributeBaseStrength"   "22"
+ "AttributeStrengthGain"   "2.1"
+ "AttributeBaseAgility"  "10"
+ "AttributeAgilityGain"   "0.8"  
+ "AttributeBaseIntelligence" "27"  
+ "AttributeIntelligenceGain"  "2.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1226,6 +1872,12 @@
 	}
 	"npc_dota_hero_ursa"					
 	{
+"AttributeBaseStrength"   "23"
+ "AttributeStrengthGain"   "2.9"
+ "AttributeBaseAgility"  "18"
+ "AttributeAgilityGain"   "2.1"  
+ "AttributeBaseIntelligence" "16"  
+ "AttributeIntelligenceGain"  "1.5"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
