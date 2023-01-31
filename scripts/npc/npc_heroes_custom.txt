@@ -56,7 +56,12 @@
 	}
 	"npc_dota_hero_arc_warden"			
 	{
-		//TODO fix attributes
+"AttributeBaseStrength"   "24"
+ "AttributeStrengthGain"   "1.9"
+ "AttributeBaseAgility"  "15"
+ "AttributeAgilityGain"   "1.8"  
+ "AttributeBaseIntelligence" "24"  
+ "AttributeIntelligenceGain"  "2.1"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -986,7 +991,12 @@
 	}
 	"npc_dota_hero_abyssal_underlord"	
 	{
-		//TODO add attribute gains
+"AttributeBaseStrength"   "25"
+ "AttributeStrengthGain"   "2.6"
+ "AttributeBaseAgility"  "1.3"
+ "AttributeAgilityGain"   "1.4"  
+ "AttributeBaseIntelligence" "17"  
+ "AttributeIntelligenceGain"  "2.6"  
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1372,7 +1382,12 @@
 	}
 	"npc_dota_hero_winter_wyvern"		
 	{
-		//TODO add attributes
+"AttributeBaseStrength"   "24"
+ "AttributeStrengthGain"   "2.1"
+ "AttributeBaseAgility"  "15"
+"AttributeAgilityGain"   "1.9"  
+ "AttributeBaseIntelligence" "25"  
+ "AttributeIntelligenceGain"  "3.1" 
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1809,7 +1824,12 @@
 	}
 	"npc_dota_hero_monkey_king"			
 	{
-		// TODO fix attributes
+		"AttributeBaseStrength"		"18"
+		"AttributeStrengthGain"		"2.2"
+		"AttributeBaseIntelligence"		"20"
+		"AttributeIntelligenceGain"		"1.8"
+		"AttributeBaseAgility"	"22"
+		"AttributeAgilityGain"	"3.2"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
