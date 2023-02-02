@@ -1295,6 +1295,23 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
+	"npc_dota_hero_shredder"			
+	{
+"AttributeBaseStrength"   "22"
+ "AttributeStrengthGain"   "2.1"
+ "AttributeBaseAgility"  "16"
+ "AttributeAgilityGain"   "1.3"  
+ "AttributeBaseIntelligence" "21"  
+ "AttributeIntelligenceGain"  "2.4"  
+		"Ability10"		"special_bonus_all_stats_4"
+		"Ability11"		"special_bonus_all_stats_5"
+		"Ability12"		"special_bonus_all_stats_6"
+		"Ability13"		"special_bonus_all_stats_7"
+		"Ability14"		"special_bonus_all_stats_8"
+		"Ability15"		"special_bonus_all_stats_10"
+		"Ability16"		"special_bonus_all_stats_12"
+		"Ability17"		"special_bonus_all_stats_14"
+	}
 	"npc_dota_hero_silencer"			
 	{
 "AttributeBaseStrength"   "17"
