@@ -1599,4 +1599,107 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Huskar: Berserker's Blood
+	//=================================================================================================================
+	"huskar_berserkers_blood"
+	{
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"maximum_attack_speed"			"196 224 252 280"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"maximum_health_regen"			"0 0 0 0"
+				"LinkedSpecialBonus"			"special_bonus_unique_huskar_6"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"maximum_magic_resist"			"48 70 84 98"
+				"LinkedSpecialBonus"			"special_bonus_unique_huskar_6"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"hp_threshold_max"				"10"
+			}
+
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	//=================================================================================================================
+	// Huskar: Inner Vitality
+	//=================================================================================================================
+	"huskar_inner_vitality"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5271"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"					   
+		"AbilitySound"					"Hero_Huskar.Inner_Vitality"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"25 22 19 16"
+		"AbilityDuration"				"16 16 16 16"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"170"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// already gets credit for the healing
+
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal"					"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attrib_bonus"			"0.2 0.4 0.6 0.8"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hurt_attrib_bonus"		"0.2 0.4 0.6 0.8"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hurt_percent"			"0.35"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"tooltip_attrib_bonus"			"20 40 60 80"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_hurt_attrib_bonus"		"20 40 60 80"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}	
 }

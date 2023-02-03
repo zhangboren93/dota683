@@ -33,6 +33,7 @@ function purge(event)
         modifier_warlock_shadow_word = true,
         modifier_windrunner_windrun = true,
         modifier_necrolyte_sadist_active = true,
+        modifier_huskar_inner_vitality = true,
         -- TODO add more purgeable modifiers here
     }
 
