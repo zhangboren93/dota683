@@ -388,6 +388,34 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 			end
 			return 2
 		end, "give 90 gold per minute after game start", 2)
+
+		-- techies' remote mine scepter upgrade
+		-- TODO add hotkey for the upgraded ability
+		if entity:GetName() == "npc_dota_hero_techies" then
+			entity:SetThink(function()
+				local ability = nil
+				if entity:HasAbility("techies_remote_mines") then
+					ability = entity:FindAbilityByName("techies_remote_mines")
+				elseif entity:HasAbility("techies_remote_mines_scepter") then
+					ability = entity:FindAbilityByName("techies_remote_mines_scepter")
+				else
+					return 1
+				end
+				local level = ability:GetLevel()
+				if ability:GetLevel() > 0 then
+					if entity:HasScepter() and ability:GetName() == "techies_remote_mines" then
+						local newAbility = entity:AddAbility("techies_remote_mines_scepter")
+						newAbility:SetLevel(level);
+						entity:RemoveAbility("techies_remote_mines")
+					elseif not entity:HasScepter() and ability:GetName() == "techies_remote_mines_scepter" then
+						local newAbility = entity:AddAbility("techies_remote_mines")
+						newAbility:SetLevel(level);
+						entity:RemoveAbility("techies_remote_mines_scepter")
+					end
+				end
+				return 1 
+			end, "techie aghs bonus.", 1)
+		end
     end
 
 	if entity:GetName() == "npc_dota_creep_lane" then
