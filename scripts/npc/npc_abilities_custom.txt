@@ -1788,4 +1788,69 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
+	//=================================================================================================================
+	// Techies: Land Mines
+	//=================================================================================================================
+	"techies_land_mines"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5599"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+	    "MaxLevel"               "4"
+ 	    "RequiredLevel"          "-1"
+    	"LevelsBetweenUpgrades"  "2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		"AbilityCharges"				"3"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"110 130 150 170"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"radius"				"500"
+				"proximity_threshold"				"1.0"
+				"damage"					
+				{
+					"value"			"200 400 600 800"
+					"LinkedSpecialBonus"		"special_bonus_unique_techies_2"
+				}
+				"building_damage_pct"		"30"
+				"activation_delay"			
+				{
+					"value"		"1"
+					"special_bonus_unique_techies_4"	"-0.8"
+				}
+				"cast_range_scepter_bonus"		
+				{
+					"value"		"300"
+					"RequiresScepter"			"1"
+				}
+				"AbilityChargeRestoreTime"
+				{
+					"value"		"15"
+					"special_bonus_unique_techies_3"	"-3"
+				}
+				"outer_damage"				"50"
+				"min_distance"				"150"
+				"placement_radius"			"350"
+				"mres_reduction"			"15 20 25"
+				"burn_duration"				"5"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
 }
