@@ -427,6 +427,11 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 					local bash_chance = ability:GetSpecialValueFor("bash_chance")
 					entity:AddNewModifier(entity, nil, "modifier_troll_warlord_bash", {
 						bonus_damage = bonus_damage, bash_chance = bash_chance})
+
+					local item = entity:FindItemInInventory("item_basher")
+					if item ~= nil then
+						entity:DropItemAtPosition(entity:GetAbsOrigin(), item)
+					end
 				else
 					entity:RemoveModifierByName("modifier_troll_warlord_bash")
 				end

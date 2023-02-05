@@ -2131,4 +2131,53 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
+	//=================================================================================================================
+	//  Troll Warlord: Battle Trance
+	//=================================================================================================================
+	"troll_warlord_battle_trance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5512"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_TrollWarlord.BattleTrance.Cast"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"3"
+
+		"AbilityDraftUltShardAbility" "troll_warlord_rampage"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastPoint"				"0.0 0.0 0.0"
+		"AbilityCastRange"				"525"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"trance_duration"		"6.5"	
+			"AbilityCooldown"
+			{
+				"value"			"90 80 70"
+				"special_bonus_unique_troll_warlord_7"		"-15"
+			}
+			"lifesteal"			"0"
+			"attack_speed"			"140 170 200"
+			"movement_speed"
+			{
+				"value"		"25 30 35"
+				"special_bonus_unique_troll_warlord_battle_trance_movespeed"		"+15"
+			}
+			"range"				"900"
+		}
+	}
 }

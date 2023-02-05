@@ -4,7 +4,6 @@ end
 
 function modifier_troll_warlord_bash:OnCreated(kv)
     self.kv = kv
-    DeepPrintTable(kv)
 end
 
 function modifier_troll_warlord_bash:GetAttributes()
