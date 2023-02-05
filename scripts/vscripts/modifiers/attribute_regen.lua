@@ -19,9 +19,6 @@ function modifier_attribute_regen_adjust:DeclareFunctions()
     }
     return funcs
 end
-function modifier_attribute_regen_adjust:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
 
 function modifier_attribute_regen_adjust:IsHidden()
     return false

@@ -47,6 +47,7 @@ function Activate()
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_attribute_regen_adjust", "modifiers/attribute_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_troll_warlord_bash", "modifiers/troll_bash.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -416,6 +417,21 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 				end
 				return 1 
 			end, "techie aghs bonus.", 1)
+		end
+
+		if entity:GetName() == "npc_dota_hero_troll_warlord" then
+			entity:SetThink(function()
+				if entity:HasModifier("modifier_troll_warlord_berserkers_rage") then
+					local ability = entity:FindAbilityByName("troll_warlord_berserkers_rage")
+					local bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+					local bash_chance = ability:GetSpecialValueFor("bash_chance")
+					entity:AddNewModifier(entity, nil, "modifier_troll_warlord_bash", {
+						bonus_damage = bonus_damage, bash_chance = bash_chance})
+				else
+					entity:RemoveModifierByName("modifier_troll_warlord_bash")
+				end
+				return 0.2
+			end, "troll get bash on hit", 1)
 		end
     end
 
