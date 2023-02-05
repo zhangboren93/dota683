@@ -390,7 +390,6 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		end, "give 90 gold per minute after game start", 2)
 
 		-- techies' remote mine scepter upgrade
-		-- TODO add hotkey for the upgraded ability
 		if entity:GetName() == "npc_dota_hero_techies" then
 			entity:SetThink(function()
 				local ability = nil
@@ -405,12 +404,14 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 				if ability:GetLevel() > 0 then
 					if entity:HasScepter() and ability:GetName() == "techies_remote_mines" then
 						local newAbility = entity:AddAbility("techies_remote_mines_scepter")
-						newAbility:SetLevel(level);
+						newAbility:SetLevel(level)
 						entity:RemoveAbility("techies_remote_mines")
+              	 		SendToConsole("bind " .. "r" .. " dota_ability_execute " .. 17)
 					elseif not entity:HasScepter() and ability:GetName() == "techies_remote_mines_scepter" then
 						local newAbility = entity:AddAbility("techies_remote_mines")
 						newAbility:SetLevel(level);
 						entity:RemoveAbility("techies_remote_mines_scepter")
+              	 		SendToConsole("bind " .. "r" .. " dota_ability_execute " .. 5)
 					end
 				end
 				return 1 
