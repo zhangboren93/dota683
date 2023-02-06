@@ -429,6 +429,9 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 						bonus_damage = bonus_damage, bash_chance = bash_chance})
 
 					local item = entity:FindItemInInventory("item_basher")
+					if item == nil then
+						item = entity:FindItemInInventory("item_abyssal_blade")
+					end
 					if item ~= nil then
 						entity:DropItemAtPosition(entity:GetAbsOrigin(), item)
 					end
@@ -437,6 +440,8 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 				end
 				return 0.2
 			end, "troll get bash on hit", 1)
+			GameRules:SendCustomMessage("Troll cannot use basher or abyssal blade!!!", entity:GetPlayerID(), entity:GetPlayerID())
+			GameRules:SendCustomMessage("巨魔无法购买晕锤或者大晕锤!!!", entity:GetPlayerID(), entity:GetPlayerID())
 		end
     end
 
