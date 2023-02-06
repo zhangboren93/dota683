@@ -261,26 +261,26 @@
 	"npc_dota_creep_badguys_melee"
 	{
 		"BountyXP"					"62"		// Experience earn.
-		"BountyGoldMin"				"43"		// Gold earned min.
-		"BountyGoldMax"				"43"		// Gold earned max.
+		"BountyGoldMin"				"39"		// Gold earned min.
+		"BountyGoldMax"				"47"		// Gold earned max.
 	}
 	"npc_dota_creep_goodguys_melee"
 	{
 		"BountyXP"					"62"		// Experience earn.
-		"BountyGoldMin"				"43"		// Gold earned min.
-		"BountyGoldMax"				"43"		// Gold earned max.
+		"BountyGoldMin"				"39"		// Gold earned min.
+		"BountyGoldMax"				"47"		// Gold earned max.
 	}
 	"npc_dota_creep_badguys_ranged"
 	{
 		"BountyXP"					"41"		// Experience earn.
-		"BountyGoldMin"				"48"		// Gold earned min.
-		"BountyGoldMax"				"48"		// Gold earned max.
+		"BountyGoldMin"				"44"		// Gold earned min.
+		"BountyGoldMax"				"52"		// Gold earned max.
 	}
 	"npc_dota_creep_goodguys_ranged"
 	{
 		"BountyXP"					"41"		// Experience earn.
-		"BountyGoldMin"				"48"		// Gold earned min.
-		"BountyGoldMax"				"48"		// Gold earned max.
+		"BountyGoldMin"				"44"		// Gold earned min.
+		"BountyGoldMax"				"52"		// Gold earned max.
 	}
 	"npc_dota_courier"
 	{
