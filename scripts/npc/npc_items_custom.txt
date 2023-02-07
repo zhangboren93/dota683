@@ -1424,7 +1424,7 @@
 		{
 			"lifetime"						"240"
 			"vision_range"					"0"
-			"true_sight_range"				"900"
+			"true_sight_range"				"850"
 			"health"						"200"
 			"duration_minutes_tooltip"		"4"
 		}
