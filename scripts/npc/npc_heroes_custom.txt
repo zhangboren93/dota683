@@ -1917,6 +1917,7 @@
  "AttributeAgilityGain"   "1.9"  
  "AttributeBaseIntelligence" "20"  
  "AttributeIntelligenceGain"  "1.6"  
+		"Ability4"		""
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1924,7 +1925,7 @@
 		"Ability14"		"special_bonus_all_stats_8"
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
-		"Ability17"		"special_bonus_all_stats_14"
+		"Ability17"		""
 	}
 	"npc_dota_hero_monkey_king"			
 	{

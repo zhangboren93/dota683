@@ -446,6 +446,16 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 			GameRules:SendCustomMessage("Troll cannot use basher or abyssal blade!!!", entity:GetPlayerID(), entity:GetPlayerID())
 			GameRules:SendCustomMessage("巨魔无法购买晕锤或者大晕锤!!!", entity:GetPlayerID(), entity:GetPlayerID())
 		end
+		
+		if entity:GetName() == "npc_dota_hero_meepo" then
+			entity:SetThink(function()
+				if entity:HasScepter() and not entity:HasAbility("special_bonus_unique_meepo_5") then
+					entity:AddAbility("special_bonus_unique_meepo_5")
+					print("added meepo ahgs ability")
+				end
+				return 1
+			end, "meepo scepter", 1);
+		end
     end
 
 	if entity:GetName() == "npc_dota_creep_lane" then
