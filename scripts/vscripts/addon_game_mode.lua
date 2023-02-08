@@ -48,6 +48,7 @@ function Activate()
 
 	LinkLuaModifier( "modifier_attribute_regen_adjust", "modifiers/attribute_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_troll_warlord_bash", "modifiers/troll_bash.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_safe_lane_move_speed_bonus", "modifiers/creep.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -446,6 +447,12 @@ function HandleNpcSpawned(entityIndex, is_respawn)
     end
 
 	if entity:GetName() == "npc_dota_creep_lane" then
+		local location = entity:GetAbsOrigin();
+		if location[2] < -5000 or location[2] > 5000 then
+			if not entity:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
+				entity:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { })
+			end
+		end 
 		entity:SetThink(function()
 			local unitname = entity:GetUnitName()
 			-- unset gold and experience gain for ranged creep. 

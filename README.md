@@ -23,17 +23,17 @@ Dota6.83版本移植，养老dota，best dota。
 - 随机英雄提供200金币
 - 死后不提供免费TP
 - 增加中路一塔间距
+- 调整边路小兵相遇位置
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
-感谢SpellLibrary提供的部分自定义物品实现：https://github.com/Pizzalol/SpellLibrary
+感谢SpellLibrary提供的部分自定义物品和技能的实现：https://github.com/Pizzalol/SpellLibrary
 
 后续开发计划：
 - 道具功能（补刀斧砍眼，散失驱散召唤单位，...）
 - 使用6.83地图（目前遇到中立单位无法吸引小兵仇恨的问题）
 - 法球叠加
 - 自定义版本参数
-- 调整边路小兵相遇位置
 - 野怪打断净化大药
 - 增加英雄攻击前摇
 
