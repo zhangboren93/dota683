@@ -1,5 +1,6 @@
 -- Generated from template
 
+require("creepspawn")
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
@@ -50,6 +51,7 @@ function Activate()
 	LinkLuaModifier( "modifier_troll_warlord_bash", "modifiers/troll_bash.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_safe_lane_move_speed_bonus", "modifiers/creep.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_cancels_item_on_hit", "modifiers/item_cancel_on_hit.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_ai", "creepai.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -107,6 +109,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(false)
 	GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(false)
 	GameRules:GetGameModeEntity():SetBountyRuneSpawnInterval(10000)
+	if GetMapName() == "dota_683" then
+		GameRules:SetCreepSpawningEnabled(false)
+	end
 --	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY, false)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
@@ -263,7 +268,7 @@ function CAddonTemplateGameMode:OnThink()
 		--print( "Template addon script is running." )
 		local time = GameRules:GetDOTATime(false, false) 
 		if time >= 30 and self.hasSpawnNeutralsAt30s == nil then
-			print("Spawn creep at 30s")
+			print("Spawn neutral creep at 30s")
 			local spawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
 			for i,v in pairs(spawners) do
 				v:CreatePendingUnits()
@@ -275,6 +280,12 @@ function CAddonTemplateGameMode:OnThink()
 			end
 			--GameRules:SpawnNeutralCreeps()
 			self.hasSpawnNeutralsAt30s = true
+		end
+
+		if GetMapName() == "dota_683" and time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
+			print("spawn creep")
+			spawnCreepsLua()
+			self.creepSpawnTime = time
 		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
