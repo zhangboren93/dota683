@@ -2256,4 +2256,72 @@
 				}
 		}
 	}
+	"meepo_geostrike_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"meepo_geostrike"
+
+		"Modifiers"
+		{
+			"meepo_geostrike_datadriven_modifier"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"meepo_geostrike_datadriven_active_modifier"
+					}
+				}
+			}
+			//FIXME 1 meepo should have 1 geostrike active
+			"meepo_geostrike_datadriven_active_modifier"
+			{
+				"Passive"	"0"
+				"IsDebuff"	"1"
+				"Duration"	"%duration"
+				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow"
+				}
+				"ThinkInterval"		"1"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%damage"
+					}
+				}
+			}
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"-5 -10 -15 -20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"		"2.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"4 7 10 13"
+			}
+		}
+	}
 }

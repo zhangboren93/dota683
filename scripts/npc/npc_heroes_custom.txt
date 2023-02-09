@@ -1917,6 +1917,7 @@
  "AttributeAgilityGain"   "1.9"  
  "AttributeBaseIntelligence" "20"  
  "AttributeIntelligenceGain"  "1.6"  
+		"Ability3"		"meepo_geostrike_datadriven"
 		"Ability4"		""
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
