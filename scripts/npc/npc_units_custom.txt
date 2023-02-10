@@ -948,4 +948,28 @@
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
 	}
+	"npc_dota_creep_goodguys_melee_upgraded_mega"
+	{
+		"AttackDamageMin"			"96"		// Damage range min.
+		"AttackDamageMax"			"104"		// Damage range max.
+		"StatusHealth"				"1270"		// Base health.
+	}
+	"npc_dota_creep_badguys_melee_upgraded_mega"
+	{
+		"AttackDamageMin"			"96"		// Damage range min.
+		"AttackDamageMax"			"104"		// Damage range max.
+		"StatusHealth"				"1270"		// Base health.
+	}
+	"npc_dota_creep_goodguys_ranged_upgraded_mega"
+	{
+		"AttackDamageMin"			"131"		// Damage range min.
+		"AttackDamageMax"			"136"		// Damage range max.
+		"StatusHealth"				"1015"		// Base health.
+	}
+	"npc_dota_creep_badguys_ranged_upgraded_mega"
+	{
+		"AttackDamageMin"			"131"		// Damage range min.
+		"AttackDamageMax"			"136"		// Damage range max.
+		"StatusHealth"				"1015"		// Base health.
+	}
 }

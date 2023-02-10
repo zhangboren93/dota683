@@ -471,14 +471,14 @@
  "AttributeAgilityGain"   "2.2"
  "AttributeBaseIntelligence"   "16"
  "AttributeIntelligenceGain"    "1.9"
-		"Ability10"		"special_bonus_all_stats_4"
-		"Ability11"		"special_bonus_all_stats_5"
-		"Ability12"		"special_bonus_all_stats_6"
-		"Ability13"		"special_bonus_all_stats_7"
-		"Ability14"		"special_bonus_all_stats_8"
-		"Ability15"		"special_bonus_all_stats_10"
-		"Ability16"		"special_bonus_all_stats_12"
-		"Ability17"		"special_bonus_all_stats_14"
+		"Ability15"			"special_bonus_all_stats_4"
+		"Ability16"			"special_bonus_all_stats_5" 
+		"Ability17"			"special_bonus_all_stats_6" 
+		"Ability18"			"special_bonus_all_stats_7" 
+		"Ability19"			"special_bonus_all_stats_8" 
+		"Ability20"			"special_bonus_all_stats_10"
+		"Ability21"			"special_bonus_all_stats_12"
+		"Ability22"			"special_bonus_all_stats_14"
 	}
 	"npc_dota_hero_naga_siren"			
 	{
@@ -1258,14 +1258,14 @@
  "AttributeBaseIntelligence" "22"  
  "AttributeIntelligenceGain"  "2.5"  
 		"MovementTurnRate"		"0.5"
-		"Ability10"		"special_bonus_all_stats_4"
-		"Ability11"		"special_bonus_all_stats_5"
-		"Ability12"		"special_bonus_all_stats_6"
-		"Ability13"		"special_bonus_all_stats_7"
-		"Ability14"		"special_bonus_all_stats_8"
-		"Ability15"		"special_bonus_all_stats_10"
-		"Ability16"		"special_bonus_all_stats_12"
-		"Ability17"		"special_bonus_all_stats_14"
+		"Ability17"		"special_bonus_all_stats_4" 
+		"Ability18"		"special_bonus_all_stats_5" 
+		"Ability19"		"special_bonus_all_stats_6" 
+		"Ability20"		"special_bonus_all_stats_7" 
+		"Ability21"		"special_bonus_all_stats_8" 
+		"Ability22"		"special_bonus_all_stats_10"
+		"Ability23"		"special_bonus_all_stats_12"
+		"Ability24"		"special_bonus_all_stats_14"
 	}
 	"npc_dota_hero_jakiro"					
 	{
@@ -1294,7 +1294,6 @@
  "AttributeBaseIntelligence" "22"  
  "AttributeIntelligenceGain"  "2.8"  
 		"MovementTurnRate"		"0.5"
-		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
 		"Ability13"		"special_bonus_all_stats_7"
@@ -1302,6 +1301,7 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Ability18"		"special_bonus_all_stats_4"
 	}
 	"npc_dota_hero_phantom_assassin"	
 	{
@@ -1683,7 +1683,6 @@
  "AttributeBaseIntelligence" "27"  
  "AttributeIntelligenceGain"  "2.4"  
 		"MovementTurnRate"		"0.5"
-		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
 		"Ability13"		"special_bonus_all_stats_7"
@@ -1691,6 +1690,7 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Ability18"		"special_bonus_all_stats_4"
 	}
 	"npc_dota_hero_techies"				
 	{
@@ -1928,7 +1928,7 @@
 		"Ability14"		"special_bonus_all_stats_8"
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
-		"Ability17"		""
+		"Ability17"		"special_bonus_all_stats_14"
 	}
 	"npc_dota_hero_monkey_king"			
 	{

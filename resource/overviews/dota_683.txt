@@ -1,0 +1,8 @@
+dota_683
+{
+	material materials/overviews/dota_683.vmat
+	pos_x -8704
+	pos_y 9296
+	scale 17.750
+}
+

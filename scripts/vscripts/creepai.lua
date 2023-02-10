@@ -10,11 +10,63 @@ local PRIORITY_SEIGE = 10
 local PRIORITY_ATTACKING_HERO = 2
 local PRIORITY_CREEP = 1
 local PRIORITY_NOT_CREEP = 0
+local pathCornersMap = { }
+pathCornersMap["gb"] = {
+    --"lane_bot_pathcorner_goodguys_1",
+	"lane_bot_pathcorner_goodguys_2",
+	"lane_bot_pathcorner_goodguys_3",
+	"lane_bot_pathcorner_goodguys_4",
+	"lane_bot_pathcorner_goodguys_5",
+	"lane_bot_pathcorner_goodguys_6",
+	"lane_bot_pathcorner_goodguys_7"}
+pathCornersMap["gm"] = {
+    "lane_mid_pathcorner_goodguys_1",
+    "lane_mid_pathcorner_goodguys_2",
+    "lane_mid_pathcorner_goodguys_3",
+    "lane_mid_pathcorner_goodguys_4",
+    "lane_mid_pathcorner_goodguys_5",
+    "lane_mid_pathcorner_goodguys_6",
+    "lane_mid_pathcorner_goodguys_7",
+    "lane_mid_pathcorner_goodguys_8",
+    "lane_mid_pathcorner_goodguys_9"}
+pathCornersMap["gt"] = {
+    "lane_top_pathcorner_goodguys_1",
+    "lane_top_pathcorner_goodguys_2",
+    "lane_top_pathcorner_goodguys_3",
+    "lane_top_pathcorner_goodguys_4",
+    "lane_top_pathcorner_goodguys_5",
+    "lane_top_pathcorner_goodguys_6",
+    "lane_top_pathcorner_goodguys_7"}
+pathCornersMap["bb"] = {
+    "lane_bot_pathcorner_badguys_1",
+    "lane_bot_pathcorner_badguys_2",
+    "lane_bot_pathcorner_badguys_7",
+    "lane_bot_pathcorner_badguys_5",
+    "lane_bot_pathcorner_badguys_6",
+    "lane_bot_pathcorner_badguys_3",
+    "lane_bot_pathcorner_badguys_4"}
+pathCornersMap["bm"] = {
+    "lane_mid_pathcorner_badguys_1",
+    "lane_mid_pathcorner_badguys_2",
+    "lane_mid_pathcorner_badguys_3",
+    "lane_mid_pathcorner_badguys_4",
+    "lane_mid_pathcorner_badguys_5",
+    "lane_mid_pathcorner_badguys_6",
+    "lane_mid_pathcorner_badguys_7",
+    "lane_mid_pathcorner_badguys_8"}
+pathCornersMap["bt"] = {
+    "lane_top_pathcorner_badguys_1",
+    "lane_top_pathcorner_badguys_2",
+    "lane_top_pathcorner_badguys_3",
+    "lane_top_pathcorner_badguys_4",
+    "lane_top_pathcorner_badguys_5",
+    "lane_top_pathcorner_badguys_6"}
+
 function modifier_creep_ai:OnCreated(kv)
     if IsServer() then
         self.kv = kv
         self.state = AI_STATE_PATHING
-        self:StartIntervalThink(0.5) 
+        self:StartIntervalThink(0.3) 
     end
 end
 
@@ -43,7 +95,7 @@ function modifier_creep_ai:OnIntervalThink()
     elseif self.state == AI_STATE_ATTACKING then
         -- check if there is higher priority target 
         local target = self:selectTarget()
-        if target ~= nil and target.priority > self.target.priority then
+        if target ~= nil and target.priority >= self.target.priority then
             --print("find higher priority target ".. target.priority)
             self.target = target
             entity:MoveToTargetToAttack(target.unit)
@@ -59,7 +111,9 @@ function modifier_creep_ai:OnIntervalThink()
             self.target = nil
             self.state = AI_STATE_PATHING
             self:OnIntervalThink()
+            return
         end
+        entity:MoveToTargetToAttack(self.target.unit)
     elseif self.state == AI_STATE_AGGRO_COOLDOWN then
         if GameRules:GetDOTATime(false, false) > self.targetCooldown then
            -- print("Aggro cooldown over, reselect target")
@@ -76,28 +130,17 @@ function modifier_creep_ai:OnIntervalThink()
         end
     end
 end
-local pathCornersMap = { }
-pathCornersMap["gb"] = {
-    "lane_bot_pathcorner_goodguys_1",
-	"lane_bot_pathcorner_goodguys_2",
-	"lane_bot_pathcorner_goodguys_3",
-	"lane_bot_pathcorner_goodguys_4",
-	"lane_bot_pathcorner_goodguys_5",
-	"lane_bot_pathcorner_goodguys_6",
-	"lane_bot_pathcorner_goodguys_7"
-}
-
 function modifier_creep_ai:takePath() 
     local entity = self:GetParent()
     local position = entity:GetAbsOrigin()
     local direction_right = entity:GetTeam() == DOTA_TEAM_GOODGUYS
-    local nextPathPosition = nil
     local pathCorners = pathCornersMap[self.kv.pathName]
+    local nextPathPosition = Entities:FindByName(nil, pathCorners[#pathCorners]):GetAbsOrigin()
     for i=1,#pathCorners do
         local pathCorner = Entities:FindByName(nil, pathCorners[i]):GetAbsOrigin()
         local dx = pathCorner[1] - position[1]
         local dy = pathCorner[2] - position[2]
-        if math.abs(dx) + math.abs(dy) > 50 then
+        if math.abs(dx) + math.abs(dy) > 100 then
             if direction_right then
                 if dx + dy > 0 then
                     nextPathPosition = pathCorner
@@ -111,9 +154,7 @@ function modifier_creep_ai:takePath()
             end
         end
     end 
-    if nextPathPosition then
-        entity:MoveToPosition(nextPathPosition)
-    end
+    entity:MoveToPosition(nextPathPosition)
 end
 
 function modifier_creep_ai:selectTarget()
@@ -140,8 +181,8 @@ function modifier_creep_ai:selectTarget()
     for i=1,#heroes do
         local unitAggroTarget = heroes[i]:GetAggroTarget()
         if unitAggroTarget ~= nil and unitAggroTarget:IsHero() and unitAggroTarget:GetTeam() == entity:GetTeam() then
-            print("Find unit attacking hero")
-            print(heroes[i]:GetName() .. " aggros on " .. unitAggroTarget:GetName())
+           -- print("Find unit attacking hero")
+           -- print(heroes[i]:GetName() .. " aggros on " .. unitAggroTarget:GetName())
             return {
                 unit = heroes[i],
                 priority = PRIORITY_ATTACKING_HERO

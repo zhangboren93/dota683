@@ -109,10 +109,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(false)
 	GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(false)
 	GameRules:GetGameModeEntity():SetBountyRuneSpawnInterval(10000)
-	if GetMapName() == "dota_683" then
-		GameRules:SetCreepSpawningEnabled(false)
-	end
---	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_BOUNTY, false)
+	GameRules:SetCreepSpawningEnabled(false)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 
@@ -135,11 +132,56 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent('dota_rune_activated_server', function(event)
 		HandleRuneActivated(event.PlayerID, event.rune)
 	end, nil)
+
+	if GetMapName() == "dota_683" then
+		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
+		local direMediumCamp = nil
+		local direSmallCamp = nil
+		local radiantMediumCamp = nil
+		local radiantSmallCamp = nil
+		for i=1,#neutralSpawners do
+			local pos = neutralSpawners[i]:GetAbsOrigin()
+			if pos[1] == -288 and pos[2] == 3616 then
+				print("find dire small camp")
+				direSmallCamp = neutralSpawners[i]
+			elseif pos[1] == -3104 and pos[2] == 4448 then
+				print("find dire medium camp")
+				direMediumCamp = neutralSpawners[i]
+			elseif math.floor(pos[1]) == 3016 and math.floor(pos[2]) == -4513 then
+				print("find radiant medium camp")
+				radiantMediumCamp = neutralSpawners[i]
+			elseif pos[1] == -448 and pos[2] == -3136 then
+				print("find radiant small camp")
+				radiantSmallCamp = neutralSpawners[i]
+			end
+		end
+		swapLocation(direMediumCamp, direSmallCamp)
+		swapLocation(radiantMediumCamp, radiantSmallCamp)
+
+		local neutraltriggers = Entities:FindAllByClassname("trigger_multiple")
+		for i=1,#neutraltriggers do
+			print(neutraltriggers[i]:GetName())
+			print(neutraltriggers[i]:GetAbsOrigin())
+		end
+		local direTrigger1 = Entities:FindByName(nil, "neutralcamp_evil_4")
+		local direTrigger2 = Entities:FindByName(nil, "neutralcamp_evil_2")
+		swapLocation(direTrigger1, direTrigger2)
+		local radiantTrigger1 = Entities:FindByName(nil, "neutralcamp_good_1")
+		local radiantTrigger2 = Entities:FindByName(nil, "neutralcamp_good_4")
+		swapLocation(radiantTrigger1, radiantTrigger2)
+	end
+end
+
+function swapLocation(e1, e2)
+	local tmpLoc = e1:GetAbsOrigin()
+	e1:SetAbsOrigin(e2:GetAbsOrigin())
+	e2:SetAbsOrigin(tmpLoc)
 end
 
 -- Evaluate the state of the game
 function CAddonTemplateGameMode:OnThink()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION then
+		-- TODO enable rd
 		if GetMapName() == "rd" and IsServer() and self.rdHeroFiltered == nil then
 			local heroes = {
 				"npc_dota_hero_abaddon"				,
@@ -282,8 +324,7 @@ function CAddonTemplateGameMode:OnThink()
 			self.hasSpawnNeutralsAt30s = true
 		end
 
-		if GetMapName() == "dota_683" and time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
-			print("spawn creep")
+		if time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
 			spawnCreepsLua()
 			self.creepSpawnTime = time
 		end
@@ -469,31 +510,31 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		end
     end
 
-	if entity:GetName() == "npc_dota_creep_lane" then
-		local location = entity:GetAbsOrigin();
-		if location[2] < -5000 or location[2] > 5000 then
-			if not entity:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
-				entity:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { })
-			end
-		end 
-		entity:SetThink(function()
-			local unitname = entity:GetUnitName()
-			-- unset gold and experience gain for ranged creep. 
-			-- Current value +8 exp, +6 gold per level. Value after adjustment is +0 exp, and +1 gold per level.
-			if unitname == "npc_dota_creep_goodguys_ranged" or unitname == "npc_dota_creep_badguys_ranged" then
-    			local time = GameRules:GetDOTATime(false, false) 
-				local creeplevel = math.floor((time + 5) / 450)
-				--print(time .. " creeplevel " .. creeplevel)
-    			entity:SetDeathXP(entity:GetDeathXP() - creeplevel * 8)
-    			entity:SetMinimumGoldBounty(entity:GetMinimumGoldBounty() - creeplevel * 5)
-    			entity:SetMaximumGoldBounty(entity:GetMaximumGoldBounty() - creeplevel * 5)
-			end
-			entity:RemoveModifierByName("modifier_creep_bonus_xp")
-			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
-			entity:SetBaseMagicalResistanceValue(0)
-
-		end, "remove flag bearer bonus", 1)
-	end
+--	if entity:GetName() == "npc_dota_creep_lane" then
+--		local location = entity:GetAbsOrigin();
+--		if location[2] < -5000 or location[2] > 5000 then
+--			if not entity:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
+--				entity:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { })
+--			end
+--		end 
+--		entity:SetThink(function()
+--			local unitname = entity:GetUnitName()
+--			-- unset gold and experience gain for ranged creep. 
+--			-- Current value +8 exp, +6 gold per level. Value after adjustment is +0 exp, and +1 gold per level.
+--			if unitname == "npc_dota_creep_goodguys_ranged" or unitname == "npc_dota_creep_badguys_ranged" then
+--    			local time = GameRules:GetDOTATime(false, false) 
+--				local creeplevel = math.floor((time + 5) / 450)
+--				--print(time .. " creeplevel " .. creeplevel)
+--    			entity:SetDeathXP(entity:GetDeathXP() - creeplevel * 8)
+--    			entity:SetMinimumGoldBounty(entity:GetMinimumGoldBounty() - creeplevel * 5)
+--    			entity:SetMaximumGoldBounty(entity:GetMaximumGoldBounty() - creeplevel * 5)
+--			end
+--			entity:RemoveModifierByName("modifier_creep_bonus_xp")
+--			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
+--			entity:SetBaseMagicalResistanceValue(0)
+--
+--		end, "remove flag bearer bonus", 1)
+--	end
 
 	if entity:GetName() == "npc_dota_roshan" then
 		entity:SetThink(function()
