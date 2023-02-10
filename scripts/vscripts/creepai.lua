@@ -3,7 +3,13 @@ if modifier_creep_ai == nil then
 end
 
 local AI_STATE_PATHING = 0
+local AI_STATE_ATTACKING = 1
+local AI_STATE_AGGRO_COOLDOWN = 2
 
+local PRIORITY_SEIGE = 10
+local PRIORITY_ATTACKING_HERO = 2
+local PRIORITY_CREEP = 1
+local PRIORITY_NOT_CREEP = 0
 function modifier_creep_ai:OnCreated(kv)
     if IsServer() then
         self.kv = kv
@@ -23,18 +29,70 @@ end
 function modifier_creep_ai:OnIntervalThink()
     -- for all path corners go the closest one to the direction
     local entity = self:GetParent()
-    local direction_right = entity:GetTeam() == DOTA_TEAM_GOODGUYS
     local position = entity:GetAbsOrigin()
+    if self.state == AI_STATE_PATHING then
+        local target = self:selectTarget()
+        if target ~= nil then
+            --print("find target entering attacking state")
+            self.state = AI_STATE_ATTACKING
+            self.target = target
+            entity:MoveToTargetToAttack(target.unit)
+        else
+           self:takePath()
+        end
+    elseif self.state == AI_STATE_ATTACKING then
+        -- check if there is higher priority target 
+        local target = self:selectTarget()
+        if target ~= nil and target.priority > self.target.priority then
+            --print("find higher priority target ".. target.priority)
+            self.target = target
+            entity:MoveToTargetToAttack(target.unit)
+            if target.priority == PRIORITY_ATTACKING_HERO then
+                self.targetCooldown = GameRules:GetDOTATime(false, false) + 2
+                self.state = AI_STATE_AGGRO_COOLDOWN
+              --  print("Entering aggro cooldown")
+            end
+            return
+        end
+        if not self.target.unit:IsAlive() then
+            --print("target is dead, take path")
+            self.target = nil
+            self.state = AI_STATE_PATHING
+            self:OnIntervalThink()
+        end
+    elseif self.state == AI_STATE_AGGRO_COOLDOWN then
+        if GameRules:GetDOTATime(false, false) > self.targetCooldown then
+           -- print("Aggro cooldown over, reselect target")
+            self.state = AI_STATE_PATHING
+            self.target = nil
+            self:OnIntervalThink()
+            return
+        end
+        if not self.target.unit:IsAlive() then
+--            print("target is dead, take path")
+            self.state = AI_STATE_PATHING
+            self.target = nil
+            self:OnIntervalThink()
+        end
+    end
+end
+local pathCornersMap = { }
+pathCornersMap["gb"] = {
+    "lane_bot_pathcorner_goodguys_1",
+	"lane_bot_pathcorner_goodguys_2",
+	"lane_bot_pathcorner_goodguys_3",
+	"lane_bot_pathcorner_goodguys_4",
+	"lane_bot_pathcorner_goodguys_5",
+	"lane_bot_pathcorner_goodguys_6",
+	"lane_bot_pathcorner_goodguys_7"
+}
+
+function modifier_creep_ai:takePath() 
+    local entity = self:GetParent()
+    local position = entity:GetAbsOrigin()
+    local direction_right = entity:GetTeam() == DOTA_TEAM_GOODGUYS
     local nextPathPosition = nil
-	local pathCorners = {
-		"lane_bot_pathcorner_goodguys_1",
-		"lane_bot_pathcorner_goodguys_2",
-		"lane_bot_pathcorner_goodguys_3",
-		"lane_bot_pathcorner_goodguys_4",
-		"lane_bot_pathcorner_goodguys_5",
-		"lane_bot_pathcorner_goodguys_6",
-		"lane_bot_pathcorner_goodguys_7"
-	}
+    local pathCorners = pathCornersMap[self.kv.pathName]
     for i=1,#pathCorners do
         local pathCorner = Entities:FindByName(nil, pathCorners[i]):GetAbsOrigin()
         local dx = pathCorner[1] - position[1]
@@ -55,5 +113,61 @@ function modifier_creep_ai:OnIntervalThink()
     end 
     if nextPathPosition then
         entity:MoveToPosition(nextPathPosition)
+    end
+end
+
+function modifier_creep_ai:selectTarget()
+    local entity = self:GetParent()
+    local position = entity:GetAbsOrigin()
+    --print(self.kv.seige)
+    if self.kv.seige > 0 then
+        --print("Attacks buildings")
+        local buildings = FindUnitsInRadius(
+            entity:GetTeam(), position, nil, self.kv.alertRadius, 
+            DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE,
+            FIND_CLOSEST, false)
+        if #buildings > 0 then
+            return {
+                unit = buildings[1],
+                priority = PRIORITY_SEIGE
+            }
+        end
+    end
+    local heroes = FindUnitsInRadius(
+        entity:GetTeam(), position, nil, self.kv.alertRadius, 
+        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_CLOSEST, false)
+    for i=1,#heroes do
+        local unitAggroTarget = heroes[i]:GetAggroTarget()
+        if unitAggroTarget ~= nil and unitAggroTarget:IsHero() and unitAggroTarget:GetTeam() == entity:GetTeam() then
+            print("Find unit attacking hero")
+            print(heroes[i]:GetName() .. " aggros on " .. unitAggroTarget:GetName())
+            return {
+                unit = heroes[i],
+                priority = PRIORITY_ATTACKING_HERO
+            }
+        end
+    end
+    local creepunits = FindUnitsInRadius(
+        entity:GetTeam(), position, nil, self.kv.alertRadius, 
+        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_CLOSEST, false)
+    -- by default attack creep unit first
+    if #creepunits > 0 then
+        return {
+            unit = creepunits[1],
+            priority = PRIORITY_CREEP
+        }
+    end
+    -- attack other units
+    local units = FindUnitsInRadius(
+        entity:GetTeam(), position, nil, self.kv.alertRadius, 
+        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_CLOSEST, false)
+    if #units > 0 then
+        return {
+            unit = units[1],
+            priority = PRIORITY_NOT_CREEP
+        }
     end
 end
