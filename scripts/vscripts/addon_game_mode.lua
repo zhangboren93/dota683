@@ -310,7 +310,6 @@ function CAddonTemplateGameMode:OnThink()
 		end
 	end
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		--print( "Template addon script is running." )
 		local time = GameRules:GetDOTATime(false, false) 
 		if time >= 30 and self.hasSpawnNeutralsAt30s == nil then
 			print("Spawn neutral creep at 30s")
@@ -566,6 +565,17 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 	        entity:RemoveModifierByName("modifier_courier_passive_bonus")
 			return 1
     	end, nil, "fix speed", 1)
+	end
+
+	if entity:GetName() == "npc_dota_ward_base" or entity:GetName() == "npc_dota_ward_base_truesight" then
+		entity:SetThink(function()
+			local position = entity:GetAbsOrigin()
+			if position[1] < -1890 and position[1] > -1990 and position[2] > -4810 and position[2] < -4710 then
+				entity:SetAbsOrigin(Vector(position[1] + 300, position[2] + 300, position[3] + 256))
+			elseif position[1] < -1121 and position[1] > -1221 and position[2] < -4571 and position[2] > -4671 then
+				entity:SetAbsOrigin(Vector(position[1] - 400, position[2] + 100, position[3] + 256))
+			end
+		end, "delay change word location", 0.1)
 	end
 end
 
