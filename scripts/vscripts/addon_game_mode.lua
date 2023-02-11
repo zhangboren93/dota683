@@ -162,10 +162,10 @@ function CAddonTemplateGameMode:InitGameMode()
 		swapLocation(radiantMediumCamp, radiantSmallCamp)
 
 		local neutraltriggers = Entities:FindAllByClassname("trigger_multiple")
-		for i=1,#neutraltriggers do
-			print(neutraltriggers[i]:GetName())
-			print(neutraltriggers[i]:GetAbsOrigin())
-		end
+	--	for i=1,#neutraltriggers do
+	--		print(neutraltriggers[i]:GetName())
+	--		print(neutraltriggers[i]:GetAbsOrigin())
+	--	end
 		local direTrigger1 = Entities:FindByName(nil, "neutralcamp_evil_4")
 		local direTrigger2 = Entities:FindByName(nil, "neutralcamp_evil_2")
 		swapLocation(direTrigger1, direTrigger2)

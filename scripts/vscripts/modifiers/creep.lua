@@ -25,5 +25,5 @@ function modifier_creep_safe_lane_move_speed_bonus:IsHidden()
 end
 
 function modifier_creep_safe_lane_move_speed_bonus:GetModifierMoveSpeedBonus_Constant()
-    return 90
+    return 70
 end
