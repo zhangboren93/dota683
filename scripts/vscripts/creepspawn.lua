@@ -91,17 +91,22 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 	local numMeleeCreep = calculateNumMeleeCreep()
 	local numRangedCreep = calculateNumRangedCreep()
 	local shouldSpawnSeige = GameRules:GetDOTATime(false, false) > 60 and GameRules:GetDOTATime(false, false) % 300 < 10
-	local bonusHealth = 10 * math.floor(GameRules:GetDOTATime(false, false) / 450)
 	for i=1,#spawners do
 		local spawner = Entities:FindByName(nil, spawners[i])
 		local spawnVecter = spawner:GetAbsOrigin()
+		local creepLevel = math.floor(GameRules:GetDOTATime(false, false) / 450)
 		for j=1,numMeleeCreep do
 	    	local spawnedUnit = CreateUnitByName(melee[i], spawnVecter, true, nil, nil, team)
 	    	spawnedUnit:SetIdleAcquire(false)
 	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { alertRadius = CREEP_ALERT_RADIUS, pathName = pathNames[i], seige = false })
-			spawnedUnit:SetMaxHealth(spawnedUnit:GetMaxHealth() + bonusHealth)
 			if spawners[i] == "lane_bot_goodguys_melee_spawner" or spawners[i] == "lane_top_badguys_melee_spawner" then
 				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { })
+			end
+			-- TODO adjust bonus gold per level
+			if string.find(melee[i], "upgraded") == nil then
+				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_health_bonus", { health = 10 * creepLevel, damage = 1 * creepLevel  })
+			elseif string.find(melee[i], "mega") == nill then                                              
+				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_health_bonus", { health = 17 * creepLevel, damage = 2 * creepLevel  })
 			end
 		end
 		if team == DOTA_TEAM_GOODGUYS then
@@ -115,9 +120,13 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 	    	local spawnedUnit = CreateUnitByName(ranged[i], spawnVecter, true, nil, nil, team)
 	    	spawnedUnit:SetIdleAcquire(false)
 	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { alertRadius = CREEP_ALERT_RADIUS_RANGED, pathName = pathNames[i], seige = false })
-			spawnedUnit:SetMaxHealth(spawnedUnit:GetMaxHealth() + bonusHealth)
 			if spawners[i] == "lane_bot_goodguys_melee_spawner" or spawners[i] == "lane_top_badguys_melee_spawner" then
 				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { })
+			end
+			if string.find(ranged[i], "upgraded") == nil then
+				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_health_bonus", { health = 10 * creepLevel, damage = 2 * creepLevel })
+			elseif string.find(ranged[i], "mega") == nill then
+				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_health_bonus", { health = 16 * creepLevel, damage = 3 * creepLevel })
 			end
 		end
 		if shouldSpawnSeige then
