@@ -110,6 +110,8 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(false)
 	GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(false)
 	GameRules:GetGameModeEntity():SetBountyRuneSpawnInterval(10000)
+	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(false)
+	GameRules:GetGameModeEntity():SetDaynightCycleAdvanceRate(1.25)
 	GameRules:SetCreepSpawningEnabled(false)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
@@ -328,6 +330,10 @@ function CAddonTemplateGameMode:OnThink()
 		if time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
 			spawnCreepsLua()
 			self.creepSpawnTime = time
+		end
+		if time >= 0 and (self.timeofdayset == nil) then
+			GameRules:SetTimeOfDay(0.25)
+			self.timeofdayset = true
 		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
