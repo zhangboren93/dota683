@@ -570,13 +570,21 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 	if entity:GetName() == "npc_dota_ward_base" or entity:GetName() == "npc_dota_ward_base_truesight" then
 		entity:SetThink(function()
 			local position = entity:GetAbsOrigin()
-			if position[1] < -1890 and position[1] > -1990 and position[2] > -4810 and position[2] < -4710 then
+			if isAtWardPoint(position, -1940, -4760) then
 				entity:SetAbsOrigin(Vector(position[1] + 300, position[2] + 300, position[3] + 256))
-			elseif position[1] < -1121 and position[1] > -1221 and position[2] < -4571 and position[2] > -4671 then
+			elseif isAtWardPoint(position, -1171, -4621) then
 				entity:SetAbsOrigin(Vector(position[1] - 400, position[2] + 100, position[3] + 256))
+			elseif isAtWardPoint(position, 4172, -1283) then
+				entity:SetAbsOrigin(Vector(position[1] + 400, position[2], position[3] + 256))
+			elseif isAtWardPoint(position, 4951, -1269) then
+				entity:SetAbsOrigin(Vector(position[1] - 350, position[2], position[3] + 256))
 			end
 		end, "delay change word location", 0.1)
 	end
+end
+
+function isAtWardPoint(position, x, y)
+	return position[1] < x + 75 and position[1] > x - 75 and position[2] > y - 75 and position[2] < y + 75
 end
 
 function HandleEntityKilled(entityIdx, attackerIdx)
