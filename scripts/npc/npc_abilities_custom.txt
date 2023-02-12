@@ -983,6 +983,35 @@
 	"skeleton_king_vampiric_aura"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityManaCost"				"0"
+		"AbilityValues"
+		{
+			"vampiric_aura"
+			{
+				"value"									"15 20 25 30"
+				"special_bonus_unique_wraith_king_2"	"+8"
+			}
+			"skeleton_duration"
+			{
+				"value"					"40"
+				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"+25%"	
+			}
+			"AbilityCooldown"
+			{
+				"value"					"50"
+				"special_bonus_unique_wraith_king_vampiric_skeleton_duration"	"-25%"	
+			}
+			"max_skeleton_charges"			"2 4 6 8"
+			"min_skeleton_spawn"
+			{
+				"value"		"0"
+				"special_bonus_unique_wraith_king_5"	"+6"
+			}
+			"spawn_interval"			"0.25"
+			"reincarnate_time"			"3"
+			"gold_bounty"						"5"
+			"xp_bounty"						"5"
+		}
 	}
 "static_field_datadriven"
 {
@@ -2434,5 +2463,342 @@
 			"duration"	"0"
 			"magic_resistance" "6 8 10 12"
 		}
+	}
+	//=================================================================================================================
+	// Chaos Knight: Chaos Strike
+	//=================================================================================================================
+	"chaos_knight_chaos_strike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5428"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySound"					"Hero_ChaosKnight.ChaosStrike"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"chance"				
+				{
+						"value"				"10"
+						"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_5"
+				}
+				"crit_min"				"150 200 250 300"
+				"crit_max"				"150 200 250 300"
+				"lifesteal"					
+				{
+					"value"					"0"
+					"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_6"
+				}
+				"creep_multiplier"					"1"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
+	// Rewrite of Skeleton Wraith King Mortal Strike
+	// Author: Noya
+	// Date: 12.1.2015.
+	// Notes: Crit is decided OnAttackStarted, but removed before being decided so that a player can never get a guaranteed crit by cancelling animation
+	"skeleton_king_mortal_strike_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"			"skeleton_king_mortal_strike"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_mult"					"150 200 250 300"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_chance"				"15"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"hp_drain"					"20"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"drain_duration"			"7.0"
+			}
+		}
+	
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
+			"particle"	"particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf"
+		}
+	
+		"Modifiers"
+		{
+			"modifier_mortal_strike"
+			{
+			    "Passive"   "1"
+			    "IsHidden"  "1"
+			    "OnAttackStart"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName" 	"modifier_mortal_strike_crit"
+			            "Target" 		"CASTER"
+			        }
+	
+			        "Random"
+			        {
+			            "Chance" "%crit_chance"
+			            "OnSuccess"
+			            {
+			            	"FireSound"
+					        {
+					        	"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+					        	"Target"		"CASTER"
+					        }
+	
+					        "FireEffect"
+					        {
+					       		"EffectName" 		"particles/units/heroes/hero_skeletonking/skeleton_king_weapon_blur_critical.vpcf"
+					            "EffectAttachType"  "follow_origin"
+					            "Target"    		"CASTER"
+					        }
+	
+			                "ApplyModifier"
+			                {
+			                    "ModifierName" 	"modifier_mortal_strike_crit"
+			                    "Target"    	"CASTER"    
+			                }        
+			            }
+			        }
+			    }
+			}
+	
+			"modifier_mortal_strike_crit"
+			{
+			    "IsHidden"  "1"
+			    "Properties"
+			    {
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_mult"
+			    }
+	
+			    "OnAttackLanded"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName"  "modifier_mortal_strike_crit"
+			            "Target"   		"CASTER"    
+			        }
+			    }
+			}
+		}
+	}
+	// Rewrite of the Slardar Bash
+	// Author: chrislotix
+	// Date: 01.01.2015.
+	// Changed: 15.01.2015.
+	// Changed by: Pizzalol
+	// Reason: Improved spell code
+	"slardar_bash_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"slardar_bash"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		 {
+		  "soundfile"   "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+		  "particle"	"particles/generic_gameplay/generic_stunned.vpcf"  
+		 }
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"		"25"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chance"				"10 15 20 25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"60 80 100 120"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_creep"		"2.0"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_bash_stun_datadriven"
+			{
+				"IsDebuff" 		"1"
+				"OverrideAnimation"		"ACT_DOTA_DISABLED"
+	
+				"EffectName" "particles/generic_gameplay/generic_stunned.vpcf"
+	        	"EffectAttachType" "follow_overhead"
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+	
+	
+			"modifier_bash_datadriven"		
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+	
+				"OnAttackLanded"
+				{
+					"Random"
+					{
+						"Chance"	"%chance"
+						"PseudoRandom"		"DOTA_PSEUDO_RANDOM_SLARDAR_BASH"
+	
+						"OnSuccess"
+						{
+							"FireSound"
+							{
+								"EffectName"	"Hero_Slardar.Bash"
+								"Target"		"TARGET"
+							}
+	
+							"ApplyModifier"
+							{
+								"Target"
+								{
+									"Center"	"TARGET"
+									"Types"		"DOTA_UNIT_TARGET_HERO"
+								}
+								"ModifierName"	"modifier_bash_stun_datadriven"
+								"Duration"		"%duration"
+							}
+	
+							"ApplyModifier"
+							{
+								"Target"
+								{
+									"Center"	"TARGET"
+									"Types"		"DOTA_UNIT_TARGET_BASIC"
+								}
+								"ModifierName"	"modifier_bash_stun_datadriven"
+								"Duration"		"%duration_creep"
+							}
+	
+							"Damage"
+							{
+								"Target"	"TARGET"
+								"Type"		"DAMAGE_TYPE_PHYSICAL"
+								"Damage"	"%bonus_damage"
+							}						
+						}
+					}
+				} 
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Mirana Leap
+	//=================================================================================================================
+	"mirana_leap"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5050"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Ability.Leap"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30 26 22 18"
+		"AbilityCharges"				"1"
+		"AbilityChargeRestoreTime"		"30 26 22 18"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"40 35 30 20"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"leap_distance"			
+			{
+				"value"							"600 700 800 900"
+				"special_bonus_unique_mirana_6"	"+125"
+			}
+			"leap_speed"			"1600.0"
+			"leap_acceleration"		"7000.0"
+			"leap_speedbonus"	"4 8 12 16"
+			"leap_speedbonus_as"	
+			{
+				"value"				"8 16 24 32"
+				"special_bonus_unique_mirana_1"	"+80"
+			}
+			"leap_bonus_duration"	"10"
+			"shard_radius"					
+			{
+				"value"				"300"
+				"RequiresShard"		"1"
+			}
+			"shard_radius_end"					
+			{
+				"value"				"450"
+				"RequiresShard"		"1"
+			}
+			"shard_damage"					
+			{
+				"value"				"150"
+				"RequiresShard"		"1"
+			}
+			"shard_slow_pct"					
+			{
+				"value"				"30"
+				"RequiresShard"		"1"
+			}
+			"shard_slow_duration"					
+			{
+				"value"				"2.5"
+				"RequiresShard"		"1"
+			}
+			"shard_bonus_charges"	
+			{
+				"value"				"1"
+				"RequiresShard"		"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 }

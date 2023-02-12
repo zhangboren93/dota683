@@ -44,6 +44,10 @@ Dota6.83版本移植，养老dota，best dota。
 - 米波去除被动吸血， 改A杖
 - 巫妖冰甲吃兵
 - 屠夫被动魔抗
+- 混沌暴击无吸血
+- 骷髅王暴击改为概率
+- 大鱼人暴击改为概率
+- Mirage跳移除储值
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
@@ -56,10 +60,6 @@ Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 - 英雄自杀技能
 
 英雄复原计划：
-- 混沌暴击无吸血
-- 骷髅王暴击改为概率
-- 大鱼人暴击改为概率
-- Mirage跳移除储值
 - 大树移除我卷
 - 隐刺移除秘技
 - 死亡先知去除吸血
