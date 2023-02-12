@@ -61,10 +61,8 @@ function CAddonTemplateGameMode:InitGameMode()
 	
 	GameRules:SetStartingGold(650)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 19)
-	-- GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN, 0.03)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.17)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 13)
-	-- GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA_REGEN, 0.04)
 	
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(15)
 	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1)
@@ -124,7 +122,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		Dynamic_Wrap(CAddonTemplateGameMode, "BountyRunePickupFilter"), self)
 
 	ListenToGameEvent('npc_spawned', function(event)
-		HandleNpcSpawned(event.entindex, event.is_respawn)
+		HandleNpcSpawned(self, event.entindex, event.is_respawn)
 	end, nil)
 	ListenToGameEvent('modifier_event', function(event)
 		HandleModifierEvent(event.eventname, event.caster, event.ability)
@@ -134,6 +132,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	end, nil)
 	ListenToGameEvent('dota_rune_activated_server', function(event)
 		HandleRuneActivated(event.PlayerID, event.rune)
+	end, nil)
+	ListenToGameEvent('player_chat', function(event)
+		HandlePlayerChat(self, event.teamonly, event.text)
 	end, nil)
 
 	if GetMapName() == "dota_683" then
@@ -162,16 +163,24 @@ function CAddonTemplateGameMode:InitGameMode()
 		swapLocation(radiantMediumCamp, radiantSmallCamp)
 
 		local neutraltriggers = Entities:FindAllByClassname("trigger_multiple")
-	--	for i=1,#neutraltriggers do
-	--		print(neutraltriggers[i]:GetName())
-	--		print(neutraltriggers[i]:GetAbsOrigin())
-	--	end
 		local direTrigger1 = Entities:FindByName(nil, "neutralcamp_evil_4")
 		local direTrigger2 = Entities:FindByName(nil, "neutralcamp_evil_2")
 		swapLocation(direTrigger1, direTrigger2)
 		local radiantTrigger1 = Entities:FindByName(nil, "neutralcamp_good_1")
 		local radiantTrigger2 = Entities:FindByName(nil, "neutralcamp_good_4")
 		swapLocation(radiantTrigger1, radiantTrigger2)
+	end
+end
+
+function HandlePlayerChat(self, teamonly, text)
+	if teamonly == 0 and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+		if text == '-rd' then
+			self.rdEnabled = true
+			GameRules:SendCustomMessage("RD模式开启", -1, -1)
+		elseif text == '-ap' then
+			self.rdEnabled = false
+			GameRules:SendCustomMessage("AP模式开启", -1, -1)
+		end
 	end
 end
 
@@ -185,7 +194,7 @@ end
 function CAddonTemplateGameMode:OnThink()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		-- TODO enable rd
-		if GetMapName() == "rd" and IsServer() and self.rdHeroFiltered == nil then
+		if self.rdEnabled and IsServer() and self.rdHeroFiltered == nil then
 			local heroes = {
 				"npc_dota_hero_abaddon"				,
 				"npc_dota_hero_ancient_apparition" 	,
@@ -398,7 +407,7 @@ function CAddonTemplateGameMode:BountyRunePickupFilter(event)
 	return true
 end
 
-function HandleNpcSpawned(entityIndex, is_respawn)
+function HandleNpcSpawned(self, entityIndex, is_respawn)
     local entity = EntIndexToHScript(entityIndex)
     if entity:IsRealHero() and is_respawn == 0 then
 		entity:SetThink(function()
@@ -437,7 +446,7 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 		
 		-- give 200 gold to randomed player
 		local player = entity:GetPlayerOwner()
-		if PlayerResource:HasRandomed(player:GetPlayerID()) and GetMapName() == 'ap' then
+		if PlayerResource:HasRandomed(player:GetPlayerID()) and not self.rdEnabled then
 			entity:ModifyGold(200, true, DOTA_ModifyGold_Unspecified)
 		end
 
@@ -515,32 +524,6 @@ function HandleNpcSpawned(entityIndex, is_respawn)
 			end, "meepo scepter", 1);
 		end
     end
-
---	if entity:GetName() == "npc_dota_creep_lane" then
---		local location = entity:GetAbsOrigin();
---		if location[2] < -5000 or location[2] > 5000 then
---			if not entity:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
---				entity:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { })
---			end
---		end 
---		entity:SetThink(function()
---			local unitname = entity:GetUnitName()
---			-- unset gold and experience gain for ranged creep. 
---			-- Current value +8 exp, +6 gold per level. Value after adjustment is +0 exp, and +1 gold per level.
---			if unitname == "npc_dota_creep_goodguys_ranged" or unitname == "npc_dota_creep_badguys_ranged" then
---    			local time = GameRules:GetDOTATime(false, false) 
---				local creeplevel = math.floor((time + 5) / 450)
---				--print(time .. " creeplevel " .. creeplevel)
---    			entity:SetDeathXP(entity:GetDeathXP() - creeplevel * 8)
---    			entity:SetMinimumGoldBounty(entity:GetMinimumGoldBounty() - creeplevel * 5)
---    			entity:SetMaximumGoldBounty(entity:GetMaximumGoldBounty() - creeplevel * 5)
---			end
---			entity:RemoveModifierByName("modifier_creep_bonus_xp")
---			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
---			entity:SetBaseMagicalResistanceValue(0)
---
---		end, "remove flag bearer bonus", 1)
---	end
 
 	if entity:GetName() == "npc_dota_roshan" then
 		entity:SetThink(function()

@@ -5,7 +5,7 @@ Dota6.83版本移植，养老dota，best dota。
 
 特性：
 
-- AP模式
+- AP/RD模式, 默认AP，准备阶段公屏输入'-rd'切换RD模式
 - 使用当前版本英雄池，去除天赋，去除魔晶，去除齐天大圣之后出的新英雄
 - 英雄最高25级，使用6.83版本升级经验
 - 使用6.83版本道具，不掉落中立道具
@@ -49,7 +49,6 @@ Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 感谢SpellLibrary提供的部分自定义物品和技能的实现：https://github.com/Pizzalol/SpellLibrary
 
 后续开发计划：
-- RD 模式
 - 道具功能修复（补刀斧砍眼，散失驱散召唤单位，...）
 - 法球叠加
 - 自定义版本参数
