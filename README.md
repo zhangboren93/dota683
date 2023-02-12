@@ -47,13 +47,14 @@ Dota6.83版本移植，养老dota，best dota。
 - 混沌暴击无吸血
 - 骷髅王暴击改为概率
 - 大鱼人暴击改为概率
-- Mirage跳移除储值
+- Mirana跳移除储值
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 感谢SpellLibrary提供的部分自定义物品和技能的实现：https://github.com/Pizzalol/SpellLibrary
 
 后续开发计划：
+- 死亡掉落金钱
 - 道具功能修复（补刀斧砍眼，散失驱散召唤单位，...）
 - 法球叠加
 - 自定义版本参数
