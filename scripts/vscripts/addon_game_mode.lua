@@ -53,6 +53,7 @@ function Activate()
 	LinkLuaModifier( "modifier_cancels_item_on_hit", "modifiers/item_cancel_on_hit.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_ai", "creepai.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_health_bonus", "modifiers/creep_health.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_pudge_flesh_magic_resist", "modifiers/pudge_flesh_magic_resist.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -493,9 +494,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:SetThink(function()
 				if entity:HasModifier("modifier_troll_warlord_berserkers_rage") then
 					local ability = entity:FindAbilityByName("troll_warlord_berserkers_rage")
-					local bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-					local bash_chance = ability:GetSpecialValueFor("bash_chance")
-					entity:AddNewModifier(entity, nil, "modifier_troll_warlord_bash", {
+					entity:AddNewModifier(entity, ability, "modifier_troll_warlord_bash", {
 						bonus_damage = bonus_damage, bash_chance = bash_chance})
 
 					local item = entity:FindItemInInventory("item_basher")
@@ -522,6 +521,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 1
 			end, "meepo scepter", 1);
+		end
+
+		if entity:GetName() == "npc_dota_hero_pudge" then
+			entity:AddNewModifier(entity, entity:FindAbilityByName("pudge_flesh_heap"), "modifier_pudge_flesh_magic_resist", {})
 		end
     end
 

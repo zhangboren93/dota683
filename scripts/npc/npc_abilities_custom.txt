@@ -2409,4 +2409,30 @@
 		    }
 		}
 	}
+	//=================================================================================================================
+	// Ability: Pudge Flesh Heap
+	//=================================================================================================================
+	"pudge_flesh_heap"
+	{
+		"ID"					"5074"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityValues"
+		{
+			"damage_block"					
+			{
+				"value"			"0"
+				"special_bonus_unique_pudge_1"	"x1.5"
+			}
+			"flesh_heap_strength_buff_amount"
+			{
+				"value"	"1 1.5 2 2.5"
+				"special_bonus_unique_pudge_1"	"x1.5"
+			}
+			"flesh_heap_range"		"450"
+			"duration"	"0"
+			"magic_resistance" "6 8 10 12"
+		}
+	}
 }
