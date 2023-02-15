@@ -48,25 +48,26 @@ Dota6.83版本移植，养老dota，best dota。
 - 骷髅王暴击改为概率
 - 大鱼人暴击改为概率
 - Mirana跳移除储值
+- 大树移除握卷
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 感谢SpellLibrary提供的部分自定义物品和技能的实现：https://github.com/Pizzalol/SpellLibrary
 
 后续开发计划：
-- 死亡掉落金钱
 - 道具功能修复（补刀斧砍眼，散失驱散召唤单位，...）
 - 法球叠加
 - 自定义版本参数
 - 英雄自杀技能
+- 查看战绩
 
 英雄复原计划：
-- 大树移除我卷
+- 重做蜘蛛
+- 沉默重做一技能
 - 隐刺移除秘技
 - 死亡先知去除吸血
-- NEC去除虚无
+- NEC去除虚无，A帐无法买活
 - 水人移除变形
 - 小小被动A杖
-- 重做蜘蛛
 - 小牛重做A杖
-- 沉默重做一技能
+- 小狗撕裂伤口

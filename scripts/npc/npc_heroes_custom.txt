@@ -1438,6 +1438,7 @@
  "AttributeAgilityGain"   "2"    
  "AttributeBaseIntelligence" "17"  
  "AttributeIntelligenceGain"  "1.8"  
+		"Ability1"		"treant_natures_guise_datadriven"
 		"MovementTurnRate"		"0.500000"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
