@@ -60,6 +60,7 @@ Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 - 自定义版本参数
 - 英雄自杀技能
 - 查看战绩
+- 重做/去除用来刷钱的A帐
 
 英雄复原计划：
 - 重做蜘蛛
@@ -71,3 +72,4 @@ Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 - 小小被动A杖
 - 小牛重做A杖
 - 小狗撕裂伤口
+- 德鲁伊去除吸血

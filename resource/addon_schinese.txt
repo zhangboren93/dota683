@@ -1,7 +1,7 @@
 "lang" {
 	"Language" "SChinese"
 	"Tokens" {
-		"ADDON_GAME_NAME" "MobaTM v0.2a"
+		"ADDON_GAME_NAME" "MobaTM v0.2b"
 		"DOTA_Tooltip_modifier_attribute_regen_adjust"		"减少力量生命恢复和智力魔法恢复"
 		"DOTA_Tooltip_modifier_soul_ring_health_regen_lua"	"恢复生命和魔法"
 		"DOTA_Tooltip_Ability_item_quelling_blade_datadriven"	"补刀斧"

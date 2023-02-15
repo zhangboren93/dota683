@@ -2888,6 +2888,7 @@
 				{
 					"Target"	"TARGET"
 					"ModifierName"	"modifier_invisible"
+					"Duration"				"%duration"
 				}
 			}
 		}
@@ -2904,11 +2905,6 @@
 			{
 				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_move_speed"
 			}
-
-		//	"States"
-		//	{
-		//		"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
-		//	}
 
 			"ThinkInterval"	"%search_interval"
 			"OnIntervalThink"
