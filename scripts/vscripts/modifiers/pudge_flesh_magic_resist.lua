@@ -14,9 +14,13 @@ function modifier_pudge_flesh_magic_resist:DeclareFunctions()
 end
 
 function modifier_pudge_flesh_magic_resist:IsHidden()
-    return true
+    return false
 end
 
 function modifier_pudge_flesh_magic_resist:GetModifierMagicalResistanceBonus()
     return self:GetAbility():GetSpecialValueFor("magic_resistance")
+end
+
+function modifier_pudge_flesh_magic_resist:GetTexture()
+    return "pudge_flesh_heap"
 end
