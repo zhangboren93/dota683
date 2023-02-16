@@ -14,7 +14,7 @@ function modifier_bonus_strength_lua:DeclareFunctions()
 end
 
 function modifier_bonus_strength_lua:IsHidden()
-    return true
+    return false
 end
 
 function modifier_bonus_strength_lua:GetModifierBonusStats_Strength()
@@ -27,4 +27,8 @@ function modifier_bonus_strength_lua:GetModifierBonusStats_Strength()
         return 0
     end
     return item:GetSpecialValueFor("bonus_strength")
+end
+
+function modifier_bonus_strength_lua:GetTexture()
+    return "item_urn_of_shadows"
 end

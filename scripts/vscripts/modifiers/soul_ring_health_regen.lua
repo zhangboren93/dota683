@@ -16,9 +16,8 @@ function modifier_soul_ring_health_regen_lua:DeclareFunctions()
     return funcs
 end
 
--- TODO show soul ring icon & regen values
 function modifier_soul_ring_health_regen_lua:IsHidden()
-    return true
+    return false
 end
 
 function modifier_soul_ring_health_regen_lua:GetModifierConstantHealthRegen()
