@@ -17,7 +17,7 @@ function modifier_soul_ring_health_regen_lua:DeclareFunctions()
 end
 
 function modifier_soul_ring_health_regen_lua:IsHidden()
-    return false
+    return true
 end
 
 function modifier_soul_ring_health_regen_lua:GetModifierConstantHealthRegen()

@@ -14,7 +14,7 @@ function modifier_bonus_strength_lua:DeclareFunctions()
 end
 
 function modifier_bonus_strength_lua:IsHidden()
-    return false
+    return true
 end
 
 function modifier_bonus_strength_lua:GetModifierBonusStats_Strength()
