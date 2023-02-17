@@ -823,12 +823,6 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
-    "troll_warlord_battle_trance"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-	}
     "centaur_stampede"
 	{
 		"MaxLevel"              "3"
@@ -2525,16 +2519,6 @@
 			{
 				"var_type"					"FIELD_INTEGER"
 				"crit_chance"				"15"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hp_drain"					"20"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"drain_duration"			"7.0"
 			}
 		}
 	
