@@ -54,6 +54,7 @@ function Activate()
 	LinkLuaModifier( "modifier_creep_ai", "creepai.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_health_bonus", "modifiers/creep_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_pudge_flesh_magic_resist", "modifiers/pudge_flesh_magic_resist.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_riki_invis_health_regen", "modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -525,6 +526,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 
 		if entity:GetName() == "npc_dota_hero_pudge" then
 			entity:AddNewModifier(entity, entity:FindAbilityByName("pudge_flesh_heap"), "modifier_pudge_flesh_magic_resist", {})
+		end
+
+		if entity:GetName() == "npc_dota_hero_riki" then
+			entity:AddNewModifier(entity, entity:FindAbilityByName("riki_permanent_invisibility"), "modifier_riki_invis_health_regen", {})
 		end
     end
 

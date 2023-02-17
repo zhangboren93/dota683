@@ -49,6 +49,7 @@ Dota6.83版本移植，养老dota，best dota。
 - 大鱼人暴击改为概率
 - Mirana跳移除储值
 - 大树移除握卷
+- 删A：人马,力丸,骷髅王,兽王,小骷髅,死骑,小强,小狗,圣堂,vs,pa,pl,幽鬼,tb,leshrac,am,slark,slardar,sv,kunka,夜魔,dp,ck,tide,ember,ursa,lycan,pom,猛犸,龙骑
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
@@ -74,7 +75,6 @@ Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 - NEC去除虚无
 
 V0.3 A帐改动计划:
-- 删A：人马,力丸,骷髅王,兽王,小骷髅,死骑,小强,小狗,圣堂,vs,pa,pl,幽鬼,tb,leshrac,am,slark,slardar,sv,kunka,夜魔,dp,ck,tide,ember,ursa,lycan,pom,猛犸,龙骑
 - 剑圣斩增加持续时间
 - 毒龙加大招距离
 - 宙斯提升大招伤害
