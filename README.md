@@ -50,6 +50,12 @@ Dota6.83版本移植，养老dota，best dota。
 - Mirana跳移除储值
 - 大树移除握卷
 - 删A：人马,力丸,骷髅王,兽王,小骷髅,死骑,小强,小狗,圣堂,vs,pa,pl,幽鬼,tb,leshrac,am,slark,slardar,sv,kunka,夜魔,dp,ck,tide,ember,ursa,lycan,pom,猛犸,龙骑
+- Lina A杖大招纯粹伤害
+- 虚空A杖大招-CD
+- 风行A杖大招伤害-CD
+- 飞机A杖全球大
+- 死灵龙A杖+1鸟
+- 小牛A杖大招伤害
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
@@ -78,17 +84,11 @@ V0.3 A帐改动计划:
 - 剑圣斩增加持续时间
 - 毒龙加大招距离
 - 宙斯提升大招伤害
-- 小小拔树
+- *小小拔树
 - 巫妖无限弹
-- 小牛大招伤害
 - 斧王斩杀
 - 女王加大招伤害
 - 发条大招-CD
 - 影魔-回血
-- NEC无法买活
-- 飞机全球大
-- 死灵龙+1鸟
-- Lina大招纯粹伤害
-- 虚空大招-CD
-- 风行大招伤害-CD
-- 小路推进伤害
+- *NEC无法买活
+- *小路推进伤害

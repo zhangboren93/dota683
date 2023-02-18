@@ -531,6 +531,25 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		if entity:GetName() == "npc_dota_hero_riki" then
 			entity:AddNewModifier(entity, entity:FindAbilityByName("riki_permanent_invisibility"), "modifier_riki_invis_health_regen", {})
 		end
+
+		if entity:GetName() == "npc_dota_hero_visage" then
+			entity:SetThink(function()
+				if entity:HasScepter() and not entity:HasAbility("special_bonus_unique_visage_6") then
+					local ability = entity:AddAbility("special_bonus_unique_visage_6")
+					ability:SetLevel(1)
+					print("added visage ahgs ability")
+				end
+				return 1
+			end, "meepo scepter", 1);
+		end
+
+		if entity:GetName() == "npc_dota_hero_windrunner" then
+			entity:SetThink(function()
+				entity:RemoveModifierByName("modifier_windrunner_windrun_invis")
+				entity:RemoveModifierByName("modifier_windrunner_windrun_invis_thinker")
+				return 0.3
+			end, "windrunner scepter", 0.3);
+		end
     end
 
 	if entity:GetName() == "npc_dota_roshan" then
