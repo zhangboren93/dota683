@@ -607,9 +607,35 @@
 	}
     "tiny_grow"
 	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5109"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		"AbilitySound"					"Tiny.Grow"
+		"AbilityCastAnimation"		"ACT_INVALID"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_armor"				"3 4 5"
+				"bonus_damage"			
+				{
+					"value"					"50 100 150"
+					"CalculateSpellDamageTooltip"	"0"
+				}
+				"tree_bonus_damage_pct"			
+				{
+					"value"				"20 30 40"
+					"special_bonus_unique_tiny_7"	"+40"
+				}
+				"attack_speed_reduction"	"-30"
+				"toss_bonus_damage"			"100 200 300"
+		}
 	}
     "vengefulspirit_nether_swap"
 	{
@@ -5475,6 +5501,146 @@
 			"dispel"
 			{
 				"value"		"0"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Tiny: Tree Grab
+	//=================================================================================================================
+	"tiny_tree_grab"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5108"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Tiny.CraggyExterior.Stun"
+		"LinkedAbility"					"tiny_toss_tree"
+		"HasScepterUpgrade"				"1"
+        "HasShardUpgrade"               "1"
+        "AbilityDraftScepterAbility"    "tiny_tree_channel"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"165"
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"19"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"40"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"		"35"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_count"				"5000"
+				"LinkedSpecialBonus"	"special_bonus_unique_tiny_6"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"					"20"				
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage_buildings"		"75"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_range"				"350"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"splash_width"				"200"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"splash_range"				"400"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"splash_pct"				"100"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"bat_increase"			"0.0"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"speed_reduction"			"0"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	//=================================================================================================================
+	// Tiny: Craggy Exterior
+	//=================================================================================================================
+	"tiny_craggy_exterior"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"296"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"              "4"
+		"RequiredLevel"         "1"
+		"LevelsBetweenUpgrades" "2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilitySound"					"Hero_Tiny.CraggyExterior.Stun"
+		"FightRecapLevel"				"1"
+		"IsGrantedByShard"				"0"
+        "HasShardUpgrade"               "0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"		"35"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"stun_chance"				"10 15 20 25"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"1 1.25 1.5 1.75"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"25 35 45 55"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"400"
 			}
 		}
 	}

@@ -550,6 +550,16 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				return 0.3
 			end, "windrunner scepter", 0.3);
 		end
+		if entity:GetName() == "npc_dota_hero_tiny" then
+			entity:SetThink(function()
+				if entity:HasScepter() and not entity:HasAbility("tiny_tree_grab") then
+					local ability = entity:AddAbility("tiny_tree_grab")
+					ability:SetLevel(1)
+					print("added tiny ahgs ability")
+				end
+				return 1
+			end, "meepo scepter", 1);
+		end
     end
 
 	if entity:GetName() == "npc_dota_roshan" then

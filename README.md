@@ -54,13 +54,15 @@ Dota6.83版本移植，养老dota，best dota。
 - 斧王A杖提升伤害
 - 女王A杖加大招伤害
 - 发条A杖大招-CD
-- 删A：人马,力丸,骷髅王,兽王,小骷髅,死骑,小强,小狗,圣堂,vs,pa,pl,幽鬼,tb,leshrac,am,slark,slardar,sv,kunka,夜魔,dp,ck,tide,ember,ursa,lycan,pom,猛犸,龙骑
 - Lina A杖大招纯粹伤害
 - 虚空A杖大招-CD
 - 风行A杖大招伤害-CD
 - 飞机A杖全球大
 - 死灵龙A杖+1鸟
 - 小牛A杖大招伤害
+- 小小A杖拔树
+- 隐刺移除秘技、A杖
+- 删A：人马,骷髅王,兽王,小骷髅,死骑,小强,小狗,圣堂,vs,pa,pl,幽鬼,tb,leshrac,am,slark,slardar,sv,kunka,夜魔,dp,ck,tide,ember,ursa,lycan,pom,猛犸,龙骑
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
@@ -72,20 +74,14 @@ Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 - 自定义版本参数
 - 英雄自杀技能
 - 查看战绩
-- 重做/去除用来刷钱的A帐
 - 英雄击杀金钱经验重做
 
 英雄复原计划：
 - 重做蜘蛛
 - 沉默重做一技能
-- 隐刺移除秘技
 - 死亡先知去除吸血
 - 水人移除变形
 - 小狗撕裂伤口
 - 德鲁伊去除吸血
 - NEC去除虚无
-
-V0.3 A帐改动计划:
-- 小小拔树
-- NEC无法买活
 - 小路推进伤害
