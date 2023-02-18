@@ -119,5 +119,11 @@
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Lore"			"A帐+300施放距离，无视魔法免疫"
 		"DOTA_Tooltip_Ability_windrunner_focusfire_Lore"		"A帐CD15秒，加攻击"
 		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Lore"		"A帐+200基础伤害"
+		"DOTA_Tooltip_ability_juggernaut_omni_slash_scepter_description" 				"CD70秒，持续时间+1.5秒"
+		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Lore"								"A杖+200伤害"
+		"DOTA_Tooltip_Ability_axe_culling_blade_Lore"									"A杖6秒CD，增加100伤害，加成持续10秒"
+		"DOTA_Tooltip_Ability_lich_chain_frost_Lore"									"A杖伤害+90，施法距离+100，移除次数上限"
+		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_Lore"								"A杖+35/60/85伤害，CD100/70/40秒"
+		"DOTA_Tooltip_Ability_rattletrap_hookshot_Lore"									"A杖CD15秒"
 	}
 }
