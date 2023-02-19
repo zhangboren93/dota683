@@ -65,6 +65,7 @@ Dota6.83版本移植，养老dota，best dota。
 - 小路A杖推进伤害
 - 删A：人马,骷髅王,兽王,小骷髅,死骑,小强,小狗,圣堂,vs,pa,pl,幽鬼,tb,leshrac,am,slark,slardar,sv,kunka,夜魔,dp,ck,tide,ember,ursa,lycan,猛犸,龙骑
 - NEC去除虚无，A杖无法买活
+- 蜘蛛小蜘蛛一技能，吸血大招
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
@@ -79,7 +80,6 @@ Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 - 英雄击杀金钱经验重做
 
 英雄复原计划：
-- 重做蜘蛛
 - 沉默重做一技能
 - 死亡先知去除吸血
 - 水人移除变形
