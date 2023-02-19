@@ -55,6 +55,7 @@ function Activate()
 	LinkLuaModifier( "modifier_creep_health_bonus", "modifiers/creep_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_pudge_flesh_magic_resist", "modifiers/pudge_flesh_magic_resist.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_riki_invis_health_regen", "modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_enchantress_aghs_attack_range", "modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -489,9 +490,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 1 
 			end, "techie aghs bonus.", 1)
-		end
-
-		if entity:GetName() == "npc_dota_hero_troll_warlord" then
+		elseif entity:GetName() == "npc_dota_hero_troll_warlord" then
 			entity:SetThink(function()
 				if entity:HasModifier("modifier_troll_warlord_berserkers_rage") then
 					local ability = entity:FindAbilityByName("troll_warlord_berserkers_rage")
@@ -512,9 +511,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end, "troll get bash on hit", 1)
 			GameRules:SendCustomMessage("Troll cannot use basher or abyssal blade!!!", entity:GetPlayerID(), entity:GetPlayerID())
 			GameRules:SendCustomMessage("巨魔无法购买晕锤或者大晕锤!!!", entity:GetPlayerID(), entity:GetPlayerID())
-		end
-		
-		if entity:GetName() == "npc_dota_hero_meepo" then
+		elseif entity:GetName() == "npc_dota_hero_meepo" then
 			entity:SetThink(function()
 				if entity:HasScepter() and not entity:HasAbility("special_bonus_unique_meepo_5") then
 					entity:AddAbility("special_bonus_unique_meepo_5")
@@ -526,13 +523,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 
 		if entity:GetName() == "npc_dota_hero_pudge" then
 			entity:AddNewModifier(entity, entity:FindAbilityByName("pudge_flesh_heap"), "modifier_pudge_flesh_magic_resist", {})
-		end
-
-		if entity:GetName() == "npc_dota_hero_riki" then
+		elseif entity:GetName() == "npc_dota_hero_riki" then
 			entity:AddNewModifier(entity, entity:FindAbilityByName("riki_permanent_invisibility"), "modifier_riki_invis_health_regen", {})
-		end
-
-		if entity:GetName() == "npc_dota_hero_visage" then
+		elseif entity:GetName() == "npc_dota_hero_visage" then
 			entity:SetThink(function()
 				if entity:HasScepter() and not entity:HasAbility("special_bonus_unique_visage_6") then
 					local ability = entity:AddAbility("special_bonus_unique_visage_6")
@@ -541,16 +534,13 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 1
 			end, "meepo scepter", 1);
-		end
-
-		if entity:GetName() == "npc_dota_hero_windrunner" then
+		elseif entity:GetName() == "npc_dota_hero_windrunner" then
 			entity:SetThink(function()
 				entity:RemoveModifierByName("modifier_windrunner_windrun_invis")
 				entity:RemoveModifierByName("modifier_windrunner_windrun_invis_thinker")
 				return 0.3
 			end, "windrunner scepter", 0.3);
-		end
-		if entity:GetName() == "npc_dota_hero_tiny" then
+		elseif entity:GetName() == "npc_dota_hero_tiny" then
 			entity:SetThink(function()
 				if entity:HasScepter() and not entity:HasAbility("tiny_tree_grab") then
 					local ability = entity:AddAbility("tiny_tree_grab")
@@ -558,7 +548,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 					print("added tiny ahgs ability")
 				end
 				return 1
-			end, "meepo scepter", 1);
+			end, "tiny scepter", 1);
+		elseif entity:GetName() == "npc_dota_hero_enchantress" then
+			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
 		end
     end
 

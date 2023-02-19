@@ -126,5 +126,6 @@
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_Lore"								"A杖+35/60/85伤害，CD100/70/40秒"
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_Lore"									"A杖CD15秒"
 		"DOTA_Tooltip_Ability_tiny_grow_Lore"											"A杖抓树"
+		"DOTA_Tooltip_Ability_enchantress_impetus_Lore"									"A杖+165攻击距离"
 	}
 }
