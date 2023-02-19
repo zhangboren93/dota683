@@ -63,9 +63,12 @@ Dota6.83版本移植，养老dota，best dota。
 - 小小A杖拔树
 - 隐刺移除秘技、A杖
 - 小路A杖推进伤害
-- 删A：人马,骷髅王,兽王,小骷髅,死骑,小强,小狗,圣堂,vs,pa,pl,幽鬼,tb,leshrac,am,slark,slardar,sv,kunka,夜魔,dp,ck,tide,ember,ursa,lycan,猛犸,龙骑
 - NEC去除虚无，A杖无法买活
-- 蜘蛛小蜘蛛一技能，吸血大招
+- 蜘蛛小蜘蛛一技能，吸血大招，删A
+- 小鱼人偷属性无永久加成
+- lion大招无永久加成
+- 德鲁伊狂猛替换吸血
+- 删A：人马,骷髅王,兽王,小骷髅,死骑,小强,小狗,圣堂,vs,pa,pl,幽鬼,tb,leshrac,am,slark,slardar,sv,kunka,夜魔,dp,ck,tide,ember,ursa,lycan,猛犸,龙骑
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
@@ -81,7 +84,5 @@ Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 
 英雄复原计划：
 - 沉默重做一技能
-- 死亡先知去除吸血
 - 水人移除变形
 - 小狗撕裂伤口
-- 德鲁伊去除吸血

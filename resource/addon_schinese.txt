@@ -130,5 +130,7 @@
 		"DOTA_Tooltip_Ability_necrolyte_reapers_scythe_Lore"							"A杖+伤害-CD无法买活"
 		"DOTA_Tooltip_Ability_necrolyte_heartstopper_aura_datadriven"					"竭心光环" 
 		"DOTA_Tooltip_Ability_necrolyte_heartstopper_aura_datadriven_Description"		"每秒掉血0.6/0.9/1.2/1.5%%最大生命值" 
+		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven"				"偷属性" 
+		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven_Description"	"持续15/30/60/120秒" 
 	}
 }
