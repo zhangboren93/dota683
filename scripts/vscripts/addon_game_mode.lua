@@ -131,7 +131,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		HandleModifierEvent(event.eventname, event.caster, event.ability)
 	end, nil)
 	ListenToGameEvent('entity_killed', function(event)
-		HandleEntityKilled(event.entindex_killed, event.entindex_attacker)
+		HandleEntityKilled(event.entindex_killed, event.entindex_attacker, event.entindex_inflictor)
 	end, nil)
 	ListenToGameEvent('dota_rune_activated_server', function(event)
 		HandleRuneActivated(event.PlayerID, event.rune)
@@ -463,34 +463,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			return 2
 		end, "give 90 gold per minute after game start", 2)
 
-		-- techies' remote mine scepter upgrade
-		if entity:GetName() == "npc_dota_hero_techies" then
-			entity:SetThink(function()
-				local ability = nil
-				if entity:HasAbility("techies_remote_mines") then
-					ability = entity:FindAbilityByName("techies_remote_mines")
-				elseif entity:HasAbility("techies_remote_mines_scepter") then
-					ability = entity:FindAbilityByName("techies_remote_mines_scepter")
-				else
-					return 1
-				end
-				local level = ability:GetLevel()
-				if ability:GetLevel() > 0 then
-					if entity:HasScepter() and ability:GetName() == "techies_remote_mines" then
-						local newAbility = entity:AddAbility("techies_remote_mines_scepter")
-						newAbility:SetLevel(level)
-						entity:RemoveAbility("techies_remote_mines")
-              	 		SendToConsole("bind " .. "r" .. " dota_ability_execute " .. 17)
-					elseif not entity:HasScepter() and ability:GetName() == "techies_remote_mines_scepter" then
-						local newAbility = entity:AddAbility("techies_remote_mines")
-						newAbility:SetLevel(level);
-						entity:RemoveAbility("techies_remote_mines_scepter")
-              	 		SendToConsole("bind " .. "r" .. " dota_ability_execute " .. 5)
-					end
-				end
-				return 1 
-			end, "techie aghs bonus.", 1)
-		elseif entity:GetName() == "npc_dota_hero_troll_warlord" then
+		if entity:GetName() == "npc_dota_hero_troll_warlord" then
 			entity:SetThink(function()
 				if entity:HasModifier("modifier_troll_warlord_berserkers_rage") then
 					local ability = entity:FindAbilityByName("troll_warlord_berserkers_rage")
@@ -519,9 +492,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 1
 			end, "meepo scepter", 1);
-		end
-
-		if entity:GetName() == "npc_dota_hero_pudge" then
+		elseif entity:GetName() == "npc_dota_hero_pudge" then
 			entity:AddNewModifier(entity, entity:FindAbilityByName("pudge_flesh_heap"), "modifier_pudge_flesh_magic_resist", {})
 		elseif entity:GetName() == "npc_dota_hero_riki" then
 			entity:AddNewModifier(entity, entity:FindAbilityByName("riki_permanent_invisibility"), "modifier_riki_invis_health_regen", {})
@@ -599,9 +570,13 @@ function isAtWardPoint(position, x, y)
 	return position[1] < x + 75 and position[1] > x - 75 and position[2] > y - 75 and position[2] < y + 75
 end
 
-function HandleEntityKilled(entityIdx, attackerIdx)
+function HandleEntityKilled(entityIdx, attackerIdx, inflictorIdx)
 	local entity = EntIndexToHScript(entityIdx)
 	local attacker = EntIndexToHScript(attackerIdx)
+	local ability = nil
+	if inflictorIdx ~= nil then
+		ability = EntIndexToHScript(inflictorIdx)
+	end
 	local name = entity:GetName()
 	if name == "dota_badguys_tower1_mid"
 		or name == "dota_badguys_tower1_top"
@@ -613,6 +588,13 @@ function HandleEntityKilled(entityIdx, attackerIdx)
 		or name == "dota_goodguys_tower1_bot" then
 		local fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		fountain:FindAbilityByName("glyph_datadriven"):EndCooldown()
+	end
+	if ability ~= nil and ability:GetName() == "necrolyte_reapers_scythe" and attacker:HasScepter() and entity:IsRealHero() then
+		entity:SetBuyBackDisabledByReapersScythe(true)
+		print("renabling buyback after " .. entity:GetRespawnTime())
+		entity:SetThink(function()
+			entity:SetBuyBackDisabledByReapersScythe(false)
+		end, "", {}, entity:GetRespawnTime())
 	end
 	if IsServer() and entity:IsHero() and not entity:IsIllusion() and attacker:IsHero() then
 		print("gives extra 100 gold")

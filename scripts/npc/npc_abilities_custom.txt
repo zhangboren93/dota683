@@ -2511,7 +2511,6 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.75"
 		
 		// Time		
@@ -2524,172 +2523,25 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"AbilityCastRange"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"max_mines"					"21"
+				"value"						"500"
+				"special_bonus_scepter"		"+300"
 			}
-			"02"
+			"damage"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"300 450 600"
+				"value"					"300 450 600"
+				"special_bonus_scepter"	"+150"
 			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"radius"					"425"
-			}		
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"duration"					"600.0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"activation_time"			"2.0"
-			}	
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_scepter"			"450 600 750"
-				"RequiresScepter"			"1"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius_scepter"			"425"
-				"RequiresScepter"			"1"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range_scepter_bonus"		"300"
-				"RequiresScepter"			"1"
-			}			
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"vision_radius"			"500"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"vision_duration"			"3.0"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"model_scale"				"0 10 20"     // Percentage over model scale
-			}
-			"12"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"detonate_delay"			"0.25"
-			}
-		}
-	}
-	//=================================================================================================================
-	// Techies: Remote Mines
-	//=================================================================================================================
-	"techies_remote_mines_scepter"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"techies_remote_mines"
-		"HotKeyOverride"				"R"
-		"AbilityCastRange"				"800"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
-		"AbilitySharedCooldown"			"techies_remote_mines"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"HasScepterUpgrade"				"1"
-		"AbilityDraftPreAbility"		"techies_focused_detonate"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.75"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 180 240"
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"max_mines"					"21"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage"					"450 600 750"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"425"
-			}		
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"600.0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"activation_time"			"2.0"
-			}	
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_scepter"			"450 600 750"
-				"RequiresScepter"			"1"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius_scepter"			"425"
-				"RequiresScepter"			"1"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"cast_range_scepter_bonus"		"0"
-				"RequiresScepter"			"1"
-			}			
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"vision_radius"			"500"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"vision_duration"			"3.0"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"model_scale"				"0 10 20"     // Percentage over model scale
-			}
-			"12"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"detonate_delay"			"0.25"
-			}
 		}
 	}
 	//=================================================================================================================
@@ -5727,5 +5579,191 @@
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Ability: Necrolyte's Heartstopper Aura
+	//=================================================================================================================
+	"necrolyte_heartstopper_aura"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5159"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"necrolyte_sadist"
+		"AbilityValues"
+		{
+			"aura_radius"			"0"		
+			"aura_damage"
+			{
+				"value"		"0" 
+				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
+			} 	
+			"health_regen"	"2 4 6 10"
+			"mana_regen"	"1 2 3 6"
+			"hero_multiplier" "10"
+			"regen_duration"		
+			{
+				"value"						 "6"
+				"special_bonus_unique_necrophos_heartstopper_regen_duration"							"+2"
+			}
+			"scepter_multiplier"
+			{
+				"value"					"1" 
+				"RequiresScepter"		"1"
+			} 
+			"heal_reduction_pct"
+			{
+				"value"					"0"
+				"special_bonus_unique_necrophos_5"		"+32"
+			}
+			
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	// Rewrite of the Necrophos Heartstopper Aura ability
+	// Author: Pizzalol
+	// Date: 11.07.2015.
+	// Game version: 6.84
+	"necrolyte_heartstopper_aura_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"necrolyte_heartstopper_aura"
+		
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1200"
+	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"		"1200"		// If you change this, also change the AbilityCastRange above
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"aura_damage"		"-0.6 -0.9 -1.2 -1.5" 
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"aura_damage_interval"		"0.2" 
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_heartstopper_aura_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+	
+				"Aura" 			"modifier_heartstopper_debuff_datadriven"
+				"Aura_Radius" 	"%aura_radius"
+				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+	
+			"modifier_heartstopper_debuff_datadriven"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"1"
+	
+				"ThinkInterval"	"%aura_damage_interval"
+	
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"heroes/hero_necrolyte/heartstopper_aura.lua"
+						"Function"				"HeartstopperAura"
+	
+						"visibility_modifier"	"modifier_heartstopper_debuff_visibility"
+					}
+				}
+	
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_heartstopper_debuff_visibility"
+						"Target" 		"TARGET"
+					}
+				}
+			}
+	
+			"modifier_heartstopper_debuff_visibility"
+			{
+				"IsDebuff"		"1"
+				"IsHidden"		"0"
+				"IsPurgable" 	"0"
+				"Passive"		"0"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Necrolyte's Reaper's Scythe
+	//=================================================================================================================
+	"necrolyte_reapers_scythe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5161"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Necrolyte.ReapersScythe.Target"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.45"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"250 375 500"		
+		
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.1"	// Primarily about the damage
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage_per_health"			
+			{
+				"value"					"0.4 0.6 0.9"
+				"special_bonus_scepter"	"+0.3"
+			}
+			"stun_duration"				"1.5 1.5 1.5"
+			"hp_per_kill"				"0"
+			"mana_per_kill"				"0"
+			"AbilityCooldown"
+			{
+				"value"					"110"
+				"special_bonus_scepter"	"-40"
+			}
+		}
 	}
 }

@@ -127,5 +127,8 @@
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_Lore"									"A杖CD15秒"
 		"DOTA_Tooltip_Ability_tiny_grow_Lore"											"A杖抓树"
 		"DOTA_Tooltip_Ability_enchantress_impetus_Lore"									"A杖+165攻击距离"
+		"DOTA_Tooltip_Ability_necrolyte_reapers_scythe_Lore"							"A杖+伤害-CD无法买活"
+		"DOTA_Tooltip_Ability_necrolyte_heartstopper_aura_datadriven"					"竭心光环" 
+		"DOTA_Tooltip_Ability_necrolyte_heartstopper_aura_datadriven_Description"		"每秒掉血0.6/0.9/1.2/1.5%%最大生命值" 
 	}
 }
