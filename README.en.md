@@ -31,9 +31,39 @@ Hero ability changes:
 - Viper: Change nethertoxin to be a passive skill
 - Wraith King: Remove skeleton, change crit to percentage chance and removes Aghs
 - Zuus: Replace jump with Static Field, Aghs increases ult damage
-- Ursa: Stomp no mini movement, Aghs increases ult CD to 70s
-...
-
+- Ursa: Stomp no hop, Aghs increases ult CD to 70s
+- Puck: Silence no target/movement
+- Antimage: No shield active, remove Aghs
+- Sniper: No aim(third ability) active
+- Techies: Reactive 1st skill, 2nd skill statis trap, ultimate remote bomb. Aghs increate ulti damage.
+- Tinker: 3rd skill march of machines
+- Troll: ulti increase attack speed for all allied heroes, 1st skill bashes
+- Meepo: 3rd skill damage and slow, aghs +1 Meepo
+- Lich: 2nd skill frost sheild, 3rd skill dark ritual, Aghs ult + damage & remove bounce limit
+- Pudge:  3rd skill magic resist passive
+- Chaos Knight: crit no life steal
+- Slardar: Bash to percentage chance and remove aghs
+- Mirana: Jump remove changes
+- Treant: 1st skill to natures guise
+- Shadow Fiend： Aghs no health recovery
+- Jugg: Aghs increase ulti duration
+- Axe: Aghs increase ulti damage, ult no permanent armor gain
+- QOP: Aghs increase ulti damage, reduce cooldown
+- Clockwork: Aghs reduce ult cooldown
+- Lina: Aghs increase ult cast range, pure damage
+- Void: Aghs reduce ult CD
+- Gyro: Aghs global ult, + damage
+- Visage: Aghs +1 bird
+- Earthshaker: Aghs increase ult damage
+- Tiny: 3rd skill to craggy, Aghs gives tree grab with unlimited attack counts
+- Riki: 2nd skill invis, 3rd skill back stab, ult blink, removes Aghs
+- Enchantress: 1st skill passive, Aghs increases attack range
+- Necro: 2nd skill heartstopper, 3rd skill passive regen, Aghs increases ult damage, no buyback, no permanent health and mana regen
+- Brood: 1st skill spiderlings, 3rd skill paralyzing passive, ult life steal, remove Aghs
+- Slark: No permanent agility gain, remove Aghs
+- Lion: No permanent ult damage gain
+- Lone Druid: 2nd skill remove life steal
+- Remove Aghs for following heroes: Centuar, Beast Master, Abaddon, Nyx, Lifestealer, TA, VS, PA, PL, Spectre, TB, Leshrac, Sven, Kunka, Night Stalker, Death Prophet, Tide, Ember, Lycan, Mag, DK
 
 mod is open-source ：https://gitee.com/bobo1993324/dota6.83
 Bug report at：https://gitee.com/bobo1993324/dota6.83/issues
