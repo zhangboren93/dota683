@@ -4,21 +4,36 @@
 An attempt to migrate dota 6.83's balence.
 
 Features:
-- All Pick
+- All Pick & Random Draft. Enter '-rd' in public chat to enable Random Draft mode, "-ap" to revert.
 - Remove talents, Ags shard, and new heroes introduced after Monkyey King
 - Cap hero level to 25, and adjust experience table
 - Adjust items and remove neutral items
-- Addd side shops(near the tree trunks), remove watch tower, remove bounty rune spawner, remove flag bearer creep, remove tower aura.
-- Adjust attribute bonus (health gain, regen for strength and mana gain, regen for intellect)
+- Use 6.83 map, removes flag bearer creep, removes tower aura.
+- Adjust attribute bonus (health gain, regen for strength and mana gain, regen for intellect, base health and mana)
 - Adjust neutral creep's experience & gold. Spawn first wave of neutral creeps 30 seconds into the game
+- Hero kills gives additional 100 gold and 50 experience
 - Courier needs to be bought and shared with it's ability. Courier upgrades to flying at level 4, doesn't increase its speed or health with time
 - Backpack cooldown to 15s
 - Remove melee hero's innate block. Stout sheild can be bought.
 - Rewrite TD. Check TD cooldown at the fountain.
 - Disable Scan
 - Bounty rune now give personal gold and experience, and not to the team.
-- Randoming hero pick gives 200 extra gold
+- Randoming hero pick in AP mode gives 200 extra gold
 - No free TP after death
+- Side lane creeps meet further from safe tier1 tower
+- Being attacked by creeps stops clarity and flask
+- Increase heroes attack animation point and reduce turn rate
+
+Hero ability changes:
+- Huskar: Change first ability to health regen
+- Clinkz: Change first ability to strafe, removes Aghs
+- Drow: Replace ability 1 with trueshot aura
+- Viper: Change nethertoxin to be a passive skill
+- Wraith King: Remove skeleton, change crit to percentage chance and removes Aghs
+- Zuus: Replace jump with Static Field, Aghs increases ult damage
+- Ursa: Stomp no mini movement, Aghs increases ult CD to 70s
+...
+
 
 mod is open-source ：https://gitee.com/bobo1993324/dota6.83
 Bug report at：https://gitee.com/bobo1993324/dota6.83/issues
