@@ -182,7 +182,11 @@ function HandlePlayerChat(self, teamonly, text)
 			GameRules:SendCustomMessage("RD模式开启", -1, -1)
 		elseif text == '-ap' then
 			self.rdEnabled = false
+			self.botEnabled = false
 			GameRules:SendCustomMessage("AP模式开启", -1, -1)
+		elseif text == '-vsbot' then
+			self.botEnabled = true
+			GameRules:SendCustomMessage("Bot模式开启", -1, -1)
 		end
 	end
 end
@@ -320,6 +324,19 @@ function CAddonTemplateGameMode:OnThink()
 			end
 			self.rdHeroFiltered = true
 		end
+	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and self.botEnabled and self.botInitialized == nil then
+		print("Init bot")
+		Tutorial:StartTutorialMode()	
+		GameRules:SetSameHeroSelectionEnabled(true)
+		GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
+		Tutorial:AddBot("npc_dota_hero_axe", "bot", "hard", false)
+		Tutorial:AddBot("npc_dota_hero_ogre_magi", "top", "hard", false)
+		Tutorial:AddBot("npc_dota_hero_luna", "top", "hard", false)
+		Tutorial:AddBot("npc_dota_hero_skywrath_mage", "bot", "hard", false)
+		Tutorial:AddBot("npc_dota_hero_lina", "mid", "hard", false)
+		GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
+		GameRules:SetCreepSpawningEnabled(true)
+		self.botInitialized = true
 	end
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
@@ -338,7 +355,7 @@ function CAddonTemplateGameMode:OnThink()
 			self.hasSpawnNeutralsAt30s = true
 		end
 
-		if time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
+		if not self.botEnabled and time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
 			spawnCreepsLua()
 			self.creepSpawnTime = time
 		end
@@ -563,6 +580,14 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				entity:SetAbsOrigin(Vector(position[1] - 350, position[2], position[3] + 256))
 			end
 		end, "delay change word location", 0.1)
+	end
+
+	if entity:GetName() == "npc_dota_creep_lane" then
+		entity:SetThink(function()
+			entity:RemoveModifierByName("modifier_creep_bonus_xp")
+			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
+			entity:SetBaseMagicalResistanceValue(0)
+		end, "remove flag bearer bonus", 1)
 	end
 end
 
