@@ -71,7 +71,8 @@ Dota6.83版本移植，养老dota，best dota。
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
-感谢SpellLibrary提供的部分自定义物品和技能的实现：https://github.com/Pizzalol/SpellLibrary
+SpellLibrary提供的部分自定义物品和技能的实现：https://github.com/Pizzalol/SpellLibrary
+dota2ai提供了AI购买物品的代码: https://github.com/adamqqqplay/dota2ai
 
 后续开发计划：
 - 道具功能修复（补刀斧砍眼，散失驱散召唤单位，...）

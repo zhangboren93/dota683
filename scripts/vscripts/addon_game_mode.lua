@@ -338,6 +338,12 @@ function CAddonTemplateGameMode:OnThink()
 			"npc_dota_hero_venomancer",
 			"npc_dota_hero_zuus",
 			"npc_dota_hero_skeleton_king",
+
+			"npc_dota_hero_lion",
+			"npc_dota_hero_abaddon",
+			"npc_dota_hero_vengefulspirit",
+			"npc_dota_hero_sniper",
+			"npc_dota_hero_phantom_assassin",
 		}
 		Tutorial:StartTutorialMode()	
 		GameRules:SetSameHeroSelectionEnabled(true)
