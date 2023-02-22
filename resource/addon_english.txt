@@ -132,6 +132,9 @@
 		"DOTA_Tooltip_Ability_necrolyte_heartstopper_aura_datadriven_Description"		"losses 0.6/0.9/1.2/1.5%% max health per second" 
 		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven"				"Essence shift" 
 		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven_Description"	"lasts 15/30/60/120 seconds" 
+		"DOTA_Tooltip_Ability_life_stealer_feast_datadriven"				"Feast" 
+		"DOTA_Tooltip_Ability_life_stealer_feast_datadriven_Description"	"damage and lifesteal for current health * 4/5/6/7%%" 
+		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven"				"Rage" 
+		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_Description"	"Magic immune, +30/45/60/80 attack speed for 3/4/5/6 seconds" 
 	}
-
 }

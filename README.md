@@ -25,7 +25,7 @@ Dota6.83版本移植，养老dota，best dota。
 - 调整边路小兵相遇位置
 - 小兵野怪打断净化、大药
 - 增加英雄攻击前摇，减少转身速率
-- 准备阶段公屏输入'-vsbot'切换BOT模式，准备阶段在夜宴生成5个难度为Hard的Bot，免费鸡，无拉野机制，天辉无Bot
+- 准备阶段公屏输入'-vsbot'切换BOT模式，在夜宴生成5个难度为Hard的Bot，免费鸡，无拉野机制，天辉无Bot
 
 英雄改动：
 - 哈斯卡去除心妍
@@ -67,7 +67,8 @@ Dota6.83版本移植，养老dota，best dota。
 - 小鱼人偷属性无永久加成, 删A
 - lion大招无永久加成
 - 德鲁伊狂猛替换吸血
-- 删A：人马,兽王,死骑,小强,小狗,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,kunka,夜魔,dp,tide,ember,lycan,猛犸,龙骑
+- 小狗一技能加攻速，2技能当前生命值吸血，3技能撕裂伤口，删A
+- 删A：人马,兽王,死骑,小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,kunka,夜魔,dp,tide,ember,lycan,猛犸,龙骑
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
@@ -85,4 +86,3 @@ dota2ai提供了AI购买物品的代码: https://github.com/adamqqqplay/dota2ai
 英雄复原计划：
 - 沉默重做一技能
 - 水人移除变形
-- 小狗撕裂伤口

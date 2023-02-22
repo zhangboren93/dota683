@@ -6048,4 +6048,255 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Lifestealer: Open Wounds
+	//=================================================================================================================
+	"life_stealer_open_wounds"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5251"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_LifeStealer.OpenWounds.Cast"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"              "4"
+		"RequiredLevel"         "1"
+		"LevelsBetweenUpgrades" "2"
+		"IsGrantedByShard"				"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"200 300 400 500"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"24 20 16 12"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"110"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"duration"				"8"
+				"slow_steps"			"-50 -50 -40 -30 -20 -10 -10 -10 -10"
+				"heal_percent"			"15 20 25 30"
+				"max_health_as_damage_pct"	"0"
+				"damage_threshold"		"5000"
+				"spread_radius"			"0"
+				"slow_tooltip"			"50"
+		}
+	}
+	// Rewrite of the Lifestealer Feast ability
+	// Author: jacklarnes, Pizzalol
+	// Date: 07.04.2015.
+	"life_stealer_feast_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	    "AbilityTextureName"            "life_stealer_feast"
+	
+	    "precache"
+	    {
+	        "soundfile"         "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+	        "particle"          "particles/units/heroes/hero_life_stealer/life_stealer_feast.vpcf"
+	    }
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_leech_percent"		"4 5 6 7"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_feast_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+	
+				"OnAttackStart"
+				// "%attack_damage" is set to the damage value before mitigation
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_feast_damage_datadriven"
+						"Target" 		"CASTER"
+					}
+	
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_life_stealer/feast.lua"
+						"Function"		"feast_attack"
+						"feast_modifier"	"modifier_feast_damage_datadriven"
+					}
+				}
+	
+				"OnAttack"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/generic_gameplay/generic_lifesteal.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "CASTER"
+					}
+	
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_life_stealer/feast.lua"
+						"Function"		"feast_heal"
+					}
+				}			
+			}
+	
+			"modifier_feast_damage_datadriven"
+			{
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+	
+				"OnAttackLanded"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_feast_damage_datadriven"
+						"Target" 		"CASTER"
+					}
+				}
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "1"
+				}
+			}
+		}
+	}
+	// Rewrite of the Lifestealer Rage ability
+	// Author: jacklarnes
+	// Date: 07.04.2015.
+	"life_stealer_rage_datadriven"
+	{
+	    // General
+	    //-------------------------------------------------------------------------------------------------------------
+	    "BaseClass"                     "ability_datadriven"
+	    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityTextureName"            "life_stealer_rage"
+	
+	
+	    "precache"
+	    {
+	        "soundfile"         "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+	        "particle"          "particles/units/heroes/hero_life_stealer/life_stealer_rage.vpcf"
+	        "particle"          "particles/status_fx/status_effect_life_stealer_rage.vpcf"
+	    }
+	
+	
+	    // Casting
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCastPoint"              "0"
+	    "AbilityCastRange"              "0"
+	    
+	    // Time     
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityCooldown"               "19"
+	    
+	    // Cost
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilityManaCost"               "75 75 75 75"
+	    
+	    "AbilityDuration"               "3 4 5 6"
+	    
+	    // Special
+	    //-------------------------------------------------------------------------------------------------------------
+	    "AbilitySpecial"
+	    {
+	        "01"
+	        {
+	            "var_type"              "FIELD_INTEGER"
+	            "attack_speed_bonus"    "30 45 60 80"
+	        }
+	        "02"
+	        {
+	            "var_type"              "FIELD_FLOAT"
+	            "duration"              "3.0 4.0 5.0 6.0"
+	        }
+	    }
+	
+	    "OnSpellStart"
+	    {
+	        "FireSound"
+	        {
+	            "EffectName"    "Hero_LifeStealer.Rage"
+	            "Target"        "CASTER"
+	        }
+	
+	        "RunScript"
+	        {
+	            "ScriptFile"    "scripts/vscripts/heroes/hero_life_stealer/rage.lua"
+	            "Function"        "rage_start"
+	        }
+	
+	        "ApplyModifier"
+	        {
+	            "ModifierName"  "modifier_rage_ability"
+	            "Target"        "CASTER"
+	            "Duration"      "%duration"
+	        }
+	
+	    }
+	
+	    "Modifiers"
+	    {
+	        "modifier_rage_ability"
+	        {
+	            "Passive"           "0"
+	            "IsHidden"          "0"
+	            "IsDebuff"          "0"
+	
+	            "StatusEffectName"         "particles/status_fx/status_effect_life_stealer_rage.vpcf"        
+	            "StatusEffectPriority"  "10"
+	    
+	            "OnCreated"
+	            {
+	                "AttachEffect"
+	                {
+	                    "EffectName"        "particles/units/heroes/hero_life_stealer/life_stealer_rage.vpcf"
+	                    "EffectAttachType"  "attach_hitloc"
+	                    "Target"            "CASTER"
+	                    "ControlPointEntities"
+	                    {
+	                        "CASTER"    "attach_hitloc"
+	                        "CASTER"    "attach_hitloc"
+	                        "CASTER"    "attach_hitloc"
+	                    }
+	                }
+	            }
+	    
+	            "Properties"
+	            {
+	                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_bonus"
+	            }
+	
+	            "States"
+	            {
+	                "MODIFIER_STATE_MAGIC_IMMUNE"        "MODIFIER_STATE_VALUE_ENABLED"
+	            }
+	        }
+	    }
+	}
 }
