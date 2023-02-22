@@ -326,14 +326,34 @@ function CAddonTemplateGameMode:OnThink()
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and self.botEnabled and self.botInitialized == nil then
 		print("Init bot")
+		local botHeroPool = {
+			"npc_dota_hero_axe",
+			"npc_dota_hero_ogre_magi",
+			"npc_dota_hero_luna",
+			"npc_dota_hero_skywrath_mage",
+			"npc_dota_hero_lina",
+
+			"npc_dota_hero_bristleback",
+			"npc_dota_hero_witch_doctor",
+			"npc_dota_hero_venomancer",
+			"npc_dota_hero_zuus",
+			"npc_dota_hero_skeleton_king",
+		}
 		Tutorial:StartTutorialMode()	
 		GameRules:SetSameHeroSelectionEnabled(true)
 		GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
-		Tutorial:AddBot("npc_dota_hero_axe", "bot", "hard", false)
-		Tutorial:AddBot("npc_dota_hero_ogre_magi", "top", "hard", false)
-		Tutorial:AddBot("npc_dota_hero_luna", "top", "hard", false)
-		Tutorial:AddBot("npc_dota_hero_skywrath_mage", "bot", "hard", false)
-		Tutorial:AddBot("npc_dota_hero_lina", "mid", "hard", false)
+		-- pick 5 random hero to play
+		local lanes = {"bot", "bot", "mid", "top", "top"}
+		for i=1,5 do
+			local heroNumber = RandomInt(1, #botHeroPool)	
+			Tutorial:AddBot(botHeroPool[heroNumber], lanes[i], "hard", false)
+			table.remove(botHeroPool, heroNumber)
+		end
+	--	Tutorial:AddBot("npc_dota_hero_axe", "bot", "hard", false)
+	--	Tutorial:AddBot("npc_dota_hero_ogre_magi", "top", "hard", false)
+	--	Tutorial:AddBot("npc_dota_hero_luna", "top", "hard", false)
+	--	Tutorial:AddBot("npc_dota_hero_skywrath_mage", "bot", "hard", false)
+	--	Tutorial:AddBot("npc_dota_hero_lina", "mid", "hard", false)
 		GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
 		GameRules:SetCreepSpawningEnabled(true)
 		self.botInitialized = true
