@@ -187,6 +187,9 @@ function HandlePlayerChat(self, teamonly, text)
 		elseif text == '-vsbot' then
 			self.botEnabled = true
 			GameRules:SendCustomMessage("Bot模式开启", -1, -1)
+		elseif text == '-sp' then
+			GameRules:SetSameHeroSelectionEnabled(true)
+			GameRules:SendCustomMessage("开启相同英雄选择", -1, -1)
 		end
 	end
 end
