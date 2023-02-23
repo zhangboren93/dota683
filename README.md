@@ -76,7 +76,7 @@ SpellLibrary提供的部分自定义物品和技能的实现：https://github.co
 dota2ai提供了AI购买物品的代码: https://github.com/adamqqqplay/dota2ai
 
 后续开发计划：
-- 道具功能修复（补刀斧砍眼，散失驱散召唤单位，...）
+- 道具功能修复（散失驱散召唤单位...）
 - 法球叠加
 - 自定义版本参数
 - 英雄自杀技能

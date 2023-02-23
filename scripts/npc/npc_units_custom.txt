@@ -6,7 +6,6 @@
 	{
 		"Ability2"					"glyph_datadriven"			// Ability 2.
 	}	
-	//TODO adjust neutral's exp & gold
 	"npc_dota_neutral_kobold"
 	{
 		"BountyXP"					"25"		// Experience earn.
@@ -288,7 +287,6 @@
 		"Ability6"					"courier_share"		
 		"StatusHealth"				"75"		// Base health.
 	}
-	//TODO adjust tower1's attack damage and speed
 	"npc_dota_goodguys_tower1_top"
 	{
 		// General

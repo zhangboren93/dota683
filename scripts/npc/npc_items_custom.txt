@@ -794,7 +794,6 @@
 	{
 		"ItemPurchasable"	"0"
 	}
-	//TODO cut down wards
 	"item_quelling_blade_datadriven"
 	{
 		// General
@@ -831,13 +830,33 @@
 			{
 				"Passive"				"1"
 				"IsHidden"				"1"
-				"OnAttackLanded"
+				"OnAttackStart"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"items/item_quelling_blade.lua"
-						"Function"		"quelling_blade_attack_landed"
+						"Function"		"quelling_blade_attack_start"
 					}
+				}
+			}
+			"item_quelling_blade_active_ranged_modifier"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Duration"			"0.5"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"			"%damage_bonus_ranged"
+				}
+			}
+			"item_quelling_blade_active_melee_modifier"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"Duration"			"0.5"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"			"%damage_bonus"
 				}
 			}
 		}
@@ -1295,7 +1314,6 @@
 			}
 		}
 	}
-	//TODO hit by creep then cancel
 	"item_clarity"
 	{
 		"AbilitySpecial"
@@ -1349,6 +1367,7 @@
 				"damage"				"0"
 		}
 	}
+	//TODO hit by creep then cancel
 	"item_bottle"
 	{
 		"ItemCost"						"700"
@@ -1531,7 +1550,7 @@
 		}
 	}
 
-	//TODO TP scroll Cooldown to be 50; don't use TP scroll
+	//TODO TP scroll Cooldown to be 50
 	"item_travel_boots"
 	{
 		// Special	
@@ -5825,7 +5844,6 @@
 		}
 	}
 	
-	// TODO active block 50 and add 2 armor
 	//=================================================================================================================
 	// Crimson Guard
 	//=================================================================================================================
@@ -7948,6 +7966,7 @@
 	//=================================================================================================================
 	// Desolator
 	//=================================================================================================================
+	// Don't stack with lifesteal items
 	"item_desolator"
 	{
 		// General
@@ -8267,7 +8286,6 @@
 		"ID"							"1374"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityTextureName"			"item_diffusal_blade"
 
-		//TODO datadriven diffusal blade
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -8386,7 +8404,6 @@
 		"ID"							"2374"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityTextureName"			"item_diffusal_blade_2"
 
-		//TODO datadriven diffusal blade
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -9532,6 +9549,7 @@
 	//=================================================================================================================
 	// Tranquil Boots
 	//=================================================================================================================
+	//TODO Attack starts cooldown
 	"item_tranquil_boots"
 	{
 		// General
@@ -9820,29 +9838,4 @@
 		    }
 	    }
     }
-	"item_debug_area_units"
-	{
-		"BaseClass"		"item_datadriven"
-		"ID"			"4351"
-    	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-    	"AbilityTextureName"			"item_veil_of_discord"
-    	
-    	// Stats		
-    	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"1"
-    	"AbilityCastRange"				"1000"
-    	"AbilityCastPoint"				"0.0"
-    	"AbilityManaCost"				"1"
-    	"AOEradius"						"600"
-    	
-    	// Item Info
-    	//-------------------------------------------------------------------------------------------------------------
-    	"ItemCost"						"1"
-		
-		"OnSpellStart"
-		{
-			"ScriptFile"		"items/debug.lua"
-			"Function"			"debugunitsaround"
-		}
-	}
 }

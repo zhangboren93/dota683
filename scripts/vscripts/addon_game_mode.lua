@@ -200,7 +200,6 @@ end
 -- Evaluate the state of the game
 function CAddonTemplateGameMode:OnThink()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION then
-		-- TODO enable rd
 		if self.rdEnabled and IsServer() and self.rdHeroFiltered == nil then
 			local heroes = {
 				"npc_dota_hero_abaddon"				,
