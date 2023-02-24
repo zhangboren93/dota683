@@ -1549,7 +1549,6 @@
 		}
 	}
 
-	//TODO TP scroll Cooldown to be 50
 	"item_travel_boots"
 	{
 		// Special	

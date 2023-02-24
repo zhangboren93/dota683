@@ -56,6 +56,8 @@ function Activate()
 	LinkLuaModifier( "modifier_pudge_flesh_magic_resist", "modifiers/pudge_flesh_magic_resist.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_riki_invis_health_regen", "modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range", "modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
+
+	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -482,6 +484,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
     	entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
     	entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
     	entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
+		entity:AddNewModifier(entity, nil, "modifier_tpscroll_travel_cooldown", {})
 
 		-- add custom glyph to fountain
 		local fountain = nil
