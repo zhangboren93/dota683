@@ -34,6 +34,7 @@ function Activate()
 	LinkLuaModifier( "item_maelstrom_modifier_lua", "items/item_maelstrom.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_soul_ring_bonus_modifier", "items/item_soul_ring.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_medallion_regen_percentage_modifier", "items/item_medallion.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "item_equipped_bonus_modifier", "items/item_equip_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bonus_strength_lua", "modifiers/bonus_strength.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_necronomicon_bonus_intellect", "modifiers/necronomicon_bonus_intellect.lua", LUA_MODIFIER_MOTION_NONE )
@@ -46,6 +47,7 @@ function Activate()
 	LinkLuaModifier( "modifier_maelstrom_as_lua", "modifiers/maelstrom_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_soul_ring_health_regen_lua", "modifiers/soul_ring_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_shadow_amulet_attack_speed", "modifiers/shadow_amulet_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_attribute_regen_adjust", "modifiers/attribute_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_troll_warlord_bash", "modifiers/troll_bash.lua", LUA_MODIFIER_MOTION_NONE)
@@ -485,6 +487,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
     	entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
     	entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
 		entity:AddNewModifier(entity, nil, "modifier_tpscroll_travel_cooldown", {})
+		entity:AddNewModifier(entity, nil, "item_equipped_bonus_modifier", {
+			item = "item_shadow_amulet",
+			modifier = "modifier_item_shadow_amulet_attack_speed"
+		})
 
 		-- add custom glyph to fountain
 		local fountain = nil

@@ -136,5 +136,6 @@
 		"DOTA_Tooltip_Ability_life_stealer_feast_datadriven_Description"	"damage and lifesteal for current health * 4/5/6/7%%" 
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven"				"Rage" 
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_Description"	"Magic immune, +30/45/60/80 attack speed for 3/4/5/6 seconds" 
+		"DOTA_Tooltip_Ability_item_shadow_amulet_Lore"					"+30 attack speed"
 	}
 }

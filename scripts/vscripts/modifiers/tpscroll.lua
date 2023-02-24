@@ -14,7 +14,7 @@ function modifier_tpscroll_travel_cooldown:DeclareFunctions()
 end
 
 function modifier_tpscroll_travel_cooldown:IsHidden()
-    return false
+    return true
 end
 
 function modifier_tpscroll_travel_cooldown:OnAbilityExecuted(event)
