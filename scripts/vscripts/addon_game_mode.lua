@@ -438,6 +438,9 @@ function CAddonTemplateGameMode:RuneSpawnFilter(event)
 		if recentRuneSpawn == nil then
 			if RandomInt(0, 1) == 0 then
 				event.rune_type = DOTA_RUNE_BOUNTY
+			else
+				local runeTypes = {DOTA_RUNE_DOUBLEDAMAGE, DOTA_RUNE_HASTE, DOTA_RUNE_ILLUSION, DOTA_RUNE_INVISIBILITY, DOTA_RUNE_REGENERATION}
+				event.rune_type = runeTypes[RandomInt(1, #runeTypes)]
 			end
 			self.runeSpawnedAtTime[nthRuneSpawned] = event.rune_type
 		else

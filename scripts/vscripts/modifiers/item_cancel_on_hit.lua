@@ -20,4 +20,6 @@ function modifier_cancels_item_on_hit:OnTakeDamage()
     local entity = self:GetParent()
     entity:RemoveModifierByName("modifier_flask_healing")
     entity:RemoveModifierByName("modifier_clarity_potion")
+    entity:RemoveModifierByName("modifier_bottle_regeneration")
+    entity:RemoveModifierByName("modifier_rune_regen")
 end

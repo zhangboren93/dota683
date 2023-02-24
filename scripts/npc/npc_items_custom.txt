@@ -1367,7 +1367,6 @@
 				"damage"				"0"
 		}
 	}
-	//TODO hit by creep then cancel
 	"item_bottle"
 	{
 		"ItemCost"						"700"
@@ -6047,7 +6046,6 @@
 	{
 		"ItemPurchasable"	"0"
 	}
-	//TODO fix recipe
 	"item_recipe_monkey_king_bar"
 	{
 		"ItemPurchasable"	"0"
