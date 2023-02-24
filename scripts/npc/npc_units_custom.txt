@@ -252,11 +252,6 @@
 		"BountyGoldMin"				"60"		// Gold earned min.
 		"BountyGoldMax"				"60"		// Gold earned max.
 	}								
-	"npc_dota_necronomicon_archer_3"
-	{
-		//TODO aura add attack speed
-		"Ability1"					""			// Ability 1.
-	}
 	"npc_dota_creep_badguys_melee"
 	{
 		"BountyXP"					"62"		// Experience earn.
