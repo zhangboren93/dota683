@@ -1,0 +1,8 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/error_message.css" />
+	</styles>
+	<Panel style="width: 100%; height: 100%; visibility: collapse;">
+        <Label text="信使分享已开启" id="courier_shared_label" style="horizontal-align: center; font-size: 24px;"/>
+    </Panel>
+</root>
