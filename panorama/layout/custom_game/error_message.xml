@@ -7,7 +7,7 @@
 		<include src="file://{resources}/scripts/custom_game/error_message.js" />
 	</scripts>
 
-	<Panel style="width: 100%;">
-        <Label id="courier_shared_label" style="horizontal-align: center; font-size: 24px;"/>
+	<Panel style="horizontal-align: center; y: 800px;">
+        <Label id="courier_shared_label" style="font-size: 24px;"/>
     </Panel>
 </root>
