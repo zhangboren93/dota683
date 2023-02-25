@@ -198,7 +198,7 @@
 	{	
  		//"item"		"item_venomous_shield"
  		"item"		"item_mask_of_madness_datadriven"
- 		"item"		"item_helm_of_the_dominator"
+ 		"item"		"item_helm_of_the_dominator_datadriven"
  		//"item"		"item_dragon_lance"
 		"item"		"item_sange_datadriven"
  		"item"		"item_yasha"
