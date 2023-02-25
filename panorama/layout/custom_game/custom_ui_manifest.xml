@@ -1,6 +1,6 @@
 <root>
 	<Panel>
-		<!--CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/error_message.xml" /-->
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/error_message.xml" />
 	</Panel>
 </root>
 

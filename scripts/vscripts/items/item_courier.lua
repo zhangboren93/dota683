@@ -5,6 +5,9 @@ end
 
 function toggle_share(event)
     event.caster.isSharedWithTeam = true
-    -- TODO share courier alert to team
+    CustomGameEventManager:Send_ServerToTeam(event.caster:GetTeam(), "courier_shared", {})
+    event.caster:SetThink(function()
+        CustomGameEventManager:Send_ServerToTeam(event.caster:GetTeam(), "error_message_clear", {})
+    end, "suppress error message", 5)
     event.ability:Destroy()
 end
