@@ -17,12 +17,14 @@ function modifier_cancels_item_on_hit:IsHidden()
     return true
 end
 
-function modifier_cancels_item_on_hit:OnTakeDamage()
+function modifier_cancels_item_on_hit:OnTakeDamage(event)
     local entity = self:GetParent()
-    entity:RemoveModifierByName("modifier_flask_healing")
-    entity:RemoveModifierByName("modifier_clarity_potion")
-    entity:RemoveModifierByName("modifier_bottle_regeneration")
-    entity:RemoveModifierByName("modifier_rune_regen")
+    if entity == event.unit then
+        entity:RemoveModifierByName("modifier_flask_healing")
+        entity:RemoveModifierByName("modifier_clarity_potion")
+        entity:RemoveModifierByName("modifier_bottle_regeneration")
+        entity:RemoveModifierByName("modifier_rune_regen")
+    end
 end
 
 -- starts tranquil cooldown after attack lands
