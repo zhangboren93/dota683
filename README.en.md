@@ -64,7 +64,8 @@ Hero ability changes:
 - Lion: No permanent ult damage gain
 - Lone Druid: 2nd skill remove life steal
 - Life Stealer: 1st skill add attack speed, 2nd skill life steal based on current health, 3rd skill tear wounds, remove Aghs
-- Remove Aghs for following heroes: Centuar, Beast Master, Abaddon, Nyx, TA, VS, PA, PL, Spectre, TB, Leshrac, Sven, Kunka, Night Stalker, Death Prophet, Tide, Ember, Lycan, Mag, DK
+- Lycan: 3rd ability increase damage and attack speed, remove Aghs
+- Remove Aghs for following heroes: Centuar, Beast Master, Abaddon, Nyx, TA, VS, PA, PL, Spectre, TB, Leshrac, Sven, Kunka, Night Stalker, Death Prophet, Tide, Ember, Mag, DK
 
 mod is open-source ：https://gitee.com/bobo1993324/dota6.83
 Bug report at：https://gitee.com/bobo1993324/dota6.83/issues
