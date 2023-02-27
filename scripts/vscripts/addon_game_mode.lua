@@ -141,6 +141,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent('player_chat', function(event)
 		HandlePlayerChat(self, event.teamonly, event.text)
 	end, nil)
+	ListenToGameEvent('entity_hurt', function(event)
+		HandleEntityHurt(event.entindex_killed, event.entindex_attacker)
+	end, nil)
 
 	if GetMapName() == "dota_683" then
 		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
@@ -658,13 +661,57 @@ function HandleEntityKilled(entityIdx, attackerIdx, inflictorIdx)
 			entity:SetBuyBackDisabledByReapersScythe(false)
 		end, "", {}, entity:GetRespawnTime())
 	end
-	if IsServer() and entity:IsHero() and not entity:IsIllusion() and attacker:IsHero() then
-		print("gives extra 100 gold")
-		attacker:ModifyGold(100, true, DOTA_ModifyGold_HeroKill)
-		attacker:AddExperience(50, DOTA_ModifyXP_HeroKill, false, false)
+	if IsServer() and entity:IsRealHero() then
+		if attacker:IsHero() then
+			print("gives extra 100 gold")
+			attacker:ModifyGold(100, true, DOTA_ModifyGold_HeroKill)
+			attacker:AddExperience(50, DOTA_ModifyXP_HeroKill, false, false)
+		end
+		-- give assist gold
+		local assist_players = {}
+		if entity.time_attacked ~= nil then
+			local current_time = GameRules:GetDOTATime(true, false)
+			for i,v in pairs(entity.time_attacked) do
+				if current_time - v < 20 then
+					assist_players[i] = true
+				end
+			end
+		end
+		local assist_gold = 4 * entity:GetLevel() + 0.2 * GetAssistGoldComebackFactor(entity:GetTeam()) * (
+			PlayerResource:GetGoldSpentOnItems(entity:GetPlayerID()) + PlayerResource:GetGold(entity:GetPlayerID()))
+		print("Assist gold " .. assist_gold)
+		for i,v in pairs(assist_players) do
+			PlayerResource:GetPlayer(i):GetAssignedHero():ModifyGold(assist_gold, false, DOTA_ModifyGold_HeroKill)
+		end
 	end
 end
 
+function GetAssistGoldComebackFactor(victim_team)
+	local victim_team_total_gold = GetTeamTotalGold(victim_team)
+	local attacker_team = DOTA_TEAM_BADGUYS
+	if victim_team == DOTA_TEAM_BADGUYS then
+		attacker_team = DOTA_TEAM_GOODGUYS
+	end
+	local attacker_team_total_gold = GetTeamTotalGold(attacker_team)
+	local factor = victim_team_total_gold / attacker_team_total_gold - 1 
+	print("Assist gold factor " .. factor)
+	if factor < 0 then
+		return 0
+	elseif factor >= 1 then
+		return 1
+	else
+		return factor
+	end
+end
+
+function GetTeamTotalGold(victim_team)
+	local victim_team_total_gold = 0
+	for i=1,PlayerResource:GetPlayerCountForTeam(victim_team) do
+		local playerId = PlayerResource:GetNthPlayerIDOnTeam(victim_team, i)
+		victim_team_total_gold = victim_team_total_gold + PlayerResource:GetGoldSpentOnItems(playerId) + PlayerResource:GetGold(playerId)
+	end
+	return victim_team_total_gold
+end
 function HandleRuneActivated(playerid, rune)
 	if rune == DOTA_RUNE_BOUNTY then
 	  	local player = PlayerResource:GetPlayer(playerid)
@@ -683,5 +730,17 @@ function HandleRuneActivated(playerid, rune)
 		if bottle ~= nil and bottle:GetItemState() == 1 then
 			bottle:SetCurrentCharges(3)
 		end
+	end
+end
+
+function HandleEntityHurt(entindex_killed, entindex_attacker)
+	local target = EntIndexToHScript(entindex_killed)
+	local attacker = EntIndexToHScript(entindex_attacker)
+	if target:IsRealHero() and attacker:IsRealHero() then
+		if target.time_attacked == nil then
+			target.time_attacked = {}
+		end
+		target.time_attacked[attacker:GetPlayerID()] = GameRules:GetDOTATime(true, false)
+		DeepPrintTable(target.time_attacked)
 	end
 end
