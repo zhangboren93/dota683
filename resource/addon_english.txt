@@ -141,5 +141,7 @@
 		"DOTA_Tooltip_modifier_feral_impulse_datadriven"							"Feral impulse"
 		"DOTA_Tooltop_Ability_lycan_feral_impulse_datadriven_Description"			"Feral impulse"
 		"DOTA_Tooltop_Ability_lycan_feral_impulse_datadriven_Description"			"+15/20/25/30%% damage and attack speed"
+		"DOTA_Tooltop_Ability_techies_land_mines_datadriven_datadriven"				"Land mines"
+		"DOTA_Tooltop_Ability_techies_land_mines_datadriven_datadriven_Description"	"damage 225/300/375/450"
 	}
 }

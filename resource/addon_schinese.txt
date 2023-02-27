@@ -141,5 +141,7 @@
 		"DOTA_Tooltip_modifier_feral_impulse_datadriven"							"野性去世"
 		"DOTA_Tooltop_Ability_lycan_feral_impulse_datadriven"						"野性去世"
 		"DOTA_Tooltop_Ability_lycan_feral_impulse_datadriven_Description"			"+15/20/25/30%%攻击力攻速"
+		"DOTA_Tooltop_Ability_techies_land_mines_datadriven_datadriven"				"地雷"
+		"DOTA_Tooltop_Ability_techies_land_mines_datadriven_datadriven_Description"	"200范围触发，中心伤害225/300/375/450，大范围伤害减半"
 	}
 }

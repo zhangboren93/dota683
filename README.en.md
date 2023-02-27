@@ -35,7 +35,7 @@ Hero ability changes:
 - Puck: Silence no target/movement
 - Antimage: No shield active, remove Aghs
 - Sniper: No aim(third ability) active
-- Techies: Reactive 1st skill, 2nd skill statis trap, ultimate remote bomb. Aghs increate ulti damage.
+- Techies: Reactive 1st skill stackable, 2nd skill statis trap, ultimate remote bomb. Aghs increate ulti damage.
 - Tinker: 3rd skill march of machines
 - Troll: ulti increase attack speed for all allied heroes, 1st skill bashes
 - Meepo: 3rd skill damage and slow, aghs +1 Meepo

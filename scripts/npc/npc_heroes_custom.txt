@@ -1746,7 +1746,7 @@
  "AttributeBaseIntelligence"   "22"
  "AttributeIntelligenceGain"    "2.9"
 		"MovementTurnRate"		"0.500000"
-		"Ability1"		"techies_land_mines"
+		"Ability1"		"techies_land_mines_datadriven"
 		"Ability2"		"techies_stasis_trap"
 		"Ability3"		"techies_suicide"
 		"Ability4"		"techies_focused_detonate"
