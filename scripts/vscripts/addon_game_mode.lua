@@ -683,6 +683,14 @@ function HandleEntityKilled(entityIdx, attackerIdx, inflictorIdx)
 		for i,v in pairs(assist_players) do
 			PlayerResource:GetPlayer(i):GetAssignedHero():ModifyGold(assist_gold, false, DOTA_ModifyGold_HeroKill)
 		end
+		-- give experience
+		local units = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetAbsOrigin(), nil, 1500,
+			DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+		local assist_exp = 7 * entity:GetLevel() + GetAssistXPComebackFactor(entity:GetTeam()) * PlayerResource:GetTotalEarnedXP(entity:GetPlayerID()) * 0.15
+		print("Granting assist experience " .. assist_exp .. " to " .. #units .. " units.")
+		for i=1,#units do
+			units[i]:AddExperience(assist_exp, DOTA_ModifyXP_HeroKill, false, false)
+		end
 	end
 end
 
@@ -704,6 +712,22 @@ function GetAssistGoldComebackFactor(victim_team)
 	end
 end
 
+function GetAssistXPComebackFactor(victim_team)
+	local victim_team_total_gold = GetTeamTotalXP(victim_team)
+	local attacker_team = DOTA_TEAM_BADGUYS
+	if victim_team == DOTA_TEAM_BADGUYS then
+		attacker_team = DOTA_TEAM_GOODGUYS
+	end
+	local attacker_team_total_gold = GetTeamTotalXP(attacker_team)
+	local factor = (victim_team_total_gold - attacker_team_total_gold) / (attacker_team_total_gold + attacker_team_total_gold) 
+	print("Assist exp factor " .. factor)
+	if factor < 0 then
+		return 0
+	else
+		return factor
+	end
+end
+
 function GetTeamTotalGold(victim_team)
 	local victim_team_total_gold = 0
 	for i=1,PlayerResource:GetPlayerCountForTeam(victim_team) do
@@ -712,6 +736,16 @@ function GetTeamTotalGold(victim_team)
 	end
 	return victim_team_total_gold
 end
+
+function GetTeamTotalXP(victim_team)
+	local victim_team_total_gold = 0
+	for i=1,PlayerResource:GetPlayerCountForTeam(victim_team) do
+		local playerId = PlayerResource:GetNthPlayerIDOnTeam(victim_team, i)
+		victim_team_total_gold = victim_team_total_gold + PlayerResource:GetTotalEarnedXP(playerId)
+	end
+	return victim_team_total_gold
+end
+
 function HandleRuneActivated(playerid, rune)
 	if rune == DOTA_RUNE_BOUNTY then
 	  	local player = PlayerResource:GetPlayer(playerid)
@@ -741,6 +775,6 @@ function HandleEntityHurt(entindex_killed, entindex_attacker)
 			target.time_attacked = {}
 		end
 		target.time_attacked[attacker:GetPlayerID()] = GameRules:GetDOTATime(true, false)
-		DeepPrintTable(target.time_attacked)
+		--DeepPrintTable(target.time_attacked)
 	end
 end
