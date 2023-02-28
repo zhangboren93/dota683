@@ -11,7 +11,7 @@ Features:
 - Use 6.83 map, removes flag bearer creep, removes tower aura.
 - Adjust attribute bonus (health gain, regen for strength and mana gain, regen for intellect, base health and mana)
 - Adjust neutral creep's experience & gold. Spawn first wave of neutral creeps 30 seconds into the game
-- Hero kills gives additional 100 gold and 50 experience
+- Hero kills gives additional 100 gold and 50 experience. Hero kill assists gold and exp gain adds comeback factor.
 - Courier needs to be bought and shared with it's ability. Courier upgrades to flying at level 4, doesn't increase its speed or health with time
 - Backpack cooldown to 15s
 - Remove melee hero's innate block. Stout sheild can be bought.
