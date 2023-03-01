@@ -506,6 +506,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		
 		-- give 200 gold to randomed player
 		local player = entity:GetPlayerOwner()
+		if player == nil then
+			-- its is going to be an illusion
+			return
+		end
 		if PlayerResource:HasRandomed(player:GetPlayerID()) and not self.rdEnabled then
 			entity:ModifyGold(200, true, DOTA_ModifyGold_Unspecified)
 		end
