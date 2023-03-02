@@ -6,7 +6,7 @@
 	Satanic has been activated.
 ================================================================================================================= ]]
 function modifier_item_satanic_datadriven_on_attack_landed(keys)
-	if keys.target.GetInvulnCount == nil then
+	if not keys.target:IsIllusion() then
 		if keys.caster:HasModifier("modifier_item_satanic_datadriven_unholy_rage") then  --The caster has Satanic's active on them.
 			keys.ability:ApplyDataDrivenModifier(keys.attacker, keys.attacker, "modifier_item_satanic_datadriven_unholy_rage_lifesteal", {duration = 0.03})
 		end
