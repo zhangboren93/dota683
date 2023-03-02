@@ -246,6 +246,7 @@
  "AttributeIntelligenceGain"  "1.4"  
 		"AttackAnimationPoint"		"0.7"
 		"MovementTurnRate"		"0.6000"
+		"Ability1"		"drow_ranger_frost_arrows_datadriven"
 		"Ability3"		"drow_ranger_trueshot_datadriven"
 		"Ability6"		"drow_ranger_marksmanship_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"

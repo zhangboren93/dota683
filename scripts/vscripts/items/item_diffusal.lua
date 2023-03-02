@@ -18,6 +18,7 @@ end
 function purge(event)
     local purgeable_modifier_names = {
         modifier_item_satanic_unholy = true,
+        modifier_item_satanic_datadriven_unholy_rage = true,
         modifier_ghost_state = true,
         modifier_rune_doubledamage = true,
         modifier_rune_haste = true,

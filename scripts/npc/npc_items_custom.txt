@@ -1065,9 +1065,27 @@
 		
 		"Modifiers"
 		{
-			"modifier_item_lifesteal_datadriven"
+			"modifier_item_lifesteal_datadriven_on_attack"
 			{
 				"Passive" "1"
+				"IsHidden" "1"
+				"Orb"
+				{
+					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
+				}
+	
+				"OnOrbImpact"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_lifesteal.lua"
+						"Function"		"attack_landed"
+					}
+				}
+			}
+			"modifier_item_lifesteal_datadriven"
+			{
+				"Passive" "0"
 				"IsHidden" "1"
 				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
 				"OnDealDamage"
@@ -7330,10 +7348,16 @@
 	//=================================================================================================================
 	"item_recipe_satanic"
 	{
+		"ItemPurchasable"		"0"
+	}
+	"item_recipe_satanic_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
 		"ID"							"155"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7343,10 +7367,10 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_satanic"
+		"ItemResult"					"item_satanic_datadriven"
 		"ItemRequirements"
 		{
-			"01"						"item_helm_of_the_dominator;item_reaver"
+			"01"						"item_helm_of_the_dominator_datadriven;item_reaver"
 		}
 	}
 	//=================================================================================================================
@@ -7354,17 +7378,24 @@
 	//=================================================================================================================
 	"item_satanic"
 	{
+		"ItemPurchasable"			"0"
+	}
+	"item_satanic_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"156"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"FightRecapLevel"				"2"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_satanic"
+		
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"35.0"
-
+		"AbilityManaCost"				"0.0"
+	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"6150"
@@ -7372,18 +7403,113 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"satanic"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
 		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"AbilitySpecial"
 		{
-			"bonus_strength"		"25"
-			"bonus_damage"			"20"
-			"lifesteal_percent"		"25"
-			"unholy_lifesteal_percent"	"200"
-			"unholy_lifesteal_total_tooltip"	"225"
-			"unholy_duration"		"3.5"
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"20"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_strength"			"25"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_armor"				"5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"lifesteal_percent"			"25"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"unholy_lifesteal_percent"	"175"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"unholy_duration"			"3.5"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"		"modifier_item_satanic_datadriven_unholy_rage"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_satanic_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+				}
+				
+				"Orb"
+				{
+					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
+				}
+	
+				"OnOrbImpact"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/item_satanic.lua"
+						"Function"				"modifier_item_satanic_datadriven_on_attack_landed"
+					}
+				}
+			}
+			"modifier_item_satanic_datadriven_unholy_rage"
+			{
+				"Duration"			"%unholy_duration"
+				"Passive"			"0"
+				"IsHidden"			"0"
+			}
+			"modifier_item_satanic_datadriven_lifesteal"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				
+				"OnDealDamage"
+				{
+					"Lifesteal"
+					{
+						"Target"			"ATTACKER"
+						"LifestealPercent"	"%lifesteal_percent"
+					}
+				}
+			}
+			"modifier_item_satanic_datadriven_unholy_rage_lifesteal"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				
+				"OnDealDamage"
+				{
+					"Lifesteal"
+					{
+						"Target"			"ATTACKER"
+						"LifestealPercent"	"%unholy_lifesteal_percent"
+					}
+				}
+			}
 		}
 	}
 	//=================================================================================================================
@@ -7782,6 +7908,32 @@
 				"Passive" "1"
 				"IsHidden" "1"
 				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_regen"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+				}
+
+				"Orb"
+				{
+					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
+				}
+	
+				"OnOrbImpact"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_lifesteal.lua"
+						"Function"		"attack_landed"
+					}
+				}
+			}
+			"modifier_item_lifesteal_datadriven"
+			{
+				"Passive" "0"
+				"IsHidden" "1"
+				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
 				"OnDealDamage"
 				{
 					"Lifesteal"
@@ -7789,12 +7941,6 @@
 						"Target"			"ATTACKER"
 						"LifestealPercent"	"%lifesteal_percent"
 					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_regen"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
 				}
 			}
 		}
