@@ -8559,16 +8559,21 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
     			}
     			
-    			"OnAttackLanded"
-    			{
-    				"RunScript"
-    				{
+				"Orb"
+				{
+					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
+				}
+	
+				"OnOrbImpact"
+				{
+					"RunScript"
+					{
     					"Target"		"TARGET"
     					"ScriptFile"	"items/item_diffusal.lua"
 						"Function"		"manaBurn"
 						"feedback_mana_burn"	"%feedback_mana_burn"
-    				}
-    			}
+					}
+				}
     		}
 			"modifier_diffusal_purge_slow_datadriven"
 			{
