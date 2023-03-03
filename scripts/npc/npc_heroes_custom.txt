@@ -46,7 +46,7 @@
  "AttributeBaseIntelligence" "15"  
  "AttributeIntelligenceGain"  "1.8"  
 		"MovementTurnRate"		"0.5"
-		//TODO Orb
+		"Ability1"		"antimage_mana_break_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
@@ -1918,7 +1918,6 @@
 		"Ability3"		"enchantress_natures_attendants"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
-		//TODO impetus orb
 		"Ability6"		"enchantress_impetus_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"

@@ -161,5 +161,7 @@
 		"DOTA_Tooltip_Ability_obsidian_destroyer_arcane_orb_datadriven_Description"	"6/7/8/9%%魔法值伤害"
 		"DOTA_Tooltip_Ability_silencer_glaives_of_wisdom_datadriven"				"智慧之刃"
 		"DOTA_Tooltip_Ability_silencer_glaives_of_wisdom_datadriven_Description"	"30/48/66/84%%智力伤害\n光环偷取智力"
+		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"				"削蓝"
+		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"28/40/52/64削蓝，伤害60%%"
 	}
 }

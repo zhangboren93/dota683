@@ -33,7 +33,7 @@ Hero ability changes:
 - Zuus: Replace jump with Static Field, Aghs increases ult damage
 - Ursa: Stomp no hop, Aghs increases ult CD to 70s
 - Puck: Silence no target/movement
-- Antimage: No shield active, remove Aghs
+- Antimage: No shield active, Mana Break Orb, remove Aghs
 - Sniper: No aim(third ability) active
 - Techies: Reactive 1st skill stackable, 2nd skill statis trap, ultimate remote bomb. Aghs increate ulti damage.
 - Tinker: 3rd skill march of machines
