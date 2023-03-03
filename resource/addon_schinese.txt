@@ -87,6 +87,8 @@
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven_Description"	"+%attack_speed_bonus_pct%攻速，持续%duration%秒"
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven"	"幽冥剧毒"
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven_Description"	"血越少打人越疼，最大+%max_damage_tooltip%攻击"
+		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven"				"毒性攻击"
+		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_Description"	"10/16/22/28每秒伤害，-10/20/30/40%%移速，-10/20/30/40攻速，持续2秒"
 		"DOTA_Tooltip_Ability_slardar_bash_datadriven"			"击晕"
 		"DOTA_Tooltip_Ability_slardar_bash_datadriven_Description"	"%chance%% 击晕%duration% 秒 + %bonus_damage% 伤害"
 		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven"				"强击光环"

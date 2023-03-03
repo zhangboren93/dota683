@@ -87,6 +87,8 @@
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven_Description"	"+%attack_speed_bonus_pct% attack speed，last %duration% seconds"
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven"	"Nethertoxin"
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven_Description"	"Damage more the less health the target has，max +%max_damage_tooltip% damage"
+		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven"				"Poison Attack"
+		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_Description"	"10/16/22/28 damage per second，-10/20/30/40%% move speed，-10/20/30/40 attack speed，lasts 2 seconds"
 		"DOTA_Tooltip_Ability_slardar_bash_datadriven"			"Bash"
 		"DOTA_Tooltip_Ability_slardar_bash_datadriven_Description"	"%chance%% stun for %duration% seconds with %bonus_damage% damage"
 		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven"				"Trueshot"

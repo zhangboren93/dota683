@@ -28,7 +28,7 @@ Hero ability changes:
 - Huskar: Change first ability to health regen
 - Clinkz: Change first ability to strafe, removes Aghs
 - Drow: Replace ability 1 with trueshot aura
-- Viper: Change nethertoxin to be a passive skill
+- Viper: Change nethertoxin to be a passive skill, Poison attack is Orb
 - Wraith King: Remove skeleton, change crit to percentage chance and removes Aghs
 - Zuus: Replace jump with Static Field, Aghs increases ult damage
 - Ursa: Stomp no hop, Aghs increases ult CD to 70s

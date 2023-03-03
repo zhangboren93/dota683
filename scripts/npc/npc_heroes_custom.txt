@@ -46,6 +46,7 @@
  "AttributeBaseIntelligence" "15"  
  "AttributeIntelligenceGain"  "1.8"  
 		"MovementTurnRate"		"0.5"
+		//TODO Orb
 		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
@@ -582,6 +583,7 @@
  "AttributeBaseIntelligence" "26"  
  "AttributeIntelligenceGain"  "3.3"  
 		"MovementTurnRate"		"0.500000"
+		//TODO Orb
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -960,6 +962,7 @@
  "AttributeBaseIntelligence" "15"  
  "AttributeIntelligenceGain"  "1.8"  
 		"MovementTurnRate"		"0.400000"
+		"Ability1"		"viper_poison_attack_datadriven"
 		"Ability2"		"viper_nethertoxin_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
@@ -1125,6 +1128,7 @@
 		"AttackAnimationPoint"		"0.7"
 		"MovementTurnRate"		"0.4"
 		"Ability1"		"clinkz_strafe_datadriven"
+		//TODO searing arrow orb
 		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
@@ -1269,6 +1273,7 @@
  "AttributeIntelligenceGain"  "1.5"  
 		"MovementTurnRate"		"0.5"
 		"Ability1"		"huskar_inner_vitality"
+		//TODO burning spear orb
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1411,6 +1416,7 @@
  "AttributeAgilityGain"   "3.0"  
  "AttributeBaseIntelligence" "27"  
  "AttributeIntelligenceGain"  "2.5"  
+ //TODO orb
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1912,6 +1918,7 @@
 		"Ability3"		"enchantress_natures_attendants"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
+		//TODO impetus orb
 		"Ability6"		"enchantress_impetus"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
