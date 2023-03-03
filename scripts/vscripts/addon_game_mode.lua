@@ -586,6 +586,11 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
     end
 
+	if entity:IsRealHero() and is_respawn == 1 and entity.loseIntOnRespawn then
+		print("Losing int at respawn")
+		entity.silencerAbility:ApplyDataDrivenModifier(entity, entity, "modifier_int_steal_debuf_datadriven", {})
+		entity.loseIntOnRespawn = false
+	end
 	if entity:GetName() == "npc_dota_roshan" then
 		entity:SetThink(function()
 		entity:RemoveItem(entity:FindItemInInventory("item_aghanims_shard_roshan"))

@@ -70,6 +70,8 @@ Dota6.83版本移植，养老dota，best dota。
 - 小狗一技能加攻速，2技能当前生命值吸血，3技能撕裂伤口，删A
 - 狼人被动加攻击力攻速，删A
 - 水人大招召唤分身，删A
+- 黑鸟法球
+- 沉默法球
 - 删A：人马,兽王,死骑,小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,kunka,夜魔,dp,tide,ember,猛犸,龙骑
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
@@ -83,6 +85,3 @@ dota2ai提供了AI购买物品的代码: https://github.com/adamqqqplay/dota2ai
 - 自定义版本参数
 - 英雄自杀技能
 - 查看战绩
-
-英雄复原计划：
-- 沉默重做一技能
