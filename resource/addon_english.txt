@@ -85,6 +85,7 @@
 		"DOTA_Tooltip_Ability_item_bfury_Lore"			"+150%% mana regen"
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven"	"Strafe"
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven_Description"	"+%attack_speed_bonus_pct% attack speed，last %duration% seconds"
+		"DOTA_Tooltip_Ability_clinkz_searing_arrows_datadriven"	"Searing Arrows"
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven"	"Nethertoxin"
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven_Description"	"Damage more the less health the target has，max +%max_damage_tooltip% damage"
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven"				"Poison Attack"

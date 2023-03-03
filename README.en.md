@@ -26,7 +26,7 @@ Features:
 
 Hero ability changes:
 - Huskar: Change first ability to health regen, Burning Spear Orb
-- Clinkz: Change first ability to strafe, removes Aghs
+- Clinkz: Change first ability to strafe, Searing Arrows Orb, removes Aghs
 - Drow: Replace ability 1 with trueshot aura
 - Viper: Change nethertoxin to be a passive skill, Poison attack is Orb
 - Wraith King: Remove skeleton, change crit to percentage chance and removes Aghs
