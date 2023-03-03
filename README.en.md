@@ -7,7 +7,7 @@ Features:
 - All Pick & Random Draft. Enter '-rd' in public chat to enable Random Draft mode, "-ap" to revert.
 - Remove talents, Ags shard, and new heroes introduced after Monkyey King
 - Cap hero level to 25, and adjust experience table
-- Adjust items and remove neutral items. Lifesteal, mask of madness, helm of dom, satanic, deso are orbs.
+- Adjust items and remove neutral items. Lifesteal, mask of madness, helm of dom, satanic, deso, maelstrom are orbs.
 - Use 6.83 map, removes flag bearer creep, removes tower aura.
 - Adjust attribute bonus (health gain, regen for strength and mana gain, regen for intellect, base health and mana)
 - Adjust neutral creep's experience & gold. Spawn first wave of neutral creeps 30 seconds into the game

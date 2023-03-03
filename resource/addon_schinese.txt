@@ -163,5 +163,7 @@
 		"DOTA_Tooltip_Ability_silencer_glaives_of_wisdom_datadriven_Description"	"30/48/66/84%%智力伤害\n光环偷取智力"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"				"削蓝"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"28/40/52/64削蓝，伤害60%%"
+		"DOTA_Tooltip_Ability_item_maelstrom_datadriven"					"电锤"
+		"DOTA_Tooltip_Ability_item_maelstrom_datadriven_Description"		"+24攻击力\n+25攻速\n25%%触发闪电，120伤害，4个单位"
 	}
 }

@@ -1,37 +1,43 @@
-if item_maelstrom_modifier_lua == nil then
-    item_maelstrom_modifier_lua = class({})
-end
+function modifier_item_maelstrom_datadriven_on_orb_impact(event)
+    local ability = event.ability
+    local caster = event.caster
+    local target = event.caster
+    local new_target = event.target
+    local damage = ability:GetSpecialValueFor("chain_damage")
+    local chain_delay = ability:GetSpecialValueFor("chain_delay")
+    local count = ability:GetSpecialValueFor("chain_strikes")
+    local chain_radius = ability:GetSpecialValueFor("chain_radius")
+    local victims = {}
+    victims[new_target:GetEntityIndex()] = true
 
-function item_maelstrom_modifier_lua:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
+	local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf", PATTACH_POINT_FOLLOW, target )
+	ParticleManager:SetParticleControl(particle,0,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))   
+	ParticleManager:SetParticleControl(particle,1,Vector(new_target:GetAbsOrigin().x,new_target:GetAbsOrigin().y,new_target:GetAbsOrigin().z + new_target:GetBoundingMaxs().z ))
+    -- TODO find right sound
+	ApplyDamage({ victim = new_target, attacker = caster, damage = damage,	damage_type = DAMAGE_TYPE_MAGICAL })
+    count = count - 1
 
-function item_maelstrom_modifier_lua:OnCreated(kv)
---    print("item_orchid_regen_percentage_modifier:OnCreated")
-    self:StartIntervalThink(0.5)
-end
-
-function item_maelstrom_modifier_lua:IsHidden()
-    return true
-end
-
-function item_maelstrom_modifier_lua:OnIntervalThink()
-    --print("interval think")
-    local hParent = self:GetParent() --the unit.
-    if hParent == nil or hParent.FindItemInInventory == nil then
-        return
-    end
-    local item = hParent:FindItemInInventory("item_maelstrom")
-    if item ~= nil and item:GetItemState() == 1 then
-        if not hParent:HasModifier("modifier_maelstrom_as_lua") then
-            local bonus_attack_speed = item:GetSpecialValueFor("bonus_attack_speed")
-            print("Adding attackspeed modifier " .. bonus_attack_speed)
-            hParent:AddNewModifier(
-                hParent, nil, 
-                "modifier_maelstrom_as_lua",
-                { bonus_attack_speed = bonus_attack_speed})
+    caster:SetThink(function()
+        target = new_target
+        new_target = nil
+		local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, chain_radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
+        for i=1,#units do
+            if victims[units[i]:GetEntityIndex()] == nil then
+                new_target = units[i]
+                break
+            end
         end
-    else
-        hParent:RemoveModifierByName("modifier_maelstrom_as_lua")
-    end
+        if new_target == nil then
+            return
+        end
+        victims[new_target:GetEntityIndex()] = true
+    	local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf", PATTACH_POINT_FOLLOW, target )
+    	ParticleManager:SetParticleControl(particle,0,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))   
+    	ParticleManager:SetParticleControl(particle,1,Vector(new_target:GetAbsOrigin().x,new_target:GetAbsOrigin().y,new_target:GetAbsOrigin().z + new_target:GetBoundingMaxs().z ))
+    	ApplyDamage({ victim = new_target, attacker = caster, damage = damage,	damage_type = DAMAGE_TYPE_MAGICAL })
+        count = count - 1
+        if count > 0 then
+            return chain_delay
+        end
+    end, "finds another target", chain_delay)
 end

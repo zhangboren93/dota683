@@ -7548,7 +7548,7 @@
 	
 				"Orb"
 				{
-					"Priority"			"DOTA_ORB_PRIORITY_DEFAULT"
+					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
 					"ProjectileName"    "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
 					"CastAttack"		"1"
 				}
