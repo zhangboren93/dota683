@@ -153,5 +153,7 @@
 		"DOTA_Tooltip_Ability_item_satanic_datadriven_Description"		"Lifesteal +175%% lasts 3.5 seconds\n+20 damage\n+5 armor\n+25 strength\n+25%% lifesteal"
 		"DOTA_Tooltip_Ability_item_desolator_datadriven"				"Desolator"
 		"DOTA_Tooltip_Ability_item_desolator_datadriven_Description"	"+60 damage\n-7 armor for 15 seconds"
+		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven"					"Burning Spear"
+		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_Description"		"cost 15 health，5/10/15/20 damage per second，lasts 8 seconds"
 	}
 }

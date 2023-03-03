@@ -25,7 +25,7 @@ Features:
 - Increase heroes attack animation point and reduce turn rate
 
 Hero ability changes:
-- Huskar: Change first ability to health regen
+- Huskar: Change first ability to health regen, Burning Spear Orb
 - Clinkz: Change first ability to strafe, removes Aghs
 - Drow: Replace ability 1 with trueshot aura
 - Viper: Change nethertoxin to be a passive skill, Poison attack is Orb

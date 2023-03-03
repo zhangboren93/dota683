@@ -153,5 +153,7 @@
 		"DOTA_Tooltip_Ability_item_satanic_datadriven_Description"		"吸血+175%%，持续3.5秒\n+20攻击力\n+5护甲\n+25力量\n+25%%吸血"
 		"DOTA_Tooltip_Ability_item_desolator_datadriven"				"暗灭"
 		"DOTA_Tooltip_Ability_item_desolator_datadriven_Description"	"+60攻击力\n-7护甲持续15秒"
+		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven"					"火矛"
+		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_Description"		"自减15生命，5/10/15/20每秒伤害，持续8秒"
 	}
 }
