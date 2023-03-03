@@ -57,7 +57,7 @@ Hero ability changes:
 - Earthshaker: Aghs increase ult damage
 - Tiny: 3rd skill to craggy, Aghs gives tree grab with unlimited attack counts
 - Riki: 2nd skill invis, 3rd skill back stab, ult blink, removes Aghs
-- Enchantress: 1st skill passive, Aghs increases attack range
+- Enchantress: 1st skill passive, Impetus Ult Orb, Aghs increases attack range
 - Necro: 2nd skill heartstopper, 3rd skill passive regen, Aghs increases ult damage, no buyback, no permanent health and mana regen
 - Brood: 1st skill spiderlings, 3rd skill paralyzing passive, ult life steal, remove Aghs
 - Slark: No permanent agility gain, remove Aghs
