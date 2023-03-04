@@ -809,6 +809,7 @@
 		"AbilityCooldown"				"4.0"
 		"AbilityCastAnimation"   		"ACT_DOTA_IDLE"
 		"Model"							"models/props_gameplay/quelling_blade.vmdl"
+		"InvalidHeroes" 				"npc_dota_hero_kunkka"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -6538,6 +6539,7 @@
 		"ItemAliases"					"skull basher"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"InvalidHeroes" 				"npc_dota_hero_spirit_breaker;npc_dota_hero_faceless_void;npc_dota_hero_slardar;npc_dota_hero_troll_warlord"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -9522,6 +9524,7 @@
 		"ItemAliases"					"abyssal blade"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
+		"InvalidHeroes" 				"npc_dota_hero_spirit_breaker;npc_dota_hero_faceless_void;npc_dota_hero_slardar;npc_dota_hero_troll_warlord"
 		
 
 		// Special	
