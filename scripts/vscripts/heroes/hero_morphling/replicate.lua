@@ -41,7 +41,6 @@ function replicate(event)
 	illusion:SetHealth(target:GetHealth()) -- Set the health of the illusion to be the same as the target HP
     caster.replica = illusion
 
-    --TODO start internal cooldown and show morph ability
 	local morph_ability = caster:FindAbilityByName("morphling_morph_replicate_datadriven")
 	morph_ability:SetLevel(1)
 	morph_ability:SetHidden(false)

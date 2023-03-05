@@ -209,7 +209,7 @@
  		"item"		"item_heavens_halberd_datadriven"
  		"item"		"item_sange_and_yasha_datadriven"
  		"item"		"item_skadi_datadriven" 
- 		"item"		"item_mjollnir"
+ 		"item"		"item_mjollnir_datadriven"
  		"item"		"item_satanic_datadriven"		
 // 		"item"		"item_jade_bow"		
 	}

@@ -165,5 +165,7 @@
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"28/40/52/64 mana reduce, damage for 60%%"
 		"DOTA_Tooltip_Ability_item_maelstrom_datadriven"					"Maelstrom"
 		"DOTA_Tooltip_Ability_item_maelstrom_datadriven_Description"		"+24 damage\n+25 attack speed\n25%% chains，120 damage，4 units"
+		"DOTA_Tooltip_Ability_item_mjollnir_datadriven"						"Mjollnir"
+		"DOTA_Tooltip_Ability_item_mjollnir_datadriven_Description"			"Shield: 20%% damage 5 units for 200\n+24 damage\n+80 attack speed\n25%% chains，150 damage，12 units"
 	}
 }

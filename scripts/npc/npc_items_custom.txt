@@ -7519,10 +7519,15 @@
 	//=================================================================================================================
 	"item_recipe_mjollnir"
 	{
+		"ItemPurchasable"				"0"
+	}
+	"item_recipe_mjollnir_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"157"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7532,7 +7537,7 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_mjollnir"
+		"ItemResult"					"item_mjollnir_datadriven"
 		"ItemRequirements"
 		{
 			"01"						"item_maelstrom_datadriven;item_hyperstone"
@@ -7541,16 +7546,20 @@
 	//=================================================================================================================
 	// Mjollnir
 	//=================================================================================================================
-	// TODO Orb
 	"item_mjollnir"
+	{
+		"ItemPurchasable"				"0"
+	}
+	"item_mjollnir_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"158"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityTextureName"			"item_mjollnir"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -7568,12 +7577,100 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		
+		//TODO active skill
+		"Modifiers"
+		{
+			"modifier_item_maelstrom_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"						"%bonus_damage"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"					"%bonus_attack_speed"
+				}
+
+				"Orb"
+				{
+					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
+				}
+
+				"OnOrbImpact"
+				{
+					"Random"
+					{
+						"Chance"		"%chain_chance"
+						"OnSuccess"
+						{
+							"DelayedAction"
+							{
+								"Delay"					"%chain_delay"
+								"Action"
+								{
+									"RunScript"
+									{
+										"ScriptFile"			"items/item_maelstrom.lua"
+										"Function"				"modifier_item_maelstrom_datadriven_on_orb_impact"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			"modifier_item_mjollnir_shield_datadriven"
+			{
+				"EffectName"		"particles/items2_fx/mjollnir_shield.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnAttacked"
+				{
+					"Random"
+					{
+						"Chance"		"%static_chance"
+						"OnSuccess"
+						{
+							"RunScript"
+							{
+								"ScriptFile"			"items/item_mjollnir.lua"
+								"Function"				"shield_triggered"
+							}
+						}
+					}
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"DOTA_Item.Mjollnir.Activate"
+				"Target" 		"CASTER"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_item_mjollnir_shield_datadriven"
+				"Duration"		"%static_duration"
+				"Target"	"TARGET"
+			}
+		}
+
 		"AbilityValues"
 		{
+			"bonus_damage"			"24"
 			"bonus_attack_speed"	"80"
 			"chain_damage"			"150"
 			"chain_chance"			"25"
+			"chain_strikes"			"12"
+			"chain_radius"			"650"
+			"chain_delay"			"0.25"
+			"static_chance"			"20"
 			"static_damage"			"200"
+			"static_duration"		"15"
+			"static_count"			"4"
+			"static_range"			"900"
 		}
 	}
 	//=================================================================================================================
@@ -8005,7 +8102,6 @@
 	//=================================================================================================================
 	// Recipe: Maelstrom
 	//=================================================================================================================
-	// TODO Orb
 	"item_recipe_maelstrom"
 	{
 		"ItemPurchasable"				"0"

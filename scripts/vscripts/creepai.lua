@@ -95,6 +95,7 @@ function modifier_creep_ai:OnIntervalThink()
     elseif self.state == AI_STATE_ATTACKING then
         -- check if there is higher priority target 
         local target = self:selectTarget()
+        -- TODO Don't change target if current target is reachable
         if target ~= nil and target.priority >= self.target.priority then
             --print("find higher priority target ".. target.priority)
             self.target = target

@@ -663,6 +663,7 @@ function HandleEntityKilled(entityIdx, attackerIdx, inflictorIdx)
 			attacker:ModifyGold(100, true, DOTA_ModifyGold_HeroKill)
 			attacker:AddExperience(50, DOTA_ModifyXP_HeroKill, false, false)
 		end
+		-- TODO no assist bonus on deny
 		-- give assist gold
 		local assist_players = {}
 		if entity.time_attacked ~= nil then
