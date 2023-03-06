@@ -576,6 +576,11 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:IsRealHero() and is_respawn == 1 and entity.loseIntOnRespawn then
 		print("Losing int at respawn")
 		entity.silencerAbility:ApplyDataDrivenModifier(entity, entity, "modifier_int_steal_debuf_datadriven", {})
+		if not entity:HasModifier("modifier_int_steal_debuf_stacks_datadriven") then
+			entity.silencerAbility:ApplyDataDrivenModifier(entity, entity, "modifier_int_steal_debuf_stacks_datadriven", {})
+		end
+		local modifier = entity:FindModifierByName("modifier_int_steal_debuf_stacks_datadriven")
+		modifier:IncrementStackCount()
 		entity.loseIntOnRespawn = false
 	end
 	if entity:GetName() == "npc_dota_roshan" then
@@ -697,16 +702,18 @@ function handleKillBonus(attacker, entity)
 		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
 	
 	-- add attacker the XP if out of range 
-	local unitsContainsAttacker = false
-	for i=1,#units do
-		if units[i]:GetEntityIndex() == attacker:GetEntityIndex() then
-			unitsContainsAttacker = true
-			break
+	if attacker:IsAlive() and attacker:IsHero() then
+		local unitsContainsAttacker = false
+		for i=1,#units do
+			if units[i]:GetEntityIndex() == attacker:GetEntityIndex() then
+				unitsContainsAttacker = true
+				break
+			end
 		end
-	end
-	if not unitsContainsAttacker and attacker:IsAlive() then
-		print("Adding attacker to xp bounty remotely")
-		table.insert(units, attacker)
+		if not unitsContainsAttacker then
+			print("Adding attacker to xp bounty remotely")
+			table.insert(units, attacker)
+		end
 	end
 
 	local assist_exp = 7 * entity:GetLevel() + GetAssistXPComebackFactor(entity:GetTeam()) * PlayerResource:GetTotalEarnedXP(entity:GetPlayerID()) * 0.15
