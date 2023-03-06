@@ -35,3 +35,15 @@ function stealInt(event)
 		unit.silencerAbility = ability
 	end
 end
+
+function stealIntBuffCount(event)
+	local ability = event.ability
+	local unit = event.target
+	print(ability:GetName())
+	print(unit:GetName())
+	if not unit:HasModifier("modifier_int_steal_bonus_stacks_datadriven") then
+		ability:ApplyDataDrivenModifier(unit, unit, "modifier_int_steal_bonus_stacks_datadriven", {})
+	end
+	local modifier = unit:FindModifierByName("modifier_int_steal_bonus_stacks_datadriven")
+	modifier:IncrementStackCount()
+end
