@@ -35,6 +35,7 @@ function purge(event)
         modifier_windrunner_windrun = true,
         modifier_necrolyte_sadist_active = true,
         modifier_huskar_inner_vitality = true,
+        modifier_item_mjollnir_shield_datadriven = true,
         -- TODO add more purgeable modifiers here
     }
 

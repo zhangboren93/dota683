@@ -658,36 +658,61 @@ function HandleEntityKilled(entityIdx, attackerIdx, inflictorIdx)
 		end, "", {}, entity:GetRespawnTime())
 	end
 	if IsServer() and entity:IsRealHero() then
-		if attacker:IsHero() then
-			print("gives extra 100 gold")
-			attacker:ModifyGold(100, true, DOTA_ModifyGold_HeroKill)
-			attacker:AddExperience(50, DOTA_ModifyXP_HeroKill, false, false)
-		end
-		-- TODO no assist bonus on deny
-		-- give assist gold
-		local assist_players = {}
-		if entity.time_attacked ~= nil then
-			local current_time = GameRules:GetDOTATime(true, false)
-			for i,v in pairs(entity.time_attacked) do
-				if current_time - v < 20 then
-					assist_players[i] = true
-				end
+		handleKillBonus(attacker, entity)
+	end
+end
+
+function handleKillBonus(attacker, entity)
+	if attacker:GetTeam() == entity:GetTeam() then
+		print("Denied, no gold/XP bonus")
+		return
+	end
+	if attacker:IsCreep() and attacker:GetTeam() == DOTA_TEAM_NEUTRALS then
+		print("killed by neutral, no gold/XP bonus")
+		return
+	end
+	if attacker:IsHero() then
+		print("gives extra 100 gold")
+		attacker:ModifyGold(100, true, DOTA_ModifyGold_HeroKill)
+		attacker:AddExperience(50, DOTA_ModifyXP_HeroKill, false, false)
+	end
+	-- give assist gold
+	local assist_players = {}
+	if entity.time_attacked ~= nil then
+		local current_time = GameRules:GetDOTATime(true, false)
+		for i,v in pairs(entity.time_attacked) do
+			if current_time - v < 20 then
+				assist_players[i] = true
 			end
 		end
-		local assist_gold = 4 * entity:GetLevel() + 0.2 * GetAssistGoldComebackFactor(entity:GetTeam()) * (
-			PlayerResource:GetGoldSpentOnItems(entity:GetPlayerID()) + PlayerResource:GetGold(entity:GetPlayerID()))
-		print("Assist gold " .. assist_gold)
-		for i,v in pairs(assist_players) do
-			PlayerResource:GetPlayer(i):GetAssignedHero():ModifyGold(assist_gold, false, DOTA_ModifyGold_HeroKill)
+	end
+	local assist_gold = 4 * entity:GetLevel() + 0.2 * GetAssistGoldComebackFactor(entity:GetTeam()) * (
+		PlayerResource:GetGoldSpentOnItems(entity:GetPlayerID()) + PlayerResource:GetGold(entity:GetPlayerID()))
+	print("Assist gold " .. assist_gold)
+	for i,v in pairs(assist_players) do
+		PlayerResource:GetPlayer(i):GetAssignedHero():ModifyGold(assist_gold, false, DOTA_ModifyGold_HeroKill)
+	end
+	-- give experience
+	local units = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetAbsOrigin(), nil, 1500,
+		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+	
+	-- add attacker the XP if out of range 
+	local unitsContainsAttacker = false
+	for i=1,#units do
+		if units[i]:GetEntityIndex() == attacker:GetEntityIndex() then
+			unitsContainsAttacker = true
+			break
 		end
-		-- give experience
-		local units = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetAbsOrigin(), nil, 1500,
-			DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
-		local assist_exp = 7 * entity:GetLevel() + GetAssistXPComebackFactor(entity:GetTeam()) * PlayerResource:GetTotalEarnedXP(entity:GetPlayerID()) * 0.15
-		print("Granting assist experience " .. assist_exp .. " to " .. #units .. " units.")
-		for i=1,#units do
-			units[i]:AddExperience(assist_exp, DOTA_ModifyXP_HeroKill, false, false)
-		end
+	end
+	if not unitsContainsAttacker and attacker:IsAlive() then
+		print("Adding attacker to xp bounty remotely")
+		table.insert(units, attacker)
+	end
+
+	local assist_exp = 7 * entity:GetLevel() + GetAssistXPComebackFactor(entity:GetTeam()) * PlayerResource:GetTotalEarnedXP(entity:GetPlayerID()) * 0.15
+	print("Granting assist experience " .. assist_exp .. " to " .. #units .. " units.")
+	for i=1,#units do
+		units[i]:AddExperience(assist_exp, DOTA_ModifyXP_HeroKill, false, false)
 	end
 end
 
