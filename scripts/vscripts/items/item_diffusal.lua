@@ -1,4 +1,7 @@
 function manaBurn(event)
+    if event.attacker:IsIllusion() then
+        return
+    end
     local target = event.target
     local feedback_mana_burn = event.feedback_mana_burn
     local mana_burn_avail = target:GetMana()

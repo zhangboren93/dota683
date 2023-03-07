@@ -132,4 +132,5 @@
 	"npc_dota_hero_dawnbreaker"			"0"
 	"npc_dota_hero_marci"				"0"
 	"npc_dota_hero_primal_beast"		"0"
+	"npc_dota_hero_muerta"				"0"
 }

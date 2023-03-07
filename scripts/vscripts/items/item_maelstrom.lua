@@ -10,7 +10,7 @@ function modifier_item_maelstrom_datadriven_on_orb_impact(event)
     local victims = {}
     victims[new_target:GetEntityIndex()] = true
 
-    if new_target:IsBuilding() or new_target:IsMagicImmune() then
+    if new_target:IsBuilding() or new_target:IsMagicImmune() or target:IsIllusion() then
         return
     end
 

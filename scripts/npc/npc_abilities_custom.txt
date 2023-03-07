@@ -8017,4 +8017,143 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Chaos Knight: Chaos Bolt
+	//=================================================================================================================
+	"chaos_knight_chaos_bolt"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5426"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_ChaosKnight.ChaosBolt.Cast"
+
+        "HasShardUpgrade"               "1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"140"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chaos_bolt_speed"		"700"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_min"				"1 1 1 2"
+				"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_max"				"2 3 4 4"
+				"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_min"			"1 50 75 100"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_max"			"200 225 250 275"
+			}			
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"fake_bolt_distance"		"675"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_bonus_cast_range"		"150"
+				"RequiresShard"				"1"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shard_illusion_duration"		"6.0"
+				"RequiresShard"					"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Necrolyte: Death Pulse
+	//=================================================================================================================
+	"necrolyte_death_pulse"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5158"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Necrolyte.DeathPulse"
+		"AbilityDraftShardAbility"    "necrolyte_death_seeker"
+		"HasShardUpgrade"	"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8 7 6 5"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"75 125 200 275"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125 145 165 185"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"area_of_effect"		"500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal"					"70 90 110 130"
+				"LinkedSpecialBonus"		"special_bonus_unique_necrophos_4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"400"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
 }

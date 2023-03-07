@@ -8343,12 +8343,11 @@
 	
 				"OnOrbFire"
 				{
-					"ApplyModifier"
+					"RunScript"
 					{
-						"Target"			"TARGET"
-						"ModifierName"		"modifier_item_desolator_datadriven_corruption"
+						"ScriptFile"		"items/item_desolator.lua"
+						"Function"			"handleOrbFire"
 					}
-					
 					"FireSound"
 					{
 						"EffectName"		"Item_Desolator.Target"
