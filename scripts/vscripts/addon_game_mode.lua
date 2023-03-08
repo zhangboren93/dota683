@@ -552,7 +552,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 					print("added visage ahgs ability")
 				end
 				return 1
-			end, "meepo scepter", 1);
+			end, "visage scepter", 1);
 		elseif entity:GetName() == "npc_dota_hero_windrunner" then
 			entity:SetThink(function()
 				entity:RemoveModifierByName("modifier_windrunner_windrun_invis")
@@ -566,10 +566,20 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 					ability:SetLevel(1)
 					print("added tiny ahgs ability")
 				end
-				return 1
-			end, "tiny scepter", 1);
+				return 2
+			end, "tiny scepter", 2);
 		elseif entity:GetName() == "npc_dota_hero_enchantress" then
 			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
+		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then
+			entity:SetThink(function()
+				local ability = entity:FindAbilityByName("keeper_of_the_light_recall")
+				if entity:HasScepter() and ability:IsHidden() then
+					ability:SetHidden(false)
+					ability:SetLevel(1)
+					return 2
+				end
+				return 2
+			end, "kotl aghs", 2);
 		end
     end
 

@@ -68,6 +68,7 @@ Hero ability changes:
 - Morphling: Ult creates illusion, remove Aghs
 - OD: Orb
 - Silencer: Orb
+- KoTL: Illuminate channel for 2345 seconds, Aghs adds recovery to Illuminate and Recall
 - Remove Aghs for following heroes: Centuar, Beast Master, Abaddon, Nyx, TA, VS, PA, PL, Spectre, TB, Leshrac, Sven, Kunka, Night Stalker, Death Prophet, Tide, Ember, Mag, DK
 
 mod is open-source ：https://gitee.com/bobo1993324/dota6.83

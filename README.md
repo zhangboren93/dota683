@@ -72,6 +72,7 @@ Dota6.83版本移植，养老dota，best dota。
 - 水人大招召唤分身，删A
 - 黑鸟法球
 - 沉默法球
+- 光法波蓄力2345秒，A帐波回血，加回城技能
 - 删A：人马,兽王,死骑,小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,kunka,夜魔,dp,tide,ember,猛犸,龙骑
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
@@ -84,3 +85,4 @@ dota2ai提供了AI购买物品的代码: https://github.com/adamqqqplay/dota2ai
 - 自定义版本参数
 - 英雄自杀技能
 - 查看战绩
+- 吸蓝技能

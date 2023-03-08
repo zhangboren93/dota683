@@ -41,12 +41,10 @@ function replicate(event)
 	illusion:SetHealth(target:GetHealth()) -- Set the health of the illusion to be the same as the target HP
     caster.replica = illusion
 
-	local morph_ability = caster:FindAbilityByName("morphling_morph_replicate_datadriven")
-	morph_ability:SetLevel(1)
-	morph_ability:SetHidden(false)
-    SendToConsole("bind r dota_ability_execute 6")
+	caster:FindAbilityByName("morphling_morph_replicate_datadriven"):SetLevel(1)
+	caster:SwapAbilities("morphling_replicate_datadriven", "morphling_morph_replicate_datadriven", false, true);
 	caster:SetThink(function()
-   		SendToConsole("bind r dota_ability_execute 5")
+		caster:SwapAbilities("morphling_replicate_datadriven", "morphling_morph_replicate_datadriven", true, false);
 	end, "morphling bind ulti key", ability:GetSpecialValueFor("duration"))
 end
 
