@@ -40,7 +40,7 @@ Hero ability changes:
 - Troll: ulti increase attack speed for all allied heroes, 1st skill bashes
 - Meepo: 3rd skill damage and slow, aghs +1 Meepo
 - Lich: 2nd skill frost sheild, 3rd skill dark ritual, Aghs ult + damage & remove bounce limit
-- Pudge:  3rd skill magic resist passive
+- Pudge:  3rd skill magic resist passive, Rot suicide, Aghs reduce hook's CD
 - Chaos Knight: crit no life steal
 - Slardar: Bash to percentage chance and remove aghs
 - Mirana: Jump remove changes

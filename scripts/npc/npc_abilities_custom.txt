@@ -1387,12 +1387,6 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
-    "keeper_of_the_light_spirit_form"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-	}
     "wisp_relocate"
 	{
 		"MaxLevel"              "3"
@@ -8229,6 +8223,9 @@
 		"AbilityDraftPreAbility"		"keeper_of_the_light_blinding_light"
 		"AbilityDraftUltScepterAbility"	"keeper_of_the_light_will_o_wisp"
 		"AbilityDraftUltShardAbility"	"keeper_of_the_light_recall"
+		"MaxLevel"              "3"
+		"RequiredLevel"         "6"
+		"LevelsBetweenUpgrades" "5"
 				
 
 		// Time		
@@ -8356,5 +8353,218 @@
 				"teleport_delay"		"3"
 			}
 		}
+	}
+	// Rewrite of the Pudge Rot ability
+	// Author: Pizzalol
+	// Date: 01.01.2015.
+	// NOTE: Doesnt have the lingering 0.5 seconds of rot debuff(it exists for the slow but not the damage part)
+	"pudge_rot_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"pudge_rot"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
+			"particle"			"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0 0 0 0"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"35 60 85 110"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rot_radius"			"250"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"rot_tick"				"0.2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"rot_slow"				"-20"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"rot_tick_damage"		"7 12 17 22"
+			}
+		}
+	
+		"OnToggleOn"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_rot_datadriven"
+				"Target"		"CASTER"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"	"Hero_Pudge.Rot"
+				"Target"		"CASTER"
+			}
+		}
+	
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_rot_datadriven"
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Flags" 	"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/hero_pudge/rot.lua"
+				"Function"		"RotStopSound"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rot_datadriven"
+			{
+				"IsDebuff"		"1"
+	
+				"ThinkInterval"	"%rot_tick"
+	
+				"OnIntervalThink"
+				{
+	
+					"Damage"
+					{
+						"Target"	"CASTER"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%rot_tick_damage"
+					}
+	
+					"ActOnTargets"
+					{
+						"Target"
+			            {
+			                "Center" "CASTER"
+			                "Radius" "%rot_radius"
+			                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+			                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+			            }
+	
+			            "Action"
+			            {
+			            	"Damage"
+			            	{
+			            		"Target"	"TARGET"
+			            		"Type"		"DAMAGE_TYPE_MAGICAL"
+			            		"Damage"	"%rot_tick_damage"
+			            	}
+			            }
+					}
+				}
+	
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_pudge/pudge_rot.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"		"CASTER"
+	
+						"ControlPoints"
+						{
+							"00"	"0 0 0"
+							"01"	"%rot_radius 0 0"
+						}
+					}
+				}
+	
+				"Aura" 			"modifier_rot_slow_datadriven"
+				"Aura_Radius" 	"%rot_radius"
+				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			}
+	
+			"modifier_rot_slow_datadriven"
+			{
+				"IsDebuff"	"1"			
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%rot_slow"
+				}
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Pudge Meat Hook
+	//=================================================================================================================
+	"pudge_meat_hook"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5075"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Pudge.AttackHookExtend"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1300"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"110"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value"									"150 220 290 360"
+				"special_bonus_unique_pudge_7"			"+120"
+			}
+			"hook_speed"								"1450.0"
+			"hook_width"								"100"
+			"hook_distance"								"1300"
+			"vision_radius"		"500 500 500 500"
+			"vision_duration"	"4.0 4.0 4.0 4.0"
+			"AbilityCooldown"				
+			{
+				"value"								"18 16 14 12"
+				"special_bonus_scepter"				"-14 -12 -10 -8"
+			}
+			"vector_target_distance"
+			{
+				"value"								"0"
+				
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 }
