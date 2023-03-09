@@ -68,7 +68,7 @@ Hero ability changes:
 - Morphling: Ult creates illusion, remove Aghs
 - OD: Orb
 - Silencer: Orb
-- KoTL: Illuminate channel for 2345 seconds, Aghs adds recovery to Illuminate and Recall
+- KoTL: Illuminate channel for 2345 seconds, Mana Leak, Aghs adds recovery to Illuminate and Recall
 - Abaddon: Coil can suicide, remove Aghs
 - Medusa drains mana, remove Aghs
 - Remove Aghs for following heroes: Centuar, Beast Master, Nyx, TA, VS, PA, PL, Spectre, TB, Leshrac, Sven, Kunka, Night Stalker, Death Prophet, Tide, Ember, Mag, DK
