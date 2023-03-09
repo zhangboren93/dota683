@@ -1761,7 +1761,7 @@
 		"MovementTurnRate"		"0.500000"
 		"Ability1"		"techies_land_mines_datadriven"
 		"Ability2"		"techies_stasis_trap"
-		"Ability3"		"techies_suicide"
+		"Ability3"		"techies_suicide_datadriven"
 		"Ability4"		"techies_focused_detonate"
 		"Ability5"		"techies_minefield_sign"
 		"Ability6"		"techies_remote_mines"
