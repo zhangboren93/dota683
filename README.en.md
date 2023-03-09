@@ -70,6 +70,7 @@ Hero ability changes:
 - Silencer: Orb
 - KoTL: Illuminate channel for 2345 seconds, Aghs adds recovery to Illuminate and Recall
 - Abaddon: Coil can suicide, remove Aghs
+- Medusa drains mana, remove Aghs
 - Remove Aghs for following heroes: Centuar, Beast Master, Nyx, TA, VS, PA, PL, Spectre, TB, Leshrac, Sven, Kunka, Night Stalker, Death Prophet, Tide, Ember, Mag, DK
 
 mod is open-source ：https://gitee.com/bobo1993324/dota6.83

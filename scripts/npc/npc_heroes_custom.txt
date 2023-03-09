@@ -474,6 +474,7 @@
  "AttributeBaseIntelligence" "19"  
  "AttributeIntelligenceGain"  "1.85" 
 		"MovementTurnRate"		"0.500000"
+		"Ability2"		"medusa_mystic_snake_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
