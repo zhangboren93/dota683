@@ -9262,4 +9262,115 @@
 			"speed"				"1800"
 		}
 	}
+	//=================================================================================================================
+	// Naga Siren: Ensnare
+	//=================================================================================================================
+	"naga_siren_ensnare"
+	{
+		"AbilityManaCost"				"90 100 110 120"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"					"2 3 4 5"
+			"net_speed"					
+			{
+				"value"						"1500"
+			}
+			"fake_ensnare_distance"		"900 900 900 900"	
+			"AbilityCooldown"				
+			{
+				"value"								"14"
+			}
+			"AbilityCastRange"
+			{
+				"value"					"650"
+			}
+			"can_target_magic_immune"
+			{
+				"value"							"1"
+			}
+		}
+	}	
+	//=================================================================================================================
+	// Nyx Assassin: Impale
+	//=================================================================================================================
+	"nyx_assassin_impale"
+	{
+		"AbilityCooldown"				"13"
+		"AbilityManaCost"				"95 115 135 155"
+		"AbilityValues"
+		{
+				"width"				"140"
+				"duration"			"0.75 1.25 1.75 2.25"
+				"length"			"750"
+				"speed"				"1600"
+				"impale_damage"			"80 140 200 260"
+		}
+	}
+	"ogre_magi_fireblast"
+	{
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"95 105 115 125"
+		"AbilityValues"
+		{
+				"stun_duration"		"1.5"
+				"multicast_delay"	"0.6"
+				"fireblast_damage"		"55 110 165 220"
+		}
+	}
+	"shadow_shaman_voodoo"
+	{
+		"AbilityCooldown"				"13"
+		"AbilityManaCost"				"110 140 170 200"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movespeed"					"100"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"1.25 2.0 2.75 3.5"
+			}
+		}
+	}
+	"shadow_shaman_shackles"
+	{
+		"AbilityChannelTime"			"2.75 3.5 4.25 5"
+		"AbilityCooldown"				"16"
+		"AbilityManaCost"				"110 130 155 185"
+		"AbilityValues"
+		{
+				"tick_interval"		"0.1 0.1 0.1 0.1"
+				"total_damage"		"110 140 170 200"
+				"channel_time"		"2.75 3.5 4.25 5"
+		}
+	}
+
+	//=================================================================================================================
+	// Ability: Skeleton King
+	//=================================================================================================================
+	"skeleton_king_hellfire_blast"
+	{
+		"AbilityCooldown"				"8"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"50 100 150 200"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"140"
+		"AbilityValues"
+		{
+				"blast_speed"			"1000"
+				"blast_stun_duration"	"2.0"
+				"blast_dot_duration"	"2.0"
+				"blast_slow"			"-20"
+				"blast_dot_damage"		"15 30 40 50"
+		}
+	}
 }
