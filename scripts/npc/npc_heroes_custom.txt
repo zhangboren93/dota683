@@ -504,6 +504,7 @@
 		"Ability21"			"special_bonus_all_stats_12"
 		"Ability22"			"special_bonus_all_stats_14"
 	}
+	//TODO More stun skill manacost
 	"npc_dota_hero_naga_siren"			
 	{
 "AttributeBaseStrength"   "21"
