@@ -168,8 +168,10 @@
 		"DOTA_Tooltip_Ability_item_mjollnir_datadriven"						"大电锤"
 		"DOTA_Tooltip_Ability_item_mjollnir_datadriven_Description"			"护盾: 20%%周围5个单位200伤害\n+24攻击力\n+80攻速\n25%%触发闪电，150伤害，12个单位"
 		"DOTA_Tooltip_Ability_keeper_of_the_light_spirit_form_illuminate_Lore"	"A帐75%%回血，回城"
-		"DOTA_Tooltip_Ability_pudge_rot_datadriven"					"腐烂"
-		"DOTA_Tooltip_Ability_pudge_rot_datadriven_Description"		"-20%%移速"
-		"DOTA_Tooltip_Ability_pudge_meat_hook_Lore"					"A帐4秒CD"
+		"DOTA_Tooltip_Ability_pudge_rot_datadriven"								"腐烂"
+		"DOTA_Tooltip_Ability_pudge_rot_datadriven_Description"					"-20%%移速"
+		"DOTA_Tooltip_Ability_pudge_meat_hook_Lore"								"A帐4秒CD"
+		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"					"缠绕"
+		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_Description"		"自伤%self_damage%, 伤害%target_damage%，回复%heal_amount%"
 	}
 }

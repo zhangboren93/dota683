@@ -73,7 +73,8 @@ Dota6.83版本移植，养老dota，best dota。
 - 黑鸟法球
 - 沉默法球
 - 光法波蓄力2345秒，A帐波回血，加回城技能
-- 删A：人马,兽王,死骑,小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,kunka,夜魔,dp,tide,ember,猛犸,龙骑
+- 死骑大便自杀，删A
+- 删A：人马,兽王,小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,kunka,夜魔,dp,tide,ember,猛犸,龙骑
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
