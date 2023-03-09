@@ -756,7 +756,6 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	//TODO more stun skill mana cost
 	"npc_dota_hero_skywrath_mage"		
 	{
 "AttributeBaseStrength"   "19"
@@ -1103,6 +1102,8 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
+	// TODO stun mana cost
+	// TODO jinata
 	"npc_dota_hero_bounty_hunter"		
 	{
 "AttributeBaseStrength"   "17"

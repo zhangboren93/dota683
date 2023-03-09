@@ -4186,15 +4186,15 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18 16 14 12"
+		"AbilityCooldown"				"13"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"95 170 245 320"
+		"AbilityDamage"					"100 175 250 325"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"110 115 120 125"
+		"AbilityManaCost"				"140"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -4208,7 +4208,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bolt_stun_duration"	"1.4 1.6 1.8 2.0"
+				"bolt_stun_duration"	"2.0"
 				"LinkedSpecialBonus"		"special_bonus_unique_sven_4"
 			}
 			"03"
@@ -4392,7 +4392,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 105 110 115"
+		"AbilityManaCost"				"120"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -4420,7 +4420,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"negative_armor"		"3 4 5 6"
+				"negative_armor"		"2 3 4 5"
 				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter"
 			}
 			"05"
@@ -9371,6 +9371,138 @@
 				"blast_dot_duration"	"2.0"
 				"blast_slow"			"-20"
 				"blast_dot_damage"		"15 30 40 50"
+		}
+	}
+	"skywrath_mage_concussive_shot"
+	{
+		"AbilityCooldown"				"20 18 16 14"
+		"AbilityManaCost"				"110" 
+		"AbilitySpecial"
+		{ 
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"launch_radius"		"1600"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"slow_radius"		"250"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"800 800 800 800"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"60 120 180 240"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration"		"4.0"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_speed_pct"	"30 35 40 45"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"shot_vision"		"300"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vision_duration"		"3.34"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_radius"		"700"
+				"RequiresScepter"	"1"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"creep_damage_pct"		"75"
+			}
+		}
+	}
+	"slardar_slithereen_crush"
+	{
+		"AbilityCooldown"				"8"
+		"AbilityManaCost"				"85 100 115 120"
+		"AbilityValues"
+		{
+				"crush_radius"				"350"
+				"crush_extra_slow"				
+				{
+					"value"	"-20"
+				}
+				"crush_attack_slow_tooltip"		"-20 -25 -30 -35"
+				"crush_extra_slow_duration"		"2"
+				"stun_duration"					
+				{
+					"value"															"1.6 1.9 2.2 2.5"
+				}
+				"puddle_duration"		
+				{
+					"value"					"0"
+				}
+				"puddle_radius"		
+				{
+					"value"				"0"
+				}
+				"crush_damage"			
+				{
+					"value"					"50 100 150 200"
+				}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Vengeful Spirit Magic Missle
+	//=================================================================================================================
+	"vengefulspirit_magic_missile"
+	{
+		"AbilityCooldown"				"13 12 11 10"
+		"AbilityManaCost"				"110 120 130 140"
+		"AbilityValues"
+		{
+			"magic_missile_speed"	"1350"
+			"magic_missile_stun"	"1.45 1.55 1.65 1.75"
+			"magic_missile_damage"
+			{
+				"value"	"100 175 250 325"
+			}
+			"AbilityCastRange"
+			{
+				"value"						"500"
+			}
+		}
+	}
+	"witch_doctor_paralyzing_cask"
+	{
+		"AbilityCastRange"				"700"
+		"AbilityCooldown"				"20.0 18.0 16.0 14.0"
+		"AbilityManaCost"				"110 120 130 140"
+		"AbilityValues"
+		{
+				"hero_duration"			"1.0 1.0 1.0 1.0"
+				"creep_duration"		"1"
+				"base_damage"			"75 100 125 150"
+				"bounce_range"			"575 575 575 575"
+				"bounces"				
+				{ 
+					"value"					"2 4 6 8"
+				}
+				"speed"					"1200"
+				"bounce_delay"			"0.3"
+				"bounce_bonus_damage"			"0"
+				"creep_damage_pct"		"100"
 		}
 	}
 }
