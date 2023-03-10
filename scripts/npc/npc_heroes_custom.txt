@@ -130,6 +130,7 @@
 	}
 	"npc_dota_hero_brewmaster"			
 	{
+		//TODO ultimate aghs, 2nd skill evasion
 "AttributeBaseStrength"   "23"
  "AttributeStrengthGain"   "2.9"
  "AttributeBaseAgility"  "22"
@@ -392,6 +393,7 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
+	//TODO More aoe mana cost
 	"npc_dota_hero_lion"				
 	{
 "AttributeBaseStrength"   "16"

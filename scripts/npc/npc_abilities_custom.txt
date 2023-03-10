@@ -1190,12 +1190,6 @@
 			}
 		}
 	}
-    "leshrac_pulse_nova"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-	}
     "furion_wrath_of_nature"
 	{
 		"MaxLevel"              "3"
@@ -9576,6 +9570,288 @@
 					"value"			"475"
 					"RequiresScepter"			"1"
 				}
+		}
+	}
+	//=================================================================================================================
+	// Brewmaster: Thunder Clap
+	//=================================================================================================================
+	"brewmaster_thunder_clap"
+	{
+		"AbilityManaCost"				"90 105 130 150"		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"400 400 400 400"
+				"LinkedSpecialBonus"		"special_bonus_unique_brewmaster_7"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"100 170 250 300"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_slow"				"25 35 45 55"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed_slow"			"25 35 45 55"
+			}			
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"4.25"
+				"LinkedSpecialBonus"		"special_bonus_unique_brewmaster_3"
+			}	
+		}
+	}
+	//=================================================================================================================
+	// Dragon Knight: Breathe Fire
+	//=================================================================================================================
+	"dragon_knight_breathe_fire"
+	{
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"100 110 120 130"
+		"AbilityValues"
+		{
+			"start_radius"			"150 150 150 150"
+			"end_radius"			"250 250 250 250"
+			"range"					"750"
+			"AbilityCastRange"			"600"	
+			"speed"					"1050"
+			"damage"							"90 170 240 300"
+			"reduction"
+			{
+				"value"				"-0"
+				"special_bonus_unique_dragon_knight_3"		"-30"
+			}
+			"dragon_form_bonus_pct"
+			{
+				"value"		"0"
+				"special_bonus_unique_dragon_knight_9"				"+75"
+			}
+			"duration"				"0"
+		}
+	}
+	//=================================================================================================================
+	// Ability: Juggernaut Blade Fury
+	//=================================================================================================================
+	"juggernaut_blade_fury"
+	{
+		"AbilityCooldown"				"30 26 22 18"
+		"AbilityManaCost"				"110"		
+		"AbilityValues"
+		{
+			"blade_fury_damage_tick"	
+			{
+				"value"					"0.2"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"blade_fury_radius"			
+			{
+				"value"						"260"
+				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut"
+			}
+			"blade_fury_damage"			
+			{
+				"value"				"80 100 120 140"
+				"LinkedSpecialBonus"		"special_bonus_unique_juggernaut_3"
+			}
+			"duration"					
+			{
+				"value"				"5.0"
+				"special_bonus_unique_juggernaut_4"	"+1"
+			}
+
+			"shard_bonus_move_speed"			
+			{	
+				"value"				"75"
+				"RequiresShard"					"1"
+			}
+			"shard_attack_rate"			
+			{	
+				"value"				"1.0"
+				"RequiresShard"					"1"
+			}
+			"shard_damage_pct"			
+			{	
+				"value"				"75"
+				"RequiresShard"					"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leshrac: Lightning Storm
+	//=================================================================================================================
+	"leshrac_lightning_storm"
+	{
+		"AbilityCooldown"				"5.5"
+		"AbilityManaCost"				"100 115 130 145"
+		
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"80 140 220 260"
+				"LinkedSpecialBonus"	"special_bonus_unique_leshrac_6"
+			}			
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"jump_count"			"4 5 6 7"
+			}			
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"475"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"jump_delay"			"0.25 0.25 0.25 0.25"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_movement_speed"	"-75"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"			"0.75"
+				"LinkedSpecialBonus"	"special_bonus_unique_leshrac_2"
+			}	
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"interval_scepter"			"1.5"
+				"RequiresScepter"		"1"
+			}		
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius_scepter"	"750"
+				"RequiresScepter"		"1"
+			}	
+		}
+	}
+	//=================================================================================================================
+	// Leshrac: Pulse Nova
+	//=================================================================================================================
+	"leshrac_pulse_nova"
+	{
+		"MaxLevel"              "3"
+		"RequiredLevel"         "6"
+		"LevelsBetweenUpgrades" "5"
+		"AbilityManaCost"				"110"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_cost_per_second"	"20 40 60"
+			}
+			
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"525"
+				"LinkedSpecialBonus"	"special_bonus_unique_leshrac_4"
+
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"100 130 160"
+				"LinkedSpecialBonus"	"special_bonus_unique_leshrac_3"
+			}
+		}
+	}
+	"lich_frost_nova"
+	{
+		"AbilityDamage"					"50 100 150 200"
+		"AbilityManaCost"				"125 150 170 190"
+		"AbilityValues"
+		{	
+			"AbilityCooldown"
+			{
+				"value"		"8.0"
+				"special_bonus_unique_lich_3" "-3"
+			}
+			"radius"				
+			{
+				"value"		"200 200 200 200"
+				"special_bonus_unique_lich_6" "+125"
+			}
+			"slow_movement_speed"	"-30"
+			"slow_attack_speed_primary"		"-20"
+			"aoe_damage"			
+			{
+				"value"			"75 100 125 150"
+				"special_bonus_unique_lich_6" "+125"
+			}
+		}
+	}
+	// Ability: Lina Dragon Slave
+	//=================================================================================================================
+	"lina_dragon_slave"
+	{
+		"AbilityManaCost"				"90 105 125 140"
+		"AbilityValues"
+		{
+			"dragon_slave_damage"		"110 180 250 320"
+			"dragon_slave_speed"		"1200"
+			"dragon_slave_width_initial"	"275"
+			"dragon_slave_width_end"		"200"
+			"dragon_slave_distance"			"1075"
+
+			"AbilityCooldown"				
+			{ 
+				"value"						"8.5"
+				"special_bonus_unique_lina_1"		"-3.5"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ability: Lina Light Strike Array
+	//=================================================================================================================
+	"lina_light_strike_array"
+	{
+		"AbilityCooldown"				"7"
+		"AbilityManaCost"				"90 100 110 120"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"light_strike_array_aoe"	"250"
+			}
+			
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"light_strike_array_delay_time"	"0.5"
+			}
+						
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"light_strike_array_stun_duration"	"1.6 1.9 2.2 2.5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"light_strike_array_damage"	"120 160 200 240"
+				"LinkedSpecialBonus"		"special_bonus_unique_lina_3"
+			}
 		}
 	}
 }
