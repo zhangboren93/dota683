@@ -1543,18 +1543,49 @@
 	"puck_waning_rift"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCooldown"				"16"
 		"AbilityValues"
 		{
-			"max_distance"			"0"
+				"radius"				"400 400 400 400"
+				"silence_duration"		
+				{
+					"value"					"0.75 1.5 2.25 3"
+					"special_bonus_unique_puck_7"	"+0.75"
+				}
+				"damage"				
+				{
+					"value"		"70 140 210 280"
+					"special_bonus_unique_puck_6"	"+75"
+				}
+				"max_distance"			"0"
 		}
 	}
 	"ursa_earthshock"
 	{
+		"AbilityDamage"					"90 140 190 240"
+		"AbilityManaCost"				"75"
 		"AbilityValues"
 		{
+			"shock_radius"				"385"
+			"movement_slow"				"-25 -35 -45 -55"
 			"hop_distance"				"0"
-			"hop_duration"				"0"
-			"hop_height"				"0"
+			"hop_duration"				"0.25"
+			"hop_height"				"83"
+			"shard_enrage_duration"
+			{
+				"value"				"1.5"
+				"RequiresShard"		"1"
+			}
+			"fury_swipe_stacks_on_hit"
+			{
+				"value"				"0"
+				"special_bonus_unique_ursa_earthshock_furyswipes"			"+2"
+			}
+			"AbilityCooldown"				
+			{
+				"value"				"6"
+				"special_bonus_unique_ursa_2"			"-2"
+			}
 		}
 	}	
 	"skeleton_king_vampiric_aura"
@@ -4603,13 +4634,13 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13 12 11 10"
+		"AbilityCooldown"				"10 9 8 7"
 		"AbilityDuration"				"0.6875 0.6875 0.6875 0.6875"
 
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 90 100 110"
+		"AbilityManaCost"				"90"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -4622,13 +4653,13 @@
 				"value"			"75 150 225 300"				
 				"special_bonus_unique_magnus"	"+125"
 			}
-			"pull_duration"				"0.2"
-			"movement_slow"				"75"
-			"slow_duration"				"2"
-			"pull_distance"		"150"
+			"pull_duration"				"0"
+			"movement_slow"				"0"
+			"slow_duration"				"0"
+			"pull_distance"		"0"
 			"basic_slow_duration"		
 			{
-				"value"					"0.9"
+				"value"					"0"
 				"LinkedSpecialBonus"	"special_bonus_unique_magnus_6"
 			}
 			"scepter_width"		
@@ -9853,5 +9884,408 @@
 				"LinkedSpecialBonus"		"special_bonus_unique_lina_3"
 			}
 		}
+	}
+	//=================================================================================================================
+	// Morphling: Waveform
+	//=================================================================================================================
+	"morphling_waveform"
+	{
+		"AbilityCooldown"				"11"
+		"AbilityDamage"					"100 175 250 325"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"140 155 160 165"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"speed"					"1250"
+				"width"					"200"
+				"AbilityCharges"		
+				{
+					"value"	"0"
+					"special_bonus_unique_morphling_6"	"+2"
+				}
+				"AbilityCastRange"
+				{
+					"value"				"1000"
+					"special_bonus_unique_morphling_1"	"+250"
+				}			
+		}
+	}
+	"ogre_magi_ignite"
+	{
+		"AbilityCastRange"				"700 800 900 1000"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"95 105 115 125"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"5 6 7 8"
+			}
+
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"		"26 34 42 50"
+				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi_4"
+			}		
+
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"slow_movement_speed_pct"		"-20 -22 -24 -26"
+			}
+
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"1000"
+			}	
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"multicast_delay"	"0.6"
+			}	
+			"06"
+			{
+				"var_type"			"FIELD_INT"
+				"ignite_multicast_aoe"	"1400"
+			}				
+		}
+	}
+	//=================================================================================================================
+	// Omniknight: Purification
+	//=================================================================================================================
+	"omniknight_purification"
+	{
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"100 120 140 160"
+		"AbilityValues"
+		{
+				"heal"					"90 180 270 360"
+				"radius"				"260"
+		}
+	}
+	//=================================================================================================================
+	// Rattletrap: Rocket Flare
+	//=================================================================================================================
+	"rattletrap_rocket_flare"
+	{
+		"AbilityManaCost"				"50"
+		"AbilityValues"
+		{
+			"radius"			"600"
+			"duration"			"6.0"
+			"speed"				"2250"
+			"damage"			"80 120 160 200"
+			"AbilityCooldown"				
+			{
+				"value"				"20.0 18.0 16.0 14.0"
+				"special_bonus_unique_clockwerk_7" "-2"
+			}
+		}	
+	}
+	"tusk_ice_shards"
+	{
+		"AbilityCastRange"				"1500"
+		"AbilityCooldown"				"18 16 14 12"
+		"AbilityManaCost"				"120"
+		"AbilityValues"
+		{
+				"shard_width"				"200"
+				"shard_damage"				"70 140 210 280"
+				"shard_count"				"7"
+				"shard_speed"				"1200.0"
+				"shard_duration"			"4 5 6 7"
+				"shard_angle_step"			"40.0"
+				"shard_distance"			"200"
+				"turn_rate_slow"			"0"
+				"aghs_shard_move_slow"	
+				{
+					"value"					"40"
+					"RequiresShard"			"1"
+				}
+				"aghs_shard_damage"			
+				{
+					"value"					"60"
+					"RequiresShard"			"1"
+				}
+				"aghs_shard_depth"			
+				{
+					"value"						"300"
+					"RequiresShard"				"1"
+				}
+		}
+	}
+	//=================================================================================================================
+	// Windrunner: Shackleshot
+	//=================================================================================================================
+	"windrunner_shackleshot"
+	{
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"90 100 110 120"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fail_stun_duration"	"0.75 0.75 0.75 0.75"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.5 2.25 3 3.75"
+				"LinkedSpecialBonus"	"special_bonus_unique_windranger_6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shackle_distance"		"575"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"arrow_speed"			"1650"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shackle_count"			"1"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"shackle_angle"			"23"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ember Spirit: Flame Guard
+	//=================================================================================================================
+	"ember_spirit_flame_guard"
+	{
+		"AbilityCooldown"				"35.0"
+		"AbilityManaCost"				"80 90 100 110"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"duration"						"8 12 16 20"
+				"radius"						"400"
+				"absorb_amount"					
+				{
+					"value"					"50 200 350 500"
+					"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_1"
+					"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+				}				
+				"tick_interval"					"0.2"
+				"damage_per_second"				
+				{
+					"value"			"30 40 50 60"
+					"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_3"
+				}
+				"blind_pct"				"50"
+				"shield_pct_absorb"		"70"
+		}
+	}
+	"shredder_whirling_death"
+	{
+		"AbilityManaCost"				"70 80 90 100"		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"whirling_radius"			"325"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"whirling_damage"			"80 120 160 200"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"tree_damage_scale"			"25"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"whirling_tick"				"0.3"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"stat_loss_pct"				"15"
+				"LinkedSpecialBonus"		"special_bonus_unique_timbersaw"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"7"
+			}
+		}
+	}
+	"tiny_avalanche"
+	{
+		"AbilityCooldown"				"17"
+		"AbilityManaCost"				"120 120 120 120"
+		"AbilityValues"
+		{
+				"radius"					"325 350 375 400"
+				"tick_interval"				"0.3"
+				"total_duration"			"1.4"
+				"tick_count"			"5"
+				"stun_duration"				"0.3"
+				"projectile_speed"		"1200"
+				"avalanche_damage"			
+				{
+					"value"				"100 180 260 300"
+					"LinkedSpecialBonus"		"special_bonus_unique_tiny"
+				}
+				"toss_multiplier"		"2"
+		}
+	}
+	"tiny_toss"
+	{
+		"AbilityCastRange"				"1300"
+		"AbilityCooldown"				"9"
+		"AbilityManaCost"				"120"
+		"AbilityValues"
+		{
+				"duration"				"1.4"
+				"grab_radius"			"300"
+				"radius"				"275"
+				"bonus_damage_pct"		"0"
+				"toss_damage"				"75 150 225 300"
+				"AbilityCharges"		
+				{
+					"value"				""
+					"LinkedSpecialBonus"	"special_bonus_unique_tiny_2"
+				}
+		}
+	}
+	"dark_seer_ion_shell"
+	{
+		"AbilityManaCost"				"70 90 110 130"
+	}
+	//=================================================================================================================
+	// Ability: Mirana Starfall
+	//=================================================================================================================
+	"mirana_starfall"
+	{
+		"AbilityManaCost"				"100 120 140 160"
+		"AbilityValues"
+		{
+			"starfall_radius"	"650"		
+			"starfall_secondary_radius"	"650"
+			"secondary_starfall_damage_percent"	 "75"
+			"damage"	 
+			{
+				"value"			"75 150 225 300"
+				"special_bonus_unique_mirana_7"	"+200"						
+			}
+		}
+	}
+	"puck_illusory_orb"
+	{
+		"AbilityManaCost"				"150"
+		"AbilityValues"
+		{
+			"radius"					"225"		
+			"max_distance"				"1950"
+			"orb_speed"					"651"
+			"orb_vision"				"450"
+			"vision_duration"			"3.34"
+			"damage"			
+			{		
+				"value"										"70 140 210 280"
+				"special_bonus_unique_puck_orb_damage"		"+50"
+			}
+			"AbilityCooldown"
+			{
+				"value"								"12"
+				"special_bonus_unique_puck_8"		"-2"
+			}
+		}
+	}
+	"queenofpain_scream_of_pain"
+	{
+		"AbilityManaCost"				"110 120 130 140"
+		"AbilityValues"
+		{
+			"area_of_effect"									"550"
+			"projectile_speed"									"900"
+			"damage"										
+			{
+				"value"											"85 165 225 300"
+				"special_bonus_unique_queen_of_pain_2" 			"+120"
+			}
+		}
+	}
+	"zuus_arc_lightning"
+	{
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"1.75"
+		"AbilityManaCost"				"65 70 75 80"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"arc_damage"			"85 100 115 145"
+				"LinkedSpecialBonus"	"special_bonus_unique_zeus_2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"500 500 500 500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"jump_count"			"5 7 9 15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"jump_delay"			"0.25 0.25 0.25 0.25"
+			}
+		}
+	}
+	"kunkka_torrent"
+	{
+		"AbilityCastRange"				"1500"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"120"
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"					"225"
+				"special_bonus_unique_kunkka"		"+80"
+			}
+			"movespeed_bonus"			"-35"
+			"slow_duration"				"1 2 3 4"
+			"stun_duration"
+			{
+				"value"								"1.6"
+				"special_bonus_unique_kunkka_7"		"+30%"
+			}
+			"delay"						"1.6 1.6 1.6 1.6"
+			"torrent_damage"
+			{
+				"value"			"120 180 240 300"
+				"special_bonus_unique_kunkka_7"		"+30%"
+			}
+			"damage_tick_interval"				"0.2"
+		}		
 	}
 }
