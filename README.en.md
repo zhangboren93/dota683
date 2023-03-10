@@ -25,6 +25,7 @@ Features:
 - Increase heroes attack animation point and reduce turn rate
 
 Hero ability changes:
+- Adjust some hero skills' mana cost, CD & damage
 - Huskar: Change first ability to health regen, Burning Spear Orb
 - Clinkz: Change first ability to strafe, Searing Arrows Orb, removes Aghs
 - Drow: Replace ability 1 with trueshot aura
