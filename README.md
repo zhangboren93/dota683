@@ -77,7 +77,8 @@ Dota6.83版本移植，养老dota，best dota。
 - 死骑大便自杀，删A
 - 美杜莎抽蓝，删A
 - 全能魔免，3技能衰弱光环
-- 删A：人马,兽王,小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,kunka,夜魔,dp,tide,ember,猛犸,龙骑
+- DP三技能被动
+- 删A：人马,兽王,小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,kunka,夜魔,tide,ember,猛犸,龙骑
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
