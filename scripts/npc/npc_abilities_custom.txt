@@ -1418,12 +1418,6 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
-    "shredder_chakram"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-	}
     "bristleback_warpath"
 	{
 		"MaxLevel"              "3"
@@ -10456,4 +10450,159 @@
 			}
 		}
 	}	
+	//=================================================================================================================
+	// Shredder: Chakram
+	//=================================================================================================================
+	"shredder_chakram"
+	{
+		"MaxLevel"              "3"
+		"RequiredLevel"         "6"
+		"LevelsBetweenUpgrades" "5"
+		"AbilityManaCost"				"100 150 200"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed"					"900.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pass_damage"			"100 140 180"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"50 75 100"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"5"
+				"LinkedSpecialBonus"	"special_bonus_unique_timbersaw_4"
+
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_interval"		"0.5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"break_distance"		"2000.0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_per_second"		"20 25 30"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pass_slow_duration"	"0.5"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_health_percentage"	"5"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"castpoint_scepter"		"0.1"
+				"RequiresScepter"	"1"
+			}			
+			"12"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_bonus_damage"	"0"
+				"RequiresScepter"		"1"
+			}			
+		}
+	}
+
+	//=================================================================================================================
+	// Shredder: Chakram 2
+	//=================================================================================================================
+	"shredder_chakram_2"
+	{
+		"AbilityManaCost"				"100 150 200"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed"					"900.0"
+				"RequiresScepter"	"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"200"
+				"RequiresScepter"	"1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pass_damage"			"100 140 180"
+				"RequiresScepter"	"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"50 75 100"
+				"RequiresScepter"	"1"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"5"
+				"LinkedSpecialBonus"	"special_bonus_unique_timbersaw_4"
+				"RequiresScepter"	"1"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_interval"		"0.5"
+				"RequiresScepter"	"1"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"break_distance"		"2000.0"
+				"RequiresScepter"	"1"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_per_second"		"20 25 30"
+				"RequiresScepter"	"1"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pass_slow_duration"	"0.5"
+				"RequiresScepter"	"1"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_health_percentage"	"5"
+				"RequiresScepter"	"1"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_bonus_damage"	"20"
+				"RequiresScepter"		"1"
+			}			
+		}
+	}
 }
