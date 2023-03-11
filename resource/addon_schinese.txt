@@ -100,6 +100,8 @@
 		"DOTA_Tooltip_Ability_lich_dark_ritual_datadriven_Description"		"恢复魔法为%health_conversion%% 小兵生命"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven"				"暴击"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven_Description"	"15%%暴击伤害%crit_mult%% "
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven"				"吸血光环"
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Description"	"15/20/25/30%%近战吸血"
 		"DOTA_Tooltip_Ability_troll_warlord_battle_trance_datadriven"				"吼"
 		"DOTA_Tooltip_Ability_troll_warlord_battle_trance_datadriven_Description"	"全体英雄+%attack_speed%攻速，持续7秒"
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven"				"隐身"

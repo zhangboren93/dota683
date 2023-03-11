@@ -100,6 +100,8 @@
 		"DOTA_Tooltip_Ability_lich_dark_ritual_datadriven_Description"		"Recover mana = %health_conversion%% * creep health"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven"				"Mortal Strike"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven_Description"	"15%% crit for %crit_mult%% "
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven"				"Vampiric Aura"
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Description"	"15/20/25/30%% melee life steal"
 		"DOTA_Tooltip_Ability_troll_warlord_battle_trance_datadriven"				"Battle Trance"
 		"DOTA_Tooltip_Ability_troll_warlord_battle_trance_datadriven_Description"	"All allie heroes +%attack_speed% attack speed, lasts 7 seconds"
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven"				"Natures guise"

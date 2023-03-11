@@ -750,6 +750,7 @@
  "AttributeBaseIntelligence" "18"  
  "AttributeIntelligenceGain"  "1.6"  
 		"MovementTurnRate"		"0.400000"
+		"Ability2"		"skeleton_king_vampiric_aura_datadriven"
 		"Ability3"		"skeleton_king_mortal_strike_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
