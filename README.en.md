@@ -72,6 +72,7 @@ Hero ability changes:
 - KoTL: Illuminate channel for 2345 seconds, Mana Leak, Aghs adds recovery to Illuminate and Recall
 - Abaddon: Coil can suicide, remove Aghs
 - Medusa drains mana, remove Aghs
+- Omni Repel magic immune, Degen Aura
 - Remove Aghs for following heroes: Centuar, Beast Master, Nyx, TA, VS, PA, PL, Spectre, TB, Leshrac, Sven, Kunka, Night Stalker, Death Prophet, Tide, Ember, Mag, DK
 
 mod is open-source ：https://gitee.com/bobo1993324/dota6.83
