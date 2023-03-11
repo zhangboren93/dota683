@@ -191,5 +191,9 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft_Description"				"12技能-1/2/3/4秒CD-10/15/20/25耗蓝，大招加魂数量3/4/5/6，被动移速+4/8/12/16%%"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"狂怒"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"伤害+5/6/7%%拍拍生命值"
+		"DOTA_Tooltip_Ability_bounty_hunter_jinada_datadriven"					"忍术"
+		"DOTA_Tooltip_Ability_bounty_hunter_jinada_datadriven_Description"		"暴击%crit_multiplier%%%"
+		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven"				"疾风步"
+		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_Description"	"隐身持续%duration%秒，破隐%bonus_damage%伤害"
 	}
 }

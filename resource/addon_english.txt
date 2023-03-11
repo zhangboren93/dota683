@@ -191,5 +191,9 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft_Description"				"Swarm and Silence CD -1/2/3/4 seconds, -10/15/20/25 mana cost，exorcism +3/4/5/6 souls，passive move speed +4/8/12/16%%"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"Enrage"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"damage +5/6/7%% Ursa's health"
+		"DOTA_Tooltip_Ability_bounty_hunter_jinada_datadriven"					"Jinada"
+		"DOTA_Tooltip_Ability_bounty_hunter_jinada_datadriven_Description"		"crit for %crit_multiplier%%%"
+		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven"				"Wind walk"
+		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_Description"	"invis lasts %duration% seconds, + %bonus_damage% damage"
 	}
 }
