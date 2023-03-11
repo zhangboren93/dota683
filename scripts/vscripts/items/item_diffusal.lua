@@ -40,6 +40,7 @@ function purge(event)
         modifier_huskar_inner_vitality = true,
         modifier_item_mjollnir_shield_datadriven = true,
         -- TODO add more purgeable modifiers here
+        -- TODO use caster:Purge
     }
 
     local target = event.target

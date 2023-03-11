@@ -1274,12 +1274,6 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
-    "ursa_enrage"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-	}
     "spirit_breaker_nether_strike"
 	{
 		"MaxLevel"              "3"
@@ -4632,63 +4626,206 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
-	//=================================================================================================================
-	// Ursa: Enrage
-	//=================================================================================================================
-	"ursa_enrage"
+	// Rewrite of Enrage
+	// Author: YOLOSPAGHETTI
+	// Date: February 5, 2016
+	"ursa_enrage_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5360"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Ursa.Enrage"
-
-		"HasScepterUpgrade"			"1"
+		"AbilityTextureName"			"ursa_enrage"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
-		"AbilityCastGestureSlot"		"DEFAULT"
 		"AbilityCastRange"				"0"
-
+		"AbilityCastPoint"				"0.0 0.0 0.0"
+	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70 50 30"
-
+		"AbilityCooldown"				"25"
+		"AbilityDuration"				"15"
+	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0 0 0"
+		"AbilityManaCost"				"0"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_health_pct" 		"5 6 7"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration" 					"15"
+			}
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
+			"particle"						"particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
+		}
+		
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"					"CASTER"
+				"EffectName"				"Hero_Ursa.Enrage"
+			}
+		
+			"ApplyModifier"
+			{
+				"Target"					"CASTER"
+				"ModifierName"				"modifier_enrage_buff_datadriven"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_enrage_buff_datadriven"
+			{
+				"IsHidden"					"0"
+				"IsPurgable"				"0"
+				"IsBuff"					"1"
+				
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"					"CASTER"
+						"EffectName"				"particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
+						"EffectAttachType"			"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"				"attach_attack1"
+						}
+					}
+					
+					"AttachEffect"
+					{
+						"Target"					"CASTER"
+						"EffectName"				"particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
+						"EffectAttachType"			"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"				"attach_attack2"
+						}
+					}
+				}
+				
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"				"heroes/hero_ursa/enrage.lua"
+						"Function"					"BonusDamage"
+					}
+				}
+				"Duration"					"%duration"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Ursa: Fury Swipes
+	//=================================================================================================================
+	"ursa_fury_swipes"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5359"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
-		{			
-			"damage_reduction"			"80"
-			"status_resistance"
-			{
-				"value"							"50"
-				"special_bonus_unique_ursa_8"			"+10"
-			}
-			"duration"
-			{
-				"value"							"4 4.5 5"
-				"special_bonus_unique_ursa_3"	"+1.2"
-			}
-			"cooldown_scepter"
-			{
-				"value"						"700"
-				"RequiresScepter"			"1"
-			}
-			"aoe_radius"
-			{
-				"value"						"0"
-				"special_bonus_unique_ursa_enrage_radius"		"+700"
-			}
+		{
+				"bonus_reset_time"				
+				{
+					"value"						"15"
+					"special_bonus_unique_ursa_4" "+20"
+				}
+				"bonus_reset_time_roshan"		"15"
+				"damage_per_stack"				
+				{
+					"value"					"15 20 25 30"
+					"LinkedSpecialBonus"			"special_bonus_unique_ursa"
+				}
+				"stun_stack_count"
+				{
+					"value"				"0"
+					"special_bonus_unique_ursa_furyswipes_stun"			"+5"	
+				}
+				"stun_duration"
+				{
+					"value"				"0"
+					"special_bonus_unique_ursa_furyswipes_stun"			"+1.5"	
+				}
+				
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}		
+	//=================================================================================================================
+	// Ursa: Overpower
+	//=================================================================================================================
+	"ursa_overpower"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5358"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Ursa.Overpower"
 
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_3"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10"
+		"AbilityDuration"				"15"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"45 55 65 75"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_attacks"				"3 4 5 6"
+				"LinkedSpecialBonus"		"special_bonus_unique_ursa_7"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed_bonus_pct"	"400 400 400 400"
+			}
 		}
 	}
 	"ember_spirit_fire_remnant"
