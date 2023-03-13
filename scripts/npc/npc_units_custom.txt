@@ -1165,7 +1165,6 @@
 						
 		"ModelScale" 					".85"
 		"ArmorPhysical"				"6"			// Physical protection.
-		"MagicalResistance"			"30"		// Magical protection.  
 		"AttackRate"				"1.45"		// Speed of attack.
 		"MovementSpeed"				"340"		// Speed.
 		"MovementTurnRate"			"0.6"		// Turning rate.

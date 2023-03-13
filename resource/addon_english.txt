@@ -197,5 +197,7 @@
 		"DOTA_Tooltip_Ability_bounty_hunter_jinada_datadriven_Description"		"crit for %crit_multiplier%%%"
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven"				"Wind walk"
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_Description"	"invis lasts %duration% seconds, + %bonus_damage% damage"
+		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven"					"Synergy"
+		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_Description"		"Spirit Bear +10/20/30/40 damage, +10/20/30/40 move speed，true form +100/200/300/400 health"
 	}
 }

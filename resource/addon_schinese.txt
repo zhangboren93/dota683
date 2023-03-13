@@ -197,5 +197,7 @@
 		"DOTA_Tooltip_Ability_bounty_hunter_jinada_datadriven_Description"		"暴击%crit_multiplier%%%"
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven"				"疾风步"
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_Description"	"隐身持续%duration%秒，破隐%bonus_damage%伤害"
+		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven"					"同步"
+		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_Description"		"熊+10/20/30/40攻击，+10/20/30/40攻速，真熊形态+100/200/300/400生命"
 	}
 }
