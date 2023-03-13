@@ -119,6 +119,8 @@
 		"DOTA_Tooltip_ability_death_prophet_exorcism_scepter_description" 		"Removed by introducing a bug"
 		"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_scepter_description" 		"Traverse terrains, no other bonus"
 		"DOTA_Tooltip_Ability_gyrocopter_call_down_Lore"		"Aghs ranged whole map and plus damage"
+		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven"					"Homing Missle"
+		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_Description"		"Stun for %stun_duration% seconds"
 		"DOTA_Tooltip_Ability_faceless_void_chronosphere_Lore"	"Aghs 60 seconds CD"
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Lore"			"Aghs +300 cast range, pure damage, ignores spell immunity"
 		"DOTA_Tooltip_Ability_windrunner_focusfire_Lore"		"Aghs CD 15 seconds，+ damage"
