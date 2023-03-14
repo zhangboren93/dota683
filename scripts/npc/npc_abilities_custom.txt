@@ -1259,12 +1259,6 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
-    "bounty_hunter_track"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-	}
     "weaver_time_lapse"
 	{
 		"MaxLevel"              "3"
@@ -10483,6 +10477,7 @@
 	
 				"OnAttackLanded"
 				{
+					//TODO stack with jinada
 					"Damage"
 					{
 						"Target"	"TARGET"
@@ -10617,7 +10612,6 @@
 	//=================================================================================================================
 	// Bounty Hunter: Track
 	//=================================================================================================================
-	// TODO Team move speed bonus
 	"bounty_hunter_track"
 	{
 		// General
@@ -10629,7 +10623,9 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_BountyHunter.Target"
-
+		"MaxLevel"              "3"
+		"RequiredLevel"         "6"
+		"LevelsBetweenUpgrades" "5"
 
 		// Unit Targeting
 		//-------------------------------------------------------------------------------------------------------------
@@ -10684,7 +10680,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_move_speed_pct"	"20"
+				"bonus_move_speed_pct"	"0"
 			}
 			"08"
 			{

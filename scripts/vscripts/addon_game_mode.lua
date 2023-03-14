@@ -55,6 +55,7 @@ function Activate()
 	LinkLuaModifier( "modifier_riki_invis_health_regen",         "modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",   "modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_omniknight_guardian_angel_regen", "modifiers/omniknight_guardian_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",  "modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 end
@@ -656,6 +657,23 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end
 			return 1
 		end, "Omni guardian health regen", 1)
+		entity:SetThink(function()
+			if entity:HasModifier("modifier_bounty_hunter_track") then
+				local units = FindUnitsInRadius(
+					entity:GetTeam(), 
+					entity:GetAbsOrigin(), nil, 
+					900, 
+					DOTA_UNIT_TARGET_TEAM_ENEMY, 
+					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+					0, 
+					FIND_ANY_ORDER, 
+					false)
+				for i=1,#units do
+					units[i]:AddNewModifier(units[i], nil, "modifier_bounty_hunter_track_effect_lua", {}):SetDuration(1, true)
+				end
+			end
+			return 1
+		end, "Bounty Track aura", 1)
 	end
 end
 
