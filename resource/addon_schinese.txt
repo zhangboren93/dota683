@@ -189,6 +189,7 @@
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven_Description"			"持续%duration%秒"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven"					"衰弱光环"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven_Description"		"%speed_bonus%%%移速，%attack_bonus_tooltip%攻速"
+		"DOTA_Tooltip_Ability_omniknight_guardian_angel_Lore"					"+25回复"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft"							"巫术专精"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft_Description"				"12技能-1/2/3/4秒CD-10/15/20/25耗蓝，大招加魂数量3/4/5/6，被动移速+4/8/12/16%%"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"狂怒"

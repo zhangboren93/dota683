@@ -189,6 +189,7 @@
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven_Description"			"lasts %duration% seconds"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven"					"Degen Aura"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven_Description"		"%speed_bonus%%% move speed，%attack_bonus_tooltip% attack speed"
+		"DOTA_Tooltip_Ability_omniknight_guardian_angel_Lore"					"+25 health regen"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft"							"Witchcraft"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft_Description"				"Swarm and Silence CD -1/2/3/4 seconds, -10/15/20/25 mana cost，exorcism +3/4/5/6 souls，passive move speed +4/8/12/16%%"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"Enrage"

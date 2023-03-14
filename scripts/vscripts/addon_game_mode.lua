@@ -52,8 +52,9 @@ function Activate()
 	LinkLuaModifier( "modifier_creep_ai", "creepai.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_health_bonus", "modifiers/creep_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_pudge_flesh_magic_resist", "modifiers/pudge_flesh_magic_resist.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_riki_invis_health_regen", "modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_enchantress_aghs_attack_range", "modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_riki_invis_health_regen",         "modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",   "modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_omniknight_guardian_angel_regen", "modifiers/omniknight_guardian_regen.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 end
@@ -645,6 +646,16 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:RemoveModifierByName("modifier_spirit_bear_attack_damage")
 			entity:RemoveModifierByName("modifier_lone_druid_spirit_bear_attack_check")
 		end, "remove spirit bear original attack bonus", 1)
+	end
+	if not entity:IsBuilding() then
+		entity:SetThink(function()
+			if entity:HasModifier("modifier_omninight_guardian_angel") then
+				entity:AddNewModifier(entity, nil, "modifier_omniknight_guardian_angel_regen", {})
+			else
+				entity:RemoveModifierByName("modifier_omniknight_guardian_angel_regen")
+			end
+			return 1
+		end, "Omni guardian health regen", 1)
 	end
 end
 
