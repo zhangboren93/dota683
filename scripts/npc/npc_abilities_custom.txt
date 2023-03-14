@@ -10477,13 +10477,6 @@
 	
 				"OnAttackLanded"
 				{
-					//TODO stack with jinada
-					"Damage"
-					{
-						"Target"	"TARGET"
-						"Type"	"DAMAGE_TYPE_PHYSICAL"
-						"Damage"	"%bonus_damage"
-					}
 					"RemoveModifier"
 					{
 						"Target"	"CASTER"
@@ -10511,6 +10504,11 @@
 				}
 	
 	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}
+
 				"States"
 				{
 					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED" 
