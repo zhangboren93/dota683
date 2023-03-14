@@ -721,6 +721,7 @@ function handleKillBonus(attacker, entity)
 		print("killed by neutral, no gold/XP bonus")
 		return
 	end
+	-- Add gold & experience to remove summer/illusion kill
 	if attacker:IsHero() then
 		print("gives extra 100 gold")
 		attacker:ModifyGold(100, true, DOTA_ModifyGold_HeroKill)
@@ -764,7 +765,9 @@ function handleKillBonus(attacker, entity)
 	local assist_exp = 7 * entity:GetLevel() + GetAssistXPComebackFactor(entity:GetTeam()) * PlayerResource:GetTotalEarnedXP(entity:GetPlayerID()) * 0.15
 	print("Granting assist experience " .. assist_exp .. " to " .. #units .. " units.")
 	for i=1,#units do
-		units[i]:AddExperience(assist_exp, DOTA_ModifyXP_HeroKill, false, false)
+		if units[i].AddExperience ~= nil then
+			units[i]:AddExperience(assist_exp, DOTA_ModifyXP_HeroKill, false, false)
+		end
 	end
 end
 

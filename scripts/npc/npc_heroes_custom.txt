@@ -130,13 +130,16 @@
 	}
 	"npc_dota_hero_brewmaster"			
 	{
-		//TODO ultimate aghs, 2nd skill evasion
 "AttributeBaseStrength"   "23"
  "AttributeStrengthGain"   "2.9"
  "AttributeBaseAgility"  "22"
  "AttributeAgilityGain"   "1.95" 
  "AttributeBaseIntelligence"  "14" 
  "AttributeIntelligenceGain"   "1.25"
+		"Ability2"		"brewmaster_drunken_haze"
+		"Ability3"		"brewmaster_drunken_brawler_datadriven"
+		"Ability4"		"generic_hidden"
+		"Ability6"		"brewmaster_primal_split_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
