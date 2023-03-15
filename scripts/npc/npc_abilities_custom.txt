@@ -9878,6 +9878,102 @@
 		}
 	}
 	//=================================================================================================================
+	// Ability: Crystal Maiden's Crystal Nova
+	//=================================================================================================================
+	"crystal_maiden_crystal_nova"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5126"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Crystal.CrystalNova"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"AbilityCastRange"				"700"
+			"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+			"AbilityCooldown"
+			{
+				"value"										"15"
+				"special_bonus_unique_crystal_maiden_5"		"-3"
+			}
+			"AbilityManaCost"				"100 120 140 160"
+			"radius"
+			{
+				"value"										"400"
+				"special_bonus_unique_crystal_maiden_6"		"+125"
+			}
+			"movespeed_slow"				"-30"
+			"attackspeed_slow"				"-30"
+			"duration"						"3.5 4.0 4.5 5"
+			"vision_duration"				"6.0"
+			"nova_damage"
+			{
+				"value"										"100 150 200 250"
+				"special_bonus_unique_crystal_maiden_2"		"+240"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}	
+	//=================================================================================================================
+	// Ability: Crystal Maiden's Frostbite
+	//=================================================================================================================
+	"crystal_maiden_frostbite"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5127"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"hero_Crystal.frostbite"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Applies multiple modifiers
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"AbilityCastRange"				
+			{
+				"value"								"500"
+				"special_bonus_unique_crystal_maiden_frostbite_castrange" 		"+125"
+			}
+			"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+			"AbilityCooldown"				"10 9 8 7"
+			"AbilityManaCost"				"115 125 140 150"
+			"damage_per_second"				"100"
+			"creep_damage_per_second"		"100"
+			"duration"
+			{
+				"value"										"1.5 2.0 2.5 3.0"
+				"special_bonus_unique_crystal_maiden_1"		"+1.25"
+			}
+			"creep_duration"
+			{
+				"value"										"10"
+				"special_bonus_unique_crystal_maiden_1"		"+1.25"
+			}
+			"tick_interval"					"0.25"
+			
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}	
+	//=================================================================================================================
 	// Ability: Crystal Maiden's Arcane Aura
 	//=================================================================================================================
 	"crystal_maiden_brilliance_aura"
