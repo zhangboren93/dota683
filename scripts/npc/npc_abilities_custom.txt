@@ -6587,6 +6587,85 @@
 			}
 		}
 	}
+// Rewrite of the Venomancer Poison Sting ability
+// Author: Pizzalol and Rook
+// Date: 22.12.2014.
+// Known bugs:
+//     The Plague Ward interaction with Poison Sting is hardcoded in modifier_poison_sting_debuff_datadriven_on_destroy().
+//         This can be fixed once we are able to determine the caster of a modifier.
+"broodmother_poison_sting_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	"AbilityTextureName"			"broodmother_poison_sting"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"duration"				"2.0"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"damage"					"8"
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"movement_speed"			"-15"
+		}			
+	}
+
+	"Modifiers"
+	{
+		"modifier_poison_sting_datadriven"
+		{
+			"Passive"	"1"
+			"IsHidden"	"1"
+
+			"OnAttackLanded"
+			{
+				"ApplyModifier"
+				{
+					"ModifierName"	"modifier_poison_sting_debuff_datadriven"
+					"Target"		"TARGET"
+				}
+			}
+		}
+
+		"modifier_poison_sting_debuff_datadriven"
+		{
+			"IsDebuff"	"1"
+			"Duration"	"%duration"
+
+			"ThinkInterval"	"1.0"
+
+			"OnIntervalThink"
+			{
+				"Damage"
+				{
+					"Target"	"TARGET"
+					"Type"		"DAMAGE_TYPE_MAGICAL"
+					"Damage"	"%damage"
+				}
+			}
+
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movement_speed"
+			}
+		}
+	}
+}
 	//=================================================================================================================
 	// Lion: Finger of Death
 	//=================================================================================================================
