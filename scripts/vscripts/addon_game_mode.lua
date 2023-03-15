@@ -721,7 +721,10 @@ function handleKillBonus(attacker, entity)
 		print("killed by neutral, no gold/XP bonus")
 		return
 	end
-	-- Add gold & experience to remove summer/illusion kill
+	if not attacker:IsRealHero() and attacker:GetOwner() ~= nil then
+		print("Setting attacker to the owner of the summoned units")
+		attacker = attacker:GetOwner()
+	end
 	if attacker:IsHero() then
 		print("gives extra 100 gold")
 		attacker:ModifyGold(100, true, DOTA_ModifyGold_HeroKill)
@@ -740,6 +743,7 @@ function handleKillBonus(attacker, entity)
 	local assist_gold = 4 * entity:GetLevel() + 0.2 * GetAssistGoldComebackFactor(entity:GetTeam()) * (
 		PlayerResource:GetGoldSpentOnItems(entity:GetPlayerID()) + PlayerResource:GetGold(entity:GetPlayerID()))
 	print("Assist gold " .. assist_gold)
+	DeepPrintTable(assist_players)
 	for i,v in pairs(assist_players) do
 		PlayerResource:GetPlayer(i):GetAssignedHero():ModifyGold(assist_gold, false, DOTA_ModifyGold_HeroKill)
 	end
@@ -766,6 +770,7 @@ function handleKillBonus(attacker, entity)
 	print("Granting assist experience " .. assist_exp .. " to " .. #units .. " units.")
 	for i=1,#units do
 		if units[i].AddExperience ~= nil then
+			print(units[i]:GetName())
 			units[i]:AddExperience(assist_exp, DOTA_ModifyXP_HeroKill, false, false)
 		end
 	end
@@ -847,11 +852,13 @@ end
 function HandleEntityHurt(entindex_killed, entindex_attacker)
 	local target = EntIndexToHScript(entindex_killed)
 	local attacker = EntIndexToHScript(entindex_attacker)
-	if target:IsRealHero() and attacker:IsRealHero() then
+	if attacker:GetPlayerOwner() == nil then
+		return
+	end
+	if target:IsRealHero() then
 		if target.time_attacked == nil then
 			target.time_attacked = {}
 		end
-		target.time_attacked[attacker:GetPlayerID()] = GameRules:GetDOTATime(true, false)
-		--DeepPrintTable(target.time_attacked)
+		target.time_attacked[attacker:GetPlayerOwnerID()] = GameRules:GetDOTATime(true, false)
 	end
 end
