@@ -195,6 +195,13 @@ function HandlePlayerChat(self, teamonly, text)
 		elseif text == '-sp' then
 			GameRules:SetSameHeroSelectionEnabled(true)
 			GameRules:SendCustomMessage("开启相同英雄选择", -1, -1)
+		elseif text == '-cm' then
+			GameRules:SetHeroSelectionTime(600)
+			self.rdEnabled = false
+			self.botEnabled = false
+			self.captainEnabled = true
+			GameRules:SetSameHeroSelectionEnabled(false)
+			GameRules:SendCustomMessage("开启队长模式", -1, -1)
 		end
 	end
 end
@@ -509,7 +516,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			-- its is going to be an illusion
 			return
 		end
-		if PlayerResource:HasRandomed(player:GetPlayerID()) and not self.rdEnabled then
+		if PlayerResource:HasRandomed(player:GetPlayerID()) and not self.rdEnabled and not self.captainEnabled then
 			entity:ModifyGold(200, true, DOTA_ModifyGold_Unspecified)
 		end
 
