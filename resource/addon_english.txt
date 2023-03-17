@@ -212,5 +212,7 @@
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven_Description"		"Attack adds magic damage %bonus_damage%, -20 attack speed, max attack %max_attacks%, lasts 30 seconds"
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"					"Bloodrage"
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"		"increase outgoing and incoming damage for %damage_increase_pct%%%, kill recovers 25%%, lasts %duration% seconds"
+		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven"					"Thirst"
+		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_Description"		"+%bonus_movement_speed%%% move speed, +%bonus_damage% damage"
 	}
 }
