@@ -210,5 +210,7 @@
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"		"持续15/17/19秒\nA帐+技能"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven"					"极寒之触"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven_Description"		"攻击加魔法伤害%bonus_damage%，-20攻速，次数%max_attacks%，持续30秒"
+		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"					"血怒"
+		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"		"增加伤害和被伤害%damage_increase_pct%%%，击杀回复25%%，持续%duration%秒"
 	}
 }
