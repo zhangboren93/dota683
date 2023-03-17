@@ -214,5 +214,6 @@
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"		"增加伤害和被伤害%damage_increase_pct%%%，击杀回复25%%，持续%duration%秒"
 		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven"					"饥渴"
 		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_Description"		"+%bonus_movement_speed%%%移速，+%bonus_damage%攻击力"
+		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"  "+2导弹数量"
 	}
 }
