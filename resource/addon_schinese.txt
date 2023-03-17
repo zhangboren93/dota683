@@ -208,5 +208,7 @@
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"	"+10/15/20/25%%闪避和暴击，暴击伤害200%%"
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven"					"元素分离"
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"		"持续15/17/19秒\nA帐+技能"
+		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven"					"极寒之触"
+		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven_Description"		"攻击加魔法伤害%bonus_damage%，-20攻速，次数%max_attacks%，持续30秒"
 	}
 }

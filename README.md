@@ -80,6 +80,7 @@ Dota6.83版本移植，养老dota，best dota。
 - DP三技能被动
 - 酒仙酒雾丢失，A帐大招加普通技能
 - 赏金被动暴击减速，隐身加攻击，删A
+- 冰魂3技能团队加攻击，A帐增加大招持续时间
 - 删A：人马,兽王,小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,kunka,夜魔,tide,ember,猛犸,龙骑
 
 mod开源：https://gitee.com/bobo1993324/dota6.83

@@ -1295,11 +1295,389 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
+	//=================================================================================================================
+	// Ancient Apparition: Cold Feet
+	//=================================================================================================================
+	"ancient_apparition_cold_feet"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5345"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Ancient_Apparition.ColdFeetCast"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_COLD_FEET"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15 13 11 9"
+		"AbilityDuration"				"4.0 4.0 4.0 4.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers 
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage"				
+			{
+				"value"		"37.5 50 62.5 75"
+				"special_bonus_unique_ancient_apparition_8"	"+40"
+			}
+			"break_distance"
+			{
+				"value"		"715"
+				"special_bonus_unique_ancient_apparition_1"	"+200"
+			}
+			"stun_duration"			"1.25 2 2.75 3.5"
+			"area_of_effect"
+			{
+				"value"			"0"
+				"special_bonus_unique_ancient_apparition_6"			"+450"
+			}
+
+		}
+	}
+	//=================================================================================================================
+	// Ancient Apparition: Ice Vortex
+	//=================================================================================================================
+	"ancient_apparition_ice_vortex"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5346"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Ancient_Apparition.IceVortexCast"
+
+        "HasShardUpgrade"               "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_ICE_VORTEX"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"1500 1500 1500 1500"
+		"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"16"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 90 100 110"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"value"					"4"
+				"special_bonus_unique_ancient_apparition_3"			"-2"
+			}
+			"radius"				"275"
+			//TODO what is drag speed
+			"drag_speed"	"40 50 60 70"
+			"movement_speed_pct"
+			{
+				"value"	"-15 -20 -25 -30"
+				"special_bonus_unique_ancient_apparition_4"	"-5"
+			}
+			"spell_resist_pct"
+			{
+				"value"		"-15 -20 -25 -30"
+				"special_bonus_unique_ancient_apparition_4"	"-5"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
+			}
+			"vision_aoe"		"200 200 200 200"
+			"vortex_duration"		"16"
+			"shard_dps"
+			{
+				"value"		"40"
+				"RequiresShard"			"1"
+			}
+			"shard_attack_speed_reduction"
+			{
+				"value"					"20"
+				"RequiresShard"			"1"
+			}
+		}
+	}
+	// Rewrite of the Ancient Apparition Chilling Touch ability
+	// Author: Pizzalol
+	// Date: October 13, 2015
+	// Version: 6.83
+	// Type: Datadriven
+	// NOTE: Cast particle is missing the falling snow
+	//
+	// ----- FILE REQUIREMENTS -----
+	// Script files:
+	// scripts/vscripts/heroes/hero_ancient_apparition/chilling_touch.lua
+	"ancient_apparition_chilling_touch_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"ancient_apparition_chilling_touch"
+		"AOERadius"						"%radius"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_ancient_apparition.vsndevts"
+			"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch.vpcf"
+			"particle"			"particles/units/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch_buff.vpcf"	
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800 800 800 800"
+		"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"50.0 42.0 34.0 26.0"
+		"AbilityDuration"				"30.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"110 120 130 140"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"525"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_attacks"			"3 4 5 6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"50 60 70 80"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"attack_speed_pct"		"-20"
+			}
+			// Extra
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"30.0"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Ancient_Apparition.ChillingTouchCast" 
+				"Target" 		"CASTER"
+			}
+	
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch.vpcf"
+				"EffectAttachType"  "start_at_customorigin"
+				"TargetPoint"       "POINT"
+	
+				"ControlPoints"
+				{
+					"01"	"%radius 0 0"
+				}
+			}
+	
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center"  	"POINT"
+					"Radius" 	"%radius"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO"
+				}
+			
+				"Action"    
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_chilling_touch_stack_datadriven"
+						"Target" 		"TARGET"
+					}
+	
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_chilling_touch_stack_datadriven"
+						"Target" 		"TARGET"
+						"Duration"		"%duration"
+					}
+				}
+			}
+	
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_chilling_touch_stack_datadriven"
+				"Target" 		"CASTER"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_chilling_touch_stack_datadriven"
+				"Target" 		"CASTER"
+				"Duration"		"%duration"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_chilling_touch_stack_datadriven"
+			{
+				"IsBuff"			"1"
+		
+				"EffectName"		"particles/units/heroes/hero_ancient_apparition/ancient_apparition_chilling_touch_buff.vpcf"
+				"EffectAttachType"	"attach_attack1"
+		
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_ancient_apparition/chilling_touch.lua"
+						"Function"		"ChillingTouchInitialize"
+						"modifier_stack"	"modifier_chilling_touch_stack_datadriven"
+					}
+	
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_chilling_touch_attack_speed_datadriven"
+						"Target" 		"TARGET"
+					}
+				}
+	
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_chilling_touch_attack_speed_datadriven"
+						"Target" 		"TARGET"
+					}
+				}
+	
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_ancient_apparition/chilling_touch.lua"
+						"Function"		"ChillingTouchDecrement"
+						"modifier_stack"	"modifier_chilling_touch_stack_datadriven"
+					}
+	
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%bonus_damage"
+					}
+				}			
+			}
+	
+			"modifier_chilling_touch_attack_speed_datadriven"
+			{
+				"IsHidden"		"1"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_pct"
+				}
+			}
+		}
+	}
     "ancient_apparition_ice_blast"
 	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5348"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Ancient_Apparition.IceBlast.Target"
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		"HasScepterUpgrade"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.01 0.01 0.01"
+		"AbilityCastRange"				"0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 125 150"
+		
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"250 350 450"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius_min"			"275"
+			"radius_grow"			"50.0"
+			"radius_max"			"1000"
+			"path_radius"			"275"
+			"frostbite_duration"	{
+				"value"	"8 9 10"
+				"special_bonus_scepter"	"+9 +8 +7"
+			}
+			"dot_damage"			"12.5 20.0 32.0"
+			"speed"					"1500 1500 1500 1500"
+			"kill_pct"
+			{	
+				"value"				"10 11 12"
+				"special_bonus_unique_ancient_apparition_5"	"+4"
+			}
+			"target_sight_radius"	"500 500 500"
+		}
 	}
     "spirit_breaker_nether_strike"
 	{
