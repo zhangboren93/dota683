@@ -212,10 +212,12 @@
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"		"Lasts 15/17/19 seconds\nAghs adds basic skills"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven"					"Chilling Touch"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven_Description"		"Attack adds magic damage %bonus_damage%, -20 attack speed, max attack %max_attacks%, lasts 30 seconds"
-		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"					"Bloodrage"
-		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"		"increase outgoing and incoming damage for %damage_increase_pct%%%, kill recovers 25%%, lasts %duration% seconds"
-		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven"					"Thirst"
-		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_Description"		"+%bonus_movement_speed%%% move speed, +%bonus_damage% damage"
-		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"  "+2 missles"
+		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"						"Bloodrage"
+		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"			"increase outgoing and incoming damage for %damage_increase_pct%%%, kill recovers 25%%, lasts %duration% seconds"
+		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven"						"Thirst"
+		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_Description"			"+%bonus_movement_speed%%% move speed, +%bonus_damage% damage"
+		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"  	"+2 missles"
+		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven"					"Lvl Death"
+		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven_Description"		"basic damage %damage%, mini stun, when level is times of %lvl_bonus_multiple% damage 20%% max health"
 	}
 }
