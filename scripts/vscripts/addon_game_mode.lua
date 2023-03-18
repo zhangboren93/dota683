@@ -56,6 +56,7 @@ function Activate()
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",   "modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_omniknight_guardian_angel_regen", "modifiers/omniknight_guardian_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",  "modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_doom_scorched_earth_regen",  		 "modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 end
@@ -589,6 +590,17 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 2
 			end, "kotl aghs", 2);
+		elseif entity:GetName() == "npc_dota_hero_doom_bringer" then
+			entity:SetThink(function()
+				if entity:HasModifier("modifier_doom_bringer_scorched_earth_effect") then
+					local ability = entity:FindAbilityByName("doom_bringer_scorched_earth")
+					entity:AddNewModifier(entity, ability, "modifier_doom_scorched_earth_regen", {
+						health_regen = ability:GetSpecialValueFor("damage_per_second")})
+				else
+					entity:RemoveModifierByName("modifier_doom_scorched_earth_regen")
+				end
+				return 1
+			end, "doom", 1);
 		end
     end
 

@@ -219,5 +219,7 @@
 		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"  	"+2 missles"
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven"					"Lvl Death"
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven_Description"		"basic damage %damage%, mini stun, when level is times of %lvl_bonus_multiple% damage 20%% max health"
+		"DOTA_Tooltip_Ability_doom_bringer_scorched_earth_Lore"						"health regen"
+		"DOTA_Tooltip_Ability_doom_bringer_doom_Scepter_Description"				"add damage & duration"
 	}
 }
