@@ -48,9 +48,9 @@
 		"BountyGoldMin"				"22"		// Gold earned min.
 		"BountyGoldMax"				"24"		// Gold earned max.
 	}
-	//TODO pure damage
 	"npc_dota_neutral_centaur_khan"
 	{
+		"Ability3"					"granite_golem_pure_attack"			// Ability 3
 		"ArmorPhysical"				"4"			// Physical protection.
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"55"		// Damage range max.	
@@ -66,10 +66,9 @@
 		"BountyGoldMin"				"20"		// Gold earned min.
 		"BountyGoldMax"				"23"		// Gold earned max.
 	}
-	//TODO pure damage
 	"npc_dota_neutral_polar_furbolg_champion"
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"granite_golem_pure_attack"			// Ability 1
 		"Ability2"					""			// Ability 2
 		"ArmorPhysical"				"3"			// Physical protection.
 		"AttackDamageMin"			"39"		// Damage range min.
@@ -79,10 +78,9 @@
 		"BountyGoldMin"				"62"		// Gold earned min.
 		"BountyGoldMax"				"68"		// Gold earned max.
 	}
-	//TODO pure damage
 	"npc_dota_neutral_polar_furbolg_ursa_warrior"
 	{
-		"Ability2"					""			// Ability 2
+		"Ability2"					"granite_golem_pure_attack"			// Ability 2
 		"ArmorPhysical"				"4"			// Physical protection.
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"55"		// Damage range max.	
@@ -156,10 +154,9 @@
 		"BountyGoldMin"				"18"		// Gold earned min.
 		"BountyGoldMax"				"23"		// Gold earned max.
 	}
-	//TODO pure damage
 	"npc_dota_neutral_enraged_wildkin"
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"granite_golem_pure_attack"			// Ability 1
 		"ArmorPhysical"				"4"			// Physical protection.
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"56"		// Damage range max.	
@@ -178,9 +175,9 @@
 		"BountyGoldMin"				"27"		// Gold earned min.
 		"BountyGoldMax"				"32"		// Gold earned max.
 	}
-	//TODO pure damage
 	"npc_dota_neutral_satyr_hellcaller"
 	{
+		"Ability4"					"granite_golem_pure_attack"			// Ability 4
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"55"		// Damage range max.	
@@ -261,7 +258,7 @@
 		"BountyGoldMin"				"15"		// Gold earned min.
 		"BountyGoldMax"				"17"		// Gold earned max.
 	}
-	//TODO replace with centar camp
+	//TODO replace with other camps
 	"npc_dota_neutral_warpine_raider"
 	{										
 		"BountyXP"					"119"		// Experience earn.
@@ -310,7 +307,7 @@
 		"BountyGoldMin"				"82"		// Gold earned min.
 		"BountyGoldMax"				"85"		// Gold earned max.
 	}
-	//TODO pure damage
+	//TODO splash
 	"npc_dota_neutral_black_dragon"	
 	{
 		"ArmorPhysical"				"6"			// Physical protection.
@@ -320,6 +317,7 @@
 		"BountyXP"					"155"		// Experience earn.
 		"BountyGoldMin"				"191"		// Gold earned min.
 		"BountyGoldMax"				"199"		// Gold earned max.
+		"Ability5"					"granite_golem_pure_attack"			// Ability 4
 	}
 	"npc_dota_neutral_black_drake"	
 	{
@@ -330,7 +328,6 @@
 		"BountyGoldMin"				"50"		// Gold earned min.
 		"BountyGoldMax"				"52"		// Gold earned max.
 	}
-	//TODO pure damage
 	"npc_dota_neutral_rock_golem"
 	{
 		"MagicalResistance"			"100"		// Magical protection.
@@ -343,6 +340,7 @@
 	}
 	"npc_dota_neutral_granite_golem"
 	{
+		"Ability3"					"granite_golem_pure_attack"			// Ability 3
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"77"		// Damage range min.
 		"AttackDamageMax"			"87"		// Damage range max.	
@@ -350,7 +348,6 @@
 		"BountyGoldMin"				"113"		// Gold earned min.
 		"BountyGoldMax"				"115"		// Gold earned max.
 	}
-	//TODO pure damage
 	"npc_dota_neutral_ice_shaman"
 	{										
 		// General
@@ -365,7 +362,7 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					""			// Ability 1
+		"Ability1"					"granite_golem_pure_attack"			// Ability 1
 		"Ability2"					""			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
@@ -1475,7 +1472,7 @@
 		
 		"Ability1"					"broodmother_poison_sting_datadriven"			// Ability 1.
 		"Ability2"					"broodmother_spawn_spiderite"		// Ability 2.
-		"Ability3"					""			// Ability 3.
+		"Ability3"					"granite_golem_pure_attack"			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
@@ -1492,8 +1489,7 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"18"		// Damage range min.
 		"AttackDamageMax"			"19"		// Damage range max.
-		//TODO DAMAGE PURE ABILITY
-		"AttackDamageType"			"DAMAGE_TYPE_PURE"
+		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.35"		// Speed of attack.
 		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.

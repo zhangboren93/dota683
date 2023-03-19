@@ -223,5 +223,6 @@
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven_Description"		"基础伤害%damage%，短眩晕，等级为%lvl_bonus_multiple%倍数时伤害最大生命20%%"
 		"DOTA_Tooltip_Ability_doom_bringer_scorched_earth_Lore"						"回血"
 		"DOTA_Tooltip_Ability_doom_bringer_doom_Scepter_Description"				"增加伤害和持续时间"
+		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"纯粹攻击"
 	}
 }
