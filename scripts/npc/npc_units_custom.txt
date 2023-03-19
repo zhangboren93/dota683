@@ -11,16 +11,28 @@
 		"BountyXP"					"25"		// Experience earn.
 		"BountyGoldMin"				"7"			// Gold earned min.
 		"BountyGoldMax"				"9"			// Gold earned max.
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"10"		// Damage range min.
+		"AttackDamageMax"			"11"		// Damage range max.	
+		"StatusHealth"				"240"		// Base health.
 	}
 	"npc_dota_neutral_kobold_tunneler"
 	{
 		"Ability1"					""			// Ability 1
+		"ArmorPhysical"				"1"			// Physical protection.
+		"AttackDamageMin"			"14"		// Damage range min.
+		"AttackDamageMax"			"15"		// Damage range max.	
+		"StatusHealth"				"325"		// Base health.
 		"BountyXP"					"25"		// Experience earn.
 		"BountyGoldMin"				"17"		// Gold earned min.
 		"BountyGoldMax"				"19"		// Gold earned max.
 	}
 	"npc_dota_neutral_kobold_taskmaster"
 	{
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"24"		// Damage range min.
+		"AttackDamageMax"			"27"		// Damage range max.	
+		"StatusHealth"				"400"		// Base health.
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"25"		// Gold earned min.
 		"BountyGoldMax"				"27"		// Gold earned max.
@@ -28,6 +40,10 @@
 	"npc_dota_neutral_centaur_outrunner"
 	{
 		"Ability1"					""			// Ability 1
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"18"		// Damage range min.
+		"AttackDamageMax"			"21"		// Damage range max.	
+		"StatusHealth"				"550"		// Base health.
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"22"		// Gold earned min.
 		"BountyGoldMax"				"24"		// Gold earned max.
@@ -35,6 +51,10 @@
 	//TODO pure damage
 	"npc_dota_neutral_centaur_khan"
 	{
+		"ArmorPhysical"				"4"			// Physical protection.
+		"AttackDamageMin"			"49"		// Damage range min.
+		"AttackDamageMax"			"55"		// Damage range max.	
+		"StatusHealth"				"1100"		// Base health.
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"68"		// Gold earned min.
 		"BountyGoldMax"				"75"		// Gold earned max.
@@ -51,6 +71,10 @@
 	{
 		"Ability1"					""			// Ability 1
 		"Ability2"					""			// Ability 2
+		"ArmorPhysical"				"3"			// Physical protection.
+		"AttackDamageMin"			"39"		// Damage range min.
+		"AttackDamageMax"			"44"		// Damage range max.	
+		"StatusHealth"				"950"		// Base health.
 		"BountyXP"					"88"		// Experience earn.
 		"BountyGoldMin"				"62"		// Gold earned min.
 		"BountyGoldMax"				"68"		// Gold earned max.
@@ -59,6 +83,10 @@
 	"npc_dota_neutral_polar_furbolg_ursa_warrior"
 	{
 		"Ability2"					""			// Ability 2
+		"ArmorPhysical"				"4"			// Physical protection.
+		"AttackDamageMin"			"49"		// Damage range min.
+		"AttackDamageMax"			"55"		// Damage range max.	
+		"StatusHealth"				"950"		// Base health.
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"81"		// Gold earned min.
 		"BountyGoldMax"				"83"		// Gold earned max.
@@ -78,12 +106,20 @@
 	"npc_dota_neutral_ogre_mauler"
 	{
 		"Ability1"					""			// Ability 1
+		"ArmorPhysical"				"1"			// Physical protection.
+		"AttackDamageMin"			"24"		// Damage range min.
+		"AttackDamageMax"			"27"		// Damage range max.	
+		"StatusHealth"				"850"		// Base health.
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"28"		// Gold earned min.
 		"BountyGoldMax"				"37"		// Gold earned max.
 	}
 	"npc_dota_neutral_ogre_magi"
 	{
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"24"		// Damage range min.
+		"AttackDamageMax"			"27"		// Damage range max.	
+		"StatusHealth"				"600"		// Base health.
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"48"		// Gold earned min.
 		"BountyGoldMax"				"53"		// Gold earned max.
@@ -91,12 +127,20 @@
 	"npc_dota_neutral_giant_wolf"
 	{
 		"Ability1"					""			// Ability 1
+		"ArmorPhysical"				"1"			// Physical protection.
+		"AttackDamageMin"			"21"		// Damage range min.
+		"AttackDamageMax"			"24"		// Damage range max.	
+		"StatusHealth"				"500"		// Base health.
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"23"		// Gold earned min.
 		"BountyGoldMax"				"26"		// Gold earned max.
 	}
 	"npc_dota_neutral_alpha_wolf"
 	{
+		"ArmorPhysical"				"3"			// Physical protection.
+		"AttackDamageMin"			"30"		// Damage range min.
+		"AttackDamageMax"			"33"		// Damage range max.	
+		"StatusHealth"				"600"		// Base health.
 		"BountyXP"					"88"		// Experience earn.
 		"BountyGoldMin"				"37"		// Gold earned min.
 		"BountyGoldMax"				"44"		// Gold earned max.
@@ -104,6 +148,10 @@
 	"npc_dota_neutral_wildkin"
 	{
 		"Ability1"					""			// Ability 1
+		"ArmorPhysical"				"2"			// Physical protection.
+		"AttackDamageMin"			"20"		// Damage range min.
+		"AttackDamageMax"			"25"		// Damage range max.	
+		"StatusHealth"				"350"		// Base health.
 		"BountyXP"					"25"		// Experience earn.
 		"BountyGoldMin"				"18"		// Gold earned min.
 		"BountyGoldMax"				"23"		// Gold earned max.
@@ -112,12 +160,20 @@
 	"npc_dota_neutral_enraged_wildkin"
 	{
 		"Ability1"					""			// Ability 1
+		"ArmorPhysical"				"4"			// Physical protection.
+		"AttackDamageMin"			"50"		// Damage range min.
+		"AttackDamageMax"			"56"		// Damage range max.	
+		"StatusHealth"				"950"		// Base health.
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"73"		// Gold earned min.
 		"BountyGoldMax"				"80"		// Gold earned max.
 	}
 	"npc_dota_neutral_satyr_soulstealer"
 	{
+		"ArmorPhysical"				"1"			// Physical protection.
+		"AttackDamageMin"			"24"		// Damage range min.
+		"AttackDamageMax"			"27"		// Damage range max.	
+		"StatusHealth"				"600"		// Base health.
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"27"		// Gold earned min.
 		"BountyGoldMax"				"32"		// Gold earned max.
@@ -125,18 +181,30 @@
 	//TODO pure damage
 	"npc_dota_neutral_satyr_hellcaller"
 	{
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"49"		// Damage range min.
+		"AttackDamageMax"			"55"		// Damage range max.	
+		"StatusHealth"				"1100"		// Base health.
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"104"		// Gold earned min.
 		"BountyGoldMax"				"107"		// Gold earned max.
 	}
 	"npc_dota_neutral_gnoll_assassin"	
 	{
+		"ArmorPhysical"				"1"			// Physical protection.
+		"AttackDamageMin"			"28"		// Damage range min.
+		"AttackDamageMax"			"36"		// Damage range max.	
+		"StatusHealth"				"370"		// Base health.
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"21"		// Gold earned min.
 		"BountyGoldMax"				"29"		// Gold earned max.
 	}
 	"npc_dota_neutral_ghost"	
 	{
+		"ArmorPhysical"				"1"			// Physical protection.
+		"AttackDamageMin"			"30"		// Damage range min.
+		"AttackDamageMax"			"35"		// Damage range max.	
+		"StatusHealth"				"500"		// Base health.
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"37"		// Gold earned min.
 		"BountyGoldMax"				"38"		// Gold earned max.
@@ -144,6 +212,10 @@
 	"npc_dota_neutral_dark_troll"	
 	{
 		"Ability1"					""			// Ability 1
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"24"		// Damage range min.
+		"AttackDamageMax"			"27"		// Damage range max.	
+		"StatusHealth"				"500"		// Base health.
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"31"		// Gold earned min.
 		"BountyGoldMax"				"33"		// Gold earned max.
@@ -151,6 +223,10 @@
 	"npc_dota_neutral_dark_troll_warlord"	
 	{
 		"Ability1"					"dark_troll_warlord_ensnare"			// Ability 1
+		"ArmorPhysical"				"1"			// Physical protection.
+		"AttackDamageMin"			"49"		// Damage range min.
+		"AttackDamageMax"			"54"		// Damage range max.	
+		"StatusHealth"				"1100"		// Base health.
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"59"		// Gold earned min.
 		"BountyGoldMax"				"59"		// Gold earned max.
@@ -177,10 +253,15 @@
 	}
 	"npc_dota_neutral_satyr_trickster"	
 	{
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"7"		// Damage range min.
+		"AttackDamageMax"			"10"		// Damage range max.	
+		"StatusHealth"				"300"		// Base health.
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"15"		// Gold earned min.
 		"BountyGoldMax"				"17"		// Gold earned max.
 	}
+	//TODO replace with centar camp
 	"npc_dota_neutral_warpine_raider"
 	{										
 		"BountyXP"					"119"		// Experience earn.
@@ -190,6 +271,10 @@
 	"npc_dota_neutral_forest_troll_berserker"	
 	{
 		"Ability1"					""			// Ability 1
+		"ArmorPhysical"				"1"			// Physical protection.
+		"AttackDamageMin"			"28"		// Damage range min.
+		"AttackDamageMax"			"37"		// Damage range max.	
+		"StatusHealth"				"500"		// Base health.
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"24"		// Gold earned min.
 		"BountyGoldMax"				"25"		// Gold earned max.
@@ -197,6 +282,10 @@
 	"npc_dota_neutral_forest_troll_high_priest"	
 	{
 		"Ability2"					""			// Ability 2
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"25"		// Damage range min.
+		"AttackDamageMax"			"32"		// Damage range max.	
+		"StatusHealth"				"450"		// Base health.
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"21"		// Gold earned min.
 		"BountyGoldMax"				"24"		// Gold earned max.
