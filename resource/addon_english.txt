@@ -92,6 +92,8 @@
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_Description"	"10/16/22/28 damage per second，-10/20/30/40%% move speed，-10/20/30/40 attack speed，lasts 2 seconds"
 		"DOTA_Tooltip_Ability_slardar_bash_datadriven"			"Bash"
 		"DOTA_Tooltip_Ability_slardar_bash_datadriven_Description"	"%chance%% stun for %duration% seconds with %bonus_damage% damage"
+		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven"				"Frost Arrows"
+		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven_Description"	"Orb: move speed %frost_arrows_movement_speed%%%, lasts 1.5 seconds"
 		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven"				"Trueshot"
 		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven_Description"	"allie heroes + damage = drow's agility * %trueshot_ranged_damage%"
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven"					"Marksmanship"

@@ -92,6 +92,8 @@
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_Description"	"10/16/22/28每秒伤害，-10/20/30/40%%移速，-10/20/30/40攻速，持续2秒"
 		"DOTA_Tooltip_Ability_slardar_bash_datadriven"			"击晕"
 		"DOTA_Tooltip_Ability_slardar_bash_datadriven_Description"	"%chance%% 击晕%duration% 秒 + %bonus_damage% 伤害"
+		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven"				"冰箭"
+		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven_Description"	"法球：移速%frost_arrows_movement_speed%%%，持续1.5秒"
 		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven"				"强击光环"
 		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven_Description"	"友方远程英雄+攻击力=小黑%trueshot_ranged_damage%敏捷"
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven"					"射手天赋"
