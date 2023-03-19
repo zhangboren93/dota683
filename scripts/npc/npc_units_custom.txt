@@ -199,19 +199,29 @@
 	"npc_dota_neutral_big_thunder_lizard"
 	{
 		"MagicalResistance"				"100"		// Magical protection.
+		"ArmorPhysical"				"2"			// Physical protection.
+		"AttackDamageMin"			"71"		// Damage range min.
+		"AttackDamageMax"			"78"		// Damage range max.	
+		"StatusHealth"				"1400"		// Base health.
 		"BountyXP"					"155"		// Experience earn.
 		"BountyGoldMin"				"91"		// Gold earned min.
 		"BountyGoldMax"				"91"		// Gold earned max.
 	}
 	"npc_dota_neutral_small_thunder_lizard"
 	{
+		"ArmorPhysical"				"2"			// Physical protection.
+		"AttackDamageMin"			"41"		// Damage range min.
+		"AttackDamageMax"			"48"		// Damage range max.	
 		"BountyXP"					"121"		// Experience earn.
 		"BountyGoldMin"				"82"		// Gold earned min.
 		"BountyGoldMax"				"85"		// Gold earned max.
 	}
 	"npc_dota_neutral_black_dragon"	
 	{
-		"MagicalResistance"				"100"		// Magical protection.
+		"ArmorPhysical"				"6"			// Physical protection.
+		"MagicalResistance"			"100"		// Magical protection.
+		"AttackDamageMin"			"70"		// Damage range min.
+		"AttackDamageMax"			"94"		// Damage range max.
 		"BountyXP"					"155"		// Experience earn.
 		"BountyGoldMin"				"191"		// Gold earned min.
 		"BountyGoldMax"				"199"		// Gold earned max.
@@ -219,6 +229,8 @@
 	"npc_dota_neutral_black_drake"	
 	{
 		"Ability1"					""			// Ability 1
+		"AttackDamageMin"			"49"		// Damage range min.
+		"AttackDamageMax"			"56"		// Damage range max.
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"50"		// Gold earned min.
 		"BountyGoldMax"				"52"		// Gold earned max.
@@ -226,6 +238,8 @@
 	"npc_dota_neutral_rock_golem"
 	{
 		"MagicalResistance"			"100"		// Magical protection.
+		"AttackDamageMin"			"29"		// Damage range min.
+		"AttackDamageMax"			"33"		// Damage range max.	
 		"Ability1"					""			// Ability 1
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"59"		// Gold earned min.
@@ -234,24 +248,155 @@
 	"npc_dota_neutral_granite_golem"
 	{
 		"MagicalResistance"			"100"		// Magical protection.
+		"AttackDamageMin"			"77"		// Damage range min.
+		"AttackDamageMax"			"87"		// Damage range max.	
 		"BountyXP"					"155"		// Experience earn.
 		"BountyGoldMin"				"113"		// Gold earned min.
 		"BountyGoldMax"				"115"		// Gold earned max.
 	}
 	"npc_dota_neutral_ice_shaman"
 	{										
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/creeps/neutral_creeps/n_creep_gargoyle/n_creep_gargoyle.vmdl"	// Model.
+		"BaseClass"					"npc_dota_creep_neutral"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"6"
+		"IsAncient"					"1"
+		"ModelScale" 					".95"
+		"IsNeutralUnitType"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"4"			// Physical protection.
+		"MagicalResistance"				"100"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"56"		// Damage range min.
+		"AttackDamageMax"			"78"		// Damage range max.	
+		"AttackRate"				"1.35"		// Speed of attack.
+		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
+		"AttackRange"				"100"		// Range within a target can be attacked.
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"60"
+		"HealthBarOffset"			"220"
+
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"155"		// Experience earn.
 		"BountyGoldMin"				"113"		// Gold earned min.
 		"BountyGoldMax"				"113"		// Gold earned max.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"320"		// Speed.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"2000"		// Base health.
+		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"1"			// Mana regeneration rate.		 
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}		
 	"npc_dota_neutral_frostbitten_golem"
 	{										
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/creeps/neutral_creeps/n_creep_gargoyle/n_creep_gargoyle.vmdl"	// Model.
+		"BaseClass"					"npc_dota_creep_neutral"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"5"
+		"IsAncient"					"1"
+		"ModelScale" 					".90"
+		"IsNeutralUnitType"			"1"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"2"			// Physical protection.
+		"MagicalResistance"				"50"		// Magical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"46"		// Damage range min.
+		"AttackDamageMax"			"64"		// Damage range max.	
+		"AttackRate"				"1.35"		// Speed of attack.
+		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
+		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+		"ProjectileModel"			""			// Particle system model for projectile.
+		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+
+		// Bounds
+		//----------------------------------------------------------------
+		"RingRadius"				"50"
+		"HealthBarOffset"			"220"
+
+		// Bounty
+		//----------------------------------------------------------------
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"60"		// Gold earned min.
 		"BountyGoldMax"				"60"		// Gold earned max.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"320"		// Speed.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1300"		// Base health.
+		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
+		"StatusMana"				"400"		// Base mana.
+		"StatusManaRegen"			"1"			// Mana regeneration rate.		 
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"800"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}								
+	//TODO Add prowler
 	"npc_dota_creep_badguys_melee"
 	{
 		"BountyXP"					"62"		// Experience earn.
@@ -1250,6 +1395,7 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"18"		// Damage range min.
 		"AttackDamageMax"			"19"		// Damage range max.
+		//TODO DAMAGE PURE ABILITY
 		"AttackDamageType"			"DAMAGE_TYPE_PURE"
 		"AttackRate"				"1.35"		// Speed of attack.
 		"AttackAnimationPoint"		"0.5"		// Normalized time in animation cycle to attack.
