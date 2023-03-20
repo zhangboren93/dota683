@@ -14015,4 +14015,52 @@
 			}
 		}
 	}
+	"prowler_evasion"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType" 	"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"	"spawnlord_aura"
+		"Modifiers"
+		{
+			"modifier_prowler_evasiopn"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"15"
+				}
+			}
+		}
+	}
+	//=================================================================================================================
+	// Black Dragon: Dragonhide Aura
+	//=================================================================================================================
+	"black_dragon_dragonhide_aura"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5681"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{			
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"			"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"					"1200"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+
 }
