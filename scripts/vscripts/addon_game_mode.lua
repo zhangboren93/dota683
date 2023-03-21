@@ -667,7 +667,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:RemoveModifierByName("modifier_lone_druid_spirit_bear_attack_check")
 		end, "remove spirit bear original attack bonus", 1)
 	end
-	if not entity:IsBuilding() then
+	if not entity:IsBuilding() and not entity:IsCreep() then
 		entity:SetThink(function()
 			if entity:HasModifier("modifier_omninight_guardian_angel") then
 				entity:AddNewModifier(entity, nil, "modifier_omniknight_guardian_angel_regen", {})
@@ -693,6 +693,21 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end
 			return 1
 		end, "Bounty Track aura", 1)
+	end
+	if entity:GetModelName() == "models/creeps/pine_cone/pine_cone.vmdl" then
+		entity:ForceKill(false)
+		entity:SetThink(function()
+			print("warpine thinks")
+			local neutralSpawner = Entities:FindByClassnameNearest("npc_dota_neutral_spawner", entity:GetAbsOrigin(), 200)
+			if neutralSpawner == nil then
+				print("No spawner found")
+				return
+			end
+			neutralSpawner:CreatePendingUnits()
+			neutralSpawner:CreatePendingUnits()
+			neutralSpawner:CreatePendingUnits()
+			neutralSpawner:SpawnNextBatch(false)
+		end, "warpine replace with other creeps", RandomFloat(0.2,0.5))
 	end
 end
 

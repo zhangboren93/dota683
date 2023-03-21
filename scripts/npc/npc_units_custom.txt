@@ -258,13 +258,6 @@
 		"BountyGoldMin"				"15"		// Gold earned min.
 		"BountyGoldMax"				"17"		// Gold earned max.
 	}
-	//TODO replace with other camps
-	"npc_dota_neutral_warpine_raider"
-	{										
-		"BountyXP"					"119"		// Experience earn.
-		"BountyGoldMin"				"72"		// Gold earned min.
-		"BountyGoldMax"				"72"		// Gold earned max.
-	}	
 	"npc_dota_neutral_forest_troll_berserker"	
 	{
 		"Ability1"					""			// Ability 1
@@ -482,7 +475,6 @@
 		"VisionDaytimeRange"		"800"		// Range of vision during day light.
 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
 	}								
-	//TODO Add prowler
 	"npc_dota_creep_badguys_melee"
 	{
 		"BountyXP"					"62"		// Experience earn.
