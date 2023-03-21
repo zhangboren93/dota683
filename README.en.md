@@ -5,6 +5,7 @@ An attempt to migrate dota 6.83's balence.
 
 Features:
 - All Pick & Random Draft. Enter '-rd' in public chat to enable Random Draft mode, "-ap" to revert.
+- Enter '-repick' in AP mode, during hero select and strategy time to repick hero. -100 gold.
 - Remove talents, Ags shard, and new heroes introduced after Monkyey King
 - Cap hero level to 25, and adjust experience table
 - Adjust items and remove neutral items. Lifesteal, mask of madness, helm of dom, satanic, deso, maelstrom, Mjollnir are orbs.
@@ -18,7 +19,7 @@ Features:
 - Rewrite TD. Check TD cooldown at the fountain.
 - Disable Scan
 - Bounty rune now give personal gold and experience, and not to the team.
-- Randoming hero pick in AP mode gives 200 extra gold
+- Randoming hero pick in AP mode gives 250 extra gold
 - No free TP after death
 - Side lane creeps meet further from safe tier1 tower
 - Being attacked by creeps stops clarity and flask

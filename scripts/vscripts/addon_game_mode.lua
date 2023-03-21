@@ -1,9 +1,12 @@
 -- Generated from template
 
 require("creepspawn")
+require("heroalias")
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
+
+playerForcePicked = {}
 
 function Precache( context )
 	--[[
@@ -65,7 +68,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	
-	GameRules:SetStartingGold(650)
+	GameRules:SetStartingGold(625)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 19)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.17)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 13)
@@ -140,7 +143,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		HandleRuneActivated(event.PlayerID, event.rune)
 	end, nil)
 	ListenToGameEvent('player_chat', function(event)
-		HandlePlayerChat(self, event.teamonly, event.text)
+		HandlePlayerChat(self, event.teamonly, event.text, event.playerid)
 	end, nil)
 	ListenToGameEvent('entity_hurt', function(event)
 		HandleEntityHurt(event.entindex_killed, event.entindex_attacker)
@@ -181,7 +184,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	end
 end
 
-function HandlePlayerChat(self, teamonly, text)
+function HandlePlayerChat(self, teamonly, text, playerid)
 	if teamonly == 0 and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		if text == '-rd' then
 			self.rdEnabled = true
@@ -203,6 +206,21 @@ function HandlePlayerChat(self, teamonly, text)
 			self.captainEnabled = true
 			GameRules:SetSameHeroSelectionEnabled(false)
 			GameRules:SendCustomMessage("开启队长模式", -1, -1)
+		end
+	end
+	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+		if not self.rdEnabled and not self.captainEnabled and text == '-repick' then
+			if PlayerResource:GetSelectedHeroName(playerid) == "" then
+				GameRules:SendCustomMessage("无法重新选择英雄", -1, -1)
+				return
+			end
+			if PlayerResource:GetGold(playerid) < 100 then
+				GameRules:SendCustomMessage("金钱小于250时无法重新选择英雄")
+				return
+			end
+    		local player = PlayerResource:GetPlayer(playerid)
+    		player:SetSelectedHero("")
+			PlayerResource:ModifyGold(playerid, -100, true, DOTA_ModifyGold_SelectionPenalty)
 		end
 	end
 end
@@ -370,16 +388,16 @@ function CAddonTemplateGameMode:OnThink()
 			Tutorial:AddBot(botHeroPool[heroNumber], lanes[i], "hard", false)
 			table.remove(botHeroPool, heroNumber)
 		end
-	--	Tutorial:AddBot("npc_dota_hero_axe", "bot", "hard", false)
-	--	Tutorial:AddBot("npc_dota_hero_ogre_magi", "top", "hard", false)
-	--	Tutorial:AddBot("npc_dota_hero_luna", "top", "hard", false)
-	--	Tutorial:AddBot("npc_dota_hero_skywrath_mage", "bot", "hard", false)
-	--	Tutorial:AddBot("npc_dota_hero_lina", "mid", "hard", false)
 		GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
 		GameRules:SetCreepSpawningEnabled(true)
 		self.botInitialized = true
-	end
-	if GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+		local time = GameRules:GetDOTATime(true, true) 
+		print(time)
+		if time > -2 then
+			randomUnpickedPlayers()
+		end
+	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
 		if time >= 30 and self.hasSpawnNeutralsAt30s == nil then
 			print("Spawn neutral creep at 30s")
@@ -517,8 +535,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			-- its is going to be an illusion
 			return
 		end
-		if PlayerResource:HasRandomed(player:GetPlayerID()) and not self.rdEnabled and not self.captainEnabled then
-			entity:ModifyGold(200, true, DOTA_ModifyGold_Unspecified)
+		if PlayerResource:HasRandomed(player:GetPlayerID()) and not playerForcePicked[player:GetPlayerID()] and not self.rdEnabled and not self.captainEnabled then
+			entity:ModifyGold(250, true, DOTA_ModifyGold_Unspecified)
 		end
 
 		--give 90 gold per minute
@@ -894,5 +912,28 @@ function HandleEntityHurt(entindex_killed, entindex_attacker)
 			target.time_attacked = {}
 		end
 		target.time_attacked[attacker:GetPlayerOwnerID()] = GameRules:GetDOTATime(true, false)
+	end
+end
+
+function randomUnpickedPlayers()
+	local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+	print(n)
+	for i=1,n do
+		local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
+		print(PlayerResource:GetSelectedHeroName(playerid))
+		if PlayerResource:GetSelectedHeroName(playerid) == "" then
+			PlayerResource:GetPlayer(playerid):MakeRandomHeroSelection()
+			playerForcePicked[playerid] = true
+		end
+	end
+	local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
+	print(n)
+	for i=1,n do
+		local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
+		print(PlayerResource:GetSelectedHeroName(playerid))
+		if PlayerResource:GetSelectedHeroName(playerid) == "" then
+			PlayerResource:GetPlayer(playerid):MakeRandomHeroSelection()
+			playerForcePicked[playerid] = true
+		end
 	end
 end
