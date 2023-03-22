@@ -5286,8 +5286,8 @@
 		"RequiredLevel"         		"6"
 		"LevelsBetweenUpgrades" 		"5"
 
-		"HasShardUpgrade"			"1"
-		"HasScepterUpgrade"			"1"
+		"HasShardUpgrade"			"0"
+		"HasScepterUpgrade"			"0"
 		"AbilitySound"					"Hero_SkeletonKing.Reincarnate"
 		
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
@@ -5324,7 +5324,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"attackslow"			"-75"
+				"attackslow"			"-0"
 			}
 			"05"
 			{
@@ -5358,7 +5358,7 @@
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"shard_skeleton_count"	"3"
+				"shard_skeleton_count"	"0"
 				"RequiresScepter"			"1"
 			}
 		}
@@ -7720,6 +7720,74 @@
 		}
 	}
 	//=================================================================================================================
+	// Ability: Juggernaut Healing Ward
+	//=================================================================================================================
+	"juggernaut_healing_ward"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5029"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilitySound"					"Hero_Juggernaut.HealingWard.Cast"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60.0 60.0 60.0 60.0"
+		"AbilityDuration"				"25.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 125 130 135"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"healing_ward_heal_amount"	"2 3 4 5"
+				"healing_ward_aura_radius"	"400"
+				"healing_ward_movespeed_tooltip"	
+				{
+					"value"	"325"
+				}
+				"healing_ward_bonus_health"
+				{
+					"value"	"0"
+					"special_bonus_unique_juggernaut_2"	"+2"
+				}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	//=================================================================================================================
+	// Ability: Juggernaut Blade Dance
+	//=================================================================================================================
+	"juggernaut_blade_dance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5027"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"blade_dance_crit_chance"	"20 25 30 35"
+				"blade_dance_crit_mult"		"200"
+				"blade_dance_lifesteal"
+				{
+					"value"	"0"
+					"special_bonus_unique_juggernaut_blade_dance_lifesteal"	"+40"
+				}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	//=================================================================================================================
 	// Ability: Juggernaut Omni Slash
 	//=================================================================================================================
 	"juggernaut_omni_slash"
@@ -7775,8 +7843,8 @@
 			"omni_slash_radius"			"425"
 			"AbilityCooldown"
 			{
-				"value"					"130"
-				"special_bonus_scepter"	"-60"
+				"value"					"130 120 110"
+				"special_bonus_scepter"	"-60 -50 -40"
 			}
 			"AbilityCastRange"				
 			{
