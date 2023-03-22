@@ -8413,6 +8413,7 @@
 	//=================================================================================================================
 	// Ability: Earthshaker Totem
 	//=================================================================================================================
+	// TODO rewrite to remove side effect of aghs
 	"earthshaker_enchant_totem"
 	{
 		// General
@@ -8424,7 +8425,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_EarthShaker.Totem"
 
-		"HasScepterUpgrade"			"1"
+		"HasScepterUpgrade"			"0"
 		
 
 		// Casting
@@ -8444,7 +8445,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"35 40 45 50"		
+		"AbilityManaCost"				"50"		
 
 		"AbilityValues"
 		{
@@ -8492,6 +8493,51 @@
 			"bonus_attack_range"		"75"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	//=================================================================================================================
+	// Ability: Earthshaker Aftershock
+	//=================================================================================================================
+	"earthshaker_aftershock"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5025"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"0.6 0.9 1.2 1.5"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"	"100"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aftershock_range"			"300"
+				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_5"
+
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aftershock_damage"			"50 75 100 125"
+				"LinkedSpecialBonus"		"special_bonus_unique_earthshaker_6"
+
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 	// Ability: Nevermore Requiem of Souls
 	//=================================================================================================================
@@ -13006,6 +13052,7 @@
 	//=================================================================================================================
 	"earthshaker_fissure"
 	{
+		"HasShardUpgrade"				"0"
 		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"125 140 155 170"		
 		"AbilityValues"
