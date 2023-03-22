@@ -1308,6 +1308,55 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5035"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Ability.Ghostship"
+		"AbilityDraftUltShardAbility"		"kunkka_tidal_wave"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_GHOST_SHIP"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"400 500 600"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150 200 250"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"tooltip_delay"				"3.1"
+			"ghostship_distance"		"2000"
+			"ghostship_width"			"425 425 425"
+			"movespeed_bonus"			"10"
+			"buff_duration"				"10"
+			"stun_duration"				"1.4 1.4 1.4"
+			"ghostship_speed"			"650"
+			"ghostship_absorb"			"50"
+			"AbilityCooldown"				
+			{
+				"value"					"60 50 40"
+				"special_bonus_unique_kunkka_ghostship_cooldown"	"-15"
+			}
+		}
 	}
 	"lina_laguna_blade"
 	{
@@ -14716,6 +14765,104 @@
 			}
 			"damage_tick_interval"				"0.2"
 		}		
+	}
+	//=================================================================================================================
+	// Kunkka: Tidebringer
+	//=================================================================================================================
+	"kunkka_tidebringer"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5032"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.		
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilitySound"					"Hero_Kunkka.Tidebringer.Attack"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCastRange"				"150"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{		
+			"cleave_starting_width"			"150"
+			"cleave_ending_width"			"500 550 600 650"
+			"cleave_distance"			"650 800 950 1100"
+			"damage_bonus"				"15 30 45 60"
+			"cleave_damage"				
+			{
+				"value"								"150"
+				"special_bonus_unique_kunkka_4"		"+70"
+			}
+			"movespeed_slow"
+			{
+				"value"					"0"
+				"special_bonus_unique_kunkka_tidebringer_slow"		"-60"	
+			}
+			"movespeed_slow_duration"
+			{
+				"value"					"0"
+				"special_bonus_unique_kunkka_tidebringer_slow"		"+1"	
+			}
+			"AbilityCooldown"				
+			{
+				"value"					"13.0 10.0 7.0 4.0"
+				"special_bonus_unique_kunkka_5"			"-2"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	//=================================================================================================================
+	// Kunkka: X Marks the Spot
+	//=================================================================================================================
+	"kunkka_x_marks_the_spot"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5033"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Ability.XMarksTheSpot.Target"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"350 550 750 1000"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"duration"					"4.0"
+				"allied_duration"	"8.0"
+				"fow_range"				"400"
+				"fow_duration"				"5.94"
+				"ally_ms"	
+				{
+					"value"		"0"
+					"special_bonus_unique_kunkka_6"	"+25"
+				}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 	// Rewrite of the Silencer Curse of the Silent
 	// Author: chrislotix

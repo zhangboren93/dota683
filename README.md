@@ -31,7 +31,7 @@ Dota6.83版本移植，养老dota，best dota。
 
 6.83完整复原英雄：
 斧王，TK，飞机，全能，血魔，冰魂，虚空，赏金，酒仙，死亡先知，
-末日，小黑，人马，军团，小狗，美杜莎，小鹿，先知
+末日，小黑，人马，军团，小狗，美杜莎，小鹿，先知，船长
 
 
 6.83部分复原英雄（不同的地方）：
@@ -79,7 +79,7 @@ Dota6.83版本移植，养老dota，best dota。
 - 沉默一技能削蓝，二技能法球
 - 光法波蓄力2345秒，2技能削蓝，A帐波回血，加回城技能
 - 死骑大便自杀，删A
-- 删A：兽王,小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,kunka,夜魔,tide,ember,猛犸,龙骑
+- 删A：兽王,小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,夜魔,tide,ember,猛犸,龙骑
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
