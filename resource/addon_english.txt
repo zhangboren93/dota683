@@ -227,5 +227,6 @@
 		"DOTA_Tooltip_Ability_doom_bringer_scorched_earth_Lore"						"health regen"
 		"DOTA_Tooltip_Ability_doom_bringer_doom_Scepter_Description"				"add damage & duration"
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"Pure Attack"
+		"DOTA_Tooltip_Ability_beastmaster_primal_roar_Scepter_Description"			"+350 cast range, CD 45 seconds"
 	}
 }
