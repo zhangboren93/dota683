@@ -150,6 +150,8 @@
 		"DOTA_Tooltip_Ability_life_stealer_feast_datadriven_Description"	"伤害+吸血当前生命值的4/5/6/7%%" 
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven"				"狂暴" 
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_Description"	"魔法免疫+攻速30/45/60/80持续3/4/5/6秒" 
+		"DOTA_Tooltip_Ability_life_stealer_open_wounds_2"				"撕裂伤口" 
+		"DOTA_Tooltip_Ability_life_stealer_open_wounds_2_Description"	"-50%%移速，逐步回复移速，+%heal_percent%%%吸血，持续8秒，施法距离%AbilityCastRange%" 
 		"DOTA_Tooltip_Ability_item_shadow_amulet_Lore"								"+30攻速"
 		"DOTA_Tooltip_Ability_item_helm_of_the_dominator_datadriven"				"铁意头盔"
 		"DOTA_Tooltip_Ability_item_helm_of_the_dominator_datadriven_Description"	"占据+500生命\n+3回血\n+15吸血\n+20攻击力"

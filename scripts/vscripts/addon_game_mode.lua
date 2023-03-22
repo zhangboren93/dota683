@@ -434,10 +434,9 @@ function CAddonTemplateGameMode:OnThink()
 	end
 	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) and not self.rdEnabled and not self.captainEnabled then
 		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-		print(n)
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
-			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] then
+			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] and not playerRepicked[playerid] then
 				PlayerResource:ModifyGold(playerid, 250, true, DOTA_ModifyGold_Unspecified)
 				randomBonusGranted[playerid] = true
 			end
@@ -445,7 +444,7 @@ function CAddonTemplateGameMode:OnThink()
 		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
-			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] then
+			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] and not playerRepicked[playerid] then
 				PlayerResource:ModifyGold(playerid, 250, true, DOTA_ModifyGold_Unspecified)
 				randomBonusGranted[playerid] = true
 			end
