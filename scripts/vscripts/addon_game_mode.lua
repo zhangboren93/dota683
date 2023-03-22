@@ -6,7 +6,8 @@ if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
 
-playerForcePicked = {}
+playerRepicked = {}
+randomBonusGranted = {}
 
 function Precache( context )
 	--[[
@@ -148,6 +149,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent('entity_hurt', function(event)
 		HandleEntityHurt(event.entindex_killed, event.entindex_attacker)
 	end, nil)
+	ListenToGameEvent("dota_hero_swap", function(event)
+		print("dota_hero_swap")
+	end, nil)
 
 	if GetMapName() == "dota_683" then
 		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
@@ -210,7 +214,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	end
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		if not self.rdEnabled and not self.captainEnabled and text == '-repick' then
-			if PlayerResource:GetSelectedHeroName(playerid) == "" then
+			if PlayerResource:GetSelectedHeroName(playerid) == "" or playerRepicked[playerid] then
 				GameRules:SendCustomMessage("无法重新选择英雄", -1, -1)
 				return
 			end
@@ -221,6 +225,10 @@ function HandlePlayerChat(self, teamonly, text, playerid)
     		local player = PlayerResource:GetPlayer(playerid)
     		player:SetSelectedHero("")
 			PlayerResource:ModifyGold(playerid, -100, true, DOTA_ModifyGold_SelectionPenalty)
+			if PlayerResource:HasRandomed(playerid) then
+				PlayerResource:ModifyGold(playerid, -250, true, DOTA_ModifyGold_SelectionPenalty)
+			end
+			playerRepicked[playerid] = true
 		end
 	end
 end
@@ -393,7 +401,6 @@ function CAddonTemplateGameMode:OnThink()
 		self.botInitialized = true
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		local time = GameRules:GetDOTATime(true, true) 
-		print(time)
 		if time > -2 then
 			randomUnpickedPlayers()
 		end
@@ -424,6 +431,25 @@ function CAddonTemplateGameMode:OnThink()
 		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
+	end
+	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) and not self.rdEnabled and not self.captainEnabled then
+		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+		print(n)
+		for i=1,n do
+			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
+			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] then
+				PlayerResource:ModifyGold(playerid, 250, true, DOTA_ModifyGold_Unspecified)
+				randomBonusGranted[playerid] = true
+			end
+		end
+		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
+		for i=1,n do
+			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
+			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] then
+				PlayerResource:ModifyGold(playerid, 250, true, DOTA_ModifyGold_Unspecified)
+				randomBonusGranted[playerid] = true
+			end
+		end
 	end
 	return 1
 end
@@ -534,9 +560,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		if player == nil then
 			-- its is going to be an illusion
 			return
-		end
-		if PlayerResource:HasRandomed(player:GetPlayerID()) and not playerForcePicked[player:GetPlayerID()] and not self.rdEnabled and not self.captainEnabled then
-			entity:ModifyGold(250, true, DOTA_ModifyGold_Unspecified)
 		end
 
 		--give 90 gold per minute
@@ -917,23 +940,19 @@ end
 
 function randomUnpickedPlayers()
 	local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-	print(n)
 	for i=1,n do
 		local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
 		print(PlayerResource:GetSelectedHeroName(playerid))
 		if PlayerResource:GetSelectedHeroName(playerid) == "" then
 			PlayerResource:GetPlayer(playerid):MakeRandomHeroSelection()
-			playerForcePicked[playerid] = true
 		end
 	end
 	local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
-	print(n)
 	for i=1,n do
 		local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
 		print(PlayerResource:GetSelectedHeroName(playerid))
 		if PlayerResource:GetSelectedHeroName(playerid) == "" then
 			PlayerResource:GetPlayer(playerid):MakeRandomHeroSelection()
-			playerForcePicked[playerid] = true
 		end
 	end
 end
