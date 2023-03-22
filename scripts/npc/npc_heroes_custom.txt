@@ -1896,6 +1896,7 @@
 	}
 	"npc_dota_hero_chen"				
 	{
+		//TODO abilities
 "AttributeBaseStrength"   "20"
  "AttributeStrengthGain"   "1.5"
  "AttributeBaseAgility"  "15"
