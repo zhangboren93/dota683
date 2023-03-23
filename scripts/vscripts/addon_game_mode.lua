@@ -749,6 +749,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			neutralSpawner:SpawnNextBatch(false)
 		end, "warpine replace with other creeps", RandomFloat(0.2,0.5))
 	end
+	if entity:GetName() == "npc_dota_tusk_frozen_sigil" then
+		entity:FindAbilityByName("tusk_frozen_sigil_aura_datadriven"):SetLevel(
+			entity:GetOwner():FindAbilityByName("tusk_frozen_sigil"):GetLevel())
+	end
 end
 
 function isAtWardPoint(position, x, y)
