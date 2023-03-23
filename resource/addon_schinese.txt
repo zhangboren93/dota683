@@ -137,7 +137,7 @@
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Scepter_Description"			"斩杀上限300/425/550，CD6秒，加速持续时间10秒"
 		"DOTA_Tooltip_Ability_lich_chain_frost_Lore"									"A杖伤害+90，施法距离+100，移除次数上限"
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_Lore"								"A杖+35/60/85伤害，CD100/70/40秒"
-		"DOTA_Tooltip_Ability_rattletrap_hookshot_Lore"									"A杖CD15秒"
+		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD15秒"
 		"DOTA_Tooltip_Ability_tiny_grow_Lore"											"A杖抓树"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven"							"推进"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven_Description"				"法球，伤害=距离*15/20/25%%"

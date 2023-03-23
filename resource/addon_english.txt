@@ -137,7 +137,7 @@
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Scepter_Description"			"kill threshold 300/425/550, CD 6 seconds, buff lasts 10 seconds"
 		"DOTA_Tooltip_Ability_lich_chain_frost_Lore"									"Aghs +90 damage，+100 cast range，remove bounce limit"
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_Lore"								"Aghs +35/60/85 damage，CD 100/70/40 seconds"
-		"DOTA_Tooltip_Ability_rattletrap_hookshot_Lore"									"Aghs CD 15 seconds"
+		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD 15 seconds"
 		"DOTA_Tooltip_Ability_tiny_grow_Lore"											"Aghs add tree grab ability, not attack times limit"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven"							"Impetus"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven_Description"				"Orb: Damage distance * 15/20/25%%"

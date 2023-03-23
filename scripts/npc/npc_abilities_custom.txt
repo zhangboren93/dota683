@@ -2331,13 +2331,13 @@
 		{
 				"latch_radius"		"125 125 125"
 				"stun_radius"		"175 175 175"
-				"duration"			"1.5 1.75 2.0"
+				"duration"			"1 1.5 2.0"
 				"speed"				"4000 5000 6000"
-				"damage"			"75 175 275"
+				"damage"			"100 200 300"
 			"AbilityCooldown"
 			{
-				"value"					"60.0 45.0 30.0"
-				"special_bonus_scepter"	"-45 -30 -15"	
+				"value"					"75 55 40"
+				"special_bonus_scepter"	"-60 -40 -25"	
 			}
 		}
 	}
@@ -2602,6 +2602,77 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5274"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Huskar.Life_Break"
+
+		"HasScepterUpgrade"			"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0 0 0"		
+		
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"550"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"4 5 6"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"health_cost_percent"
+				{
+					"value"		"0.35"
+					"special_bonus_scepter"	"+0.3"
+				}
+				"health_damage"
+				{
+					"value"			"0.35"
+					"special_bonus_scepter"	"+0.3"
+				}
+				"charge_speed"				"1200"
+				"tooltip_health_damage"				
+				{
+					"value"		"35"
+					"special_bonus_scepter"	"+30"
+				}
+				"tooltip_health_cost_percent"
+				{
+					"value"		"35"
+					"special_bonus_scepter"	"+30"
+				}
+				"movespeed"					"-40 -50 -60"
+				"slow_durtion_tooltip"		"4 5 6"
+				"taunt_duration"		"0.0"
+				"cast_range_bonus"		"0"
+				"AbilityCooldown"
+				{
+					"value"				"12"
+					"special_bonus_scepter"	"-8"
+				}
+		}
 	}
     "night_stalker_darkness"
 	{
@@ -4057,11 +4128,211 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
-    "bristleback_warpath"
+	//=================================================================================================================
+	// Bristleback: Viscous Nasal Goo
+	//=================================================================================================================
+	"bristleback_viscous_nasal_goo"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5548"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Bristleback.ViscousGoo.Cast"
+
+		"HasScepterUpgrade"			"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"30"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"goo_speed"				"1000"
+			"goo_duration"			"5.0"
+			"base_armor"			"1 1 2 2"
+			"armor_per_stack"
+			{
+				"value"		"1 1 2 2"
+				"special_bonus_unique_bristleback_4"	"+0.75"
+			}
+			"base_move_slow"		"20"
+			"move_slow_per_stack"	"3 6 9 12"
+			"stack_limit"
+			{
+				"value"			"4"
+				"special_bonus_scepter"	"+3"
+			}
+			"goo_duration_creep"			"5.0"
+			"AbilityCastRange"
+			{
+				"value"				"600"
+				"special_bonus_unique_bristleback_5"				"+150"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Bristleback: Quill Spray
+	//=================================================================================================================
+	"bristleback_quill_spray"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5549"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Bristleback.QuillSpray"
+		"AbilityDraftShardAbility"    "bristleback_hairball"
+
+		"HasShardUpgrade"	"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_INVALID"
+		"AbilityCastRange"				"625"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3.0 3.0 3.0 3.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"35 35 35 35"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"625"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"quill_base_damage"		"20 40 60 80"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"quill_stack_damage"	"30 32 34 36"
+				"LinkedSpecialBonus"	"special_bonus_unique_bristleback_2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"quill_stack_duration"	"14.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"max_damage"			"400.0"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"projectile_speed"		"2400"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Bristleback: Bristleback
+	//=================================================================================================================
+	"bristleback_bristleback"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5550"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySound"					"Hero_Bristleback.Bristleback"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"side_damage_reduction"
+			{
+				"value"													"8 12 16 20"
+				"special_bonus_unique_bristleback_6"					"+4"
+			}
+			"back_damage_reduction"
+			{
+				"value"			"16 24 32 40"
+				"special_bonus_unique_bristleback_6"						"+8"
+			}
+			"side_angle"							"110"
+			"back_angle"							"70"
+			"quill_release_threshold"				"250"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	//=================================================================================================================
+	// Bristleback: Warpath
+	//=================================================================================================================
+	"bristleback_warpath"
 	{
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5551"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"14"
+				
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"damage_per_stack"					"20 25 30"
+				"LinkedSpecialBonus"	"special_bonus_unique_bristleback_3"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"move_speed_per_stack"				"3 4 5"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stack_duration"				"16.0"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"max_stacks"					"5 6 7"
+			}
+		}
 	}
     "tusk_walrus_punch"
 	{
@@ -5544,7 +5815,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"hurt_percent"			"0.35"
+				"hurt_percent"			"0.4"
 			}
 			"05"
 			{
@@ -8626,7 +8897,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_DragonKnight.ElderDragonForm"
-        "HasScepterUpgrade"             "1"
+        "HasScepterUpgrade"             "0"
 
 		"AbilityDraftUltShardAbility"		"dragon_knight_fireball"
 
@@ -8636,7 +8907,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"115 110 105 105"
+		"AbilityCooldown"				"115"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -8658,7 +8929,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"bonus_movement_speed"		"25 30 35"
+				"bonus_movement_speed"		"25"
 			}
 			"03"
 			{
@@ -14062,6 +14333,35 @@
 		}
 	}
 	//=================================================================================================================
+	// Dragon Knight: Dragon Blood
+	//=================================================================================================================
+	"dragon_knight_dragon_blood"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5228"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_health_regen"			"2 3 4 5"
+				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bonus_armor"					"3 6 9 12"
+				"LinkedSpecialBonus"			"special_bonus_unique_dragon_knight"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	//=================================================================================================================
 	// Ability: Earthshaker Fissure
 	//=================================================================================================================
 	"earthshaker_fissure"
@@ -15278,8 +15578,8 @@
 		{
 			"start_radius"			"150 150 150 150"
 			"end_radius"			"250 250 250 250"
-			"range"					"750"
-			"AbilityCastRange"			"600"	
+			"range"					"650"
+			"AbilityCastRange"			"500"	
 			"speed"					"1050"
 			"damage"							"90 170 240 300"
 			"reduction"
@@ -15760,6 +16060,118 @@
 				}
 			}
 		}
+	}
+	//=================================================================================================================
+	// Rattletrap: Battery Assault
+	//=================================================================================================================
+	"rattletrap_battery_assault"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5237"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Rattletrap.Battery_Assault_Impact"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"32 28 24 20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+		
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityDamage"					"20 45 70 95"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.2"	// applies many mini-stuns
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius"			"275 275 275 275"
+			"duration"					"10.5 10.5 10.5 10.5"
+			"interval"
+			{	
+				"value"								"0.7 0.7 0.7 0.7"
+				"special_bonus_unique_clockwerk"		"-0.25"
+			}
+			"damage"
+			{	
+				"value"									"20 40 60 80"
+				"special_bonus_unique_clockwerk_3"		"+24"
+			}
+			"creep_damage_multiplier"					"1"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Rattletrap: Power Cogs
+	//=================================================================================================================
+	"rattletrap_power_cogs"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5238"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilitySound"					"Hero_Rattletrap.Power_Cogs"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 60 70 80"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"			"5.0 6.0 7.0 8.0"
+			"damage"		"80 120 160 200"
+			"mana_burn"		
+			{
+				"value"				"80 120 160 200"
+				"special_bonus_unique_clockwerk_8"		"+60"
+			}
+			"attacks_to_destroy"	
+			{
+				"value"					"2 2 2 3"
+				"special_bonus_unique_clockwerk_5"		"+2"
+			}
+			"push_length"		"300"
+			"push_duration"		"1"
+			"cogs_radius"			"215"
+			"trigger_distance"			"185"
+			"extra_pull_buffer"			"-10"
+			"bonus_armor"		"0"
+			"leash"			
+			{
+				"value"			"0"
+				"special_bonus_unique_clockwerk_2"	"+1"
+			}
+			"AbilityCooldown"				
+			{
+				"value"			"15"
+				"special_bonus_unique_clockwerk_9"		"-2"
+			}
+
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	//=================================================================================================================
 	// Rattletrap: Rocket Flare
