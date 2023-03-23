@@ -129,7 +129,7 @@
 		"DOTA_Tooltip_Ability_faceless_void_backtrack_Description"					"10/15/20/25%% negates damage"
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Lore"			"Aghs +300 cast range, pure damage, ignores spell immunity"
 		"DOTA_Tooltip_Ability_windrunner_focusfire_Lore"		"Aghs CD 15 seconds，+ damage"
-		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Lore"		"Aghs +200 basic damage"
+		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Scepter_Description"		"+200 basic damage"
 		"DOTA_Tooltip_ability_juggernaut_omni_slash_scepter_description" 				"CD 70seconds，duration +1.5 seconds"
 		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Lore"								"Aghs +200 damage"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven"								"Culling Blade"

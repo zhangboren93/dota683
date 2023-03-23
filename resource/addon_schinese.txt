@@ -129,7 +129,7 @@
 		"DOTA_Tooltip_Ability_faceless_void_backtrack_Description"					"10/15/20/25%%伤害无效"
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Lore"			"A帐+300施放距离，无视魔法免疫"
 		"DOTA_Tooltip_Ability_windrunner_focusfire_Lore"		"A帐CD15秒，加攻击"
-		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Lore"		"A帐+200基础伤害"
+		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Scepter_Description"		"+200基础伤害"
 		"DOTA_Tooltip_ability_juggernaut_omni_slash_scepter_description" 				"CD70秒，持续时间+1.5秒"
 		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Lore"								"A杖+200伤害"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven"								"淘汰"
