@@ -3614,6 +3614,47 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5398"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Lycan.Shapeshift.Cast"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"HasScepterUpgrade"			"0"
+		"AbilityDraftUltScepterAbility"		"lycan_wolf_bite"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120 90 60"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value"				"18"
+				"special_bonus_unique_lycan_1"	"+6"
+			}
+			"speed"				"650"
+			"bonus_night_vision"		"1000"
+			"transformation_time"		"1.1"
+			"crit_chance"			
+			{
+				"value"			"30"
+				"special_bonus_unique_lycan_5"	"+30"
+			}
+			"crit_multiplier"		"170"
+			"health_bonus"			"0"
+		}
 	}
     "shadow_demon_demonic_purge"
 	{
@@ -12248,6 +12289,64 @@
 			
 		}
 	}
+	//=================================================================================================================
+	// Lycan: Summon Wolves
+	//=================================================================================================================
+	"lycan_summon_wolves"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5395"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilitySound"					"Hero_Lycan.SummonWolves"
+
+        "HasShardUpgrade"               "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30.0 30.0 30.0 30.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"145"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"wolf_index"				"1 2 3 4"
+			"wolf_duration"				"55"
+			"wolf_bat"					"1.2 1.1 1.0 0.9"
+			"wolf_damage"				"18 28 37 46"				
+			"wolf_hp"					
+			{
+				"value"	"200 240 280 320"
+				"special_bonus_unique_lycan_7"	"+200"
+			}
+			"bonus_health"
+			{
+				"value"			"0"
+				"special_bonus_unique_lycan_7"	"+200"
+			}
+			"bonus_damage"
+			{
+				"value"			"0"
+				"special_bonus_unique_lycan_3"	"+10"
+			}
+			"bash_chance"				"0"
+			"bash_duration"				"0"
+			"tooltip_wolf_count"			
+			{
+				"value"			"2 2 2 2"
+				"special_bonus_unique_lycan_2" "+2"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
 	// Rewrite of the Lycan Feral Impulse
 	// Author: chrislotix, Pizzalol
 	// Date: 24.03.2015.
@@ -18330,5 +18429,266 @@
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	"lycan_summon_wolves_critical_strike_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"lycan_summon_wolves_critical_strike"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_chance"				"30"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_damage"					"170"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_wolf_critical_strike"
+			{
+			    "Passive"   "1"
+			    "IsHidden"  "1"
+			    "OnAttackStart"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName" 	"modifier_wolf_critical_strike_crit"
+			            "Target" 		"CASTER"
+			        }
+	
+			        "Random"
+			        {
+			            "Chance" "%crit_chance"
+			            "OnSuccess"
+			            {
+			                "ApplyModifier"
+			                {
+			                    "ModifierName" 	"modifier_wolf_critical_strike_crit"
+			                    "Target"    	"CASTER"    
+			                }        
+			            }
+			        }
+			    }
+			}
+	
+			"modifier_wolf_critical_strike_crit"
+			{
+			    "IsHidden"  "1"
+			    "Properties"
+			    {
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_damage"
+			    }
+	
+			    "OnAttackLanded"
+			    {
+			        "RemoveModifier"
+			        {
+			            "ModifierName"  "modifier_wolf_critical_strike_crit"
+			            "Target"   		"CASTER"    
+			        }
+			    }
+			}
+		}
+	}
+	// Rewrite of the Lycan Howl
+	// Author: chrislotix, Pizzalol
+	// Date: 24.03.2015.
+	"lycan_howl_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"lycan_howl"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_lycan.vsndevts"		
+			"particle"		"particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf"
+			"particle"		"particles/units/heroes/hero_lycan/lycan_howl_buff.vpcf"		
+		}	
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"50 45 40 35"
+		"AbilityDuration"				"10"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"15 20 25 30"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"	"5"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"howl_duration"		"10.0"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"hero_bonus_damage"	"14 26 38 50"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"unit_bonus_damage"	"5 10 15 20"
+			}
+			// Extra
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_radius"		"9000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"think_interval"	"0.5"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Lycan.Howl"
+				"Target"	"CASTER"
+			}
+	
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf"
+				"EffectAttachType"	"start_at_customorigin"
+				
+				"ControlPointEntities"
+				{
+					"CASTER"	"attach_origin"
+					"CASTER"	"attach_hitloc"
+					"CASTER"	"attach_hitloc"
+				}
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_howl_datadriven"
+				"Target" 		"CASTER"
+				"Duration"		"%howl_duration"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_howl_datadriven"
+			{
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+	
+				"Aura"          	"modifier_howl_hero_datadriven"
+				"Aura_Radius"   	"%aura_radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"Aura_ApplyToCaster" "1"
+	
+				"OnCreated"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"CASTER"
+							"Radius" 	"%aura_radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+							"Types" 	"DOTA_UNIT_TARGET_BASIC"
+						}
+					
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"heroes/hero_lycan/howl.lua"
+								"Function"		"Howl"
+								"modifier"		"modifier_howl_unit_datadriven"
+							}
+						}
+					}
+				}
+	
+				"ThinkInterval"  "%think_interval"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"CASTER"
+							"Radius" 	"%aura_radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+							"Types" 	"DOTA_UNIT_TARGET_BASIC"
+						}
+					
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"heroes/hero_lycan/howl.lua"
+								"Function"		"Howl"
+								"modifier"		"modifier_howl_unit_datadriven"
+							}
+						}
+					}
+				}
+			}
+	
+			"modifier_howl_hero_datadriven"
+			{
+				"IsBuff"	"1"
+	
+				"EffectName"	"particles/units/heroes/hero_lycan/lycan_howl_buff.vpcf"
+				"EffectAttachType"	"attach_attack"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%hero_bonus_damage" 
+				}
+			}
+	
+			"modifier_howl_unit_datadriven"
+			{
+				"IsBuff"	"1"
+	
+				"EffectName"	"particles/units/heroes/hero_lycan/lycan_howl_buff.vpcf"
+				"EffectAttachType"	"attach_attack"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%unit_bonus_damage" 
+				}
+			}
+		}
 	}
 }
