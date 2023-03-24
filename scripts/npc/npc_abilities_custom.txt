@@ -1679,6 +1679,63 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5117"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Slardar.Amplify_Damage"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"25"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"6.0"	// Very valuable compared to cost.
+
+		
+		"AbilityValues"
+		{
+			"armor_reduction"		
+			{ 
+				"value"				"-10 -15 -20"
+				"special_bonus_unique_slardar_5"	"-4"
+			}
+			"duration"
+			{
+				"value"			"25"
+			}
+			"undispellable"
+			{
+				"value"			"0"
+				"special_bonus_unique_slardar_3"	"+1"
+			}
+			"puddle_radius"
+			{
+				"value"			"0"
+			}
+			"puddle_duration"
+			{
+				"value"			"0"
+			}
+		}
 	}
     "tidehunter_ravage"
 	{
@@ -4009,11 +4066,281 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
+	//=================================================================================================================
+	// Undying: Decay
+	//=================================================================================================================
+	"undying_decay"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"						"5442"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Undying.Decay.Cast"
+		"FightRecapLevel"				"1"
+		"HasScepterUpgrade"				"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_UNDYING_DECAY"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"625"
+		"AbilityCastPoint"				"0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10 8 6 4"
+		"AbilityDuration"				"40"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"70 90 110 130"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"decay_damage"					"20 60 100 140"
+				"LinkedSpecialBonus"			"special_bonus_unique_undying_8"
+
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"str_steal"						"4"
+			}	
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"decay_duration"				"40"
+				"LinkedSpecialBonus"			"special_bonus_unique_undying_4"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"radius"						"325"
+			}			
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"str_scale_up"					"1"
+			}		
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"str_steal_scepter"				"4"
+				"RequiresScepter"	"1"
+			}		
+			"07"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"creep_damage_multiplier"		"2.0"
+			}			
+		}
+	}
+	//=================================================================================================================
+	// Undying: Soul Rip
+	//=================================================================================================================
+	"undying_soul_rip"
+	{
+	// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5443"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Undying.SoulRip.Cast"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_UNDYING_SOUL_RIP"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"650"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"24 18 12 6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 75 100 125"		
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Modifier just does damage/healing
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_per_unit"			"18 22 26 35"
+				"LinkedSpecialBonus"			"special_bonus_unique_undying_6"
+			}			
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_units"					"10 12 14 16"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"1300"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"tombstone_heal"			"4 8 12 16"
+			}
+		}
+	}	
+	//=================================================================================================================
+	// Undying: Tombstone
+	//=================================================================================================================
+	"undying_tombstone"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5444"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"FightRecapLevel"				"1"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilitySound"					"Hero_Undying.Tombstone"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_UNDYING_TOMBSTONE"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.6"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 130 140 150"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tombstone_health"				"10 12 14 16"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hits_to_destroy_tooltip"				"5 6 7 8"
+				"LinkedSpecialBonus"		"special_bonus_unique_undying_5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"15 20 25 30.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600 800 1000 1200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_threshold_pct_tooltip"		"40"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"zombie_interval"		"3"
+			}
+		}
+	}
+	//TODO Aghs
     "undying_flesh_golem"
 	{
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5447"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Undying.FleshGolem"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"HasShardUpgrade"				"0"
+		"HasScepterUpgrade"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"75"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"slow"						"40 45 50"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_amp"				"25 30 35"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"					"6"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"str_percentage"			"40 50 60"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"30"
+			}	
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_bonus"			"30 40 50"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"shard_cooldown_reduction"			"35.0"
+				"RequiresShard"				"1"
+			}
+		}
 	}
     "rubick_spell_steal"
 	{
@@ -9015,8 +9342,8 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Slardar.Slithereen_Crush"
-        "HasScepterUpgrade"			"1"
-        "HasShardUpgrade"               "1"
+        "HasScepterUpgrade"			"0"
+        "HasShardUpgrade"               "0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -9030,7 +9357,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"85 100 115 130"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -9041,33 +9368,33 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"crush_radius"				"350"
+				"crush_radius"				"315"
 				"crush_extra_slow"				
 				{
-					"value"	"-20 -25 -30 -35"
+					"value"	"-20"
 					"LinkedSpecialBonus"	"special_bonus_unique_slardar_8"
 					"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
 				}
-				"crush_attack_slow_tooltip"		"-20 -25 -30 -35"
-				"crush_extra_slow_duration"		"3 4 5 6"
+				"crush_attack_slow_tooltip"		"-20"
+				"crush_extra_slow_duration"		"2"
 				"stun_duration"					
 				{
-					"value"															"1"
+					"value"															"1.6 1.9 2.2 2.5"
 					"special_bonus_unique_slardar_slithereen_crush_stun"			"+0.2"
 				}
 				"puddle_duration"		
 				{
-					"value"					"3 4 5 6"
+					"value"					"0"
 					"special_bonus_scepter"	"+0"
 				}
 				"puddle_radius"		
 				{
-					"value"				"250"
+					"value"				"0"
 					"special_bonus_scepter"	"+0"
 				}
 				"crush_damage"			
 				{
-					"value"					"70 140 210 280"
+					"value"					"50 100 150 200"
 					"LinkedSpecialBonus"	"special_bonus_unique_slardar"
 				}
 				"shard_amp_duration"			
@@ -9086,6 +9413,7 @@
 	//=================================================================================================================
 	// Ability: Slardar Guardian Sprint
 	//=================================================================================================================
+	//TODO extra damage
 	"slardar_sprint"
 	{
 		// General
@@ -9094,7 +9422,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_Slardar.Sprint"
-		"HasScepterUpgrade"				"1"
+		"HasScepterUpgrade"				"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -9103,25 +9431,25 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25"
+		"AbilityManaCost"				"0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"29 25 21 17"
+		"AbilityCooldown"				"23"
 		
 			"AbilityValues"
 		{			
-				"bonus_speed"					"25 30 35 40"
-				"duration"						"10"
-				"river_speed"					"15"
+				"bonus_speed"					"20 28 36 44"
+				"duration"						"16"
+				"river_speed"					"0"
 				"puddle_regen"				
 				{
-					"value"						"2 4 6 8"
+					"value"						"0"
 					"special_bonus_scepter"		"+0"
 				}
 				"puddle_armor"				
 				{
-					"value"						"1 2 3 4"
+					"value"						"0"
 					"special_bonus_scepter"		"+0"
 				}
 				"puddle_status_resistance"			
@@ -9129,7 +9457,7 @@
 					"value"						"0"
 					"RequiresScepter"			"1"
 				}
-                "river_speed_tooltip"			"15"
+                "river_speed_tooltip"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}	
@@ -16152,37 +16480,6 @@
 				"var_type"				"FIELD_INTEGER"
 				"creep_damage_pct"		"75"
 			}
-		}
-	}
-	"slardar_slithereen_crush"
-	{
-		"AbilityCooldown"				"8"
-		"AbilityManaCost"				"85 100 115 120"
-		"AbilityValues"
-		{
-				"crush_radius"				"350"
-				"crush_extra_slow"				
-				{
-					"value"	"-20"
-				}
-				"crush_attack_slow_tooltip"		"-20 -25 -30 -35"
-				"crush_extra_slow_duration"		"2"
-				"stun_duration"					
-				{
-					"value"															"1.6 1.9 2.2 2.5"
-				}
-				"puddle_duration"		
-				{
-					"value"					"0"
-				}
-				"puddle_radius"		
-				{
-					"value"				"0"
-				}
-				"crush_damage"			
-				{
-					"value"					"50 100 150 200"
-				}
 		}
 	}
 	//=================================================================================================================
