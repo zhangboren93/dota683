@@ -2674,11 +2674,43 @@
 				}
 		}
 	}
+	//TODO reduce enemy vision
     "night_stalker_darkness"
 	{
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5278"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Nightstalker.Darkness"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"0"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"				
+			{
+				"value"			"30.0"
+				"special_bonus_unique_night_stalker_7"	"+8"
+			}
+			"bonus_damage"			
+			{
+				"value"			"0"
+				"special_bonus_unique_night_stalker_3"	"+35"
+			}
+		}
 	}
     "weaver_time_lapse"
 	{
@@ -5833,11 +5865,206 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
-    "abyssal_underlord_dark_portal"
+	//=================================================================================================================
+	// Abyssal Underlord: Firestorm
+	//=================================================================================================================
+	//TODO burn damage fixed
+	"abyssal_underlord_firestorm"
 	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5613"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+        "HasShardUpgrade"               "0"
+
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.5"
+		"FightRecapLevel"				"1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 110 120 130"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"AbilityCooldown"
+				{
+					"value"	"14"
+					"special_bonus_unique_underlord_5"	"-4"
+				}
+				"radius"					
+				{
+					"value"					"450"
+					"special_bonus_unique_underlord_8"	"+100"
+				}
+				"wave_duration"					
+				{
+					"value"	"7.0"
+					"special_bonus_unique_underlord_7"	"+2"
+				}
+				"wave_count"					"6"
+				"wave_damage"					"25 40 55 70"
+				"wave_interval"					"1.0"
+				"burn_damage"					
+				{
+					"value"					"1.5 2 2.5 3"
+					"special_bonus_unique_underlord_4"	"+1"
+				}
+				"burn_interval"					"1.0"
+				"burn_duration"					"2.0"
+				"can_target_units"
+				{
+					"special_bonus_shard"	"+1"
+				}
+				"shard_wave_count_bonus"	
+				{
+					"special_bonus_shard"	"+3"
+				}
+				"shard_wave_interval_reduction"	
+				{
+					"special_bonus_shard"	"+25"
+				}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Abyssal Underlord: Pit of Malice
+	//=================================================================================================================
+	"abyssal_underlord_pit_of_malice"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5614"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_AbyssalUnderlord.PitOfMalice"
+
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.45"
+		"FightRecapLevel"				"1"
+
+		"HasScepterUpgrade"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"24 21 18 15"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 115 130 145"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"					"275"
+				"special_bonus_unique_underlord_6"	"+75"
+			}
+
+			"pit_duration"					"7.0"
+			"pit_interval"					"3.6"
+			"pit_damage"					"100"
+			"ensnare_duration"
+			{
+				"value"	"1 1.5 2 2.5"
+				"special_bonus_unique_underlord" "+0.65"
+			}
+			"speed_bonus"
+			{
+				"special_bonus_scepter" "+0"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+
+	//=================================================================================================================
+	// Abyssal Underlord: Atrophy Aura
+	//=================================================================================================================
+	"abyssal_underlord_atrophy_aura"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5615"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"	
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+
+		"AbilityValues"
+		{
+			"radius"						"900"
+			"damage_reduction_pct"
+			{
+				"value"		"18 26 34 42"
+				"special_bonus_unique_underlord_3"	"+15"
+			}
+			"bonus_damage_from_creep"		"5"
+			"bonus_damage_from_hero"		"30"
+			"bonus_damage_duration"			"30 35 40 45"
+			"bonus_shared_by_allies_pct"
+			{
+				"special_bonus_unique_underlord_9"	"+50"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	//=================================================================================================================
+	// Abyssal Underlord: Dark Rift
+	//=================================================================================================================
+	"abyssal_underlord_dark_rift"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5616"														
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"AbilitySound"					"Hero_AbyssalUnderlord.DarkRift.Cast"
+		"AbilityDraftUltScepterAbility"		"abyssal_underlord_dark_portal"
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+
+
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.6"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"130"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75 150 225"
+			
+		"AbilityValues"
+		{
+
+			"radius"						"450"
+			"teleport_delay"				"6.0 5.0 4.0"
+			"scepter_health_bonus" 
+			{
+				"special_bonus_scepter"	"+0"
+			}			
+		}
 	}
     "monkey_king_wukongs_command"
 	{
@@ -9000,6 +9227,7 @@
 	//=================================================================================================================
 	// Night Stalker: Void
 	//=================================================================================================================
+	// TODO no ahgs
 	"night_stalker_void"
 	{
 		// General
@@ -9007,7 +9235,7 @@
 		"ID"							"5275"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilitySound"					"Hero_Nightstalker.Void"
-        "HasScepterUpgrade"			"1"
+        "HasScepterUpgrade"			"0"
 
 		// Unit Targeting
 		//-------------------------------------------------------------------------------------------------------------
@@ -9022,8 +9250,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"525"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		"AbilityCooldown"				"11 10 9 8"
-		"AbilityManaCost"				"90 100 110 110"
+		"AbilityCooldown"				"8"
+		"AbilityManaCost"				"80 90 100 110"
 			
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -9035,25 +9263,113 @@
 		{
 			"damage"			
 			{
-				"value"		"80 160 240 320"
+				"value"		"90 160 255 335"
 				"special_bonus_unique_night_stalker_4"	"+50"
 			}
-			"duration_day"			"1.25"
-			"duration_night"		"2.5 3 3.5 4"
+			"duration_day"			"2"
+			"duration_night"		"4"
 			"movespeed_slow"		"-50"
-			"attackspeed_slow"		"-50"
+			"attackspeed_slow"		"-35"
 			"radius_scepter"		
 			{
-				"value"			"0"			
+				"value"			"-1"			
 				"RequiresScepter"		"1"
 			}
-			"scepter_ministun"		
-			{
-				"value"			"1.0"
-				"RequiresScepter"		"1"
-			}
+			"scepter_ministun"		"0.01"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Night Stalker: Crippling Fear
+	//=================================================================================================================
+	// single target
+	"night_stalker_crippling_fear"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5276"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Nightstalker.Trickling_Fear"
+
+		// Unit Targeting
+		//-------------------------------------------------------------------------------------------------------------
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"375"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"30 25 20 15"
+		"AbilityManaCost"				"90"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastGestureSlot"		"DEFAULT"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration_day"			"3.0 3.0 3.0 3.0"
+			"duration_night"		"4.5 5 5.5 6.0"
+			"radius"	"375"
+		}
+		
+	}
+	//=================================================================================================================
+	// Night Stalker: Hunter in the Night
+	//=================================================================================================================
+	"night_stalker_hunter_in_the_night"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5277"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+        "HasShardUpgrade"               "0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_movement_speed_pct_night"	
+			{
+				"value"			"20 25 30 35"
+				"special_bonus_unique_night_stalker_5" "+0"
+			}
+			"bonus_attack_speed_night"			
+			{
+				"value"			"45 60 75 90"
+				"special_bonus_unique_night_stalker_2"	"+100"
+			}
+			"bonus_status_resist_night"			
+			{
+				"value"			"0"
+				"special_bonus_unique_night_stalker_hunter_status_resist"	"+15"
+			}
+			"shard_hp_restore_pct"
+			{
+				"value"				"35"
+				"RequiresShard"		"1"
+			}
+			"shard_mana_restore_pct"
+			{
+				"value"				"25"
+				"RequiresShard"		"1"
+			}
+			"shard_cooldown"
+			{
+				"value"				"20"
+				"RequiresShard"		"1"
+			}
+			"shard_cast_range"
+			{
+				"value"				"125"
+				"RequiresShard"		"1"
+			}
+
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
 	}
 	//=================================================================================================================
 	// Death Prophet: Carrion Swarm ( Crypt Swarm )

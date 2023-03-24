@@ -47,6 +47,8 @@ Dota6.83版本移植，养老dota，best dota。
 - 土猫踢减速滚眩晕
 - 亚巴顿删A
 - CK拉减甲
+- 夜魔范围沉默，删A
+- 大屁股火雨百分比伤害，缠绕无伤害
 
 英雄改动：
 - 大部分英雄技能耗蓝CD伤害改动
@@ -83,7 +85,7 @@ Dota6.83版本移植，养老dota，best dota。
 - 沉默一技能削蓝，二技能法球
 - 光法波蓄力2345秒，2技能削蓝，A帐波回血，加回城技能
 - 死骑大便自杀，删A
-- 删A：小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,夜魔,tide,ember,猛犸
+- 删A：小强,圣堂,vs,pa,pl,幽鬼,tb,leshrac,sv,tide,ember,猛犸
 
 mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
