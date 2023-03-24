@@ -1,7 +1,6 @@
 -- Generated from template
 
 require("creepspawn")
-require("heroalias")
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
