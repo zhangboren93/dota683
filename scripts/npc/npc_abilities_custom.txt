@@ -1198,6 +1198,56 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5049"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Ability.MoonlightShadow"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.5 0.5 0.5"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"140.0 120.0 100.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fade_delay"			"2.5 2.0 1.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"15.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"		"0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"evasion"		"0"
+				"LinkedSpecialBonus"	"special_bonus_unique_mirana_5"
+			}
+		}
 	}
     "puck_dream_coil"
 	{
@@ -1582,6 +1632,49 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5125"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetFlags"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_VengefulSpirit.NetherSwap"
+		"HasScepterUpgrade"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700 950 1200"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 150 200"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage_reduction"	"0"
+			"damage_reduction_duration"	"0"
+			"damage"
+			{	
+				"value"							"0"
+				"special_bonus_unique_vengeful_spirit_swap_damage"			"+150"
+			}
+			"AbilityCooldown"
+			{
+				"value"				"45"
+				"special_bonus_scepter"		"-35"
+			}
+		}
 	}
 	//=================================================================================================================
 	// Windrunner: Focus Fire
@@ -2023,11 +2116,47 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
-    "riki_backstab"
+	//=================================================================================================================
+	// Riki: Smoke Screen
+	//=================================================================================================================
+	"riki_smoke_screen"
 	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5142"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Riki.Smoke_Screen"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"550"
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"11"
+		"AbilityDuration"				"6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75 80 85 90"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"radius"
+				{
+					"value"	"250 275 300 325"
+					"LinkedSpecialBonus"		"special_bonus_unique_riki_7"
+				}
+				"duration"					"6"
+				"miss_rate"					"40 50 60 70"
+		}
+		
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Enigma: Malefice
@@ -2798,11 +2927,236 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
-    "templar_assassin_psionic_trap"
+	//=================================================================================================================
+	// Templar Assassin: Refraction
+	//=================================================================================================================
+	"templar_assassin_refraction"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5194"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_TemplarAssassin.Refraction"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"17.0 17.0 17.0 17.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"instances"
+			{
+				"value"						"3 4 5 6"
+				"LinkedSpecialBonus"		"special_bonus_unique_templar_assassin"
+			}
+			"bonus_damage"				
+			{
+				"value"						"20 40 60 80"
+				"special_bonus_unique_templar_assassin_refraction_damage"		"+25"
+			}
+			"damage_threshold"			"5"
+			"duration"					"17.0 17.0 17.0 17.0"
+			"cast_while_disabled"
+			{
+				"value"					"0"
+				"special_bonus_unique_templar_assassin_refraction_disable_cast"				"+1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Templar Assassin: Meld
+	//=================================================================================================================
+	"templar_assassin_meld"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5195"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_TemplarAssassin.Meld"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7"
+		"AbilityDuration"				"10"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"50 100 150 200"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_armor"				"-2 -4 -6 -8"
+				"LinkedSpecialBonus"		"special_bonus_unique_templar_assassin_2"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	//=================================================================================================================
+	// Templar Assassin: Psi Blades
+	//=================================================================================================================
+	"templar_assassin_psi_blades"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5196"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_attack_range"		
+				{
+					"value"		"60 120 180 240"
+					"special_bonus_unique_templar_assassin_8"	"+120"
+				}
+				"attack_spill_range"		
+				{
+					"value"							"590 630 670 710"
+					"special_bonus_unique_templar_assassin_8"	"+120"
+				}
+				"attack_spill_width"		"90"
+				"attack_spill_pct"			"100"
+				"attack_spill_penalty"			"0"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}	
+	//=================================================================================================================
+	// Templar Assassin: Psionic Trap
+	//=================================================================================================================
+	"templar_assassin_psionic_trap"
 	{
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5197"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_TemplarAssassin.Trap"
+
+		"HasShardUpgrade"				"0"
+
+		"AbilityDraftPreAbility"			"templar_assassin_trap"
+		"AbilityDraftUltScepterAbility"		"templar_assassin_trap_teleport"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"2000"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"11.0 8.0 5.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"15 15 15"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"max_traps"					"5 8 11"
+				"LinkedSpecialBonus"		"special_bonus_unique_templar_assassin_6"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"trap_fade_time"			"2.0 2.0 2.0"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_speed_min"			"30"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"movement_speed_max"			"50"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"trap_duration_tooltip"			"5"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"trap_bonus_damage"			"0"
+				"LinkedSpecialBonus"	"special_bonus_unique_templar_assassin_3"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"trap_max_charge_duration"			"5"
+			}
+			"08"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"shard_min_silence_duration"		"1.5"
+				"RequiresShard"						"1"
+			}
+			"09"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"shard_max_silence_duration"		"3.5"
+				"RequiresShard"						"1"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_bonus_max_traps"			"4"
+				"RequiresShard"						"1"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_bonus_vision"			"125"
+				"RequiresShard"						"1"
+			}
+		}
 	}
     "viper_viper_strike"
 	{
@@ -6663,12 +7017,6 @@
 				"AbilityCooldown"	"50"				
 		}
 	}
-    "ember_spirit_fire_remnant"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-	}
 	//=================================================================================================================
 	// Earth Spirit: Stone Caller
 	//=================================================================================================================
@@ -7822,6 +8170,7 @@
 	}
 	"ursa_earthshock"
 	{
+		"HasShardUpgrade"				"0"
 		"AbilityDamage"					"90 140 190 240"
 		"AbilityManaCost"				"75"
 		"AbilityValues"
@@ -8282,7 +8631,7 @@
 		"02"
 		{
 			"var_type"					"FIELD_INTEGER"
-			"global_radius"				"9000"
+			"global_radius"				"19000"
 		}
 	}
 	
@@ -9052,10 +9401,161 @@
 			"12"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bash_damage"			"10 20 30 40"
+				"bash_damage"			"20 30 40 50"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Troll Warlord: Whirling Axes (Throw)
+	//=================================================================================================================
+	"troll_warlord_whirling_axes_ranged"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5509"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_TrollWarlord.WhirlingAxes.Ranged"
+		"HasScepterUpgrade"             "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_WHIRLING_AXES_RANGED"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"axe_width"					"100"
+			"axe_speed"					"1500.0"
+			"axe_range"					"950.0"
+			"axe_damage"				
+			{ 
+				"value"						"75"
+				"special_bonus_unique_troll_warlord_3"		"+90"
+			}
+			"axe_slow_duration"			
+			{
+				"value"						"3 3.75 4.5 5.25"
+				"special_bonus_unique_troll_warlord_whirling_axes_debuff_duration"				"+2"
+			}
+			"movement_speed"			"30"
+			"axe_spread"				"25"
+			"axe_count"					"5"
+			"AbilityCooldown"
+			{
+				"value"							"12"
+				"special_bonus_scepter"			"-0"
+			}
+			"AbilityManacost"
+			{
+				"value"							"50"
+				"special_bonus_scepter"			"-0"
+			}
+			"pierces_magic_immunity"
+			{
+				"value"											"0"
+				"special_bonus_unique_troll_warlord_6"			"+1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Troll Warlord: Whirling Axes Spin
+	//=================================================================================================================
+	"troll_warlord_whirling_axes_melee"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5510"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_TrollWarlord.WhirlingAxes.Melee"
+
+		"HasScepterUpgrade"             "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+ 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastPoint"				"0.0"
+
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value"					"75 125 175 225"
+				"special_bonus_unique_troll_warlord_3"		"+90"
+			}
+			"hit_radius"				"100"
+			"max_range"					"450.0"
+			"axe_movement_speed"		"1250"
+			"blind_duration"			
+			{
+				"value"						"4 5 6 7"
+				"special_bonus_unique_troll_warlord_whirling_axes_debuff_duration"				"+2"
+			}
+			"blind_pct"					"60"
+			"whirl_duration"			"3.0"
+			"AbilityCooldown"
+			{
+				"value"							"20 19 18 17"
+				"special_bonus_scepter"			"-0"
+			}
+			"AbilityManacost"
+			{
+				"value"							"50"
+				"special_bonus_scepter"			"-0"
+			}
+			"pierces_magic_immunity"
+			{
+				"value"											"0"
+				"special_bonus_unique_troll_warlord_6"			"+1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Troll Warlord: Fervor
+	//=================================================================================================================
+	"troll_warlord_fervor"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5511"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+ 		"AbilityCastAnimation"			"ACT_INVALID"
+		
+		// Casting
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_speed"			"16 22 28 34"
+				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_stacks"			"4"
+			}
+		}
 	}
 	// Rewrite of the Troll Warlord Battle Trance ability
 	// Author: Pizzalol
@@ -9631,6 +10131,7 @@
 		"AbilityCooldown"				"30 26 22 18"
 		"AbilityCharges"				"1"
 		"AbilityChargeRestoreTime"		"30 26 22 18"
+		"HasShardUpgrade"				"0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -10345,7 +10846,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"
 		
-		"HasScepterUpgrade"			"1"
+		"HasScepterUpgrade"			"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -10354,13 +10855,13 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bonus_base_damage"	"11 18 25 32"
+				"bonus_base_damage"	"12 20 28 36"
 				"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_2"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"aura_radius"		"1200"
+				"aura_radius"		"900"
 			}			
 			"03"
 			{
@@ -11869,13 +12370,15 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilitySound"					"Hero_EmberSpirit.FireRemnant.Cast"
 		"AbilityDraftPreAbility"		"ember_spirit_activate_fire_remnant"
-		"HasShardUpgrade"			"1"
-		"HasScepterUpgrade"			"1"
-
+		"HasShardUpgrade"			"0"
+		"HasScepterUpgrade"			"0"
+		"MaxLevel"              "3"
+		"RequiredLevel"         "6"
+		"LevelsBetweenUpgrades" "5"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1400"
+		"AbilityCastRange"				"1500"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCastAnimation"			"ACT_INVALID"
 
@@ -11896,15 +12399,15 @@
 				"speed_multiplier"				"250"
 				"AbilityChargeRestoreTime"		
 				{
-					"value"			"38.0"
+					"value"			"35.0"
 					"special_bonus_unique_ember_spirit_5"	"-12"
 				}
-				"damage"				"100 200 300"
+				"damage"				"100 150 200"
 				"radius"				"450"
 				"duration"				"45.0"
 				"scepter_range"
 				{
-					"value"			"1400"
+					"value"			"1500"
 					"RequiresScepter"	"1"
 				}
 				"scepter_speed_multiplier"	
@@ -12557,7 +13060,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Gyrocopter.FlackCannon"
-		"HasScepterUpgrade"				"1"
+		"HasScepterUpgrade"				"0"
 
 		"AbilityCastPoint"				"0 0 0 0"
 
@@ -12571,7 +13074,7 @@
 
 		//Duration
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"10"
+		"AbilityDuration"				"15"
 						
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -12624,6 +13127,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Gyrocopter.CallDown.Fire"
+		"HasScepterUpgrade"				"1"
 
 		
 		
@@ -12654,7 +13158,7 @@
 			}
 			"slow_first"				"50"
 			"slow_second"				"30"
-			"radius"					"600"
+			"radius"					"450"
 			"AbilityCastRange"
 			{
 				"value"					"1000"
@@ -18378,6 +18882,7 @@
 	//=================================================================================================================
 	"vengefulspirit_magic_missile"
 	{
+		"HasShardUpgrade"				"0"
 		"AbilityCooldown"				"13 12 11 10"
 		"AbilityManaCost"				"110 120 130 140"
 		"AbilityValues"
@@ -18393,6 +18898,73 @@
 				"value"						"500"
 			}
 		}
+	}
+	//=================================================================================================================
+	// Ability: Vengefulspirit Wave of Terror
+	//=================================================================================================================
+	"vengefulspirit_wave_of_terror"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5124"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_VengefulSpirit.WaveOfTerror"
+
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1400"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+		"AbilityDuration"				"15"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"30 50 70 90"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"40"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"wave_speed"		"2000.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"wave_width"		"325"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"armor_reduction"	"-3 -4 -5 -6"
+				"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_4"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"vision_aoe"		"350"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"vision_duration"	"4"
+			}
+			
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	"witch_doctor_paralyzing_cask"
 	{
@@ -18846,7 +19418,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"gold_steal"			"0.3 0.4 0.5"
+				"gold_steal"			"0"
 			}			
 			"07"
 			{
@@ -18871,8 +19443,72 @@
 				"damage_per_second"				"80 60 120 100"
 				"tick_interval"					"0.5"
 				"unit_count"					"2"
-				"radius_scepter"				"500"
+				"radius_scepter"				"400"
 		}
+	}
+	//=================================================================================================================
+	// Ember Spirit: Sleight of Fist
+	//=================================================================================================================
+	"ember_spirit_sleight_of_fist"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5604"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0"
+		"FightRecapLevel"				"1"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30 22 14 6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"250 350 450 550"
+			}
+			
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_hero_damage"			"20 40 60 80"
+				"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_6"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+						
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"attack_interval"				"0.2"
+			}
+
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"creep_damage_penalty"			"50"
+				"CalculateSpellDamageTooltip"	"0"
+
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"AbilityCharges"		""
+				"LinkedSpecialBonus"	"special_bonus_unique_ember_spirit_4"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	//=================================================================================================================
 	// Ability: Jakiro's Ice Path
@@ -20426,8 +21062,8 @@
 					"value"			"30 40 50 60"
 					"LinkedSpecialBonus"			"special_bonus_unique_ember_spirit_3"
 				}
-				"blind_pct"				"50"
-				"shield_pct_absorb"		"70"
+				"blind_pct"				"0"
+				"shield_pct_absorb"		"100"
 		}
 	}
 	//=================================================================================================================
@@ -20576,11 +21212,12 @@
 	//=================================================================================================================
 	"mirana_starfall"
 	{
+		"AbilityCooldown"				"12"
 		"AbilityManaCost"				"100 120 140 160"
 		"AbilityValues"
 		{
-			"starfall_radius"	"650"		
-			"starfall_secondary_radius"	"650"
+			"starfall_radius"	"625"		
+			"starfall_secondary_radius"	"190"
 			"secondary_starfall_damage_percent"	 "75"
 			"damage"	 
 			{
@@ -20588,6 +21225,99 @@
 				"special_bonus_unique_mirana_7"	"+200"						
 			}
 		}
+	}
+	//=================================================================================================================
+	// Ability: Mirana Arrow (sacred arrow)
+	//=================================================================================================================
+	"mirana_arrow"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5048"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Mirana.ArrowCast"
+        "HasScepterUpgrade"             "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"3000"
+		"AbilityCastPoint"				"0.5 0.5 0.5 0.5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"17"
+		"AbilityDuration"				"3.11 3.11 3.11 3.11"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"50 140 230 320"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 100 100 100"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arrow_speed"		"900.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arrow_width"		"115"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arrow_range"		"3000"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arrow_max_stunrange"	"1500"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arrow_min_stun"	"0.01"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"arrow_max_stun"	"5.0"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arrow_bonus_damage"	"140"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"arrow_vision"	"400"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"scepter_radius"		"0"
+				"RequiresScepter"		"1"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"scepter_starstorm_target_pct"		"0"
+				"RequiresScepter"		"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	"puck_illusory_orb"
 	{
