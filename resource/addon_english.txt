@@ -192,7 +192,7 @@
 		"DOTA_Tooltip_Ability_keeper_of_the_light_mana_leak_datadriven_Description"	"lasts %duration% seconds, stun for %stun_duration% seconds"
 		"DOTA_Tooltip_Ability_pudge_rot_datadriven"								"Rot"
 		"DOTA_Tooltip_Ability_pudge_rot_datadriven_Description"					"-20%% move speed"
-		"DOTA_Tooltip_Ability_pudge_meat_hook_Lore"								"Aghs 4 seconds CD"
+		"DOTA_Tooltip_Ability_pudge_dismember_Scepter_Description"				"+ damage based on strength"
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"					"Coil"
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_Description"		"self damage %self_damage%, target damage %target_damage% or heal %heal_amount%"
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven"					"Frostmourne"

@@ -1160,6 +1160,94 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5077"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"2"
+		"AbilityDraftPreAbility"		"pudge_eject"
+		"HasShardUpgrade"			"0"
+		"HasScepterUpgrade"			"1"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"160"
+		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 130 170"
+		
+		"AbilityValues"
+		{
+			"dismember_damage"		
+			{
+				"value"					"75 125 175"
+				"special_bonus_unique_pudge_3"	"x1.8"
+			}
+			"strength_damage"		
+			{
+				"value"				"0"
+				"special_bonus_scepter"	"+0.75"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"ticks"		
+			{
+				"value"						"6"
+				"special_bonus_unique_pudge_6"	"+2"
+			}
+			"pull_units_per_second"		"75"
+			"pull_distance_limit"		"125"
+			"animation_rate"		"1.5"
+			"AbilityChannelTime"			
+			{
+				"value"				"3.0 3.0 3.0"
+				"special_bonus_unique_pudge_6"	"+0.8"
+			}
+			"creep_dismember_duration_tooltip"	
+			{
+				"value"		"6.0"
+				"special_bonus_unique_pudge_6"	"+0.8"
+			}
+			"AbilityCooldown"				
+			{
+				"value"							"30"
+				"special_bonus_shard"			"-5"
+			}
+			"shard_regen_pct"			
+			{
+						"value"			"5"
+				"RequiresShard"			"1"
+			}
+			"order_lock_duration"		
+			{
+				"value"				"3"
+				"RequiresShard"			"1"
+			}
+			"shard_cast_range"		
+			{
+				"value"				"300"
+				"RequiresShard"			"1"
+			}
+			"shard_cooldown_reduction"		
+			{
+				"value"					"5.0"
+				"RequiresShard"			"1"
+			}
+		}
 	}
     "razor_eye_of_the_storm"
 	{
@@ -14726,12 +14814,12 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1300"
+		"AbilityCastRange"				"1000 1100 1200 1300"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"110"
+		"AbilityManaCost"				"110 120 130 140"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -14744,13 +14832,12 @@
 			}
 			"hook_speed"								"1450.0"
 			"hook_width"								"100"
-			"hook_distance"								"1300"
+			"hook_distance"								"1000 1100 1200 1300"
 			"vision_radius"		"500 500 500 500"
 			"vision_duration"	"4.0 4.0 4.0 4.0"
 			"AbilityCooldown"				
 			{
-				"value"								"18 16 14 12"
-				"special_bonus_scepter"				"-14 -12 -10 -8"
+				"value"								"14 13 12 11"
 			}
 			"vector_target_distance"
 			{
