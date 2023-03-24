@@ -1255,11 +1255,194 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
+	//=================================================================================================================
+	// Ability: Sand King Burrowsrike
+	//=================================================================================================================
+	"sandking_burrowstrike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5102"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"HasScepterUpgrade"			"0"
+		"AbilitySound"					"Ability.SandKing_BurrowStrike"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500 550 600 650"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"11"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"110 120 130 140"
+		
+		"AbilityDamage"					"100 160 220 280"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"burrow_width"		"150"
+			"burrow_duration"	
+			{
+				"value"			"1.65"
+				"special_bonus_unique_sand_king_burrowstrike_stun"				"+0.3"
+			}
+			"burrow_speed"		"2000"
+			"burrow_anim_time"	"0.52"
+			"cast_range_scepter"
+			{
+				"value"						"500 550 600 650"
+				"RequiresScepter"			"1"
+			}
+			"burrow_speed_scepter"
+			{
+				"value"		"2000"
+				"RequiresScepter"			"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Ability: Sand King Caustic Finale
+	//=================================================================================================================
+	"sandking_caustic_finale"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5104"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Ability.SandKing_CausticFinale"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"caustic_finale_radius"		"400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"caustic_finale_damage_base"		"90 130 170 220"
+				"LinkedSpecialBonus"	"special_bonus_unique_sand_king_8"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"caustic_finale_damage_pct"		"0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"caustic_finale_duration"	"8"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"caustic_finale_slow"		"-0"
+				"LinkedSpecialBonus"	"special_bonus_unique_sand_king_6"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+			}				
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
     "sandking_epicenter"
 	{
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5105"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Ability.SandKing_Epicenter"
+
+        "HasShardUpgrade"               "0"
+		"HasScepterUpgrade"				"1"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"3.0"
+		"AbilityCastPoint"				"2.0"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"175 250 325"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.2"	// Damage is the main component of spell
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"epicenter_radius"	
+			{
+				"value"		"400 400 400 400 400 400 400 400 400 400 400 400 400 400"
+				"special_bonus_unique_sand_king_5"	"+100"
+			}
+			
+			"epicenter_pulses"	
+			{
+				"value"		"6 8 10"
+				"special_bonus_scepter"	"+2"
+				"LinkedSpecialBonus"	"special_bonus_unique_sand_king"
+			}
+			"epicenter_damage"	"110"
+			"epicenter_slow"	
+			{
+				"value"			"-30"
+			}
+			"epicenter_slow_as"		
+			{
+				"value"			"-30"
+			}
+			"shard_radius"	
+			{
+				"value"		"425"
+				"special_bonus_unique_sand_king_5"	"+100"
+				"RequiresShard"	"1"
+			}
+			"shard_move_distance"
+			{
+				"value"				"700.0"
+				"RequiresShard"		"1"
+			}
+			"shard_epicenter_pulse_damage_bonus"
+			{
+				"value"			"10"
+				"RequiresShard"	"1"
+			}
+			"AbilityCooldown"
+			{
+				"value"	"140 120 100"
+				"special_bonus_scepter"	"-20"
+			}
+		}
 	}
     "storm_spirit_ball_lightning"
 	{
@@ -1742,6 +1925,47 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5121"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Ability.Ravage"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"150.0 150.0 150.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"200 290 380"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150 225 325"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius"			"825 925 1025"
+			"speed"				"725"
+			"duration"			
+			{
+				"value"					"1.5 1.8 2.25"
+				"special_bonus_unique_tidehunter_7"	"+1"
+			}
+		}
 	}
     "witch_doctor_death_ward"
 	{
@@ -3560,11 +3784,269 @@
 			"target_sight_radius"	"500 500 500"
 		}
 	}
+	//=================================================================================================================
+	// Spirit Breaker: Charge of Darkness
+	//=================================================================================================================
+	"spirit_breaker_charge_of_darkness"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5353"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+
+		"AbilitySound"					"Hero_Spirit_Breaker.ChargeOfDarkness"
+		"HasScepterUpgrade"			"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	".30" // applies multiple modifiers
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"movement_speed"		"300 325 350 375"
+				"LinkedSpecialBonus"	"special_bonus_unique_spirit_breaker_4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.2 1.6 2.0 2.4"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bash_radius"			"300 300 300 300"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"vision_radius"			"400 400 400 400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"vision_duration"		"0.94 0.94 0.94 0.94"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"scepter_cooldown"		"12"
+				"RequiresScepter"			"1"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"scepter_speed"		"0"
+				"RequiresScepter"			"1"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"scepter_cast_point"		"0.1"
+				"RequiresScepter"			"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Spirit Breaker: Empowering Haste
+	//=================================================================================================================
+	"spirit_breaker_empowering_haste"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5354"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Spirit_Breaker.EmpoweringHaste.Cast"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"16"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed_pct_self"	"6 10 14 18"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed_pct_allies"	"6 10 14 18"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"900"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed_pct_extra"		"3 5 7 9"
+			}
+			"05s"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"			"6"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	//=================================================================================================================
+	// Spirit Breaker: Greater Bash
+	//=================================================================================================================
+	"spirit_breaker_greater_bash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5355"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"AbilitySound"					"Hero_Spirit_Breaker.GreaterBash"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.5 1.5 1.5 1.5"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"	"40"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chance_pct"			"17 17 17 17"
+				"LinkedSpecialBonus"	"special_bonus_unique_spirit_breaker_1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"22 28 34 40"
+				"LinkedSpecialBonus"	"special_bonus_unique_spirit_breaker_3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1 1.2 1.4 1.5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"knockback_duration"	"0.5 0.5 0.5 0.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"knockback_distance"	"140 180 220 260"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"knockback_height"		"50 50 50 50"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed_pct"	"15"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"movespeed_duration"	"3.0 3.0 3.0 3.0"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
     "spirit_breaker_nether_strike"
 	{
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5356"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Spirit_Breaker.NetherStrike.Begin"
+
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"1.0"
+		"AbilityCastRange"				"700"
+		"AbilityCastRangeBuffer"		"500"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time			
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"80 70 60"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125 150 175"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage"				"150 250 350"
+			"fade_time"				"1.0 1.0 1.0"
+			"shard_bonus_damage"	
+			{
+				"value"				"0"
+				"RequiresShard"		"1"
+			}
+			"shard_break_duration"
+			{
+				"value"				"0.0"
+				"RequiresShard"		"1"
+			}
+			"shard_spell_immune_duration"
+			{
+				"value"				"0.0"
+				"RequiresShard"		"1"
+			}
+		}
 	}
 	//=================================================================================================================
 	// Alchemist: Acid Spray
@@ -4702,6 +5184,55 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5521"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Magnataur.ReversePolarity.Cast"
+
+		"AbilityDraftUltShardAbility"		"magnataur_horn_toss"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityCooldown"				"120 110 100"
+		"AbilityManaCost"				"200 250 300"
+		"AbilityCastRange"				"410 410 410"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Applies multiple modifiers
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"pull_radius"					"410"
+			"polarity_damage"				"50 125 200"
+			"hero_stun_duration"
+			{
+				"value"					"2.25 3 4"
+				"special_bonus_unique_magnus_5"	"+1"
+			}
+			"pull_duration"			"0.0 0.0 0.0"
+			"strength_buff_duration"
+			{
+				"value"					"0"
+				"special_bonus_unique_magnus_reverse_polarity_strength"			"+15"
+			}
+			"strength_per_stack"
+			{
+				"value"					"0"
+				"special_bonus_unique_magnus_reverse_polarity_strength"			"+12"
+			}
+		}
 	}
 	//=================================================================================================================
 	// Bristleback: Viscous Nasal Goo
@@ -10118,6 +10649,101 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
+	//=================================================================================================================
+	// Tidehunter: Kraken Shell
+	//=================================================================================================================
+	"tidehunter_kraken_shell"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5119"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySound"					"Hero_Tidehunter.KrakenShell"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_reduction"		"10 20 30 40"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_4"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_cleanse"		"600 550 500 450"
+				"LinkedSpecialBonus"	"special_bonus_unique_tidehunter_6"
+				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_reset_interval"	"6.0 6.0 6.0 6.0"
+
+				"CalculateSpellDamageTooltip"	"0"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	//=================================================================================================================
+	// Tidehunter: Anchor Smash
+	//=================================================================================================================
+	"tidehunter_anchor_smash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5120"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Tidehunter.AnchorSmash"
+
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7.0 6.0 5.0 4.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"30 40 50 60"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"attack_damage"			
+			{
+				"value"										"40 85 130 175"
+				"special_bonus_unique_tidehunter_9"			"+50"
+			}
+			"damage_reduction"		
+			{
+				"value"										"-45 -50 -55 -60"
+				"special_bonus_unique_tidehunter_3"			"-25"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"reduction_duration"							"6.0 6.0 6.0 6.0"
+			"radius"										"400"
+			"targets_buildings"
+			{
+				"value"										"0"
+				"special_bonus_unique_tidehunter_10"			"+1"
+			}
+			
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
 	// Rewrite of Enrage
 	// Author: YOLOSPAGHETTI
 	// Date: February 5, 2016
@@ -10411,7 +11037,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
 
-        "HasScepterUpgrade"             "1"
+        "HasScepterUpgrade"             "0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -10485,6 +11111,177 @@
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Magnataur: Skewer
+	//=================================================================================================================
+	"magnataur_skewer"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5520"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Magnataur.Skewer.Cast"
+		"HasScepterUpgrade"			"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 80 80 80"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_speed"					"900"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"750 900 1050 1200"
+				"LinkedSpecialBonus"	"special_bonus_unique_magnus_3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_pct"				"40"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_radius"				"145"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_duration"				"2.5"
+			}			
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_damage"			"70 140 210 280"
+			}			
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tree_radius"				"200"
+			}			
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tool_attack_slow"				"10 20 30 40"
+			}	
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"skewer_cooldown"				"30"
+				"RequiresScepter"	"1"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"skewer_manacost"				"80"
+				"RequiresScepter"	"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	//=================================================================================================================
+	// Magnataur: Empower
+	//=================================================================================================================
+	"magnataur_empower"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5519"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Magnataur.Empower.Cast"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"40"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.3"	// Easy to spam 
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"empower_duration"		"40"
+				"LinkedSpecialBonus"	"special_bonus_unique_magnus_4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage_pct"		"20 30 40 50"
+				"LinkedSpecialBonus"	"special_bonus_unique_magnus_2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cleave_damage_pct"		"20 30 40 50"
+				"LinkedSpecialBonus"	"special_bonus_unique_magnus_2"
+			}			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_starting_width"			"150"
+			}			
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_ending_width"			"360"
+			}			
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cleave_distance"			"650"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"aura_radius"			"900"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"self_multiplier"		"0"
+			}	
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	//=================================================================================================================
 	// Dragon Knight: Elder Dragon Form
