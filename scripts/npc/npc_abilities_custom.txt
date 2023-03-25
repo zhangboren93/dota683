@@ -7304,10 +7304,51 @@
 		"LevelsBetweenUpgrades" "5"
 	}
     "slark_shadow_dance"
+	//TODO Percentage heal
 	{
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5497"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Slark.ShadowDance"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityDraftUltShardAbility"		"slark_depth_shroud"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120 120 120"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			
+			"duration"					
+			{	
+				"value"			"4"
+				"LinkedSpecialBonus"	"special_bonus_unique_slark_3"
+			}
+			"fade_time"					"0.0 0.0 0.0"
+			"bonus_movement_speed"		"30 35 40"
+			"bonus_regen"			
+			{
+				"value"				"60 90 120"
+				"special_bonus_unique_slark_8"	"+40"
+			}
+			"activation_delay"			"0.5 0.5 0.5"
+			"neutral_disable"			"2.0 2.0 2.0"
+		}
 	}
     "medusa_stone_gaze"
 	{
@@ -9240,11 +9281,217 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
+	//=================================================================================================================
+	// Arc Warden: Flux
+	//=================================================================================================================
+	"arc_warden_flux"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5677"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_ArcWarden.Flux.Target"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"duration"						
+				{
+					"value"			"6.0"
+					"special_bonus_unique_arc_warden_4"	"+2"
+				}
+				"damage_per_second"				
+				{
+					"value"		"15 30 45 60"
+					"special_bonus_unique_arc_warden_2"		"+40"
+				}
+				"search_radius"					"225"
+				"think_interval"				"0.5"
+				"move_speed_slow_pct"				"50"
+				"AbilityCastRange"			
+				{
+					"value"				"600 700 800 900"
+					"special_bonus_unique_arc_warden_5"	"+175"
+				}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Arc Warden: Magnetic Field
+	//=================================================================================================================
+	"arc_warden_magnetic_field"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5678"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_ArcWarden.MagneticField.Cast"
+
+        "HasShardUpgrade"               "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_AW_MAGNETIC_FIELD"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"50"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+		
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius"					"275"
+			"duration"					"3.5 4.5 5.5 6.5"
+			"attack_speed_bonus"		
+			{
+				"value" 				"50 60 70 80"
+				"special_bonus_unique_arc_warden_3" 		"+40"
+			}
+			"evasion_chance"			"100"
+			"shard_magic_resist"
+			{
+
+				"value"						"40"
+				"RequiresShard"				"1"
+			}
+			"shard_slow_pct"
+			{
+				"value"						"30"
+				"RequiresShard"				"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Arc Warden: Spark Wraith
+	//=================================================================================================================
+	"arc_warden_spark_wraith"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5679"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_ArcWarden.SparkWraith.Activate"
+
+		"AbilityCastRange"				"2000"
+		"AbilityCastPoint"				"0.3"
+
+		"HasScepterUpgrade"               "0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"4.0 4.0 4.0 4.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius"									"375"
+			"activation_delay"							"3.0"
+			"duration"									"50"
+			"wraith_speed"								"400"
+			"spark_damage"
+			{
+			
+				"value"									"150 200 250 300"
+				"special_bonus_unique_arc_warden"		"+125"
+			}
+			"think_interval"							"0.2"
+			"wraith_vision_radius"						"300"
+			"wraith_vision_duration"					"3.34"
+			"ministun_duration"							"0"
+			"move_speed_slow_pct"						"0"
+			"scepter_activation_delay"
+			{
+				"value"									"100000"
+				"RequiresScepter"						"1"
+			}	
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	//TODO cost health and mana
     "arc_warden_tempest_double"
 	{
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5683"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_ArcWarden.TempestDouble"
+		"HasScepterUpgrade"				"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.15"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"65 60 55"
+
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value"				"20"
+				"special_bonus_unique_arc_warden_6"		"+12"
+			}
+			"bounty"				"180 240 300"
+			"penalty_distance"				"2000"
+			"attack_damage_penalty"				"0"
+			"tempest_double_cooldown_reduction"
+			{
+				"value"							"0"
+				"special_bonus_unique_arc_warden_7"		"+50"
+			}
+		}
 	}
 	//=================================================================================================================
 	// Abyssal Underlord: Firestorm
@@ -12844,6 +13091,76 @@
 		}
 	}
 	//=================================================================================================================
+	// Slark: Dark Pact
+	//=================================================================================================================
+	"slark_dark_pact"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5494"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Slark.DarkPact.Cast"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_INVALID"
+		"AbilityCastPoint"				"0.001 0.001 0.001 0.001"
+		"AbilityCastRange"				"325"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"9.0 8.0 7.0 6.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"55 50 45 40"	
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"delay"					"1.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pulse_duration"		"1.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"325"
+			}	
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_damage"			"75 150 225 300"
+				"LinkedSpecialBonus"	"special_bonus_unique_slark_2"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_pulses"			"10"
+			}	
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"pulse_interval"		"0.1"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"self_damage_pct"			"100"
+			}							
+		}
+	}
+	//=================================================================================================================
 	// Slark: Pounce
 	//=================================================================================================================
 	"slark_pounce"
@@ -12857,7 +13174,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Slark.Pounce.Cast"
-		"HasScepterUpgrade"				"1"
+		"HasScepterUpgrade"				"0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -12871,14 +13188,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"pounce_damage"			"0"
+			"pounce_damage"			"50 100 150 200"
 			"pounce_distance"		"700"
 			"pounce_speed"			"933.33"
 			"pounce_acceleration"	"7000.0"
 			"pounce_radius"			"120"
 			"leash_duration"		
 			{
-				"value"			"2.5 2.75 3 3.25"
+				"value"			"3.5"
 				"LinkedSpecialBonus"	"special_bonus_unique_slark"
 			}
 			"leash_radius"			"400"
@@ -12897,7 +13214,7 @@
 				"value"		"700"
 				"RequiresScepter"	"1"
 			}
-			"essence_stacks"	"0 1 2 3"
+			"essence_stacks"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -14959,6 +15276,132 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
+	// Rewrite of the Faceless Void Time Lock ability
+	// Author: Pizzalol
+	// Date: 06.01.2015.
+	// Changed 14.01.2015 - Reason: Added Timelock-Chronos Particle (Noya)
+	"faceless_void_time_lock_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"faceless_void_time_lock"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
+			"particle"			"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+			"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+		}
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"		"25"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration_creep"		"2.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chance_pct"			"10 15 20 25"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"40 50 60 70"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_time_lock_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+	
+				"OnAttackLanded"
+				{
+					"Random"
+					{
+						"Chance"	"%chance_pct"
+						"PseudoRandom"	"DOTA_PSEUDO_RANDOM_FACELESS_BASH"
+	
+						"OnSuccess"
+						{
+							"FireSound"
+							{
+								"EffectName"	"Hero_FacelessVoid.TimeLockImpact"
+								"Target"		"TARGET"
+							}
+	
+							"ApplyModifier"
+							{
+								"ModifierName"	"modifier_time_lock_stun_datadriven"
+								"Duration"		"%duration"
+								"Target"
+								{
+									"Center"	"TARGET"
+									"Types"		"DOTA_UNIT_TARGET_HERO"
+								}
+							}
+	
+							"ApplyModifier"
+							{
+								"ModifierName"	"modifier_time_lock_stun_datadriven"
+								"Duration"		"%duration_creep"
+								"Target"
+								{
+									"Center"	"TARGET"
+									"Types"		"DOTA_UNIT_TARGET_BASIC"
+								}
+							}
+	
+							"Damage"
+							{
+								"Target"	"TARGET"
+								"Type"		"DAMAGE_TYPE_MAGICAL"
+								"Damage"	"%bonus_damage"
+							}
+						}
+					}
+				}
+			}
+	
+			"modifier_time_lock_stun_datadriven"
+			{
+				"IsDebuff"	"1"
+	
+				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+	
+				"StatusEffectName"		"particles/status_fx/status_effect_faceless_chronosphere.vpcf"
+				"StatusEffectPriority"	"1"
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
 	//=================================================================================================================
 	// Faceless Void: Chronosphere
 	//=================================================================================================================
@@ -14976,16 +15419,17 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_FacelessVoid.Chronosphere"
+		"HasScepterUpgrade"				"1"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.35 0.35 0.35"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 225 300"
+		"AbilityManaCost"				"150 175 200"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -14995,7 +15439,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"radius"				"500"
+			"radius"				"450"
 			"duration"
 			{
 				"value"			"4.0 4.5 5.0"
@@ -15005,77 +15449,10 @@
 			"bonus_attack_speed"	"0"
 			"AbilityCooldown"
 			{
-				"value"					"160 150 140"
-				"special_bonus_scepter"	"-100 -90 -80"
+				"value"					"130 115 100"
+				"special_bonus_scepter"	"-70 -55 -40"
 			}
 		}
-	}
-	//=================================================================================================================
-	// Faceless Void: Time Walk
-	//=================================================================================================================
-	"faceless_void_time_walk"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5182"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"AbilitySound"					"Hero_FacelessVoid.TimeWalk"
-		"HasScepterUpgrade"			"1"
-
-		"HasShardUpgrade"               "1"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.3"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"24 18 12 6"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.25"	// mostly about the blink
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"3000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"650 700 750 800"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"backtrack_duration"	"2.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_faceless_void_7"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius_scepter"				"0"
-				"RequiresScepter"		"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_bonus_range"				"300"
-				"RequiresShard"			"1"
-			}
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Windrunner: Windrun
