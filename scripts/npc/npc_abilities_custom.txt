@@ -868,7 +868,7 @@
 		"01"
 		{
 			"var_type" "FIELD_INTEGER"
-			"visibility_threshold_pct" "25"
+			"visibility_threshold_pct" "30"
 		}
 		"02"
 		{
@@ -1002,7 +1002,7 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 		
-		"HasScepterUpgrade"				"1"
+		"HasScepterUpgrade"				"0"
 		"AbilityDraftUltScepterAbility"		"bloodseeker_blood_mist"
 
 
@@ -2914,11 +2914,144 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
+	//=================================================================================================================
+	// Ability: Phantom Assassin's Stifling Dagger
+	//=================================================================================================================
+	"phantom_assassin_stifling_dagger"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5190"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_PhantomAssassin.Dagger.Cast"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"30 25 20 15"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"move_slow"					"-50"
+				"dagger_speed"			"1200"
+				"duration"			"1 2 3 4"
+				"base_damage"			"60"
+				"attack_factor"
+				{
+					"value"				"-75 -60 -45 -30"
+					"special_bonus_unique_phantom_assassin_5"	"+20"
+				}
+				"attack_factor_tooltip"	
+				{
+					"value"				"25 40 55 70"
+					"special_bonus_unique_phantom_assassin_5"	"+20"
+					"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
+				}
+
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	
+	//=================================================================================================================
+	// Ability: Phantom Assassin's Phantom Strike
+	//=================================================================================================================
+	"phantom_assassin_phantom_strike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5191"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_PhantomAssassin.Strike.Start"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.25"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"14 11 8 5"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_attack_speed"	
+			{
+				"value"													"130"
+				"special_bonus_unique_phantom_assassin_strike_aspd"		"+60"
+			}
+
+			"duration"				
+			{
+				"value"						"3"
+				"special_bonus_unique_phantom_assassin_4"		"+1"
+			}
+			"AbilityCastRange"
+			{
+				"value"											"1000"
+				"special_bonus_unique_phantom_assassin_6"		"+250"				
+			}
+			"lifesteal_pct"						"0"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
     "phantom_assassin_coup_de_grace"
 	{
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5193"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilitySound"					"Hero_PhantomAssassin.CoupDeGrace"
+
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityDraftUltShardAbility"		"phantom_assassin_fan_of_knives"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_chance"				"15"
+				"LinkedSpecialBonus"		"special_bonus_unique_phantom_assassin_2"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_bonus"				"220 340 450"
+			}
+		}
 	}
     "pugna_life_drain"
 	{
@@ -3639,6 +3772,50 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5262"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Clinkz.DeathPact"
+		"AbilityDraftUltScepterAbility" "clinkz_burning_army"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"45 40 35"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"35"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_gain_pct"		"50 65 80"
+				"LinkedSpecialBonus"			"special_bonus_unique_clinkz_8"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_gain_pct"		"5 6.5 8"
+			}
+		}
 	}
     "omniknight_guardian_angel"
 	{
@@ -3800,11 +3977,241 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Weaver: The Swarm
+	//=================================================================================================================
+	"weaver_the_swarm"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5289"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Weaver.Swarm.Cast"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AbilityCastRange"				"3000"
+		"AbilityCooldown"				"36 33 30 27"
+		"AbilityManaCost"				"100"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.2"	// Primarily about the damage
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"15 20 25 30"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"attack_rate"		"1.35"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"count"				"12 12 12 12"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"armor_reduction"	"1 1 1 1"
+				"LinkedSpecialBonus"	"special_bonus_unique_weaver_3"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"14 16 18 20"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"destroy_attacks"	"4"
+				"LinkedSpecialBonus"	"special_bonus_unique_weaver_4"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"100 100 100 100"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"speed"				"750 750 750 750"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spawn_radius"		"300 300 300 300"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"shard_cooldown_reduction"		"2"
+				"RequiresShard"		"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+
+
+	//=================================================================================================================
+	// Weaver: Shukuchi
+	//=================================================================================================================
+	"weaver_shukuchi"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5290"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Weaver.Shukuchi"
+		"HasShardUpgrade"				"0"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0 0 0 0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12 10 8 6"
+
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"60"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage"				
+			{
+				"value"										"75 100 125 150"
+				"special_bonus_unique_weaver_1"				"+50"
+			}
+			"speed"					"250"
+			"radius"				"175 175 175 175"
+			"fade_time"				"0.25"
+			"duration"				"4.0 4.0 4.0 4.0"
+			"AbilityCharges"
+			{
+				"value"								"0"
+				"special_bonus_unique_weaver_6"		"+2"
+			}
+			"geminate_attack_mark_duration"
+			{
+				"value"									"0"
+				"special_bonus_shard"					"+6.0"
+			}
+			"shukuchi_attack_mark_radius"
+			{
+				"value"									"0"
+				"special_bonus_shard"					"+1200"
+			}
+		
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+
+	
+	//=================================================================================================================
+	// Ability: Weaver's Geminate Attack
+	//=================================================================================================================
+	"weaver_geminate_attack"
+	{
+		// General
+		"ID"					"5291"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityCooldown"				"6 5 4 3"
+
+		"AbilityCastRange"				"425"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"delay"			"0.25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tooltip_attack"			"1"
+				"LinkedSpecialBonus"	"special_bonus_unique_weaver_5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"0"
+				"LinkedSpecialBonus"	"special_bonus_unique_weaver_2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shard_beetle_search_range"			"1200"
+				"RequiresShard"			"1"
+			}
+			"05"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"shukuchi_attack_mark_radius"				"1200"
+
+			}				
+		}		
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
     "weaver_time_lapse"
 	{
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5292"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"		
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityCastRange"				"500"
+		"AbilitySound"					"Hero_Weaver.TimeLapse"
+
+		"FightRecapLevel"				"2"
+
+		"HasScepterUpgrade"			"0"
+
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityCooldown"				"60 50 40"
+		"AbilityManaCost"				"150 75 0"	
+		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown_scepter"		"40"
+				"RequiresScepter"		"1"
+			}					
+		}
 	}
     "jakiro_macropyre"
 	{
@@ -5732,6 +6139,58 @@
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5465"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_NyxAssassin.Vendetta"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+
+        "HasShardUpgrade"               "0"
+
+		"AbilityDraftUltScepterAbility"		"nyx_assassin_burrow"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"70 60 50"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"160 210 260"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			
+			"duration"				"20 35 50"
+			"fade_time"				"0.0"
+			"movement_speed"		"16 18 20"
+			"bonus_damage"			"250 400 550"
+			"health_regen_rate_scepter"		"0"
+			"mana_regen_rate_scepter"		"0"
+			"break_duration"		"0"
+			"shard_debuff_duration"	
+			{
+				"value" 			"4.0"
+				"RequiresShard"		"1"
+			}
+			"shard_magic_resist_reduction"	
+			{
+				"value" 			"17"
+				"RequiresShard"		"1"
+			}
+			"shard_movement_speed_bonus"	
+			{
+				"value" 			"25"
+				"RequiresShard"		"1"
+			}
+		}
 	}
     "naga_siren_song_of_the_siren"
 	{
@@ -14379,6 +14838,48 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
+	// Broodmother: Spin Web
+	//=================================================================================================================
+	"broodmother_spin_web"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5280"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Broodmother.SpinWebCast"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCooldown"				"0.0"
+		"AbilityManaCost"				"50"
+		"AbilityCharges"				"1 2 3 4"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius"				"900"
+			"count"					
+			{
+				"value"				"2 4 6 8"
+				"special_bonus_unique_broodmother_6" "+3"
+			}
+			"heath_regen"			"2 4 6 8"
+			"bonus_movespeed"		"18 28 38 48"
+			"AbilityChargeRestoreTime"	
+			{
+				"value"				"30"
+				"special_bonus_unique_broodmother_5" "-10"
+			}
+			"bonus_turn_rate"	"0.2"
+
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	//=================================================================================================================
 	// Broodmother: Insatiable Hunger
 	//=================================================================================================================
 	"broodmother_insatiable_hunger"
@@ -14389,7 +14890,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
-        "HasShardUpgrade"               "1"
+        "HasShardUpgrade"               "0"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
@@ -14436,6 +14937,40 @@
 					"RequiresShard"		"1"
 			}
 		}
+	}
+	//=================================================================================================================
+	// Broodmother: Incapacitating Bite
+	//=================================================================================================================
+	"broodmother_incapacitating_bite"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5281"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"miss_chance"			"30 40 50 60"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed"		"-10 -20 -30 -40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"			"2.0 2.0 2.0 2.0"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 // Rewrite of the Venomancer Poison Sting ability
 // Author: Pizzalol and Rook
@@ -16340,6 +16875,57 @@
 				}
 			}
 		}
+	}
+	//=================================================================================================================
+	// Clinkz: Wind Walk
+	//=================================================================================================================
+	"clinkz_wind_walk"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5261"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Clinkz.WindWalk"
+
+        "HasShardUpgrade"               "0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"20 25 30 35"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_time"					"0.6 0.6 0.6 0.6"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"move_speed_bonus_pct"		"11 22 33 44"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"shard_skeleton_count"		"2"
+				"RequiresShard"				"1"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 	// Rewrite of the Obsidian Destroyer Arcane Orb
 	// Author: chrislotix
@@ -18650,7 +19236,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		//"AbilityUnitTargetFlags"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_NagaSiren.Ensnare.Cast"
@@ -18742,16 +19328,108 @@
 	//=================================================================================================================
 	"nyx_assassin_impale"
 	{
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"13"
 		"AbilityManaCost"				"95 115 135 155"
 		"AbilityValues"
 		{
 				"width"				"140"
 				"duration"			"0.75 1.25 1.75 2.25"
-				"length"			"750"
+				"length"			"700"
 				"speed"				"1600"
 				"impale_damage"			"80 140 200 260"
 		}
+	}
+	//=================================================================================================================
+	// Nyx Assassin: Mana Burn
+	//=================================================================================================================
+	"nyx_assassin_mana_burn"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5463"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_NyxAssassin.ManaBurn.Target"
+
+		// Unit Targeting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"	
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600 600 600 600"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"28 20 12 4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"float_multiplier"		
+			{
+				"value"		"3.5 4 4.5 5"
+				"special_bonus_unique_nyx_5"			"+0.5"
+			}
+			"aoe"
+			{
+				"value"		"0"
+				"special_bonus_unique_nyx"		"+300"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	//=================================================================================================================
+	// Nyx Assassin: Spiked Carapce
+	//=================================================================================================================
+	"nyx_assassin_spiked_carapace"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5464"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_NyxAssassin.SpikedCarapace"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"23 20 17 14"
+		"AbilityCastPoint"				"0 0 0 0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"reflect_duration"			
+			{
+				"value"			"2.25"
+				"special_bonus_unique_nyx_carapace_reflect_duration"			"+0.5"
+			}
+			"stun_duration"
+			{
+				"value"					"0.6 1.2 1.8 2.4"
+				"special_bonus_unique_nyx_6"	"+0.6"
+			}
+			"damage_reflect_pct"				"100"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 	"ogre_magi_fireblast"
 	{
