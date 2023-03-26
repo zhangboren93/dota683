@@ -1932,6 +1932,7 @@
  "AttributeAgilityGain"   "2.1"  
  "AttributeBaseIntelligence" "21"  
  "AttributeIntelligenceGain"  "2.8"  
+		"Ability3"		"chen_test_of_faith"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
