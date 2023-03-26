@@ -242,5 +242,7 @@
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Scepter_Description"	"+damage, -CD, +duration"
 		"DOTA_Tooltip_Ability_puck_dream_coil_Scepter_Description"	"+break damage, +duration"
 		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"	"30s CD"
+		"DOTA_Tooltip_Ability_rubick_null_field_datadriven"						"Null Field"
+		"DOTA_Tooltip_Ability_rubick_null_field_datadriven_Description"			"%magic_damage_reduction_pct%%% magic resist aura"
 	}
 }
