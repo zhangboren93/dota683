@@ -28,3 +28,10 @@ function ArcaneOrb( keys )
 
 	ApplyDamage(damage_table)
 end
+
+function HiddenAbility(keys)
+	local caster = keys.caster
+	local ability = caster:FindAbilityByName("obsidian_destroyer_dummy_skill")
+	ability:SetLevel(1)
+	ability:CastAbility()
+end
