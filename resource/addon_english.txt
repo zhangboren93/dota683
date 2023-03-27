@@ -249,5 +249,7 @@
 		"DOTA_Tooltip_Ability_dazzle_weave_Scepter_Description"					"+cast range, +armor"
 		"DOTA_Tooltip_Ability_leshrac_pulse_nova_Scepter_Description"			"+damage"
 		"DOTA_Tooltip_Ability_visage_summon_familiars_Scepter_Description"			"+1"
+		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven"							"Enfeeble"
+		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven_Description"				"-%enfeeble_attack_reduction% damage, lasts 20 seconds"
 	}
 }
