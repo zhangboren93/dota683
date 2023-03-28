@@ -130,6 +130,8 @@
 		"DOTA_Tooltip_Ability_faceless_void_backtrack_Description"					"10/15/20/25%%伤害无效"
 		"DOTA_Tooltip_Ability_faceless_void_time_lock_datadriven"					"时间锁定"
 		"DOTA_Tooltip_Ability_faceless_void_time_lock_datadriven_Description"		"10/15/20/25%%+40/50/60/70伤害"
+		"DOTA_Tooltip_Ability_lina_fiery_soul_datadriven"							"炙魂"
+		"DOTA_Tooltip_Ability_lina_fiery_soul_datadriven_Description"				"施放技能时+%fiery_soul_attack_speed_bonus%攻速，+%fiery_soul_move_speed_bonus%%%移速，叠加3层，持续9秒"
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Scepter_Description"			"+300施放距离，无视魔法免疫"
 		"DOTA_Tooltip_Ability_windrunner_focusfire_Scepter_Description"		"CD15秒，加攻击"
 		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Scepter_Description"		"+200基础伤害"

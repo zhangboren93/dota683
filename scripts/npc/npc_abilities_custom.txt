@@ -2545,42 +2545,81 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Ability: Lina's Fiery Soul
-	//=================================================================================================================
-	"lina_fiery_soul"
+	// Rewrite of the Lina Fiery Soul ability
+	// Author: Pizzalol
+	// Date: 30.12.2014.
+	// NOTE: Works with items
+	"lina_fiery_soul_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5042"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"HasShardUpgrade"				"0"
-
+		"AbilityTextureName"			"lina_fiery_soul"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDuration"				"9"
+		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"AbilitySpecial"
 		{
-			"fiery_soul_attack_speed_bonus"	
+			"01"
 			{
-				"value"								"10 20 30 40"
-				"special_bonus_unique_lina_2"		"+15"
+				"var_type"					"FIELD_INTEGER"
+				"fiery_soul_attack_speed_bonus"	"40 55 70 85"
 			}
-			"fiery_soul_move_speed_bonus"	
+			"02"
 			{
-				"value"							"1.5 2 2.5 3"
-				"special_bonus_unique_lina_2"			"+1"
+				"var_type"					"FIELD_INTEGER"
+				"fiery_soul_move_speed_bonus"	"5 6 7 8"
 			}
-			"fiery_soul_max_stacks"		"7"
-			"fiery_soul_stack_duration"			"18"		
-			"bonus_spell_damage"
+			"03"
 			{
-				"value"								"0"
-				"special_bonus_shard"		"+15"
+				"var_type"					"FIELD_INTEGER"
+				"fiery_soul_max_stacks"		"3"
 			}
-												
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	
+	
+		"Modifiers"
+		{
+			"modifier_fiery_soul_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+	
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_lina/fiery_soul.lua"
+						"Function"		"FierySoul"
+					}
+				}
+			}
+	
+			"modifier_fiery_soul_buff_stack_datadriven"
+			{
+				"Duration"	"%AbilityDuration"
+				"IsBuff"	"1"
+			}
+	
+			"modifier_fiery_soul_buff_datadriven"
+			{
+				"IsHidden"		"1"
+				"Duration"		"%AbilityDuration"
+	
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%fiery_soul_attack_speed_bonus"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%fiery_soul_move_speed_bonus"
+				}
+			}
+		}
 	}
 	"lina_laguna_blade"
 	{

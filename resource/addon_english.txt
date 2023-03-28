@@ -131,6 +131,8 @@
 		"DOTA_Tooltip_Ability_faceless_void_time_lock_datadriven"					"Time Lock"
 		"DOTA_Tooltip_Ability_faceless_void_time_lock_datadriven_Description"		"10/15/20/25%%+40/50/60/70 damage"
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Scepter_Description"				"+300 cast range, pure damage, ignores spell immunity"
+		"DOTA_Tooltip_Ability_lina_fiery_soul_datadriven"							"Fiery Soul"
+		"DOTA_Tooltip_Ability_lina_fiery_soul_datadriven_Description"				"when cast spells +%fiery_soul_attack_speed_bonus% attack speed, +%fiery_soul_move_speed_bonus%%% move speed, max stack 3, lasts 9 seconds"
 		"DOTA_Tooltip_Ability_windrunner_focusfire_Scepter_Description"				"CD 15 seconds，+damage"
 		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Scepter_Description"		"+200 basic damage"
 		"DOTA_Tooltip_ability_juggernaut_omni_slash_scepter_description" 				"CD 70seconds，duration +1.5 seconds"

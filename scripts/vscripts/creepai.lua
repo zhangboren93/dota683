@@ -169,7 +169,7 @@ function modifier_creep_ai:selectTarget()
         local buildings = {}
         for i=1,#units do
             if units[i]:IsBuilding() then
-                table.insert(builldings, units[i])
+                table.insert(buildings, units[i])
             end
         end
         if #buildings > 0 then
