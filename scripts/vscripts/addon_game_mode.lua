@@ -752,6 +752,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:FindAbilityByName("tusk_frozen_sigil_aura_datadriven"):SetLevel(
 			entity:GetOwner():FindAbilityByName("tusk_frozen_sigil"):GetLevel())
 	end
+	if entity:HasAbility("pugna_nether_ward_aura_datadriven") then
+		entity:FindAbilityByName("pugna_nether_ward_aura_datadriven"):SetLevel(
+			entity:GetOwner():FindAbilityByName("pugna_nether_ward"):GetLevel())
+	end
 end
 
 function isAtWardPoint(position, x, y)

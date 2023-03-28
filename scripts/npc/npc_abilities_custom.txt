@@ -4674,6 +4674,7 @@
 				"attacks_to_destroy_tooltip"				"4 4 4 4"
 				"spell_damage_reduction"	"0"
 				"shard_ward_bonus_cast_range"			"350"
+				"mana_regen_datadriven"		"-1.5 -3 -4.5 -6"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -28693,8 +28694,59 @@
 			}
 	
 		}
+	}
+	"pugna_nether_ward_aura_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1600"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"mana_regen"			"-1.5 -3 -4.5 -6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"1600"
+			}
+		}
 	
+		"Modifiers"
+		{
+			"modifier_pugna_mana_regen_aura"
+			{
+				"Passive" 			"1"
+				"IsHidden" 			"1"
+				"IsBuff"			"1"
 	
+				"Aura" 				"modifier_nether_ward_aura_mana_reduct_effect"
+				"Aura_Radius" 		"%radius"
+				"Aura_Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+			}
+	
+			"modifier_nether_ward_aura_mana_reduct_effect"
+			{
+				"IsDebuff"			"1"
+				"IsHidden" 			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%mana_regen"
+				}
+			}
+		}
 	}
 	//=================================================================================================================
 	// Windrunner: Shackleshot

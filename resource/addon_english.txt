@@ -255,5 +255,6 @@
 		"DOTA_Tooltip_Ability_visage_summon_familiars_Scepter_Description"			"+1"
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven"							"Enfeeble"
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven_Description"				"-%enfeeble_attack_reduction% damage, lasts 20 seconds"
+		"DOTA_Tooltip_Ability_pugna_nether_ward_Lore"							"mana regen -1.5/3/4.5/6"
 	}
 }
