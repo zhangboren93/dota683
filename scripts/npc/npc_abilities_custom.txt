@@ -17653,56 +17653,89 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	//=================================================================================================================
-	// Ability: Slardar Guardian Sprint
-	//=================================================================================================================
-	//TODO extra damage
-	"slardar_sprint"
+	// Rewrite of the Slardar Sprint
+	// Author: chrislotix
+	// Date: 01.01.2015.
+	"slardar_sprint_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5114"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"Hero_Slardar.Sprint"
-		"HasScepterUpgrade"				"0"
-
+		"AbilityTextureName" 	"slardar_sprint"
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		 {
+		  "soundfile"   "soundevents/game_sounds_heroes/game_sounds_slardar.vsndevts"
+		  "particle"	"particles/units/heroes/hero_slardar/slardar_sprint.vpcf"
+	
+		 }
+	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
-
+	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"23"
 		
-			"AbilityValues"
-		{			
-				"bonus_speed"					"20 28 36 44"
-				"duration"						"16"
-				"river_speed"					"0"
-				"puddle_regen"				
-				{
-					"value"						"0"
-					"special_bonus_scepter"		"+0"
-				}
-				"puddle_armor"				
-				{
-					"value"						"0"
-					"special_bonus_scepter"		"+0"
-				}
-				"puddle_status_resistance"			
-				{
-					"value"						"0"
-					"RequiresScepter"			"1"
-				}
-                "river_speed_tooltip"			"0"
+		"AbilitySpecial"	
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_damage"				"15"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"bonus_speed"				"20 28 36 44"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"16"
+			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	
+		"OnSpellStart"
+	    {
+	        "ApplyModifier"
+	        {
+	            "Target" "CASTER"
+	            "ModifierName" "modifier_sprint_datadriven"
+	        }
+	        "FireSound"
+	        {
+	        	"EffectName" "Hero_Slardar.Sprint"
+	        	"Target"	 "CASTER"
+	        }
+	    }
+	    "Modifiers"
+	    {
+	    	"modifier_sprint_datadriven"
+	    	{
+	    		"IsBuff" "1"
+	    		"Duration" "%duration"
+	    		"EffectName"	"particles/units/heroes/hero_slardar/slardar_sprint.vpcf"
+		    	"EffectAttachType"	"follow_origin"
+	
+	
+	    		"Properties"
+		    	{
+		    		"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%bonus_damage"
+		    		"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_speed"
+		    	}
+	
+		    	
+	
+	
+	    	}
+	
+	    }
+	
 	}	
 	//=================================================================================================================
 	// Ability: Storm Bolt (Storm Hammer)

@@ -93,6 +93,8 @@
 		"DOTA_Tooltip_Ability_viper_viper_strike_Scepter_Description"	"-CD，-魔耗，+距离"
 		"DOTA_Tooltip_Ability_slardar_bash_datadriven"			"击晕"
 		"DOTA_Tooltip_Ability_slardar_bash_datadriven_Description"	"%chance%% 击晕%duration% 秒 + %bonus_damage% 伤害"
+		"DOTA_Tooltip_Ability_slardar_sprint_datadriven"				"冲刺"
+		"DOTA_Tooltip_Ability_slardar_sprint_datadriven_Description"	"+%bonus_speed%%%移速，+15%%接收伤害，持续16秒"
 		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven"				"冰箭"
 		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven_Description"	"法球：移速%frost_arrows_movement_speed%%%，持续1.5秒"
 		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven"				"强击光环"
