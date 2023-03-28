@@ -102,7 +102,7 @@ function modifier_creep_ai:OnIntervalThink()
             if target.priority == PRIORITY_ATTACKING_HERO then
                 self.targetCooldown = GameRules:GetDOTATime(false, false) + 2
                 self.state = AI_STATE_AGGRO_COOLDOWN
-              --  print("Entering aggro cooldown")
+                --print("Entering aggro cooldown")
             end
             return
         end
@@ -161,12 +161,17 @@ function modifier_creep_ai:selectTarget()
     local entity = self:GetParent()
     local position = entity:GetAbsOrigin()
     --print(self.kv.seige)
+    local units = FindUnitsInRadius(
+        entity:GetTeam(), position, entity, self.kv.alertRadius, 
+        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_CLOSEST, false)
     if self.kv.seige > 0 then
-        --print("Attacks buildings")
-        local buildings = FindUnitsInRadius(
-            entity:GetTeam(), position, nil, self.kv.alertRadius, 
-            DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE,
-            FIND_CLOSEST, false)
+        local buildings = {}
+        for i=1,#units do
+            if units[i]:IsBuilding() then
+                table.insert(builldings, units[i])
+            end
+        end
         if #buildings > 0 then
             return {
                 unit = buildings[1],
@@ -174,26 +179,30 @@ function modifier_creep_ai:selectTarget()
             }
         end
     end
-    local heroes = FindUnitsInRadius(
-        entity:GetTeam(), position, nil, self.kv.alertRadius, 
-        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE,
-        FIND_CLOSEST, false)
+    local heroes = {}
+    for i=1,#units do
+        if units[i]:IsHero() then
+            table.insert(heroes, units[i])
+        end
+    end
     for i=1,#heroes do
         local unitAggroTarget = heroes[i]:GetAggroTarget()
         if unitAggroTarget ~= nil and unitAggroTarget:IsHero() and unitAggroTarget:GetTeam() == entity:GetTeam() then
            -- print("Find unit attacking hero")
-           -- print(heroes[i]:GetName() .. " aggros on " .. unitAggroTarget:GetName())
+            --print(heroes[i]:GetName() .. " aggros on " .. unitAggroTarget:GetName())
             return {
                 unit = heroes[i],
                 priority = PRIORITY_ATTACKING_HERO
             }
         end
     end
-    local creepunits = FindUnitsInRadius(
-        entity:GetTeam(), position, nil, self.kv.alertRadius, 
-        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_NONE,
-        FIND_CLOSEST, false)
+    local creepunits = {}
     -- by default attack creep unit first
+    for i=1,#units do
+        if units[i]:IsCreep() then
+            table.insert(creepunits, units[i])
+        end
+    end
     if #creepunits > 0 then
         return {
             unit = creepunits[1],
@@ -201,11 +210,8 @@ function modifier_creep_ai:selectTarget()
         }
     end
     -- attack other units
-    local units = FindUnitsInRadius(
-        entity:GetTeam(), position, nil, self.kv.alertRadius, 
-        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
-        FIND_CLOSEST, false)
     if #units > 0 then
+        --print("Priority not creep")
         return {
             unit = units[1],
             priority = PRIORITY_NOT_CREEP
