@@ -10,7 +10,7 @@ function AstralImprisonmentEnd( keys )
 
 	StopSoundEvent(sound_name, target)
 
-	target:RemoveNoDraw()	
+	--target:RemoveNoDraw()	
 end
 
 --[[Author: Pizzalol
@@ -19,5 +19,5 @@ end
 function AstralImprisonmentStart( keys )
 	local target = keys.target
 
-	target:AddNoDraw()
+	--target:AddNoDraw()
 end
