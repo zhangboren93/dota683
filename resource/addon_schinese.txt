@@ -260,5 +260,9 @@
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven"							"虚弱"
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven_Description"				"-%enfeeble_attack_reduction%攻，持续20秒"
 		"DOTA_Tooltip_Ability_pugna_nether_ward_Lore"							"回蓝-1.5/3/4.5/6"
+		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven"				"拉"
+		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven_Description"	"+%bonus_damage%攻"
+		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven"					"幻象"
+		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven_Description"		"创建1/2/3个幻象"
 	}
 }
