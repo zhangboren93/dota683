@@ -249,6 +249,8 @@
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven"						"Null Field"
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven_Description"			"%magic_damage_reduction_pct%%% magic resist aura"
 		"DOTA_Tooltip_Ability_dazzle_weave_Scepter_Description"					"+cast range, +armor"
+		"DOTA_Tooltip_Ability_dazzle_poison_touch_datadriven"					"Poison Touch"
+		"DOTA_Tooltip_Ability_dazzle_poison_touch_datadriven_Description"		"-move speed, 4th level stuns, lasting damage"
 		"DOTA_Tooltip_Ability_leshrac_pulse_nova_Scepter_Description"			"+damage"
 		"DOTA_Tooltip_Ability_visage_summon_familiars_Scepter_Description"			"+1"
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven"							"Enfeeble"
