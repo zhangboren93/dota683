@@ -150,9 +150,9 @@ function modifier_item_bloodstone_datadriven_aura_emitter_on_death(keys)
 				if individual_hero:HasItemInInventory("item_bloodstone_datadriven") and not individual_hero:IsAlive() then  --If the hero is still dead and has a Bloodstone.
 					if individual_hero:GetTeam() ~= killed_entity:GetTeam() and individual_hero:GetRangeToUnit(killed_entity) <= 1200 then  --If the killed unit is an enemy and within range of the Bloodstone glyph.
 						if killed_entity:GetTeam() ~= attacker_entity:GetTeam()then  --If the killed entity was not denied.
-							individual_hero:AddExperience(killed_entity:GetDeathXP(), false, false)
+							individual_hero:AddExperience(killed_entity:GetDeathXP(), DOTA_ModifyXP_HeroKill, false, false)
 						elseif not killed_entity:IsHero() then  --If the killed entity was denied.  Denied heroes do not award experience.
-							individual_hero:AddExperience(killed_entity:GetDeathXP() * .5, false, false)  --Denied creeps grant 50% experience.  Change this value if this mechanic is ever changed.
+							individual_hero:AddExperience(killed_entity:GetDeathXP() * .5, DOTA_ModifyXP_HeroKill, false, false)  --Denied creeps grant 50% experience.  Change this value if this mechanic is ever changed.
 						end
 					end
 				end

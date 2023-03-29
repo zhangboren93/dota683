@@ -38,6 +38,6 @@ function DarkRitual( event )
 	target:ForceKill(true)
 
 	for _,v in pairs(heroes) do
-		v:AddExperience(split_XP, false, false)
+		v:AddExperience(split_XP, DOTA_ModifyXP_CreepKill false, false)
 	end
 end

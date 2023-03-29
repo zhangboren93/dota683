@@ -129,6 +129,10 @@ function CAddonTemplateGameMode:InitGameMode()
 		Dynamic_Wrap(CAddonTemplateGameMode, "RuneSpawnFilter"), self)
 	GameRules:GetGameModeEntity():SetBountyRunePickupFilter(
 		Dynamic_Wrap(CAddonTemplateGameMode, "BountyRunePickupFilter"), self)
+	GameRules:GetGameModeEntity():SetModifyGoldFilter(
+		Dynamic_Wrap(CAddonTemplateGameMode, "ModifyGoldFilter"), self)
+	GameRules:GetGameModeEntity():SetModifyExperienceFilter(
+		Dynamic_Wrap(CAddonTemplateGameMode, "ModifyExperienceFilter"), self)
 
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(self, event.entindex, event.is_respawn)
@@ -922,7 +926,7 @@ function HandleRuneActivated(playerid, rune)
 		end
 		print("bounty picked up " .. bounty .. " " .. exp)
 		hero:ModifyGold(bounty, true, DOTA_ModifyGold_BountyRune)
-		hero:AddExperience(exp, DOTA_ModifyXP_Unspecified, false, false)
+		hero:AddExperience(exp, DOTA_ModifyXP_TomeOfKnowledge, false, false)
 		local bottle = hero:FindItemInInventory("item_bottle")
 		if bottle ~= nil and bottle:GetItemState() == 1 then
 			bottle:SetCurrentCharges(3)
@@ -961,4 +965,19 @@ function randomUnpickedPlayers()
 			PlayerResource:GetPlayer(playerid):MakeRandomHeroSelection()
 		end
 	end
+end
+
+function CAddonTemplateGameMode:ModifyGoldFilter(event)
+	if event.reason_const == DOTA_ModifyGold_WardKill and event.gold > 0 then
+		event.gold = 50
+	end
+	return true
+end
+
+function CAddonTemplateGameMode:ModifyExperienceFilter(event)
+	if event.reason_const == DOTA_ModifyXP_Unspecified and event.experience > 50 then
+		print("cap unspecified XP")
+		event.experience = 50
+	end
+	return true
 end
