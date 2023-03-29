@@ -644,6 +644,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 1
 			end, "doom", 1);
+		elseif entity:GetName() == "npc_dota_hero_slark" then
+			entity:FindAbilityByName("slark_shadow_dance_heal_datadriven"):SetLevel(1)
 		end
     end
 
