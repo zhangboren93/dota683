@@ -111,6 +111,8 @@
 		"DOTA_Tooltip_Ability_troll_warlord_battle_trance_datadriven_Description"	"全体英雄+%attack_speed%攻速，持续7秒"
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven"				"隐身"
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_Description"	"靠近树木隐身，2秒渐隐，持续%duration%秒"
+		"DOTA_Tooltip_Ability_treant_living_armor_datadriven"				"树甲"
+		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_Description"	"格挡%damage_block%伤害%damage_count%次，每秒回血%health_regen%，持续%duration%秒"
 		"DOTA_Tooltip_Ability_meepo_geostrike_datadriven"				"被动"
 		"DOTA_Tooltip_Ability_meepo_geostrike_datadriven_Description"	"%slow%% 移速%damage%/秒伤害，持续2秒，可叠加"
 		"DOTA_Tooltip_Ability_static_field_datadriven"				"静电力场"

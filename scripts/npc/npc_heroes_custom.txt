@@ -1542,6 +1542,7 @@
  "AttributeBaseIntelligence" "17"  
  "AttributeIntelligenceGain"  "1.8"  
 		"Ability1"		"treant_natures_guise_datadriven"
+		"Ability3"		"treant_living_armor_datadriven"
 		"Ability5"		"generic_hidden"
 		"MovementTurnRate"		"0.500000"
 		"Ability10"		"special_bonus_all_stats_4"

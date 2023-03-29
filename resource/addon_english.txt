@@ -111,6 +111,8 @@
 		"DOTA_Tooltip_Ability_troll_warlord_battle_trance_datadriven_Description"	"All allie heroes +%attack_speed% attack speed, lasts 7 seconds"
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven"				"Natures guise"
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_Description"	"Near tree, invis in 2 seconds, lasts %duration% seconds"
+		"DOTA_Tooltip_Ability_treant_living_armor_datadriven"				"Living Armor"
+		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_Description"	"block %damage_block% for %damage_count% times, health regen +%health_regen%, lasts %duration% seconds"
 		"DOTA_Tooltip_Ability_meepo_geostrike_datadriven"				"Geostrike"
 		"DOTA_Tooltip_Ability_meepo_geostrike_datadriven_Description"	"slow %slow%%% and damage %damage%/s, lasts 2 seconds, stacks"
 		"DOTA_Tooltip_Ability_static_field_datadriven"				"Static Field"
