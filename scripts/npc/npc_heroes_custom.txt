@@ -536,6 +536,7 @@
  "AttributeBaseIntelligence"  "18" 
  "AttributeIntelligenceGain"   "1.95"
 		"MovementTurnRate"		"0.500000"
+		"Ability3"		"naga_siren_rip_tide_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
