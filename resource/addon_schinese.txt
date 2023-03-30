@@ -267,5 +267,7 @@
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven_Description"	"+%bonus_damage%攻"
 		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven"					"幻象"
 		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven_Description"		"创建1/2/3个幻象"
+		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven"						"过载"
+		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven_Description"			"+%bonus_attack_speed%攻速，%bonus_damage_pct%%%减伤，每秒消耗生命魔法%drain_pct_tooltip%%%"
 	}
 }

@@ -267,5 +267,7 @@
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven_Description"	"+%bonus_damage% damage"
 		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven"					"Phantasm"
 		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven_Description"		"create 1/2/3 illusions"
+		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven"						"Overcharge"
+		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven_Description"			"+%bonus_attack_speed% attack speed, reduce incoming damage by %bonus_damage_pct%%%, cost %drain_pct_tooltip%%% health and mana per second"
 	}
 }

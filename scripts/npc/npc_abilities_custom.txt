@@ -10382,7 +10382,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Wisp.Spirits.Cast"
-        "HasScepterUpgrade"			"1"
+        "HasScepterUpgrade"				"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -10400,79 +10400,213 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"creep_damage"				"8 14 20 26"
+				"hero_damage"				
+				{
+					"value"					"25 50 75 100"
+					"special_bonus_scepter"	"-25 -50 -75 -100"
+				}
+				"revolution_time"			"5.0 5.0 5.0 5.0"
+				"min_range"					"200"
+				"max_range"					"650"
+				"hero_hit_radius"			"110"
+				"explode_radius"			"360"
+				"hit_radius"				"150 150 150 150"
+				"spirit_movement_rate"		"250 250 250 250"
+				"spirit_duration"			"19.0 19.0 19.0 19.0"
+				"spirit_amount"			"5"
+				"scepter_slow_pct"			"0"
+				"scepter_slow_duration"			"0"
+		}
+	}	
+	//TODO Overcharge then tether
+	"wisp_overcharge_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityTextureName"			"wisp_overcharge"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0 0 0 0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2.0"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"creep_damage"				"8 14 20 26"
+				"bonus_attack_speed"		"40 50 60 70"
 			}
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"hero_damage"				"25 50 75 100"
-				"LinkedSpecialBonus"		"special_bonus_unique_wisp"
+				"bonus_damage_pct"			"-5 -10 -15 -20"
 			}
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"revolution_time"			"5.0 5.0 5.0 5.0"
+				"drain_interval"			"0.2 0.2 0.2 0.2"
 			}
 			"04"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"min_range"					"200"
+				"var_type"					"FIELD_FLOAT"
+				"drain_pct"					"0.045 0.045 0.045 0.045"
 			}
 			"05"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"max_range"					"650"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hero_hit_radius"			"110"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"explode_radius"			"360"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hit_radius"				"150 150 150 150"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"spirit_movement_rate"		"250 250 250 250"
-			}
-			"10"
-			{
 				"var_type"					"FIELD_FLOAT"
-				"spirit_duration"			"19.0 19.0 19.0 19.0"
+				"drain_pct_tooltip"			"4.5 4.5 4.5 4.5"
 			}
-			"11"
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+			"particle"					"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
+		}
+		
+		"OnToggleOn"
+		{
+			"ApplyModifier"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"spirit_amount"			"5"
+				"ModifierName"	"modifier_overcharge_drain_datadriven"
+				"Target"		"CASTER"
 			}
-			"12"
+			
+			"ApplyModifier"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"scepter_slow_pct"			"15"
-				"RequiresScepter"			"1"
+				"ModifierName"	"modifier_overcharge_buff_datadriven"
+				"Target"		"CASTER"
 			}
-			"13"
+
+			"RunScript"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"scepter_slow_duration"			"0.3"
-				"RequiresScepter"			"1"
+				"ScriptFile"		"heroes/hero_wisp/overcharge.lua"
+				"Function"			"CheckTetheredAlly"
+				
+				"tether_ally_property_name"		"tether_ally"		// We can access the tethered ally through "tether_ability[tether_ally_property_name]"
+				"buff_modifier"					"modifier_overcharge_buff_datadriven"
+			}
+		}
+		
+		"OnToggleOff"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_overcharge_drain_datadriven"
+				"Target"		"CASTER"
+			}
+			
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_overcharge_buff_datadriven"
+				"Target"		"CASTER"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_overcharge_drain_datadriven"
+			{
+				"IsHidden"	"1"
+			
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Wisp.Overcharge"
+						"Target"		"CASTER"
+					}
+				}
+				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_wisp/overcharge.lua"
+						"Function"			"StopSound"
+						"sound_name"		"Hero_Wisp.Overcharge"
+					}
+				}
+				
+				"ThinkInterval"		"%drain_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_wisp/overcharge.lua"
+						"Function"			"TickDrain"
+						
+						"drain_interval"	"%drain_interval"
+						"drain_pct"			"%drain_pct"
+					}
+				}
+			}
+
+			"modifier_overcharge_buff_datadriven"
+			{
+				"IsBuff"	"1"
+				"Duration"	"-1"
+				
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"			"TARGET"
+						
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_hitloc"
+						}
+					}
+				}
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%bonus_damage_pct"
+				}
+			}
+
+			"modifier_overcharge_buff_allie_datadriven"
+			{
+				"IsBuff"	"1"
+				"Duration"	"-1"
+				"EffectName"		"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%bonus_damage_pct"
+				}
+				
+				"ThinkInterval"		"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_wisp/overcharge.lua"
+						"Function"			"checkAllieActive"
+					}
+				}
 			}
 		}
 	}	
-	//TODO wisp overcharge toggle
 	//=================================================================================================================
 	// Wisp: Relocate
 	//=================================================================================================================
