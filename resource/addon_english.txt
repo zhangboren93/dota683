@@ -271,5 +271,12 @@
 		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven_Description"			"+%bonus_attack_speed% attack speed, reduce incoming damage by %bonus_damage_pct%%%, cost %drain_pct_tooltip%%% health and mana per second"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven"					"Rip tide"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_Description"		"%AbilityDamage% damage, reduce armor by %armor_reduction%, lasts 8 seconds"
+		"DOTA_Tooltip_Ability_night_stalker_void_datadriven"					"Void"
+		"DOTA_Tooltip_Ability_night_stalker_void_datadriven_Description"		"damage for %AbilityDamage%, -50%% move speed, -35 attack speed, lasts 4 seconds during night or 2 seconds during day"
+		"DOTA_Tooltip_Ability_night_stalker_crippling_fear_datadriven"				"Crippling Fear"
+		"DOTA_Tooltip_Ability_night_stalker_crippling_fear_datadriven_Description"	"silence for %duration_night% seconds during the night, 50%% miss. Silenc for 3 seconds during the day, 10%% miss"
+		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven"				"Darkness"
+		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Description"	"50 second night, -25%% vision"
+		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Scepter_Description"	"Flying vision"
 	}
 }

@@ -271,5 +271,12 @@
 		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven_Description"			"+%bonus_attack_speed%攻速，%bonus_damage_pct%%%减伤，每秒消耗生命魔法%drain_pct_tooltip%%%"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven"					"激流"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_Description"		"%AbilityDamage%伤害，减甲%armor_reduction%，持续8秒"
+		"DOTA_Tooltip_Ability_night_stalker_void_datadriven"					"虚空"
+		"DOTA_Tooltip_Ability_night_stalker_void_datadriven_Description"		"%AbilityDamage%伤害，-50%%移速，-35攻速，夜晚持续4秒，白天持续2秒"
+		"DOTA_Tooltip_Ability_night_stalker_crippling_fear_datadriven"				"伤残恐惧"
+		"DOTA_Tooltip_Ability_night_stalker_crippling_fear_datadriven_Description"	"夜晚沉默%duration_night%秒，50%%丢失；白天沉默3秒，10%%丢失"
+		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven"				"夜幕降临"
+		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Description"	"50秒夜晚，-25%%视野"
+		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Scepter_Description"	"高空视野"
 	}
 }
