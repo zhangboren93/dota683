@@ -18444,60 +18444,74 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	//=================================================================================================================
-	// Tidehunter: Anchor Smash
-	//=================================================================================================================
-	"tidehunter_anchor_smash"
+	"tidehunter_anchor_smash_datadriven"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5120"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Tidehunter.AnchorSmash"
+		"AbilityTextureName"			"tidehunter_anchor_smash"
 
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"400"
 		"AbilityCastPoint"				"0.4"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"7.0 6.0 5.0 4.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"30 40 50 60"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"75 125 175 225"
+		"AbilityDuration"				"6"
 		"AbilityValues"
 		{
-			"attack_damage"			
-			{
-				"value"										"40 85 130 175"
-				"special_bonus_unique_tidehunter_9"			"+50"
-			}
-			"damage_reduction"		
-			{
-				"value"										"-45 -50 -55 -60"
-				"special_bonus_unique_tidehunter_3"			"-25"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"reduction_duration"							"6.0 6.0 6.0 6.0"
-			"radius"										"400"
-			"targets_buildings"
-			{
-				"value"										"0"
-				"special_bonus_unique_tidehunter_10"			"+1"
-			}
-			
+			"damage_reduction_pct"			"-45 -50 -55 -60"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"					"CASTER"
+				"EffectName"				"Hero_Tidehunter.AnchorSmash"
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center"  	"CASTER"
+					"Radius" 	"%AbilityCastRange"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+			
+				"Action"    
+				{
+					"Damage"
+					{
+						"Type"		"DAMAGE_TYPE_PHYSICAL"
+						"Target"	"TARGET"
+						"Damage"	"%AbilityDamage"
+					}
+
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_tidehunter_anchor_smash_datadriven"
+						"Target"	"TARGET"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_tidehunter_anchor_smash_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
+				"Duration"		"%AbilityDuration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%damage_reduction_pct"
+				}
+			}
+		}
 	}
 	// Rewrite of Enrage
 	// Author: YOLOSPAGHETTI
