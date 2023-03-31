@@ -20047,7 +20047,6 @@
 	}
 	// Ability: Nevermore Requiem of Souls
 	//=================================================================================================================
-	//TODO slow instead of fear
 	"nevermore_requiem"
 	{
 		// General
@@ -20096,12 +20095,12 @@
 				"requiem_reduction_mres"	"-0"
 				"requiem_slow_duration"	
 				{
-					"value"		"0.9"
+					"value"		"0"
 					"LinkedSpecialBonus"		"special_bonus_unique_nevermore_6"
 				}
 				"requiem_slow_duration_max"	
 				{
-					"value"					"0.9"
+					"value"					"0"
 					"LinkedSpecialBonus"		"special_bonus_unique_nevermore_6"
 					"LinkedSpecialBonusField"		"value2"
 				}
@@ -20122,6 +20121,53 @@
 					"RequiresScepter"			"1"
 					"CalculateSpellDamageTooltip"	"0"
 				}
+				"slow_range"		"700"
+				"slow_duration"		"5"
+				"slow_pct"			"20"
+				"damage_reduct_pct"	"50"
+		}
+	}
+	"nevermore_requiem_slow_datadriven"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"	"nevermore_requiem"
+		"Modifiers"
+		{
+			"modifier_nevermore_requiem_slow_datadriven"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_nevermore/requiem_slow.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"modifier_nevermore_requiem_slow_active_datadriven"
+			{
+				"IsHidden"		"0"
+				"Passive"		"0"
+				"Duration"		"%slow_duration"
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_pct"
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%damage_reduct_pct"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"slow_range"		"700"
+			"slow_duration"		"5"
+			"slow_pct"			"-20"
+			"damage_reduct_pct"	"-50"
 		}
 	}
 	//=================================================================================================================

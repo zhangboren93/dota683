@@ -279,5 +279,6 @@
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Description"	"50 second night, -25%% vision"
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Scepter_Description"	"Flying vision"
 		"DOTA_Tooltip_Ability_arc_warden_tempest_double_Lore"							"Cost 30/15/0% current health and mana"
+		"DOTA_Tooltip_Ability_nevermore_requiem_Lore"							"700 range -20% move speed, -50% damage, lasts 5 seconds"
 	}
 }

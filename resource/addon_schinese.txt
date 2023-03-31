@@ -279,5 +279,6 @@
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Description"	"50秒夜晚，-25%%视野"
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Scepter_Description"	"高空视野"
 		"DOTA_Tooltip_Ability_arc_warden_tempest_double_Lore"							"消耗30/15/0%当前生命和魔法"
+		"DOTA_Tooltip_Ability_nevermore_requiem_Lore"							"700范围-20%移速-50%攻击力，持续5秒"
 	}
 }
