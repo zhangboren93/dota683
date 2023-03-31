@@ -1790,56 +1790,63 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5084"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"HasShardUpgrade"               "0"
-
+		"AbilityDamage"					"40 70 100 130"
+		"AbilityDuration"				"0.5 1.0 1.5 2"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"self_movement_speed_pct"	"12 16 20 24"
-				"LinkedSpecialBonus"	"special_bonus_unique_razor_5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_pct_chance"		"18"
-				"RequiresShard"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_target_count"	"3"
-				"RequiresShard"			"1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_damage"			"150"
-				"RequiresShard"			"1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_move_slow_pct"			"50"
-				"RequiresShard"			"1"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"shard_slow_duration"			"1.5"
-				"RequiresShard"			"1"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_search_radius"			"900"
-				"RequiresShard"			"1"
-			}
+			"self_movement_speed_pct"	"4 8 12 16"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
+	"razor_unstable_current_reflect_datadriven"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN" 
+		"AbilityTextureName"	"razor_unstable_current"
+		"MaxLevel"				"1"
+		"Modifiers"
+		{
+			"modifier_unstable_current_reflect"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+
+				"Aura"					"modifier_unstable_current_reflect_check"
+				"Aura_Radius"			"1500"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+			}
+			"modifier_unstable_current_reflect_check"
+			{
+				"IsHidden"	"1"
+				"Passive"	"0"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_razor/unstable_current_reflect.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"modifier_unstable_current_purge"
+			{
+				"IsHidden"		"0"
+				"Passive"		"0"
+				"IsDebuff"		"1"
+		    	"EffectName"            "particles/items_fx/diffusal_slow.vpcf"
+		    	"EffectAttachType"      "PATTACH_ABSORIGIN"
+				"Duration"		"%duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-80"
+				}
+			}
+		}
 	}
     "razor_eye_of_the_storm"
 	{
@@ -11005,8 +11012,9 @@
 	}
 	"slark_shadow_dance_heal_datadriven"
 	{
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"1"
 		"Modifiers"
 		{
 			"modifier_slark_shadow_dance_heal_thinker"
@@ -13956,8 +13964,9 @@
 	}
 	"arc_warden_tempest_double_cost"
 	{
-		"BaseClass"		"ability_datadriven"
+		"BaseClass"			"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
 		"Modifiers"
 		{
 			"modifier_arc_warden_tempest_double_cost"
@@ -20206,6 +20215,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"	"nevermore_requiem"
+		"MaxLevel"				"1"
 		"Modifiers"
 		{
 			"modifier_nevermore_requiem_slow_datadriven"

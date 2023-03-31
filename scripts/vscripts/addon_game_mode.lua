@@ -653,6 +653,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("nevermore_requiem_slow_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_sand_king" then
 			entity:AddNewModifier(entity, entity, "modifier_sandstorm_channel_end", {})
+		elseif entity:GetName() == "npc_dota_hero_razor" then
+			entity:FindAbilityByName("razor_unstable_current_reflect_datadriven"):SetLevel(1)
 		end
     end
 
