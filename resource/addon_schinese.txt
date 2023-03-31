@@ -248,6 +248,8 @@
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"纯粹攻击"
 		"DOTA_Tooltip_Ability_beastmaster_primal_roar_Scepter_Description"			"+350距离，CD45秒"
 		"DOTA_Tooltip_Ability_sandking_epicenter_Scepter_Description"				"+次数，-CD"
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_2"							"尸爆"
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_Description"				""
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven"						"剧毒新星"
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Description"			"%damage%每秒伤害，持续%duration%秒"
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Scepter_Description"	"+伤害，-CD，+持续时间"

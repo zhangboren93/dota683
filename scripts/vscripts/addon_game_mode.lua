@@ -59,7 +59,8 @@ function Activate()
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",   "modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_omniknight_guardian_angel_regen", "modifiers/omniknight_guardian_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",  "modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_doom_scorched_earth_regen",  		 "modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_doom_scorched_earth_regen", 		 "modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_sandstorm_channel_end",			 "modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 end
@@ -650,6 +651,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("arc_warden_tempest_double_cost"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_nevermore" then
 			entity:FindAbilityByName("nevermore_requiem_slow_datadriven"):SetLevel(1)
+		elseif entity:GetName() == "npc_dota_hero_sand_king" then
+			entity:AddNewModifier(entity, entity, "modifier_sandstorm_channel_end", {})
 		end
     end
 

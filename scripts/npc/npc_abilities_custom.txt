@@ -1967,18 +1967,78 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
-	// Ability: Sand King Caustic Finale
+	// Ability: Sand King Sand Storm
 	//=================================================================================================================
-	"sandking_caustic_finale"
+	"sandking_sand_storm"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5104"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"ID"					"5103"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Ability.SandKing_SandStorm.start"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityDuration"				"20 40 60 80"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40 30 20 10"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"60 50 40 30"
+		"AbilityChannelTime"			"20 40 60 80"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_tick_rate"	"0.2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sand_storm_radius"		"425 500 575 650"
+				"LinkedSpecialBonus"	"special_bonus_unique_sand_king_3"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"sand_storm_damage"		"25 50 80 100"
+				"LinkedSpecialBonus"	"special_bonus_unique_sand_king_2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fade_delay"			"1.5"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	//=================================================================================================================
+	// Ability: Sand King Caustic Finale
+	//=================================================================================================================
+	"sandking_caustic_finale_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"sandking_caustic_finale"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Ability.SandKing_CausticFinale"
+		"AbilityDamage"					"90 130 170 220"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

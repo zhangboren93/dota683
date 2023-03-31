@@ -248,6 +248,8 @@
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"Pure Attack"
 		"DOTA_Tooltip_Ability_beastmaster_primal_roar_Scepter_Description"			"+350 cast range, CD 45 seconds"
 		"DOTA_Tooltip_Ability_sandking_epicenter_Scepter_Description"				"+count, -CD"
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_2"							"Caustic Finale"
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_Description"				""
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven"						"Poison Nova"
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Description"			"%damage% damage per second, lasts %duration% seconds"
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Scepter_Description"	"+damage, -CD, +duration"
