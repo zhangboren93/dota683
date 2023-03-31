@@ -13848,7 +13848,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-	//TODO cost health and mana
     "arc_warden_tempest_double"
 	{
 		"MaxLevel"              "3"
@@ -13891,6 +13890,28 @@
 			{
 				"value"							"0"
 				"special_bonus_unique_arc_warden_7"		"+50"
+			}
+			"health_cost_pct"		"30 15 0"
+		}
+	}
+	"arc_warden_tempest_double_cost"
+	{
+		"BaseClass"		"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_arc_warden_tempest_double_cost"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_arc_warden/tempest_double_cost.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
 			}
 		}
 	}

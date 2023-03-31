@@ -278,5 +278,6 @@
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven"				"Darkness"
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Description"	"50 second night, -25%% vision"
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Scepter_Description"	"Flying vision"
+		"DOTA_Tooltip_Ability_arc_warden_tempest_double_Lore"							"Cost 30/15/0% current health and mana"
 	}
 }
