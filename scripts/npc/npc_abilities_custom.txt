@@ -9774,12 +9774,8 @@
 			}
 		}
 	}
-	//TODO Aghs
     "undying_flesh_golem"
 	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5447"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
@@ -9791,8 +9787,11 @@
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Undying.FleshGolem"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 		"HasShardUpgrade"				"0"
-		"HasScepterUpgrade"				"0"
+		"HasScepterUpgrade"				"1"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -9804,44 +9803,146 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"slow"						"0"
+			"damage_amp"				"0"
+			"slow_duration"				"0"
+			"str_percentage"			"0"
+			"duration"					"30"
+			"movement_bonus"			"0"
+			"shard_cooldown_reduction"	"0"
+		}
+	}
+	"undying_flesh_golem_aura_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"undying_flesh_golem"
+		"MaxLevel"						"3"
+		"Modifiers"
+		{
+			"modifier_undying_flesh_golem_aura_check"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"slow"						"40 45 50"
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"ThinkInterval"			"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_undying/flesh_golem_aura_check.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
 			}
-			"02"
+			"modifier_undying_flesh_golem_aura_1_datadriven"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_amp"				"25 30 35"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
+				"Passive"				"0"
+				"IsHidden"				"1"
+				"Duration"				"30"
+				"Aura"					"modifier_undying_flesh_golem_aura_1"
+				"Aura_Radius"			"750"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 			}
-			"03"
+			"modifier_undying_flesh_golem_aura_1"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration"					"6"
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"-9"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%min_incomming_damage"
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_undying/flesh_golem_aura_check.lua"
+						"Function"		"handleDeath"
+					}
+				}
 			}
-			"04"
+			"modifier_undying_flesh_golem_aura_2_datadriven"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"str_percentage"			"40 50 60"
+				"Passive"				"0"
+				"IsHidden"				"1"
+				"Duration"				"30"
+				"Aura"					"modifier_undying_flesh_golem_aura_2"
+				"Aura_Radius"			"550"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 			}
-			"05"
+			"modifier_undying_flesh_golem_aura_2"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"30"
-			}	
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movement_bonus"			"30 40 50"
+				"Passive"				"0"
+				"IsHidden"				"1"
+				"IsDebuff"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%incoming_damage_step"
+				}
 			}
-			"07"
+			"modifier_undying_flesh_golem_aura_3_datadriven"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"shard_cooldown_reduction"			"35.0"
-				"RequiresShard"				"1"
+				"Passive"				"0"
+				"IsHidden"				"1"
+				"Duration"				"30"
+				"Aura"					"modifier_undying_flesh_golem_aura_3"
+				"Aura_Radius"			"350"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			}
+			"modifier_undying_flesh_golem_aura_3"
+			{
+				"Passive"				"0"
+				"IsHidden"				"1"
+				"IsDebuff"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%incoming_damage_step"
+				}
+			}
+			"modifier_undying_flesh_golem_aura_4_datadriven"
+			{
+				"Passive"				"0"
+				"IsHidden"				"1"
+				"Duration"				"30"
+				"Aura"					"modifier_undying_flesh_golem_aura_4"
+				"Aura_Radius"			"200"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			}
+			"modifier_undying_flesh_golem_aura_4"
+			{
+				"Passive"				"0"
+				"IsHidden"				"1"
+				"IsDebuff"				"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%incoming_damage_step"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"min_incomming_damage"		"5 10 15"
+			"incoming_damage_step"
+			{
+				"value"					"5"
+				"special_bonus_scepter"	"+2"	
+			}
+			"creep_death_regen_pct"
+			{
+				"value"					"2"
+				"special_bonus_scepter"	"+1"
+			}
+			"hero_death_regen_pct"
+			{
+				"value"					"6"
+				"special_bonus_scepter"	"+4"
 			}
 		}
 	}
