@@ -134,6 +134,8 @@ function CAddonTemplateGameMode:InitGameMode()
 		Dynamic_Wrap(CAddonTemplateGameMode, "ModifyGoldFilter"), self)
 	GameRules:GetGameModeEntity():SetModifyExperienceFilter(
 		Dynamic_Wrap(CAddonTemplateGameMode, "ModifyExperienceFilter"), self)
+	GameRules:GetGameModeEntity():SetHealingFilter(
+		Dynamic_Wrap(CAddonTemplateGameMode, "HealingFilter"), self)
 
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(self, event.entindex, event.is_respawn)
@@ -625,15 +627,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_enchantress" then
 			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
 		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then
-			entity:SetThink(function()
-				local ability = entity:FindAbilityByName("keeper_of_the_light_recall")
-				if entity:HasScepter() and ability:IsHidden() then
-					ability:SetHidden(false)
-					ability:SetLevel(1)
-					return 2
-				end
-				return 2
-			end, "kotl aghs", 2);
+			entity:FindAbilityByName("keeper_of_the_light_spirit_form_checker"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_doom_bringer" then
 			entity:SetThink(function()
 				if entity:HasModifier("modifier_doom_bringer_scorched_earth_effect") then
@@ -989,6 +983,17 @@ function CAddonTemplateGameMode:ModifyExperienceFilter(event)
 	if event.reason_const == DOTA_ModifyXP_Unspecified and event.experience > 50 then
 		print("cap unspecified XP")
 		event.experience = 50
+	end
+	return true
+end
+
+function CAddonTemplateGameMode:HealingFilter(event)
+	if event.entindex_healer_const == nil then
+		return true
+	end
+	local ability = EntIndexToHScript(event.entindex_inflictor_const)
+	if ability:GetName() == "keeper_of_the_light_spirit_form_illuminate" and not GameRules:IsDaytime() then
+		return false
 	end
 	return true
 end

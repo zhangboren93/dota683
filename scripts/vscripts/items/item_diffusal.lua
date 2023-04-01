@@ -1,5 +1,6 @@
 function manaBurn(event)
-    if event.attacker:IsIllusion() then
+    -- TODO illusion inherit 30% mana burn
+    if event.attacker:IsIllusion() and event.attacker.IsRangedAttacker() then
         return
     end
     local target = event.target

@@ -24436,18 +24436,19 @@
 		"AbilityDraftPreAbility"		"keeper_of_the_light_blinding_light"
 		"AbilityDraftUltScepterAbility"	"keeper_of_the_light_will_o_wisp"
 		"AbilityDraftUltShardAbility"	"keeper_of_the_light_recall"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		"HasScepterUpgrade"				"1"
 				
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"85"
+		"AbilityCooldown"				"80 70 60"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 125 175"		
+		"AbilityManaCost"				"100"		
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -24462,12 +24463,53 @@
 				"value"					"40.0 40.0 40.0"
 				"special_bonus_scepter"	"+20"
 			}
-				"movement_speed"			"15 20 25" 
+				"movement_speed"			"0" 
 				"cast_range"			"0" 
 			"illuminate_heal"
 			{
 				"value" 				"0" 
 				"special_bonus_scepter"	"+75"
+			}
+		}
+	}
+	"keeper_of_the_light_spirit_form_checker"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_kotl_spirit_form_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_keeper_of_the_light/spirit_form_checker.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+				"ThinkInterval"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_keeper_of_the_light/spirit_form_checker.lua"
+						"Function"		"checkAghs"
+					}
+				}
+			}
+			"modifier_kotl_spirit_form_unblocked_vision"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_FORCED_FLYING_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 		}
 	}
@@ -24538,10 +24580,11 @@
 		"AbilityUnitTargetFlags"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"MaxLevel"						"1"
+		"MaxLevel"						"3"
+		"RequiredLevel"         		"25"
 		"AbilitySound"					"Hero_KeeperOfTheLight.Recall.Cast"
 		"IsGrantedByShard"				"0"
-		"IsGrantedByScepter"			"1"
+		"IsGrantedByScepter"			"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -24555,7 +24598,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150"		
+		"AbilityManaCost"				"100"		
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -24564,7 +24607,84 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"teleport_delay"		"3"
+				"teleport_delay"		"5 4 3"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Keeper of the Light: Blinding Light
+	//=================================================================================================================
+	"keeper_of_the_light_blinding_light"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5476"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_KeeperOfTheLight.BlindingLight"
+		"MaxLevel"						"3"
+		"RequiredLevel"					"25"
+		"FightRecapLevel"				"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+ 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 16 12"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"1.0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"miss_rate"				"80"
+				"LinkedSpecialBonus"		"special_bonus_unique_keeper_of_the_light_8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"4 5 6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"knockback_duration"	"0.6"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"knockback_distance"	"400"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"0"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"AbilityCharges"		""
+				"LinkedSpecialBonus"	"special_bonus_unique_keeper_of_the_light_12"
 			}
 		}
 	}
