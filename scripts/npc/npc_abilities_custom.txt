@@ -16288,14 +16288,13 @@
 				"IsHidden"	"1"
 				"OnAttackLanded"
 				{
-					"ApplyModifier"
+					"RunScript"
 					{
-						"Target"	"TARGET"
-						"ModifierName"	"meepo_geostrike_datadriven_active_modifier"
+		    			"ScriptFile"    "heroes/hero_meepo/geostrike.lua"
+		    			"Function"      "handleAttackLanded"
 					}
 				}
 			}
-			//FIXME 1 meepo should have 1 geostrike active
 			"meepo_geostrike_datadriven_active_modifier"
 			{
 				"Passive"	"0"
@@ -16325,17 +16324,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slow"					"-4 -6 -9 -12"
+				"slow"					"-5 -10 -15 -20"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"		"2.0"
+				"duration"				"2.0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"4 7 11 15"
+				"damage"				"7 14 21 28"
 			}
 		}
 	}
