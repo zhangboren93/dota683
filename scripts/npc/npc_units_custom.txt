@@ -1286,10 +1286,10 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"lone_druid_spirit_bear_return"			// Ability 1
-		"Ability2"					"lone_druid_spirit_bear_demolish"			// Ability 2
-		"Ability3"					"lone_druid_savage_roar_bear"			// Ability 3
-		"Ability4"					"lone_druid_spirit_bear_entangle"			// Ability 4
+		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability2"					"generic_hidden"			// Ability 2
+		"Ability3"					"generic_hidden"			// Ability 3
+		"Ability4"					"generic_hidden"			// Ability 4
 
 		// Armor
 		//----------------------------------------------------------------
@@ -1356,6 +1356,7 @@
 		"AttackRate"				"1.65"		// Speed of attack.
 		"MovementSpeed"				"340"		// Speed.
 		"MovementTurnRate"			"0.6"		// Turning rate.
+		"Ability1"					"lone_druid_spirit_bear_return"			// Ability 1
 
 		// Status
 		//----------------------------------------------------------------
@@ -1374,6 +1375,8 @@
 		"AttackRate"				"1.55"		// Speed of attack.
 		"MovementSpeed"				"340"		// Speed.
 		"MovementTurnRate"			"0.6"		// Turning rate.
+		"Ability1"					"lone_druid_spirit_bear_return"			// Ability 1
+		"Ability4"					"lone_druid_spirit_bear_entangle"			// Ability 4
 
 		// Status
 		//----------------------------------------------------------------
@@ -1387,6 +1390,9 @@
 		"include_keys_from" "npc_dota_lone_druid_bear1"
 						
 		"ModelScale" 					".85"
+		"Ability1"					"lone_druid_spirit_bear_return"			// Ability 1
+		"Ability2"					"lone_druid_spirit_bear_demolish"			// Ability 2
+		"Ability4"					"lone_druid_spirit_bear_entangle"			// Ability 4
 		"ArmorPhysical"				"6"			// Physical protection.
 		"AttackRate"				"1.45"		// Speed of attack.
 		"MovementSpeed"				"340"		// Speed.
