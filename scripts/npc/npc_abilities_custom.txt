@@ -9523,7 +9523,6 @@
 	//=================================================================================================================
 	// Ogre Magi: Multicast
 	//=================================================================================================================
-	//TODO secondary skill buffs
 	"ogre_magi_multicast"
 	{
 		// General
@@ -9538,23 +9537,35 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+				"multicast_2_times"		"25 40 50"
+				"multicast_3_times"		"0 20 30"
+				"multicast_4_times"		"0 0 12.5"
+				"blast_cooldown"		"-2 -4 -6"
+				"blast_mana_cost"		"20 40 60"
+				"blood_cooldown"		"-5 -10 -15"
+		}
+	}
+	"ogre_magi_multicast_bonus_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_ogre_magi_multicast_bonus_datadriven"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"multicast_2_times"		"75 75 75"
-			}
-
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"multicast_3_times"		"0 30 30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"multicast_4_times"		"0 0 15"
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_ogre_magi/multicast_bonus.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
 			}
 		}
 	}
@@ -31414,5 +31425,62 @@
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	//=================================================================================================================
+	// Ability: Primal Spring
+	//=================================================================================================================
+	"monkey_king_primal_spring"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5724"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_MonkeyKing.Spring.Channel"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+		"AbilityCastRange"				"1000"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 18 16 14"
+		"AbilityChannelTime"			"0.1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_damage"			"0"
+				"LinkedSpecialBonus"		"special_bonus_unique_monkey_king_3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_movement_slow"	"80"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"impact_slow_duration"	"3 4 5 6"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"impact_radius"			"375"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 }

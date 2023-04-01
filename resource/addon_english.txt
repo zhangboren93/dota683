@@ -285,5 +285,6 @@
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven"				"Anchor Smash"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_Description"	"-%damage_reduction_pct%%% damage, lasts %AbilityDuration% seconds"
 		"DOTA_Tooltip_Ability_dark_seer_wall_of_replica_Scepter_Description"	"+illusion damage"
+		"DOTA_Tooltip_Ability_ogre_magi_multicast_Lore"							"Fire blast CD -2/4/6 seconds, mana cost +20/40/60; Bloodlust CD -5/10/15 seconds."
 	}
 }
