@@ -6090,7 +6090,6 @@
 				"scepter_max_entangle_duration"		"0"
 		}
 	}
-	//TODO damage & scepter
     "dark_seer_wall_of_replica"
 	{
 		"MaxLevel"              "3"
@@ -6105,8 +6104,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Dark_Seer.Wall_of_Replica_Start"
-
-		"AbilityDraftUltShardAbility"		"dark_seer_normal_punch"
+		"HasScepterUpgrade"				"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -6121,66 +6119,30 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"200 300 400"
+		"AbilityDamage"					"150"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"duration"				"15 30 45"
+			"replica_damage_outgoing"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"15 30 45"
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replica_damage_outgoing"	"-30 -20 -10"
+				"value"	"-30 -20 -10"
+				"special_bonus_scepter"	"+30 +40 +50"
 			}
-			"03"
+			"tooltip_outgoing"	
 			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_outgoing"	"70 80 90"
-				"LinkedSpecialBonus"	"special_bonus_unique_dark_seer_7"
+				"value"	"70 80 90"
+				"special_bonus_scepter"	"+30 +40 +50"
 			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replica_damage_incoming"	"200"
-			}	
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_replica_total_damage_incoming"	"300"
-				"CalculateSpellDamageTooltip"	"0"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
-			}				
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"1300"
-			}			
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replica_scale"	"0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movement_slow"					"50 60 70"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"				"1"
-				"LinkedSpecialBonus"	"special_bonus_unique_dark_seer_12"
-			}	
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"scepter_length_multiplier"				"2"
-				"RequiresScepter"		"1"
-			}
+			"replica_damage_incoming"	"200"
+			"tooltip_replica_total_damage_incoming"	"300"
+			"width"					"1300"
+			"replica_scale"	"0"
+			"movement_slow"					"0"
+			"slow_duration"				"5"
+			"scepter_length_multiplier"				"1"
 		}
 	}
     "clinkz_death_pact"

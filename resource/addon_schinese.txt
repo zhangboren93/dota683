@@ -284,5 +284,6 @@
 		"DOTA_Tooltip_Ability_nevermore_requiem_Lore"							"700范围-20%移速-50%攻击力，持续5秒"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven"				"锚击"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_Description"	"-%damage_reduction_pct%%%攻击力，持续%AbilityDuration%秒"
+		"DOTA_Tooltip_Ability_dark_seer_wall_of_replica_Scepter_Description"	"+幻像攻击力"
 	}
 }

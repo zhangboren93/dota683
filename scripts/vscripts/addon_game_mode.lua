@@ -136,6 +136,8 @@ function CAddonTemplateGameMode:InitGameMode()
 		Dynamic_Wrap(CAddonTemplateGameMode, "ModifyExperienceFilter"), self)
 	GameRules:GetGameModeEntity():SetHealingFilter(
 		Dynamic_Wrap(CAddonTemplateGameMode, "HealingFilter"), self)
+	GameRules:GetGameModeEntity():SetModifierGainedFilter(
+		Dynamic_Wrap(CAddonTemplateGameMode, "ModifierGainedFilter"), self)
 
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(self, event.entindex, event.is_respawn)
@@ -996,6 +998,16 @@ function CAddonTemplateGameMode:HealingFilter(event)
 	local ability = EntIndexToHScript(event.entindex_inflictor_const)
 	if ability:GetName() == "keeper_of_the_light_spirit_form_illuminate" and not GameRules:IsDaytime() then
 		return false
+	end
+	return true
+end
+
+function CAddonTemplateGameMode:ModifierGainedFilter(event)
+	if event.name_const == "modifier_dark_seer_wall_slow" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		ApplyDamage({ victim = parent, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL })
 	end
 	return true
 end
