@@ -1024,6 +1024,18 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		end
 		damage = damage + (damage_min + ratio * (damage_max - damage_min)) * caster:GetAgility()
 		ApplyDamage({ victim = parent, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
+	elseif event.name_const == "modifier_abyssal_underlord_firestorm_burn" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local burn_datadriven = caster:FindAbilityByName("abyssal_underlord_firestorm_burn_datadriven")
+		burn_datadriven:SetLevel(caster:FindAbilityByName("abyssal_underlord_firestorm"):GetLevel())
+		burn_datadriven:ApplyDataDrivenModifier(caster, parent, "modifier_underlord_firestorm_burn_active_datadriven", {})
+	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		print(ability:GetAbilityDamage())
+		ApplyDamage({ victim = parent, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL })
 	end
 	return true
 end

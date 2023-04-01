@@ -1783,7 +1783,6 @@
 	//=================================================================================================================
 	// Razor: Unstable Current
 	//=================================================================================================================
-	// TODO target ability feedback
 	"razor_unstable_current"
 	{
 		// General
@@ -3669,7 +3668,6 @@
 	//=================================================================================================================
 	// Ability: Warlock's Rain of Chaos / Chaotic Offering
 	//=================================================================================================================
-	//TODO Golem values
 	"warlock_rain_of_chaos"
 	{
 		"MaxLevel"              "3"
@@ -4743,7 +4741,6 @@
 	//=================================================================================================================
 	// Pugna: Nether Ward
 	//=================================================================================================================
-	//TODO mana regen
 	"pugna_nether_ward"
 	{
 		// General
@@ -8634,7 +8631,6 @@
 			}
 		}
 	}
-	//TODO damage based on intellect difference
     "obsidian_destroyer_sanity_eclipse"
 	{
 		"MaxLevel"              "3"
@@ -14235,7 +14231,6 @@
 	//=================================================================================================================
 	// Abyssal Underlord: Firestorm
 	//=================================================================================================================
-	//TODO burn damage fixed
 	"abyssal_underlord_firestorm"
 	{
 		// General
@@ -14280,7 +14275,7 @@
 				"wave_interval"					"1.0"
 				"burn_damage"					
 				{
-					"value"					"1.5 2 2.5 3"
+					"value"					"0"
 					"special_bonus_unique_underlord_4"	"+1"
 				}
 				"burn_interval"					"1.0"
@@ -14300,6 +14295,32 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
+	"abyssal_underlord_firestorm_burn_datadriven"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"	"abyssal_underlord_firestorm"
+		"AbilityDamage"			"5 10 15 20"
+		"Modifiers"
+		{
+			"modifier_underlord_firestorm_burn_active_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"1"
+				"ThinkInterval"	"1"
+				"IsPurgable"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_abyssal_underlord/firestorm.lua"
+						"Function"		"cancelBurn"
+					}
+				}
+			}
+		}
+	}
 	//=================================================================================================================
 	// Abyssal Underlord: Pit of Malice
 	//=================================================================================================================
@@ -14317,6 +14338,7 @@
 		"AbilityCastRange"				"750"
 		"AbilityCastPoint"				"0.45"
 		"FightRecapLevel"				"1"
+		"AbilityDamage"					"100"
 
 		"HasScepterUpgrade"				"0"
 		
@@ -14340,7 +14362,6 @@
 
 			"pit_duration"					"7.0"
 			"pit_interval"					"3.6"
-			"pit_damage"					"100"
 			"ensnare_duration"
 			{
 				"value"	"1 1.5 2 2.5"
@@ -28150,7 +28171,6 @@
 	//=================================================================================================================
 	// Ability: Jakiro's Dual Breath
 	//=================================================================================================================
-	//TODO move slow value check
 	"jakiro_dual_breath"
 	{
 		// General

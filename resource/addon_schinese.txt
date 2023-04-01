@@ -289,5 +289,6 @@
 		"DOTA_Tooltip_Ability_ogre_magi_multicast_Lore"							"晕CD-2/4/6秒，耗蓝+20/40/60，嗜血术CD-5/10/15秒"
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Lore"							"光环伤害加深5%~20%/10%~25%/15%~30%, 小兵死亡回复2%，英雄死亡回复6%, -9%移速"
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Scepter_Description"			"光环伤害加深5%~25%/10%~30%/15%~35%, 小兵死亡回复4%，英雄死亡回复10%"
+		"DOTA_Tooltip_Ability_abyssal_underlord_firestorm_Lore"					"持续伤害5/10/15/20"
 	}
 }

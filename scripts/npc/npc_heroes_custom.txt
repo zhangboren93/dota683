@@ -1137,6 +1137,7 @@
  "AttributeAgilityGain"   "1.4"  
  "AttributeBaseIntelligence" "17"  
  "AttributeIntelligenceGain"  "2.6"  
+		"Ability4"		"abyssal_underlord_firestorm_burn_datadriven"
 		"Ability6"		"abyssal_underlord_dark_rift"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
