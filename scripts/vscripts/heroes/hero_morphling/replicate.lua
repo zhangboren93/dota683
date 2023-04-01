@@ -42,10 +42,6 @@ function replicate(event)
     caster.replica = illusion
 
 	caster:FindAbilityByName("morphling_morph_replicate_datadriven"):SetLevel(1)
-	caster:SwapAbilities("morphling_replicate_datadriven", "morphling_morph_replicate_datadriven", false, true);
-	caster:SetThink(function()
-		caster:SwapAbilities("morphling_replicate_datadriven", "morphling_morph_replicate_datadriven", true, false);
-	end, "morphling bind ulti key", ability:GetSpecialValueFor("duration"))
 end
 
 function morph_replicate(event)

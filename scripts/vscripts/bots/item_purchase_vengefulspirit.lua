@@ -7,7 +7,7 @@ local ItemPurchaseSystem = dofile(GetScriptDirectory() .. "/util/ItemPurchaseSys
 local ItemsToBuy =
 {
 	"item_tango",
-	"item_wraith_band_datadriven"
+	"item_wraith_band_datadriven",
 	"item_magic_stick",
 	"item_power_treads", --假腿7.21
 	"item_medallion_of_courage", --勋章
@@ -20,7 +20,7 @@ local ItemsToBuy =
 	--"item_ultimate_scepter",
 	--"item_ultimate_scepter_2",
 	"item_skadi",
-	"item_butterfly_datadriven",
+	"item_butterfly_datadriven"
 }
 
 ItemPurchaseSystem:CreateItemInformationTable(GetBot(), ItemsToBuy)

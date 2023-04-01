@@ -22716,7 +22716,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName"			"morphling_morph_replicate"
 		
 		// Cost
@@ -29224,62 +29224,6 @@
 	//=================================================================================================================
 	// Morphling: Adaptive Strike
 	//=================================================================================================================
-	"morphling_adaptive_strike_agi"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5053"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Morphling.AdaptiveStrike"
-		"LinkedAbility"					"morphling_adaptive_strike_str"
-
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600 700 800 900"
-		"AbilityCastPoint"				"0.25"
- 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"		
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.3"	// Primarily about the damage
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"damage_base"					"20 40 60 80"
-				"damage_min"					
-				{
-					"value"					"0.25"
-					"CalculateSpellDamageTooltip"	"0"
-				}
-				"damage_max"					
-				{
-					"value"				"0.5 1.0 1.5 2.0"
-					"CalculateSpellDamageTooltip"	"0"
-				}
-				"projectile_speed"					"1150"
-				"shared_cooldown"					"3"
-		}
-	}
-	
-	//=================================================================================================================
-	// Morphling: Adaptive Strike
-	//=================================================================================================================
 	"morphling_adaptive_strike_str"
 	{
 		// General
@@ -29308,7 +29252,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"		
+		"AbilityManaCost"				"100"		
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -29332,6 +29276,17 @@
 				"knockback_max"					"500"
 				"projectile_speed"					"1150"
 				"shared_cooldown"					"3"
+				"damage_base"					"20 40 60 80"
+				"damage_min"					
+				{
+					"value"					"0.25"
+					"CalculateSpellDamageTooltip"	"0"
+				}
+				"damage_max"					
+				{
+					"value"				"0.5 1.0 1.5 2.0"
+					"CalculateSpellDamageTooltip"	"0"
+				}
 		}
 	}
 	//=================================================================================================================

@@ -142,9 +142,6 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(self, event.entindex, event.is_respawn)
 	end, nil)
-	ListenToGameEvent('modifier_event', function(event)
-		HandleModifierEvent(event.eventname, event.caster, event.ability)
-	end, nil)
 	ListenToGameEvent('entity_killed', function(event)
 		HandleEntityKilled(event.entindex_killed, event.entindex_attacker, event.entindex_inflictor)
 	end, nil)
@@ -672,9 +669,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	end
 	if entity:GetName() == "npc_dota_roshan" then
 		entity:SetThink(function()
-		entity:RemoveItem(entity:FindItemInInventory("item_aghanims_shard_roshan"))
-		entity:RemoveItem(entity:FindItemInInventory("item_ultimate_scepter_roshan"))
-		entity:RemoveItem(entity:FindItemInInventory("item_refresher_shard"))
+			entity:RemoveItem(entity:FindItemInInventory("item_aghanims_shard_roshan"))
+			entity:RemoveItem(entity:FindItemInInventory("item_ultimate_scepter_roshan"))
+			entity:RemoveItem(entity:FindItemInInventory("item_refresher_shard"))
 		end, "remove refresher shard, ags shard and ags", 0.5)
 	end
 
@@ -1012,6 +1009,21 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		ApplyDamage({ victim = parent, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL })
+	elseif event.name_const == "modifier_morphling_adaptive_strike" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local damage = ability:GetSpecialValueFor("damage_base")
+		local damage_min = ability:GetSpecialValueFor("damage_min")
+		local damage_max = ability:GetSpecialValueFor("damage_max")
+		local ratio = caster:GetAgility() / caster:GetStrength()
+		if ratio > 1.5 then
+			ratio = 1
+		else
+			ratio = ratio / 1.5
+		end
+		damage = damage + (damage_min + ratio * (damage_max - damage_min)) * caster:GetAgility()
+		ApplyDamage({ victim = parent, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 	end
 	return true
 end
