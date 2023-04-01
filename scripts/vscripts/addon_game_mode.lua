@@ -1034,8 +1034,20 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
-		print(ability:GetAbilityDamage())
 		ApplyDamage({ victim = parent, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL })
+	elseif event.name_const == "modifier_earth_spirit_boulder_smash_debuff" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_stunned", {duration = ability:GetSpecialValueFor("duration")})
+	elseif event.name_const == "modifier_stunned" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		if ability:GetName() == "earth_spirit_rolling_boulder" then
+			local slow = caster:FindAbilityByName("earth_spirit_rolling_boulder_slow_datadriven")
+			slow:ApplyDataDrivenModifier(caster, parent, "modifier_earth_spirit_rolling_boulder_slow_datadriven", {})
+		end
 	end
 	return true
 end

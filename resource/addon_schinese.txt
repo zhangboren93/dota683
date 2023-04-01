@@ -290,5 +290,7 @@
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Lore"							"光环伤害加深5%~20%/10%~25%/15%~30%, 小兵死亡回复2%，英雄死亡回复6%, -9%移速"
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Scepter_Description"			"光环伤害加深5%~25%/10%~30%/15%~35%, 小兵死亡回复4%，英雄死亡回复10%"
 		"DOTA_Tooltip_Ability_abyssal_underlord_firestorm_Lore"					"持续伤害5/10/15/20"
+		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					"眩晕"
+		"DOTA_Tooltip_Ability_earth_spirit_rolling_boulder_Lore"				"移速-80%，持续2秒"
 	}
 }

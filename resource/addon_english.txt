@@ -290,5 +290,7 @@
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Lore"							"aura increase incoming damage by 5%~20%/10%~25%/15%~30%, creep death heal 2%, hero death heal 6%, move speed -9%"
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Scepter_Description"			"aura increase incoming damage by 5%~25%/10%~30%/15%~35%, creep death heal 4%, hero death heal 10%"
 		"DOTA_Tooltip_Ability_abyssal_underlord_firestorm_Lore"					"burn damage 5/10/15/20"
+		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					"Stuns"
+		"DOTA_Tooltip_Ability_earth_spirit_rolling_boulder_Lore"				"-80% move speed, lasts 2 seconds"
 	}
 }

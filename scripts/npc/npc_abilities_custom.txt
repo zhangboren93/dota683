@@ -12593,7 +12593,6 @@
 	//=================================================================================================================
 	// Earth Spirit: Boulder Smash
 	//=================================================================================================================
-	// TODO stuns
 	"earth_spirit_boulder_smash"
 	{
 		// General
@@ -12641,17 +12640,17 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"rock_damage"			"120 180 240 300"
+				"rock_damage"			"125"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"move_slow"				"50"
+				"move_slow"				"0"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"			"1.25 2.5 3.25 4"
+				"duration"				"0.75 1.25 1.75 2.25"
 			}
 			"06"
 			{
@@ -12680,7 +12679,6 @@
 	//=================================================================================================================
 	// Earth Spirit: Rolling Boulder
 	//=================================================================================================================
-	//TODO slow
 	"earth_spirit_rolling_boulder"
 	{
 		// General
@@ -12749,13 +12747,13 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.4 0.6 0.8 1.0"
+				"stun_duration"			"0"
 				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_3"
 			}
 			"09"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"rock_bonus_duration"	"0.4 0.6 0.8 1.0"
+				"rock_bonus_duration"	"0"
 			}
 			"10"
 			{
@@ -12764,6 +12762,27 @@
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	"earth_spirit_rolling_boulder_slow_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"	"earth_spirit_rolling_boulder"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_earth_spirit_rolling_boulder_slow_datadriven"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Duration"	"2"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-80"
+				}
+			}
+		}
 	}
 	//=================================================================================================================
 	// Earth Spirit: Geomagnetic Grip
