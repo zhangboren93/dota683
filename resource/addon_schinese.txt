@@ -292,5 +292,6 @@
 		"DOTA_Tooltip_Ability_abyssal_underlord_firestorm_Lore"					"持续伤害5/10/15/20"
 		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					"眩晕"
 		"DOTA_Tooltip_Ability_earth_spirit_rolling_boulder_Lore"				"移速-80%，持续2秒"
+		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"增伤20/30/40/50%"
 	}
 }

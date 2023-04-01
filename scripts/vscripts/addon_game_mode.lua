@@ -654,6 +654,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("ogre_magi_multicast_bonus_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_undying" then
 			entity:FindAbilityByName("undying_flesh_golem_aura_datadriven"):SetLevel(1)
+		elseif entity:GetName() == "npc_dota_hero_shadow_demon" then
+			entity:FindAbilityByName("shadow_demon_soul_catcher_debuff_datadriven"):SetLevel(1)
 		end
     end
 

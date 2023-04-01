@@ -8811,7 +8811,6 @@
 	//=================================================================================================================
 	// Shadow Demon: Shadow Demon Soul Catcher
 	//=================================================================================================================
-	//TODO Takes more damage
 	"shadow_demon_soul_catcher"
 	{
 		// General
@@ -8830,8 +8829,9 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AoERadius"						"500"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -8844,17 +8844,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"health_lost"			"20 25 30 35"
+				"health_lost"			"0"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"175 200 225 250"
+				"radius"				"500"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"10"
+				"duration"				"12"
 				"LinkedSpecialBonus"		"special_bonus_unique_shadow_demon_8"
 			}
 			"04"
@@ -8880,10 +8880,49 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_spell_amp"		"5 7 9 11"
+				"bonus_spell_amp"		"0"
 			}	
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	"shadow_demon_soul_catcher_debuff_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"	"shadow_demon_soul_catcher"
+		"MaxLevel"			"4"
+		"Modifiers"
+		{
+			"modifier_sd_soul_catcher_debuff_checker_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_shadow_demon/soul_catcher.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"modifier_sd_soul_catcher_debuff_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"1"
+				"Duration"		"12"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%incoming_damage_pct"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"incoming_damage_pct"	"20 30 40 50"
+		}
 	}
 	//=================================================================================================================
 	// Shadow Demon: Shadow Demon Shadow Poison

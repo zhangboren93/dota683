@@ -753,7 +753,7 @@
  "AttributeBaseIntelligence" "23"  
  "AttributeIntelligenceGain"  "2.7"  
 		"Ability2"		"shadow_demon_soul_catcher"
-		"Ability5"		"generic_hidden"
+		"Ability5"		"shadow_demon_soul_catcher_debuff_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"

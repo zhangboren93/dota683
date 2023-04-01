@@ -292,5 +292,6 @@
 		"DOTA_Tooltip_Ability_abyssal_underlord_firestorm_Lore"					"burn damage 5/10/15/20"
 		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					"Stuns"
 		"DOTA_Tooltip_Ability_earth_spirit_rolling_boulder_Lore"				"-80% move speed, lasts 2 seconds"
+		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"Increase incoming damage by 20/30/40/50%"
 	}
 }
