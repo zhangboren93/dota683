@@ -824,11 +824,6 @@ function handleKillBonus(attacker, entity)
 		print("Setting attacker to the owner of the summoned units")
 		attacker = attacker:GetOwner()
 	end
-	if attacker:IsHero() then
-		print("gives extra 100 gold")
-		attacker:ModifyGold(100, true, DOTA_ModifyGold_HeroKill)
-		attacker:AddExperience(50, DOTA_ModifyXP_HeroKill, false, false)
-	end
 	-- give assist gold
 	local assist_players = {}
 	if entity.time_attacked ~= nil then
