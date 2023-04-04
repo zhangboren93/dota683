@@ -23576,198 +23576,132 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
 	}
-	// Rewrite of the Obsidian Destroyer Astral Imprisonment
-	// Author: chrislotix
-	// Date: 06.01.2015.
-	// Changed: 27.04.2015.
-	// Changed by: Pizzalol
-	// Reason: Improved the AI hiding method
-	// TODO hide hero
-	"obsidian_destroyer_astral_imprisonment_datadriven"
+	//=================================================================================================================
+	// Obsidian Destroyer: Astral Imprisonment
+	//=================================================================================================================
+	"obsidian_destroyer_astral_imprisonment"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"ID"							"5392"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityTextureName"			"obsidian_destroyer_astral_imprisonment"
-	
-		// Precache
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"		
-			"particle"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison.vpcf"
-			
-			
-		}
-	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_ObsidianDestroyer.AstralImprisonment"
+        "HasShardUpgrade"               "0"
+        "HasScepterUpgrade"				"0"
+
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"1.0 2.0 3.0 4.0"
-		"AbilityCooldown"				"18.0 16.0 14.0 12.0"
-	
+		"AbilityCooldown"				"18 16 14 12"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"550"
-		"AbilityCastPoint"				"0.25 0.25 0.25 0.25"
-	
+		"AbilityCastPoint"				"0.25"
+
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"120 140 160 180"
-	
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.5" // applies multiple modifiers
-	
-	
+
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"prison_duration"		"1 2 3 4"
+			"damage"		
 			{
-				"var_type"				"FIELD_INTEGER"
-				"int_steal"				"-4 -7 -10 -13"
+				"value"					"0"
+				"special_bonus_scepter"		"+0"
 			}
-			"02"
+			"mana_capacity_steal"	
 			{
-				"var_type"				"FIELD_FLOAT"
-				"steal_duration"		"50"
+				"value"							"0"
+				"special_bonus_shard"			"+5"
 			}
-			"03"
+			
+			"mana_capacity_duration"	"50"
+			"allied_movement_speed_pct"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"prison_duration"		"1.0 2.0 3.0 4.0"
-			}
-			"04"
+				"value"					"0"
+				"special_bonus_shard"	"+60"
+			}				
+			"AbilityCharges"		
 			{
-				"var_type"				"FIELD_INTEGER"
-				"int_gain"				"4 7 10 13"
+				"value"	"0"
+				"special_bonus_scepter"	"+0"
+			}										
+			"damage_radius"
+			{
+				"value"						"0"
+				"special_bonus_scepter"		"+0"
 			}
+			"AbilityCastRange"
+			{
+				"value"						"550"
+				"special_bonus_unique_outworld_devourer_astral_castrange"	"+100"
+			}
+			"int_steal"				"-4 -7 -10 -13"
+			"int_gain"				"4 7 10 13"
 		}
-	
-		"OnSpellStart"
-		{
-	
-			"FireSound"
-			{
-				"EffectName" "Hero_ObsidianDestroyer.AstralImprisonment.Cast"
-				"Target"	"TARGET"
-			}
-	
-			"FireSound"
-			{
-				"EffectName"	"Hero_ObsidianDestroyer.AstralImprisonment"
-				"Target"	"TARGET"
-			}
-	
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_astral_imprisonment_int_steal_target_datadriven"
-				"Target"
-				{
-					"Center" "TARGET"
-					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY" 
-				}
-			}		
-	
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_astral_imprisonment_datadriven"
-				"Target"	"TARGET"
-			}
-		}
-	
-		
-	
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}	
+	"obsidian_destroyer_imprison_int_steal_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"Modifiers"
 		{
-			"modifier_astral_imprisonment_datadriven"
+			"modifier_id_imprison_int_steal_checker"
 			{
-				"Duration"	"%prison_duration"
-				"IsDebuff"	"1"
-				"IsHidden"	"0"
-				"EffectName"	"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_prison.vpcf"
-				"EffectAttachType"	"attach_origin"
-	
-	
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_OUT_OF_GAME"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-	
-				"OnCreated"
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/hero_obsidian_destroyer/astral_imprisonment.lua"
-						"Function"	"AstralImprisonmentStart"				
+						"Function"		"handleAbilityExecuted"
 					}
-				}
-	
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_obsidian_destroyer/astral_imprisonment.lua"
-						"Function"	"AstralImprisonmentStopSound"					
-					}
-	
-					"FireSound"
-					{
-						"EffectName"	"Hero_ObsidianDestroyer.AstralImprisonment.End"
-						"Target"	"TARGET"
-					}
-	
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_obsidian_destroyer/astral_imprisonment.lua"
-						"Function"	"AstralImprisonmentEnd"					
-					}
-				}				
-			}
-	
-			"modifier_astral_imprisonment_int_steal_datadriven"
-			{
-				"Duration"	"%steal_duration"
-				"IsDebuff"	"0"
-				"IsPurgable"	"0"
-				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
-	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%int_gain"
 				}
 			}
-	
-			"modifier_astral_imprisonment_int_steal_target_datadriven"
+			"modifier_od_imprison_int_steal"
 			{
-				"Duration"	"%steal_duration"
+				"Passive"	"0"
+				"IsHidden"	"1"
 				"IsDebuff"	"1"
-				"IsPurgable"	"0"
-				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
-	
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_astral_imprisonment_int_steal_datadriven"
-						"Target"	"CASTER"		
-					}
-				}
-	
+				"Duration"	"50"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%int_steal"
 				}
 			}
+			"modifier_od_imprison_int_gain"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"Duration"	"50"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%int_gain"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"int_steal"				"-4 -7 -10 -13"
+			"int_gain"				"4 7 10 13"
 		}
 	}
 	//=================================================================================================================

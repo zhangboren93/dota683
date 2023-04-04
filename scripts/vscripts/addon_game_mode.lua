@@ -77,8 +77,8 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(15)
 	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1)
 	GameRules:GetGameModeEntity():SetCustomBuybackCooldownEnabled(true)
-	GameRules:GetGameModeEntity():SetCustomGlyphCooldown(-1)
-	GameRules:GetGameModeEntity():SetCustomScanCooldown(-1)
+	GameRules:GetGameModeEntity():SetCustomGlyphCooldown(10000)
+	GameRules:GetGameModeEntity():SetCustomScanCooldown(10000)
 	GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockAmount(0)
 	GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockPercent(0)
 	GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockPerLevelAmount(0)
@@ -658,6 +658,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("shadow_demon_soul_catcher_debuff_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_silencer" then
 			entity:FindAbilityByName("silencer_global_silence_aghs_datadriven"):SetLevel(1)
+		elseif entity:GetName() == "npc_dota_hero_obsidian_destroyer" then
+			entity:FindAbilityByName("obsidian_destroyer_imprison_int_steal_datadriven"):SetLevel(1)
 		end
     end
 
