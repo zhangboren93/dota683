@@ -21,7 +21,7 @@ function modifier_attribute_regen_adjust:DeclareFunctions()
 end
 
 function modifier_attribute_regen_adjust:IsHidden()
-    return false
+    return true
 end
 
 function modifier_attribute_regen_adjust:GetModifierConstantManaRegen()
