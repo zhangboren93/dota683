@@ -295,5 +295,7 @@
 		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					"眩晕"
 		"DOTA_Tooltip_Ability_earth_spirit_rolling_boulder_Lore"				"移速-80%，持续2秒"
 		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"增伤20/30/40/50%"
+		"DOTA_Tooltip_Ability_tiny_craggy_exterior_Lore"						"护甲+2/3/4/5"
+		"DOTA_Tooltip_Ability_tiny_grow_Lore"									"移速+20/40/60"
 	}
 }

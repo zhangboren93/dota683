@@ -295,5 +295,7 @@
 		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					"Stuns"
 		"DOTA_Tooltip_Ability_earth_spirit_rolling_boulder_Lore"				"-80% move speed, lasts 2 seconds"
 		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"Increase incoming damage by 20/30/40/50%"
+		"DOTA_Tooltip_Ability_tiny_craggy_exterior_Lore"									"armor +2/3/4/5"
+		"DOTA_Tooltip_Ability_tiny_grow_Lore"									"move speed +20/40/60"
 	}
 }

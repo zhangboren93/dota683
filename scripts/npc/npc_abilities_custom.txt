@@ -2341,7 +2341,6 @@
 			}
 		}	
 	}
-	//TODO remove bonus armor
     "tiny_grow"
 	{
 		// General
@@ -2359,7 +2358,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_armor"				"3 4 5"
+				"bonus_armor"				"0"
 				"bonus_damage"			
 				{
 					"value"					"50 100 150"
@@ -2373,6 +2372,114 @@
 				"attack_speed_reduction"	"-20 -35 -50"
 				"toss_bonus_damage"			"100 200 300"
 		}
+	}
+	//=================================================================================================================
+	// Ability: Tiny Toss Tree
+	//=================================================================================================================
+	"tiny_toss_tree"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"6937"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"LinkedAbility"					"tiny_tree_grab"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1"
+		"AbilityCastPoint"				"0.2"
+ 		"AbilityCastAnimation"		"ACT_INVALID"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"speed"		"1"
+				"range"		"1"
+				"bonus_damage"				
+				{
+					"value"				"0"
+					"CalculateSpellDamageTooltip"	"0"
+				}
+				"splash_radius"				"1"
+				"movement_slow"				"0"
+				"slow_duration"				"0"
+
+		}
+	}
+	"tiny_grow_move_speed_checker_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_grow_move_speed_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_tiny/passive.lua"
+						"Function"		"growMoveSpeed"
+					}
+				}
+			}
+		}
+	}
+	"tiny_grow_move_speed_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"3"
+		"Modifiers"
+		{
+			"modifier_grow_move_speed_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_move_speed"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"bonus_move_speed"	"20 40 60"
+		}
+	}
+	"tiny_coat_armor_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_coat_armor_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_armor"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"bonus_armor"	"2 3 4 5"
+		}
+
 	}
     "vengefulspirit_nether_swap"
 	{
@@ -20833,7 +20940,6 @@
 	//=================================================================================================================
 	// Tiny: Craggy Exterior
 	//=================================================================================================================
-	//TODO bonus armor
 	"tiny_craggy_exterior"
 	{
 		// General
