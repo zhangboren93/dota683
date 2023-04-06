@@ -608,6 +608,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 1
 			end, "visage scepter", 1);
+			entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_windrunner" then
 			entity:SetThink(function()
 				entity:RemoveModifierByName("modifier_windrunner_windrun_invis")
@@ -778,6 +779,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:HasAbility("pugna_nether_ward_aura_datadriven") then
 		entity:FindAbilityByName("pugna_nether_ward_aura_datadriven"):SetLevel(
 			entity:GetOwner():FindAbilityByName("pugna_nether_ward"):GetLevel())
+	end
+	if entity:GetName() == "npc_dota_visage_familiar" then
+		entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 	end
 end
 

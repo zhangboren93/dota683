@@ -265,6 +265,7 @@
 		"DOTA_Tooltip_Ability_dazzle_poison_touch_datadriven_Description"		"减速，4级眩晕，持续伤害"
 		"DOTA_Tooltip_Ability_leshrac_pulse_nova_Scepter_Description"			"+伤害"
 		"DOTA_Tooltip_Ability_visage_summon_familiars_Scepter_Description"		"+1"
+		"DOTA_Tooltip_Ability_visage_gravekeepers_cloak_Lore"					"护甲+1/2/4/5，魔抗+3/6/12/16"
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven"							"虚弱"
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven_Description"				"-%enfeeble_attack_reduction%攻，持续20秒"
 		"DOTA_Tooltip_Ability_pugna_nether_ward_Lore"							"回蓝-1.5/3/4.5/6"

@@ -1602,6 +1602,8 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"Ability5"		"generic_hidden"
+		"Ability8"		"visage_gravekeepers_cloak_bonus_datadriven"
+		"Ability9"		"visage_gravekeepers_cloak_bonus_active_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
