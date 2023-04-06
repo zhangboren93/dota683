@@ -57,3 +57,14 @@ function checkAllieActive(event)
 		event.target:RemoveModifierByName("modifier_overcharge_buff_allie_datadriven")
 	end
 end
+
+function handleAbilityExecuted(keys)
+    local unit = keys.unit
+    local ability = keys.ability
+    local event_ability = keys.event_ability
+    local target = keys.target
+	if event_ability:GetName() == "wisp_tether" and unit:HasModifier("modifier_overcharge_buff_datadriven") then
+		unit:FindAbilityByName("wisp_overcharge_datadriven"):ApplyDataDrivenModifier(
+			unit, target, "modifier_overcharge_buff_allie_datadriven", {})
+	end
+end

@@ -10858,7 +10858,6 @@
 				"scepter_slow_duration"			"0"
 		}
 	}	
-	//TODO Overcharge then tether
 	"wisp_overcharge_datadriven"
 	{
 		// General
@@ -11088,6 +11087,28 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"return_time"				"12.0 12.0 12.0"
+			}
+		}
+	}
+	"wisp_tether_charge_checker_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_wisp_tether_charge_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_wisp/overcharge.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
 			}
 		}
 	}
