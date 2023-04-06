@@ -6963,7 +6963,6 @@
 	//=================================================================================================================
 	// Chen: Penitence
 	//=================================================================================================================
-	//TODO take more damage
 	"chen_penitence"
 	{
 		// General
@@ -6993,35 +6992,63 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"5 6 7 8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"speed"					"1400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_movement_speed"	"-14 -18 -22 -26"
-				"LinkedSpecialBonus"	"special_bonus_unique_chen_8"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"25 50 75 100"
-			}
+				"bonus_attack_speed"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	"chen_penitence_incoming_dmg_checker"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_chen_penitence_incoming_dmg_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_chen/penitence_checker.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+		}
+	}
+	"chen_penitence_active_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityDuration"	"5 6 7 8"
+		"Modifiers"
+		{
+			"modifier_chen_penitence_active_datadriven"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"Duration"	"%AbilityDuration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%incoming_damage_pct"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"incoming_damage_pct"	"14 18 22 26"
+		}
 	}
 	//=================================================================================================================
 	// Chen: Test of Faith
 	//=================================================================================================================
-	// TODO teleport allies
 	"chen_test_of_faith"
 	{
 		// General
@@ -7087,6 +7114,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilitySound"					"Hero_Chen.HolyPersuasionCast"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"HasScepterUpgrade"			"0"
 		"HasShardUpgrade"			"0"
 
@@ -7111,7 +7139,7 @@
 			"level_req"				"6"
 			"health_min"			
 			{
-				"value"						"700 800 900 1000"
+				"value"						"0"
 				"special_bonus_unique_chen_4"	"+1200"
 			}
 			"movement_speed_bonus"	"0"
@@ -7130,7 +7158,7 @@
 				"value"			"0"
 				"special_bonus_scepter"			"+0"
 			}
-
+			"health_bonus"	"75 150 225 300"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
