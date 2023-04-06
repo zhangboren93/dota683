@@ -113,6 +113,20 @@ function modifier_creep_ai:OnIntervalThink()
             self:OnIntervalThink()
             return
         end
+        if not self.target.unit:CanEntityBeSeenByMyTeam(entity) or self.target.unit:IsInvisible() then
+            if  self.chaseCount == nil then
+                self.chaseCount = 1
+            else
+                self.chaseCount = self.chaseCount + 1
+            end
+            if self.chaseCount > 3 then
+                self.chaseCount = nil
+                self.target = nil
+                self.state = AI_STATE_PATHING
+                self:OnIntervalThink()
+                return
+            end
+        end
         entity:MoveToTargetToAttack(self.target.unit)
     elseif self.state == AI_STATE_AGGRO_COOLDOWN then
         if GameRules:GetDOTATime(false, false) > self.targetCooldown then
@@ -163,7 +177,7 @@ function modifier_creep_ai:selectTarget()
     --print(self.kv.seige)
     local units = FindUnitsInRadius(
         entity:GetTeam(), position, entity, self.kv.alertRadius, 
-        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE,
+        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NO_INVIS,
         FIND_CLOSEST, false)
     if self.kv.seige > 0 then
         local buildings = {}

@@ -298,5 +298,7 @@
 		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"增伤20/30/40/50%"
 		"DOTA_Tooltip_Ability_tiny_craggy_exterior_Lore"						"护甲+2/3/4/5"
 		"DOTA_Tooltip_Ability_tiny_grow_Lore"									"移速+20/40/60"
+		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"网"
+		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"数量%count%，回血%health_regen%，移速+%bonus_movespeed%%%"
 	}
 }

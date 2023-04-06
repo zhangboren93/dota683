@@ -298,5 +298,7 @@
 		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"Increase incoming damage by 20/30/40/50%"
 		"DOTA_Tooltip_Ability_tiny_craggy_exterior_Lore"									"armor +2/3/4/5"
 		"DOTA_Tooltip_Ability_tiny_grow_Lore"									"move speed +20/40/60"
+		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"Spin Web"
+		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"max web count %count%, health regen %health_regen%, move speed +%bonus_movespeed%%%"
 	}
 }
