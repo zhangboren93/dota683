@@ -427,7 +427,7 @@
 		//----------------------------------------------------------------
 		"Ability1"					"prowler_evasion"			// Ability 1
 		"Ability2"					"granite_golem_pure_attack"			// Ability 4
-		"Ability3"					"black_dragon_dragonhide_aura"			// Ability 3
+		"Ability3"					"enraged_wildkin_toughness_aura"			// Ability 3
 		"Ability4"					""			// Ability 4
 
 		// Armor
