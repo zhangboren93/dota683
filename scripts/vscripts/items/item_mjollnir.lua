@@ -15,18 +15,18 @@ function shield_triggered(event)
 
         local new_target = attacker
         -- TODO Add sound
-       -- local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf", PATTACH_POINT_FOLLOW, target )
-       -- ParticleManager:SetParticleControl(particle,0,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))   
-       -- ParticleManager:SetParticleControl(particle,1,Vector(new_target:GetAbsOrigin().x,new_target:GetAbsOrigin().y,new_target:GetAbsOrigin().z + new_target:GetBoundingMaxs().z ))
+        local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf", PATTACH_POINT_FOLLOW, target )
+        ParticleManager:SetParticleControl(particle,0,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))   
+        ParticleManager:SetParticleControl(particle,1,Vector(new_target:GetAbsOrigin().x,new_target:GetAbsOrigin().y,new_target:GetAbsOrigin().z + new_target:GetBoundingMaxs().z ))
         ApplyDamage({ victim = new_target, attacker = ability:GetCaster(), damage = damage,	damage_type = DAMAGE_TYPE_MAGICAL })
 
 		local units = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, static_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
         for i=1,#units do
             if units[i] ~= attacker and not units[i]:IsBuilding() and not units[i]:IsMagicImmune() then
                 local new_target = attacker
-              --  local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf", PATTACH_POINT_FOLLOW, target )
-              --  ParticleManager:SetParticleControl(particle,0,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))   
-              --  ParticleManager:SetParticleControl(particle,1,Vector(new_target:GetAbsOrigin().x,new_target:GetAbsOrigin().y,new_target:GetAbsOrigin().z + new_target:GetBoundingMaxs().z ))
+                local particle = ParticleManager:CreateParticle( "particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf", PATTACH_POINT_FOLLOW, target )
+                ParticleManager:SetParticleControl(particle,0,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))   
+                ParticleManager:SetParticleControl(particle,1,Vector(new_target:GetAbsOrigin().x,new_target:GetAbsOrigin().y,new_target:GetAbsOrigin().z + new_target:GetBoundingMaxs().z ))
                 ApplyDamage({ victim = units[i], attacker = ability:GetCaster(), damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
                 count = count - 1
                 if count == 0 then

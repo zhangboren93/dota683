@@ -1452,7 +1452,6 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"echo_slam_initial_damage"		"100 140 180"
-				"special_bonus_scepter"			"+200"
 			}
 		}
 	}
@@ -3456,12 +3455,12 @@
 			"animation_rate"		"0.2"
 			"scepter_pct_damage"
 			{
-				"value"					"3.5"
+				"value"					"3.75 4.5 5.25"
 				"RequiresScepter"		"1"
 			}
 			"scepter_radius"	
 			{
-				"value"					"1200"
+				"value"					"420"
 				"RequiresScepter"			"1"
 			}
 			"scepter_drag_speed"			
@@ -5446,7 +5445,7 @@
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Luna.Eclipse.Cast"
 		
-		"HasScepterUpgrade"			"1"
+		"HasScepterUpgrade"			"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -5465,34 +5464,29 @@
 			"beams"
 			{
 				"value"					"5 8 11"
-				"special_bonus_scepter"	"+1 +2 +3"
 			}
 			"beam_interval"
 			{
 				"value"					"0.6 0.6 0.6"
-				"special_bonus_scepter"	"-0.3"
 			}
 			"beam_interval_scepter"		"0.6" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
 			"radius"					"675"
 			"hit_count"
 			{
 				"value"					"4"
-				"special_bonus_scepter"	"+13"
 			}
 			"AbilityCastRange"
 			{
 				"value"					"0"
-				"special_bonus_scepter"	"+800"
+				"special_bonus_scepter"	"+1"
 			}
 			"AbilityDuration"
 			{
 				"value"					"2.4 4.2 6.0"
-				"special_bonus_scepter"	"-0.6"
 			}
 			"night_duration"	
 			{
 				"value"	"10.0"
-
 			}
 			"stun_duration"
 			{
@@ -12353,7 +12347,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_ElderTitan.AncestralSpirit.Cast"
 
-		"HasScepterUpgrade"			"1"
+		"HasScepterUpgrade"			"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -12401,7 +12395,7 @@
 			"move_pct_cap"					"40"
 			"scepter_magic_immune_per_hero"	
 			{
-				"value"				"2"
+				"value"				"0"
 				"RequiresScepter"				"1"
 			}
 		}
@@ -20649,7 +20643,6 @@
 	//=================================================================================================================
 	// Ability: Earthshaker Totem
 	//=================================================================================================================
-	// TODO rewrite to remove side effect of aghs
 	"earthshaker_enchant_totem"
 	{
 		// General
