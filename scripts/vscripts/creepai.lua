@@ -7,9 +7,10 @@ local AI_STATE_ATTACKING = 1
 local AI_STATE_AGGRO_COOLDOWN = 2
 
 local PRIORITY_SEIGE = 10
-local PRIORITY_ATTACKING_HERO = 2
-local PRIORITY_CREEP = 1
-local PRIORITY_NOT_CREEP = 0
+local PRIORITY_ATTACKING_HERO = 3
+local PRIORITY_CREEP = 2
+local PRIORITY_HERO = 1
+local PRIORITY_NOT_CREEP = 0 -- building etc
 local pathCornersMap = { }
 pathCornersMap["gb"] = {
     --"lane_bot_pathcorner_goodguys_1",
@@ -221,6 +222,12 @@ function modifier_creep_ai:selectTarget()
         return {
             unit = creepunits[1],
             priority = PRIORITY_CREEP
+        }
+    end
+    if #heroes > 0 then
+        return {
+            unit = heroes[1],
+            priority = PRIORITY_HERO
         }
     end
     -- attack other units

@@ -158,7 +158,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		print("dota_hero_swap")
 	end, nil)
 
-	if GetMapName() == "dota_683" then
+	if GetMapName() == "dota" then
 		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
 		local direMediumCamp = nil
 		local direSmallCamp = nil
@@ -175,7 +175,7 @@ function CAddonTemplateGameMode:InitGameMode()
 			elseif math.floor(pos[1]) == 3016 and math.floor(pos[2]) == -4513 then
 				print("find radiant medium camp")
 				radiantMediumCamp = neutralSpawners[i]
-			elseif pos[1] == -448 and pos[2] == -3136 then
+			elseif pos[1] == -384 and pos[2] == -3136 then
 				print("find radiant small camp")
 				radiantSmallCamp = neutralSpawners[i]
 			end
@@ -422,7 +422,6 @@ function CAddonTemplateGameMode:OnThink()
 				v:CreatePendingUnits()
 				v:SpawnNextBatch(false)
 			end
-			--GameRules:SpawnNeutralCreeps()
 			self.hasSpawnNeutralsAt30s = true
 		end
 
@@ -704,21 +703,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
     	end, nil, "fix speed", 1)
 	end
 
-	if entity:GetName() == "npc_dota_ward_base" or entity:GetName() == "npc_dota_ward_base_truesight" then
-		entity:SetThink(function()
-			local position = entity:GetAbsOrigin()
-			if isAtWardPoint(position, -1940, -4760) then
-				entity:SetAbsOrigin(Vector(position[1] + 300, position[2] + 300, position[3] + 256))
-			elseif isAtWardPoint(position, -1171, -4621) then
-				entity:SetAbsOrigin(Vector(position[1] - 400, position[2] + 100, position[3] + 256))
-			elseif isAtWardPoint(position, 4172, -1283) then
-				entity:SetAbsOrigin(Vector(position[1] + 400, position[2], position[3] + 256))
-			elseif isAtWardPoint(position, 4951, -1269) then
-				entity:SetAbsOrigin(Vector(position[1] - 350, position[2], position[3] + 256))
-			end
-		end, "delay change word location", 0.1)
-	end
-
 	if entity:GetName() == "npc_dota_creep_lane" then
 		entity:SetThink(function()
 			entity:RemoveModifierByName("modifier_creep_bonus_xp")
@@ -785,10 +769,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:GetName() == "npc_dota_visage_familiar" then
 		entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 	end
-end
-
-function isAtWardPoint(position, x, y)
-	return position[1] < x + 75 and position[1] > x - 75 and position[2] > y - 75 and position[2] < y + 75
 end
 
 function HandleEntityKilled(entityIdx, attackerIdx, inflictorIdx)
