@@ -1350,20 +1350,28 @@
 			"explosion_radius"				"320"
 			"bonus_armor"					"0"
 			"explosion_interval"			"0.1"
-			"movespeed_slow"				"-40"
-			"attack_slow"					"-60"
+			"movespeed_slow"				
+			{
+				"value"	"-30"
+				"special_bonus_scepter"	"-20"
+			}
+			"attack_slow"
+			{
+				"value"				"-30"
+				"special_bonus_scepter"	"-20"
+			}
 			"slow_duration"					"1.0"
 			"explosion_min_dist"			"195"
 			"explosion_max_dist"			"785"
 			"damage"
 			{
 				"value"										"105 170 250"
-				"special_bonus_unique_crystal_maiden_3"		"+50"
+				"special_bonus_scepter"		"+65 80 60"
 			}
 			"frostbite_delay" // negative means don't apply.
 			{
 				"value"						"-1"
-				"special_bonus_scepter"		"+2.75"
+				"special_bonus_scepter"		"+0"
 				"RequiresScepter"			"1"
 			}
 			"shard_bonus_explosion"
@@ -18458,43 +18466,50 @@
 	    }
 	
 	}	
-	//=================================================================================================================
-	// Ability: Storm Bolt (Storm Hammer)
-	//=================================================================================================================
-	"sven_storm_bolt"
+	// Rewrite of the Sven Storm Bolt ability
+	// Author: Pizzalol
+	// Date: 28.12.2014.
+	"sven_storm_bolt_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5094"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Sven.StormBoltImpact"
-
-		"HasScepterUpgrade"				"1"
-
-
+		"AbilityTextureName"			"sven_storm_bolt"
+		"AOERadius"						"%bolt_aoe"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+			"particle"			"particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf"
+			"particle"			"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+			"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+		}
+		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
-
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13"
-
+		"AbilityCooldown"				"13.0"
+	
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDamage"					"100 175 250 325"
-
+	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"140"
-
+	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -18508,7 +18523,6 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"bolt_stun_duration"	"2.0"
-				"LinkedSpecialBonus"		"special_bonus_unique_sven_4"
 			}
 			"03"
 			{
@@ -18520,14 +18534,97 @@
 				"var_type"			"FIELD_INTEGER"
 				"vision_radius"		"225"
 			}
-			"05"
+		}
+	
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range_bonus_scepter"		"0"		
-				"RequiresScepter"			"1"
+				"Target"           	"TARGET"
+			    "EffectName"       	"particles/units/heroes/hero_sven/sven_spell_storm_bolt.vpcf"
+			    "Dodgeable"        	"1"
+			    "ProvidesVision"   	"1"
+			    "VisionRadius"		"%vision_radius"
+			    "MoveSpeed"        	"%bolt_speed"
+			    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"		"Hero_Sven.StormBolt"
+				"Target"			"CASTER"
 			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	
+		"OnProjectileHitUnit"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Sven.StormBoltImpact"
+				"Target"			"TARGET"
+			}
+	
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"Target"		"TARGET"
+				"ControlPointEntities"
+				{
+					"TARGET"	"attach_origin"
+					"TARGET"	"attach_origin"
+					"TARGET"	"attach_origin"
+					"TARGET"	"attach_origin"	//CP3 has a child explosion origin
+				}
+			}
+	
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center" "POINT"
+	                "Radius" "%bolt_aoe"
+	                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+	                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+				}
+	
+				"Action"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%AbilityDamage"
+					}
+	
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_storm_bolt_datadriven"
+						"Target"		"TARGET"
+					}
+	
+				}
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_storm_bolt_datadriven"
+			{
+				"Duration"		"%bolt_stun_duration"
+				"IsDebuff"		"1"
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+	
+				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Ability: Great Cleave
