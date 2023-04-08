@@ -667,6 +667,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("wisp_tether_charge_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_chen" then
 			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
+		elseif entity:GetName() == "npc_dota_hero_sven" then
+			entity:FindAbilityByName("sven_great_cleave_pure_datadriven"):SetLevel(1)
 		end
     end
 
@@ -1047,8 +1049,8 @@ end
 function CAddonTemplateGameMode:DamageFilter(event)
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
-		print(inflictor:GetName())
-		if inflictor:GetName() == "kunkka_tidebringer_datadriven" then
+		--print("DamageFilter " .. inflictor:GetName())
+		if inflictor:GetName() == "kunkka_tidebringer_datadriven" or inflictor:GetName() == "sven_great_cleave" then
 			local attacker = EntIndexToHScript(event.entindex_attacker_const)
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			local victimarmor = victim:GetPhysicalArmorValue(false)
