@@ -8,6 +8,7 @@ local ItemsToBuy =
 {
 	"item_tango",
 	"item_wraith_band_datadriven", --系带
+	"item_wraith_band_datadriven", --系带
 	"item_power_treads",
 	"item_maelstrom",
 	"item_desolator",

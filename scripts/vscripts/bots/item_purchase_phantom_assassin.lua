@@ -10,7 +10,6 @@ local ItemsToBuy =
 	--"item_quelling_blade", --补刀斧
 	"item_wraith_band_datadriven", --系带
 	"item_phase_boots", --相位7.21
-	"item_magic_wand", --大魔棒7.14
 	--"item_orb_of_corrosion",
 	"item_bfury",
 	"item_desolator",

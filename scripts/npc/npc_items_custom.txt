@@ -10224,4 +10224,46 @@
 		    }
 	    }
     }
+	//=================================================================================================================
+	// Branches
+	//=================================================================================================================
+	"item_branches"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"16"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/branch.vmdl"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"50"
+		"ItemShopTags"					"agi;int;str"
+		"ItemQuality"					"consumable"
+		"ItemAliases"					"gg branch;iron branch"
+		"ShouldBeInitiallySuggested"	"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_all_stats"		"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"tree_duration"			"0"
+			}
+		}
+	}
 }

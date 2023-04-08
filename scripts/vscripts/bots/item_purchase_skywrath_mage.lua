@@ -8,10 +8,10 @@ local ItemsToBuy =
 {
 	"item_tango",
 	"item_null_talisman_datadriven",
+	"item_null_talisman_datadriven",
 	--"item_tango",
 	--"item_enchanted_mango",
 	--"item_enchanted_mango",
-	"item_magic_wand",
 	"item_arcane_boots",
 	-- "item_witch_blade",
 	--"item_kaya",

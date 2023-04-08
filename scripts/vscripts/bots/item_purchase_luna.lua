@@ -8,8 +8,8 @@ local ItemsToBuy =
 {
 	"item_tango",
 	"item_wraith_band_datadriven",
+	"item_wraith_band_datadriven",
 	--"item_wraith_band",
-	"item_magic_wand", --大魔棒7.14
 	"item_power_treads", --假腿7.21
 	"item_mask_of_madness_datadriven", --疯狂面具7.06
 	"item_yasha", --单刀

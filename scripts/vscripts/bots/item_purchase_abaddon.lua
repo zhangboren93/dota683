@@ -10,8 +10,8 @@ local ItemsToBuy =
 	"item_tango",
 	"item_stout_shield",
 	--"item_enchanted_mango",
-	"item_magic_wand",
 	"item_boots",
+	"item_bracer",
 	--"item_bracer",
 	"item_arcane_boots",
 	"item_vladmir_2", --祭品7.21

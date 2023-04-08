@@ -1,8 +1,8 @@
 function manaBurn(event)
     local target = event.target
     local feedback_mana_burn = event.feedback_mana_burn
-    if event.attacker:IsIllusion() then
-        feedback_mana_burn = feedback_mana_burn * 0.3
+    if event.attacker:IsIllusion() and event.attacker:IsRangedAttacker() then
+        return
     end
     local mana_burn_avail = target:GetMana()
     if mana_burn_avail > feedback_mana_burn then
