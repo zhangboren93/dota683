@@ -6,14 +6,7 @@
 function TickDrain( event )
 	local caster = event.caster
 	local deltaDrainPct	= event.drain_interval * event.drain_pct
-
-	ApplyDamage( {
-		victim = caster,
-		attacker = caster,
-		damage = caster:GetHealth() * deltaDrainPct,
-		damage_type = DAMAGE_TYPE_PURE,
-	} )
-
+	caster:ModifyHealth(caster:GetHealth() * (1 - deltaDrainPct), nil, false, 0)
 	caster:SpendMana( caster:GetMana() * deltaDrainPct, event.ability )
 end
 
