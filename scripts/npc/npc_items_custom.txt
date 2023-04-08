@@ -5614,15 +5614,24 @@
 				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Aura_ApplyToCaster" 	"0"
 
-				"OnKill"
+			//	"OnKill"
+			//	{
+			//		"RunScript"
+			//		{
+			//			"ScriptFile"			"items/item_bloodstone.lua"
+			//			"Function"				"modifier_item_bloodstone_datadriven_aura_emitter_on_hero_kill"
+			//		}
+			//	}
+				
+				"OnCreated"
 				{
 					"RunScript"
 					{
 						"ScriptFile"			"items/item_bloodstone.lua"
-						"Function"				"modifier_item_bloodstone_datadriven_aura_emitter_on_hero_kill"
+						"Function"				"item_bloodstone_datadriven_recalculate_charge_bonuses"
 					}
 				}
-				
+
 				"OnDeath"
 				{
 					"RunScript"
