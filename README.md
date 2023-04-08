@@ -48,4 +48,5 @@ dota2ai提供了AI购买物品的代码: https://github.com/adamqqqplay/dota2ai
 
 后续开发计划：
 - 道具功能修复（散失驱散召唤单位...）
+- 分裂纯粹伤害
 - 查看战绩

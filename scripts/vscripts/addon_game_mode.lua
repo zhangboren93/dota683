@@ -138,6 +138,8 @@ function CAddonTemplateGameMode:InitGameMode()
 		Dynamic_Wrap(CAddonTemplateGameMode, "HealingFilter"), self)
 	GameRules:GetGameModeEntity():SetModifierGainedFilter(
 		Dynamic_Wrap(CAddonTemplateGameMode, "ModifierGainedFilter"), self)
+	GameRules:GetGameModeEntity():SetDamageFilter(
+		Dynamic_Wrap(CAddonTemplateGameMode, "DamageFilter"), self)
 
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(self, event.entindex, event.is_respawn)
@@ -1037,6 +1039,23 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		if ability:GetName() == "earth_spirit_rolling_boulder" then
 			local slow = caster:FindAbilityByName("earth_spirit_rolling_boulder_slow_datadriven")
 			slow:ApplyDataDrivenModifier(caster, parent, "modifier_earth_spirit_rolling_boulder_slow_datadriven", {})
+		end
+	end
+	return true
+end
+
+function CAddonTemplateGameMode:DamageFilter(event)
+	if event.entindex_inflictor_const ~= nil then
+		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
+		print(inflictor:GetName())
+		if inflictor:GetName() == "kunkka_tidebringer_datadriven" then
+			local attacker = EntIndexToHScript(event.entindex_attacker_const)
+			local victim = EntIndexToHScript(event.entindex_victim_const)
+			local victimarmor = victim:GetPhysicalArmorValue(false)
+			local tidetargetarmor = attacker.tidetarget:GetPhysicalArmorValue(false)
+			local originalDamage = event.damage / (1 - 0.06 * victimarmor / (1 + 0.06 * math.abs(victimarmor)))
+			local pureDamage = originalDamage * (1 - 0.06 * tidetargetarmor / ( 1 + 0.06 * math.abs(tidetargetarmor)))
+			event.damage = pureDamage
 		end
 	end
 	return true

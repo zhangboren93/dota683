@@ -3149,6 +3149,7 @@
 		"AttackAnimationPoint"		"0.4"
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
+		"Ability2"		"kunkka_tidebringer_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
