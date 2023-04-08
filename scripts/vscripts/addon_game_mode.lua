@@ -815,6 +815,8 @@ function handleKillBonus(attacker, entity)
 	end
 	if not attacker:IsRealHero() and attacker:GetOwner() ~= nil then
 		print("Setting attacker to the owner of the summoned units")
+		print(attacker:GetName())
+		print(attacker:GetOwner():GetName())
 		attacker = attacker:GetOwner()
 	end
 	-- give assist gold
@@ -839,7 +841,7 @@ function handleKillBonus(attacker, entity)
 		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
 	
 	-- add attacker the XP if out of range 
-	if attacker:IsAlive() and attacker:IsHero() then
+	if attacker:IsAlive() and attacker.IsHero ~= nil and attacker:IsHero() then
 		local unitsContainsAttacker = false
 		for i=1,#units do
 			if units[i]:GetEntityIndex() == attacker:GetEntityIndex() then

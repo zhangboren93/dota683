@@ -2376,7 +2376,7 @@
 					"value"				"0"
 					"special_bonus_unique_tiny_7"	"+40"
 				}
-				"attack_speed_reduction"	"-20 -35 -50"
+				"attack_speed_reduction"	"0"
 				"toss_bonus_damage"			"100 200 300"
 		}
 	}
@@ -2457,12 +2457,14 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_move_speed"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_reduction"
 				}
 			}
 		}
 		"AbilityValues"
 		{
 			"bonus_move_speed"	"20 40 60"
+			"attack_speed_reduction"	"-20 -35 -50"
 		}
 	}
 	"tiny_coat_armor_datadriven"
@@ -21154,6 +21156,7 @@
 		"HasScepterUpgrade"				"1"
         "HasShardUpgrade"               "0"
         "AbilityDraftScepterAbility"    "tiny_tree_channel"
+		"MaxLevel"						"1"
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
