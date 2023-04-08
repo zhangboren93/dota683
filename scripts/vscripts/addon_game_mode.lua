@@ -120,7 +120,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetBountyRuneSpawnInterval(10000)
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(false)
 	GameRules:GetGameModeEntity():SetDaynightCycleAdvanceRate(1.25)
-	GameRules:SetCreepSpawningEnabled(false)
+	if GetMapName() == "dota" then
+		GameRules:SetCreepSpawningEnabled(false)
+	end
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 
@@ -192,6 +194,17 @@ function CAddonTemplateGameMode:InitGameMode()
 		local radiantTrigger1 = Entities:FindByName(nil, "neutralcamp_good_1")
 		local radiantTrigger2 = Entities:FindByName(nil, "neutralcamp_good_4")
 		swapLocation(radiantTrigger1, radiantTrigger2)
+	end
+	if GetMapName() == "dota_low_poly" then
+		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
+		for i=1,#neutralSpawners do
+			local pos = neutralSpawners[i]:GetAbsOrigin()
+			print(pos)
+			if (pos[1] > -3723 and pos[1] < -3722) or (pos[1] > -4967 and pos[1] < -4966) or (pos[1] > 4451 and pos[1] < 4453) or (pos[1] > 2548 and pos[1] < 2549) then
+				print("destroy npc_dota_neutral_spawner")
+				neutralSpawners[i]:Destroy()
+			end
+		end
 	end
 end
 
@@ -428,7 +441,7 @@ function CAddonTemplateGameMode:OnThink()
 			self.hasSpawnNeutralsAt30s = true
 		end
 
-		if not self.botEnabled and time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
+		if not self.botEnabled and GetMapName() == "dota" and time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
 			spawnCreepsLua()
 			self.creepSpawnTime = time
 		end
