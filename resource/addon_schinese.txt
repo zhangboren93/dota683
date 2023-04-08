@@ -63,6 +63,7 @@
 		"DOTA_Tooltip_Ability_item_null_talisman_datadriven"	"挂件"
 		"DOTA_Tooltip_Ability_item_null_talisman_datadriven_Description"	"+3全属性+3智力+3攻击力"
 		"DOTA_Tooltip_Ability_courier_share"					"分享信使"
+		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"			"神秘商店"
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist"		"腐肉"
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist_Description"		"魔抗6/8/10/12%%"
 		"DOTA_Tooltip_Ability_item_soul_ring_Lore"	"+3回血+50%%回蓝"

@@ -14844,6 +14844,23 @@
 			}
 		}
 	}
+	"courier_go_to_secretshop_datadriven"		
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"courier_go_to_secretshop"
+		"AbilityCooldown"				"1.0"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_courier.lua"
+				"Function"		"go_to_secret"
+				"TARGET"		"CASTER"
+			}
+		}
+	}
 
 	"sniper_take_aim"
 	{

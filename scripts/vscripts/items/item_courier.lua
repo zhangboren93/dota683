@@ -11,3 +11,11 @@ function toggle_share(event)
     end, "suppress error message", 5)
     event.ability:Destroy()
 end
+
+function go_to_secret(event)
+    if event.caster:GetTeam() == DOTA_TEAM_GOODGUYS then
+        event.caster:MoveToPosition(Vector(-4487, 1253, 384))
+    else
+        event.caster:MoveToPosition(Vector(3462, 235, 384))
+    end
+end

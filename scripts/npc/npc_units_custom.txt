@@ -502,6 +502,7 @@
 	"npc_dota_courier"
 	{
 		"MovementSpeed"				"350"		// Speed
+		"Ability2"					"courier_go_to_secretshop_datadriven"		
 		"Ability6"					"courier_share"		
 		"StatusHealth"				"75"		// Base health.
 	}
