@@ -125,7 +125,7 @@ function modifier_item_bloodstone_datadriven_aura_emitter_on_death(keys)
 		DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	for i, nearby_ally in ipairs(nearby_allied_units) do
 		nearby_ally:Heal(keys.HealOnDeathBase + (keys.HealOnDeathPerCharge * total_charge_count), keys.caster)
-		ParticleManager:CreateParticle("particles/items_fx/bloodstone_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, nearby_ally)
+		--ParticleManager:CreateParticle("particles/items_fx/bloodstone_heal.vpcf", PATTACH_ABSORIGIN_FOLLOW, nearby_ally)
 	end
 	
 	--Reduce the time the cast spends dead.  This works correctly when killed by Necrophos' Reaper's Scythe as well.
@@ -135,8 +135,8 @@ function modifier_item_bloodstone_datadriven_aura_emitter_on_death(keys)
 	end
 	
 	--Place the Bloodstone marker in the spot the hero died.
-	local bloodstone_glyph = ParticleManager:CreateParticle("particles/items_fx/bloodstone_glyph.vpcf", PATTACH_ABSORIGIN, keys.caster)
-	ParticleManager:SetParticleControl(bloodstone_glyph, 1, Vector(new_time_until_respawn))  --Set the duration of the Bloodstone glyph particle.
+	--local bloodstone_glyph = ParticleManager:CreateParticle("particles/items_fx/bloodstone_glyph.vpcf", PATTACH_ABSORIGIN, keys.caster)
+	--ParticleManager:SetParticleControl(bloodstone_glyph, 1, Vector(new_time_until_respawn))  --Set the duration of the Bloodstone glyph particle.
 	keys.ability:CreateVisibilityNode(keys.caster:GetAbsOrigin(), keys.VisionOnDeathRadius, new_time_until_respawn)  --Provide vision around the Bloodstone glyph.
 	
 	--If this is the hero's first death with a Bloodstone, start a global engine event listener so they can gain experience while dead.
