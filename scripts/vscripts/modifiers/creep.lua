@@ -2,13 +2,6 @@ if modifier_creep_safe_lane_move_speed_bonus == nil then
     modifier_creep_safe_lane_move_speed_bonus = class({})
 end
 
-function modifier_creep_safe_lane_move_speed_bonus:OnCreated(kv)
-    local entity = self:GetParent()
-    entity:SetThink(function()
-        entity:RemoveModifierByName("modifier_creep_safe_lane_move_speed_bonus")
-    end, "remove safe lane creep bonus", 25)
-end
-
 function modifier_creep_safe_lane_move_speed_bonus:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

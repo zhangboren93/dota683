@@ -100,7 +100,9 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 	    	spawnedUnit:SetIdleAcquire(false)
 	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { alertRadius = CREEP_ALERT_RADIUS, pathName = pathNames[i], seige = false })
 			if spawners[i] == "lane_bot_goodguys_melee_spawner" or spawners[i] == "lane_top_badguys_melee_spawner" then
-				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { })
+				if not spawnedUnit:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
+					spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { }):SetDuration(25, true)
+				end
 			end
 			if string.find(melee[i], "upgraded") == nil then
 				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_health_bonus", { health = 10 * creepLevel, damage = 1 * creepLevel  })
@@ -124,7 +126,9 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 	    	spawnedUnit:SetIdleAcquire(false)
 	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { alertRadius = CREEP_ALERT_RADIUS_RANGED, pathName = pathNames[i], seige = false })
 			if spawners[i] == "lane_bot_goodguys_melee_spawner" or spawners[i] == "lane_top_badguys_melee_spawner" then
-				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { })
+				if not spawnedUnit:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
+					spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { }):SetDuration(25, true)
+				end
 			end
 			if string.find(ranged[i], "upgraded") == nil then
 				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_health_bonus", { health = 10 * creepLevel, damage = 2 * creepLevel })

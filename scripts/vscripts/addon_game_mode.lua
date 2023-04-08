@@ -200,10 +200,31 @@ function CAddonTemplateGameMode:InitGameMode()
 		for i=1,#neutralSpawners do
 			local pos = neutralSpawners[i]:GetAbsOrigin()
 			print(pos)
-			if (pos[1] > -3723 and pos[1] < -3722) or (pos[1] > -4967 and pos[1] < -4966) or (pos[1] > 4451 and pos[1] < 4453) or (pos[1] > 2548 and pos[1] < 2549) then
+			if (pos[1] > -3723 and pos[1] < -3722) 
+				or (pos[1] > -4967 and pos[1] < -4966) 
+				or (pos[1] > 4451 and pos[1] < 4453) 
+				or (pos[1] > -248 and pos[1] < -246) 
+				or (pos[1] > -133 and pos[1] < -132) 
+				or (pos[1] > 2548 and pos[1] < 2549) then
 				print("destroy npc_dota_neutral_spawner")
 				neutralSpawners[i]:Destroy()
+			elseif (pos[1] > -2545 and pos[1] < -2543) then
+				neutralSpawners[i]:SetAbsOrigin(Vector(-3037, -253, pos[3]))
+			elseif (pos[1] > 4195 and pos[1] < 4196) then
+				neutralSpawners[i]:SetAbsOrigin(Vector(3869, -511, pos[3]))
+			elseif (pos[1] > -2465 and pos[1] < -2463) then
+				neutralSpawners[i]:SetAbsOrigin(Vector(-2871, 4540, pos[3]))
 			end
+		end
+		local bountyRuneSpawners = Entities:FindAllByClassname("dota_item_rune_spawner_bounty")
+		print(#bountyRuneSpawners)
+		for i=1,#bountyRuneSpawners do
+			bountyRuneSpawners[i]:Destroy()
+		end
+		local healers = Entities:FindAllByClassname("npc_dota_healer")
+		print(#healers)
+		for i=1,#healers do
+			healers[i]:Destroy()
 		end
 	end
 end
@@ -476,6 +497,7 @@ end
 -- Add the order filter to your game mode entity
 function CAddonTemplateGameMode:OrderFilter(event)
     --Check if the order is the glyph type
+	--DeepPrintTable(event)
     if event.order_type == DOTA_UNIT_ORDER_GLYPH then
 		local player = PlayerResource:GetPlayer(event.issuer_player_id_const)
 		local team = player:GetTeam()
@@ -726,6 +748,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:RemoveModifierByName("modifier_creep_bonus_xp")
 			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
 			entity:SetBaseMagicalResistanceValue(0)
+			if (entity:GetAbsOrigin()[2] < -5460 or entity:GetAbsOrigin()[2] > 4745) 
+				and not entity:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
+				entity:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", {}):SetDuration(25, true)
+			end
 		end, "remove flag bearer bonus", 1)
 	end
 	if entity:GetName() == "npc_dota_lone_druid_bear" then
