@@ -590,7 +590,7 @@
 		"Ability1"		"life_stealer_rage_datadriven"
 		"Ability2"		"life_stealer_feast_datadriven"
 		"Ability3"		"life_stealer_open_wounds_2"
-		"Ability4"		"generic_hidden"
+		"Ability4"		"life_stealer_infest_bounty_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"

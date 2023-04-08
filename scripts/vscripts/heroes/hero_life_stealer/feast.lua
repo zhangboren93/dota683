@@ -6,6 +6,10 @@
 function feast_attack( keys )
     local attacker = keys.attacker
     local target = keys.target
+   -- print(target:GetName())
+    if target:IsBuilding() or target:GetName() == "npc_dota_roshan" then
+        return
+    end 
     local ability = keys.ability
 
     ability.hp_leech_percent = ability:GetLevelSpecialValueFor("hp_leech_percent", ability:GetLevel() - 1)
@@ -23,6 +27,10 @@ function feast_heal( keys )
   local target = keys.target
   local ability = keys.ability
 
+  --print(target:GetName())
+  if target:IsBuilding() or target:GetName() == "npc_dota_roshan" then
+      return
+  end 
   ability.hp_leech_percent = ability:GetLevelSpecialValueFor("hp_leech_percent", ability:GetLevel() - 1)
   local damage = target:GetHealth() * (ability.hp_leech_percent / 100)
 

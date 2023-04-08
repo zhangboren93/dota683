@@ -17887,6 +17887,28 @@
 			"AbilityCooldown"					"100"
 		}
 	}
+	"life_stealer_infest_bounty_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_life_stealer_infest_bounty_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_life_stealer/infest_bounty.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+		}
+	}
 	//=================================================================================================================
 	// Ability: Vengefulspirit Command Aura
 	//=================================================================================================================
@@ -22551,6 +22573,7 @@
 	
 				"OnAttack"
 				{
+					//TODO no effect on building and rosh
 					"FireEffect"
 					{
 						"EffectName"        "particles/generic_gameplay/generic_lifesteal.vpcf"

@@ -681,6 +681,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("wisp_tether_charge_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_chen" then
 			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
+		elseif entity:GetName() == "npc_dota_hero_life_stealer" then
+			entity:FindAbilityByName("life_stealer_infest_bounty_datadriven"):SetLevel(1)
 		end
     end
 
