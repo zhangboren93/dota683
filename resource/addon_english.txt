@@ -304,5 +304,7 @@
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven_Description"			"stuns for 2 seconds"
 		"DOTA_Tooltip_Ability_crystal_maiden_freezing_field_Scepter_Description"	"+damage and slow"
 		"DOTA_Tooltip_Ability_kunkka_tidebringer_datadriven"					"Tidebringer"
+		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"Refraction"
+		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_Description"	"damage +%bonus_damage%, %instances% instances"
 	}
 }
