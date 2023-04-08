@@ -18762,28 +18762,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	"sven_great_cleave_pure_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"Modifiers"
-		{
-			"modifier_sven_great_cleave_pure_datadriven"
-			{
-				"Passive"	"1"
-				"IsHidden"	"0"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_kunkka/tidebringer.lua"
-						"Function"		"remember_tide_target"
-					}
-				}
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: Warcry
 	//=================================================================================================================
@@ -31702,12 +31680,6 @@
 							{
 								"Target"			"TARGET"
 								"EffectName"		"Hero_Kunkka.TidebringerDamage"
-							}
-
-							"RunScript"
-							{
-								"ScriptFile"		"heroes/hero_kunkka/tidebringer.lua"
-								"Function"			"remember_tide_target"
 							}
 
 							"CleaveAttack"

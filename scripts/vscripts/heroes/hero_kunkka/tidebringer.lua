@@ -19,7 +19,3 @@ function tidebringer_set_cooldown( keys )
 		end, "tidebringer cooldown", cooldown)
 
 end
-
-function remember_tide_target(keys)
-	keys.caster.tidetarget = keys.target
-end

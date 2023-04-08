@@ -1393,7 +1393,6 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"Ability1"		"sven_storm_bolt_datadriven"
-		"Ability4"		"sven_great_cleave_pure_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"

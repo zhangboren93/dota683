@@ -61,7 +61,6 @@ function Activate()
 	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",  "modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_doom_scorched_earth_regen", 		 "modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			 "modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_empower_cleave_pure",			 "modifiers/empower_cleave_pure.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 end
@@ -668,8 +667,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("wisp_tether_charge_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_chen" then
 			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_sven" then
-			entity:FindAbilityByName("sven_great_cleave_pure_datadriven"):SetLevel(1)
 		end
     end
 
@@ -1044,29 +1041,34 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			local slow = caster:FindAbilityByName("earth_spirit_rolling_boulder_slow_datadriven")
 			slow:ApplyDataDrivenModifier(caster, parent, "modifier_earth_spirit_rolling_boulder_slow_datadriven", {})
 		end
-	elseif event.name_const == "modifier_magnataur_empower" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local parent = EntIndexToHScript(event.entindex_parent_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		if not parent:HasModifier("modifier_empower_cleave_pure") then
-			parent:AddNewModifier(caster, ability, "modifier_empower_cleave_pure", {})
-		end
 	end
 	return true
 end
 
 function CAddonTemplateGameMode:DamageFilter(event)
+	local attacker = EntIndexToHScript(event.entindex_attacker_const)
+	local victim = EntIndexToHScript(event.entindex_victim_const)
+	if attacker:IsHero() and event.entindex_inflictor_const == nil and event.damagetype_const == DAMAGE_TYPE_PHYSICAL then
+		--print("Setting tide target")
+		attacker.tidetarget = victim
+	end
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
 		--print("DamageFilter " .. inflictor:GetName())
-		if inflictor:GetName() == "kunkka_tidebringer_datadriven" or inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" then
-			local attacker = EntIndexToHScript(event.entindex_attacker_const)
-			local victim = EntIndexToHScript(event.entindex_victim_const)
-			local victimarmor = victim:GetPhysicalArmorValue(false)
-			local tidetargetarmor = attacker.tidetarget:GetPhysicalArmorValue(false)
-			local originalDamage = event.damage / (1 - 0.06 * victimarmor / (1 + 0.06 * math.abs(victimarmor)))
-			local pureDamage = originalDamage * (1 - 0.06 * tidetargetarmor / ( 1 + 0.06 * math.abs(tidetargetarmor)))
-			event.damage = pureDamage
+		if inflictor:GetName() == "kunkka_tidebringer_datadriven" or inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
+			victim:SetThink(function()
+				local victim = EntIndexToHScript(event.entindex_victim_const)
+				local victimarmor = victim:GetPhysicalArmorValue(false)
+				if attacker.tidetarget == nil then
+					return
+				end
+				local tidetargetarmor = attacker.tidetarget:GetPhysicalArmorValue(false)
+				local originalDamage = event.damage / (1 - 0.06 * victimarmor / (1 + 0.06 * math.abs(victimarmor)))
+				local pureDamage = originalDamage * (1 - 0.06 * tidetargetarmor / ( 1 + 0.06 * math.abs(tidetargetarmor)))
+				--print(event.damage .. " " .. pureDamage)
+				ApplyDamage({ victim = victim, attacker = attacker, damage = pureDamage, damage_type = DAMAGE_TYPE_PURE })
+			end, "later cleave pure damage", 0.1)
+			return false
 		end
 	end
 	return true
