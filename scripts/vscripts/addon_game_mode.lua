@@ -396,6 +396,7 @@ function CAddonTemplateGameMode:OnThink()
 		Tutorial:StartTutorialMode()	
 		GameRules:SetSameHeroSelectionEnabled(true)
 		GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
+		GameRules:SetUseUniversalShopMode(true)
 		-- pick 5 random hero to play
 		local lanes = {"bot", "bot", "mid", "top", "top"}
 		for i=1,5 do
