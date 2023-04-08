@@ -61,6 +61,7 @@ function Activate()
 	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",  "modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_doom_scorched_earth_regen", 		 "modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			 "modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_empower_cleave_pure",			 "modifiers/empower_cleave_pure.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 end
@@ -998,6 +999,7 @@ function CAddonTemplateGameMode:HealingFilter(event)
 end
 
 function CAddonTemplateGameMode:ModifierGainedFilter(event)
+	--print("ModifierGainedFilter " .. event.name_const)
 	if event.name_const == "modifier_dark_seer_wall_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local parent = EntIndexToHScript(event.entindex_parent_const)
@@ -1042,6 +1044,13 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			local slow = caster:FindAbilityByName("earth_spirit_rolling_boulder_slow_datadriven")
 			slow:ApplyDataDrivenModifier(caster, parent, "modifier_earth_spirit_rolling_boulder_slow_datadriven", {})
 		end
+	elseif event.name_const == "modifier_magnataur_empower" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		if not parent:HasModifier("modifier_empower_cleave_pure") then
+			parent:AddNewModifier(caster, ability, "modifier_empower_cleave_pure", {})
+		end
 	end
 	return true
 end
@@ -1050,7 +1059,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
 		--print("DamageFilter " .. inflictor:GetName())
-		if inflictor:GetName() == "kunkka_tidebringer_datadriven" or inflictor:GetName() == "sven_great_cleave" then
+		if inflictor:GetName() == "kunkka_tidebringer_datadriven" or inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" then
 			local attacker = EntIndexToHScript(event.entindex_attacker_const)
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			local victimarmor = victim:GetPhysicalArmorValue(false)
