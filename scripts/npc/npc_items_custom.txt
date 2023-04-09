@@ -801,12 +801,13 @@
 		"BaseClass" 					"item_datadriven"
 		"ID"							"1211"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM | DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
 		"AbilityCastRange"				"350"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"4.0"
+		"AbilityCooldown"				"5.0"
 		"AbilityCastAnimation"   		"ACT_DOTA_IDLE"
 		"Model"							"models/props_gameplay/quelling_blade.vmdl"
 		"InvalidHeroes" 				"npc_dota_hero_kunkka"
@@ -6639,7 +6640,6 @@
 	//=================================================================================================================
 	// Battlefury
 	//=================================================================================================================
-	//TODO pure cleave damage
 	"item_bfury"
 	{
 		// General
