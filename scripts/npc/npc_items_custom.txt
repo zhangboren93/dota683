@@ -2942,7 +2942,30 @@
 		"ItemResult"					"item_vladmir_2"
 		"ItemRequirements"
 		{
-			"01"						"item_ring_of_regen;item_ring_of_basilius;item_lifesteal_datadriven"
+			"01"						"item_ring_of_regen;item_ring_of_basilius_datadriven;item_lifesteal_datadriven"
+		}
+	}
+	"item_recipe_vladmir_2_alter"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"ID"							"1280"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_vladmir_2"
+		"ItemRequirements"
+		{
+			"01"						"item_ring_of_regen;item_ring_of_basilius_inactive_datadriven;item_lifesteal_datadriven"
 		}
 	}
 
@@ -3209,14 +3232,6 @@
 	//=================================================================================================================
 	// Recipe: Ring of Basilius
 	//=================================================================================================================
-	"item_recipe_ring_of_basilius"
-	{
-		"ItemPurchasable"	"0"
-	}
-	"item_ring_of_basilius"
-	{
-		"ItemPurchasable"	"0"
-	}
 	// Rewrite of Ring of Basilius
 	// Author: Rook
 	// Date: January 26, 2015
@@ -3236,11 +3251,18 @@
 		"ItemBaseLevel"                 "1"
 	}
 
-	"item_recipe_ring_of_basilius_2"
+	"item_recipe_ring_of_basilius"
+	{
+		"ItemPurchasable"		"0"
+	}
+	"item_ring_of_basilius"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_ring_of_basilius_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1287"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		
 		// Item Info
