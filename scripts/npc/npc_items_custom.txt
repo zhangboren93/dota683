@@ -2928,7 +2928,6 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"							"1280"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
 		
@@ -2944,29 +2943,6 @@
 		"ItemRequirements"
 		{
 			"01"						"item_ring_of_regen;item_ring_of_basilius_datadriven;item_lifesteal_datadriven"
-		}
-	}
-	"item_recipe_vladmir_2_alter"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
-		"ID"							"1280"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"300"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_vladmir_2"
-		"ItemRequirements"
-		{
-			"01"						"item_ring_of_regen;item_ring_of_basilius_inactive_datadriven;item_lifesteal_datadriven"
 		}
 	}
 
@@ -3076,12 +3052,24 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
-				"OnDealDamage"
+	   			"OnAttackLanded"    	
+	   			{
+	   				"RunScript"
+					{
+						"ScriptFile"	"items/item_vladmir.lua"
+						"Function"		"VladmirAuraApply"
+					}
+				}
+			}
+		    "modifier_item_vladmir_datadriven_lifesteal"
+		    {
+		    	"IsHidden"		"1"
+		    	"OnDealDamage"
 				{
 					"Lifesteal"
 					{
-						"Target"			"ATTACKER"
-						"LifestealPercent"	"%lifesteal_aura_percent"
+						"Target" 				"ATTACKER"
+						"LifestealPercent"		"%lifesteal_aura_percent"
 					}
 				}
 			}
@@ -3260,6 +3248,7 @@
 	{
 		"ItemPurchasable"	"0"
 	}
+	//TODO extend default ring of basilius
 	"item_recipe_ring_of_basilius_datadriven"
 	{
 		// General
