@@ -76,7 +76,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(15)
 	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1)
-	GameRules:GetGameModeEntity():SetCustomBuybackCooldownEnabled(true)
+	--GameRules:GetGameModeEntity():SetCustomBuybackCooldownEnabled(true)
 	GameRules:GetGameModeEntity():SetCustomGlyphCooldown(10000)
 	GameRules:GetGameModeEntity():SetCustomScanCooldown(10000)
 	GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockAmount(0)
