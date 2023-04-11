@@ -63,6 +63,7 @@ function Activate()
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			 "modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_bot_item_purchase", "bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -410,32 +411,30 @@ function CAddonTemplateGameMode:OnThink()
 		print("Init bot")
 		local botHeroPool = {
 			"npc_dota_hero_axe",
-			"npc_dota_hero_ogre_magi",
+			--"npc_dota_hero_ogre_magi",
 			"npc_dota_hero_luna",
 			"npc_dota_hero_skywrath_mage",
 			"npc_dota_hero_lina",
 
 			"npc_dota_hero_bristleback",
 			"npc_dota_hero_witch_doctor",
-			"npc_dota_hero_venomancer",
+			--"npc_dota_hero_venomancer",
 			"npc_dota_hero_zuus",
 			"npc_dota_hero_skeleton_king",
 
 			"npc_dota_hero_lion",
-			"npc_dota_hero_abaddon",
+			--"npc_dota_hero_abaddon",
 			"npc_dota_hero_vengefulspirit",
 			"npc_dota_hero_sniper",
 			"npc_dota_hero_phantom_assassin",
 		}
 		Tutorial:StartTutorialMode()	
 		GameRules:SetSameHeroSelectionEnabled(true)
-		GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
-		GameRules:SetUseUniversalShopMode(true)
 		-- pick 5 random hero to play
 		local lanes = {"bot", "bot", "mid", "top", "top"}
 		for i=1,5 do
 			local heroNumber = RandomInt(1, #botHeroPool)	
-			Tutorial:AddBot(botHeroPool[heroNumber], lanes[i], "hard", false)
+			Tutorial:AddBot(botHeroPool[heroNumber], lanes[i], "unfair", false)
 			table.remove(botHeroPool, heroNumber)
 		end
 		GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
@@ -583,6 +582,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			item = "item_shadow_amulet",
 			modifier = "modifier_item_shadow_amulet_attack_speed"
 		})
+		if self.botEnabled and entity:GetTeam() == DOTA_TEAM_BADGUYS then
+			entity:AddNewModifier(entity, nil, "modifier_bot_item_purchase", {})
+		end
 
 		-- add custom glyph to fountain
 		local fountain = nil
