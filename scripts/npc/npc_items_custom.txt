@@ -2348,9 +2348,17 @@
 	//=================================================================================================================
 	"item_recipe_pers"
 	{
+		"ItemPurchasable"	"0"
+	}
+	"item_pers"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_pers_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"68"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		
 		// Item Info
