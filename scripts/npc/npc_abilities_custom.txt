@@ -23313,7 +23313,7 @@
 		{
 			"FireSound"
 			{
-				"EffectName"	"Hero_Techies.LandMine.Plant"
+				"EffectName"	"Hero_Techies.StickyBomb.Plant"
 				"Target" 		"CASTER"
 			}
 	
@@ -23464,7 +23464,7 @@
 				{
 					"FireSound"
 					{
-						"EffectName"	"Hero_Techies.LandMine.Detonate"
+						"EffectName"	"Hero_Techies.StickyBomb.Detonate"
 						"Target"
 						{
 							"Center"	"TARGET"
