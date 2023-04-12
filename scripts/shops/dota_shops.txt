@@ -77,7 +77,7 @@
 		"item"		"item_oblivion_staff_datadriven"
 		"item"		"item_pers_datadriven"
 		"item"		"item_hand_of_midas"
-		"item"		"item_travel_boots"		
+		"item"		"item_travel_boots_datadriven"		
 	}
 
 	// Level 2 - Blue Recipes
