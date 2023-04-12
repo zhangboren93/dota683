@@ -1681,6 +1681,11 @@
 				"Target"		"CASTER"
 				"ModifierName"	"modifier_item_travel_boots_caster_effect"
 			}
+    		"FireSound"
+    		{
+    			"EffectName"		"Portal.Loop_Disappear"
+    			"Target"			"CASTER"
+    		}
 		}
 		"OnChannelSucceeded"
 		{
@@ -1696,6 +1701,11 @@
 			{
 				"ModifierName"	"modifier_item_travel_boots_caster_effect"
 				"Target"		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_travel_boots.lua"
+				"Function"		"handleChannelInterrupted"
 			}
 		}
 	}
@@ -3346,6 +3356,14 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"                            "2001"
+		"BaseClass"                     "item_datadriven"
+		"ItemBaseLevel"                 "1"
+	}
+	
+	"item_dummy_tpblock_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"                     "item_datadriven"
 		"ItemBaseLevel"                 "1"
 	}

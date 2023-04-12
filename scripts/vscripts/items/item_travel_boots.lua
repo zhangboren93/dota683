@@ -9,6 +9,7 @@ function handleSpellStart(event)
         local unit = units[1]
         print(unit:GetName())
         ability.teleportUnit = unit
+        unit:EmitSound("Portal.Loop_Appear")
         --TODO attach effect
 		--target.ShieldParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ability:ApplyDataDrivenModifier(caster, unit, "modifier_item_travel_boots_target_effect", {})
@@ -18,7 +19,20 @@ end
 function handleChannelSucceeded(event)
     local caster = event.caster
     local ability = event.ability
+    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Portal.Hero_Disappear", caster)
+    caster:StopSound("Portal.Loop_Disappear")
+    ability.teleportUnit:StopSound("Portal.Loop_Appear")
     if ability.teleportUnit:IsAlive() then
         FindClearSpaceForUnit(caster, ability.teleportUnit:GetAbsOrigin(), false)
     end
+    caster:SetThink(function()
+        caster:EmitSound("Portal.Hero_Appear")
+    end, "play arrive sound", 0.1)
+end
+
+function handleChannelInterrupted(event)
+    local ability = event.ability
+    local caster = event.caster
+    caster:StopSound("Portal.Loop_Disappear")
+    ability.teleportUnit:StopSound("Portal.Loop_Appear")
 end

@@ -61,6 +61,7 @@ function Activate()
 	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",  "modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_doom_scorched_earth_regen", 		 "modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			 "modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_drop_backpack_items",			 "modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bot_item_purchase", "bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
@@ -121,6 +122,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetBountyRuneSpawnInterval(10000)
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(false)
 	GameRules:GetGameModeEntity():SetDaynightCycleAdvanceRate(1.25)
+	GameRules:GetGameModeEntity():SetTPScrollSlotItemOverride("item_dummy_tpblock_datadriven")
 	if GetMapName() == "dota" then
 		GameRules:SetCreepSpawningEnabled(false)
 	end
@@ -584,6 +586,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		})
 		if self.botEnabled and entity:GetTeam() == DOTA_TEAM_BADGUYS then
 			entity:AddNewModifier(entity, nil, "modifier_bot_item_purchase", {})
+		else
+			entity:AddNewModifier(entity, nil, "modifier_drop_backpack_items", {})
 		end
 
 		-- add custom glyph to fountain
