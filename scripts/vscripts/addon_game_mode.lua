@@ -275,6 +275,16 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			playerRepicked[playerid] = true
 		end
 	end
+	if self.botEnabled then
+		if text == "-gold" then
+			PlayerResource:ModifyGold(playerid, 100000, false, DOTA_ModifyGold_HeroKill)
+		elseif text == '-lvlup' then
+			local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+			for i=1,24 do
+				hero:HeroLevelUp(false)
+			end
+		end
+	end
 end
 
 function swapLocation(e1, e2)
