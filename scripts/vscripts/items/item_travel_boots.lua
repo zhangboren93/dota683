@@ -10,8 +10,6 @@ function handleSpellStart(event)
         print(unit:GetName())
         ability.teleportUnit = unit
         unit:EmitSound("Portal.Loop_Appear")
-        --TODO attach effect
-		--target.ShieldParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_aphotic_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
         ability:ApplyDataDrivenModifier(caster, unit, "modifier_item_travel_boots_target_effect", {})
     end
 end

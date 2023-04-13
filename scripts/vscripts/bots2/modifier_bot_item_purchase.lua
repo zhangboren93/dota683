@@ -1,6 +1,5 @@
 local ItemsToBuyHeroes = {}
 -- TODO build up items
--- TODO sell items to swap for big item
 ItemsToBuyHeroes["npc_dota_hero_axe"] = {
 	"item_tango",
 	"item_tango",

@@ -23344,17 +23344,6 @@
 						"Target" 		"UNIT"
 					}				
 	
-					"FireEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf"
-						"EffectAttachType"  "follow_hitloc"
-						"Target"
-						{
-							"Center"	"UNIT"
-							"Flags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
-						}
-					}
-	
 					"ActOnTargets"
 					{
 						"Target"
