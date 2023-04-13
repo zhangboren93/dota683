@@ -86,6 +86,7 @@ function LandMinesDeath( keys )
 	end
 
 	local dummy = CreateUnitByName("npc_dummy_unit", unit:GetAbsOrigin(), false, caster, caster, caster:GetTeam())
+	ability:ApplyDataDrivenModifier(dummy, dummy, "modifier_dummy_detonate_effect_datadriven", {})
 	local pid = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf",
 		PATTACH_ABSORIGIN_FOLLOW, dummy)
 	dummy:AddNewModifier(caster, ability, "modifier_kill", {duration = 0.1})
