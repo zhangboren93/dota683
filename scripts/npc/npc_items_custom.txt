@@ -459,6 +459,7 @@
 		"ItemRequirements"
 		{
 			"01"	"item_wraith_band_datadriven;item_ring_of_basilius_datadriven"
+			"02"	"item_wraith_band_datadriven;item_ring_of_basilius_inactive_datadriven"
 		}
 	}
 	"item_ring_of_aquila"
@@ -3063,6 +3064,7 @@
 		"ItemRequirements"
 		{
 			"01"						"item_ring_of_regen;item_ring_of_basilius_datadriven;item_lifesteal_datadriven"
+			"02"						"item_ring_of_regen;item_ring_of_basilius_inactive_datadriven;item_lifesteal_datadriven"
 		}
 	}
 
@@ -3376,7 +3378,6 @@
 	{
 		"ItemPurchasable"	"0"
 	}
-	//TODO extend default ring of basilius
 	"item_recipe_ring_of_basilius_datadriven"
 	{
 		// General
