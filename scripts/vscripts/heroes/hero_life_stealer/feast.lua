@@ -35,4 +35,5 @@ function feast_heal( keys )
   local damage = target:GetHealth() * (ability.hp_leech_percent / 100)
 
   attacker:Heal(damage, ability)
+  ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, attacker)
 end

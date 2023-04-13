@@ -22573,14 +22573,6 @@
 	
 				"OnAttack"
 				{
-					//TODO no effect on building and rosh
-					"FireEffect"
-					{
-						"EffectName"        "particles/generic_gameplay/generic_lifesteal.vpcf"
-						"EffectAttachType"  "follow_origin"
-						"Target"            "CASTER"
-					}
-	
 					"RunScript"
 					{
 						"ScriptFile"	"heroes/hero_life_stealer/feast.lua"
