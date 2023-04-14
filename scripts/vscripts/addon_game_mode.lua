@@ -641,13 +641,14 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				return 0.2
 			end, "troll get bash on hit", 1)
 		elseif entity:GetName() == "npc_dota_hero_meepo" then
-			entity:SetThink(function()
-				if entity:HasScepter() and not entity:HasAbility("special_bonus_unique_meepo_5") then
-					entity:AddAbility("special_bonus_unique_meepo_5")
-					print("added meepo ahgs ability")
-				end
-				return 1
-			end, "meepo scepter", 1);
+			if self.mainMeepo == nil then
+				print("Registering meepo spawned")
+				self.mainMeepo = entity
+			else
+				print("Secondary meepo spawned")
+				entity.mainMeepo = self.mainMeepo 
+			end
+			entity:FindAbilityByName("meepo_divided_we_stand_aghs_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_pudge" then
 			entity:AddNewModifier(entity, entity:FindAbilityByName("pudge_flesh_heap"), "modifier_pudge_flesh_magic_resist", {})
 		elseif entity:GetName() == "npc_dota_hero_riki" then
