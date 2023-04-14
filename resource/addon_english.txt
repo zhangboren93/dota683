@@ -118,6 +118,7 @@
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_Description"	"block %damage_block% for %damage_count% times, health regen +%health_regen%, lasts %duration% seconds"
 		"DOTA_Tooltip_Ability_meepo_geostrike_datadriven"				"Geostrike"
 		"DOTA_Tooltip_Ability_meepo_geostrike_datadriven_Description"	"slow %slow%%% and damage %damage%/s, lasts 2 seconds"
+		"DOTA_Tooltip_Ability_meepo_divided_we_stand_Scepter_Description"	"+1 clones, shares attribute bonus"
 		"DOTA_Tooltip_Ability_static_field_datadriven"				"Static Field"
 		"DOTA_Tooltip_Ability_static_field_datadriven_Description"	"When casts spell, damage %damage_health_pct%%% current health"
 		"DOTA_Tooltip_Ability_troll_warlord_berserkers_rage_Lore"	"+100 health, +15 damage, 10%% bash that damage +20/30/40/50 and stun for 0.8/1.2/1.6/2 seconds"

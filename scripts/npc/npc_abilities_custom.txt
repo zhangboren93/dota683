@@ -16659,6 +16659,7 @@
 	"meepo_divided_we_stand"
 	{
 		"HasShardUpgrade"	"0"
+		"HasScepterUpgrade"	"1"
 		"AbilityValues"
 		{
 				"tooltip_clones"		
@@ -16682,14 +16683,14 @@
 	"meepo_divided_we_stand_aghs_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"  // "DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"			"1"
 		"Modifiers"
 		{
 			"modifier_divided_we_stand_attribute_checker"
 			{
 				"Passive"	"1"
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"ThinkInterval"		"1"
 				"OnIntervalThink"
 				{
@@ -16703,8 +16704,8 @@
 			"modifier_dws_strength_datadriven"
 			{
 				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
 				
 				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
@@ -16715,8 +16716,8 @@
 			"modifier_dws_agility_datadriven"
 			{
 				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
 				
 				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
@@ -16727,8 +16728,8 @@
 			"modifier_dws_intellect_datadriven"
 			{
 				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
 				
 				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
