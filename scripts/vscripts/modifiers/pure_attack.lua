@@ -1,9 +1,8 @@
 function pure_attack(event)
     local damage = event.caster:GetAttackDamage()
+    local armor = event.target:GetPhysicalArmorValue(false)
+    damage = damage * (1 - 0.06 * armor / (1 + 0.06 * math.abs(armor)))
     damage_type = DAMAGE_TYPE_PURE
-    if event.target:IsBuilding() then
-        damage_type = DAMAGE_TYPE_PHYSICAL
-    end
 	ApplyDamage({
         victim = event.target,
         attacker = event.caster,

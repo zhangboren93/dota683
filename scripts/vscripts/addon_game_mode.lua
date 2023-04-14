@@ -1108,27 +1108,13 @@ end
 function CAddonTemplateGameMode:DamageFilter(event)
 	local attacker = EntIndexToHScript(event.entindex_attacker_const)
 	local victim = EntIndexToHScript(event.entindex_victim_const)
-	if attacker:IsHero() and event.entindex_inflictor_const == nil and event.damagetype_const == DAMAGE_TYPE_PHYSICAL then
-		--print("Setting tide target")
-		attacker.tidetarget = victim
-	end
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
 		--print("DamageFilter " .. inflictor:GetName())
 		if inflictor:GetName() == "kunkka_tidebringer_datadriven" or inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
-			victim:SetThink(function()
-				local victim = EntIndexToHScript(event.entindex_victim_const)
-				local victimarmor = victim:GetPhysicalArmorValue(false)
-				if attacker.tidetarget == nil then
-					return
-				end
-				local tidetargetarmor = attacker.tidetarget:GetPhysicalArmorValue(false)
-				local originalDamage = event.damage / (1 - 0.06 * victimarmor / (1 + 0.06 * math.abs(victimarmor)))
-				local pureDamage = originalDamage * (1 - 0.06 * tidetargetarmor / ( 1 + 0.06 * math.abs(tidetargetarmor)))
-				--print(event.damage .. " " .. pureDamage)
-				ApplyDamage({ victim = victim, attacker = attacker, damage = pureDamage, damage_type = DAMAGE_TYPE_PURE })
-			end, "later cleave pure damage", 0.1)
-			return false
+			local victim = EntIndexToHScript(event.entindex_victim_const)
+			local victimarmor = victim:GetPhysicalArmorValue(false)
+			event.damage = event.damage / (1 - 0.06 * victimarmor / (1 + 0.06 * math.abs(victimarmor)))
 		end
 	end
 	return true
