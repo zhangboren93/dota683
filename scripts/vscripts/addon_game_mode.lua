@@ -76,7 +76,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.17)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 13)
 	
-	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(15)
+	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(0)
 	GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1)
 	--GameRules:GetGameModeEntity():SetCustomBuybackCooldownEnabled(true)
 	GameRules:GetGameModeEntity():SetCustomGlyphCooldown(10000)
