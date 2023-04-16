@@ -8767,6 +8767,7 @@
 	// Rewrite of the Obsidian Destroyer Sanity Eclipse
 	// Author: chrislotix
 	// Date: 08.01.2015.
+	// TODO Apply to units in imprison
 	"obsidian_destroyer_sanity_eclipse_datadriven"
 	{
 		// General
@@ -24386,7 +24387,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"obsidian_destroyer_arcane_orb"
 		"AbilityCastRange"				"450"
