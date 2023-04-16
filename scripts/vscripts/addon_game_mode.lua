@@ -123,6 +123,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(false)
 	GameRules:GetGameModeEntity():SetDaynightCycleAdvanceRate(1.25)
 	GameRules:GetGameModeEntity():SetTPScrollSlotItemOverride("item_dummy_tpblock_datadriven")
+	GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled(true)
 	if GetMapName() == "dota" then
 		GameRules:SetCreepSpawningEnabled(false)
 	end
