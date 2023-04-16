@@ -510,6 +510,12 @@ end
 function CAddonTemplateGameMode:OrderFilter(event)
     --Check if the order is the glyph type
 	--DeepPrintTable(event)
+	--if event.entindex_ability ~= -1 and event.entindex_ability ~= nil then
+	--	local ability = EntIndexToHScript(event.entindex_ability)
+	--	if ability ~= nil then
+	--		print(ability:GetName())
+	--	end
+	--end
     if event.order_type == DOTA_UNIT_ORDER_GLYPH then
 		local player = PlayerResource:GetPlayer(event.issuer_player_id_const)
 		local team = player:GetTeam()
@@ -529,9 +535,16 @@ function CAddonTemplateGameMode:OrderFilter(event)
 	for i,v in pairs(event.units) do
 		local unit = EntIndexToHScript(v)
 		if unit:GetName() == "npc_dota_courier" then
- 			if unit.isSharedWithTeam == nil
+ 		 	if unit.isSharedWithTeam == nil
 			    and unit:GetPlayerOwnerID() ~= event.issuer_player_id_const then
 				event.units[i] = nil
+				if event.order_type == DOTA_UNIT_ORDER_MOVE_ITEM then
+					local item = EntIndexToHScript(event.entindex_ability)
+					if item:GetItemSlot() >= DOTA_STASH_SLOT_1 then
+						GameRules:SendCustomMessage("信使未共享, 无法从储藏室中取出物品", -1, -1)
+						return false
+					end
+				end
 			end
 		end
 	end
