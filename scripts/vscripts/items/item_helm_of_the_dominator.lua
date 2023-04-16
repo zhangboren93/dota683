@@ -7,11 +7,13 @@ function dominateCreep(event)
     end
     local name = target:GetUnitName()
     local spawn_location = target:GetAbsOrigin()
-    target:Destroy()
+    target:ForceKill(false)
 
 	local double = CreateUnitByName( name, spawn_location, true, caster, caster:GetOwner(), caster:GetTeamNumber())
 	double:SetControllableByPlayer(caster:GetPlayerID(), true)
-    double:SetMaxHealth(double:GetMaxHealth() + item:GetSpecialValueFor("health_bonus"))
-    double:SetHealth(double:GetMaxHealth())
+    double:SetThink(function()
+        double:SetMaxHealth(double:GetMaxHealth() + 500)
+        double:Heal(500, caster)
+    end, "health later", 0.2)
     item.dominatedCreep = double
 end

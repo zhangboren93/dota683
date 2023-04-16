@@ -22,5 +22,5 @@ function modifier_maelstrom_as_lua:IsHidden()
 end
 
 function modifier_maelstrom_as_lua:GetModifierAttackSpeedBonus_Constant()
-    return self.kv.bonus_attack_speed
+    return 25
 end

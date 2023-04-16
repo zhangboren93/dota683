@@ -62,6 +62,7 @@ function Activate()
 	LinkLuaModifier( "modifier_doom_scorched_earth_regen", 		 "modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			 "modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_drop_backpack_items",			 "modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_maelstrom_as_lua", 	 			 "modifiers/maelstrom_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bot_item_purchase", "bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
@@ -613,6 +614,17 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		else
 			entity:AddNewModifier(entity, nil, "modifier_drop_backpack_items", {})
 		end
+		entity:SetThink(function()
+   			local item = entity:FindItemInInventory("item_maelstrom")
+   			if item ~= nil and item:GetItemState() == 1 then
+				if not entity:HasModifier("modifier_maelstrom_as_lua") then
+					entity:AddNewModifier(entity, nil, "modifier_maelstrom_as_lua", {})
+				end
+			else
+				entity:RemoveModifierByName("modifier_maelstrom_as_lua")
+			end
+			return 1
+		end, "generic item bonus checker", 1)
 
 		-- add custom glyph to fountain
 		local fountain = nil
