@@ -19734,10 +19734,10 @@
 				"value"			"75 150 225 300"				
 				"special_bonus_unique_magnus"	"+125"
 			}
-			"pull_duration"				"0"
+			"pull_duration"				"0.2"
 			"movement_slow"				"0"
-			"slow_duration"				"0"
-			"pull_distance"		"0"
+			"slow_duration"				"2"
+			"pull_distance"				"50"
 			"basic_slow_duration"		
 			{
 				"value"					"0"
