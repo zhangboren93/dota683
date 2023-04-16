@@ -1163,6 +1163,7 @@
 		"ItemPurchasable" 		"1"
 		"ItemDroppable" 		"1"
 		"ItemShareability"  	"ITEM_PARTIALLY_SHAREABLE"
+		"SideShop"				"1"
 		"Modifiers"
 		{
 		    "item_sobi_mask_mana_regen_modifier"
@@ -1300,6 +1301,7 @@
 	//=================================================================================================================
 	"item_magic_stick"
 	{
+		"SideShop"						"1"
 		"AbilityCooldown"				"17.0"
 	}
 	"item_recipe_magic_wand"
@@ -2180,7 +2182,7 @@
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"vitality booster"
 		"SecretShop"					"1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -5909,6 +5911,7 @@
 		"ItemShopTags"					"agi;int;str"
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"ultimate orb"
+		"SideShop"						"1"
 		"SecretShop"					"0"
 
 		// Special	
