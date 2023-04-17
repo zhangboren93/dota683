@@ -32732,4 +32732,29 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
+	"hero_creep_aggro_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"AbilityCastRange"	"500"
+		"AbilityCooldown"	"3"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_creep_aggro.lua"
+				"Function"		"handleOrder"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_creep_aggroed_datadriven"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"Duration"	"3"
+			}
+		}
+	}
 }

@@ -79,7 +79,14 @@ function modifier_creep_ai:IsHidden()
     return true
 end
 
+function calculateDist(v)
+    return math.sqrt(v[1] * v[1] + v[2] * v[2])
+end
+
 function modifier_creep_ai:OnIntervalThink()
+    if self:GetParent():HasModifier("modifier_creep_aggroed_datadriven") then
+        return
+    end
     -- for all path corners go the closest one to the direction
     local entity = self:GetParent()
     local position = entity:GetAbsOrigin()
@@ -95,56 +102,32 @@ function modifier_creep_ai:OnIntervalThink()
         end
     elseif self.state == AI_STATE_ATTACKING then
         -- check if there is higher priority target 
-        local target = self:selectTarget()
-        if target ~= nil and target.priority > self.target.priority then
-            --print("find higher priority target ".. target.priority)
-            self.target = target
-            entity:MoveToTargetToAttack(target.unit)
-            if target.priority == PRIORITY_ATTACKING_HERO then
-                self.targetCooldown = GameRules:GetDOTATime(false, false) + 2
-                self.state = AI_STATE_AGGRO_COOLDOWN
-                --print("Entering aggro cooldown")
-            end
+        if self.target == nil then
+            self.target = self:selectTarget()
+            entity:MoveToTargetToAttack(self.target.unit)
             return
         end
-        if not self.target.unit:IsAlive() then
-            --print("target is dead, take path")
+        if not self.target.unit:IsAlive() 
+            or not self.target.unit:CanEntityBeSeenByMyTeam(entity) 
+            or self.target.unit:IsInvisible() then
             self.target = nil
             self.state = AI_STATE_PATHING
             self:OnIntervalThink()
             return
         end
-        if not self.target.unit:CanEntityBeSeenByMyTeam(entity) or self.target.unit:IsInvisible() then
-            if  self.chaseCount == nil then
-                self.chaseCount = 1
-            else
-                self.chaseCount = self.chaseCount + 1
-            end
-            if self.chaseCount > 3 then
-                self.chaseCount = nil
-                self.target = nil
-                self.state = AI_STATE_PATHING
-                self:OnIntervalThink()
-                return
-            end
+        -- if current target is not within attack range, change target
+        local distance = calculateDist(self.target.unit:GetAbsOrigin() - self:GetParent():GetAbsOrigin())
+        --print(distance .. " " .. self.kv.attackrange)
+        if (distance > self.kv.attackrange) then
+            self.target = nil
+            self.state = AI_STATE_PATHING
+            self:OnIntervalThink()
+            return
         end
         entity:MoveToTargetToAttack(self.target.unit)
-    elseif self.state == AI_STATE_AGGRO_COOLDOWN then
-        if GameRules:GetDOTATime(false, false) > self.targetCooldown then
-           -- print("Aggro cooldown over, reselect target")
-            self.state = AI_STATE_PATHING
-            self.target = nil
-            self:OnIntervalThink()
-            return
-        end
-        if not self.target.unit:IsAlive() then
---            print("target is dead, take path")
-            self.state = AI_STATE_PATHING
-            self.target = nil
-            self:OnIntervalThink()
-        end
     end
 end
+
 function modifier_creep_ai:takePath() 
     local entity = self:GetParent()
     local position = entity:GetAbsOrigin()
@@ -198,17 +181,6 @@ function modifier_creep_ai:selectTarget()
     for i=1,#units do
         if units[i]:IsHero() then
             table.insert(heroes, units[i])
-        end
-    end
-    for i=1,#heroes do
-        local unitAggroTarget = heroes[i]:GetAggroTarget()
-        if unitAggroTarget ~= nil and unitAggroTarget:IsHero() and unitAggroTarget:GetTeam() == entity:GetTeam() then
-           -- print("Find unit attacking hero")
-            --print(heroes[i]:GetName() .. " aggros on " .. unitAggroTarget:GetName())
-            return {
-                unit = heroes[i],
-                priority = PRIORITY_ATTACKING_HERO
-            }
         end
     end
     local creepunits = {}

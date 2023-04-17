@@ -1,6 +1,9 @@
 CREEP_ALERT_RADIUS = 500
 CREEP_ALERT_RADIUS_RANGED = 600
 CREEP_ALERT_RADIUS_SEIGE = 800
+CREEP_ATTACK_RANGE = 140
+CREEP_ATTACK_RANGE_RANGED = 532
+CREEP_ATTACK_RANGE_SEIGE = 722
 local radiantSpawners = {
 	"lane_bot_goodguys_melee_spawner", 
 	"lane_mid_goodguys_melee_spawner",
@@ -98,7 +101,11 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 		for j=1,numMeleeCreep do
 	    	local spawnedUnit = CreateUnitByName(melee[i], spawnVecter, true, nil, nil, team)
 	    	spawnedUnit:SetIdleAcquire(false)
-	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { alertRadius = CREEP_ALERT_RADIUS, pathName = pathNames[i], seige = false })
+	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { 
+	    		alertRadius = CREEP_ALERT_RADIUS, 
+	    		pathName = pathNames[i], 
+	    		seige = false,
+	    		attackrange = CREEP_ATTACK_RANGE })
 			if spawners[i] == "lane_bot_goodguys_melee_spawner" or spawners[i] == "lane_top_badguys_melee_spawner" then
 				if not spawnedUnit:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
 					spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { }):SetDuration(25, true)
@@ -124,7 +131,11 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 		for j=1,numRangedCreep do
 	    	local spawnedUnit = CreateUnitByName(ranged[i], spawnVecter, true, nil, nil, team)
 	    	spawnedUnit:SetIdleAcquire(false)
-	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { alertRadius = CREEP_ALERT_RADIUS_RANGED, pathName = pathNames[i], seige = false })
+	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", {
+	    		alertRadius = CREEP_ALERT_RADIUS_RANGED, 
+	    		pathName = pathNames[i], 
+	    		seige = false,
+	    		attackrange = CREEP_ATTACK_RANGE_RANGED })
 			if spawners[i] == "lane_bot_goodguys_melee_spawner" or spawners[i] == "lane_top_badguys_melee_spawner" then
 				if not spawnedUnit:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
 					spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { }):SetDuration(25, true)
@@ -143,7 +154,11 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 		if shouldSpawnSeige then
 	    	local spawnedUnit = CreateUnitByName(seige[i], spawnVecter, true, nil, nil, team)
 	    	spawnedUnit:SetIdleAcquire(false)
-	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { alertRadius = CREEP_ALERT_RADIUS_SEIGE, pathName = pathNames[i], seige = true })
+	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", {
+	    		alertRadius = CREEP_ALERT_RADIUS_SEIGE, 
+	    		pathName = pathNames[i], 
+	    		seige = true,
+	    		attackrange = CREEP_ATTACK_RANGE_SEIGE })
 		end
 	end
 end

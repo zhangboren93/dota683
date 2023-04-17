@@ -509,14 +509,6 @@ end
 
 -- Add the order filter to your game mode entity
 function CAddonTemplateGameMode:OrderFilter(event)
-    --Check if the order is the glyph type
-	--DeepPrintTable(event)
-	--if event.entindex_ability ~= -1 and event.entindex_ability ~= nil then
-	--	local ability = EntIndexToHScript(event.entindex_ability)
-	--	if ability ~= nil then
-	--		print(ability:GetName())
-	--	end
-	--end
     if event.order_type == DOTA_UNIT_ORDER_GLYPH then
 		local player = PlayerResource:GetPlayer(event.issuer_player_id_const)
 		local team = player:GetTeam()
@@ -532,6 +524,19 @@ function CAddonTemplateGameMode:OrderFilter(event)
     end
 	if event.order_type == DOTA_UNIT_ORDER_RADAR then
 		return false
+    end
+    if event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+    	local target = EntIndexToHScript(event.entindex_target)
+    	if target:IsHero() then
+    		for i,v in pairs(event.units) do
+    			local unit = EntIndexToHScript(v)
+    			local ability = unit:FindAbilityByName("hero_creep_aggro_datadriven")
+    			if ability ~= nil and ability:IsCooldownReady() then
+    				ability:CastAbility()
+    				ability:StartCooldown(3)
+    			end
+    		end
+    	end
     end
 	for i,v in pairs(event.units) do
 		local unit = EntIndexToHScript(v)
@@ -625,6 +630,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end
 			return 1
 		end, "generic item bonus checker", 1)
+
+		-- creep aggro
+		local aggro_ability = entity:AddAbility("hero_creep_aggro_datadriven")
+		aggro_ability:SetLevel(1)
 
 		-- add custom glyph to fountain
 		local fountain = nil
