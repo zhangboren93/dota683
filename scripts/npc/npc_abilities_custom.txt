@@ -32752,8 +32752,21 @@
 			"modifier_creep_aggroed_datadriven"
 			{
 				"Passive"	"0"
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"Duration"	"3"
+			}
+			"modifier_creep_aggro_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_creep_aggro.lua"
+						"Function"		"handleAttackStart"
+					}
+				}
 			}
 		}
 	}

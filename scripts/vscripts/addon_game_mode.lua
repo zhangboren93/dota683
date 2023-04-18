@@ -533,7 +533,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
     			local ability = unit:FindAbilityByName("hero_creep_aggro_datadriven")
     			if ability ~= nil and ability:IsCooldownReady() then
     				ability:CastAbility()
-    				ability:StartCooldown(3)
     			end
     		end
     	end
