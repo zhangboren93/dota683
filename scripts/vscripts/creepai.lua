@@ -84,11 +84,12 @@ function calculateDist(v)
 end
 
 function modifier_creep_ai:OnIntervalThink()
-    if self:GetParent():HasModifier("modifier_creep_aggroed_datadriven") then
+    local entity = self:GetParent()
+    --print(entity:IsAttacking())
+    if entity:HasModifier("modifier_creep_aggroed_datadriven") then
         return
     end
     -- for all path corners go the closest one to the direction
-    local entity = self:GetParent()
     local position = entity:GetAbsOrigin()
     if self.state == AI_STATE_PATHING then
         local target = self:selectTarget()
@@ -101,13 +102,9 @@ function modifier_creep_ai:OnIntervalThink()
            self:takePath()
         end
     elseif self.state == AI_STATE_ATTACKING then
-        -- check if there is higher priority target 
-        if self.target == nil then
-            self.target = self:selectTarget()
-            entity:MoveToTargetToAttack(self.target.unit)
-            return
-        end
-        if not self.target.unit:IsAlive() 
+        if  self.target == nil
+            or self.target.unit:HasModifier("modifier_creep_aggro_move_datadriven")
+            or not self.target.unit:IsAlive() 
             or not self.target.unit:CanEntityBeSeenByMyTeam(entity) 
             or self.target.unit:IsInvisible() then
             self.target = nil
@@ -196,7 +193,16 @@ function modifier_creep_ai:selectTarget()
             priority = PRIORITY_CREEP
         }
     end
+    -- target non aggro move heroes first
     if #heroes > 0 then
+        for i=1,#heroes do
+            if not heroes[i]:HasModifier("modifier_creep_aggro_move_datadriven") then
+                return {
+                    unit = heroes[i],
+                    priority = PRIORITY_HERO
+                }
+            end
+        end
         return {
             unit = heroes[1],
             priority = PRIORITY_HERO

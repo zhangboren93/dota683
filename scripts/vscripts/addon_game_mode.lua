@@ -527,13 +527,13 @@ function CAddonTemplateGameMode:OrderFilter(event)
     end
     if event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
     	local target = EntIndexToHScript(event.entindex_target)
-    	if target:IsHero() then
-    		for i,v in pairs(event.units) do
-    			local unit = EntIndexToHScript(v)
-    			local ability = unit:FindAbilityByName("hero_creep_aggro_datadriven")
-    			if ability ~= nil and ability:IsCooldownReady() then
-    				ability:CastAbility()
-    			end
+    	for i,v in pairs(event.units) do
+    		local unit = EntIndexToHScript(v)
+    		local ability = unit:FindAbilityByName("hero_creep_aggro_datadriven")
+    		if target:IsHero() and target:GetTeam() ~= unit:GetTeam() and ability ~= nil and ability:IsCooldownReady() then
+    			ability:CastAbility()
+    		elseif target:GetTeam() == unit:GetTeam() then
+    			ability:ApplyDataDrivenModifier(unit, unit, "modifier_creep_aggro_move_datadriven", {})
     		end
     	end
     end

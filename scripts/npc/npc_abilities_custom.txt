@@ -32753,7 +32753,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
-				"Duration"	"3"
+				"Duration"	"2.3"
 			}
 			"modifier_creep_aggro_checker"
 			{
@@ -32765,6 +32765,43 @@
 					{
 						"ScriptFile"	"heroes/hero_creep_aggro.lua"
 						"Function"		"handleAttackStart"
+					}
+				}
+			}
+			"modifier_creep_aggro_move_datadriven"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Duration"	"0.5"
+			}
+			"modifier_creep_aggro_attacking_datadriven"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_creep_aggro.lua"
+						"Function"		"handleCreepAttack"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_creep_aggro_attacking_datadriven"
+						"Target" 		"ATTACKER"
+					}
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_creep_aggro.lua"
+						"Function"		"handleCreepAttack"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_creep_aggro_attacking_datadriven"
+						"Target" 		"ATTACKER"
 					}
 				}
 			}
