@@ -537,6 +537,18 @@ function CAddonTemplateGameMode:OrderFilter(event)
     		end
     	end
     end
+	if event.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION 
+		or event.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET 
+		or event.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE 
+		or event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
+    	for i,v in pairs(event.units) do
+    		local unit = EntIndexToHScript(v)
+			if unit:HasModifier("modifier_item_travel_boots_caster_effect") then
+				print("Moving when teleporting")
+				return false
+			end
+    	end
+	end
 	for i,v in pairs(event.units) do
 		local unit = EntIndexToHScript(v)
 		if unit:GetName() == "npc_dota_courier" then
