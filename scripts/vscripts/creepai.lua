@@ -83,11 +83,19 @@ function calculateDist(v)
     return math.sqrt(v[1] * v[1] + v[2] * v[2])
 end
 
+function isAttackable(target, attacker) 
+    return target:IsAlive() and target:CanEntityBeSeenByMyTeam(attacker) and not target:IsInvisible() and not target:IsAttackImmune()
+end
+
 function modifier_creep_ai:OnIntervalThink()
     local entity = self:GetParent()
     --print(entity:IsAttacking())
     if entity:HasModifier("modifier_creep_aggroed_datadriven") then
-        return
+        if self.target ~= nil and isAttackable(self.target.unit, entity) then
+            return
+        else
+            entity:RemoveModifierByName("modifier_creep_aggroed_datadriven")
+        end
     end
     -- for all path corners go the closest one to the direction
     local position = entity:GetAbsOrigin()
@@ -104,9 +112,7 @@ function modifier_creep_ai:OnIntervalThink()
     elseif self.state == AI_STATE_ATTACKING then
         if  self.target == nil
             or self.target.unit:HasModifier("modifier_creep_aggro_move_datadriven")
-            or not self.target.unit:IsAlive() 
-            or not self.target.unit:CanEntityBeSeenByMyTeam(entity) 
-            or self.target.unit:IsInvisible() then
+            or not isAttackable(self.target.unit, entity) then
             self.target = nil
             self.state = AI_STATE_PATHING
             self:OnIntervalThink()
@@ -158,7 +164,9 @@ function modifier_creep_ai:selectTarget()
     --print(self.kv.seige)
     local units = FindUnitsInRadius(
         entity:GetTeam(), position, entity, self.kv.alertRadius, 
-        DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+        DOTA_UNIT_TARGET_TEAM_ENEMY, 
+        DOTA_UNIT_TARGET_ALL, 
+        DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
         FIND_CLOSEST, false)
     if self.kv.seige > 0 then
         local buildings = {}
