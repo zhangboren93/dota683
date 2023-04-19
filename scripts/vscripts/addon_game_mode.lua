@@ -789,11 +789,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity.loseIntOnRespawn = false
 	end
 	if entity:GetName() == "npc_dota_roshan" then
-		entity:SetThink(function()
-			entity:RemoveItem(entity:FindItemInInventory("item_aghanims_shard_roshan"))
-			entity:RemoveItem(entity:FindItemInInventory("item_ultimate_scepter_roshan"))
-			entity:RemoveItem(entity:FindItemInInventory("item_refresher_shard"))
-		end, "remove refresher shard, ags shard and ags", 0.5)
+		entity:FindAbilityByName("roshan_inherent_buffs_datadriven"):SetLevel(1)
 	end
 
 	-- courier fix speed and health
