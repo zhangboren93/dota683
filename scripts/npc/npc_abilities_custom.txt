@@ -32280,33 +32280,6 @@
 			}
 		}
 	}
-	"granite_golem_pure_attack"
-	{
-		"BaseClass"		"ability_datadriven"
-		"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_YES"
-		"Modifiers"
-		{
-			"modifier_pure_attack"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"modifiers/pure_attack.lua"
-						"Function"		"pure_attack"	
-					}
-				}
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"-100"
-				}
-			}
-		}
-	}
 	"prowler_evasion"
 	{
 		"BaseClass"				"ability_datadriven"
