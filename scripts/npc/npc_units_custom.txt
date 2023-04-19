@@ -1272,6 +1272,30 @@
 		"AttackDamageMax"			"136"		// Damage range max.
 		"StatusHealth"				"1015"		// Base health.
 	}
+	"npc_dota_goodguys_siege"
+	{
+		"StatusHealth"				"550"		// Base health.
+	}	
+	"npc_dota_goodguys_siege_upgraded"
+	{
+		"StatusHealth"				"550"		// Base health.
+	}	
+	"npc_dota_goodguys_siege_upgraded_mega"
+	{
+		"StatusHealth"				"550"		// Base health.
+	}	
+	"npc_dota_badguys_siege"
+	{
+		"StatusHealth"				"550"		// Base health.
+	}	
+	"npc_dota_badguys_siege_upgraded"
+	{
+		"StatusHealth"				"550"		// Base health.
+	}	
+	"npc_dota_badguys_siege_upgraded_mega"
+	{
+		"StatusHealth"				"550"		// Base health.
+	}	
 	"npc_dota_lone_druid_bear1"
 	{										
 		// General
