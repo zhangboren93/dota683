@@ -3363,6 +3363,16 @@
 		"ItemBaseLevel"                 "1"
 	}
 
+	"item_dummy_backpackblock_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "item_datadriven"
+		"ItemBaseLevel"                 "1"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+	}
+
 	"item_recipe_ring_of_basilius"
 	{
 		"ItemPurchasable"		"0"

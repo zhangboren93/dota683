@@ -549,6 +549,13 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			end
     	end
 	end
+	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
+		or event.order_type == DOTA_UNIT_ORDER_GIVE_ITEM then
+		local item = EntIndexToHScript(event.entindex_ability)
+		if item:GetName() == "item_dummy_backpackblock_datadriven" then
+			return false
+		end
+	end
 	for i,v in pairs(event.units) do
 		local unit = EntIndexToHScript(v)
 		if unit:GetName() == "npc_dota_courier" then
