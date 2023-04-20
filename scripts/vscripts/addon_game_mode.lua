@@ -486,24 +486,6 @@ function CAddonTemplateGameMode:OnThink()
       self.timeofdayset = true
     end
 
-    if time < 3 then
-      -- add custom glyph to fountain
-      local fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
-      if fountain ~= nil then
-        local glyph = fountain:FindAbilityByName("glyph_datadriven")
-        if glyph:IsCooldownReady() then
-          glyph:StartCooldown(180)
-        end
-      end
-      fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
-      if fountain ~= nil then
-        local glyph = fountain:FindAbilityByName("glyph_datadriven")
-        if glyph:IsCooldownReady() then
-          glyph:StartCooldown(180)
-        end
-      end
-    end
-
     -- give each player passive gold
     if time > 0 then
       local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
@@ -690,22 +672,19 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
     aggro_ability:SetLevel(1)
 
     local player = entity:GetPlayerOwner()
-    if player == nil then
-      -- its is going to be an illusion
-      -- TODO illusion remove gold bounty
-      return
+    if player ~= nil then
+      -- add custom glyph to fountain
+      local fountain = nil
+      if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
+        fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
+      elseif entity:GetTeam() == DOTA_TEAM_BADGUYS then
+        fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
+      end
+      if fountain ~= nil then
+        fountain:SetControllableByPlayer(entity:GetPlayerID(), true)
+      end
     end
 
-    -- add custom glyph to fountain
-    local fountain = nil
-    if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
-      fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
-    elseif entity:GetTeam() == DOTA_TEAM_BADGUYS then
-      fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
-    end
-    if fountain ~= nil then
-      fountain:SetControllableByPlayer(entity:GetPlayerID(), true)
-    end
 
     if entity:GetName() == "npc_dota_hero_troll_warlord" then
       entity:SetThink(function()
@@ -801,6 +780,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
     elseif entity:GetName() == "npc_dota_hero_life_stealer" then
       entity:FindAbilityByName("life_stealer_infest_bounty_datadriven"):SetLevel(1)
     end
+    
   end
 
   if entity:IsRealHero() and is_respawn == 1 and entity.loseIntOnRespawn then
@@ -1175,6 +1155,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
     if ability:GetName() == "earth_spirit_rolling_boulder" then
       local slow = caster:FindAbilityByName("earth_spirit_rolling_boulder_slow_datadriven")
       slow:ApplyDataDrivenModifier(caster, parent, "modifier_earth_spirit_rolling_boulder_slow_datadriven", {})
+    end
+  elseif event.name_const == "modifier_illusion" then
+    local parent = EntIndexToHScript(event.entindex_parent_const)
+    if parent:GetName() ~= "npc_dota_hero_phantom_lancer" then
+      print("illusion add")
+      parent:AddAbility("illusion_bounty_cancel_datadriven"):SetLevel(1)
     end
   end
   return true

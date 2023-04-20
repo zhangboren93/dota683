@@ -32841,4 +32841,26 @@
 			}
 		}
 	}
+	"illusion_bounty_cancel_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_grow_move_speed_checker"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/illusion.lua"
+						"Function"		"handleTakeDamage"
+					}
+				}
+			}
+		}
+	}
 }
