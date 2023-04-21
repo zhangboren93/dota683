@@ -3,8 +3,16 @@
 // the specified key-value combinations.  Use override_hero <hero_to_override> for this.
 "DOTAHeroes"
 {
+	"npc_dota_hero_base"
+	{
+		"StatusHealth"		"150"
+		"StatusMana"		"0"
+		"StatusManaRegen"	"0.01"
+		"StatusHealthRegen"		"0.25"
+	}
 	"npc_dota_hero_abaddon"				
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"		"23"
 		"AttributeStrengthGain"   	"2.7"
 		"AttributeBaseAgility"  	"17"
@@ -148,6 +156,7 @@
 	}
 	"npc_dota_hero_bane"				
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"22"
  		"AttributeStrengthGain"   	"2.1"
  		"AttributeBaseAgility"  	"22"
@@ -177,6 +186,7 @@
 	}
 	"npc_dota_hero_beastmaster"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"23"
  		"AttributeStrengthGain"   	"2.2"
  		"AttributeBaseAgility"  	"18"
@@ -206,6 +216,7 @@
 	}
 	"npc_dota_hero_brewmaster"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"23"
  		"AttributeStrengthGain"   	"2.9"
  		"AttributeBaseAgility"  	"22"
@@ -330,6 +341,7 @@
 	}
 	"npc_dota_hero_dazzle"				
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"16"
  		"AttributeStrengthGain"   	"1.85"
  		"AttributeBaseAgility"  	"21"
@@ -690,6 +702,7 @@
 	}
 	"npc_dota_hero_lycan"				
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"22"
  		"AttributeStrengthGain"   	"2.75"
  		"AttributeBaseAgility"  	"16"
@@ -722,6 +735,7 @@
 	}
 	"npc_dota_hero_magnataur"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"21"
  		"AttributeStrengthGain"   	"2.75"
  		"AttributeBaseAgility"  	"15"
@@ -901,6 +915,7 @@
 	}
 	"npc_dota_hero_nyx_assassin"		
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"   	"18"
  		"AttributeStrengthGain"   	"2"    
  		"AttributeBaseAgility"  	"19"
@@ -1079,6 +1094,7 @@
 	}
 	"npc_dota_hero_rattletrap"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"24"
  		"AttributeStrengthGain"   	"2.7"
  		"AttributeBaseAgility"  	"13"
@@ -1525,6 +1541,7 @@
 	}
 	"npc_dota_hero_vengefulspirit"		
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"   	"18"
 		"AttributeStrengthGain"   	"2.6"
 		"AttributeBaseAgility"  	"27"
@@ -1585,6 +1602,7 @@
 	}
 	"npc_dota_hero_visage"				
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"22"
 		"AttributeStrengthGain"   	"2.4"
 		"AttributeBaseAgility"  	"11"
@@ -1672,6 +1690,7 @@
 	}
 	"npc_dota_hero_windrunner"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"15"
 		"AttributeStrengthGain"   	"2.5"
 		"AttributeBaseAgility"  	"17"
@@ -1990,6 +2009,7 @@
 	}
 	"npc_dota_hero_enigma"					
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2.1"
 		"AttributeBaseAgility"  	"14"
@@ -2195,6 +2215,7 @@
 	}
 	"npc_dota_hero_phoenix"				
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2.9"
 		"AttributeBaseAgility"  	"12"
@@ -2223,6 +2244,7 @@
 	}
 	"npc_dota_hero_sand_king"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"18"
 		"AttributeStrengthGain"   	"2.6"
 		"AttributeBaseAgility"  	"19"
@@ -2252,6 +2274,7 @@
 	}
 	"npc_dota_hero_shredder"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"22"
 		"AttributeStrengthGain"   	"2.1"
 		"AttributeBaseAgility"  	"16"
@@ -2410,6 +2433,7 @@
 	}
 	"npc_dota_hero_venomancer"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"   	"18"
 		"AttributeStrengthGain"   	"1.85"
 		"AttributeBaseAgility"  	"22"
@@ -2440,6 +2464,7 @@
 	}
 	"npc_dota_hero_winter_wyvern"		
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"24"
 		"AttributeStrengthGain"   	"2.1"
 		"AttributeBaseAgility"  	"15"
@@ -2521,6 +2546,7 @@
 	}
 	"npc_dota_hero_wisp"				
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"1.9"
 		"AttributeBaseAgility"  	"14"
@@ -2551,6 +2577,7 @@
 	}
 	"npc_dota_hero_dark_seer"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"22"
 		"AttributeStrengthGain"   	"2.3"
 		"AttributeBaseAgility"  	"12"
@@ -2580,6 +2607,7 @@
 	}
 	"npc_dota_hero_lone_druid"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2.1"
 		"AttributeBaseAgility"  	"24"
@@ -2612,6 +2640,7 @@
 	}
 	"npc_dota_hero_mirana"				
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"   "17"
 		"AttributeStrengthGain"   "1.85"
 		"AttributeBaseAgility"  "20"
@@ -2823,6 +2852,7 @@
 	}
 	"npc_dota_hero_techies"				
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2"    
 		"AttributeBaseAgility"  	"14"
@@ -2918,6 +2948,7 @@
 	}
 	"npc_dota_hero_batrider"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"23"
 		"AttributeStrengthGain"   	"2.4"
 		"AttributeBaseAgility"  	"15"
@@ -2977,6 +3008,7 @@
 	}
 	"npc_dota_hero_broodmother"			
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2.5"
 		"AttributeBaseAgility"  	"18"
@@ -3011,6 +3043,7 @@
 	}
 	"npc_dota_hero_chen"				
 	{
+		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"20"
 		"AttributeStrengthGain"   	"1.5"
 		"AttributeBaseAgility"  	"15"

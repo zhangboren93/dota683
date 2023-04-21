@@ -780,7 +780,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_life_stealer" then
 			entity:FindAbilityByName("life_stealer_infest_bounty_datadriven"):SetLevel(1)
 		end
-		
 	end
 
 	if entity:IsRealHero() and is_respawn == 1 and entity.loseIntOnRespawn then
@@ -793,9 +792,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		modifier:IncrementStackCount()
 		entity.loseIntOnRespawn = false
 	end
-	if entity:GetName() == "npc_dota_roshan" then
-		entity:FindAbilityByName("roshan_inherent_buffs_datadriven"):SetLevel(1)
-	end
+	--if entity:GetName() == "npc_dota_roshan" then
+	--	entity:FindAbilityByName("roshan_inherent_buffs_datadriven"):SetLevel(1)
+	--end
 
 	-- courier fix speed and health
 	if entity:GetName() == "npc_dota_courier" or
