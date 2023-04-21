@@ -42,7 +42,7 @@ function item_refresher_modifier_lua:OnIntervalThink()
                 {
                     bonus_intellect = item:GetSpecialValueFor("bonus_intellect"),
                     bonus_attack_speed = item:GetSpecialValueFor("bonus_attack_speed"),
-                    bonus_damage = item:GetSpecialValueFor("bonus_damage")
+                    bonus_damage = 0
                 })
         end
     else

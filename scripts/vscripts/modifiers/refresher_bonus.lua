@@ -29,6 +29,7 @@ end
 function modifier_refresher_bonus_lua:GetModifierAttackSpeedBonus_Constant() 
     return self.kv.bonus_attack_speed
 end
+
 function modifier_refresher_bonus_lua:GetModifierBonusStats_Intellect()
     return self.kv.bonus_intellect
 end

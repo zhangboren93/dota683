@@ -33,14 +33,14 @@ function item_sphere_bonus_modifier:OnIntervalThink()
         -- print("orchid bonus mana " .. bonus_mana)
         hParent:GiveMana(bonus_mana)
 
-        -- add strength bonus modifier
-        if not hParent:HasModifier("modifier_sphere_bonus_damage_lua") then
-             print("adding damage bonus modifier")
-             hParent:AddNewModifier(
-                hParent, nil, 
-                "modifier_sphere_bonus_damage_lua",
-                { bonus_damage = item:GetSpecialValueFor("bonus_damage")})
-         end
+        ---- add strength bonus modifier
+        --if not hParent:HasModifier("modifier_sphere_bonus_damage_lua") then
+        --     print("adding damage bonus modifier")
+        --     hParent:AddNewModifier(
+        --        hParent, nil, 
+        --        "modifier_sphere_bonus_damage_lua",
+        --        { bonus_damage = item:GetSpecialValueFor("bonus_damage")})
+        --end
     else
         hParent:RemoveModifierByNameAndCaster("modifier_sphere_bonus_damage_lua", hParent)
     end

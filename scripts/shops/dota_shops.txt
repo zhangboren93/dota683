@@ -114,7 +114,7 @@
 	// Level 3 - Purple Recipes	
 	"defense"
 	{
-		"item"		"item_hood_of_defiance_datadriven"
+		"item"		"item_hood_of_defiance"
 		"item"		"item_vanguard"
 		"item"		"item_blade_mail"
 		"item"		"item_soul_booster"
