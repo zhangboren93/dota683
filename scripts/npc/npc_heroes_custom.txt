@@ -2104,7 +2104,7 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_invoker"				
+	"npc_dota_hero_invoker"				// TODO
 	{
 		"AttributeBaseStrength"   	"19"
 		"AttributeStrengthGain"   	"1.7"
@@ -2181,6 +2181,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"Ability2"		"keeper_of_the_light_mana_leak_datadriven"
+		"Ability4"		"keeper_of_the_light_blinding_light"
 		"Ability5"		"keeper_of_the_light_recall"
 		"Ability10"		"keeper_of_the_light_spirit_form_checker"
 		"Ability11"		"special_bonus_all_stats_5"

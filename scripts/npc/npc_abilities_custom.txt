@@ -6035,6 +6035,7 @@
 	//=================================================================================================================
 	// Dazzle: Shadow Wave
 	//=================================================================================================================
+	//TODO remove scepter effect
 	"dazzle_shadow_wave"
 	{
 		// General
@@ -6093,6 +6094,16 @@
 				"var_type"				"FIELD_INTEGER"
 				"damage"				"80 100 120 140"
 				"LinkedSpecialBonus"	"special_bonus_unique_dazzle_2"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"scepter_heal_pct"		"0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"scepter_cd_increase"	"2"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -10662,64 +10673,31 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"radius"						
 			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"240"
+				"value" 					"240"
+				"special_bonus_unique_disruptor_3" "+100"
 			}
-			"02"
+
+			"strikes"
 			{
-				"var_type"					"FIELD_INTEGER"
-				"strikes"					"4"
-				"LinkedSpecialBonus"		"special_bonus_unique_disruptor"
+				"value"						"4"
+				"special_bonus_shard"		"+2"
 			}
-			"03"
+
+			"strike_interval"				"2.0"
+			"strike_damage"				"40 60 80 100"
+
+			"slow_duration"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"strike_interval"			"2.0 2.0 2.0 2.0"
+				"value"						"0"
+				"special_bonus_unique_disruptor" ".4"
 			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"strike_damage"				"40 60 80 100"
-				"LinkedSpecialBonus"		"special_bonus_unique_disruptor_3"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow_duration"			"0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow_amount"			"0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"shard_buff_duration"			"1.5"
-				"RequiresShard"				"1"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_movement_speed_bonus"			"25"
-				"RequiresShard"				"1"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_attack_speed_bonus"			"50"
-				"RequiresShard"				"1"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_radius"			"450"
-				"RequiresShard"				"1"
-			}			
+
+			"slow_amount"					"0"
+			"shard_ground_delay"			"5"
 		}
 	}
 	//=================================================================================================================
@@ -13065,6 +13043,8 @@
 				"special_bonus_shard"			"+4"
 			}
 			"shard_tooltip"						"4"
+			"rolling_offset_distance"			"150"
+			"hero_level_increment"				"100"
 		}
 	}
 	//=================================================================================================================
@@ -13102,55 +13082,30 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"180"	// NOTE: This radius must match the radius for geomagnetic grip
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"rock_search_aoe"				"200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"rock_damage"			"125"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"rock_damage"			
+				{
+					"value"			"125"
+					"special_bonus_unique_earth_spirit_6"	"+125"
+				}	
 				"move_slow"				"0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"0.75 1.25 1.75 2.25"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"speed"					"900"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"unit_distance"			"500.0 600.0 700.0 800.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"rock_distance"			"2000.0"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
-			}			
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"unit_distance"			
+				{
+					"value"		"500.0 600.0 700.0 800.0"
+					"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
+				}
+				"rock_distance"			
+				{
+					"value"		"2000.0"
+					"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
+				}			
 				"remnant_smash_radius_tooltip"			"200"
-			}			
+				"creep_multiplier"		"1"
 		}
 	}
 	//=================================================================================================================
@@ -13296,44 +13251,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"180"	// NOTE: This radius must match the radius for boulder smash
-			}			
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"rock_damage"			"50 125 200 275"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"			"2.5 3 3.5 4"
-				"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"pull_units_per_second_heroes"		"600"
-			}				
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"pull_units_per_second"		"900"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"speed"					"800"
-			}	
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"total_pull_distance"		"1400"
-			}			
 		}
 	}
     "earth_spirit_magnetize"
@@ -21313,6 +21239,7 @@
 	//=================================================================================================================
 	// Ability: Juggernaut Omni Slash
 	//=================================================================================================================
+	//TODO fix attack count
 	"juggernaut_omni_slash"
 	{
 		// General
@@ -21597,6 +21524,7 @@
 			"slow_movement_speed"		"-20 -30 -40 -50"
 			"slow_duration"				"5.5"
 			"level_req"					"6"
+			"max_creeps"				"1"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -26030,45 +25958,18 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"miss_rate"				"80"
-				"LinkedSpecialBonus"		"special_bonus_unique_keeper_of_the_light_8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
+				"miss_rate"				
+				{
+					"value"				"80"
+					"LinkedSpecialBonus"		"special_bonus_unique_keeper_of_the_light_8"
+				}
 				"duration"				"4 5 6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"600"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"knockback_duration"	"0.6"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"knockback_distance"	"400"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"damage"				"0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"AbilityCharges"		""
-				"LinkedSpecialBonus"	"special_bonus_unique_keeper_of_the_light_12"
-			}
 		}
 	}
 	// Rewrite of the Pudge Rot ability
@@ -30009,6 +29910,7 @@
 	//=================================================================================================================
 	// Ability: Juggernaut Blade Fury
 	//=================================================================================================================
+	// TODO magic immune
 	"juggernaut_blade_fury"
 	{
 		"HasScepterUpgrade"				"0"
@@ -30849,6 +30751,8 @@
 				"value"				"20.0 18.0 16.0 14.0"
 				"special_bonus_unique_clockwerk_7" "-2"
 			}
+			"slow_pct"		"0"
+			"slow_duration"	"0"
 		}	
 	}
 	"tusk_ice_shards"

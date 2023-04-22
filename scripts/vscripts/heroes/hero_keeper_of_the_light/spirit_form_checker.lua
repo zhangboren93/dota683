@@ -7,11 +7,18 @@ function handleAbilityExecuted(keys)
         local recall = unit:FindAbilityByName("keeper_of_the_light_recall")
         recall:SetHidden(false)
         recall:SetLevel(event_ability:GetLevel())
+        local recall = unit:FindAbilityByName("keeper_of_the_light_blinding_light")
+        recall:SetHidden(false)
+        recall:SetLevel(event_ability:GetLevel())
     end
 end
 
 function checkAghs(keys) 
     local caster = keys.caster
+    if not caster:HasModifier("modifier_keeper_of_the_light_spirit_form") then
+        local recall = caster:FindAbilityByName("keeper_of_the_light_blinding_light")
+        recall:SetHidden(true)
+    end
     if caster:HasScepter() and not caster:HasModifier("modifier_keeper_of_the_light_spirit_form") then
         ability = caster:FindAbilityByName("keeper_of_the_light_spirit_form")
         if ability:GetLevel() > 0 then
