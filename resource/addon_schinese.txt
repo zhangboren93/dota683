@@ -148,6 +148,8 @@
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven"								"淘汰"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Description"					"伤害%damage%，斩杀上限%kill_threshold%，团队加速40%%，持续%speed_duration%秒"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Scepter_Description"			"斩杀上限300/425/550，CD6秒，加速持续时间10秒"
+		"DOTA_Tooltip_Ability_axe_counter_helix_datadriven"								"反击螺旋"
+		"DOTA_Tooltip_Ability_axe_counter_helix_datadriven_Description"					"20%几率触发，CD %cooldown%秒"
 		"DOTA_Tooltip_Ability_lich_chain_frost_Scepter_Description"						"伤害+90，施法距离+100，移除次数上限"
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_Scepter_Description"				"+35/60/85伤害，CD100/70/40秒"
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD15秒"

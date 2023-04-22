@@ -148,6 +148,8 @@
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven"								"Culling Blade"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Description"					"damage %damage%, kill threshold %kill_threshold%, team attack&move speed +40%%, lasts %speed_duration% seconds"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Scepter_Description"			"kill threshold 300/425/550, CD 6 seconds, buff lasts 10 seconds"
+		"DOTA_Tooltip_Ability_axe_counter_helix_datadriven"								"Counter helix"
+		"DOTA_Tooltip_Ability_axe_counter_helix_datadriven_Description"					"20% change, CD %cooldown% seconds"
 		"DOTA_Tooltip_Ability_lich_chain_frost_Scepter_Description"						"+90 damage，+100 cast range，remove bounce limit"
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_Scepter_Description"				"+35/60/85 damage，CD 100/70/40 seconds"
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD 15 seconds"
