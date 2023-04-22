@@ -5621,7 +5621,7 @@
 				{
 					"value"			"1000"
 				}
-
+				"self_increase_pct"	"100"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -12766,12 +12766,13 @@
 	//=================================================================================================================
 	// Legion Commander: Overwhelming Odds
 	//=================================================================================================================
+	// TODO rewrite
 	"legion_commander_overwhelming_odds"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5595"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
@@ -12809,7 +12810,9 @@
 				}
 				"bonus_speed_creeps"		"3"
 				"bonus_speed_heroes"		"9"
-				"duration"				"7.0"
+				"bonus_attack_speed_creeps"	"0"
+				"bonus_attack_speed"		"0"
+				"duration"					"7.0"
 				"radius"				
 				{
 					"value"		"330"
@@ -12836,6 +12839,7 @@
 	//=================================================================================================================
 	// Legion Commander: Press the Attack
 	//=================================================================================================================
+	// TODO attack speed
 	"legion_commander_press_the_attack"
 	{
 		// General
@@ -12886,6 +12890,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"hp_regen"				"30 40 50 60"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"move_speed"			"0"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -19829,41 +19838,7 @@
 				"value"					"0"
 				"LinkedSpecialBonus"	"special_bonus_unique_magnus_6"
 			}
-			"scepter_width"		
-			{
-				"value" 				"0"
-				"RequiresScepter"		"1"
-			}
-			"scepter_range"		
-			{
-				"value"					"0"
-				"RequiresScepter"		"1"
-			}
-			"scepter_duration"	
-			{
-				"value" 				"0"
-				"RequiresScepter"		"1"
-			}
-			"scepter_erupt_time"		
-			{
-				"value" 				"0"
-				"RequiresScepter"		"1"
-			}
-			"scepter_erupt_damage_pct"
-			{
-				"value" 				"0"
-				"RequiresScepter"		"1"	
-			}
-			"scepter_slow_pct"		
-			{
-				"value" 				"0"
-				"RequiresScepter"		"1"
-			}
-			"scepter_armor_pct"		
-			{
-				"value" 				"0"
-				"RequiresScepter"		"1"
-			}
+			"return_damage_pct"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -19990,51 +19965,42 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"should_self_cast"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"empower_duration"		"40"
-				"LinkedSpecialBonus"	"special_bonus_unique_magnus_4"
+				"value"								"0"
 			}
-			"02"
+			"empower_duration"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage_pct"		"20 30 40 50"
-				"LinkedSpecialBonus"	"special_bonus_unique_magnus_2"
+				"value"		"40"
+				"special_bonus_unique_magnus_4"	"+10"
 			}
-			"03"
+			"bonus_damage_pct"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"cleave_damage_pct"		"20 30 40 50"
-				"LinkedSpecialBonus"	"special_bonus_unique_magnus_2"
+				"value"							"20 30 40 50"
+				"special_bonus_unique_magnus_2"	"+10"
+			}
+			"cleave_damage_pct"
+			{
+				"value"						"10 20 30 40"
+				"special_bonus_unique_magnus_2"	"+10"
 			}			
-			"04"
+			"cleave_starting_width"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_starting_width"			"150"
+				"value"			"150"
 			}			
-			"05"
+			"cleave_ending_width"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_ending_width"			"360"
+				"value"			"360"
 			}			
-			"06"
+			"cleave_distance"			"650"
+			"secondary_cleave_distance"	
 			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_distance"			"650"
+				"value"			"0"
+				//"special_bonus_shard"	"+400"
 			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"self_multiplier"		"0"
-			}	
+			"self_multiplier"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -26773,35 +26739,136 @@
 		}
 	}
 }
-	//=================================================================================================================
-	// Medusa: Mana Shield
-	//=================================================================================================================
-	"medusa_mana_shield"
+	// Rewrite of the Medusa Mana Shield ability
+	// Author: Pizzalol, Noya
+	// Date: 04.03.2015.
+	// NOTE: This is a POST DAMAGE REDUCTION Mana Shield
+	"medusa_mana_shield_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5506"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"		
-		"AbilitySound"					"Hero_Medusa.ManaShield.On"
-
+		"AbilityTextureName"			"medusa_mana_shield"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield_cast.vpcf"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield_end.vpcf"
+			"particle"			"particles/units/heroes/hero_medusa/medusa_mana_shield_impact.vpcf"
+		}
+		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
-
+	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"AbilitySpecial"
 		{
-			"damage_per_mana"		
+			"01"
 			{
-				"value"								"1.6 1.9 2.2 2.5"
-				"special_bonus_unique_medusa_6"		"+0.5"
+				"var_type"				"FIELD_FLOAT"
+				"damage_per_mana"		"1.6 1.9 2.2 2.5"
 			}
-			"absorption_pct"						"60"
-			"bonus_mana"							"0"
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"absorption_tooltip"		"60"
+			}	
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	
+		"OnToggleOn"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Medusa.ManaShield.On" 
+				"Target" 		"CASTER"
+			}
+	
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_medusa/medusa_mana_shield_cast.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_mana_shield_datadriven"
+				"Target" 		"CASTER"
+			}
+		}
+	
+		"OnToggleOff"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Medusa.ManaShield.Off"
+				"Target" 		"CASTER"
+			}
+	
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_medusa/medusa_mana_shield_end.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+			}
+	
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_mana_shield_datadriven"
+				"Target"
+				{
+					"Center"	"CASTER"
+					"Flags" 	"DOTA_UNIT_TARGET_FLAG_DEAD"
+				}
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_mana_shield_datadriven"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+		
+				"EffectName"		"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+				"EffectAttachType"	"follow_origin"
+		
+				"OnTakeDamage"
+				// "%attack_damage" is set to the damage value after mitigation
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Medusa.ManaShield.Proc"
+						"Target" 		"UNIT"
+					}
+	
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_medusa/mana_shield.lua"
+						"Function"		"ManaShield"
+						"Damage"		"%attack_damage"
+					}
+				}
+	
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_medusa/mana_shield.lua"
+						"Function"		"ManaShieldHealth"
+					}
+				}
+			}
+		}
 	}
 	// Rewrite of the Keeper of the Light Mana Leak ability
 	// Author: Pizzalol

@@ -223,6 +223,8 @@
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_Description"		"attack and move speed -%slow_pct%, +15%% move speed，+%attack_speed% attack speed"
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven"					"Mystic Snake"
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven_Description"		"damage %snake_damage%，mana steal %snake_mana_steal%，jumps %snake_jumps% times, each jump increase effect by 25%%"
+		"DOTA_Tooltip_Ability_medusa_mana_shield_datadriven"					"Mana Shield"
+		"DOTA_Tooltip_Ability_medusa_mana_shield_datadriven_Description"		"absorb 60%% damage, %damage_per_mana% damage per mana"
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven"						"Repel"
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven_Description"			"lasts %duration% seconds"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven"					"Degen Aura"
