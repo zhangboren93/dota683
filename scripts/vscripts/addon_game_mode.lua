@@ -58,14 +58,14 @@ function Activate()
 	LinkLuaModifier( "modifier_riki_invis_health_regen",		 "modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",	 "modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_omniknight_guardian_angel_regen", "modifiers/omniknight_guardian_regen.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",	"modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_doom_scorched_earth_regen",			"modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",	 "modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_doom_scorched_earth_regen",		 "modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			 "modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_drop_backpack_items",			 "modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_maelstrom_as_lua",					 "modifiers/maelstrom_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_maelstrom_as_lua",				 "modifiers/maelstrom_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
 
-	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_bot_item_purchase", "bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", 		 "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_bot_item_purchase",				 "bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -779,6 +779,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_life_stealer" then
 			entity:FindAbilityByName("life_stealer_infest_bounty_datadriven"):SetLevel(1)
+		elseif entity:GetName() == "npc_dota_hero_alchemist" then
+			entity:FindAbilityByName("alchemist_goblins_greed_2"):SetLevel(0)
 		end
 	end
 

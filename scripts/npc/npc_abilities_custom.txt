@@ -8593,15 +8593,16 @@
 	//=================================================================================================================
 	// Alchemist: Goblin's Greed
 	//=================================================================================================================
-	"alchemist_goblins_greed"
+	"alchemist_goblins_greed_2"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5368"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"alchemist_goblins_greed"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"MaxLevel"						"4"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

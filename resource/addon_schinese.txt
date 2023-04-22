@@ -313,5 +313,7 @@
 		"DOTA_Tooltip_Ability_glyph_datadriven"										"塔防"
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven"						"黑皇杖"
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven_Description"			"魔法免疫%duration%秒\n+10力量+24攻击力"
+		"DOTA_Tooltip_Ability_alchemist_goblins_greed_2"							"贪婪"
+		"DOTA_Tooltip_Ability_alchemist_goblins_greed_2_Description"				"基础赏金%bonus_gold%，上限%bonus_gold_cap%，持续30秒"
 	}
 }
