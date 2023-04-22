@@ -1429,6 +1429,7 @@
 		"StatusMana"				"300"		// Base mana.
 		"StatusManaRegen"			"0.5"		// Mana regeneration rate.		 	
 	}	
+	//TODO brew splits attack damages and abilities values
 	"npc_dota_brewmaster_earth_1"
 	{
 		"Ability4"					"brewmaster_thunder_clap"

@@ -932,6 +932,7 @@
 			"nightmare_invuln_time"		"1.0"
 			"duration"					"4.0 5.0 6.0 7.0"
 			"animation_rate"			"0.2 0.2 0.2 0.2"
+			//TODO tick damage
 			"nightmare_tick_damage"		"20"
 			"AbilityCooldown"
 			{
@@ -6448,6 +6449,7 @@
 			"scepter_length_multiplier"				"1"
 		}
 	}
+	//TODO increase damage and health based on target health
     "clinkz_death_pact"
 	{
 		"MaxLevel"              "3"
@@ -6478,24 +6480,35 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+						
+			"duration"				"35"
+			"AbilityCharges"				
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"35"
+				"value"				"0"
 			}
-			"02"
+			"health_gain"			
 			{
-				"var_type"				"FIELD_INTEGER"
-				"health_gain_pct"		"50 65 80"
-				"LinkedSpecialBonus"			"special_bonus_unique_clinkz_8"
+				"value"				"125 200 275 350"
+				"special_bonus_unique_clinkz_8"		"+200"
 			}
-			"03"
+			"skeleton_duration"					"0"
+			"skeleton_health"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_gain_pct"		"5 6.5 8"
+				"value"					"0"
+				
 			}
+			"skeleton_health_tooltip"
+			{
+				"value"					"0"
+			}
+			"skeleton_building_damage_reduction"			"0"
+			"attack_rate"			"1.6"
+			"damage_percent"		"20"
+			"creep_level"			"6"
+			"health_gain_pct"		"50 65 80"
+			"damage_gain_pct"		"5 6.5 8"
 		}
 	}
     "omniknight_guardian_angel"
@@ -7055,6 +7068,7 @@
 				"value"	"0"
 				"special_bonus_unique_batrider_5"	"+2"
 			}
+			"slow"	"0"			
 						
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -7304,6 +7318,7 @@
 	//=================================================================================================================
 	// Chen: Holy Persuasion
 	//=================================================================================================================
+	//TODO no bounty
 	"chen_holy_persuasion"
 	{
 		// General
@@ -17091,6 +17106,7 @@
 					"LinkedSpecialBonus"		"special_bonus_unique_chaos_knight_6"
 				}
 				"creep_multiplier"					"1"
+				"creep_lifesteal_reduction_pct"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -22327,6 +22343,7 @@
 	//=================================================================================================================
 	// Broodmother: Insatiable Hunger
 	//=================================================================================================================
+	//TODO flat damage
 	"broodmother_insatiable_hunger"
 	{
 		// General
@@ -24380,92 +24397,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	// Rewrite of Clinkz Searing Arrows
-	// Author: Noya
-	// Date: December 31, 2015
-	// Version: 6.81
-	// Type: Datadriven
-	// NOTE: This uses the old Orb mechanic. Orb Labels seem to be malfunctioning, need to warn Valve about this issue.
-	// A non-orb rewrite might be impossible because OnAttackStart triggers earlier than OnOrbFire (i.e. there's no OnAttackLaunched)
-	"clinkz_searing_arrows_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityTextureName"			"clinkz_searing_arrows"
-	
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-	
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.0 0.0 0.0 0.0"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"10"
-		"AbilityDamage"					"30 40 50 60"
-	
-		"precache"
-		{
-			"particle"  "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
-		}
-	
-		"Modifiers"
-		{
-			"modifier_searing_arrow"
-			{
-				"Passive"               "1"
-				"IsHidden"				"1"
-	
-				"Orb"
-				{
-					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"    "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
-					"CastAttack"		"1"
-				}
-	
-				"OnOrbFire"
-				{
-					"SpendMana"
-					{
-						"Mana"    		"%AbilityManaCost"
-					}
-	
-					"FireSound"
-					{
-						"EffectName"	"Hero_Clinkz.SearingArrows"
-						"Target"		"CASTER"
-					}
-				}
-				
-				"OnOrbImpact"
-				{
-					"Damage"
-					{
-						"Type"          "DAMAGE_TYPE_PHYSICAL"
-						"Damage"        "%AbilityDamage"
-						"Target"		"TARGET"
-					}
-	
-					"FireSound"
-					{
-						"EffectName"	"Hero_Clinkz.SearingArrows.Impact"
-						"Target"		"CASTER"
-					}
-				}
-			}
-		}
-	}
 	//=================================================================================================================
 	// Clinkz: Wind Walk
 	//=================================================================================================================
@@ -24475,6 +24406,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5261"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Clinkz.WindWalk"
 
@@ -24491,29 +24423,17 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"duration"					"20 25 30 35"
+			"fade_time"					"0.6 0.6 0.6 0.6"
+			"move_speed_bonus_pct"		"11 22 33 44"
+			"skeleton_count"			
 			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"20 25 30 35"
+				"value"								"0"
 			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"fade_time"					"0.6 0.6 0.6 0.6"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"move_speed_bonus_pct"		"11 22 33 44"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"shard_skeleton_count"		"2"
-				"RequiresShard"				"1"
-			}
+			"skeleton_offset"				"250"
+			"skeleton_offset_min"				"150"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -29187,6 +29107,7 @@
 	//=================================================================================================================
 	// Bounty Hunter: Shuriken Toss
 	//=================================================================================================================
+	//TODO transfer to tracked targets
 	"bounty_hunter_shuriken_toss"
 	{
 		// General
@@ -29218,46 +29139,34 @@
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"bonus_damage"			
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"100 200 250 325"
-				"LinkedSpecialBonus"	"special_bonus_unique_bounty_hunter_2"
+				"value"				"100 200 250 325"
+				"special_bonus_unique_bounty_hunter_2"	"+50"
 			}
-			"02"
+			"speed"					"1000 1000 1000 1000"
+			"bounce_aoe"			"1200"
+			"slow_duration"			
 			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1000 1000 1000 1000"
+				"value"				"0"
+				"special_bonus_unique_bounty_hunter_5"		"+0.65"
 			}
-			"03"
+			"scepter_cast_range"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bounce_aoe"			"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ministun"			"0.01"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_cast_range"			"650"
+
+				"value"				"1"
 				"RequiresScepter"	"1"
 			}
-			"06"
+			"scepter_cooldown"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"scepter_cooldown"			"10"
+				"value"				"1"
 				"RequiresScepter"	"1"
 			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_range"			"650"
-			}
+			"cast_range"			"650"
+			"slow"					"0"		
+			"attack_slow"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
