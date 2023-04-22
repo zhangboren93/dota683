@@ -8,6 +8,13 @@ function item_black_king_bar_datadriven_on_spell_start(keys)
 	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_item_black_king_bar_datadriven_active", nil)
 	keys.caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
 	
+	local RemovePositiveBuffs = true
+	local RemoveDebuffs = true
+	local BuffsCreatedThisFrameOnly = false
+	local RemoveStuns = false
+	local RemoveExceptions = false
+	keys.caster:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
+
 	--Level up BKB so future casts will use an updated cooldown and duration.
 	local current_level = keys.ability:GetLevel()
 	if current_level + 1 <= keys.MaxLevel then
@@ -24,16 +31,16 @@ function item_black_king_bar_datadriven_on_spell_start(keys)
 		end
 	end
 
-	local final_model_scale = (keys.PercentageOverModelScale / 100) + 1  --This will be something like 1.3.
-	local model_scale_increase_per_interval = 100 / (final_model_scale - 1)
-
-	--Scale the model up over time.
-	keys.caster:SetModelScale(keys.caster:GetModelScale() * (1 + keys.PercentageOverModelScale / 100))
-
-	--Scale the model back down around the time the duration ends.
-	keys.caster:SetThink(function()
-		keys.caster:SetModelScale(keys.caster:GetModelScale() / (1 + keys.PercentageOverModelScale / 100))
-	end, "reset model scale", keys.Duration)
+--	local final_model_scale = (keys.PercentageOverModelScale / 100) + 1  --This will be something like 1.3.
+--	local model_scale_increase_per_interval = 100 / (final_model_scale - 1)
+--
+--	--Scale the model up over time.
+--	keys.caster:SetModelScale(keys.caster:GetModelScale() * (1 + keys.PercentageOverModelScale / 100))
+--
+--	--Scale the model back down around the time the duration ends.
+--	keys.caster:SetThink(function()
+--		keys.caster:SetModelScale(keys.caster:GetModelScale() / (1 + keys.PercentageOverModelScale / 100))
+--	end, "reset model scale", keys.Duration)
 end
 
 
