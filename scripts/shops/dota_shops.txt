@@ -119,7 +119,7 @@
 		"item"		"item_blade_mail"
 		"item"		"item_soul_booster"
 		"item"		"item_crimson_guard"		
-		"item"		"item_black_king_bar"
+		"item"		"item_black_king_bar_datadriven"
 		"item"		"item_shivas_guard"
 		"item"		"item_bloodstone_datadriven"
 		"item"		"item_manta"

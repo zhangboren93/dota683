@@ -311,5 +311,7 @@
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"折光"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_Description"	"+攻%bonus_damage%，护盾数量%instances%"
 		"DOTA_Tooltip_Ability_glyph_datadriven"										"塔防"
+		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven"						"黑皇杖"
+		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven_Description"			"魔法免疫%duration%秒\n+10力量+24攻击力"
 	}
 }
