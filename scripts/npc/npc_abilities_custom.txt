@@ -14410,9 +14410,15 @@
 					"value"		"15 30 45 60"
 					"special_bonus_unique_arc_warden_2"		"+40"
 				}
+				"tempest_damage_per_second"				
+				{
+					"value"		"15 30 45 60"
+					"special_bonus_unique_arc_warden_2"		"+40"
+				}
 				"search_radius"					"225"
 				"think_interval"				"0.5"
 				"move_speed_slow_pct"				"50"
+				"tempest_move_speed_slow_pct"		"50"
 				"AbilityCastRange"			
 				{
 					"value"				"600 700 800 900"
@@ -14477,6 +14483,8 @@
 				"value"						"30"
 				"RequiresShard"				"1"
 			}
+			"attack_range_bonus"				"0"
+			"attack_magic_damage"				"0"
 		}
 	}
 	//=================================================================================================================
@@ -14510,19 +14518,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"radius"									"375"
-			"activation_delay"							"3.0"
-			"duration"									"50"
-			"wraith_speed"								"400"
-			"spark_damage"
-			{
-			
-				"value"									"150 200 250 300"
-				"special_bonus_unique_arc_warden"		"+125"
-			}
-			"think_interval"							"0.2"
-			"wraith_vision_radius"						"300"
-			"wraith_vision_duration"					"3.34"
 			"ministun_duration"							"0"
 			"move_speed_slow_pct"						"0"
 			"scepter_activation_delay"
@@ -14530,6 +14525,43 @@
 				"value"									"100000"
 				"RequiresScepter"						"1"
 			}	
+			"radius"									"375"
+			"spark_damage_base"
+			{
+				"value"									"150 200 250 300"
+				"special_bonus_unique_arc_warden"		"+35%"
+			}
+			"base_activation_delay"						"3.0"
+			"wraith_speed_base"							"400"
+			"duration"									"50"
+			"spark_damage_tempest"
+			{
+				"value"									"150 200 250 300"
+				"special_bonus_unique_arc_warden"		"+35%"
+			}			
+			"tempest_activation_delay"					"3.0"
+			"wraith_speed_tempest"						"400"
+			"think_interval"							"0.2"
+			"wraith_vision_radius"						"300"
+			"wraith_vision_duration"					"3.34"
+			"ministun_duration"							"0"
+			"ministun_duration_tempest"					"0"
+			"move_speed_slow_pct"						"0"
+			"scepter_activation_delay"
+			{
+				"value"									"100000"
+				"RequiresScepter"						"1"
+			}
+			"scepter_duration"
+			{
+				"value"									"0"
+				"RequiresScepter"						"1"
+			}				
+			"scepter_radius"
+			{
+				"value"									"1"
+				"RequiresScepter"						"1"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
