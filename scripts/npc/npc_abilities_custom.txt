@@ -32863,4 +32863,54 @@
 			}
 		}
 	}
+	"move_speed_cancel_night_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"// | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"AbilityCooldown"	"5"
+		"Modifiers"
+		{
+			"modifier_move_speed_cancel_night_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"ThinkInterval"	"0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/night_move_speed.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/night_move_speed.lua"
+						"Function"		"handleTakeDamage"
+					}
+				}
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/night_move_speed.lua"
+						"Function"		"handleAttack"
+					}
+				}
+			}
+			"modifier_move_speed_cancel_active_datadriven"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-30" 
+				}
+			}
+		}
+	}
 }

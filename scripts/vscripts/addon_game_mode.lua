@@ -782,6 +782,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
 	end
 
+	if entity:IsHero() and not entity:HasAbility("move_speed_cancel_night_datadriven") then
+		entity:AddAbility("move_speed_cancel_night_datadriven"):SetLevel(1)
+	end
+
 	if entity:IsRealHero() and is_respawn == 1 and entity.loseIntOnRespawn then
 		print("Losing int at respawn")
 		entity.silencerAbility:ApplyDataDrivenModifier(entity, entity, "modifier_int_steal_debuf_datadriven", {})
