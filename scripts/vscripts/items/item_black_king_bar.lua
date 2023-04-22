@@ -28,11 +28,11 @@ function item_black_king_bar_datadriven_on_spell_start(keys)
 	local model_scale_increase_per_interval = 100 / (final_model_scale - 1)
 
 	--Scale the model up over time.
-	keys.caster:SetModelScale(1 + keys.PercentageOverModelScale / 100)
+	keys.caster:SetModelScale(keys.caster:GetModelScale() * (1 + keys.PercentageOverModelScale / 100))
 
 	--Scale the model back down around the time the duration ends.
 	keys.caster:SetThink(function()
-		keys.caster:SetModelScale(1)
+		keys.caster:SetModelScale(keys.caster:GetModelScale() / (1 + keys.PercentageOverModelScale / 100))
 	end, "reset model scale", keys.Duration)
 end
 
