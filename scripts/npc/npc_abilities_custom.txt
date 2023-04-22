@@ -7961,12 +7961,12 @@
 			"vortex_duration"		"16"
 			"shard_dps"
 			{
-				"value"		"40"
+				"value"		"0"
 				"RequiresShard"			"1"
 			}
 			"shard_attack_speed_reduction"
 			{
-				"value"					"20"
+				"value"					"0"
 				"RequiresShard"			"1"
 			}
 		}
@@ -8187,6 +8187,7 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 		"HasScepterUpgrade"				"1"
+		"HasShardUpgrade"				"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -32950,6 +32951,7 @@
 					{
 						"ScriptFile"	"units/night_move_speed.lua"
 						"Function"		"handleTakeDamage"
+						"Damage"		"%attack_damage"
 					}
 				}
 				"OnAttack"
@@ -32963,8 +32965,8 @@
 			}
 			"modifier_move_speed_cancel_active_datadriven"
 			{
-				"Passive"	"0"
-				"IsHidden"	"1"
+				"Passive"		"0"
+				"IsHidden"		"1"
 				"IsPurgable"	"0"
 				"Properties"
 				{
