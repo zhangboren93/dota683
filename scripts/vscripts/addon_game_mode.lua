@@ -781,6 +781,18 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("life_stealer_infest_bounty_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_alchemist" then
 			entity:FindAbilityByName("alchemist_goblins_greed_2"):SetLevel(0)
+		elseif entity:GetName() == "npc_dota_hero_shredder" then
+			entity:SetThink(function()
+				if entity:HasScepter() then
+					local ability = entity:FindAbilityByName("shredder_chakram_2")
+					local ability2 = entity:FindAbilityByName("shredder_return_chakram_2")
+					if ability:IsHidden() and ability2:IsHidden() then
+						ability:SetLevel(entity:FindAbilityByName("shredder_chakram"):GetLevel())
+						ability:SetHidden(false)
+					end
+				end
+				return 2
+			end, "timbersaw scepter", 2);
 		end
 	end
 
