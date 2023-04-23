@@ -1607,6 +1607,7 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
+	//TODO stone form stun duration
 	"npc_dota_hero_visage"				
 	{
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"

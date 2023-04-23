@@ -3867,6 +3867,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_Warlock.Upheaval"
+		"HasShardUpgrade"				"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -3905,6 +3906,9 @@
 			"damage_per_second"		"0"
 			"max_damage"			"0"
 			"damage_tick_interval"	"1"
+			"imps_interval"				"2"
+			"minor_imp_duration"		"0"
+			"major_imp_duration"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -10150,38 +10154,39 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"tombstone_health"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"tombstone_health"				"10 12 14 16"
+				"value"					"10 12 14 16"
+				"special_bonus_unique_undying_5"	"+24" 
 			}
-			"02"
+
+			"hits_to_destroy_tooltip"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip"				"5 6 7 8"
-				"LinkedSpecialBonus"		"special_bonus_unique_undying_5"
+				"value"					"5 6 7 8"
+				"special_bonus_unique_undying_5"	"+6"
 			}
-			"03"
+
+			"duration"				"15 20 25 30.0"
+			"radius"				"600 800 1000 1200"
+			"health_threshold_pct_tooltip"	"40"
+			"zombie_interval"		"3"
+			"zombie_damage_tooltip"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"15 20 25 30.0"
+				"value"					"34"
+				"special_bonus_unique_undying" "+20"
+				"CalculateSpellDamageTooltip"	"0"
 			}
-			"04"
+
+			"bunker_units"				"0"
+			"bunker_heal_pct"			"0"
+			"tombstone_grab_radius"		"1"
+			"tombstone_bunker_cd"		"3000"
+
+			"zombie_damage_interval"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"600 800 1000 1200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_threshold_pct_tooltip"		"40"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"zombie_interval"		"3"
+				"value"					"0"
 			}
 		}
 	}
@@ -17946,62 +17951,47 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.2"	// Slow isn't the main function of this ability.
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"reincarnate_time"		"3.0 3.0 3.0"
+			"slow_radius"			"900"
+			"movespeed"				"-75"
+			"attackslow"			"0"
+			"slow_duration"			"5.0"
+			"scepter_duration"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"reincarnate_time"		"3.0 3.0 3.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_radius"			"900"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movespeed"				"-75"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attackslow"			"-0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"5.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"scepter_duration"		"0"
+				"value"						"0"
+				"special_bonus_scepter"			"+0"
 				"RequiresScepter"			"1"
 			}
-			"08"
+			"scepter_aura_radius"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_aura_radius"	"0"
+				"value"						"0"
+				"special_bonus_scepter"			"+0"
 				"RequiresScepter"			"1"
 			}
-			"09"
+			"scepter_attack_speed"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_attack_speed"	"0"
+				"value"				"0"
+				"special_bonus_scepter"		"+0"
 				"RequiresScepter"			"1"
 			}
-			"10"
+			"scepter_move_speed_pct"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_move_speed_pct"	"0"
+				"value"							"0"
+				"special_bonus_scepter"			"+0"
 				"RequiresScepter"			"1"
 			}
-			"11"
+			"shard_skeleton_count"		
 			{
-				"var_type"				"FIELD_INTEGER"
-				"shard_skeleton_count"	"0"
-				"RequiresScepter"			"1"
+				"value"							"0"
+				"special_bonus_shard"			"+3"
+			}
+			"scepter_respawn_pct"
+			{
+				"value"							"0"
+				"special_bonus_scepter"			"0"
+				"RequiresScepter"				"1"
 			}
 		}
 	}
@@ -20976,10 +20966,10 @@
 				"RequiresScepter" "1"
 				"value"			"0"
 			}
-			"scepter_blind"				
+			"physical_damage_pct"
 			{
-				"value"		"0"
-				"RequiresScepter"		"1"
+				"value"				"0"
+				"special_bonus_scepter"		"-0"
 			}
 			"cannot_be_dispelled"
 			{
@@ -20993,7 +20983,7 @@
 	}
 	//=================================================================================================================
 	// Ability: Earthshaker Totem
-	//=================================================================================================================
+	n//=================================================================================================================
 	"earthshaker_enchant_totem"
 	{
 		// General
@@ -28614,6 +28604,8 @@
 				"blast_dot_duration"	"2.0"
 				"blast_slow"			"-20"
 				"blast_dot_damage"		"15 30 40 50"
+				"bonus_move_speed"			"0"
+				"bonus_attack_speed"			"0"
 		}
 	}
 	"skywrath_mage_concussive_shot"
@@ -31737,28 +31729,19 @@
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"1.75"
 		"AbilityManaCost"				"65 70 75 80"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"arc_damage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"arc_damage"			"85 100 115 145"
-				"LinkedSpecialBonus"	"special_bonus_unique_zeus_2"
+				"value"				"85 100 115 145"
 			}
-			"02"
+			"radius"				"500 500 500 500"
+			"jump_count"			"5 7 9 15"
+			"jump_delay"			"0.25 0.25 0.25 0.25"
+			"damage_health_pct"		
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500 500 500 500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"jump_count"			"5 7 9 15"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"jump_delay"			"0.25 0.25 0.25 0.25"
+				"value"				"0"
+				"special_bonus_unique_zeus_2"	"+4"
 			}
 		}
 	}
@@ -31828,6 +31811,12 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"spread_aoe"	"325"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ministun_duration"		"0.01"
+				"LinkedSpecialBonus"	"special_bonus_unique_zeus_3"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
