@@ -321,5 +321,6 @@
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven_Description"			"Magic immune for %duration% seconds\n+10 strength, +24 damage"
 		"DOTA_Tooltip_Ability_alchemist_goblins_greed_2"							"Goblins Greed"
 		"DOTA_Tooltip_Ability_alchemist_goblins_greed_2_Description"				"base bounty %bonus_gold%, upper limit %bonus_gold_cap%, lasts 30 seconds"
+		"DOTA_Tooltip_Ability_legion_commander_press_the_attack_Lore"				"attack speed +60/80/100/120"
 	}
 }

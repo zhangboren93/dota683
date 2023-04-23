@@ -793,6 +793,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 2
 			end, "timbersaw scepter", 2);
+		elseif entity:GetName() == "npc_dota_hero_legion_commander" then
+			entity:FindAbilityByName("legion_commander_press_the_attack_as_datadriven"):SetLevel(1)
 		end
 	end
 
