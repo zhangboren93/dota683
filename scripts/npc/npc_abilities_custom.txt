@@ -6233,17 +6233,19 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"vision_range"					"250"
+			"duration"						"3 3.75 4.5 5.25"
+			"blind_pct"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_range"			"250"
+				"value" 			"0"
+				"special_bonus_unique_furion_4" 	"+100"
 			}
-			"02"
+			"leash"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3 3.75 4.5 5.25"
+				"value"				"0"
+				"special_bonus_unique_furion_7"		"+1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -6294,60 +6296,29 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"area_of_effect"		"150 225 300 375"
+			"max_treants"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"150 225 300 375"
+				"value"							"2 3 4 5"
+				"special_bonus_unique_furion_2"	"+5"
 			}
-			"02"
+			"treant_duration"				"60"
+			"treant_health"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"max_treants"			"2 3 4 5"
-				"LinkedSpecialBonus"	"special_bonus_unique_furion_2"
+				"value"								"550"
+				"special_bonus_unique_furion"			"x2.5"
 			}
-			"03"
+			"treant_damage_min"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"60 60 60 60"
+				"value"					"22"
+				"special_bonus_unique_furion"			"x2.5"
 			}
-			"04"
+			"treant_damage_max"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"treant_health_tooltip"				"550"
-				"LinkedSpecialBonus"	"special_bonus_unique_furion"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"treant_dmg_tooltip"				"22"
-				"LinkedSpecialBonus"	"special_bonus_unique_furion"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-				
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"treant_hp_bonus"				"0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"treant_damage_bonus"		"0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"treant_large_hp_bonus"				"0"
-				"RequiresScepter"		"1"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"treant_large_damage_bonus"		"0"
-				"RequiresScepter"		"1"
+				"value"					"22"
+				"special_bonus_unique_furion"			"x2.5"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -10918,6 +10889,7 @@
 				"value" 			"25"
 				"RequiresShard"		"1"
 			}
+			"mana_removal_pct"		"0"
 		}
 	}
     "naga_siren_song_of_the_siren"
@@ -16715,7 +16687,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5431"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -17335,6 +17307,16 @@
 			{
 				"value"				"1"
 				"RequiresShard"		"1"
+			}
+			"shard_projectile_distance"			
+			{
+				"value"					"800"
+				"RequiresShard"			"1"
+			}
+			"shard_projectile_speed"
+			{
+				"value"					"1200"
+				"RequiresShard"			"1"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -30436,11 +30418,13 @@
 					"value"				"0.5 1.0 1.5 2.0"
 					"CalculateSpellDamageTooltip"	"0"
 				}
+				"bonus_attributes"			"0"
 		}
 	}
 	//=================================================================================================================
 	// Morphling: Morph (Agility Gain)
 	//=================================================================================================================
+	//TODO bonus attributes
 	"morphling_morph_agi"
 	{
 		// General
@@ -30479,6 +30463,7 @@
 	//=================================================================================================================
 	// Morphling: Morph (Strength Gain)
 	//=================================================================================================================
+	//TODO bonus attributes
 	"morphling_morph_str"
 	{
 		// General
