@@ -3228,6 +3228,7 @@
 		"AttackAnimationPoint"		"0.46"
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
+		"Ability1"					"legion_commander_overwhelming_odds_datadriven"
 		"Ability4"					"legion_commander_press_the_attack_as_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"

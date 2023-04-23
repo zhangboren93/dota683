@@ -12885,78 +12885,122 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Legion Commander: Overwhelming Odds
-	//=================================================================================================================
-	// TODO rewrite
-	"legion_commander_overwhelming_odds"
+	//TODO fix animation
+	"legion_commander_overwhelming_odds_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5595"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_LegionCommander.Overwhelming.Location"
-		"HasShardUpgrade"				"0"
+		"AbilityTextureName"			"legion_commander_overwhelming_odds"
+	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18"
-
+		"AbilityCooldown"				"18.0 18.0 18.0 18.0"
+	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-
+	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-
+		"AbilityManaCost"				"100 100 100 100"
+		"AOERadius"						"330"
+	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{			
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"330"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"damage"				"40 80 120 160"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"damage_per_unit"		"14 16 18 20"
-				"damage_per_hero"		
-				{
-					"value"				"20 35 50 65"
-					"LinkedSpecialBonus"	"special_bonus_unique_legion_commander_4"
-				}
-				"illusion_dmg_pct"		
-				{
-					"value"				"25"
-					"CalculateSpellDamageTooltip"	"1"
-				}
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_hero"		"20 35 50 65"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"illusion_dmg_pct"		"25"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"bonus_speed_creeps"		"3"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
 				"bonus_speed_heroes"		"9"
-				"bonus_attack_speed_creeps"	"0"
-				"bonus_attack_speed"		"0"
-				"duration"					"7.0"
-				"radius"				
-				{
-					"value"		"330"
-					"LinkedSpecialBonus"	"special_bonus_unique_legion_commander_2"
-				}
-				"armor_per_creep"	
-				{
-					"value" 				"1"
-					"RequiresShard"				"1"
-				}
-				"armor_per_hero"	
-				{
-					"value" 				"5"
-					"RequiresShard"  		"1"
-				}
-				"shard_duration"	
-				{	
-					"value" 				"15"
-					"RequiresShard"		"1"
-				}
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"7.0"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_LegionCommander.Overwhelming.Location"
+				"Target"		"POINT"
+			}
+			"FireEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_odds.vpcf"
+				"EffectAttachType"	"start_at_customorigin"
+				"TargetPoint"		"POINT"	
+				"EffectRadius"		"%radius"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/hero_legion_commander/odds.lua"
+				"Function"		"handleSpellStart"
+				"Target"
+				{
+					"Center"	"POINT"
+					"Radius"	"%radius"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				}		
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_legion_odds_ms_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Duration"		"%duration"
+				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_speed_creeps"
+				}
+			}
+		}
 	}
 	//=================================================================================================================
 	// Legion Commander: Press the Attack
@@ -13124,14 +13168,14 @@
 	"legion_commander_press_the_attack_as_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"//| DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"			"1"
 		"Modifiers"
 		{
 			"modifier_legion_commander_press_the_attack_as_datadriven"
 			{
 				"Passive"	"1"
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"OnAbilityExecuted"
 				{
 					"RunScript"
@@ -13144,7 +13188,7 @@
 			"modifier_legion_press_active_datadriven"
 			{
 				"Passive"		"0"
-				"IsHidden"		"0"
+				"IsHidden"		"1"
 				"IsPurgable"	"1"
 				"Duration"		"5"
 				"Properties"
