@@ -6458,26 +6458,34 @@
 			"scepter_length_multiplier"				"1"
 		}
 	}
-	//TODO increase damage and health based on target health
-    "clinkz_death_pact"
+	// Rewrite of Clinkz Death Pact
+	// Author: Noya
+	// Date: December 31, 2015
+	// Version: 6.86
+	// Type: Datadriven
+	//
+	// ----- FILE REQUIREMENTS -----
+	// Script files:
+	// scripts/vscripts/heroes/hero_clinkz/death_pact.lua
+	"clinkz_death_pact_datadriven"
 	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5262"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilitySound"					"Hero_Clinkz.DeathPact"
-		"AbilityDraftUltScepterAbility" "clinkz_burning_army"
-
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"clinkz_death_pact"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"400"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+		"AbilityCastPoint"				"0.5 0.5 0.5"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -6485,39 +6493,142 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"100 100 100"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"AbilitySpecial"
 		{
-						
-			"duration"				"35"
-			"AbilityCharges"				
+			"01"
 			{
-				"value"				"0"
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"35.0 35.0 35.0"
 			}
-			"health_gain"			
+			"02"
 			{
-				"value"				"125 200 275 350"
-				"special_bonus_unique_clinkz_8"		"+200"
+				"var_type"				"FIELD_INTEGER"
+				"health_gain_pct"		"50 65 80"
 			}
-			"skeleton_duration"					"0"
-			"skeleton_health"
+			"03"
 			{
-				"value"					"0"
-				
+				"var_type"				"FIELD_FLOAT"
+				"damage_gain_pct"		"5.0 6.5 8.0"
 			}
-			"skeleton_health_tooltip"
+		}
+	
+		"precache"
+		{
+			"particle" 	"particles/units/heroes/hero_clinkz/clinkz_death_pact.vpcf"
+			"particle"  "particles/units/heroes/hero_clinkz/clinkz_death_pact_buff.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
 			{
-				"value"					"0"
+				"EffectName"	"Hero_Clinkz.DeathPact.Cast"
+				"Target" 		"CASTER"
 			}
-			"skeleton_building_damage_reduction"			"0"
-			"attack_rate"			"1.6"
-			"damage_percent"		"20"
-			"creep_level"			"6"
-			"health_gain_pct"		"50 65 80"
-			"damage_gain_pct"		"5 6.5 8"
+	
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_clinkz/clinkz_death_pact.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "TARGET"
+				"ControlPointEntities"
+				{
+					"TARGET"	"attach_origin"
+					"CASTER"	"attach_origin"
+				}
+			}
+			
+			"FireSound"
+			{
+				"EffectName"	"Hero_Clinkz.DeathPact"
+				"Target" 		"TARGET"
+			}
+	
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_death_pact"
+				"Target" 		"CASTER"
+			}
+	
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_death_pact_damage"
+				"Target" 		"CASTER"
+			}
+	
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_death_pact_health"
+				"Target" 		"CASTER"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_death_pact"
+				"Target" 		"CASTER"
+				"Duration"		"%duration"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_clinkz/death_pact.lua"
+				"Function"		"DeathPact"
+			}	
+		}
+	
+		"Modifiers"
+		{
+			"modifier_death_pact"
+			{	
+				"EffectName"		"particles/units/heroes/hero_clinkz/clinkz_death_pact_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+	
+				"ThinkInterval"  "0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_clinkz/death_pact.lua"
+						"Function"		"DeathPactHealth"
+					}
+				}
+			}
+	
+			"modifier_death_pact_damage"
+			{
+				"IsHidden"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "1"
+				}
+			}
+	
+			"modifier_death_pact_health"
+			{
+				"IsHidden"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "1"
+				}
+	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_clinkz/death_pact.lua"
+						"Function"		"SetCurrentHealth"
+					}
+				}
+			}
 		}
 	}
     "omniknight_guardian_angel"
