@@ -154,7 +154,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		HandleNpcSpawned(self, event.entindex, event.is_respawn)
 	end, nil)
 	ListenToGameEvent('entity_killed', function(event)
-		HandleEntityKilled(event.entindex_killed, event.entindex_attacker, event.entindex_inflictor)
+		HandleEntityKilled(self, event.entindex_killed, event.entindex_attacker, event.entindex_inflictor)
 	end, nil)
 	ListenToGameEvent('dota_rune_activated_server', function(event)
 		HandleRuneActivated(event.PlayerID, event.rune)
@@ -461,6 +461,7 @@ function CAddonTemplateGameMode:OnThink()
 		if time > -2 then
 			randomUnpickedPlayers()
 		end
+--		self.nextRoshanTime = -1;
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
 		if time >= 30 and self.hasSpawnNeutralsAt30s == nil then
@@ -500,6 +501,14 @@ function CAddonTemplateGameMode:OnThink()
 			end
 		end
 
+		if self.nextRoshanTime ~= nil and time > self.nextRoshanTime then
+			print("Spawn next rosh")
+			local roshan = CreateUnitByName("npc_dota_roshan", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
+			--local roshan = CreateUnitByName("npc_dota_roshan", Vector(0,0,0), true, nil, nil, DOTA_TEAM_NEUTRALS)
+			roshan:SetIdleAcquire(false)
+			--TODO roshan AI
+			self.nextRoshanTime = nil
+		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
 	end
@@ -814,9 +823,13 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		modifier:IncrementStackCount()
 		entity.loseIntOnRespawn = false
 	end
-	--if entity:GetName() == "npc_dota_roshan" then
-	--	entity:FindAbilityByName("roshan_inherent_buffs_datadriven"):SetLevel(1)
-	--end
+	if entity:GetName() == "npc_dota_roshan" then
+		if self.roshanCount == nil then
+			self.roshanCount = 1
+		end
+		entity.roshanNo = self.roshanCount
+		self.roshanCount = self.roshanCount + 1
+	end
 
 	-- courier fix speed and health
 	if entity:GetName() == "npc_dota_courier" or
@@ -907,7 +920,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	end
 end
 
-function HandleEntityKilled(entityIdx, attackerIdx, inflictorIdx)
+function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 	local entity = EntIndexToHScript(entityIdx)
 	local attacker = EntIndexToHScript(attackerIdx)
 	local ability = nil
@@ -925,6 +938,10 @@ function HandleEntityKilled(entityIdx, attackerIdx, inflictorIdx)
 		or name == "dota_goodguys_tower1_bot" then
 		local fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		fountain:FindAbilityByName("glyph_datadriven"):EndCooldown()
+	elseif name == "npc_dota_roshan" then
+		print("roshan killed")
+		self.nextRoshanTime = GameRules:GetDOTATime(false, false) + RandomInt(480, 660);
+		print("next rosh respawn time is " .. self.nextRoshanTime);
 	end
 	if ability ~= nil and ability:GetName() == "necrolyte_reapers_scythe" and attacker:HasScepter() and entity:IsRealHero() then
 		entity:SetBuyBackDisabledByReapersScythe(true)
