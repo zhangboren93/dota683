@@ -66,6 +66,7 @@ function Activate()
 
 	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", 		 "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bot_item_purchase",				 "bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_roshan_ai",				 		 "units/roshan_ai.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -461,7 +462,6 @@ function CAddonTemplateGameMode:OnThink()
 		if time > -2 then
 			randomUnpickedPlayers()
 		end
---		self.nextRoshanTime = -1;
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
 		if time >= 30 and self.hasSpawnNeutralsAt30s == nil then
@@ -504,9 +504,8 @@ function CAddonTemplateGameMode:OnThink()
 		if self.nextRoshanTime ~= nil and time > self.nextRoshanTime then
 			print("Spawn next rosh")
 			local roshan = CreateUnitByName("npc_dota_roshan", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
-			--local roshan = CreateUnitByName("npc_dota_roshan", Vector(0,0,0), true, nil, nil, DOTA_TEAM_NEUTRALS)
 			roshan:SetIdleAcquire(false)
-			--TODO roshan AI
+			roshan:AddNewModifier(nil, nil, "modifier_roshan_ai", {aggroRange = 150, leashRange = 1800})
 			self.nextRoshanTime = nil
 		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
