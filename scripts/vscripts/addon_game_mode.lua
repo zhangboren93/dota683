@@ -462,6 +462,12 @@ function CAddonTemplateGameMode:OnThink()
 		if time > -2 then
 			randomUnpickedPlayers()
 		end
+	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
+		local roshan = Entities:FindAllByClassname("npc_dota_roshan")
+		if #roshan > 0 then
+			roshan[1]:ForceKill(false)
+			self.nextRoshanTime = -1
+		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
 		if time >= 30 and self.hasSpawnNeutralsAt30s == nil then
@@ -505,7 +511,7 @@ function CAddonTemplateGameMode:OnThink()
 			print("Spawn next rosh")
 			local roshan = CreateUnitByName("npc_dota_roshan", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
 			roshan:SetIdleAcquire(false)
-			roshan:AddNewModifier(nil, nil, "modifier_roshan_ai", {aggroRange = 150, leashRange = 1800})
+			roshan:AddNewModifier(nil, nil, "modifier_roshan_ai", {aggroRange = 150, leashRange = 1250})
 			self.nextRoshanTime = nil
 		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then

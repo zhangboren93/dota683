@@ -39,6 +39,38 @@ function modifier_roshan_ai:OnIntervalThink()
 	self.stateActions[self.state](self)	
 end
 
+function modifier_roshan_ai:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_roshan_ai:DeclareFunctions()
+    local funcs = {
+        MODIFIER_EVENT_ON_TAKEDAMAGE
+    }
+    return funcs
+end
+
+function modifier_roshan_ai:IsHidden()
+    return true
+end
+
+function modifier_roshan_ai:OnTakeDamage(event)
+    local entity = self:GetParent()
+    if entity == event.unit and self.state ~= AI_STATE_RETURNING  then
+		if self.state == AI_STATE_AGGRESSIVE and (entity:GetAbsOrigin() - self.aggroTarget:GetAbsOrigin()):Length() <= self.params.aggroRange then
+			return
+		end
+
+		if self.spawnPos == nil then
+			self.spawnPos = self.unit:GetAbsOrigin() -- Remember position to return to
+		end
+
+		self.aggroTarget = event.attacker -- Remember who to attack
+		self.unit:MoveToTargetToAttack(self.aggroTarget) --Start attacking
+		self.state = AI_STATE_AGGRESSIVE --State transition
+    end
+end
+
 function modifier_roshan_ai:IdleThink()
 	-- Find any enemy units around the AI unit inside the aggroRange
 	local units = FindUnitsInRadius(self.unit:GetTeam(), self.unit:GetAbsOrigin(), nil,
@@ -47,7 +79,9 @@ function modifier_roshan_ai:IdleThink()
 
 	-- If one or more units were found, start attacking the first one
 	if #units > 0 then
-		self.spawnPos = self.unit:GetAbsOrigin() -- Remember position to return to
+		if self.spawnPos == nil then
+			self.spawnPos = self.unit:GetAbsOrigin() -- Remember position to return to
+		end
 		self.aggroTarget = units[1] -- Remember who to attack
 		self.unit:MoveToTargetToAttack(self.aggroTarget) --Start attacking
 		self.state = AI_STATE_AGGRESSIVE --State transition
@@ -64,25 +98,32 @@ function modifier_roshan_ai:AggressiveThink()
 		return -- Stop processing this state
 	end
 	
-	local distance = (self.aggroTarget:GetAbsOrigin() - self.unit:GetAbsOrigin()):Length()
-	if distance <= self.aggroRange then
-		self.unit:MoveToTargetToAttack(self.aggroTarget)
-		return
+	local slam = self.unit:FindAbilityByName("roshan_slam")
+	if slam:IsCooldownReady() and #FindUnitsInRadius(self.unit:GetTeam(), self.unit:GetAbsOrigin(), nil,
+			350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
+			FIND_ANY_ORDER, false) > 2 then
+		slam:CastAbility()
 	end
+	if self.aggroTarget:IsAlive() then
+		local distance = (self.aggroTarget:GetAbsOrigin() - self.unit:GetAbsOrigin()):Length()
+		if distance <= self.aggroRange then
+			self.unit:MoveToTargetToAttack(self.aggroTarget)
+			return
+		end
+	end
+
 	local units = FindUnitsInRadius(self.unit:GetTeam(), self.unit:GetAbsOrigin(), nil,
 		self.aggroRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
 		FIND_ANY_ORDER, false)
-	if #units == 0 and self.aggrothen
-
-	-- Check if the target has died
-	if not self.aggroTarget:IsAlive() then
+	if #units == 0 and self.aggroTarget:IsAlive() then
+		self.unit:MoveToTargetToAttack(self.aggroTarget)
+	elseif not self.aggroTarget:IsAlive() and #units == 0 then
 		self.unit:MoveToPosition(self.spawnPos) --Move back to the spawnpoint
 		self.state = AI_STATE_RETURNING --Transition the state to the 'Returning' state(!)
-		return -- Stop processing this state
+	else
+		self.aggroTarget = units[1]
+		self.unit:MoveToTargetToAttack(self.aggroTarget)
 	end
-	
-	-- Still in the aggressive state, so do some aggressive stuff.
-	self.unit:MoveToTargetToAttack(self.aggroTarget)
 end
 
 function modifier_roshan_ai:ReturningThink()
