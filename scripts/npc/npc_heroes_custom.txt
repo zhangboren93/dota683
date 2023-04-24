@@ -817,6 +817,7 @@
 		"Ability2"			"morphling_adaptive_strike_str"
 		"Ability3"			"morphling_morph_replicate_datadriven"
 		"Ability6"			"morphling_replicate_datadriven"
+		"Ability9"			"morphling_morph_attribute_datadriven"
 		"Ability15"			"special_bonus_all_stats_4"
 		"Ability16"			"special_bonus_all_stats_5" 
 		"Ability17"			"special_bonus_all_stats_6" 

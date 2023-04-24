@@ -30796,6 +30796,46 @@
 			}
 		}
 	}
+	"morphling_morph_attribute_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"5"
+		"Modifiers"
+		{
+			"modifier_morphling_morph_attribute_thinker"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"ThinkInterval"		"2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/units/passive_match.lua"
+						"Function"		"handleIntervalThink"
+						"TargetAbility"	"morphling_morph_str"
+					}
+				}
+			}
+			"modifier_morphling_morph_attribute_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%attr"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%attr"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"attr"	"0 3 4 5 6"
+		}
+	
+	}
 	//=================================================================================================================
 	// Omniknight: Purification
 	//=================================================================================================================

@@ -188,6 +188,8 @@
 		"DOTA_Tooltip_Ability_morphling_morph_replicate_datadriven"					"传送"
 		"DOTA_Tooltip_Ability_morphling_morph_replicate_datadriven_Description"		"传送到幻象处"
 		"DOTA_Tooltip_Ability_morphling_adaptive_strike_str_Lore"					"基础伤害20/40/60/80，敏捷系数0.25~0.5/1/1.5/2"
+		"DOTA_Tooltip_Ability_morphling_morph_str_Lore"								"+3/4/5/6力量和敏捷"
+		"DOTA_Tooltip_Ability_morphling_morph_agi_Lore"								"+3/4/5/6力量和敏捷"
 		"DOTA_Tooltip_Ability_item_satanic_datadriven"					"撒旦"
 		"DOTA_Tooltip_Ability_item_satanic_datadriven_Description"		"吸血+175%%，持续3.5秒\n+20攻击力\n+5护甲\n+25力量\n+25%%吸血"
 		"DOTA_Tooltip_Ability_item_desolator_datadriven"				"暗灭"
