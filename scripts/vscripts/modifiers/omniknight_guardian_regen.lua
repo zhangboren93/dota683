@@ -2,6 +2,10 @@ if modifier_omniknight_guardian_angel_regen == nil then
     modifier_omniknight_guardian_angel_regen = class({})
 end
 
+function modifier_omniknight_guardian_angel_regen:OnCreated()
+    self:StartIntervalThink(0.5)
+end
+
 function modifier_omniknight_guardian_angel_regen:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -26,4 +30,10 @@ end
 
 function modifier_omniknight_guardian_angel_regen:IsDebuff()
     return false
+end
+
+function modifier_omniknight_guardian_angel_regen:OnIntervalThink()
+    if not self:GetParent():HasModifier("modifier_omninight_guardian_angel") then
+        self:Destroy()
+    end
 end

@@ -891,16 +891,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end, "remove spirit bear original attack bonus", 1)
 	end
 
-	if not entity:IsBuilding() and not entity:IsCreep() then
-		entity:SetThink(function()
-			if entity:HasModifier("modifier_omninight_guardian_angel") then
-				entity:AddNewModifier(entity, nil, "modifier_omniknight_guardian_angel_regen", {})
-			else
-				entity:RemoveModifierByName("modifier_omniknight_guardian_angel_regen")
-			end
-			return 1
-		end, "Omni guardian health regen", 1)
-	end
 	if entity:GetModelName() == "models/creeps/pine_cone/pine_cone.vmdl" then
 		entity:ForceKill(false)
 		entity:SetThink(function()
@@ -1212,8 +1202,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_omninight_guardian_angel" then
 		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
-		parent:AddNewModifier(entity, nil, "modifier_omniknight_guardian_angel_regen", {}):SetDuration(
-			ability:GetSpecialValueFor("duration"))
+		--print(ability:GetName())
+		parent:AddNewModifier(ability:GetCaster(), ability, "modifier_omniknight_guardian_angel_regen", {})
 	end
 	return true
 end

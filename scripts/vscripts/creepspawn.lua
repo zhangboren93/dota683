@@ -99,7 +99,7 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 		local spawnVecter = spawner:GetAbsOrigin()
 		local creepLevel = math.floor(GameRules:GetDOTATime(false, false) / 450)
 		for j=1,numMeleeCreep do
-	    	local spawnedUnit = CreateUnitByName(melee[i], spawnVecter, true, nil, nil, team)
+	    	CreateUnitByNameAsync(melee[i], spawnVecter, true, nil, nil, team, function(spawnedUnit)
 	    	spawnedUnit:SetIdleAcquire(false)
 	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { 
 	    		alertRadius = CREEP_ALERT_RADIUS, 
@@ -120,6 +120,7 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 				spawnedUnit:SetMaximumGoldBounty(spawnedUnit:GetMaximumGoldBounty() + creepLevel * 2)
 				spawnedUnit:SetMinimumGoldBounty(spawnedUnit:GetMinimumGoldBounty() + creepLevel * 2)
 			end
+			end)
 		end
 		if team == DOTA_TEAM_GOODGUYS then
 		    spawnVecter[1] = spawnVecter[1] - 300
@@ -129,7 +130,7 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 		    spawnVecter[2] = spawnVecter[2] + 300
 		end
 		for j=1,numRangedCreep do
-	    	local spawnedUnit = CreateUnitByName(ranged[i], spawnVecter, true, nil, nil, team)
+	    	CreateUnitByNameAsync(ranged[i], spawnVecter, true, nil, nil, team, function(spawnedUnit)
 	    	spawnedUnit:SetIdleAcquire(false)
 	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", {
 	    		alertRadius = CREEP_ALERT_RADIUS_RANGED, 
@@ -150,15 +151,17 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 				spawnedUnit:SetMaximumGoldBounty(spawnedUnit:GetMaximumGoldBounty() + creepLevel * 2)
 				spawnedUnit:SetMinimumGoldBounty(spawnedUnit:GetMinimumGoldBounty() + creepLevel * 2)
 			end
+			end)
 		end
 		if shouldSpawnSeige then
-	    	local spawnedUnit = CreateUnitByName(seige[i], spawnVecter, true, nil, nil, team)
+	    	CreateUnitByNameAsync(seige[i], spawnVecter, true, nil, nil, team, function(spawnedUnit)
 	    	spawnedUnit:SetIdleAcquire(false)
 	    	spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", {
 	    		alertRadius = CREEP_ALERT_RADIUS_SEIGE, 
 	    		pathName = pathNames[i], 
 	    		seige = true,
 	    		attackrange = CREEP_ATTACK_RANGE_SEIGE })
+			end)
 		end
 	end
 end
