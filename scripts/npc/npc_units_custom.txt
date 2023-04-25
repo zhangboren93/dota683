@@ -8,6 +8,7 @@
 	}	
 	"npc_dota_neutral_kobold"
 	{
+		"Ability1"					"generic_hidden"			// Ability 1
 		"BountyXP"					"25"		// Experience earn.
 		"BountyGoldMin"				"7"			// Gold earned min.
 		"BountyGoldMax"				"9"			// Gold earned max.
@@ -18,7 +19,7 @@
 	}
 	"npc_dota_neutral_kobold_tunneler"
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"generic_hidden"			// Ability 1
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"14"		// Damage range min.
 		"AttackDamageMax"			"15"		// Damage range max.	
@@ -39,7 +40,7 @@
 	}
 	"npc_dota_neutral_centaur_outrunner"
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"generic_hidden"			// Ability 1
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"18"		// Damage range min.
 		"AttackDamageMax"			"21"		// Damage range max.	
@@ -61,7 +62,7 @@
 	}
 	"npc_dota_neutral_fel_beast"
 	{
-		"Ability1"					"0"			// Ability 1
+		"Ability1"					"generic_hidden"			// Ability 1
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"20"		// Gold earned min.
 		"BountyGoldMax"				"23"		// Gold earned max.
@@ -69,7 +70,7 @@
 	"npc_dota_neutral_polar_furbolg_champion"
 	{
 		"Ability1"					"generic_hidden"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"generic_hidden"			// Ability 2
 		"ArmorPhysical"				"3"			// Physical protection.
 		"AttackDamageMin"			"39"		// Damage range min.
 		"AttackDamageMax"			"44"		// Damage range max.	
@@ -80,7 +81,7 @@
 	}
 	"npc_dota_neutral_polar_furbolg_ursa_warrior"
 	{
-		"Ability2"					"generic_hidden"			// Ability 2
+		"Ability2"					"centaur_khan_endurance_aura"			// Ability 2
 		"ArmorPhysical"				"4"			// Physical protection.
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"55"		// Damage range max.	
@@ -91,7 +92,8 @@
 	}
 	"npc_dota_neutral_mud_golem"
 	{
-		"Ability2"					""			// Ability 2
+		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability2"					"generic_hidden"			// Ability 2
 		"MagicalResistance"			"100"		// Magical protection.  
 		"ArmorPhysical"				"2"			// Physical protection.
 		"BountyXP"					"88"		// Experience earn.
@@ -103,7 +105,7 @@
 	}
 	"npc_dota_neutral_ogre_mauler"
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"generic_hidden"			// Ability 1
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
@@ -124,7 +126,7 @@
 	}
 	"npc_dota_neutral_giant_wolf"
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"generic_hidden"			// Ability 1
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"21"		// Damage range min.
 		"AttackDamageMax"			"24"		// Damage range max.	
@@ -145,7 +147,7 @@
 	}
 	"npc_dota_neutral_wildkin"
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"generic_hidden"			// Ability 1
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"20"		// Damage range min.
 		"AttackDamageMax"			"25"		// Damage range max.	
@@ -167,6 +169,8 @@
 	}
 	"npc_dota_neutral_satyr_soulstealer"
 	{
+		"Ability1"					"satyr_soulstealer_mana_burn"			// Ability 1
+		"Ability2"					"generic_hidden"			// Ability 2
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
@@ -208,7 +212,7 @@
 	}
 	"npc_dota_neutral_dark_troll"	
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"generic_hidden"			// Ability 1
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
@@ -230,7 +234,7 @@
 	}
 	"npc_dota_neutral_harpy_scout"	
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"generic_hidden"			// Ability 1
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"31"		// Gold earned min.
 		"BountyGoldMax"				"33"		// Gold earned max.
@@ -243,7 +247,7 @@
 	}
 	"dark_troll_warlord_skeleton_warrior"
 	{
-		"Ability1"					""			// Ability 1.
+		"Ability1"					"generic_hidden"			// Ability 1.
 		"BountyXP"					"12"		// Experience earn.
 		"BountyGoldMin"				"6"			// Gold earned min.
 		"BountyGoldMax"				"12"		// Gold earned max.
@@ -260,7 +264,7 @@
 	}
 	"npc_dota_neutral_forest_troll_berserker"	
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"generic_hidden"			// Ability 1
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"28"		// Damage range min.
 		"AttackDamageMax"			"37"		// Damage range max.	
@@ -271,7 +275,7 @@
 	}
 	"npc_dota_neutral_forest_troll_high_priest"	
 	{
-		"Ability2"					""			// Ability 2
+		"Ability2"					"forest_troll_high_priest_mana_aura"			// Ability 2
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"25"		// Damage range min.
 		"AttackDamageMax"			"32"		// Damage range max.	
@@ -293,6 +297,7 @@
 	}
 	"npc_dota_neutral_small_thunder_lizard"
 	{
+		"Ability1"					"generic_hidden"
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"41"		// Damage range min.
 		"AttackDamageMax"			"48"		// Damage range max.	
@@ -302,6 +307,7 @@
 	}
 	"npc_dota_neutral_black_dragon"	
 	{
+		"Ability3"					"generic_hidden"			// Ability 3
 		"ArmorPhysical"				"6"			// Physical protection.
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"70"		// Damage range min.
@@ -309,11 +315,10 @@
 		"BountyXP"					"155"		// Experience earn.
 		"BountyGoldMin"				"191"		// Gold earned min.
 		"BountyGoldMax"				"199"		// Gold earned max.
-		"Ability3"					"generic_hidden"			// Ability 3
 	}
 	"npc_dota_neutral_black_drake"	
 	{
-		"Ability1"					""			// Ability 1
+		"Ability1"					"generic_hidden"			// Ability 1
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"56"		// Damage range max.
 		"BountyXP"					"62"		// Experience earn.
@@ -322,6 +327,7 @@
 	}
 	"npc_dota_neutral_rock_golem"
 	{
+		"Ability1"					"generic_hidden"			// Ability 1
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"29"		// Damage range min.
 		"AttackDamageMax"			"33"		// Damage range max.	
@@ -332,7 +338,7 @@
 	}
 	"npc_dota_neutral_granite_golem"
 	{
-		"Ability3"					"generic_hidden"			// Ability 3
+		"Ability1"					"generic_hidden"			// Ability 3
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"77"		// Damage range min.
 		"AttackDamageMax"			"87"		// Damage range max.	
@@ -410,6 +416,7 @@
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}		
+	//TODO fix toughness aura
 	"npc_dota_neutral_frostbitten_golem"
 	{										
 		// General
