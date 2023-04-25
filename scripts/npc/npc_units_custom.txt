@@ -1446,38 +1446,80 @@
 	"npc_dota_brewmaster_earth_1"
 	{
 		"Ability4"					"brewmaster_thunder_clap"
+		"ArmorPhysical"				"5"			// Physical protection.
+		"AttackDamageMin"			"37"		// Damage range min.
+		"AttackDamageMax"			"43"		// Damage range max.	
+		"StatusHealth"				"1500"		// Base health.
+		"StatusMana"				"400"		// Base mana.
 	}
 	"npc_dota_brewmaster_earth_2"
 	{
 		"Ability4"					"brewmaster_thunder_clap"
+		"ArmorPhysical"				"5"			// Physical protection.
+		"AttackDamageMin"			"75"		// Damage range min.
+		"AttackDamageMax"			"84"		// Damage range max.	
+		"StatusHealth"				"2200"		// Base health.
+		"StatusMana"				"500"		// Base mana.
 	}
 	"npc_dota_brewmaster_earth_3"
 	{
 		"Ability4"					"brewmaster_thunder_clap"
+		"ArmorPhysical"				"5"			// Physical protection.
+		"AttackDamageMin"			"159"		// Damage range min.
+		"AttackDamageMax"			"171"		// Damage range max.	
+		"StatusHealth"				"3000"		// Base health.
+		"StatusMana"				"600"		// Base mana.
 	}
 	"npc_dota_brewmaster_storm_1"
 	{										
 		"Ability4"					"brewmaster_drunken_haze"
+		"ArmorPhysical"				"2"			// Physical protection.
+		"AttackDamageMin"			"37"		// Damage range min.
+		"AttackDamageMax"			"43"		// Damage range max.	
+		"StatusHealth"				"1000"		// Base health.
+		"StatusMana"				"500"		// Base mana.
 	}
 	"npc_dota_brewmaster_storm_2"
 	{										
 		"Ability4"					"brewmaster_drunken_haze"
+		"ArmorPhysical"				"2"			// Physical protection.
+		"AttackDamageMin"			"75"		// Damage range min.
+		"AttackDamageMax"			"84"		// Damage range max.	
+		"StatusHealth"				"1500"		// Base health.
+		"StatusMana"				"750"		// Base mana.
 	}
 	"npc_dota_brewmaster_storm_3"
 	{										
 		"Ability4"					"brewmaster_drunken_haze"
+		"ArmorPhysical"				"2"			// Physical protection.
+		"AttackDamageMin"			"159"		// Damage range min.
+		"AttackDamageMax"			"171"		// Damage range max.	
+		"StatusHealth"				"1900"		// Base health.
+		"StatusMana"				"750"		// Base mana.
 	}
 	"npc_dota_brewmaster_fire_1"
 	{
 		"Ability4"					"brewmaster_drunken_brawler_datadriven"
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"72"		// Damage range min.
+		"AttackDamageMax"			"82"		// Damage range max.	
+		"StatusHealth"				"1200"		// Base health.
 	}
 	"npc_dota_brewmaster_fire_2"
 	{
 		"Ability4"					"brewmaster_drunken_brawler_datadriven"
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"115"		// Damage range min.
+		"AttackDamageMax"			"130"		// Damage range max.	
+		"StatusHealth"				"1200"		// Base health.
 	}
 	"npc_dota_brewmaster_fire_3"
 	{
 		"Ability4"					"brewmaster_drunken_brawler_datadriven"
+		"ArmorPhysical"				"0"			// Physical protection.
+		"AttackDamageMin"			"144"		// Damage range min.
+		"AttackDamageMax"			"164"		// Damage range max.	
+		"StatusHealth"				"1200"		// Base health.
 	}
 	"npc_dota_broodmother_spiderling"
 	{
