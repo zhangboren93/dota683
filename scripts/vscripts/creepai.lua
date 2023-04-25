@@ -67,7 +67,7 @@ function modifier_creep_ai:OnCreated(kv)
     if IsServer() then
         self.kv = kv
         self.state = AI_STATE_PATHING
-        self:StartIntervalThink(0.3) 
+        self:StartIntervalThink(0.5) 
     end
 end
 

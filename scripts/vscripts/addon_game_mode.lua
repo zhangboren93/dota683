@@ -640,9 +640,7 @@ end
 function HandleNpcSpawned(self, entityIndex, is_respawn)
 	local entity = EntIndexToHScript(entityIndex)
 	if entity:IsRealHero() and is_respawn == 0 then
-		entity:SetThink(function()
-			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
-		end, "remove tpscroll", 0.5)
+		-- modifiers
 		entity:AddNewModifier(entity, nil, "item_sheep_stick_regen_percentage_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_orchid_regen_percentage_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_cyclone_regen_percentage_modifier", {})
@@ -669,6 +667,11 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		else
 			entity:AddNewModifier(entity, nil, "modifier_drop_backpack_items", {})
 		end
+
+		-- thinkers
+		entity:SetThink(function()
+			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
+		end, "remove tpscroll", 0.5)
 		entity:SetThink(function()
 				 local item = entity:FindItemInInventory("item_maelstrom")
 				 if item ~= nil and item:GetItemState() == 1 then
@@ -681,9 +684,27 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			return 1
 		end, "generic item bonus checker", 1)
 
-		-- creep aggro
-		local aggro_ability = entity:AddAbility("hero_creep_aggro_datadriven")
-		aggro_ability:SetLevel(1)
+		entity:SetThink(function()
+			if entity:HasModifier("modifier_bounty_hunter_track") then
+				local units = FindUnitsInRadius(
+					entity:GetTeam(), 
+					entity:GetAbsOrigin(), nil, 
+					900, 
+					DOTA_UNIT_TARGET_TEAM_ENEMY, 
+					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+					0, 
+					FIND_ANY_ORDER, 
+					false)
+				for i=1,#units do
+					units[i]:AddNewModifier(units[i], nil, "modifier_bounty_hunter_track_effect_lua", {}):SetDuration(1, true)
+				end
+			end
+			return 1
+		end, "Bounty Track aura", 1)
+
+		-- abilities
+		entity:AddAbility("hero_creep_aggro_datadriven"):SetLevel(1)
+		entity:AddAbility("move_speed_cancel_night_datadriven"):SetLevel(1)
 
 		local player = entity:GetPlayerOwner()
 		if player ~= nil then
@@ -814,9 +835,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
 	end
 
-	if entity:IsHero() and not entity:HasAbility("move_speed_cancel_night_datadriven") then
-		entity:AddAbility("move_speed_cancel_night_datadriven"):SetLevel(1)
-	end
 
 	if entity:IsRealHero() and is_respawn == 1 and entity.loseIntOnRespawn then
 		print("Losing int at respawn")
@@ -828,6 +846,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		modifier:IncrementStackCount()
 		entity.loseIntOnRespawn = false
 	end
+
 	if entity:GetName() == "npc_dota_roshan" then
 		if self.roshanCount == nil then
 			self.roshanCount = 1
@@ -864,12 +883,14 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end
 		end, "remove flag bearer bonus", 1)
 	end
+
 	if entity:GetName() == "npc_dota_lone_druid_bear" then
 		entity:SetThink(function()
 			entity:RemoveModifierByName("modifier_spirit_bear_attack_damage")
 			entity:RemoveModifierByName("modifier_lone_druid_spirit_bear_attack_check")
 		end, "remove spirit bear original attack bonus", 1)
 	end
+
 	if not entity:IsBuilding() and not entity:IsCreep() then
 		entity:SetThink(function()
 			if entity:HasModifier("modifier_omninight_guardian_angel") then
@@ -879,23 +900,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end
 			return 1
 		end, "Omni guardian health regen", 1)
-		entity:SetThink(function()
-			if entity:HasModifier("modifier_bounty_hunter_track") then
-				local units = FindUnitsInRadius(
-					entity:GetTeam(), 
-					entity:GetAbsOrigin(), nil, 
-					900, 
-					DOTA_UNIT_TARGET_TEAM_ENEMY, 
-					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-					0, 
-					FIND_ANY_ORDER, 
-					false)
-				for i=1,#units do
-					units[i]:AddNewModifier(units[i], nil, "modifier_bounty_hunter_track_effect_lua", {}):SetDuration(1, true)
-				end
-			end
-			return 1
-		end, "Bounty Track aura", 1)
 	end
 	if entity:GetModelName() == "models/creeps/pine_cone/pine_cone.vmdl" then
 		entity:ForceKill(false)
@@ -1205,6 +1209,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			print("illusion add")
 			parent:AddAbility("illusion_bounty_cancel_datadriven"):SetLevel(1)
 		end
+	elseif event.name_const == "modifier_omninight_guardian_angel" then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(entity, nil, "modifier_omniknight_guardian_angel_regen", {}):SetDuration(
+			ability:GetSpecialValueFor("duration"))
 	end
 	return true
 end
