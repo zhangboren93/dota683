@@ -9013,7 +9013,6 @@
 	// Rewrite of the Obsidian Destroyer Sanity Eclipse
 	// Author: chrislotix
 	// Date: 08.01.2015.
-	// TODO Apply to units in imprison
 	"obsidian_destroyer_sanity_eclipse_datadriven"
 	{
 		// General
@@ -9108,6 +9107,7 @@
 					"Radius"	"%radius"
 					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 					"Type"		"DOTA_UNIT_TARGET_HERO"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD"
 				}
 	
 				"Action"
@@ -24636,6 +24636,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"obsidian_destroyer_arcane_orb"
 		"AbilityCastRange"				"450"
@@ -29070,6 +29071,7 @@
 	// Rewrite of the Bounty Hunter Jinda
 	// Author: chrislotix
 	// Date: 01.01.2015.
+	//TODO disable on illusions
 	"bounty_hunter_jinada_datadriven"
 	{
 		// General
