@@ -22531,7 +22531,6 @@
 	//=================================================================================================================
 	// Broodmother: Insatiable Hunger
 	//=================================================================================================================
-	//TODO flat damage
 	"broodmother_insatiable_hunger"
 	{
 		// General
@@ -22560,7 +22559,7 @@
 		{
 			"bonus_damage"			
 			{
-				"value"					"60 80 100"
+				"value"					"0"
 			}
 			"lifesteal_pct"			
 			{
@@ -22586,6 +22585,44 @@
 					"value"				"1"
 					"RequiresShard"		"1"
 			}
+		}
+	}
+	"broodmother_insatiable_hunger_damage_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_insatiable_hunger_damage_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/units/ability_execute_buff.lua"
+						"Function"		"handleAbilityExecuted"
+						"Modifier"		"modifier_insatiable_hunger_damage_datadriven"
+						"TargetAbility"	"broodmother_insatiable_hunger"
+					}
+				}
+			}
+			"modifier_insatiable_hunger_damage_datadriven"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"Duration"	"14"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"bonus_damage"	"60 80 100"
 		}
 	}
 	//=================================================================================================================
@@ -24825,10 +24862,11 @@
 			}
 			"modifier_od_imprison_int_steal"
 			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"Duration"	"50"
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"1"
+				"Duration"		"50"
+				"IsPurgable"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
@@ -29360,7 +29398,6 @@
 	//=================================================================================================================
 	// Bounty Hunter: Shuriken Toss
 	//=================================================================================================================
-	//TODO transfer to tracked targets
 	"bounty_hunter_shuriken_toss"
 	{
 		// General
@@ -30727,7 +30764,6 @@
 	//=================================================================================================================
 	// Morphling: Morph (Agility Gain)
 	//=================================================================================================================
-	//TODO bonus attributes
 	"morphling_morph_agi"
 	{
 		// General
@@ -30766,7 +30802,6 @@
 	//=================================================================================================================
 	// Morphling: Morph (Strength Gain)
 	//=================================================================================================================
-	//TODO bonus attributes
 	"morphling_morph_str"
 	{
 		// General
