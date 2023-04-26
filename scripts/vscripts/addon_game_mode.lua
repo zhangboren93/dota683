@@ -164,7 +164,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		HandlePlayerChat(self, event.teamonly, event.text, event.playerid)
 	end, nil)
 	ListenToGameEvent('entity_hurt', function(event)
-		HandleEntityHurt(event.entindex_killed, event.entindex_attacker)
+		HandleEntityHurt(event.entindex_killed, event.entindex_attacker, event.damage)
 	end, nil)
 	ListenToGameEvent("dota_hero_swap", function(event)
 		print("dota_hero_swap")
@@ -1090,13 +1090,15 @@ function HandleRuneActivated(playerid, rune)
 	end
 end
 
-function HandleEntityHurt(entindex_killed, entindex_attacker)
+function HandleEntityHurt(entindex_killed, entindex_attacker, damage)
 	local target = EntIndexToHScript(entindex_killed)
 	local attacker = EntIndexToHScript(entindex_attacker)
-	if attacker:GetPlayerOwner() == nil then
-		return
+	if target:GetPlayerOwner() ~= nil and attacker:HasAbility("move_speed_cancel_night_datadriven") and damage > 0 then 
+		local ability = attacker:FindAbilityByName("move_speed_cancel_night_datadriven")
+		attacker:RemoveModifierByName("modifier_move_speed_cancel_active_datadriven")
+		ability:StartCooldown(ability:GetCooldown(1))
 	end
-	if target:IsRealHero() then
+	if attacker:GetPlayerOwner() ~= nil and target:IsRealHero() then
 		if target.time_attacked == nil then
 			target.time_attacked = {}
 		end
