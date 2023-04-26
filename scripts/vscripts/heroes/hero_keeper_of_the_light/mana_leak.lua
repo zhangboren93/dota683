@@ -59,7 +59,7 @@ function ManaLeak( keys )
 	-- Checks if the distance is greater than the leash, if not then it reduces mana and
 	-- checks if the target still has mana, if not then it stuns the target and plays the corresponding sound
 	if distance < leash_range_check and distance ~= 0 then
-		target:ReduceMana(mana_reduction)
+		target:Script_ReduceMana(mana_reduction, ability)
 		if target_current_mana <= mana_reduction then
 			target:RemoveModifierByName(modifier)
 			target:AddNewModifier(caster, nil, "modifier_stunned", {duration = stun_duration})

@@ -1,25 +1,26 @@
 function manaBurn(event)
-    local target = event.target
-    local feedback_mana_burn = event.feedback_mana_burn
-    if event.attacker:IsIllusion() and event.attacker:IsRangedAttacker() then
-        return
-    end
-    local mana_burn_avail = target:GetMana()
-    if mana_burn_avail > feedback_mana_burn then
-        mana_burn_avail = feedback_mana_burn
-    end 
-    target:ReduceMana(feedback_mana_burn)
-    ApplyDamage({
-        victim = target,
-        attacker = event.attacker,
-        damage = feedback_mana_burn,
-        damage_type = DAMAGE_TYPE_PHYSICAL,
-        ability = event.ability
-    })
+	local target = event.target
+	local ability = event.ability
+	local feedback_mana_burn = event.feedback_mana_burn
+	if event.attacker:IsIllusion() and event.attacker:IsRangedAttacker() then
+		return
+	end
+	local mana_burn_avail = target:GetMana()
+	if mana_burn_avail > feedback_mana_burn then
+		mana_burn_avail = feedback_mana_burn
+	end 
+	target:Script_ReduceMana(feedback_mana_burn, ability)
+	ApplyDamage({
+		victim = target,
+		attacker = event.attacker,
+		damage = feedback_mana_burn,
+		damage_type = DAMAGE_TYPE_PHYSICAL,
+		ability = event.ability
+	})
 end
 
 function purge(event)
-    local target = event.target
+	local target = event.target
 	-- Strong Dispel
 	local RemovePositiveBuffs = true
 	local RemoveDebuffs = false

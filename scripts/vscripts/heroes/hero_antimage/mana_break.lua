@@ -19,11 +19,10 @@ function ManaBreak( keys )
 		-- Checking the mana of the target and calculating the damage
 		if(target:GetMana() >= manaBurn) then
 			damageTable.damage = manaBurn * manaDamage
-			target:ReduceMana(manaBurn)
 		else
 			damageTable.damage = target:GetMana() * manaDamage
-			target:ReduceMana(manaBurn)
 		end
+		target:Script_ReduceMana(manaBurn, ability)
 
 		ApplyDamage(damageTable)
 	end

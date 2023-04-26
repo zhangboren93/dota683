@@ -68,7 +68,7 @@ function MysticSnake( keys )
 		-- Check if the target has mana
 		-- Remove the mana if it does, update the stolen mana and increase the mana steal for the next jump
 		if target:GetMaxMana() >= 1 then
-			target:ReduceMana(caster.mystic_snake_mana)
+			target:Script_ReduceMana(caster.mystic_snake_mana, ability)
 			caster.mystic_snake_stolen_mana = caster.mystic_snake_stolen_mana + caster.mystic_snake_mana
 			caster.mystic_snake_mana = caster.mystic_snake_mana * snake_scale
 		end

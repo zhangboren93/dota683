@@ -9,6 +9,6 @@ function ManaDrain( keys )
 	local ability = keys.ability
 	local mana_drain = ability:GetLevelSpecialValueFor("mana_damage", (ability:GetLevel() -1))
 
-	target:ReduceMana(mana_drain)
+	target:Script_ReduceMana(mana_drain, ability)
 	
 end
