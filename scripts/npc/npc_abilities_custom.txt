@@ -21499,7 +21499,6 @@
 	//=================================================================================================================
 	// Ability: Juggernaut Omni Slash
 	//=================================================================================================================
-	//TODO fix attack count
 	"juggernaut_omni_slash"
 	{
 		// General
@@ -21542,13 +21541,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"attack_rate_multiplier"	"1.5"
-			"bonus_damage"				"30 40 50"
-			"bonus_attack_speed"				"40"
+			"attack_rate_multiplier"	"1"
+			"bonus_damage"				"0"
+			"bonus_attack_speed"		"0"
 			"duration"
 			{
-				"value"					"3 3.25 3.5"
-				"special_bonus_scepter"	"+1.5"
+				"value"					"1.0 2.2 3.4"
+				"special_bonus_scepter"	"+1.2"
 			}
 			"omni_slash_radius"			"425"
 			"AbilityCooldown"
@@ -30345,6 +30344,7 @@
 			}
 		}
 	}
+	//bfury immune and omnislash const attack speed
 	"juggernaut_blade_fury_magic_immune_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
@@ -30365,15 +30365,20 @@
 						"Modifier"		"modifier_jugg_bfury_magic_immune_active"
 						"TargetAbility"	"juggernaut_blade_fury"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_juggernaut/omnislash_const_as.lua"
+						"Function"		"handleAbilityExecuted"
+					}
 				}
 			}
 			"modifier_jugg_bfury_magic_immune_active"
 			{
 				"Passive"		"0"
-				"IsHidden"		"0"
+				"IsHidden"		"1"
 				"IsDebuff"		"0"
 				"IsPurgable"	"0"
-				"duration"		"5"
+				"Duration"		"5"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-400"
@@ -30381,6 +30386,45 @@
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_juggernaut_omni_slash_as_active"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"IsPurgable"	"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"10"
+				}
+			}
+			"modifier_juggernaut_omni_slash_dmg_active"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"IsPurgable"	"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"10"
+				}
+			}
+			"modifier_juggernaut_omni_slash_as_checker"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"IsPurgable"	"0"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_juggernaut/omnislash_const_as.lua"
+						"Function"		"handleAttackStart"
+					}
 				}
 			}
 		}

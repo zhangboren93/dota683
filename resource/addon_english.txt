@@ -145,7 +145,7 @@
 		"DOTA_Tooltip_Ability_lina_fiery_soul_datadriven_Description"				"when cast spells +%fiery_soul_attack_speed_bonus% attack speed, +%fiery_soul_move_speed_bonus%%% move speed, max stack 3, lasts 9 seconds"
 		"DOTA_Tooltip_Ability_windrunner_focusfire_Scepter_Description"				"CD 15 seconds，+damage"
 		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Scepter_Description"		"+200 basic damage"
-		"DOTA_Tooltip_ability_juggernaut_omni_slash_scepter_description" 				"CD 70seconds，duration +1.5 seconds"
+		"DOTA_Tooltip_ability_juggernaut_omni_slash_scepter_description" 				"CD 70s，duration +1.2s"
 		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Scepter_Description"				"+200 damage"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven"								"Culling Blade"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Description"					"damage %damage%, kill threshold %kill_threshold%, team attack&move speed +40%%, lasts %speed_duration% seconds"

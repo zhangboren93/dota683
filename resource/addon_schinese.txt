@@ -145,7 +145,7 @@
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Scepter_Description"			"+300施放距离，无视魔法免疫"
 		"DOTA_Tooltip_Ability_windrunner_focusfire_Scepter_Description"		"CD15秒，加攻击"
 		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Scepter_Description"		"+200基础伤害"
-		"DOTA_Tooltip_ability_juggernaut_omni_slash_scepter_description" 				"CD70秒，持续时间+1.5秒"
+		"DOTA_Tooltip_ability_juggernaut_omni_slash_scepter_description" 				"CD70秒，持续时间+1.2秒"
 		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Scepter_Description"				"+200伤害"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven"								"淘汰"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Description"					"伤害%damage%，斩杀上限%kill_threshold%，团队加速40%%，持续%speed_duration%秒"
