@@ -1,6 +1,7 @@
 -- Generated from template
 
 require("creepspawn")
+require("hero_innate_abilities")
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
@@ -834,6 +835,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("morphling_morph_attribute_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_broodmother" then
 			entity:FindAbilityByName("broodmother_insatiable_hunger_damage_datadriven"):SetLevel(1)
+		end
+		local innate_ability = hero_innate_abilities[entity:GetName()]
+		if innate_ability ~= nil then
+			entity:FindAbilityByName(innate_ability):SetLevel(1)
 		end
 	end
 
