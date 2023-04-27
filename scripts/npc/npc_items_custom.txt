@@ -1390,10 +1390,11 @@
 		"ItemInitialCharges"			"2"		  
 		"AbilityValues"
 		{
-				"duration"				"12"
+				"duration"				"0.1"
 				"radius"				"1050"
 				"movespeed"				"-15"
 				"damage"				"0"
+				"linger_duration"				"12"
 		}
 	}
 	"item_bottle"
