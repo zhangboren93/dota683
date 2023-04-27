@@ -1239,7 +1239,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
 		--print("DamageFilter " .. inflictor:GetName())
-		if inflictor:GetName() == "kunkka_tidebringer_datadriven" or inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
+		if inflictor:GetName() == "kunkka_tidebringer" or inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			local victimarmor = victim:GetPhysicalArmorValue(false)
 			event.damage = event.damage / (1 - 0.06 * victimarmor / (1 + 0.06 * math.abs(victimarmor)))

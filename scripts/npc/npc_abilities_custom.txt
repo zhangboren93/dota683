@@ -32339,7 +32339,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5032"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.		
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		//"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityBehavior"				"DOTA_ABILITY_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -32363,7 +32364,7 @@
 			"damage_bonus"				"15 30 45 60"
 			"cleave_damage"				
 			{
-				"value"								"150"
+				"value"								"100"
 				"special_bonus_unique_kunkka_4"		"+70"
 			}
 			"movespeed_slow"
@@ -32383,6 +32384,42 @@
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	"kunkka_tidebringer_deny_damage_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_tidebringer_deny_damage_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_kunkka/tidebringer_deny.lua"
+						"Function"		"handleAttackStart"
+					}
+				}
+			}
+			"modifier_tidebringer_deny_damage_active"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"Duration"	"0.5"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"bonus_damage"	"15 30 45 60"
+		}
 	}
 	//=================================================================================================================
 	// Kunkka: X Marks the Spot
