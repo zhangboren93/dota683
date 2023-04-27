@@ -581,6 +581,20 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				return false
 			end
 		end
+	elseif event.order_type == DOTA_UNIT_ORDER_CAST_POSITION 
+		or event.order_type == DOTA_UNIT_ORDER_CAST_TARGET
+		or event.order_type == DOTA_UNIT_ORDER_CAST_NO_TARGET then
+		local ability = EntIndexToHScript(event.entindex_ability)
+		print(ability:GetBehavior())
+		print(DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL)
+		if bitand(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL) == 0 then
+			for i,v in pairs(event.units) do
+				local unit = EntIndexToHScript(v)
+				if unit:HasModifier("modifier_item_travel_boots_caster_effect") then
+					return false
+				end
+			end
+		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
 		or event.order_type == DOTA_UNIT_ORDER_GIVE_ITEM then
@@ -1232,4 +1246,18 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		end
 	end
 	return true
+end
+
+function bitand(a, b)
+    local result = 0
+    local bitval = 1
+    while a > 0 and b > 0 do
+      if a % 2 == 1 and b % 2 == 1 then -- test the rightmost bits
+          result = result + bitval      -- set the current bit
+      end
+      bitval = bitval * 2 -- shift left
+      a = math.floor(a/2) -- shift right
+      b = math.floor(b/2)
+    end
+    return result
 end
