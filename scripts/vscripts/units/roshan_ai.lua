@@ -57,7 +57,7 @@ end
 function modifier_roshan_ai:OnTakeDamage(event)
     local entity = self:GetParent()
     if entity == event.unit and self.state ~= AI_STATE_RETURNING  then
-		if self.state == AI_STATE_AGGRESSIVE and (entity:GetAbsOrigin() - self.aggroTarget:GetAbsOrigin()):Length() <= self.params.aggroRange then
+		if self.state == AI_STATE_AGGRESSIVE and (entity:GetAbsOrigin() - self.aggroTarget:GetAbsOrigin()):Length() <= self.aggroRange then
 			return
 		end
 

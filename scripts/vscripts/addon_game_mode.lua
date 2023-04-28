@@ -603,22 +603,22 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			return false
 		end
 	end
-	for i,v in pairs(event.units) do
-		local unit = EntIndexToHScript(v)
-		if unit:GetName() == "npc_dota_courier" then
-				if unit.isSharedWithTeam == nil
-				and unit:GetPlayerOwnerID() ~= event.issuer_player_id_const then
-				event.units[i] = nil
-				if event.order_type == DOTA_UNIT_ORDER_MOVE_ITEM then
-					local item = EntIndexToHScript(event.entindex_ability)
-					if item:GetItemSlot() >= DOTA_STASH_SLOT_1 then
-						GameRules:SendCustomMessage("信使未共享, 无法从储藏室中取出物品", -1, -1)
-						return false
-					end
-				end
-			end
-		end
-	end
+--	for i,v in pairs(event.units) do
+--		local unit = EntIndexToHScript(v)
+--		if unit:GetName() == "npc_dota_courier" then
+--				if unit.isSharedWithTeam == nil
+--				and unit:GetPlayerOwnerID() ~= event.issuer_player_id_const then
+--				event.units[i] = nil
+--				if event.order_type == DOTA_UNIT_ORDER_MOVE_ITEM then
+--					local item = EntIndexToHScript(event.entindex_ability)
+--					if item:GetItemSlot() >= DOTA_STASH_SLOT_1 then
+--						GameRules:SendCustomMessage("信使未共享, 无法从储藏室中取出物品", -1, -1)
+--						return false
+--					end
+--				end
+--			end
+--		end
+--	end
 	return true
 end
 
@@ -973,7 +973,8 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		end, "", {}, entity:GetRespawnTime())
 	end
 	if IsServer() and entity:IsRealHero() then
-		handleKillBonus(attacker, entity)
+		--TODO custom kill bonuses
+		--handleKillBonus(attacker, entity)
 	end
 end
 

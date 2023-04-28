@@ -33346,8 +33346,9 @@
 		"AbilityValues"
 		{
 			"interval"		"240"
-			"armor"			"0.5"
-			"health"		"125"
+			//TODO roshan add health not working
+			"armor"			"1"//"0.5"
+			//"health"		"125"
 			"damage"		"10"
 		//"max_time"		"45"
 		}

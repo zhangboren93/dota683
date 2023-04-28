@@ -509,7 +509,7 @@
 	{
 		"MovementSpeed"				"350"		// Speed
 		"Ability2"					"courier_go_to_secretshop_datadriven"		
-		"Ability6"					"courier_share"		
+		"Ability6"					"generic_hidden"		
 		"StatusHealth"				"75"		// Base health.
 	}
 	"npc_dota_goodguys_tower1_top"
@@ -3911,7 +3911,7 @@
 		"Ability2"					"roshan_teleport"			// Ability 2.
 		"Ability3"					"roshan_slam"			// Ability 3.
 		"Ability4"					"roshan_inherent_buffs_datadriven"	// Ability 4.
-		"Ability5"					"roshan_devotion"		// Ability 5.
+		"Ability5"					"generic_hidden"		// Ability 5.
 		"Ability6"					"roshan_bash"		// Ability 6 - Extra.
 		"Ability7"					""						// Ability 7 - Extra.
 		"Ability8"					""						// Ability 8 - Extra.

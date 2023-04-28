@@ -99,6 +99,10 @@
 	{
 		"ItemPurchasable"	"0"
 	}
+	"item_recipe_moon_shard"
+	{
+		"ItemPurchasable"	"0"
+	}
 
 	"item_crown"
 	{

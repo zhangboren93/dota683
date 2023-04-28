@@ -17,15 +17,10 @@ function handleIntervalThink(event)
 	if count > 12 then
 		count = 12
 	end
-	local maxHP = 7500 + count * ability:GetSpecialValueFor("health")
-	if caster:GetMaxHealth() < maxHP then
-		local heal = maxHP - caster:GetMaxHealth()
-		caster:SetMaxHealth(7500 + count * ability:GetSpecialValueFor("health"))
-		caster:SetThink(function()
-			caster:Heal(heal, caster)
-		end, "rosh max health increase", 0.2)
+	if caster:GetMaxHealth() < 6500 then
+		caster:SetMaxHealth(7500)
 	end
-	if time == 0 then
+	if time < 3 then
 		caster:SetHealth(7500)
 	end
     local existing = caster:FindAllModifiersByName("roshan_inherent_buffs_active_datadriven")
