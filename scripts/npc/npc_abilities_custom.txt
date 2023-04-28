@@ -29109,7 +29109,6 @@
 	// Rewrite of the Bounty Hunter Jinda
 	// Author: chrislotix
 	// Date: 01.01.2015.
-	//TODO disable on illusions
 	"bounty_hunter_jinada_datadriven"
 	{
 		// General
@@ -29160,11 +29159,26 @@
 	
 		"Modifiers"
 		{
-	
-			"modifier_jinada_datadriven"
+			"modifier_jinada_checker_datadriven"
 			{
 				"Passive"	"1"
-				"IsHidden"	"1"
+				"IsHiddden"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_bounty_hunter/jinada.lua"	
+						"Function"		"handleAttackStart"
+					}
+				}
+			}
+			"modifier_jinada_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"IsDebuff"		"0"
+				"Duration"		"0.7"
 	
 				"Properties"
 				{
@@ -29199,15 +29213,15 @@
 						"Function"		"Jinada"
 						
 					}
-	
-	
 				}
 	
 			}
 	
 			"modifier_jinada_slow_datadriven"
 			{
-				"IsDebuff"	"1"
+				"Passive"		"0"
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
 				"Duration"	"%duration"
 				"StatusEffectName"	"particles/units/heroes/hero_bounty_hunter/status_effect_bounty_hunter_jinda_slow.vpcf"
 				"StatusEffectPriority"	"3"
@@ -29437,7 +29451,7 @@
 				"special_bonus_unique_bounty_hunter_2"	"+50"
 			}
 			"speed"					"1000 1000 1000 1000"
-			"bounce_aoe"			"1200"
+			"bounce_aoe"			"900"
 			"slow_duration"			
 			{
 				"value"				"0"
