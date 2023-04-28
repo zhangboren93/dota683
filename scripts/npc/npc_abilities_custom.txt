@@ -33368,6 +33368,44 @@
 		}
 	}
 
+	"creep_alert_aura_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"// | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"AbilityCastRange"	"1800"
+		"Modifiers"
+		{
+			"modifier_creep_alert_aura_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"0"
+				"IsPurgable"	"0"
+	
+				"Aura"          	"modifier_creep_alert_datadriven"
+				"Aura_Radius"   	"1800"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+			}
+			"modifier_creep_alert_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsPurgable"	"0"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/creep_alert.lua"
+						"Function"		"handleTakeDamage"
+						"Damage"		"%attack_damage"
+						"Target"		"ATTACKER"
+					}
+				}
+			}
+		}
+	}
+
 	//=================================================================================================================
 	// Roshan: Inherent Buffs
 	//=================================================================================================================
@@ -33435,7 +33473,7 @@
 		"MaxLevel"			"1"
 		"Modifiers"
 		{
-			"modifier_grow_move_speed_checker"
+			"modifier_illusion_bounty_cancel_datadriven"
 			{
 				"Passive"		"1"
 				"IsHidden"		"1"
