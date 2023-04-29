@@ -7,7 +7,7 @@ function ManaLeakInit( keys )
 	local target_mana = target:GetMana()
 	local ability = keys.ability
 
-	print(target_mana)
+	--print(target_mana)
 	-- Extra variables
 	local sound = keys.sound
 	local modifier = keys.modifier

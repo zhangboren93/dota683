@@ -2,6 +2,8 @@
 
 require("creepspawn")
 require("hero_innate_abilities")
+require("kill_bonus")
+
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
@@ -585,8 +587,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		or event.order_type == DOTA_UNIT_ORDER_CAST_TARGET
 		or event.order_type == DOTA_UNIT_ORDER_CAST_NO_TARGET then
 		local ability = EntIndexToHScript(event.entindex_ability)
-		print(ability:GetBehavior())
-		print(DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL)
 		if bitand(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL) == 0 then
 			for i,v in pairs(event.units) do
 				local unit = EntIndexToHScript(v)
@@ -973,122 +973,8 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		end, "", {}, entity:GetRespawnTime())
 	end
 	if IsServer() and entity:IsRealHero() then
-		--TODO custom kill bonuses
-		--handleKillBonus(attacker, entity)
+		handleKillBonus(self, attacker, entity)
 	end
-end
-
-function handleKillBonus(attacker, entity)
-	if attacker:GetTeam() == entity:GetTeam() then
-		print("Denied, no gold/XP bonus")
-		return
-	end
-	if attacker:IsCreep() and attacker:GetTeam() == DOTA_TEAM_NEUTRALS then
-		print("killed by neutral, no gold/XP bonus")
-		return
-	end
-	if not attacker:IsRealHero() and attacker:GetOwner() ~= nil then
-		print("Setting attacker to the owner of the summoned units")
-		print(attacker:GetName())
-		print(attacker:GetOwner():GetName())
-		attacker = attacker:GetOwner()
-	end
-	-- give assist gold
-	local assist_players = {}
-	if entity.time_attacked ~= nil then
-		local current_time = GameRules:GetDOTATime(true, false)
-		for i,v in pairs(entity.time_attacked) do
-			if current_time - v < 20 then
-				assist_players[i] = true
-			end
-		end
-	end
-	local assist_gold = 4 * entity:GetLevel() + 0.2 * GetAssistGoldComebackFactor(entity:GetTeam()) * (
-		PlayerResource:GetGoldSpentOnItems(entity:GetPlayerID()) + PlayerResource:GetGold(entity:GetPlayerID()))
-	print("Assist gold " .. assist_gold)
-	DeepPrintTable(assist_players)
-	for i,v in pairs(assist_players) do
-		PlayerResource:GetPlayer(i):GetAssignedHero():ModifyGold(assist_gold, false, DOTA_ModifyGold_HeroKill)
-	end
-	-- give experience
-	local units = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetAbsOrigin(), nil, 1500,
-		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
-	
-	-- add attacker the XP if out of range 
-	if attacker:IsAlive() and attacker.IsHero ~= nil and attacker:IsHero() then
-		local unitsContainsAttacker = false
-		for i=1,#units do
-			if units[i]:GetEntityIndex() == attacker:GetEntityIndex() then
-				unitsContainsAttacker = true
-				break
-			end
-		end
-		if not unitsContainsAttacker then
-			print("Adding attacker to xp bounty remotely")
-			table.insert(units, attacker)
-		end
-	end
-
-	local assist_exp = 7 * entity:GetLevel() + GetAssistXPComebackFactor(entity:GetTeam()) * PlayerResource:GetTotalEarnedXP(entity:GetPlayerID()) * 0.15
-	print("Granting assist experience " .. assist_exp .. " to " .. #units .. " units.")
-	for i=1,#units do
-		if units[i].AddExperience ~= nil then
-			print(units[i]:GetName())
-			units[i]:AddExperience(assist_exp, DOTA_ModifyXP_HeroKill, false, false)
-		end
-	end
-end
-
-function GetAssistGoldComebackFactor(victim_team)
-	local victim_team_total_gold = GetTeamTotalGold(victim_team)
-	local attacker_team = DOTA_TEAM_BADGUYS
-	if victim_team == DOTA_TEAM_BADGUYS then
-		attacker_team = DOTA_TEAM_GOODGUYS
-	end
-	local attacker_team_total_gold = GetTeamTotalGold(attacker_team)
-	local factor = victim_team_total_gold / attacker_team_total_gold - 1 
-	print("Assist gold factor " .. factor)
-	if factor < 0 then
-		return 0
-	elseif factor >= 1 then
-		return 1
-	else
-		return factor
-	end
-end
-
-function GetAssistXPComebackFactor(victim_team)
-	local victim_team_total_gold = GetTeamTotalXP(victim_team)
-	local attacker_team = DOTA_TEAM_BADGUYS
-	if victim_team == DOTA_TEAM_BADGUYS then
-		attacker_team = DOTA_TEAM_GOODGUYS
-	end
-	local attacker_team_total_gold = GetTeamTotalXP(attacker_team)
-	local factor = (victim_team_total_gold - attacker_team_total_gold) / (attacker_team_total_gold + attacker_team_total_gold) 
-	print("Assist exp factor " .. factor)
-	if factor < 0 then
-		return 0
-	else
-		return factor
-	end
-end
-
-function GetTeamTotalGold(victim_team)
-	local victim_team_total_gold = 0
-	for i=1,PlayerResource:GetPlayerCountForTeam(victim_team) do
-		local playerId = PlayerResource:GetNthPlayerIDOnTeam(victim_team, i)
-		victim_team_total_gold = victim_team_total_gold + PlayerResource:GetGoldSpentOnItems(playerId) + PlayerResource:GetGold(playerId)
-	end
-	return victim_team_total_gold
-end
-
-function GetTeamTotalXP(victim_team)
-	local victim_team_total_gold = 0
-	for i=1,PlayerResource:GetPlayerCountForTeam(victim_team) do
-		local playerId = PlayerResource:GetNthPlayerIDOnTeam(victim_team, i)
-		victim_team_total_gold = victim_team_total_gold + PlayerResource:GetTotalEarnedXP(playerId)
-	end
-	return victim_team_total_gold
 end
 
 function HandleRuneActivated(playerid, rune)
@@ -1150,6 +1036,10 @@ end
 function CAddonTemplateGameMode:ModifyGoldFilter(event)
 	if event.reason_const == DOTA_ModifyGold_WardKill and event.gold > 0 then
 		event.gold = 50
+	end
+	if event.reason_const == DOTA_ModifyGold_HeroKill then
+		print("Blocking default hero kill gold")
+		return false
 	end
 	return true
 end
