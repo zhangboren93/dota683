@@ -3,6 +3,7 @@
 require("creepspawn")
 require("hero_innate_abilities")
 require("kill_bonus")
+require("heroes.hero_creep_aggro")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
@@ -565,7 +566,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			local unit = EntIndexToHScript(v)
 			local ability = unit:FindAbilityByName("hero_creep_aggro_datadriven")
 			if target:IsHero() and target:GetTeam() ~= unit:GetTeam() and ability ~= nil and ability:IsCooldownReady() then
-				ability:CastAbility()
+				aggroCreeps(unit, ability)
 			elseif target:GetTeam() == unit:GetTeam() then
 				ability:ApplyDataDrivenModifier(unit, unit, "modifier_creep_aggro_move_datadriven", {})
 			end

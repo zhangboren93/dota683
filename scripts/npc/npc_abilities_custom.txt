@@ -33366,14 +33366,15 @@
 		"MaxLevel"			"1"
 		"AbilityCastRange"	"500"
 		"AbilityCooldown"	"3"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_creep_aggro.lua"
-				"Function"		"handleOrder"
-			}
-		}
+	// Triggering this ability will cancel invis
+	//	"OnSpellStart"
+	//	{
+	//		"RunScript"
+	//		{
+	//			"ScriptFile"	"heroes/hero_creep_aggro.lua"
+	//			"Function"		"handleOrder"
+	//		}
+	//	}
 		"Modifiers"
 		{
 			"modifier_creep_aggroed_datadriven"
