@@ -94,6 +94,7 @@ function modifier_creep_ai:OnIntervalThink()
 	end
 	if self.state == AI_STATE_PATHING then
 		local target = self:selectTarget()
+		-- TODO alert cooldown 2.1s
 		if target == nil and self.alert_target ~= nil and isAttackable(self.alert_target, entity) then
 			target = {
 				unit = self.alert_target

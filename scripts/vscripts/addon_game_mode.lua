@@ -1134,6 +1134,9 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			local victimarmor = victim:GetPhysicalArmorValue(false)
 			event.damage = event.damage / (1 - 0.06 * victimarmor / (1 + 0.06 * math.abs(victimarmor)))
+		elseif inflictor:GetName() == "bounty_hunter_shuriken_toss" then
+			local victim = EntIndexToHScript(event.entindex_victim_const)
+			victim:AddNewModifier(attacker, attacker:FindAbilityByName("bounty_hunter_shuriken_toss"), "modifier_stunned", {duration = 0.03})
 		end
 	end
 	return true
