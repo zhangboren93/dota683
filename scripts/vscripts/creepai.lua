@@ -80,7 +80,7 @@ function modifier_creep_ai:IsHidden()
 end
 
 function isAttackable(target, attacker) 
-	return target:IsAlive() and target:CanEntityBeSeenByMyTeam(attacker) and not target:IsInvisible() and not target:IsAttackImmune()
+	return IsValidEntity(target) and target:IsAlive() and target:CanEntityBeSeenByMyTeam(attacker) and not target:IsInvisible() and not target:IsAttackImmune()
 end
 
 function modifier_creep_ai:OnIntervalThink()
