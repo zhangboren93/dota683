@@ -468,6 +468,7 @@
 			"02"	"item_wraith_band_datadriven;item_ring_of_basilius_inactive_datadriven"
 		}
 	}
+	// TODO bonus armor
 	"item_ring_of_aquila"
 	{
 		"ItemPurchasable"	"1"
@@ -475,6 +476,16 @@
 		"ShouldBeSuggested"	"1"
 		"ItemSellable"		"1"
 		"ItemIsNeutralDrop"	"0"
+		"AbilityValues"
+		{
+				"bonus_damage"			"9"
+				"bonus_strength"		"3"
+				"bonus_agility"			"9"
+				"bonus_intellect"		"3"
+				"aura_radius"			"900"
+				"aura_mana_regen"		"0.65"
+				"aura_bonus_armor"		"2"
+		}		
 	}
 
 	"item_glimmer_cape"
