@@ -3595,7 +3595,7 @@
 		"ItemResult"					"item_pipe"
 		"ItemRequirements"
 		{
-			"01"						"item_hood_of_defiance;item_headdress_datadriven"
+			"01"						"item_hood_of_defiance_datadriven;item_headdress_datadriven"
 		}
 	}
 	
@@ -6141,40 +6141,48 @@
 	//=================================================================================================================
 	"item_recipe_hood_of_defiance"
 	{
+		"ItemPurchasable"	"0"
+	}
+	"item_hood_of_defiance"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_hood_of_defiance_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"130"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						""	
-		"ItemShopTags"					""
+		"ItemCost"						"0"	
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_hood_of_defiance"
+		"ItemResult"					"item_hood_of_defiance_datadriven"
 		"ItemRequirements"
 		{
 			"01"						"item_ring_of_health;item_cloak;item_ring_of_regen;item_ring_of_regen"
 		}
 	}
 	
-	//=================================================================================================================
-	// Hood of Defiance
-	//=================================================================================================================
-	"item_hood_of_defiance"
+	// Rewrite of Hood of Defiance
+	// Author: Rook
+	// Date: January 30, 2015
+	
+	"item_hood_of_defiance_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"131"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Stats		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"0"
-
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_hood_of_defiance"
+		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"2125"
@@ -6182,18 +6190,37 @@
 		"ItemQuality"					"epic"
 		"ItemAliases"					"hood of defiance"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"ItemPurchasable"				"1"
-		
+	
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"AbilitySpecial"
 		{
-			"bonus_spell_resist"	"30"
-			"bonus_health_regen"	"9"
-			"tooltip_resist"		"30"
-			"barrier_block"			"0"
-			"barrier_duration"		"0"
+			"01"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_magic_resist_percentage"		"30"
+			}
+			"02"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_health_regen"				"9"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_item_hood_of_defiance_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"%bonus_magic_resist_percentage"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"			"%bonus_health_regen"
+				}
+			}
 		}
 	}
 	//=================================================================================================================
