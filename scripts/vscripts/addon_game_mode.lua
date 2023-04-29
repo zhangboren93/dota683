@@ -27,7 +27,6 @@ function Activate()
 	GameRules.AddonTemplate:InitGameMode()
 	LinkLuaModifier( "item_sheep_stick_regen_percentage_modifier", "items/item_sheepstick.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "item_orchid_regen_percentage_modifier", "items/item_orchid.lua", LUA_MODIFIER_MOTION_NONE )
-	LinkLuaModifier( "item_urn_bonus_modifier", "items/item_urn_of_shadows.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "item_cyclone_regen_percentage_modifier", "items/item_cyclone.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_force_staff_health_regen_modifier", "items/item_force_staff.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_necronomicon_intellect_modifier", "items/item_necronomicon.lua", LUA_MODIFIER_MOTION_NONE)
@@ -661,7 +660,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "item_sheep_stick_regen_percentage_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_orchid_regen_percentage_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_cyclone_regen_percentage_modifier", {})
-		entity:AddNewModifier(entity, nil, "item_urn_bonus_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_force_staff_health_regen_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_dagon_modifier_lua", {})
 		entity:AddNewModifier(entity, nil, "item_necronomicon_intellect_modifier", {})
@@ -965,14 +963,14 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		self.nextRoshanTime = GameRules:GetDOTATime(false, false) + RandomInt(480, 660);
 		print("next rosh respawn time is " .. self.nextRoshanTime);
 	end
-	if ability ~= nil and ability:GetName() == "necrolyte_reapers_scythe" and attacker:HasScepter() and entity:IsRealHero() then
+	if ability ~= nil and ability:GetName() == "necrolyte_reapers_scythe" and attacker:HasScepter() and entity:IsRealHero() and not entity:IsReincarnating() then
 		entity:SetBuyBackDisabledByReapersScythe(true)
 		print("renabling buyback after " .. entity:GetRespawnTime())
 		entity:SetThink(function()
 			entity:SetBuyBackDisabledByReapersScythe(false)
 		end, "", {}, entity:GetRespawnTime())
 	end
-	if IsServer() and entity:IsRealHero() then
+	if IsServer() and entity:IsRealHero() and (not entity:IsReincarnating()) then
 		handleKillBonus(self, attacker, entity)
 	end
 end

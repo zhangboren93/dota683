@@ -86,7 +86,7 @@
 		"item"		"item_ring_of_basilius_datadriven"
 		"item"		"item_headdress_datadriven"
 		"item"		"item_buckler_2"
-		"item"		"item_urn_of_shadows"
+		"item"		"item_urn_of_shadows_datadriven"
 		"item"		"item_tranquil_boots"
 		"item"		"item_ring_of_aquila"	
 		"item"		"item_medallion_of_courage"

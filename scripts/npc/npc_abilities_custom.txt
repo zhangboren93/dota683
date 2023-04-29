@@ -34331,26 +34331,4 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-	"hero_item_intrinstic_handler_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"Modifiers"
-		{
-			"modifier_urn_of_shadow_datadriven"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/items/urn_of_shadows.lua"
-						"Function"		"handleDeath"
-					}
-				}
-			}
-		}
-	}
 }

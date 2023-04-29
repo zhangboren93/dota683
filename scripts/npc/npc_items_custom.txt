@@ -3650,10 +3650,20 @@
 	//=================================================================================================================
 	"item_recipe_urn_of_shadows"
 	{
+		"ItemPurchasable"	"0"
+	}
+	"item_urn_of_shadows"
+	{
+		"ItemPurchasable"	"0"
+	}
+
+	"item_recipe_urn_of_shadows_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"91"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTexture"				"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3663,116 +3673,259 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_urn_of_shadows"
+		"ItemResult"					"item_urn_of_shadows_datadriven"
 		"ItemRequirements"
 		{
 			"01"						"item_sobi_mask_datadriven;item_gauntlets;item_gauntlets"
 		}
 	}
+// Rewrite of Urn of Shadows
+// Author: Rook
+// Date: January 26, 2015
+// Known bugs:
+//     All players within range of a kill that have Urns will gain a charge; only the closest Urn is supposed to.
+//     If multiple Urns are in a player's inventory, the one with the least amount of charges will gain a charge;
+//          this may work differently in the standard Dota 2 mode.
+
+"item_urn_of_shadows_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"item_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+	"Model"							"models/props_gameplay/red_box.vmdl" 
+	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+	"AbilityTextureName"			"item_urn_of_shadows"
 	
-	//=================================================================================================================
-	// Urn of Shadows
-	//=================================================================================================================
-	"item_urn_of_shadows"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"92"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"FightRecapLevel"				"1"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"950"
-		"AbilityCastPoint"				"0.0"
-
-		// Stats		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"7.0"
-		"AbilitySharedCooldown"			"urn"
-
-		// Items
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRequiresCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"ItemStackable"					"0"
-		"ItemPermanent"					"1"
-		"ItemDisassembleRule"				"DOTA_ITEM_DISASSEMBLE_NEVER"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"875"
-		"ItemShopTags"					"regen_mana;str;boost_health"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"urn of shadows"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"950"
+	"AbilityCastPoint"				"0.0"
+	"AbilityCooldown"				"7.0"
+	
+	// Item Info
+	//-------------------------------------------------------------------------------------------------------------
+	"ItemCost"						"875"
+	"ItemShopTags"					"regen_mana;str;boost_health"
+	"ItemQuality"					"rare"
+	"ItemAliases"					"urn of shadows"
+	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+	
+	"ItemRequiresCharges"			"1"
+	"ItemDisplayCharges"			"1"
+	"ItemStackable"					"0"
+	"ItemPermanent"					"1"
+	"ItemInitialCharges"			"0"	
 		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+	// Special	
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
 		{
-			"01"
+			"var_type"				"FIELD_INTEGER"
+			"bonus_mana_regen_percentage"	"50"
+		}
+		"02"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"bonus_strength"		"6"
+		}
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"soul_radius"			"1400"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"soul_initial_charge"	"2"
+		}
+		"05"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"soul_additional_charges"	"1"
+		}
+		"06"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"soul_heal_interval"	"0.25"
+		}
+		"07"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"soul_damage_interval"	"1"
+		}
+		"08"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"soul_heal_amount"		"400"
+		}	
+		"09"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"soul_damage_amount"	"150"
+		}
+		"10"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"soul_heal_duration"	"8.0"
+		}
+		"11"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"soul_damage_duration"	"8.0"
+		}
+	}
+	
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"		"items/item_urn_of_shadows.lua"
+			"Function"			"item_urn_of_shadows_datadriven_on_spell_start"
+		}
+	}
+	
+	"Modifiers"
+	{
+		"modifier_item_urn_of_shadows_datadriven"
+		{
+			"Passive"			"1"
+			"IsHidden"			"1"
+			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			
+			"Properties"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_regen"			"0"
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
+				//"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE"		"%mana_regen_percent"
 			}
-			"02"
+		}
+		"modifier_item_urn_of_shadows_datadriven_aura_emitter"
+		{
+			"Passive"				"1"
+			"IsHidden"				"1"
+			
+			"Aura" 					"modifier_item_urn_of_shadows_datadriven_aura"
+			"Aura_Radius" 			"%soul_radius"
+			"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"Aura_Types" 			"DOTA_UNIT_TARGET_HERO"
+			"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
+			"Aura_ApplyToCaster" 	"0"
+			
+			"OnKill"  //Killing an enemy hero grants Urn charges even if they are not in range.
 			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"0"
+				"RunScript"
+				{
+					"ScriptFile"			"items/item_urn_of_shadows.lua"
+					"Function"				"modifier_item_urn_of_shadows_datadriven_aura_emitter_on_kill"
+				}
 			}
-			"03"
+		}
+		"modifier_item_urn_of_shadows_datadriven_aura"
+		{
+			"Passive"			"0"
+			"IsHidden"			"1"
+			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			
+			"OnDeath"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_armor"			"0"
+				"RunScript"
+				{
+					"ScriptFile"		"items/item_urn_of_shadows.lua"
+					"Function"			"modifier_item_urn_of_shadows_datadriven_aura_on_death"
+				}
 			}
-			"04"
+		}
+		"modifier_item_urn_of_shadows_datadriven_heal"
+		{
+			"Duration"			"%soul_heal_duration"
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsBuff"			"1"
+			"IsDebuff"			"0"
+			"IsPurgable"		"1"
+			
+			"EffectName"			"particles/items2_fx/urn_of_shadows_heal.vpcf"
+			"EffectAttachType"		"follow_origin"
+			
+			"ThinkInterval" 		"%soul_heal_interval"
+			"OnIntervalThink"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"soul_radius"			"1400"
+				"RunScript"
+				{
+					"ScriptFile"		"items/item_urn_of_shadows.lua"
+					"Function"			"modifier_item_urn_of_shadows_datadriven_heal_on_interval_think"
+					"TotalHeal"			"%soul_heal_amount"
+					"TotalDuration"		"%soul_heal_duration"
+					"Interval"			"%soul_heal_interval"
+				}
 			}
-			"05"
+			
+			"OnTakeDamage"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"soul_initial_charge"	"2"
+				"RunScript"
+				{
+					"ScriptFile"		"items/item_urn_of_shadows.lua"
+					"Function"			"modifier_item_urn_of_shadows_datadriven_heal_on_take_damage"
+					"Damage"			"%attack_damage"
+				}
 			}
-			"06"
+		}
+		"modifier_item_urn_of_shadows_datadriven_damage"
+		{
+			"Duration"			"%soul_damage_duration"
+			"Passive"			"0"
+			"IsHidden"			"0"
+			"IsBuff"			"0"
+			"IsDebuff"			"1"
+			"IsPurgable"		"1"
+			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+			
+			"EffectName"			"particles/items2_fx/urn_of_shadows_damage.vpcf"
+			"EffectAttachType"		"follow_origin"
+			
+			"ThinkInterval" 		"%soul_damage_interval"
+			"OnIntervalThink"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"soul_additional_charges"	"1"
+				"RunScript"
+				{
+					"ScriptFile"		"items/item_urn_of_shadows.lua"
+					"Function"			"modifier_item_urn_of_shadows_datadriven_damage_on_interval_think"
+					"TotalDamage"		"%soul_damage_amount"
+					"TotalDuration"		"%soul_damage_duration"
+					"Interval"			"%soul_damage_interval"
+				}
 			}
-			"07"
+		}
+		"item_urn_of_shadows_mana_regen_modifier"
+		{
+		    "Passive" "1"
+		    "IsHidden" "1"
+			"ThinkInterval"  "0.5"
+			"OnIntervalThink"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"soul_heal_amount"		"50"
-			}			
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"soul_damage_amount"	"20"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"	"8.0"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"6"
-			}
-			"12"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"bonus_mana_regen_percentage"	"50"
+				"ActOnTargets"
+				{
+					"Target"	"TARGET"
+					"Action"    
+					{
+						"RunScript"
+						{
+							"ScriptFile"	"items/item_sobi_mask.lua"
+							"Function"		"item_sobi_mask_gen_mana"
+							"ItemName"		"item_urn_of_shadows_datadriven"
+							"bonus_mana_regen_percentage"	"%bonus_mana_regen_percentage"
+						}
+					}
+				}
 			}
 		}
 	}
-
+}
 
 	//=================================================================================================================
 	// Recipe: Headdress
