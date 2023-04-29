@@ -193,8 +193,10 @@
 	}
 	"item_poor_mans_shield"
 	{
-		"ItemPurchasable"	"1"
-		"ItemIsNeutralDrop"	"0"
+		"ItemCost"					"550"
+		"ItemPurchasable"			"1"
+		"ItemIsNeutralDrop"			"0"
+		"ItemSellable"				"1"
 		"AbilitySpecial"
 		{
 			"01"
