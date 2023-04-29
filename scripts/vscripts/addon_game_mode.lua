@@ -861,6 +861,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("broodmother_insatiable_hunger_damage_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_kunkka" then
 			entity:AddNewModifier(entity, nil, "modifier_tidebringer_cleave", {})
+		elseif entity:GetName() == "npc_dota_hero_invoker" then
+			entity:SetThink(function()
+				entity:FindAbilityByName("invoker_invoke"):SetLevel(0)
+			end, "reset invoker invoke", 0.5)
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then

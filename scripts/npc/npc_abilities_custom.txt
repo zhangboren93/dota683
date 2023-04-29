@@ -35064,4 +35064,167 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
+	//=================================================================================================================
+	// Invoker: Sun Strike
+	//=================================================================================================================
+	"invoker_sun_strike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5386"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"MaxLevel"						"1"
+		"HotKeyOverride"				"T"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Invoker.SunStrike.Charge"
+
+		"HasScepterUpgrade"				"0"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.05"
+		"AbilityCastAnimation"			"ACT_INVALID"
+
+		"AbilityCooldown"				"25"
+		"AbilityManaCost"				"175"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"delay"						"1.7"
+			"area_of_effect"			"175"
+			"damage"
+			{
+				"value"					"120 180 240 300 360 420 480 540"
+				"levelkey"				"exortlevel"
+			}
+			"vision_distance"			"400"
+			"vision_duration"			"4.0"
+			"cataclysm_count"
+			{
+				"value"					"0"
+				"special_bonus_scepter"	"+0"
+				"RequiresScepter"		"1"
+			}
+			"cataclysm_cooldown"
+			{
+				"value"					"1"
+				"RequiresScepter"		"1"
+			}
+			"cataclysm_min_range"
+			{
+				"value"					"160"
+				"RequiresScepter"		"1"
+			}
+			"cataclysm_max_range"
+			{
+				"value"					"200"
+				"RequiresScepter"		"1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Invoker: Invoke
+	//=================================================================================================================
+	"invoker_invoke"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5375"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"2"
+		"LevelsBetweenUpgrades" 		"5"
+		"AbilitySound"					"Hero_Invoker.Invoke"
+		"HasScepterUpgrade"				"1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_INVALID"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"max_invoked_spells"			"2"
+			"cooldown_reduction_per_orb"	"0"
+			"AbilityCooldown"
+			{
+				"value"						"22 17 12 5"
+				"special_bonus_scepter"		"-6 -9 -8 -3"
+			}
+			"AbilityManaCost"
+			{
+				"value"					"20 40 60 80"
+				"special_bonus_scepter"	"-20 -40 -60 -80"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Invoker: Wex
+	//=================================================================================================================
+	"invoker_wex"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5371"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"7"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityCastAnimation"			"ACT_INVALID"
+		
+		// Special
+		"AbilityValues"
+		{
+			"attack_speed_per_instance"
+			{
+				"value"					"2 4 6 8 10 12 14"
+				"special_bonus_unique_invoker_13"	"x3"
+			}
+			"move_speed_per_instance"
+			{
+				"value"					"1 2 3 4 5 6 7"
+				"special_bonus_unique_invoker_13"	"x3"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Invoker: Exort
+	//=================================================================================================================
+	"invoker_exort"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5372"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"7"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityCastAnimation"			"ACT_INVALID"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage_per_instance"
+			{
+				"value"					"3 6 9 12 15 18 21"
+				"special_bonus_unique_invoker_13"	"x3"
+			}
+		}
+	}
 }
