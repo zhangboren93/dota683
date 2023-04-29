@@ -33379,18 +33379,19 @@
 			"modifier_creep_alert_aura_datadriven"
 			{
 				"Passive"		"1"
-				"IsHidden"		"0"
+				"IsHidden"		"1"
 				"IsPurgable"	"0"
 	
 				"Aura"          	"modifier_creep_alert_datadriven"
-				"Aura_Radius"   	"1800"
+				"Aura_Radius"   	"500"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_ApplyToCaster" "1"
 			}
 			"modifier_creep_alert_datadriven"
 			{
 				"Passive"		"0"
-				"IsHidden"		"0"
+				"IsHidden"		"1"
 				"IsPurgable"	"0"
 				"OnTakeDamage"
 				{
@@ -33398,8 +33399,6 @@
 					{
 						"ScriptFile"	"units/creep_alert.lua"
 						"Function"		"handleTakeDamage"
-						"Damage"		"%attack_damage"
-						"Target"		"ATTACKER"
 					}
 				}
 			}
