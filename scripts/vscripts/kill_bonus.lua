@@ -8,6 +8,17 @@ function handleKillBonus(self, attacker, entity)
 		print("killed by neutral, no gold/XP bonus")
 		return
 	end
+	-- TODO give assist gold
+	local assist_players = {}
+	if entity.time_attacked ~= nil then
+		local current_time = GameRules:GetDOTATime(true, false)
+		for i,v in pairs(entity.time_attacked) do
+			if current_time - v < 20 then
+				table.insert(assist_players, i)
+			end
+		end
+	end
+
 	if attacker:IsOwnedByAnyPlayer() then
 		local attacker_player_id = attacker:GetPlayerOwnerID()
 		if self.firstBlood == nil then
@@ -24,6 +35,46 @@ function handleKillBonus(self, attacker, entity)
 		local shutdownGold = playerShutdownGold(entity_player_id)
 		print("shutdown gold " .. shutdownGold)
 		PlayerResource:ModifyGold(attacker_player_id, shutdownGold, true, DOTA_ModifyGold_HeroKill)
+	elseif attacker:IsBuilding() or attacker:IsCreep() then
+		-- killed by building or creep
+		if #assist_players == 0 then
+			-- split to all
+			local killGold = 110 + entity:GetLevel() * 9.9
+			local shutdownGold = playerShutdownGold(entity_player_id)
+			local playerCount = PlayerResource:GetPlayerCountForTeam(attacker:GetTeam())
+			local goldPerPlayer = (killGold + shutdownGold) / playerCount
+			print("feeds to building " .. goldPerPlayer)
+			for i=1,playerCount do
+				PlayerResource:ModifyGold(PlayerResource:GetNthPlayerIDOnTeam(attacker:GetTeam(), i), goldPerPlayer, true, DOTA_ModifyGold_HeroKill)
+			end
+		elseif #assist_players == 1 then
+			-- credit kill
+			print("credit to only 1 assist")
+			local attacker_player_id = assist_players[1]
+			if self.firstBlood == nil then
+				print("give gold first blood kill")
+				PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_HeroKill)
+				self.firstBlood = true
+			end
+		
+			--PlayerResource:IncrementStreak(attacker_player_id, 1)
+			local killGold = 110 + playerStreakGold(attacker_player_id) + entity:GetLevel() * 9.9
+			print("kill gold " .. killGold)
+			PlayerResource:ModifyGold(attacker_player_id, killGold, true, DOTA_ModifyGold_HeroKill)
+			-- shutdown gold
+			local shutdownGold = playerShutdownGold(entity_player_id)
+			print("shutdown gold " .. shutdownGold)
+			PlayerResource:ModifyGold(attacker_player_id, shutdownGold, true, DOTA_ModifyGold_HeroKill)
+		else
+			-- split kill amount assisters
+			local killGold = 110 + entity:GetLevel() * 9.9
+			local shutdownGold = playerShutdownGold(entity_player_id)
+			local goldPerPlayer = (killGold + shutdownGold) / #assist_players
+			print("Spliting kill gold for assisters " .. #assist_players .. " " .. goldPerPlayer)
+			for i=1,#assist_players do
+				PlayerResource:ModifyGold(assist_players[i], goldPerPlayer, true, DOTA_ModifyGold_HeroKill)
+			end
+		end
 	end
 
 	--TODO summoned units kill
@@ -34,16 +85,6 @@ function handleKillBonus(self, attacker, entity)
 	--	attacker = attacker:GetOwner()
 	--end
 
-	-- TODO give assist gold
-	local assist_players = {}
-	if entity.time_attacked ~= nil then
-		local current_time = GameRules:GetDOTATime(true, false)
-		for i,v in pairs(entity.time_attacked) do
-			if current_time - v < 20 then
-				table.insert(assist_players, i)
-			end
-		end
-	end
 	DeepPrintTable(assist_players)
 	local assisterCount = #assist_players
 	if assisterCount > 0 then
