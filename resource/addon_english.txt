@@ -330,5 +330,8 @@
 		"DOTA_Tooltip_Ability_legion_commander_press_the_attack_Lore"						"attack speed +60/80/100/120"
 		"DOTA_Tooltip_Ability_legion_commander_overwhelming_odds_datadriven"				"Overwhelming Odds"
 		"DOTA_Tooltip_Ability_legion_commander_overwhelming_odds_datadriven_Description"	"base damage %damage%, damage per unit %damage_per_unit%, per hero %damage_per_hero%, move speed per unit %bonus_speed_creeps%, per hero %bonus_speed_heroes%, lasts %duration% seconds"
+		"DOTA_Tooltip_Ability_shadow_shaman_mass_serpent_ward_datadriven"						"Mass Serpent Ward"
+		"DOTA_Tooltip_Ability_shadow_shaman_mass_serpent_ward_datadriven_Description"			"10 wards, lasts 40s, attack damage 45/60/75"
+		"DOTA_Tooltip_Ability_shadow_shaman_mass_serpent_ward_datadriven_Scepter_Description"	"attack damage 90/110/130"
 	}
 }

@@ -3218,7 +3218,7 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"45"			// Damage range min.
+		"AttackDamageMin"			"40"			// Damage range min.
 		"AttackDamageMax"			"45"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.5"		// Speed of attack.
@@ -3247,7 +3247,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"4"		// Base health.
+		"StatusHealth"				"135"		// Base health.
 		"StatusHealthRegen"			"0"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.
@@ -3274,7 +3274,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"60"			// Damage range min.
+		"StatusHealth"				"150"		// Base health.
+		"AttackDamageMin"			"55"			// Damage range min.
 		"AttackDamageMax"			"60"			// Damage range max.
 	}
 
@@ -3284,7 +3285,8 @@
 	
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"75"			// Damage range min.
+		"StatusHealth"				"150"		// Base health.
+		"AttackDamageMin"			"70"			// Damage range min.
 		"AttackDamageMax"			"75"			// Damage range max.
 	}
 	"npc_dota_pugna_nether_ward_1"
