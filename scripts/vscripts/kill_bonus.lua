@@ -19,12 +19,18 @@ function handleKillBonus(self, attacker, entity)
 		end
 	end
 
+	local goldRecord = {0, 0, 0}
+	local teamname = "近卫"
+	if attacker:GetTeam() == DOTA_TEAM_BADGUYS then
+		teamname = "天灾"
+	end
 	if attacker:IsOwnedByAnyPlayer() then
 		local attacker_player_id = attacker:GetPlayerOwnerID()
 		if self.firstBlood == nil then
 			print("give gold first blood kill")
 			PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_HeroKill)
 			self.firstBlood = true
+			goldRecord[1] = 135
 		end
 		
 		--PlayerResource:IncrementStreak(attacker_player_id, 1)
@@ -35,6 +41,7 @@ function handleKillBonus(self, attacker, entity)
 		local shutdownGold = playerShutdownGold(entity_player_id)
 		print("shutdown gold " .. shutdownGold)
 		PlayerResource:ModifyGold(attacker_player_id, shutdownGold, true, DOTA_ModifyGold_HeroKill)
+		goldRecord[2] = killGold + shutdownGold 
 	elseif attacker:IsBuilding() or attacker:IsCreep() then
 		-- killed by building or creep
 		if #assist_players == 0 then
@@ -47,6 +54,7 @@ function handleKillBonus(self, attacker, entity)
 			for i=1,playerCount do
 				PlayerResource:ModifyGold(PlayerResource:GetNthPlayerIDOnTeam(attacker:GetTeam(), i), goldPerPlayer, true, DOTA_ModifyGold_HeroKill)
 			end
+			GameRules:SendCustomMessage(entity:GetPlayerOwnerID() .. "死了，".. teamname .. "玩家各获得" .. goldPerPlayer .. "金" , -1, -1)
 		elseif #assist_players == 1 then
 			-- credit kill
 			print("credit to only 1 assist")
@@ -55,6 +63,7 @@ function handleKillBonus(self, attacker, entity)
 				print("give gold first blood kill")
 				PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_HeroKill)
 				self.firstBlood = true
+				goldRecord[1] = 135
 			end
 		
 			--PlayerResource:IncrementStreak(attacker_player_id, 1)
@@ -65,6 +74,7 @@ function handleKillBonus(self, attacker, entity)
 			local shutdownGold = playerShutdownGold(entity_player_id)
 			print("shutdown gold " .. shutdownGold)
 			PlayerResource:ModifyGold(attacker_player_id, shutdownGold, true, DOTA_ModifyGold_HeroKill)
+			goldRecord[2] = killGold + shutdownGold 
 		else
 			-- split kill amount assisters
 			local killGold = 110 + entity:GetLevel() * 9.9
@@ -74,6 +84,7 @@ function handleKillBonus(self, attacker, entity)
 			for i=1,#assist_players do
 				PlayerResource:ModifyGold(assist_players[i], goldPerPlayer, true, DOTA_ModifyGold_HeroKill)
 			end
+			goldRecord[3] = math.floor(goldPerPlayer) 
 		end
 	end
 
@@ -100,6 +111,15 @@ function handleKillBonus(self, attacker, entity)
 		for i=1,#assist_players do
 			PlayerResource:ModifyGold(assist_players[i], assist_gold, true, DOTA_ModifyGold_HeroKill)
 		end
+		goldRecord[3] = goldRecord[3] + math.floor(assist_gold) 
+	end
+	
+	if goldRecord[1] + goldRecord[2] > 0 then
+		GameRules:SendCustomMessage(attacker:GetPlayerOwnerID() .. "杀了" .. entity:GetPlayerOwnerID()
+			.. "获得" .. (goldRecord[1] + goldRecord[2]) .. "金+助攻" .. goldRecord[3] .. "金" .. (assisterCount - 1) .. "人助攻" , -1, -1)
+	elseif assisterCount > 0 then
+		GameRules:SendCustomMessage(entity:GetPlayerOwnerID() .. "死了，" .. teamname  
+			.. assisterCount .. "人获得" .. goldRecord[3] .. "金" , -1, -1)
 	end
 
 	---- give experience
