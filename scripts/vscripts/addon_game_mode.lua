@@ -57,19 +57,21 @@ function Activate()
 	LinkLuaModifier( "modifier_cancels_item_on_hit", "modifiers/item_cancel_on_hit.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_ai", "creepai.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_health_bonus", "modifiers/creep_health.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_pudge_flesh_magic_resist", "modifiers/pudge_flesh_magic_resist.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_riki_invis_health_regen",		 "modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",	 "modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_omniknight_guardian_angel_regen", "modifiers/omniknight_guardian_regen.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",	 "modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_doom_scorched_earth_regen",		 "modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_sandstorm_channel_end",			 "modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_drop_backpack_items",			 "modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_maelstrom_as_lua",				 "modifiers/maelstrom_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_pudge_flesh_magic_resist",		"modifiers/pudge_flesh_magic_resist.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_riki_invis_health_regen",		"modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",	"modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_omniknight_guardian_angel_regen","modifiers/omniknight_guardian_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",	"modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_doom_scorched_earth_regen",		"modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_sandstorm_channel_end",			"modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_maelstrom_as_lua",				"modifiers/maelstrom_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
 
-	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", 		 "modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_bot_item_purchase",				 "bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_roshan_ai",				 		 "units/roshan_ai.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", 		"modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_roshan_ai",						"units/roshan_ai.lua", LUA_MODIFIER_MOTION_NONE)
+
+	LinkLuaModifier( "modifier_tidebringer_cleave",				"heroes/hero_kunkka/tidebringer_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -850,6 +852,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("morphling_morph_attribute_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_broodmother" then
 			entity:FindAbilityByName("broodmother_insatiable_hunger_damage_datadriven"):SetLevel(1)
+		elseif entity:GetName() == "npc_dota_hero_kunkka" then
+			entity:AddNewModifier(entity, nil, "modifier_tidebringer_cleave", {})
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
@@ -1129,7 +1133,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
 		--print("DamageFilter " .. inflictor:GetName())
-		if inflictor:GetName() == "kunkka_tidebringer" or inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
+		--if inflictor:GetName() == "kunkka_tidebringer" or inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
+		if inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			local victimarmor = victim:GetPhysicalArmorValue(false)
 			event.damage = event.damage / (1 - 0.06 * victimarmor / (1 + 0.06 * math.abs(victimarmor)))

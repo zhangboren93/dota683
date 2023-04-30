@@ -319,7 +319,7 @@
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven"						"锤子"
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven_Description"			"晕2秒"
 		"DOTA_Tooltip_Ability_crystal_maiden_freezing_field_Scepter_Description"	"+伤害减速"
-		"DOTA_Tooltip_Ability_kunkka_tidebringer_datadriven"					"水刀"
+		"DOTA_Tooltip_Ability_kunkka_tidebringer_Lore"								"溅射范围500/500/500/600"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"折光"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_Description"	"+攻%bonus_damage%，护盾数量%instances%"
 		"DOTA_Tooltip_Ability_glyph_datadriven"										"塔防"
