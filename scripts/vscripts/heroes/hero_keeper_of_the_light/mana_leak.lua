@@ -62,7 +62,7 @@ function ManaLeak( keys )
 		target:Script_ReduceMana(mana_reduction, ability)
 		if target_current_mana <= mana_reduction then
 			target:RemoveModifierByName(modifier)
-			target:AddNewModifier(caster, nil, "modifier_stunned", {duration = stun_duration})
+			target:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 			EmitSoundOn(sound, target)
 		end
 	end
