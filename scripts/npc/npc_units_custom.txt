@@ -158,7 +158,7 @@
 	}
 	"npc_dota_neutral_enraged_wildkin"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"enraged_wildkin_tornado"			// Ability 1
 		"ArmorPhysical"				"4"			// Physical protection.
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"56"		// Damage range max.	
