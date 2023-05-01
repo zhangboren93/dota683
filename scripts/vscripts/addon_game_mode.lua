@@ -131,8 +131,8 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDaynightCycleAdvanceRate(1.25)
 	GameRules:GetGameModeEntity():SetTPScrollSlotItemOverride("item_dummy_tpblock_datadriven")
 	GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled(true)
---	GameRules:SetGoldPerTick(1)
---	GameRules:SetGoldTickTime(0.66)
+	GameRules:SetGoldPerTick(0)
+	GameRules:SetGoldTickTime(1000)
 	if GetMapName() == "dota" then
 		GameRules:SetCreepSpawningEnabled(false)
 	end
@@ -499,7 +499,7 @@ function CAddonTemplateGameMode:OnThink()
 		end
 
 		-- give each player passive gold
-		if time > 0 then
+		if time > 0 and IsServer() then
 			local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 			for i=1,n do
 				local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
@@ -541,7 +541,7 @@ function CAddonTemplateGameMode:OnThink()
 			end
 		end
 	end
-	return 1
+	return 2
 end
 
 -- Add the order filter to your game mode entity
