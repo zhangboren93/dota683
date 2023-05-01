@@ -115,8 +115,8 @@ function handleKillBonus(self, attacker, entity)
 		goldRecord[3] = goldRecord[3] + math.floor(assist_gold) 
 	end
 	
-	local attackerName = string.sub(attacker:GetName(), 15)
 	if goldRecord[1] + goldRecord[2] > 0 then
+		local attackerName = string.sub(attacker:GetPlayerOwner():GetAssignedHero():GetName(), 15)
 		GameRules:SendCustomMessage(attackerName .. "杀了" .. entityName .. "获得" .. (goldRecord[1] + goldRecord[2]) .. "金+助攻" .. goldRecord[3] .. "金" .. (assisterCount - 1) .. "人助攻" , -1, -1)
 	elseif assisterCount > 0 then
 		GameRules:SendCustomMessage(entityName .. "死了，" .. teamname 	.. assisterCount .. "人获得" .. goldRecord[3] .. "金" , -1, -1)

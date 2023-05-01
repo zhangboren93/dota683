@@ -451,7 +451,7 @@
 				"damage_per_second"			"16 24 32 40"
 				"armor_multiplier"			
 				{
-					"value"			"1"
+					"value"			"0"
 					"special_bonus_unique_axe"	"x2"
 				}
 				"scepter_armor_change"
@@ -14657,7 +14657,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5651"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"		
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"		
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilitySound"					"Hero_WinterWyvern.ArcticBurn.Cast"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
