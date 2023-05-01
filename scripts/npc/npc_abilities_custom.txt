@@ -21117,6 +21117,9 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"faceless_void_time_lock"
 	
@@ -21161,10 +21164,25 @@
 	
 		"Modifiers"
 		{
-			"modifier_time_lock_datadriven"
+			"modifier_time_lock_filter_datadriven"
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_faceless_void/time_lock.lua"
+						"Function"		"handleAttackStart"
+						"ModifierName"	"modifier_time_lock_datadriven"
+					}
+				}
+			}
+			"modifier_time_lock_datadriven"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Duration"	"0.6"
 	
 				"OnAttackLanded"
 				{
