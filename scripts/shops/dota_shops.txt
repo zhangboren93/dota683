@@ -87,7 +87,7 @@
 		"item"		"item_headdress_datadriven"
 		"item"		"item_buckler_2"
 		"item"		"item_urn_of_shadows_datadriven"
-		"item"		"item_tranquil_boots"
+		"item"		"item_tranquil_boots_datadriven"
 		"item"		"item_ring_of_aquila"	
 		"item"		"item_medallion_of_courage"
 		"item"		"item_arcane_boots"
