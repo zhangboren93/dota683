@@ -3917,7 +3917,6 @@
 		//----------------------------------------------------------------
 		"AbilityLayout"				"4"
 		"Ability1"					"roshan_spell_block"	// Ability 1.
-		//TODO AI cast Slam
 		"Ability2"					"roshan_slam"			// Ability 3.
 		"Ability3"					"roshan_inherent_buffs_datadriven"	// Ability 4.
 		"Ability4"					"roshan_bash"		// Ability 6 - Extra.

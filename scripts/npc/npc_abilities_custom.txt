@@ -34755,4 +34755,62 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
+	//=================================================================================================================
+	// Roshan: Slam
+	//=================================================================================================================
+	"roshan_slam"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5215"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10.0"
+		"AbilityCastPoint"				"0.47 0.47 0.47 0.47"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"350"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration_hero"	"2.0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_duration_unit"	"4.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"slow_amount"		"50"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"75"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_growth"		"5"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	}
 }

@@ -15,6 +15,13 @@ function handleIntervalThink(event)
 	local time = GameRules:GetDOTATime(false, false) 
 	local count = math.floor(time / 240)
 	caster:CreatureLevelUp(count - caster:GetLevel() + 18)
+
+	local slam = caster:FindAbilityByName("roshan_slam")
+	if slam:IsCooldownReady() and #FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil,
+			350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 
+			FIND_ANY_ORDER, false) > 2 then
+		slam:CastAbility()
+	end
 end
 
 function handleAttacked(event)
