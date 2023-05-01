@@ -24,6 +24,7 @@ function handleKillBonus(self, attacker, entity)
 	if attacker:GetTeam() == DOTA_TEAM_BADGUYS then
 		teamname = "天灾"
 	end
+	local entityName = string.sub(entity:GetName(), 15)
 	if attacker:IsOwnedByAnyPlayer() then
 		local attacker_player_id = attacker:GetPlayerOwnerID()
 		if self.firstBlood == nil then
@@ -54,7 +55,7 @@ function handleKillBonus(self, attacker, entity)
 			for i=1,playerCount do
 				PlayerResource:ModifyGold(PlayerResource:GetNthPlayerIDOnTeam(attacker:GetTeam(), i), goldPerPlayer, true, DOTA_ModifyGold_HeroKill)
 			end
-			GameRules:SendCustomMessage(entity:GetPlayerOwnerID() .. "死了，".. teamname .. "玩家各获得" .. goldPerPlayer .. "金" , -1, -1)
+			GameRules:SendCustomMessage(entityName .. "死了，".. teamname .. "玩家各获得" .. goldPerPlayer .. "金" , -1, -1)
 		elseif #assist_players == 1 then
 			-- credit kill
 			print("credit to only 1 assist")
@@ -114,12 +115,11 @@ function handleKillBonus(self, attacker, entity)
 		goldRecord[3] = goldRecord[3] + math.floor(assist_gold) 
 	end
 	
+	local attackerName = string.sub(attacker:GetName(), 15)
 	if goldRecord[1] + goldRecord[2] > 0 then
-		GameRules:SendCustomMessage(attacker:GetPlayerOwnerID() .. "杀了" .. entity:GetPlayerOwnerID()
-			.. "获得" .. (goldRecord[1] + goldRecord[2]) .. "金+助攻" .. goldRecord[3] .. "金" .. (assisterCount - 1) .. "人助攻" , -1, -1)
+		GameRules:SendCustomMessage(attackerName .. "杀了" .. entityName .. "获得" .. (goldRecord[1] + goldRecord[2]) .. "金+助攻" .. goldRecord[3] .. "金" .. (assisterCount - 1) .. "人助攻" , -1, -1)
 	elseif assisterCount > 0 then
-		GameRules:SendCustomMessage(entity:GetPlayerOwnerID() .. "死了，" .. teamname  
-			.. assisterCount .. "人获得" .. goldRecord[3] .. "金" , -1, -1)
+		GameRules:SendCustomMessage(entityName .. "死了，" .. teamname 	.. assisterCount .. "人获得" .. goldRecord[3] .. "金" , -1, -1)
 	end
 
 	---- give experience
