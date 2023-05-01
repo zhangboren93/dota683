@@ -15,7 +15,7 @@ function ManaBreak( keys )
 	damageTable.ability = ability
 
 	-- If the target is not magic immune then reduce the mana and deal damage
-	if not target:IsMagicImmune() then
+	if not target:IsMagicImmune() and target:GetMana() > 0 then
 		-- Checking the mana of the target and calculating the damage
 		if(target:GetMana() >= manaBurn) then
 			damageTable.damage = manaBurn * manaDamage
@@ -25,5 +25,7 @@ function ManaBreak( keys )
 		target:Script_ReduceMana(manaBurn, ability)
 
 		ApplyDamage(damageTable)
+		
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_mana_break_orb_effect_datadriven", {})
 	end
 end

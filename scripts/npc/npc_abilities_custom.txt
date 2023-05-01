@@ -25797,8 +25797,15 @@
 						"ScriptFile"	"scripts/vscripts/heroes/hero_antimage/mana_break.lua"
 						"Function"		"ManaBreak"
 						"Target"		"TARGET"
+						"ModifierName"	"modifier_mana_break_orb_effect_datadriven"
 					}
-	
+				}
+			}
+			"modifier_mana_break_orb_effect_datadriven"
+			{
+				"Duration"	"0.1"
+				"OnCreated"
+				{
 					"FireSound"
 					{
 						"EffectName"	"Hero_Antimage.ManaBreak"
