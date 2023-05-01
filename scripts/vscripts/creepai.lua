@@ -84,6 +84,17 @@ function isAttackable(target, attacker)
 end
 
 function modifier_creep_ai:OnIntervalThink()
+	local ret, error = pcall(function() self:OnIntervalThinkInternal() end)
+	if not ret then
+		self.target = nil
+		self.alert_target = nil
+		self.state = AI_STATE_PATHING
+		print(error)
+		GameRules:SendCustomMessage(error, -1, -1)
+	end
+end
+
+function modifier_creep_ai:OnIntervalThinkInternal()
 	local entity = self:GetParent()
 	if entity:HasModifier("modifier_creep_aggroed_datadriven") then
 		if self.target ~= nil and isAttackable(self.target.unit, entity) then

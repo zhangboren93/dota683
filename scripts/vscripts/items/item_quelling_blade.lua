@@ -18,7 +18,7 @@ function quelling_blade_attack_start(event)
         if attacker:IsRangedAttacker() then
             ability:ApplyDataDrivenModifier(attacker, attacker, "item_quelling_blade_active_ranged_modifier", {})
         else
-            print("Adding bonus damage modifier")
+           -- print("Adding bonus damage modifier")
             ability:ApplyDataDrivenModifier(attacker, attacker, "item_quelling_blade_active_melee_modifier", {})
         end
     else

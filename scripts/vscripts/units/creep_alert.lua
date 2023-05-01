@@ -1,5 +1,7 @@
 function handleTakeDamage(event)
-	--DeepPrintTable(event)
+	if not IsServer() then
+		return
+	end
 	local attacker = event.attacker
 	local unit = event.unit
 	if attacker:GetTeam() == unit:GetTeam() or not unit:CanEntityBeSeenByMyTeam(attacker) or (attacker:GetAbsOrigin() - unit:GetAbsOrigin()):Length() > 1800 then
@@ -10,7 +12,6 @@ function handleTakeDamage(event)
 		local unit = units[i]
 		if unit:HasModifier("modifier_creep_ai") then
 			local creep_ai = unit:FindModifierByName("modifier_creep_ai")
-			--print("Setting alert target to " .. attacker:GetName())
 			creep_ai.alert_target = attacker
 		end
 	end

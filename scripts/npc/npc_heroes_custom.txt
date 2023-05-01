@@ -722,7 +722,6 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"Ability2"		"lycan_howl_datadriven"
-		"Ability4"		"generic_hidden"
 		"Ability3"		"lycan_feral_impulse_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
