@@ -514,9 +514,9 @@ function CAddonTemplateGameMode:OnThink()
 
 		if self.nextRoshanTime ~= nil and time > self.nextRoshanTime then
 			print("Spawn next rosh")
-			local roshan = CreateUnitByName("npc_dota_roshan", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
-			roshan:SetIdleAcquire(false)
-			roshan:AddNewModifier(nil, nil, "modifier_roshan_ai", {aggroRange = 150, leashRange = 1250})
+			local roshan = CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
+		--	roshan:SetIdleAcquire(false)
+		--	roshan:AddNewModifier(nil, nil, "modifier_roshan_ai", {aggroRange = 150, leashRange = 1250})
 			self.nextRoshanTime = nil
 		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
@@ -873,7 +873,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity.loseIntOnRespawn = false
 	end
 
-	if entity:GetName() == "npc_dota_roshan" then
+	if entity:GetModelName() == "models/creeps/roshan/roshan.vmdl" then
 		if self.roshanCount == nil then
 			self.roshanCount = 1
 		end
@@ -963,7 +963,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		or name == "dota_goodguys_tower1_bot" then
 		local fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		fountain:FindAbilityByName("glyph_datadriven"):EndCooldown()
-	elseif name == "npc_dota_roshan" then
+	elseif entity:GetModelName() == "models/creeps/roshan/roshan.vmdl" then
 		print("roshan killed")
 		self.nextRoshanTime = GameRules:GetDOTATime(false, false) + RandomInt(480, 660);
 		print("next rosh respawn time is " .. self.nextRoshanTime);

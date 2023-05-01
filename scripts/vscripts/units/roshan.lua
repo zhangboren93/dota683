@@ -3,38 +3,31 @@ function handleIntervalThink(event)
 	caster:RemoveItem(caster:FindItemInInventory("item_aghanims_shard_roshan"))
 	caster:RemoveItem(caster:FindItemInInventory("item_ultimate_scepter_roshan"))
 	caster:RemoveItem(caster:FindItemInInventory("item_refresher_shard"))
-	caster:FindAbilityByName("roshan_teleport"):SetLevel(0)
 	if not caster:HasItemInInventory("item_aegis") then
 		caster:AddItemByName("item_aegis")
 	end
-	if caster.roshanNo > 2 and not caster:HasItemInInventory("item_cheese") then
+	--print("roshanNo " .. caster.roshanNo)
+	if caster.roshanNo > 3 and not caster:HasItemInInventory("item_cheese") then
 		caster:AddItemByName("item_cheese")
 	end
 
 	local ability = event.ability
 	local time = GameRules:GetDOTATime(false, false) 
-	local count = math.floor(time / ability:GetSpecialValueFor("interval"))
-	if count > 12 then
-		count = 12
-	end
-	if caster:GetMaxHealth() < 6500 then
-		caster:SetMaxHealth(7500)
-	end
-	if time < 3 then
-		caster:SetHealth(7500)
-	end
-    local existing = caster:FindAllModifiersByName("roshan_inherent_buffs_active_datadriven")
-    if #existing >= count then
-    	return
-    end
-    for i=#existing, count - 1 do
-    	ability:ApplyDataDrivenModifier(caster, caster, "roshan_inherent_buffs_active_datadriven", {})
-    end
+	local count = math.floor(time / 240)
+	caster:CreatureLevelUp(count - caster:GetLevel() + 18)
 end
 
 function handleAttacked(event)
 	local attacker = event.attacker
 	if attacker:IsIllusion() then
 		attacker:ForceKill(false)
+	end
+end
+
+function handleDeath(event)
+	local caster = event.caster
+	print(caster:GetName())
+	for i=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_2 do
+		caster:DropItemAtPositionImmediate(caster:GetItemInSlot(i), caster:GetAbsOrigin())
 	end
 end

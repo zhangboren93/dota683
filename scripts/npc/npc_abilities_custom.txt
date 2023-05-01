@@ -33813,15 +33813,6 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"interval"		"240"
-			//TODO roshan add health not working
-			"armor"			"1"//"0.5"
-			//"health"		"125"
-			"damage"		"10"
-		//"max_time"		"45"
-		}
 		"Modifiers"
 		{
 			"roshan_inherent_buffs_checker_datadriven"	
@@ -33846,19 +33837,13 @@
 						"function"		"handleAttacked"
 					}
 				}
-			}
-			"roshan_inherent_buffs_active_datadriven"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"IsDebuff"	"0"
-				"IsPurgable"	"0"
-
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Properties"
+				"OnDeath"
 				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
+					"RunScript"
+					{
+						"ScriptFile"	"units/roshan.lua"
+						"function"		"handleDeath"
+					}
 				}
 			}
 		}

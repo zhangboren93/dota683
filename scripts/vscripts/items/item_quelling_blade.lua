@@ -14,7 +14,8 @@ function quelling_blade_attack_start(event)
     local target = event.target
     local attacker = event.attacker
     local ability = event.ability
-    if target:IsCreep() and target:GetTeamNumber() ~= attacker:GetTeamNumber() and target:GetName() ~= "npc_dota_roshan" then
+    print("quelling_blade_attack_start " .. target:GetName())
+    if target:IsCreep() and target:GetTeamNumber() ~= attacker:GetTeamNumber() and target:GetModelName() ~= "models/creeps/roshan/roshan.vmdl" then
         if attacker:IsRangedAttacker() then
             ability:ApplyDataDrivenModifier(attacker, attacker, "item_quelling_blade_active_ranged_modifier", {})
         else
