@@ -7,5 +7,6 @@ function handleAbilityExecuted(keys)
         if target:IsNeutralUnitType() then
             unit:ModifyGold(target:GetGoldBounty(), false, DOTA_ModifyGold_CreepKill)
         end
+        target:RemoveModifierByName("modifier_creep_ai")
     end
 end
