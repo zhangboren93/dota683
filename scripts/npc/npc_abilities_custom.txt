@@ -16513,6 +16513,35 @@
 			}
 		}
 	}
+	"clinkz_attack_animation_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"// | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_clinkz_attack_animation_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_clinkz/clinkz_attack_animation_trigger.lua"
+						"Function"		"HandleClinkzAttackStart"
+					}
+				}
+			}
+			"modifier_clinkz_attack_animation_active"
+			{
+				"Passive"			"0"
+				"Duration"			"1"
+				"OverrideAnimation"	"ACT_DOTA_ATTACK_STATUE"
+			}
+		}
+		
+	}
 	//=================================================================================================================
 	// Huskar: Berserker's Blood
 	//=================================================================================================================
