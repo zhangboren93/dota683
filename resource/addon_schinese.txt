@@ -128,6 +128,7 @@
 		"DOTA_Tooltip_Ability_static_field_datadriven_Description"	"施放技能时-%damage_health_pct%%%当前生命值"
 		"DOTA_Tooltip_Ability_troll_warlord_berserkers_rage_Lore"	"+100生命+15攻击力10%%击晕+20/30/40/50伤害持续0.8/1.2/1.6/2秒"
 		"DOTA_Tooltip_Ability_riki_permanent_invisibility_Lore"	"隐身+4/5/6/7回血"
+		"DOTA_Tooltip_Ability_riki_blink_strike_datadriven"				"闪烁"
 		"DOTA_Tooltip_ability_life_stealer_infest_scepter_description" "钻敌放英雄马上出来，CD20秒"
 		"DOTA_Tooltip_ability_vengefulspirit_nether_swap_scepter_description" "-CD"
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven"				"闪避"
