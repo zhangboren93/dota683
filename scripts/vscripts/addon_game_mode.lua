@@ -967,6 +967,17 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		print("roshan killed")
 		self.nextRoshanTime = GameRules:GetDOTATime(false, false) + RandomInt(480, 660);
 		print("next rosh respawn time is " .. self.nextRoshanTime);
+		local team = attacker:GetTeam()
+		if team == DOTA_TEAM_GOODGUYS or team == DOTA_TEAM_BADGUYS then
+			local n = PlayerResource:GetPlayerCountForTeam(team)
+			for i=1,n do
+				local playerid = PlayerResource:GetNthPlayerIDOnTeam(team, i)
+				PlayerResource:ModifyGold(playerid, 200, false, DOTA_ModifyGold_RoshanKill)
+			end
+			local teamname = "近卫"
+			if team == DOTA_TEAM_BADGUYS then teamname = "天灾" end
+			GameRules:SendCustomMessage("肉山被击杀，"..teamname.."全员获得200金", -1, -1)
+		end
 	end
 	if ability ~= nil and ability:GetName() == "necrolyte_reapers_scythe" and attacker:HasScepter() and entity:IsRealHero() and not entity:IsReincarnating() then
 		entity:SetBuyBackDisabledByReapersScythe(true)
