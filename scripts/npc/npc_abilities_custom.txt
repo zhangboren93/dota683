@@ -14693,7 +14693,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"percent_damage"		"6"
+				"percent_damage"		"0"
 			}
 			"04"
 			{
@@ -14752,8 +14752,39 @@
 				"movement_scepter"		"0"
 				"RequiresScepter"			"1"
 			}
+			"14"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"percent_damage_pure"	"6"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	"winter_wyvern_arctic_burn_pure_datadriven"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"	"winter_wyvern_arctic_burn"
+		"Modifiers"
+		{
+			"modifier_winter_wyvern_arctic_burn_pure_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsDebuff"		"1"
+				"Duration"		"6"
+				"IsPurgable"	"1"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_winter_wyvern/arctic_burn.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+		}
 	}
 	//=================================================================================================================
 	// Winter Wyvern: Splinter Blast

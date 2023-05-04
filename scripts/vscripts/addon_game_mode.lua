@@ -1136,6 +1136,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			print("illusion add")
 			parent:AddAbility("illusion_bounty_cancel_datadriven"):SetLevel(1)
 		end
+	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		caster:FindAbilityByName("winter_wyvern_arctic_burn_pure_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_arctic_burn_pure_datadriven", {})
 	elseif event.name_const == "modifier_omninight_guardian_angel" then
 		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
