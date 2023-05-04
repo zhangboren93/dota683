@@ -34239,7 +34239,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.5"
 		"AbilityCooldown"				"18.0"
 		"AbilityManaCost"				"50"
 				
@@ -34247,8 +34247,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"burn_amount"			"20"
-			"int_multiplier"		"2"
+			"burn_amount"			"100"
+			"int_multiplier"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
