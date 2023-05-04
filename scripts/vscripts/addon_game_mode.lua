@@ -597,6 +597,13 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				end
 			end
 		end
+		if ability:GetName() == "doom_bringer_doom" then
+			local target = EntIndexToHScript(event.entindex_target)
+			if target:IsRealHero() and target:GetName() == "npc_dota_hero_doom_bringer" then
+				GameRules:SendCustomMessage("末日无法大自己", -1, -1)
+				return false
+			end
+		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
 		or event.order_type == DOTA_UNIT_ORDER_GIVE_ITEM then
