@@ -722,7 +722,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 
 		-- abilities
 		entity:AddAbility("hero_creep_aggro_datadriven"):SetLevel(1)
-		entity:AddAbility("move_speed_cancel_night_datadriven"):SetLevel(1)
+		entity:AddAbility("hero_intrinstic_mechanism_datadriven"):SetLevel(1)
 
 		local player = entity:GetPlayerOwner()
 		if player ~= nil then
@@ -1015,8 +1015,8 @@ end
 function HandleEntityHurt(entindex_killed, entindex_attacker, damage)
 	local target = EntIndexToHScript(entindex_killed)
 	local attacker = EntIndexToHScript(entindex_attacker)
-	if target:GetPlayerOwner() ~= nil and attacker:HasAbility("move_speed_cancel_night_datadriven") and damage > 0 then 
-		local ability = attacker:FindAbilityByName("move_speed_cancel_night_datadriven")
+	if target:GetPlayerOwner() ~= nil and attacker:HasAbility("hero_intrinstic_mechanism_datadriven") and damage > 0 then 
+		local ability = attacker:FindAbilityByName("hero_intrinstic_mechanism_datadriven")
 		attacker:RemoveModifierByName("modifier_move_speed_cancel_active_datadriven")
 		ability:StartCooldown(ability:GetCooldown(1))
 	end
