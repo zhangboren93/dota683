@@ -168,8 +168,33 @@ end
 function modifier_creep_ai:selectTarget()
 	local entity = self:GetParent()
 	local position = entity:GetAbsOrigin()
-	--print(self.kv.seige)
 	local units = FindUnitsInRadius(
+		entity:GetTeam(), position, entity, self.kv.attackrange, 
+		DOTA_UNIT_TARGET_TEAM_ENEMY, 
+		DOTA_UNIT_TARGET_ALL, 
+		DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+		FIND_CLOSEST, false)
+	for i=1,#units do
+		if units[i]:IsAttackingEntity(entity) then
+			--print("Find unit attacking me")
+			return {
+				unit = units[i]
+			}
+		end
+	end
+	for i=1,#units do
+		local attackTarget = units[i]:GetAttackTarget()
+		if attackTarget ~= nil and attackTarget:GetTeam() == entity:GetTeam() then
+			--print("Find unit attacking allies")
+			return {
+				unit = units[i]
+			}
+		end
+	end
+	if #units > 0 then
+		return { unit = units[1] }
+	end
+	units = FindUnitsInRadius(
 		entity:GetTeam(), position, entity, self.kv.alertRadius, 
 		DOTA_UNIT_TARGET_TEAM_ENEMY, 
 		DOTA_UNIT_TARGET_ALL, 
@@ -189,46 +214,19 @@ function modifier_creep_ai:selectTarget()
 			}
 		end
 	end
-	local heroes = {}
-	for i=1,#units do
-		if units[i]:IsHero() then
-			table.insert(heroes, units[i])
-		end
-	end
-	local creepunits = {}
-	-- by default attack creep unit first
-	for i=1,#units do
-		if units[i]:IsCreep() then
-			table.insert(creepunits, units[i])
-		end
-	end
-	if #creepunits > 0 then
-		return {
-			unit = creepunits[1],
-			priority = PRIORITY_CREEP
-		}
-	end
-	-- target non aggro move heroes first
-	if #heroes > 0 then
-		for i=1,#heroes do
-			if not heroes[i]:HasModifier("modifier_creep_aggro_move_datadriven") then
+	if #units > 0 then
+		for i=1,#units do
+			if not units[i]:HasModifier("modifier_creep_aggro_move_datadriven") then
 				return {
-					unit = heroes[i],
+					unit = units[i],
 					priority = PRIORITY_HERO
 				}
 			end
 		end
 		return {
-			unit = heroes[1],
+			unit = units[1],
 			priority = PRIORITY_HERO
 		}
 	end
-	-- attack other units
-	if #units > 0 then
-		--print("Priority not creep")
-		return {
-			unit = units[1],
-			priority = PRIORITY_NOT_CREEP
-		}
-	end
+	return nil
 end
