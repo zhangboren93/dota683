@@ -18757,24 +18757,30 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Ability: Vengefulspirit Command Aura
-	//=================================================================================================================
-	"vengefulspirit_command_aura"
+	// Rewrite of the Vengeful Spirit Command Aura ability
+	// Author: Pizzalol
+	// Date: 26.01.2015.
+	// Game version: 6.84
+	"vengefulspirit_command_aura_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5123"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-
+		"AbilityTextureName"			"vengefulspirit_command_aura"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_vengeful/vengeful_negative_aura.vpcf"
+		}	
+		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
+		"AbilityCastRange"				"900"
 		
-		"HasScepterUpgrade"			"0"
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -18782,34 +18788,111 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bonus_base_damage"	"12 20 28 36"
-				"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_2"
+				"bonus_damage_pct"	"12 20 28 36"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"aura_radius"		"900"
-			}			
+			}
+			// Extra
 			"03"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"scepter_illusion_damage_out_pct"	"0"
-				"RequiresScepter"			"1"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"scepter_illusion_damage_in_pct"	"10000"
-				"RequiresScepter"			"1"
-			}	
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"scepter_illusion_ms_bonus_pct"	"-100"
-				"RequiresScepter"			"1"
-			}	
+				"var_type"			"FIELD_INTEGER"
+				"negative_damage_pct"	"-12 -20 -28 -36"
+			}		
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	
+		"Modifiers"
+		{
+			"modifier_command_aura_caster_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+		
+				"Aura"					"modifier_command_aura_friendly_datadriven"
+				"Aura_Radius"			"%aura_radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+	
+				"OnRespawn"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_vengefulspirit/command_aura.lua"
+						"Function"		"CommandAuraRespawn"
+						"modifier"		"modifier_command_aura_attacker_datadriven"
+					}				
+				}
+				
+	
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_vengefulspirit/command_aura.lua"
+						"Function"		"CommandAuraDeath"
+					}
+	
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_command_aura_attacker_datadriven"
+						"Target"
+						{
+							"Center"	"ATTACKER"
+							"Types"		"DOTA_UNIT_TARGET_HERO"
+							"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						}
+					}
+	
+					"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_vengeful/vengeful_negative_aura.vpcf"
+						"EffectAttachType"  "start_at_customorigin"
+	
+						"ControlPointEntities"
+						{
+							"ATTACKER"	"follow_origin"
+							"CASTER"	"follow_origin"
+						}
+					}
+													
+				}			
+			}
+	
+			"modifier_command_aura_friendly_datadriven"
+			{
+				"IsBuff"	"1"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_damage_pct" 
+				}			
+			}
+	
+			"modifier_command_aura_attacker_datadriven"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+		
+				"Aura"					"modifier_command_aura_enemy_datadriven"
+				"Aura_Radius"			"%aura_radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+			}
+	
+			"modifier_command_aura_enemy_datadriven"
+			{
+				"IsDebuff"	"1"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%negative_damage_pct" 
+				}			
+			}
+		}	
 	}
 	// Rewrite of the Phantom Assassin Blur ability
 	// Author: Pizzalol
