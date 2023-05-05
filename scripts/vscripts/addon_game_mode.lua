@@ -1147,6 +1147,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		--print(ability:GetName())
 		parent:AddNewModifier(ability:GetCaster(), ability, "modifier_omniknight_guardian_angel_regen", {})
+	elseif event.name_const == "modifier_fountain_invulnerability" then
+		return false
 	end
 	return true
 end
