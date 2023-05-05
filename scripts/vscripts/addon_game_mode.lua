@@ -829,8 +829,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("undying_flesh_golem_aura_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_shadow_demon" then
 			entity:FindAbilityByName("shadow_demon_soul_catcher_debuff_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_silencer" then
-			entity:FindAbilityByName("silencer_global_silence_aghs_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_obsidian_destroyer" then
 			entity:FindAbilityByName("obsidian_destroyer_imprison_int_steal_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_wisp" then
