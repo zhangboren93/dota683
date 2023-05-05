@@ -350,12 +350,12 @@
 	{										
 		// General
 		//----------------------------------------------------------------
-		"Model"						"models/creeps/neutral_creeps/n_creep_satyr_spawn_a/n_creep_satyr_spawn_a.vmdl"	// Model.
+		"Model"						"models/creeps/neutral_creeps/n_creep_dragonspawn_a/n_creep_dragonspawn_a.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creep_neutral"
 		"SoundSet"					"n_creep_Melee"
 		"Level"						"3"
 		"IsAncient"					"1"
-		"ModelScale" 					"1.0"
+		"ModelScale" 					"0.7"
 		"IsNeutralUnitType"			"1"
 
 		// Abilities
@@ -374,7 +374,7 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"33"		// Damage range min.
 		"AttackDamageMax"			"38"		// Damage range max.	
-		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackRate"				"1.35"		// Speed of attack.
 		"AttackAnimationPoint"		"0.83"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"100"		// Range within a target can be attacked.
@@ -383,19 +383,19 @@
 
 		// Bounds
 		//----------------------------------------------------------------
-		"RingRadius"				"80"
-		"HealthBarOffset"			"220"
+		"RingRadius"				"70"
+		"HealthBarOffset"			"200"
 
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"62"		// Experience earn.
-		"BountyGoldMin"				"78"		// Gold earned min.
-		"BountyGoldMax"				"80"		// Gold earned max.
+		"BountyGoldMin"				"74"		// Gold earned min.
+		"BountyGoldMax"				"82"		// Gold earned max.
 
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"300"		// Speed.
+		"MovementSpeed"				"270"		// Speed.
 
 		// Status
 		//----------------------------------------------------------------
@@ -412,8 +412,8 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}		
 	//TODO fix toughness aura
@@ -421,12 +421,14 @@
 	{										
 		// General
 		//----------------------------------------------------------------
-		"Model"						"models/creeps/neutral_creeps/n_creep_satyr_spawn_a/n_creep_satyr_spawn_b.vmdl"	// Model.
+		//"Model"						"models/creeps/neutral_creeps/n_creep_satyr_spawn_a/n_creep_satyr_spawn_b.vmdl"	// Model.
+		"Model"						"models/creeps/neutral_creeps/n_creep_dragonspawn_b/n_creep_dragonspawn_b.vmdl"	// Model.
 		"BaseClass"					"npc_dota_creep_neutral"
 		"SoundSet"					"n_creep_Melee"
 		"Level"						"5"
 		"IsAncient"					"1"
-		"ModelScale" 					"1.15"
+		//"ModelScale" 					"1.15"
+		"ModelScale" 					".85"
 		"IsNeutralUnitType"			"1"
 
 		// Abilities
@@ -446,7 +448,7 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"59"		// Damage range min.
 		"AttackDamageMax"			"65"		// Damage range max.	
-		"AttackRate"				"1.5"		// Speed of attack.
+		"AttackRate"				"1.35"		// Speed of attack.
 		"AttackAnimationPoint"		"0.83"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"100"		// Range within a target can be attacked.
@@ -455,19 +457,19 @@
 
 		// Bounds
 		//----------------------------------------------------------------
-		"RingRadius"				"70"
-		"HealthBarOffset"			"200"
+		"RingRadius"				"20"
+		"HealthBarOffset"			"220"
 
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"119"		// Experience earn.
-		"BountyGoldMin"				"89"		// Gold earned min.
-		"BountyGoldMax"				"93"		// Gold earned max.
+		"BountyGoldMin"				"86"		// Gold earned min.
+		"BountyGoldMax"				"98"		// Gold earned max.
 
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"270"		// Speed.
+		"MovementSpeed"				"300"		// Speed.
 
 		// Status
 		//----------------------------------------------------------------
@@ -480,6 +482,11 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"800"		// Range of vision during day light.
 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}								
 	"npc_dota_creep_badguys_melee"
 	{
