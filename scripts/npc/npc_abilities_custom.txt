@@ -27115,7 +27115,7 @@
 				"value"									"150 220 290 360"
 				"special_bonus_unique_pudge_7"			"+120"
 			}
-			"hook_speed"								"1450.0"
+			"hook_speed"								"1600.0"
 			"hook_width"								"100"
 			"hook_distance"								"1000 1100 1200 1300"
 			"vision_radius"		"500 500 500 500"
@@ -32689,7 +32689,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"arrow_speed"		"900.0"
+				"arrow_speed"		"857.0"
 			}
 			"02"
 			{
