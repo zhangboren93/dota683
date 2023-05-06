@@ -894,17 +894,20 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:GetName() == "npc_dota_courier" or
 		entity:GetName() == "npc_dota_flying_courier" then
 		entity:SetThink(function()
-			if entity:HasAbility("courier_share") then
-				entity:FindAbilityByName("courier_share"):SetLevel(1)
-			end
-			if entity:GetLevel() >= 4 then
+			entity:RemoveModifierByName("modifier_courier_passive_bonus")
+			if entity:HasItemInInventory("item_flying_courier_datadriven") then
+				if not entity:HasModifier("modifier_courier_flying") then
+					entity:AddNewModifier(entity, entity, "modifier_courier_flying", {})
+				end
 				entity:SetBaseMoveSpeed(430)
 				entity:SetBaseMaxHealth(150)
+				entity:RemoveItem(entity:FindItemInInventory("item_flying_courier_datadriven"))
 				return
+			else
+				entity:RemoveModifierByName("modifier_courier_flying")
 			end
-			entity:RemoveModifierByName("modifier_courier_passive_bonus")
-			return 1
-		end, nil, "fix speed", 1)
+			return 2
+		end, nil, "fix speed", 2)
 	end
 
 	if entity:GetName() == "npc_dota_creep_lane" then

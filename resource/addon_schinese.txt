@@ -8,6 +8,8 @@
 		"DOTA_Tooltip_Ability_item_quelling_blade_datadriven_Description"	"对小兵 +33%%/13%%(近战/远程)攻击力"
 		"DOTA_Tooltip_Ability_item_courier_2"	"信使"
 		"DOTA_Tooltip_Ability_item_courier_2_Description"	"英雄等级到4自动升级为飞行信使，信使创建时只能由创建玩家控制，需要使用技能开启分享，开启分享后无法关闭"
+		"DOTA_Tooltip_Ability_item_flying_courier_datadriven"				"升级信使"
+		"DOTA_Tooltip_Ability_item_flying_courier_datadriven_Description"	"给信使，让它飞"
 		"DOTA_Tooltip_Ability_item_javelin_datadriven"	"标枪"
 		"DOTA_Tooltip_Ability_item_javelin_datadriven_Description"	"+21攻击力\n20%%+40法伤"
 		"DOTA_Tooltip_Ability_item_lifesteal_datadriven" "吸血面具"

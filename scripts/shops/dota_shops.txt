@@ -9,7 +9,7 @@
 		"item"		"item_tpscroll"
 		"item"		"item_dust"
 		"item"		"item_courier_2"
-		//"item"		"item_flying_courier"
+		"item"		"item_flying_courier_datadriven"
 		"item"		"item_ward_observer"
 		"item"		"item_ward_sentry"
 		"item"		"item_bottle"		

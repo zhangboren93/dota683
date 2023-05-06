@@ -167,6 +167,19 @@
 	        }
 	    }
 	}
+	"item_flying_courier_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"item_flying_courier"
+		"ItemCost"						"220"	
+		"ItemPurchasable"				"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemStockMax" 					"1"
+		"ItemStockTime" 				"180"
+		"ItemStockInitial"				"0"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+	}
 
 	"item_recipe_travel_boots_2"
 	{
