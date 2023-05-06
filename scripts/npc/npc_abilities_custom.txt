@@ -3108,6 +3108,12 @@
 			"ward_1_count"			"10 0 0"
 			"ward_2_count"			"0 10 0"
 			"ward_3_count"			"0 0 10"
+			"splash_full"			"100"
+			"splash_medium"			"40"
+			"splash_small"			"20"
+			"full_splash_radius"	"50 75 85"
+			"mid_splash_radius"		"75 100 110"
+			"min_splash_radius"		"150 200 220"
 		}
 	
 		"precache"
@@ -3222,6 +3228,15 @@
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+	
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_shadow_shaman/mass_serpent_ward.lua"
+						"Function"		"DealSplashDamage"
+					}
 				}
 			}
 		}
