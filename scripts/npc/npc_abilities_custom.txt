@@ -34151,6 +34151,16 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"1"
 				}
 			}
+			"modifier_maelstrom_bonus_attack_speed"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"25"
+				}
+			}
 		}
 		"AbilityValues"
 		{

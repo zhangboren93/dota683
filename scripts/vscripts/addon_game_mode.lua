@@ -65,11 +65,8 @@ function Activate()
 	LinkLuaModifier( "modifier_doom_scorched_earth_regen",		"modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			"modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_maelstrom_as_lua",				"modifiers/maelstrom_attack_speed.lua", LUA_MODIFIER_MOTION_NONE)
 
-	LinkLuaModifier( "modifier_tpscroll_travel_cooldown", 		"modifiers/tpscroll.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_roshan_ai",						"units/roshan_ai.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tidebringer_cleave",				"heroes/hero_kunkka/tidebringer_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 end
@@ -682,7 +679,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
 		entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
-		entity:AddNewModifier(entity, nil, "modifier_tpscroll_travel_cooldown", {})
 		entity:AddNewModifier(entity, nil, "item_equipped_bonus_modifier", {
 			item = "item_shadow_amulet",
 			modifier = "modifier_item_shadow_amulet_attack_speed"
@@ -697,17 +693,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:SetThink(function()
 			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
 		end, "remove tpscroll", 0.5)
-		entity:SetThink(function()
-				 local item = entity:FindItemInInventory("item_maelstrom")
-				 if item ~= nil and item:GetItemState() == 1 then
-				if not entity:HasModifier("modifier_maelstrom_as_lua") then
-					entity:AddNewModifier(entity, nil, "modifier_maelstrom_as_lua", {})
-				end
-			else
-				entity:RemoveModifierByName("modifier_maelstrom_as_lua")
-			end
-			return 1
-		end, "generic item bonus checker", 1)
 
 		entity:SetThink(function()
 			if entity:HasModifier("modifier_bounty_hunter_track") then
