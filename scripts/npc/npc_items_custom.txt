@@ -481,7 +481,6 @@
 			"02"	"item_wraith_band_datadriven;item_ring_of_basilius_inactive_datadriven"
 		}
 	}
-	// TODO bonus armor
 	"item_ring_of_aquila"
 	{
 		"ItemPurchasable"	"1"

@@ -2110,7 +2110,7 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_invoker"				// TODO
+	"npc_dota_hero_invoker"
 	{
 		"AttributeBaseStrength"   	"19"
 		"AttributeStrengthGain"   	"1.7"

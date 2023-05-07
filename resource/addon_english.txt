@@ -342,5 +342,6 @@
 		"DOTA_Tooltip_Ability_item_tranquil_boots_datadriven_Description"						"+90 move speed, +4 armor, +12 health regen. Attack or being attacked lose health regen and 35 move speed."
 		"DOTA_Tooltip_Ability_winter_wyvern_arctic_burn_Lore"									"Pure damage 6% current health per second"
 		"DOTA_Tooltip_Ability_invoker_invoke_Scepter_Description"								"-CD, no mana cost"
+		"DOTA_Tooltip_Ability_item_ring_of_aquila_Lore" 										"+1 armor"
 	}
 }

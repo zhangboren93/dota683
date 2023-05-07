@@ -3241,84 +3241,6 @@
 			}
 		}
 	}
-    "shadow_shaman_mass_serpent_ward"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5081"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_ShadowShaman.SerpentWard"
-
-		"HasScepterUpgrade"			"1"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"550"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"120"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 350 600"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"ward_count"		"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_tooltip"			"45 60 75"
-				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_4"
-				"CalculateSpellDamageTooltip"	"0"				
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"40.0 40.0 40.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"scepter_range"			"225"
-				"RequiresScepter"			"1"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"spawn_radius"			"150"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip"			"2"
-				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
-				"LinkedSpecialBonusField"		"value2"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hits_to_destroy_tooltip_creeps"		"4"
-				"LinkedSpecialBonus"		"special_bonus_unique_shadow_shaman_1"
-			}
-		}
-	}
     "slardar_amplify_damage"
 	{
 		"MaxLevel"              "3"
@@ -34149,6 +34071,22 @@
 		"AbilityCooldown"	"5"
 		"Modifiers"
 		{
+			"modifier_item_bonus_checker_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"IsPurgable"	"0"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_bonus_thinker.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
 			"modifier_move_speed_cancel_night_datadriven"
 			{
 				"Passive"		"1"
@@ -34187,7 +34125,7 @@
 				"IsPurgable"	"0"
 				"Properties"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-30" 
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-30" 
 				}
 			}
 			"modifier_respawn_time_datadriven"
@@ -34201,6 +34139,16 @@
 						"ScriptFile"	"heroes/hero_respawn_time.lua"
 						"Function"		"handleDeath"
 					}
+				}
+			}
+			"modifier_ring_of_aquila_bonus_armor"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"1"
 				}
 			}
 		}

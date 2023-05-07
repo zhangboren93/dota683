@@ -8,7 +8,6 @@ function handleKillBonus(self, attacker, entity)
 		print("killed by neutral, no gold/XP bonus")
 		return
 	end
-	-- TODO give assist gold
 	local assist_players = {}
 	if entity.time_attacked ~= nil then
 		local current_time = GameRules:GetDOTATime(true, false)
