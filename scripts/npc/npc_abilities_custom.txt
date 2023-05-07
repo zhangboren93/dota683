@@ -3754,7 +3754,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"400"
+				"radius"				"450"
 			}
 			"03"
 			{
@@ -3770,7 +3770,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_delay"			"1.2"
+				"damage_delay"			"0.8"
 			}
 			"06"
 			{

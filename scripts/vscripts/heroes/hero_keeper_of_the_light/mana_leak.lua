@@ -16,7 +16,7 @@ function ManaLeakInit( keys )
 	-- Initial mana check
 	if target_mana <= 0 then
 		target:RemoveModifierByName(modifier)
-		target:AddNewModifier(caster, nil, "modifier_stunned", {duration = stun_duration})
+		target:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 		EmitSoundOn(sound, target)
 	end
 
