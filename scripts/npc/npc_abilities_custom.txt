@@ -16533,14 +16533,14 @@
 	"clinkz_attack_animation_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"// | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"			"1"
 		"Modifiers"
 		{
 			"modifier_clinkz_attack_animation_datadriven"
 			{
 				"Passive"	"1"
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"OnAttackStart"
 				{
 					"RunScript"
@@ -16553,6 +16553,7 @@
 			"modifier_clinkz_attack_animation_active"
 			{
 				"Passive"			"0"
+				"IsHidden"			"1"
 				"Duration"			"1"
 				"OverrideAnimation"	"ACT_DOTA_ATTACK_STATUE"
 			}

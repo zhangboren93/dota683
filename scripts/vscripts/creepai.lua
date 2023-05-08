@@ -79,7 +79,7 @@ function modifier_creep_ai:IsHidden()
 end
 
 function isAttackable(target, attacker) 
-	return IsValidEntity(target) and target:IsAlive() and target:CanEntityBeSeenByMyTeam(attacker) and not target:IsInvisible() and not target:IsAttackImmune()
+	return IsValidEntity(target) and target:IsAlive() and attacker:CanEntityBeSeenByMyTeam(target) and not target:IsInvisible() and not target:IsAttackImmune()
 end
 
 function modifier_creep_ai:OnIntervalThink()
@@ -112,14 +112,23 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 			return
 		end
 	end
+	if self.target ~= nil and IsValidEntity(self.target.unit) and not entity:CanEntityBeSeenByMyTeam(self.target.unit) then
+		if (entity:GetAbsOrigin() - self.target_loc):Length() > 100 then
+			entity:MoveToPosition(self.target_loc)
+			return
+		else
+			self.target = nil
+		end
+	end
+	local printpath = false
 	-- TODO move to target disappear location
 	local target = self:selectTarget()
 	-- TODO alert cooldown 2.1s
 	if target ~= nil then
 		self.target = target
+		self.target_loc = target.unit:GetAbsOrigin()
 		entity:MoveToTargetToAttack(self.target.unit)
 	else
-		self.alert_target = nil
 		self:takePath()
 	end
 end

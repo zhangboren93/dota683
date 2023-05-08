@@ -4,7 +4,7 @@ function handleTakeDamage(event)
 	end
 	local attacker = event.attacker
 	local unit = event.unit
-	if attacker:GetTeam() == unit:GetTeam() or not unit:CanEntityBeSeenByMyTeam(attacker) or (attacker:GetAbsOrigin() - unit:GetAbsOrigin()):Length() > 1800 then
+	if attacker:GetTeam() == unit:GetTeam() or not unit:CanEntityBeSeenByMyTeam(attacker) or (attacker:GetAbsOrigin() - unit:GetAbsOrigin()):Length() > 1800 or attacker:IsBuilding() then
 		return
 	end
 	local units = FindUnitsInRadius(unit:GetTeam(), unit:GetAbsOrigin(), unit, 500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_CREEP, 0, 0, true)
