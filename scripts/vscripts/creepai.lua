@@ -66,7 +66,6 @@ pathCornersMap["bt"] = {
 function modifier_creep_ai:OnCreated(kv)
 	if IsServer() then
 		self.kv = kv
-		self.state = AI_STATE_PATHING
 		self:StartIntervalThink(0.5) 
 	end
 end
@@ -88,7 +87,6 @@ function modifier_creep_ai:OnIntervalThink()
 	if not ret then
 		self.target = nil
 		self.alert_target = nil
-		self.state = AI_STATE_PATHING
 		print(error)
 		GameRules:SendCustomMessage(error, -1, -1)
 	end
@@ -103,38 +101,26 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 			entity:RemoveModifierByName("modifier_creep_aggroed_datadriven")
 		end
 	end
-	if self.state == AI_STATE_PATHING then
-		local target = self:selectTarget()
-		-- TODO alert cooldown 2.1s
-		if target == nil and self.alert_target ~= nil and isAttackable(self.alert_target, entity) then
-			target = {
-				unit = self.alert_target
-			}
-		end
-		if target ~= nil then
-			self.state = AI_STATE_ATTACKING
-			self.target = target
-			entity:MoveToTargetToAttack(target.unit)
-		else	
-			self:takePath()
-		end
-	elseif self.state == AI_STATE_ATTACKING then
-		if self.target == nil
-			or self.target.unit:HasModifier("modifier_creep_aggro_move_datadriven")
-			or not isAttackable(self.target.unit, entity) then
-			self.target = nil
-			self.alert_target = nil
-			self.state = AI_STATE_PATHING
-			self:OnIntervalThink()
-			return
-		end
+	if self.target ~= nil 
+		and IsValidEntity(self.target.unit) 
+		and not self.target.unit:HasModifier("modifier_creep_aggro_move_datadriven") 
+		and isAttackable(self.target.unit, entity) then
+		
 		local distance = (self.target.unit:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length()
-		if (distance > self.kv.attackrange) then
-			self.target = nil
-			self.state = AI_STATE_PATHING
+		if distance <= self.kv.attackrange then
+			entity:MoveToTargetToAttack(self.target.unit)
 			return
 		end
-		--entity:MoveToTargetToAttack(self.target.unit)
+	end
+	-- TODO move to target disappear location
+	local target = self:selectTarget()
+	-- TODO alert cooldown 2.1s
+	if target ~= nil then
+		self.target = target
+		entity:MoveToTargetToAttack(self.target.unit)
+	else
+		self.alert_target = nil
+		self:takePath()
 	end
 end
 
@@ -168,7 +154,29 @@ end
 function modifier_creep_ai:selectTarget()
 	local entity = self:GetParent()
 	local position = entity:GetAbsOrigin()
-	local units = FindUnitsInRadius(
+	local unist = {}
+	if self.kv.seige > 0 then
+		units = FindUnitsInRadius(
+			entity:GetTeam(), position, entity, self.kv.attackrange, 
+			DOTA_UNIT_TARGET_TEAM_ENEMY, 
+			DOTA_UNIT_TARGET_ALL, 
+			DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			FIND_CLOSEST, false)
+		local buildings = {}
+		for i=1,#units do
+			if units[i]:IsBuilding() then
+				table.insert(buildings, units[i])
+			end
+		end
+		if #buildings > 0 then
+			return {
+				unit = buildings[1],
+				priority = PRIORITY_SEIGE
+			}
+		end
+	end
+
+	units = FindUnitsInRadius(
 		entity:GetTeam(), position, entity, self.kv.attackrange, 
 		DOTA_UNIT_TARGET_TEAM_ENEMY, 
 		DOTA_UNIT_TARGET_ALL, 
@@ -200,32 +208,26 @@ function modifier_creep_ai:selectTarget()
 		DOTA_UNIT_TARGET_ALL, 
 		DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		FIND_CLOSEST, false)
-	if self.kv.seige > 0 then
-		local buildings = {}
-		for i=1,#units do
-			if units[i]:IsBuilding() then
-				table.insert(buildings, units[i])
-			end
-		end
-		if #buildings > 0 then
-			return {
-				unit = buildings[1],
-				priority = PRIORITY_SEIGE
-			}
-		end
-	end
 	if #units > 0 then
 		for i=1,#units do
 			if not units[i]:HasModifier("modifier_creep_aggro_move_datadriven") then
 				return {
 					unit = units[i],
-					priority = PRIORITY_HERO
 				}
 			end
 		end
 		return {
 			unit = units[1],
-			priority = PRIORITY_HERO
+		}
+	end
+	if self.alert_target ~= nil and isAttackable(self.alert_target, entity) then
+		return {
+			unit = self.alert_target
+		}
+	end
+	if self.target ~= nil and isAttackable(self.target.unit, entity) then
+		return {
+			unit = self.target.unit
 		}
 	end
 	return nil
