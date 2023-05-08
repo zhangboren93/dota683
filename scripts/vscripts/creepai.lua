@@ -113,7 +113,7 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 		end
 	end
 	if self.target ~= nil and IsValidEntity(self.target.unit) and not entity:CanEntityBeSeenByMyTeam(self.target.unit) then
-		if (entity:GetAbsOrigin() - self.target_loc):Length() > 100 then
+		if (entity:GetAbsOrigin() - self.target_loc):Length() > 100 and GameRules:GetDOTATime(false, false) - self.target_loc_time < 5 then
 			entity:MoveToPosition(self.target_loc)
 			return
 		else
@@ -127,6 +127,7 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 	if target ~= nil then
 		self.target = target
 		self.target_loc = target.unit:GetAbsOrigin()
+		self.target_loc_time = GameRules:GetDOTATime(false, false)
 		entity:MoveToTargetToAttack(self.target.unit)
 	else
 		self:takePath()
