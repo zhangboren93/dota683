@@ -36,8 +36,7 @@ function Activate()
 	LinkLuaModifier( "item_sphere_bonus_modifier", "items/item_sphere.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_crimson_guard_bonus_modifier", "items/item_crimson_guard.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_bfury_regen_percentage_modifier", "items/item_bfury.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "item_soul_ring_bonus_modifier", "items/item_soul_ring.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "item_medallion_regen_percentage_modifier", "items/item_medallion.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "item_pct_mana_regen_modifier_lua", "items/item_pct_mana_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_equipped_bonus_modifier", "items/item_equip_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bonus_strength_lua", "modifiers/bonus_strength.lua", LUA_MODIFIER_MOTION_NONE )
@@ -47,7 +46,6 @@ function Activate()
 	LinkLuaModifier( "modifier_dagon_damage_lua", "modifiers/dagon_bonus_damage.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_refresher_bonus_lua", "modifiers/refresher_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sphere_bonus_damage_lua", "modifiers/sphere_bonus_damage.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_soul_ring_health_regen_lua", "modifiers/soul_ring_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_attribute_regen_adjust", "modifiers/attribute_regen.lua", LUA_MODIFIER_MOTION_NONE)
@@ -511,8 +509,6 @@ function CAddonTemplateGameMode:OnThink()
 		if self.nextRoshanTime ~= nil and time > self.nextRoshanTime then
 			print("Spawn next rosh")
 			local roshan = CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
-		--	roshan:SetIdleAcquire(false)
-		--	roshan:AddNewModifier(nil, nil, "modifier_roshan_ai", {aggroRange = 150, leashRange = 1250})
 			self.nextRoshanTime = nil
 		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
@@ -611,22 +607,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			return false
 		end
 	end
---	for i,v in pairs(event.units) do
---		local unit = EntIndexToHScript(v)
---		if unit:GetName() == "npc_dota_courier" then
---				if unit.isSharedWithTeam == nil
---				and unit:GetPlayerOwnerID() ~= event.issuer_player_id_const then
---				event.units[i] = nil
---				if event.order_type == DOTA_UNIT_ORDER_MOVE_ITEM then
---					local item = EntIndexToHScript(event.entindex_ability)
---					if item:GetItemSlot() >= DOTA_STASH_SLOT_1 then
---						GameRules:SendCustomMessage("信使未共享, 无法从储藏室中取出物品", -1, -1)
---						return false
---					end
---				end
---			end
---		end
---	end
 	return true
 end
 
@@ -676,7 +656,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "item_sphere_bonus_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_crimson_guard_bonus_modifier", {})
 		entity:AddNewModifier(entity, nil, "item_bfury_regen_percentage_modifier", {})
-		entity:AddNewModifier(entity, nil, "item_soul_ring_bonus_modifier", {})
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
 		entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
