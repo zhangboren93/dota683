@@ -34182,6 +34182,119 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"3"
 				}
 			}
+			"modifier_crimson_guard_attribute_bonus"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"2"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"2"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"2"
+				}
+			}
+			"modifier_refresher_attr_as_bonus"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"6"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"10"
+				}
+			}
+			"modifier_necronomicon_intellect_bonus"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"15"
+				}
+			}
+			"modifier_necronomicon_2_intellect_bonus"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"21"
+				}
+			}
+			"modifier_necronomicon_3_intellect_bonus"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"24"
+				}
+			}
+			"modifier_dagon_damage_bonus"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"9"
+				}
+			}
+			"modifier_dagon_2_damage_bonus"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"9"
+				}
+			}
+			"modifier_dagon_3_damage_bonus"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"9"
+				}
+			}
+			"modifier_dagon_4_damage_bonus"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"9"
+				}
+			}
+			"modifier_dagon_5_damage_bonus"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"9"
+				}
+			}
+			"modifier_item_force_staff_health_regen"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"3"
+				}
+			}
 		}
 		"AbilityValues"
 		{

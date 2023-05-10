@@ -6065,8 +6065,9 @@
 			"block_damage_ranged_active"	"75"
 			"block_chance_active"			"100"
 			"tooltip_reapply_time"			"35"
-			"bonus_strength"				"2"
+			"bonus_strength"				"0"
 			"strength_pct"					"0"
+			"all_stats_bonus"				"2"
 		}
 	}
 
