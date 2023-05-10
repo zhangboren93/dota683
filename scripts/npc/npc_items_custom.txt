@@ -1193,32 +1193,6 @@
 		"ItemDroppable" 		"1"
 		"ItemShareability"  	"ITEM_PARTIALLY_SHAREABLE"
 		"SideShop"				"1"
-		"Modifiers"
-		{
-		    "item_sobi_mask_mana_regen_modifier"
-		    {
-		        "Passive" "1"
-		        "IsHidden" "1"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"ActOnTargets"
-					{
-						"Target"	"TARGET"
-						"Action"    
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"items/item_sobi_mask.lua"
-								"Function"		"item_sobi_mask_gen_mana"
-								"ItemName"		"item_sobi_mask_datadriven"
-								"bonus_mana_regen_percentage"	"%bonus_mana_regen"
-							}
-						}
-					}
-				}
-		    }
-		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -2034,32 +2008,6 @@
 				"bonus_mana_regen_percentage"		"100"
 			}
 		}
-		"Modifiers"
-		{
-		    "item_void_stone_mana_regen_modifier"
-		    {
-		        "Passive" "1"
-		        "IsHidden" "1"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"ActOnTargets"
-					{
-						"Target"	"TARGET"
-						"Action"    
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"items/item_sobi_mask.lua"
-								"Function"		"item_sobi_mask_gen_mana"
-								"ItemName"		"item_void_stone_datadriven"
-								"bonus_mana_regen_percentage"	"%bonus_mana_regen_percentage"
-							}
-						}
-					}
-				}
-		    }
-		}
 	}
 
 		
@@ -2385,29 +2333,6 @@
 		}
 		"Modifiers"
 		{
-		    "modifier_item_oblivion_staff_mana_regen_datadriven"
-		    {
-		        "Passive" "1"
-		        "IsHidden" "1"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"ActOnTargets"
-					{
-						"Target"	"TARGET"
-						"Action"    
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"items/item_sobi_mask.lua"
-								"Function"		"item_sobi_mask_gen_mana"
-								"ItemName"		"item_oblivion_staff_datadriven"
-								"bonus_mana_regen_percentage"	"%bonus_mana_regen"
-							}
-						}
-					}
-				}
-		    }
 			"item_oblivion_staff_datadriven"
 			{
 				"Passive"			"1"
@@ -2499,29 +2424,6 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%bonus_health_regen"
 				}
 			}
-		    "modifier_item_pers_mana_regen_datadriven"
-		    {
-		        "Passive" "1"
-		        "IsHidden" "1"
-				"ThinkInterval"  "0.5"
-				"OnIntervalThink"
-				{
-					"ActOnTargets"
-					{
-						"Target"	"TARGET"
-						"Action"    
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"items/item_sobi_mask.lua"
-								"Function"		"item_sobi_mask_gen_mana"
-								"ItemName"		"item_pers_datadriven"
-								"bonus_mana_regen_percentage"	"%bonus_mana_regen"
-							}
-						}
-					}
-				}
-		    }
 		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -3923,29 +3825,6 @@
 					"TotalDamage"		"%soul_damage_amount"
 					"TotalDuration"		"%soul_damage_duration"
 					"Interval"			"%soul_damage_interval"
-				}
-			}
-		}
-		"item_urn_of_shadows_mana_regen_modifier"
-		{
-		    "Passive" "1"
-		    "IsHidden" "1"
-			"ThinkInterval"  "0.5"
-			"OnIntervalThink"
-			{
-				"ActOnTargets"
-				{
-					"Target"	"TARGET"
-					"Action"    
-					{
-						"RunScript"
-						{
-							"ScriptFile"	"items/item_sobi_mask.lua"
-							"Function"		"item_sobi_mask_gen_mana"
-							"ItemName"		"item_urn_of_shadows_datadriven"
-							"bonus_mana_regen_percentage"	"%bonus_mana_regen_percentage"
-						}
-					}
 				}
 			}
 		}
@@ -5708,29 +5587,6 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
 				}
 			}
-		    "item_bloodstone_mana_regen_datadriven"
-		    {
-		        "Passive" "1"
-		        "IsHidden" "1"
-				"ThinkInterval"  	"0.5"
-				"OnIntervalThink"
-				{
-					"ActOnTargets"
-					{
-						"Target"	"TARGET"
-						"Action"    
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"items/item_sobi_mask.lua"
-								"Function"		"item_sobi_mask_gen_mana"
-								"ItemName"		"item_bloodstone_datadriven"
-								"bonus_mana_regen_percentage"	"%bonus_mana_regen_percentage"
-							}
-						}
-					}
-				}
-		    }
 			"item_bloodstone_extra_mana_regen_datadriven"
 			{
 		        "Passive" "1"

@@ -166,6 +166,7 @@ function modifier_item_bloodstone_datadriven_aura_emitter_on_death(keys)
 	item_bloodstone_datadriven_recalculate_charge_bonuses(keys)
 end
 
+-- TODO show mana regen amount
 function item_bloodstone_extra_mana_regen(keys)
 	local caster = keys.caster
     local ability = keys.ability

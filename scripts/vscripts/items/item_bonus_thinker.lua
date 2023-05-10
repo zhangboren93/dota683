@@ -7,6 +7,12 @@ item2pctregen["item_refresher"] = 200
 item2pctregen["item_cyclone"] = 150
 item2pctregen["item_orchid"] = 150
 item2pctregen["item_sheepstick"] = 150
+item2pctregen["item_sobi_mask_datadriven"] = 50
+item2pctregen["item_void_stone_datadriven"] = 100
+item2pctregen["item_oblivion_staff_datadriven"] = 75 
+item2pctregen["item_pers_datadriven"] = 125 
+item2pctregen["item_urn_of_shadows_datadriven"] = 50 
+item2pctregen["item_bloodstone_datadriven"] = 200 
 
 function handleIntervalThink(event)
 	local caster = event.caster
