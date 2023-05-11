@@ -26,8 +26,9 @@ end
 function Activate()
 	GameRules.AddonTemplate = CAddonTemplateGameMode()
 	GameRules.AddonTemplate:InitGameMode()
-	LinkLuaModifier( "item_pct_mana_regen_modifier_lua", "items/item_pct_mana_regen.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "item_equipped_bonus_modifier", "items/item_equip_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "item_pct_mana_regen_modifier_lua",	"items/item_pct_mana_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "item_equipped_bonus_modifier",		"items/item_equip_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "item_tpscroll_clear_tree_modifier",	"items/item_tpscroll_clear_trees.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -632,6 +633,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
 		entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
+		entity:AddNewModifier(entity, nil, "item_tpscroll_clear_tree_modifier", {})
 		if self.botEnabled and entity:GetTeam() == DOTA_TEAM_BADGUYS then
 			entity:AddNewModifier(entity, nil, "modifier_bot_item_purchase", {})
 		else
