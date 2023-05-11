@@ -102,6 +102,8 @@
 	"item_recipe_moon_shard"
 	{
 		"ItemPurchasable"	"0"
+		"ItemRecipe"		"0"
+		"IsObsolete"		"1"
 	}
 
 	"item_crown"
@@ -2513,7 +2515,7 @@
 			"bonus_intellect"		"3 3"
 			"bonus_damage"			"3 3"
 			"bonus_health_regen"	"0 0"
-			"clock_time"			"25"
+			"clock_time"			"2500"
 		}
 	}
 
