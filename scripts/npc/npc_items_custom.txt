@@ -6540,6 +6540,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_basher"
+		"InvalidHeroes" 				"npc_dota_hero_spirit_breaker;npc_dota_hero_faceless_void;npc_dota_hero_slardar;npc_dota_hero_troll_warlord"
 		"ItemRequirements"
 		{
 			"01"						"item_javelin_datadriven;item_belt_of_strength"
