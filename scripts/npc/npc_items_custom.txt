@@ -5571,7 +5571,7 @@
 				"Function"						"item_bloodstone_datadriven_on_spell_start"
 			}
 		}
-
+		
 		"Modifiers"
 		{
 			"modifier_item_bloodstone_datadriven"
@@ -5587,29 +5587,6 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
 				}
 			}
-			"item_bloodstone_extra_mana_regen_datadriven"
-			{
-		        "Passive" "1"
-		        "IsHidden" "0"
-				"ThinkInterval"  	"0.5"
-				"OnIntervalThink"
-				{
-					"ActOnTargets"
-					{
-						"Target"	"TARGET"
-						"Action"    
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"items/item_bloodstone.lua"
-								"Function"		"item_bloodstone_extra_mana_regen"
-								"ItemName"		"item_bloodstone_datadriven"
-								"bonus_mana_regen_per_charge"	"%bonus_mana_regen_per_charge"
-							}
-						}
-					}
-				}
-		    }
 			"modifier_item_bloodstone_datadriven_aura_emitter"
 			{
 				"Passive"			"1"
@@ -5621,6 +5598,15 @@
 				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Aura_ApplyToCaster" 	"0"
+				"ThinkInterval"			"2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/item_bloodstone.lua"
+						"Function"				"item_bloodstone_datadriven_recalculate_charge_bonuses"
+					}
+				}
 
 			//	"OnKill"
 			//	{
@@ -5630,15 +5616,6 @@
 			//			"Function"				"modifier_item_bloodstone_datadriven_aura_emitter_on_hero_kill"
 			//		}
 			//	}
-				
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"items/item_bloodstone.lua"
-						"Function"				"item_bloodstone_datadriven_recalculate_charge_bonuses"
-					}
-				}
 
 				"OnDeath"
 				{
@@ -5673,11 +5650,14 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"IsPurgable"		"0"
+				"IsDebuff"			"0"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_PERMANENT"
 				
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DEATHGOLDCOST"			"%death_gold_reduction_per_charge"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%bonus_mana_regen_per_charge"
 				}
 			}
 		}

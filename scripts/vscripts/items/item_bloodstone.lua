@@ -59,31 +59,33 @@ end
 	only have at most one Bloodstone charge modifier regardless of how many Bloodstones they have.
 ================================================================================================================= ]]
 function item_bloodstone_datadriven_recalculate_charge_bonuses(keys)
-	print("item_bloodstone_datadriven_recalculate_charge_bonuses called")
+	--print("item_bloodstone_datadriven_recalculate_charge_bonuses called")
 	keys.caster:SetThink(function()
-    	local total_charge_count = 0
-    
-    	for i=0, 5, 1 do
-    		local current_item = keys.caster:GetItemInSlot(i)
-    		if current_item ~= nil then
-    			print(current_item:GetName())
-    		end
-    		if current_item ~= nil and current_item:GetName() == "item_bloodstone_datadriven" then
-    			total_charge_count = total_charge_count + current_item:GetCurrentCharges()
-    		end
-    	end
-    
-    	print("total charge count " .. total_charge_count)
-    	--Temporarily remove all existing Bloodstone charge modifiers on the unit.
-    	while keys.caster:HasModifier("modifier_item_bloodstone_datadriven_charge") do
-    		keys.caster:RemoveModifierByName("modifier_item_bloodstone_datadriven_charge")
-    	end
-    	
-    	--Apply modifiers giving the player bonus mana regen and less gold lost on death.
-    	for i=1, total_charge_count, 1 do
-    		print("Applying data driven modifier modifier_item_bloodstone_datadriven_charge " .. i)
-    		keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_item_bloodstone_datadriven_charge", nil)
-    	end
+		local total_charge_count = 0
+	
+		for i=0, 5, 1 do
+			local current_item = keys.caster:GetItemInSlot(i)
+			--if current_item ~= nil then
+			--	print(current_item:GetName())
+			--end
+			if current_item ~= nil and current_item:GetName() == "item_bloodstone_datadriven" then
+				total_charge_count = total_charge_count + current_item:GetCurrentCharges()
+			end
+		end
+	
+		--Temporarily remove all existing Bloodstone charge modifiers on the unit.
+		local modifiers = keys.caster:FindAllModifiersByName("modifier_item_bloodstone_datadriven_charge");
+		--print("total charge count " .. total_charge_count .. " " .. #modifiers)
+		if total_charge_count == #modifiers then
+			return
+		end
+		keys.caster:RemoveAllModifiersOfName("modifier_item_bloodstone_datadriven_charge")
+		
+		--Apply modifiers giving the player bonus mana regen and less gold lost on death.
+		for i=1, total_charge_count, 1 do
+			--print("Applying data driven modifier modifier_item_bloodstone_datadriven_charge " .. i)
+			keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_item_bloodstone_datadriven_charge", nil)
+		end
 	end, nil, nil, 0.5)
 end
 
@@ -100,7 +102,7 @@ end
 	Known bugs:
 		Buying back does not prematurely end the vision in the spot the hero died at.
 		Dying with a Bloodstone in your inventory, then moving the Bloodstone out of your inventory will halt the experience
-		    gained in the area of your death.
+			gained in the area of your death.
 ================================================================================================================= ]]
 function modifier_item_bloodstone_datadriven_aura_emitter_on_death(keys)
 	--Reduce the hero's time spent dead for each charge on all Bloodstones in the player's inventory.
@@ -164,20 +166,4 @@ function modifier_item_bloodstone_datadriven_aura_emitter_on_death(keys)
 	keys.caster:SetTimeUntilRespawn(new_time_until_respawn)
 	
 	item_bloodstone_datadriven_recalculate_charge_bonuses(keys)
-end
-
--- TODO show mana regen amount
-function item_bloodstone_extra_mana_regen(keys)
-	local caster = keys.caster
-    local ability = keys.ability
-    local itemname = keys.ItemName
-
-	local item = caster:FindItemInInventory(itemname)
-	if item ~=nil and item:GetItemState() == 1 then
-    	local bonus_mana = keys.bonus_mana_regen_per_charge * item:GetCurrentCharges()
-        -- think interval is 0.5s
-        bonus_mana = bonus_mana / 2
-		--print("give mana " .. bonus_mana)
-		caster:GiveMana(bonus_mana)
-	end
 end
