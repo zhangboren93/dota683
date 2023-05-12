@@ -343,5 +343,7 @@
 		"DOTA_Tooltip_Ability_invoker_invoke_Scepter_Description"								"-CD, no mana cost"
 		"DOTA_Tooltip_Ability_item_ring_of_aquila_Lore" 										"+1 armor"
 		"DOTA_Tooltip_Ability_item_crimson_guard_Lore"											"+2 all attributes" 
+		"DOTA_Tooltip_Ability_item_blink_datadriven"											"Blink dagger" 
+		"DOTA_Tooltip_Ability_item_blink_datadriven_Description"								"cast range 1200, 3s CD when attacked by player" 
 	}
 }

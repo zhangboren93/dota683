@@ -1,36 +1,19 @@
-if item_cyclone_regen_percentage_modifier == nil then
-    item_cyclone_regen_percentage_modifier = class({})
-end
-
-function item_cyclone_regen_percentage_modifier:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
-function item_cyclone_regen_percentage_modifier:OnCreated(kv)
---    print("item_cyclone_regen_percentage_modifier:OnCreated")
-    self:StartIntervalThink(0.5)
-end
-
-function item_cyclone_regen_percentage_modifier:IsHidden()
-    return true
-end
-
-function item_cyclone_regen_percentage_modifier:OnIntervalThink()
-    --print("interval think")
-    local hParent = self:GetParent() --the unit.
-    if hParent == nil or hParent.FindItemInInventory == nil then
-        return
-    end
-    local item = hParent:FindItemInInventory("item_cyclone")
-    if item ~= nil and item:GetItemState() == 1 then
-        --print("sheepstick state: " .. item:GetItemState())
-        
-        local mana_gen = hParent:GetManaRegen();
-        local mana_gen_bonus = item:GetSpecialValueFor("bonus_mana_regen_percentage")
-        local bonus_mana = mana_gen * mana_gen_bonus / 100
-        -- think interval is 0.5s
-        bonus_mana = bonus_mana / 2
-        -- print("orchid bonus mana " .. bonus_mana)
-        hParent:GiveMana(bonus_mana)
-    end
+function handleAbilityExecuted(keys)
+	local unit = keys.unit
+	local ability2 = keys.ability
+	local event_ability = keys.event_ability
+	local target = keys.target
+	print(event_ability:GetName())
+	if event_ability:GetName() == "item_cyclone" and target:IsRealHero() and target:GetTeam() ~= unit:GetTeam() then
+		local blink = target:FindItemInInventory("item_blink_datadriven")
+		print(blink)
+		if blink == nil then
+			return
+		end
+		if blink:IsCooldownReady() or blink:GetCooldownTime() < 2.5 then
+			target:SetThink(function()
+				blink:EndCooldown()
+			end, "enables blink after cyclone", 2.53)
+		end
+	end
 end

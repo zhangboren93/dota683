@@ -59,7 +59,7 @@
 		"item"		"item_lifesteal_datadriven"
 		"item"		"item_shadow_amulet"	
 		"item"		"item_ghost"
-		"item"		"item_blink"	
+		"item"		"item_blink_datadriven"	
 		"item"		"item_talisman_of_evasion"		
 	}	
 	

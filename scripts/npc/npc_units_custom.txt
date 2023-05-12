@@ -4003,4 +4003,22 @@
 			}
 		}
 	}	
+//=================================================================================
+// THINKER
+//=================================================================================
+// Euls blocker
+	"npc_dota_thinker"
+	{
+		// General
+		//
+		"BaseClass"					"npc_dota_thinker"	// Class of entity of link to.
+		"Model"						"models/development/invisiblebox.vmdl"	// Model.
+		"SoundSet"					"0"					// Name of sound set.
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"BoundsHullName"			"DOTA_HULL_SIZE_HERO"
+		"VisionDaytimeRange"		"0"		// Range of vision during day light.
+		"VisionNighttimeRange"		"0"		// Range of vision at night time.
+		"Ability1"					"npc_dota_thinker_phase_datadriven"			// Ability 1.
+	}
 }

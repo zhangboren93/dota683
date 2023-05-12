@@ -628,6 +628,7 @@ end
 
 function HandleNpcSpawned(self, entityIndex, is_respawn)
 	local entity = EntIndexToHScript(entityIndex)
+	--print("NpcSpawned " .. entity:GetName())
 	if entity:IsRealHero() and is_respawn == 0 then
 		-- modifiers
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
@@ -891,6 +892,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:GetName() == "npc_dota_visage_familiar" then
 		entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 	end
+	if entity:GetName() == "npc_dota_thinker" then
+		entity:FindAbilityByName("npc_dota_thinker_phase_datadriven"):SetLevel(1)
+	end
 end
 
 function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
@@ -1097,7 +1101,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	local victim = EntIndexToHScript(event.entindex_victim_const)
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
-		--print("DamageFilter " .. inflictor:GetName())
+--		print("DamageFilter " .. inflictor:GetName())
 		--if inflictor:GetName() == "kunkka_tidebringer" or inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
 		if inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
 			local victim = EntIndexToHScript(event.entindex_victim_const)
@@ -1106,6 +1110,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		elseif inflictor:GetName() == "bounty_hunter_shuriken_toss" then
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			victim:AddNewModifier(attacker, attacker:FindAbilityByName("bounty_hunter_shuriken_toss"), "modifier_stunned", {duration = 0.03})
+		elseif inflictor:GetName() == "item_cyclone" then
+			return false
 		end
 	end
 	return true
