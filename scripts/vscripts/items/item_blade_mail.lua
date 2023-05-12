@@ -1,9 +1,8 @@
 function handleAbilityExecuted(event)
-	local unit = keys.unit
-	local ability2 = keys.ability
-	local event_ability = keys.event_ability
-	print(event_ability:GetName())
+	local unit = event.unit
+	local ability2 = event.ability
+	local event_ability = event.event_ability
 	if event_ability:GetName() == "item_blade_mail" then
-		unit:AddNewModifier(unit, event_ability, "modifier_item_blade_mail_new_active", {}):SetDuration(4.5)
+		unit:AddNewModifier(unit, event_ability, "modifier_item_blade_mail_new_active", {}):SetDuration(4.5, true)
 	end
 end

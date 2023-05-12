@@ -34310,7 +34310,7 @@
 					}
 				}
 			}
-			"modifier_item_bonus_checker_datadriven"
+			"modifier_blade_mail_checker"
 			{
 				"Passive"		"1"
 				"IsHidden"		"1"
