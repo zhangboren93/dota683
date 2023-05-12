@@ -34310,6 +34310,22 @@
 					}
 				}
 			}
+			"modifier_item_bonus_checker_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"IsPurgable"	"0"
+				"ThinkInterval"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_blade_mail.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
 		}
 		"AbilityValues"
 		{

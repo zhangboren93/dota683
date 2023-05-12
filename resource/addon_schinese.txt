@@ -345,5 +345,6 @@
 		"DOTA_Tooltip_Ability_item_crimson_guard_Lore"											"+2全属性" 
 		"DOTA_Tooltip_Ability_item_blink_datadriven"											"跳刀" 
 		"DOTA_Tooltip_Ability_item_blink_datadriven_Description"								"施法距离 1200，被英雄攻击进入3秒CD" 
+		"DOTA_Tooltip_Ability_item_blade_mail_Lore"												"反弹100%纯粹伤害" 
 	}
 }
