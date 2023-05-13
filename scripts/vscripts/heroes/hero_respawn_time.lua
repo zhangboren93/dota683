@@ -1,5 +1,8 @@
 function handleDeath(event)
 	local caster = event.caster
+	if caster:IsReincarnating() then
+		return
+	end
 	local ability = event.ability
 	local bonus_respawn_time = ability:GetLevelSpecialValueFor("bonus_respawn_time", caster:GetLevel() - 1)
 	print(caster:GetName())
