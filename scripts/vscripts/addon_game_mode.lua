@@ -894,9 +894,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:GetName() == "npc_dota_visage_familiar" then
 		entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 	end
-	if entity:GetName() == "npc_dota_thinker" then
-		entity:FindAbilityByName("npc_dota_thinker_phase_datadriven"):SetLevel(1)
-	end
+	--if entity:GetName() == "npc_dota_thinker" then
+		--entity:FindAbilityByName("npc_dota_thinker_phase_datadriven"):SetLevel(1)
+	--end
 end
 
 function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
@@ -1128,6 +1128,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		--print(ability:GetName())
 		parent:AddNewModifier(ability:GetCaster(), ability, "modifier_omniknight_guardian_angel_regen", {})
 	elseif event.name_const == "modifier_fountain_invulnerability" then
+		return false
+	elseif event.name_const == "modifier_eul_cyclone" then
 		return false
 	end
 	return true

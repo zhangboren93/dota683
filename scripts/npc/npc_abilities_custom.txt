@@ -34316,7 +34316,6 @@
 				"IsHidden"		"1"
 				"IsDebuff"		"0"
 				"IsPurgable"	"0"
-				"ThinkInterval"	"1"
 				"OnAbilityExecuted"
 				{
 					"RunScript"
@@ -34325,6 +34324,26 @@
 						"Function"		"handleAbilityExecuted"
 					}
 				}
+			}
+			"modifier_eul_cyclone_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
+				"EffectName"		"particles/items_fx/cyclone.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
+		        	"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				//"OverrideAnimation"     "ACT_DOTA_FLAIL"
 			}
 		}
 		"AbilityValues"
