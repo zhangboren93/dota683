@@ -143,7 +143,7 @@
 		"StatusHealth"				"600"		// Base health.
 		"BountyXP"					"88"		// Experience earn.
 		"BountyGoldMin"				"37"		// Gold earned min.
-		"BountyGoldMax"				"44"		// Gold earned max.
+		"BountyGoldMax"				"45"		// Gold earned max.
 	}
 	"npc_dota_neutral_wildkin"
 	{
