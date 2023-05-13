@@ -1408,6 +1408,7 @@
 	}
 	"item_ghost"
 	{
+		"ItemCost"						"1600"
 		"AbilityCooldown"				"30.0"		 
 		"AbilitySpecial"
 		{
@@ -8880,7 +8881,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"30.0"	    
+		"AbilityCooldown"				"30.0"
 		"AbilitySharedCooldown"			"ethereal"
 
 		// Item Info
@@ -8898,19 +8899,19 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_agility"			"40"
-			"bonus_strength"		"10"
-			"bonus_intellect"		"10"
-			"spell_amp"			"0"
-			"spell_lifesteal_amp"			"0"
+			"bonus_agility"				"40"
+			"bonus_strength"			"10"
+			"bonus_intellect"			"10"
+			"spell_amp"					"0"
+			"spell_lifesteal_amp"		"0"
 			"mana_regen_multiplier"		"0"
-			"blast_movement_slow"	"-80"
-			"duration"				"3.0"
-			"blast_agility_multiplier"			"2"
+			"blast_movement_slow"		"-80"
+			"duration"					"3.0"
+			"blast_agility_multiplier"	"2"
 			"blast_damage_base"			"75"
 			"duration_ally"				"4.0"
 			"ethereal_damage_bonus"		"-40"
-			"projectile_speed"			"1275"
+			"projectile_speed"			"1200"
 		}
 	}
 	//=================================================================================================================

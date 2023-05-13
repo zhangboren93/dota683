@@ -1113,6 +1113,16 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			victim:AddNewModifier(attacker, attacker:FindAbilityByName("bounty_hunter_shuriken_toss"), "modifier_stunned", {duration = 0.03})
 		elseif inflictor:GetName() == "item_cyclone" then
 			return false
+		elseif inflictor:GetName() == "item_ethereal_blade" then
+			--print(victim:Script_GetMagicalArmorValue(false, attacker))
+			if attacker:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then
+				event.damage = (attacker:GetStrength() * 2 + 75) * (1 - victim:Script_GetMagicalArmorValue(false, attacker))
+			elseif attacker:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then
+				event.damage = (attacker:GetAgility() * 2 + 75) * (1 - victim:Script_GetMagicalArmorValue(false, attacker))
+			else
+				event.damage = (attacker:GetIntellect() * 2 + 75) * (1 - victim:Script_GetMagicalArmorValue(false, attacker))
+			end
+			--print("Etheral damage " .. event.damage)
 		end
 	end
 	return true
