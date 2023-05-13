@@ -4,6 +4,7 @@ require("creepspawn")
 require("hero_innate_abilities")
 require("kill_bonus")
 require("heroes.hero_creep_aggro")
+require("building_bounty")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
@@ -942,6 +943,37 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 	if IsServer() and entity:IsRealHero() and (not entity:IsReincarnating()) then
 		handleKillBonus(self, attacker, entity)
 	end
+	if attacker:IsOwnedByAnyPlayer() and entity:IsBuilding() and attacker:GetTeam() ~= entity:GetTeam() then
+		-- grant building kill bonus
+		local bounty = entity:GetGoldBounty()
+		PlayerResource:ModifyGold(attacker:GetPlayerOwnerID(), bounty, true, DOTA_ModifyGold_Building)
+		local attackerName = string.sub(attacker:GetName(), 15)
+		GameRules:SendCustomMessage(attackerName .. "摧毁了建筑，获得" .. bounty .. "钱", -1, -1)
+	end
+	if entity:IsBuilding() and building2teambounty[entity:GetName()] ~= nil then
+		-- grant team bounty
+		local team_bounty = building2teambounty[entity:GetName()]
+		local is_deny = false
+		if attacker:GetTeam() == entity:GetTeam() then
+			is_deny = true
+			team_bounty = team_bounty / 2
+		end
+		local grant_team = DOTA_TEAM_GOODGUYS
+		local teamname = "近卫"
+		if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
+			grant_team = DOTA_TEAM_BADGUYS
+			teamname = "天灾"
+		end
+		local playerCount = PlayerResource:GetPlayerCountForTeam(grant_team)
+		for i=1,playerCount do
+			PlayerResource:ModifyGold(PlayerResource:GetNthPlayerIDOnTeam(grant_team, i), team_bounty, true, DOTA_ModifyGold_Building)
+		end
+		if is_deny then
+			GameRules:SendCustomMessage("建筑被反补，".. teamname .. "玩家各获得" .. team_bounty .. "金" , -1, -1)
+		else
+			GameRules:SendCustomMessage("建筑被摧毁，".. teamname .. "玩家各获得" .. team_bounty .. "金" , -1, -1)
+		end		
+	end
 end
 
 function HandleRuneActivated(playerid, rune)
@@ -1006,6 +1038,10 @@ function CAddonTemplateGameMode:ModifyGoldFilter(event)
 	end
 	if event.reason_const == DOTA_ModifyGold_HeroKill then
 		print("Blocking default hero kill gold")
+		return false
+	end
+	if event.reason_const == DOTA_ModifyGold_Building then
+		print("Blocking default building bounty")
 		return false
 	end
 	return true
