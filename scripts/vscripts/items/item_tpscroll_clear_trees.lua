@@ -20,7 +20,11 @@ end
 function item_tpscroll_clear_tree_modifier:OnTeleported(event)
 	local unit = event.unit
 	if unit == self:GetParent() then
-		print("tp " .. unit:GetName())
-		GridNav:DestroyTreesAroundPoint(unit:GetAbsOrigin(), 200, false)
+        unit:SetThink(function()
+            if not unit:HasModifier("modifier_furion_arboreal_might_armor") then
+               print("tp " .. unit:GetName())
+               GridNav:DestroyTreesAroundPoint(unit:GetAbsOrigin(), 200, false)
+            end
+        end, "tp clear tree", 0.1)
 	end
 end

@@ -6554,7 +6554,7 @@
 				"special_bonus_unique_furion_teleportation_max_stacks"		"+4"
 
 			}
-			"buff_duration"			"0"
+			"buff_duration"			"1"
 			"damage_per_stack"		"0"
 			"armor_per_stack"		"0"	
 		}
