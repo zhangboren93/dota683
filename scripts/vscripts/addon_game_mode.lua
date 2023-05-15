@@ -154,6 +154,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent("dota_hero_swap", function(event)
 		print("dota_hero_swap")
 	end, nil)
+	ListenToGameEvent("dota_buyback", function(event)
+		HandleBuyback(event.entindex, event.player_id)
+	end, nil)
 
 	if GetMapName() == "dota" then
 		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
@@ -933,12 +936,15 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			GameRules:SendCustomMessage("肉山被击杀，"..teamname.."全员获得200金", -1, -1)
 		end
 	end
-	if ability ~= nil and ability:GetName() == "necrolyte_reapers_scythe" and attacker:HasScepter() and entity:IsRealHero() and not entity:IsReincarnating() then
-		entity:SetBuyBackDisabledByReapersScythe(true)
-		print("renabling buyback after " .. entity:GetRespawnTime())
-		entity:SetThink(function()
-			entity:SetBuyBackDisabledByReapersScythe(false)
-		end, "", {}, entity:GetRespawnTime())
+	if ability ~= nil and ability:GetName() == "necrolyte_reapers_scythe" and entity:IsRealHero() and not entity:IsReincarnating() then
+		entity.necrospawnminus = 30
+		if attacker:HasScepter() then
+			entity:SetBuyBackDisabledByReapersScythe(true)
+			print("renabling buyback after " .. entity:GetLevel() * 4)
+			entity:SetThink(function()
+				entity:SetBuyBackDisabledByReapersScythe(false)
+			end, "", {}, entity:GetLevel() * 4 + 30)
+		end
 	end
 	if IsServer() and entity:IsRealHero() and (not entity:IsReincarnating()) then
 		handleKillBonus(self, attacker, entity)
@@ -1164,6 +1170,11 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		end
 	end
 	return true
+end
+
+function HandleBuyback(entindex, player_id)
+	local entity = EntIndexToHScript(entindex)
+	entity.buybacked = true
 end
 
 function bitand(a, b)

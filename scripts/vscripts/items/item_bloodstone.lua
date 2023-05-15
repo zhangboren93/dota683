@@ -131,39 +131,40 @@ function modifier_item_bloodstone_datadriven_aura_emitter_on_death(keys)
 	end
 	
 	--Reduce the time the cast spends dead.  This works correctly when killed by Necrophos' Reaper's Scythe as well.
-	local new_time_until_respawn = keys.caster:GetRespawnTime() - (total_charge_count * keys.RespawnTimeReductionPerCharge)
-	if new_time_until_respawn < 0 then
-		new_time_until_respawn = 0
-	end
+	--local new_time_until_respawn = keys.caster:GetRespawnTime() - (total_charge_count * keys.RespawnTimeReductionPerCharge)
+	--if new_time_until_respawn < 0 then
+		--new_time_until_respawn = 0
+	--end
 	
 	--Place the Bloodstone marker in the spot the hero died.
 	--local bloodstone_glyph = ParticleManager:CreateParticle("particles/items_fx/bloodstone_glyph.vpcf", PATTACH_ABSORIGIN, keys.caster)
 	--ParticleManager:SetParticleControl(bloodstone_glyph, 1, Vector(new_time_until_respawn))  --Set the duration of the Bloodstone glyph particle.
-	keys.ability:CreateVisibilityNode(keys.caster:GetAbsOrigin(), keys.VisionOnDeathRadius, new_time_until_respawn)  --Provide vision around the Bloodstone glyph.
+	--keys.ability:CreateVisibilityNode(keys.caster:GetAbsOrigin(), keys.VisionOnDeathRadius, new_time_until_respawn)  --Provide vision around the Bloodstone glyph.
 	
 	--If this is the hero's first death with a Bloodstone, start a global engine event listener so they can gain experience while dead.
 	--Ideally, a game event will be listened to only once, so beware of other items or abilities that invoke this game event.
-	if keys.caster.HasDiedWithBloodstoneBefore == nil then
-		ListenToGameEvent("entity_killed", function(keys)  --Allow the caster to gain experience around the spot they died in, if they are still dead and had a Bloodstone in their inventory.
-			local killed_entity = EntIndexToHScript(keys.entindex_killed)
-			local attacker_entity = EntIndexToHScript(keys.entindex_attacker)
-
-			for i, individual_hero in ipairs(HeroList:GetAllHeroes()) do
-				if individual_hero:HasItemInInventory("item_bloodstone_datadriven") and not individual_hero:IsAlive() then  --If the hero is still dead and has a Bloodstone.
-					if individual_hero:GetTeam() ~= killed_entity:GetTeam() and individual_hero:GetRangeToUnit(killed_entity) <= 1200 then  --If the killed unit is an enemy and within range of the Bloodstone glyph.
-						if killed_entity:GetTeam() ~= attacker_entity:GetTeam()then  --If the killed entity was not denied.
-							individual_hero:AddExperience(killed_entity:GetDeathXP(), DOTA_ModifyXP_HeroKill, false, false)
-						elseif not killed_entity:IsHero() then  --If the killed entity was denied.  Denied heroes do not award experience.
-							individual_hero:AddExperience(killed_entity:GetDeathXP() * .5, DOTA_ModifyXP_HeroKill, false, false)  --Denied creeps grant 50% experience.  Change this value if this mechanic is ever changed.
-						end
-					end
-				end
-			end
-		end, nil)
-		keys.caster.HasDiedWithBloodstoneBefore = true
-	end
+	--if keys.caster.HasDiedWithBloodstoneBefore == nil then
+		--ListenToGameEvent("entity_killed", function(keys)  --Allow the caster to gain experience around the spot they died in, if they are still dead and had a Bloodstone in their inventory.
+			--local killed_entity = EntIndexToHScript(keys.entindex_killed)
+			--local attacker_entity = EntIndexToHScript(keys.entindex_attacker)
+--
+			--for i, individual_hero in ipairs(HeroList:GetAllHeroes()) do
+				--if individual_hero:HasItemInInventory("item_bloodstone_datadriven") and not individual_hero:IsAlive() then  --If the hero is still dead and has a Bloodstone.
+					--if individual_hero:GetTeam() ~= killed_entity:GetTeam() and individual_hero:GetRangeToUnit(killed_entity) <= 1200 then  --If the killed unit is an enemy and within range of the Bloodstone glyph.
+						--if killed_entity:GetTeam() ~= attacker_entity:GetTeam()then  --If the killed entity was not denied.
+							--individual_hero:AddExperience(killed_entity:GetDeathXP(), DOTA_ModifyXP_HeroKill, false, false)
+						--elseif not killed_entity:IsHero() then  --If the killed entity was denied.  Denied heroes do not award experience.
+							--individual_hero:AddExperience(killed_entity:GetDeathXP() * .5, DOTA_ModifyXP_HeroKill, false, false)  --Denied creeps grant 50% experience.  Change this value if this mechanic is ever changed.
+						--end
+					--end
+				--end
+			--end
+		--end, nil)
+		--keys.caster.HasDiedWithBloodstoneBefore = true
+	--end
 	
-	keys.caster:SetTimeUntilRespawn(new_time_until_respawn)
+	-- death time handled in hero_respawn_time.lua
+	--keys.caster:SetTimeUntilRespawn(new_time_until_respawn)
 	
 	item_bloodstone_datadriven_recalculate_charge_bonuses(keys)
 end
