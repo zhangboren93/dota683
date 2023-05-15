@@ -10449,6 +10449,7 @@
 		"AbilitySound"					"Hero_Undying.Decay.Cast"
 		"FightRecapLevel"				"1"
 		"HasScepterUpgrade"				"0"
+		"HasShardUpgrade"				"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -10468,47 +10469,33 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"decay_damage"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"decay_damage"					"20 60 100 140"
-				"LinkedSpecialBonus"			"special_bonus_unique_undying_8"
+				"value"					"20 60 100 140"
+				"special_bonus_unique_undying_8" "+50"
+			}
 
+			"str_steal"
+			{
+				"value"		"4"
+				"special_bonus_scepter" "+0"
 			}
-			"02"
+
+			"decay_duration"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"str_steal"						"4"
-			}	
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"decay_duration"				"40"
-				"LinkedSpecialBonus"			"special_bonus_unique_undying_4"
+				"value"		"40"
 			}
-			"04"
+
+			"radius"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"325"
-			}			
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"str_scale_up"					"1"
-			}		
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"str_steal_scepter"				"4"
-				"RequiresScepter"	"1"
-			}		
-			"07"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"creep_damage_multiplier"		"2.0"
-			}			
+				"value"		"325"
+			}
+
+			"str_scale_up"	"1"
+			"creep_damage_multiplier"	"1"
+			"shard_buff_duration"		"40"
 		}
 	}
 	//=================================================================================================================
