@@ -22085,76 +22085,104 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-	//=================================================================================================================
-	// Ability: Juggernaut Omni Slash
-	//=================================================================================================================
-	"juggernaut_omni_slash"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5030"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
+    //=================================================================================================================
+    // Ability: Juggernaut Omni Slash
+    //=================================================================================================================
+    "juggernaut_omni_slash_rebuild"
+    {
 
-		"HasScepterUpgrade"			"1"
-		"AbilityDraftUltScepterAbility"		"juggernaut_swift_slash"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "heroes/hero_juggernaut/jugg"
+        "AbilityTextureName"            "juggernaut_omni_slash"
 
-		"AbilityCastPoint"				"0.3 0.3 0.3"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 275 350"
+        "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+        "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"  
+        "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+        "FightRecapLevel"               "2"
+        "HasScepterUpgrade"             "1"
 
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// damage only
+        //-------------------------------------------------------------------------------------------------------------
+        "RequiredLevel"                 "6"
+        "LevelsBetweenUpgrades"         "5 5"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"attack_rate_multiplier"	"1"
-			"bonus_damage"				"0"
-			"bonus_attack_speed"		"0"
-			"duration"
-			{
-				"value"					"1.0 2.2 3.4"
-				"special_bonus_scepter"	"+1.2"
-			}
-			"omni_slash_radius"			"425"
-			"AbilityCooldown"
-			{
-				"value"					"130 120 110"
-				"special_bonus_scepter"	"-60 -50 -40"
-			}
-			"AbilityCastRange"				
-			{
-				"value"					"350"
-				"special_bonus_unique_juggernaut_omnislash_cast_range"				"+75"
-			}
-			"dispel"
-			{
-				"value"		"0"
-			}
-		}
-	}
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "350"
+        "AbilityCooldown"               "130 120 110"
+        "AbilityCastPoint"              "0.3 0.3 0.3"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+        
+        // Time     
+        //-------------------------------------------------------------------------------------------------------------
+    
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "200 275 350"
+
+        // Stats
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityModifierSupportValue"   "0.0"   // damage only
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "slash_damage_min"          "200"
+            }
+            "02"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "slash_damage_max"          "225"
+            }
+            "03"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "slash_count"               "3 6 9"
+            }
+            "04"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "slash_count_bonus_scepter" "3"
+            }
+            "05"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "slash_interval"            "0.4"
+            }
+            "06"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "omni_slash_radius"         "425"
+            }
+            "07"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "cooldown"                  "130 120 110"
+            }
+            "08"
+            {
+                "var_type"                  "FIELD_INTEGER"
+                "tooltip_slash_count_scepter"   "6 9 12"
+            }
+            "09"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "cooldown_scepter"          "70"
+            }
+            "10"
+            {
+                "var_type"                  "FIELD_FLOAT"
+                "buffer_time"               "0.15"
+            }
+        }
+    }
 	//=================================================================================================================
 	// Tiny: Tree Grab
 	//=================================================================================================================

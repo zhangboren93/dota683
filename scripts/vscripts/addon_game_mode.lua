@@ -573,7 +573,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		or event.order_type == DOTA_UNIT_ORDER_CAST_TARGET
 		or event.order_type == DOTA_UNIT_ORDER_CAST_NO_TARGET then
 		local ability = EntIndexToHScript(event.entindex_ability)
-		if bitand(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL) == 0 then
+		if type(ability:GetBehavior()) ~= "userdata" and bit.band(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL) == 0 then
 			for i,v in pairs(event.units) do
 				local unit = EntIndexToHScript(v)
 				if unit:HasModifier("modifier_item_travel_boots_caster_effect") then
