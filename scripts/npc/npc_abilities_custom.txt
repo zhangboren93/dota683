@@ -10718,7 +10718,7 @@
 				"IsDebuff"				"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"-9"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"-5"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%min_incomming_damage"
 				}
 				"OnDeath"
@@ -10747,6 +10747,7 @@
 				"IsDebuff"				"1"
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"-5"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%incoming_damage_step"
 				}
 			}
@@ -10767,6 +10768,7 @@
 				"IsDebuff"				"1"
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"-5"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%incoming_damage_step"
 				}
 			}
@@ -10787,6 +10789,7 @@
 				"IsDebuff"				"1"
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"-5"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%incoming_damage_step"
 				}
 			}
