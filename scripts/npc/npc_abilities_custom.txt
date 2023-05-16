@@ -14297,7 +14297,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5626"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
@@ -14342,7 +14342,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"base_heal"			"7 10 12 15"
+				"base_heal"			"7.5 10 12.5 15"
 			}
 			"05"
 			{

@@ -1169,6 +1169,9 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				event.damage = (attacker:GetIntellect() * 2 + 75) * (1 - victim:Script_GetMagicalArmorValue(false, attacker))
 			end
 			--print("Etheral damage " .. event.damage)
+		elseif inflictor:GetName() == "phoenix_sun_ray" then
+			local victim = EntIndexToHScript(event.entindex_victim_const)
+			event.damage = event.damage / (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
 		end
 	end
 	return true
