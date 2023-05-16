@@ -8856,7 +8856,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_extra"		"3 5 7 9"
+				"bonus_movespeed_pct_extra"		"6 10 14 18"
 			}
 			"05s"
 			{
@@ -8865,6 +8865,58 @@
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	"spirit_breaker_empowering_haste_activate_debuff_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"	"spirit_breaker_empowering_haste"
+		"MaxLevel"			"4"
+		"Modifiers"
+		{
+			"empowering_haste_activate_checker"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"IsPurgable"	"0"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_spirit_breaker/empowering_haste.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"empowering_haste_activate_debuff_aura"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"Duration"		"16"
+				"IsPurgable"	"0"
+				"Aura" 			"empowering_haste_activate_debuff_active"
+				"Aura_Radius" 	"900"
+				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_ApplyToCaster" "1"
+			}
+			"empowering_haste_activate_debuff_active"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsPurgable"	"0"
+				"IsDebuff"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movespeed_pct"
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"movespeed_pct"	"-3 -5 -7 -9"
+		}
 	}
 	//=================================================================================================================
 	// Spirit Breaker: Greater Bash
