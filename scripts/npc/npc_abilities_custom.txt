@@ -10592,7 +10592,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_per_unit"			"18 22 26 35"
+				"damage_per_unit"			"18 22 26 30"
 				"LinkedSpecialBonus"			"special_bonus_unique_undying_6"
 			}			
 			"02"
