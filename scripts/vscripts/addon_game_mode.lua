@@ -1057,6 +1057,8 @@ function CAddonTemplateGameMode:ModifyExperienceFilter(event)
 	if event.reason_const == DOTA_ModifyXP_Unspecified and event.experience > 50 then
 		print("cap unspecified XP")
 		event.experience = 50
+	elseif event.reason_const == DOTA_ModifyXP_HeroKill then
+		return false
 	end
 	return true
 end

@@ -121,33 +121,34 @@ function handleKillBonus(self, attacker, entity)
 		GameRules:SendCustomMessage(entityName .. "死了，" .. teamname 	.. assisterCount .. "人获得" .. goldRecord[3] .. "金" , -1, -1)
 	end
 
-	---- give experience
-	--local units = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetAbsOrigin(), nil, 1500,
-	--	DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
-	
-	---- add attacker the XP if out of range 
-	--if attacker:IsAlive() and attacker.IsHero ~= nil and attacker:IsHero() then
-	--	local unitsContainsAttacker = false
-	--	for i=1,#units do
-	--		if units[i]:GetEntityIndex() == attacker:GetEntityIndex() then
-	--			unitsContainsAttacker = true
-	--			break
-	--		end
-	--	end
-	--	if not unitsContainsAttacker then
-	--		print("Adding attacker to xp bounty remotely")
-	--		table.insert(units, attacker)
-	--	end
-	--end
+	-- give experience
+	local units = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetAbsOrigin(), nil, 1300,
+		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+	local exp_entity_ids = {}
+	for i=1,#units do
+		exp_entity_ids[units[i]:GetEntityIndex()] = true
+	end
+	-- add attacker the XP if out of range 
+	if attacker:IsAlive() and attacker:IsHero() then
+		exp_entity_ids[attacker:GetEntityIndex()] = true
+	end
+	if attacker:IsOwnedByAnyPlayer() and attacker:GetPlayerOwner():GetAssignedHero():IsAlive() then
+		exp_entity_ids[attacker:GetPlayerOwner():GetAssignedHero():GetEntityIndex()] = true
+	end
 
-	--local assist_exp = 7 * entity:GetLevel() + GetAssistXPComebackFactor(entity:GetTeam()) * PlayerResource:GetTotalEarnedXP(entity:GetPlayerID()) * 0.15
-	--print("Granting assist experience " .. assist_exp .. " to " .. #units .. " units.")
-	--for i=1,#units do
-	--	if units[i].AddExperience ~= nil then
-	--		print(units[i]:GetName())
-	--		units[i]:AddExperience(assist_exp, DOTA_ModifyXP_HeroKill, false, false)
-	--	end
-	--end
+	local tablen = 0
+	for i,v in pairs(exp_entity_ids) do
+		tablen = tablen + 1
+	end
+	DeepPrintTable(exp_entity_ids)
+	print(tablen)
+	local assist_exp = playerXPBase(tablen) * entity:GetLevel() +
+		cbXPRate(tablen) * GetAssistXPComebackFactor(entity:GetTeam()) * entity:GetCurrentXP()
+	print("Granting assist experience " .. assist_exp .. " to " .. tablen .. " players.")
+	for i,v in pairs(exp_entity_ids) do
+		print(EntIndexToHScript(i):GetName())
+		EntIndexToHScript(i):AddExperience(assist_exp, DOTA_ModifyXP_HeroKill, false, false)
+	end
 end
 
 function playerStreakGold(player_id)
@@ -229,13 +230,40 @@ function GetAssistXPComebackFactor(victim_team)
 		attacker_team = DOTA_TEAM_GOODGUYS
 	end
 	local attacker_team_total_gold = GetTeamTotalXP(attacker_team)
-	local factor = (victim_team_total_gold - attacker_team_total_gold) / (attacker_team_total_gold + attacker_team_total_gold) 
+	--print(attacker_team_total_gold)
+	--print(victim_team_total_gold)
+	if attacker_team_total_gold + victim_team_total_gold == 0 then
+		return 0
+	end
+	local factor = (victim_team_total_gold - attacker_team_total_gold) / (attacker_team_total_gold + victim_team_total_gold) 
 	print("Assist exp factor " .. factor)
 	if factor < 0 then
 		return 0
 	else
 		return factor
 	end
+end
+
+function playerXPBase(count) 
+	if count <= 1 then
+		return 20
+	elseif count == 2 then
+		return 15
+	elseif count == 3 then
+		return 10
+	elseif count == 4 then
+		return 7
+	else
+		return 5
+	end
+end
+
+function cbXPRate(count)
+	--0.138/0.138/0.12/0.09/0.072
+	if count <= 2 then return 0.138
+	elseif count == 3 then return 0.12
+	elseif count == 4 then return 0.09
+	else return 0.072 end
 end
 
 function GetTeamTotalGold(victim_team)
@@ -251,7 +279,8 @@ function GetTeamTotalXP(victim_team)
 	local victim_team_total_gold = 0
 	for i=1,PlayerResource:GetPlayerCountForTeam(victim_team) do
 		local playerId = PlayerResource:GetNthPlayerIDOnTeam(victim_team, i)
-		victim_team_total_gold = victim_team_total_gold + PlayerResource:GetTotalEarnedXP(playerId)
+		victim_team_total_gold = victim_team_total_gold + PlayerResource:GetPlayer(playerId):GetAssignedHero():GetCurrentXP()
+		--print(victim_team .. " " .. playerId .. " " .. victim_team_total_gold)
 	end
 	return victim_team_total_gold
 end
