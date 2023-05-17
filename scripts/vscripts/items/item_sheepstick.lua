@@ -1,36 +1,14 @@
-if item_sheep_stick_regen_percentage_modifier == nil then
-    item_sheep_stick_regen_percentage_modifier = class({})
-end
-
-function item_sheep_stick_regen_percentage_modifier:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
-function item_sheep_stick_regen_percentage_modifier:OnCreated(kv)
---    print("item_sheep_stick_regen_percentage_modifier:OnCreated")
-    self:StartIntervalThink(0.5)
-end
-
-function item_sheep_stick_regen_percentage_modifier:IsHidden()
-    return true
-end
-
-function item_sheep_stick_regen_percentage_modifier:OnIntervalThink()
-    --print("interval think")
-    local hParent = self:GetParent() --the unit.
-    if hParent == nil or hParent.FindItemInInventory == nil then
-        return
-    end
-    local item = hParent:FindItemInInventory("item_sheepstick")
-    if item ~= nil and item:GetItemState() == 1 then
-        --print("sheepstick state: " .. item:GetItemState())
-        
-        local mana_gen = hParent:GetManaRegen();
-        local mana_gen_bonus = item:GetSpecialValueFor("bonus_mana_regen_percentage")
-        local bonus_mana = mana_gen * mana_gen_bonus / 100
-        -- think interval is 0.5s
-        bonus_mana = bonus_mana / 2
-      --  print("bonus mana " .. bonus_mana)
-        hParent:GiveMana(bonus_mana)
+function handleAbilityExecuted(event)
+    local event_ability = event.event_ability
+    local ability = event.ability
+    local target = event.target
+    local caster = event.caster
+    if event_ability:GetName() == "item_sheepstick" then
+        ability:ApplyDataDrivenModifier(caster, target, "modifier_sheep_apply_break_active", {}):SetDuration(
+            event_ability:GetSpecialValueFor("sheep_duration"), true)
+    elseif event_ability:GetName() == "lion_voodoo" 
+        or event_ability:GetName() == "shadow_shaman_voodoo" then
+        ability:ApplyDataDrivenModifier(caster, target, "modifier_sheep_apply_break_active", {}):SetDuration(
+            event_ability:GetSpecialValueFor("duration"), true)
     end
 end
