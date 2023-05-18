@@ -1147,6 +1147,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", { duration = ability:GetSpecialValueFor("stun_duration")})
 		return false
+	elseif event.name_const == "modifier_tombstone_hp" then return false
 	end
 	return true
 end

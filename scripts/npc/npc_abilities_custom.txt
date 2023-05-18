@@ -10680,19 +10680,19 @@
 		{
 			"tombstone_health"
 			{
-				"value"					"10 12 14 16"
+				"value"					"200 400 600 800"
 				"special_bonus_unique_undying_5"	"+24" 
 			}
 
 			"hits_to_destroy_tooltip"
 			{
-				"value"					"5 6 7 8"
+				"value"					"200 400 600 800"
 				"special_bonus_unique_undying_5"	"+6"
 			}
 
 			"duration"				"15 20 25 30.0"
 			"radius"				"600 800 1000 1200"
-			"health_threshold_pct_tooltip"	"40"
+			"health_threshold_pct_tooltip"	"20 25 30 35"
 			"zombie_interval"		"3"
 			"zombie_damage_tooltip"
 			{
@@ -10711,6 +10711,60 @@
 				"value"					"0"
 			}
 		}
+	}
+	//=================================================================================================================
+	// Undying: Tombstone Zombie Deathlust
+	//=================================================================================================================
+	"undying_tombstone_zombie_deathstrike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"5446"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+	
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"	"5"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow"					"-7"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"health_threshold_pct"	"20 25 30 35"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_move_speed"			"50"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_attack_speed"			"50"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"1200"
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
     "undying_flesh_golem"
 	{
