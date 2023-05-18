@@ -1062,7 +1062,7 @@
 		"AttackAnimationPoint"		"0.3"
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
-		"Ability4"		"generic_hidden"
+		"Ability4"		"oracle_fates_edict_team_same_effect"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
