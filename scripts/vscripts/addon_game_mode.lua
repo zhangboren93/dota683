@@ -897,9 +897,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:GetName() == "npc_dota_visage_familiar" then
 		entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 	end
-	--if entity:GetName() == "npc_dota_thinker" then
-		--entity:FindAbilityByName("npc_dota_thinker_phase_datadriven"):SetLevel(1)
-	--end
 end
 
 function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
@@ -1137,16 +1134,20 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		--print(ability:GetName())
 		parent:AddNewModifier(ability:GetCaster(), ability, "modifier_omniknight_guardian_angel_regen", {})
-	elseif event.name_const == "modifier_fountain_invulnerability" then
-		return false
-	elseif event.name_const == "modifier_eul_cyclone" then
-		return false
 	elseif event.name_const == "modifier_techies_stasis_trap_stunned" then
 		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", { duration = ability:GetSpecialValueFor("stun_duration")})
 		return false
+	elseif event.name_const == "modifier_arc_warden_magnetic_field_thinker_attack_range" then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		parent:AddNewModifier(caster, ability, "modifier_arc_warden_magnetic_field_thinker_attack_speed", {})	
+		parent:AddNewModifier(caster, ability, "modifier_arc_warden_magnetic_field_thinker_evasion", {})	
+	elseif event.name_const == "modifier_fountain_invulnerability" then return false
+	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
 	end
 	return true
