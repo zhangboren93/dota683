@@ -34573,6 +34573,13 @@
 					"MODIFIER_STATE_PASSIVES_DISABLED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_hero_buybacked_gold_penalty"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+			}
 		}
 	}
 	//=================================================================================================================

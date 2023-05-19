@@ -350,5 +350,7 @@
         "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild_Description"                        "3/6/9"
         "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild_Scepter_Description"                "6/9/12, CD=70s"
 		"DOTA_Tooltip_Ability_spirit_breaker_empowering_haste_Lore"								"Cast reduce aura movespeed by 3/5/7/9% for 16s"
+		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty"										"Buybacked"
+		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty_Description"							"Cannot gain unreliable gold."
 	}
 }

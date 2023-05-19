@@ -350,5 +350,7 @@
         "DOTA_Tooltip_ability_juggernaut_omni_slash_rebuild_Description"                        "3/6/9"
         "DOTA_Tooltip_ability_juggernaut_omni_slash_rebuild_Scepter_Description"                "6/9/12，CD=70s"
 		"DOTA_Tooltip_Ability_spirit_breaker_empowering_haste_Lore"								"施放减少光环移速3/5/7/9%，持续16秒"
+		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty"										"买活"
+		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty_Description"							"不能获得不可靠金钱"
 	}
 }

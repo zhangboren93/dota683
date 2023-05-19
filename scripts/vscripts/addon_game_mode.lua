@@ -65,7 +65,8 @@ function CAddonTemplateGameMode:InitGameMode()
 	
 	GameRules:GetGameModeEntity():SetCustomBackpackSwapCooldown(0)
 	--GameRules:GetGameModeEntity():SetCustomBackpackCooldownPercent(1)
-	--GameRules:GetGameModeEntity():SetCustomBuybackCooldownEnabled(true)
+	GameRules:GetGameModeEntity():SetCustomBuybackCooldownEnabled(true)
+	GameRules:GetGameModeEntity():SetCustomBuybackCostEnabled(true)
 	GameRules:GetGameModeEntity():SetCustomGlyphCooldown(10000)
 	GameRules:GetGameModeEntity():SetCustomScanCooldown(10000)
 	GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockAmount(0)
@@ -111,6 +112,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetDaynightCycleAdvanceRate(1.25)
 	GameRules:GetGameModeEntity():SetTPScrollSlotItemOverride("item_dummy_tpblock_datadriven")
 	GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled(true)
+	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
 	GameRules:SetGoldPerTick(0)
 	GameRules:SetGoldTickTime(1000)
 	if GetMapName() == "dota" then
@@ -261,9 +263,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			end
 			local player = PlayerResource:GetPlayer(playerid)
 			player:SetSelectedHero("")
-			PlayerResource:ModifyGold(playerid, -100, true, DOTA_ModifyGold_SelectionPenalty)
+			PlayerResource:ModifyGold(playerid, -100, false, DOTA_ModifyGold_SelectionPenalty)
 			if PlayerResource:HasRandomed(playerid) then
-				PlayerResource:ModifyGold(playerid, -250, true, DOTA_ModifyGold_SelectionPenalty)
+				PlayerResource:ModifyGold(playerid, -250, false, DOTA_ModifyGold_SelectionPenalty)
 			end
 			playerRepicked[playerid] = true
 		end
@@ -509,7 +511,7 @@ function CAddonTemplateGameMode:OnThink()
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
 			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] and not playerRepicked[playerid] then
-				PlayerResource:ModifyGold(playerid, 250, true, DOTA_ModifyGold_Unspecified)
+				PlayerResource:ModifyGold(playerid, 250, false, DOTA_ModifyGold_Unspecified)
 				randomBonusGranted[playerid] = true
 			end
 		end
@@ -517,7 +519,7 @@ function CAddonTemplateGameMode:OnThink()
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
 			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] and not playerRepicked[playerid] then
-				PlayerResource:ModifyGold(playerid, 250, true, DOTA_ModifyGold_Unspecified)
+				PlayerResource:ModifyGold(playerid, 250, false, DOTA_ModifyGold_Unspecified)
 				randomBonusGranted[playerid] = true
 			end
 		end
@@ -945,11 +947,16 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 	end
 	if IsServer() and entity:IsRealHero() and (not entity:IsReincarnating()) then
 		handleKillBonus(self, attacker, entity)
+		local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
+		print("Set buyback cost to " .. buyback_cost)
+		PlayerResource:SetCustomBuybackCost(entity:GetPlayerID(), buyback_cost)
+		entity.last_dead_time = GameRules:GetDOTATime(false, false)
+		entity:ModifyGold(-30 * entity:GetLevel(), false, DOTA_ModifyGold_Death)
 	end
 	if attacker:IsOwnedByAnyPlayer() and entity:IsBuilding() and attacker:GetTeam() ~= entity:GetTeam() then
 		-- grant building kill bonus
 		local bounty = entity:GetGoldBounty()
-		PlayerResource:ModifyGold(attacker:GetPlayerOwnerID(), bounty, true, DOTA_ModifyGold_Building)
+		PlayerResource:ModifyGold(attacker:GetPlayerOwnerID(), bounty, false, DOTA_ModifyGold_Building)
 		local attackerName = string.sub(attacker:GetName(), 15)
 		GameRules:SendCustomMessage(attackerName .. "摧毁了建筑，获得" .. bounty .. "钱", -1, -1)
 	end
@@ -969,7 +976,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		end
 		local playerCount = PlayerResource:GetPlayerCountForTeam(grant_team)
 		for i=1,playerCount do
-			PlayerResource:ModifyGold(PlayerResource:GetNthPlayerIDOnTeam(grant_team, i), team_bounty, true, DOTA_ModifyGold_Building)
+			PlayerResource:ModifyGold(PlayerResource:GetNthPlayerIDOnTeam(grant_team, i), team_bounty, false, DOTA_ModifyGold_Building)
 		end
 		if is_deny then
 			GameRules:SendCustomMessage("建筑被反补，".. teamname .. "玩家各获得" .. team_bounty .. "金" , -1, -1)
@@ -991,7 +998,7 @@ function HandleRuneActivated(playerid, rune)
 			exp = 50 + 5 * math.floor(time / 60)
 		end
 		print("bounty picked up " .. bounty .. " " .. exp)
-		hero:ModifyGold(bounty, true, DOTA_ModifyGold_BountyRune)
+		hero:ModifyGold(bounty, false, DOTA_ModifyGold_BountyRune)
 		hero:AddExperience(exp, DOTA_ModifyXP_TomeOfKnowledge, false, false)
 		local bottle = hero:FindItemInInventory("item_bottle")
 		if bottle ~= nil and bottle:GetItemState() == 1 then
@@ -1047,6 +1054,15 @@ function CAddonTemplateGameMode:ModifyGoldFilter(event)
 		print("Blocking default building bounty")
 		return false
 	end
+	local hero = PlayerResource:GetPlayer(event.player_id_const):GetAssignedHero()
+	if (event.reason_const == DOTA_ModifyGold_Building
+		or event.reason_const == DOTA_ModifyGold_CreepKill
+		or event.reason_const == DOTA_ModifyGold_NeutralKill)
+		and hero:HasModifier("modifier_hero_buybacked_gold_penalty")
+	then
+		--print("Blocking buybacked hero from gaining unreliable gold")
+		return false
+	end 
 	return true
 end
 
@@ -1190,6 +1206,11 @@ end
 function HandleBuyback(entindex, player_id)
 	local entity = EntIndexToHScript(entindex)
 	entity.buybacked = true
+	local gold_penalty_duration = entity:GetLevel() * 4 + entity.last_dead_time - GameRules:GetDOTATime(false, false);
+	print("gold_penalty_duration "..gold_penalty_duration)
+	entity:FindAbilityByName("hero_intrinstic_mechanism_datadriven"):ApplyDataDrivenModifier(
+		entity, entity, "modifier_hero_buybacked_gold_penalty", { duration = gold_penalty_duration });
+	PlayerResource:SetCustomBuybackCooldown(player_id, 420)
 end
 
 function bitand(a, b)
