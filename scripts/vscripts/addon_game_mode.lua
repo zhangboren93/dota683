@@ -272,7 +272,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	end
 	if self.botEnabled then
 		if text == "-gold" then
-			PlayerResource:ModifyGold(playerid, 100000, false, DOTA_ModifyGold_HeroKill)
+			PlayerResource:ModifyGold(playerid, 10000, true, DOTA_ModifyGold_HeroKill)
 		elseif text == '-lvlup' then
 			local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 			for i=1,24 do

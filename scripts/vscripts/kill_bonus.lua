@@ -28,7 +28,7 @@ function handleKillBonus(self, attacker, entity)
 		local attacker_player_id = attacker:GetPlayerOwnerID()
 		if self.firstBlood == nil then
 			print("give gold first blood kill")
-			PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_HeroKill)
+			PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_GameTick)
 			self.firstBlood = true
 			goldRecord[1] = 135
 		end
@@ -36,11 +36,11 @@ function handleKillBonus(self, attacker, entity)
 		--PlayerResource:IncrementStreak(attacker_player_id, 1)
 		local killGold = 110 + playerStreakGold(attacker_player_id) + entity:GetLevel() * 9.9
 		print("kill gold " .. killGold)
-		PlayerResource:ModifyGold(attacker_player_id, killGold, true, DOTA_ModifyGold_HeroKill)
+		PlayerResource:ModifyGold(attacker_player_id, killGold, true, DOTA_ModifyGold_GameTick)
 		-- shutdown gold
 		local shutdownGold = playerShutdownGold(entity_player_id)
 		print("shutdown gold " .. shutdownGold)
-		PlayerResource:ModifyGold(attacker_player_id, shutdownGold, true, DOTA_ModifyGold_HeroKill)
+		PlayerResource:ModifyGold(attacker_player_id, shutdownGold, true, DOTA_ModifyGold_GameTick)
 		goldRecord[2] = killGold + shutdownGold 
 	elseif attacker:IsBuilding() or attacker:IsCreep() then
 		-- killed by building or creep
@@ -52,7 +52,7 @@ function handleKillBonus(self, attacker, entity)
 			local goldPerPlayer = (killGold + shutdownGold) / playerCount
 			print("feeds to building " .. goldPerPlayer)
 			for i=1,playerCount do
-				PlayerResource:ModifyGold(PlayerResource:GetNthPlayerIDOnTeam(attacker:GetTeam(), i), goldPerPlayer, true, DOTA_ModifyGold_HeroKill)
+				PlayerResource:ModifyGold(PlayerResource:GetNthPlayerIDOnTeam(attacker:GetTeam(), i), goldPerPlayer, true, DOTA_ModifyGold_GameTick)
 			end
 			GameRules:SendCustomMessage(entityName .. "死了，".. teamname .. "玩家各获得" .. goldPerPlayer .. "金" , -1, -1)
 		elseif #assist_players == 1 then
@@ -61,7 +61,7 @@ function handleKillBonus(self, attacker, entity)
 			local attacker_player_id = assist_players[1]
 			if self.firstBlood == nil then
 				print("give gold first blood kill")
-				PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_HeroKill)
+				PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_GameTick)
 				self.firstBlood = true
 				goldRecord[1] = 135
 			end
@@ -69,11 +69,11 @@ function handleKillBonus(self, attacker, entity)
 			--PlayerResource:IncrementStreak(attacker_player_id, 1)
 			local killGold = 110 + playerStreakGold(attacker_player_id) + entity:GetLevel() * 9.9
 			print("kill gold " .. killGold)
-			PlayerResource:ModifyGold(attacker_player_id, killGold, true, DOTA_ModifyGold_HeroKill)
+			PlayerResource:ModifyGold(attacker_player_id, killGold, true, DOTA_ModifyGold_GameTick)
 			-- shutdown gold
 			local shutdownGold = playerShutdownGold(entity_player_id)
 			print("shutdown gold " .. shutdownGold)
-			PlayerResource:ModifyGold(attacker_player_id, shutdownGold, true, DOTA_ModifyGold_HeroKill)
+			PlayerResource:ModifyGold(attacker_player_id, shutdownGold, true, DOTA_ModifyGold_GameTick)
 			goldRecord[2] = killGold + shutdownGold 
 		else
 			-- split kill amount assisters
@@ -82,7 +82,7 @@ function handleKillBonus(self, attacker, entity)
 			local goldPerPlayer = (killGold + shutdownGold) / #assist_players
 			print("Spliting kill gold for assisters " .. #assist_players .. " " .. goldPerPlayer)
 			for i=1,#assist_players do
-				PlayerResource:ModifyGold(assist_players[i], goldPerPlayer, true, DOTA_ModifyGold_HeroKill)
+				PlayerResource:ModifyGold(assist_players[i], goldPerPlayer, true, DOTA_ModifyGold_GameTick)
 			end
 			goldRecord[3] = math.floor(goldPerPlayer) 
 		end
@@ -109,7 +109,7 @@ function handleKillBonus(self, attacker, entity)
 		local assist_gold = baseGold + goldPerLevel * level + cbFactor *cbfFactor * networth
 		print("Assist gold = " .. baseGold .. "+" .. goldPerLevel .. "*" .. level .. "+" .. cbfFactor .. "*" .. cbFactor .. "*" .. networth .. "=" .. assist_gold)
 		for i=1,#assist_players do
-			PlayerResource:ModifyGold(assist_players[i], assist_gold, true, DOTA_ModifyGold_HeroKill)
+			PlayerResource:ModifyGold(assist_players[i], assist_gold, true, DOTA_ModifyGold_GameTick)
 		end
 		goldRecord[3] = goldRecord[3] + math.floor(assist_gold) 
 	end
