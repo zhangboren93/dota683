@@ -1,6 +1,14 @@
 function handleDeath(event)
 	local caster = event.caster
 	if caster:IsReincarnating() then
+		if caster:GetName() == "npc_dota_hero_skeleton_king" then
+			local skre = caster:FindAbilityByName("skeleton_king_reincarnation")
+			if not skre:IsCooldownReady() and  skre:GetCooldownTime() >= skre:GetCooldown(skre:GetLevel() - 1)  - 2 then
+				caster:SetTimeUntilRespawn(3)
+				return
+			end
+		end
+		caster:SetTimeUntilRespawn(5)
 		return
 	end
 	local ability = event.ability
