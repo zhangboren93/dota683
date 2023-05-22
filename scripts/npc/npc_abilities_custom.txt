@@ -15688,23 +15688,6 @@
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
 	}
-	"courier_share"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"courier_share"
-		"AbilityCooldown"				"1.0"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/item_courier.lua"
-				"Function"		"toggle_share"
-				"TARGET"		"CASTER"
-			}
-		}
-	}
 	"courier_go_to_secretshop_datadriven"		
 	{
 		"BaseClass"						"ability_datadriven"
@@ -15719,6 +15702,38 @@
 				"ScriptFile"	"items/item_courier.lua"
 				"Function"		"go_to_secret"
 				"TARGET"		"CASTER"
+			}
+		}
+	}
+	"courier_flying_upgrade_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"courier_flying_upgrade_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_courier.lua"
+						"Function"		"flyingUpgradeChecker"
+					}
+				}
+			}
+			"modifier_courier_flying_upgrade_active"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"80"
+				}
 			}
 		}
 	}

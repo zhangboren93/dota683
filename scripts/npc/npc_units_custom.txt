@@ -518,7 +518,7 @@
 	{
 		"MovementSpeed"				"350"		// Speed
 		"Ability2"					"courier_go_to_secretshop_datadriven"		
-		"Ability6"					"generic_hidden"		
+		"Ability6"					"courier_flying_upgrade_datadriven"		
 		"StatusHealth"				"75"		// Base health.
 	}
 	"npc_dota_goodguys_tower1_top"

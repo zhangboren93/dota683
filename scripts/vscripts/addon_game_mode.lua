@@ -834,26 +834,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		self.roshanCount = self.roshanCount + 1
 	end
 
-	-- courier fix speed and health
-	if entity:GetName() == "npc_dota_courier" or
-		entity:GetName() == "npc_dota_flying_courier" then
-		entity:SetThink(function()
-			entity:RemoveModifierByName("modifier_courier_passive_bonus")
-			if entity:HasItemInInventory("item_flying_courier_datadriven") then
-				if not entity:HasModifier("modifier_courier_flying") then
-					entity:AddNewModifier(entity, entity, "modifier_courier_flying", {})
-				end
-				entity:SetBaseMoveSpeed(430)
-				entity:SetBaseMaxHealth(150)
-				entity:RemoveItem(entity:FindItemInInventory("item_flying_courier_datadriven"))
-				return
-			else
-				entity:RemoveModifierByName("modifier_courier_flying")
-			end
-			return 2
-		end, nil, "fix speed", 2)
-	end
-
 	if entity:GetName() == "npc_dota_creep_lane" then
 		entity:SetThink(function()
 			entity:RemoveModifierByName("modifier_creep_bonus_xp")
@@ -898,6 +878,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	end
 	if entity:GetName() == "npc_dota_visage_familiar" then
 		entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
+	end
+	if entity:GetName() == "npc_dota_courier" then
+		entity:FindAbilityByName("courier_flying_upgrade_datadriven"):SetLevel(1)
 	end
 end
 
@@ -1165,6 +1148,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
+	elseif event.name_const == "modifier_courier_passive_bonus" then return false
+	elseif event.name_const == "modifier_courier_flying" then return false
 	end
 	return true
 end

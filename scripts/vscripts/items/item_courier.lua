@@ -3,19 +3,25 @@ function enableCourier(event)
     caster:GetPlayerOwner():SpawnCourierAtPosition(caster:GetAbsOrigin())
 end
 
-function toggle_share(event)
-    event.caster.isSharedWithTeam = true
-    CustomGameEventManager:Send_ServerToTeam(event.caster:GetTeam(), "courier_shared", {})
-    event.caster:SetThink(function()
-        CustomGameEventManager:Send_ServerToTeam(event.caster:GetTeam(), "error_message_clear", {})
-    end, "suppress error message", 5)
-    event.ability:Destroy()
-end
-
 function go_to_secret(event)
     if event.caster:GetTeam() == DOTA_TEAM_GOODGUYS then
         event.caster:MoveToPosition(Vector(-4487, 1253, 384))
     else
         event.caster:MoveToPosition(Vector(3462, 235, 384))
+    end
+end
+
+function flyingUpgradeChecker(event)
+    -- DeepPrintTable(event)
+    local entity = event.caster
+    local ability = event.ability
+    if entity:HasModifier("modifier_courier_flying_upgrade_active") then
+        return
+    end
+    if entity:HasItemInInventory("item_flying_courier_datadriven") then
+        ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_flying_upgrade_active", {})
+        entity:SetBaseMaxHealth(150)
+        entity:RemoveItem(entity:FindItemInInventory("item_flying_courier_datadriven"))
+        entity:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
     end
 end
