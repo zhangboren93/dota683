@@ -9,7 +9,16 @@
 	]
 	Default_Keys = 
 	[
-
+		{
+			"Key" =		"F2"
+			"Command" =	"CustomGameSelectCourier"
+			"Name" = 	"Select courier"
+		}
+		{
+			"Key" =		"F3"
+			"Command" =	"CustomGameCourierSend"
+			"Name" = 	"Courier send item"
+		}
 	]
 	CheckAFKPlayers = false
 	DefaultMap = "dota"

@@ -5,6 +5,7 @@
 	
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/error_message.js" />
+		<include src="file://{resources}/scripts/custom_game/key_bindings.js" />
 	</scripts>
 
 	<Panel style="horizontal-align: center; y: 800px;">
