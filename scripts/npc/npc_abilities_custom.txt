@@ -15733,6 +15733,16 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"80"
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"				"200"
+				}
+			}
+			"modifier_courier_ground_visual"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"				"0"
 				}
 			}
 		}
