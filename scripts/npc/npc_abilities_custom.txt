@@ -15733,7 +15733,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"80"
-					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"				"200"
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"				"160"
 				}
 			}
 			"modifier_courier_ground_visual"

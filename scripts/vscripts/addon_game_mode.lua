@@ -1149,7 +1149,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
 	elseif event.name_const == "modifier_courier_passive_bonus" then return false
-	elseif event.name_const == "modifier_courier_flying" then return false
+	--elseif event.name_const == "modifier_courier_flying" then return false
 	end
 	return true
 end
