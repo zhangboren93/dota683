@@ -1,6 +1,6 @@
 function enableCourier(event)
     local caster = event.caster
-   -- caster:GetPlayerOwner():SpawnCourierAtPosition(caster:GetAbsOrigin()):Destroy()
+   -- TODO create courier at base
     caster:GetPlayerOwner():SpawnCourierAtPosition(caster:GetAbsOrigin())
 end
 

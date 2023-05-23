@@ -1,17 +1,29 @@
 function OnCustomeGameSelectCourier()
 {
-    var entities = Entities.GetAllEntitiesByName("npc_dota_courier");
-    entities.forEach(element => {
-        if (Entities.GetTeamNumber(element) == Players.GetTeam(Players.GetLocalPlayer())) {
-            GameUI.SelectUnit(element, false);
+    let entities = Entities.GetAllEntitiesByName("npc_dota_courier");
+    for (let i = 0; i < entities.length; i++) {
+        if (Entities.GetTeamNumber(entities[i]) == Players.GetTeam(Players.GetLocalPlayer())) {
+            GameUI.SelectUnit(entities[i], false);
+            break;
         }
-    });
-    //$("#courier_shared_label").text = entities.length + " " + Players.GetLocalPlayer() + " " + Players.GetTeam(Players.GetLocalPlayer());
+    }
+    //$("#courier_shared_label").text = "OnCustomeGameSelectCourier";
 }
 
 function OnCustomGameCourierSend()
 {
-    //$("#courier_shared_label").text="4322523354";
+    let entities = Entities.GetAllEntitiesByName("npc_dota_courier");
+    for (let i = 0; i < entities.length; i++) {
+        if (Entities.GetTeamNumber(entities[i]) == Players.GetTeam(Players.GetLocalPlayer())) {
+            let courier = entities[i]
+            GameUI.SelectUnit(courier, false);
+            let sendItemAbility = Entities.GetAbilityByName(courier, "courier_transfer_items")
+            Abilities.ExecuteAbility(sendItemAbility, courier, false)
+            GameUI.SelectUnit(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), false);
+            break;
+        }
+    }
+    //$("#courier_shared_label").text = "OnCustomGameCourierSend";
 }
 
 Game.AddCommand( "CustomGameSelectCourier", OnCustomeGameSelectCourier, "", 0 );
