@@ -24587,74 +24587,6 @@
 				"IsHidden"		"1"
 				"IsPurgable"	"0"
 	
-				"OnDeath"
-				{
-					"CreateThinker"
-					{
-						"ModifierName"	"modifier_land_mine_thinker"
-						"Target" 		"UNIT"
-					}				
-	
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"  	"UNIT"
-							"Radius" 	"%small_radius"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-							"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-						}
-					
-						"Action"    
-						{
-							"Damage"
-							{
-								"Target"
-								{
-									"Center"	"TARGET"
-									"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-								}
-								"Type"			"DAMAGE_TYPE_PHYSICAL"
-								"Damage"		"%damage_half"
-							}
-						}
-					}
-	
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"  	"UNIT"
-							"Radius" 	"%big_radius"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-							"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-						}
-					
-						"Action"    
-						{
-							"Damage"
-							{
-								"Target"
-								{
-									"Center"	"TARGET"
-									"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-								}
-								"Type"			"DAMAGE_TYPE_PHYSICAL"
-								"Damage"		"%damage_half"
-							}
-						}					
-					}
-	
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_techies/land_mines.lua"
-						"Function"		"LandMinesDeath"
-						"modifier_caster"	"modifier_land_mine_caster_datadriven"
-					}
-				}
-	
 				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -24663,7 +24595,7 @@
 	
 			"modifier_land_mine_tracker_datadriven"
 			{
-				"IsHidden"		"1"
+				"IsHidden"		"0"
 				"IsPurgable"	"0"
 	
 				"EffectName"	"particles/units/heroes/hero_techies/techies_land_mine.vpcf"
@@ -24696,10 +24628,8 @@
 					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-	
-			"modifier_land_mine_thinker"
-			{
-				"Duration"	"0.03"
+			"modifier_dummy_detonate_effect_datadriven"
+			{			
 				"OnCreated"
 				{
 					"FireSound"
@@ -24712,9 +24642,6 @@
 						}
 					}
 				}
-			}
-			"modifier_dummy_detonate_effect_datadriven"
-			{			
 				"States"
 				{
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
