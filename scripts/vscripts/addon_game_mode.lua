@@ -527,6 +527,15 @@ function CAddonTemplateGameMode:OnThink()
 	return 2
 end
 
+function hasRoomForItem(courier)
+	for i=DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9 do
+		if courier:GetItemInSlot(i) == nil then
+			return true
+		end
+	end
+	return false
+end
+
 -- Add the order filter to your game mode entity
 function CAddonTemplateGameMode:OrderFilter(event)
 	if event.order_type == DOTA_UNIT_ORDER_GLYPH then
@@ -588,6 +597,19 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			if target:IsRealHero() and target:GetName() == "npc_dota_hero_doom_bringer" then
 				GameRules:SendCustomMessage("末日无法大自己", -1, -1)
 				return false
+			end
+		elseif ability:GetName() == "courier_transfer_items" then
+			print("courier_transfer_items " .. event.issuer_player_id_const)
+			local courier = EntIndexToHScript(event.units['0'])
+			print(courier:GetName())
+			if courier:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
+				local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
+				for i=DOTA_STASH_SLOT_1,DOTA_STASH_SLOT_6 do
+					local stash_item = player_hero:GetItemInSlot(i)
+					if stash_item ~= nil and hasRoomForItem(courier) then
+						courier:AddItem(player_hero:TakeItem(stash_item))
+					end
+				end
 			end
 		end
 	end
