@@ -245,7 +245,7 @@
 		"BountyGoldMin"				"37"		// Gold earned min.
 		"BountyGoldMax"				"38"		// Gold earned max.
 	}
-	"dark_troll_warlord_skeleton_warrior"
+	"npc_dota_dark_troll_warlord_skeleton_warrior"
 	{
 		"Ability1"					"generic_hidden"			// Ability 1.
 		"BountyXP"					"12"		// Experience earn.
