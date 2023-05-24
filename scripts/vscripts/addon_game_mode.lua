@@ -1088,8 +1088,8 @@ function CAddonTemplateGameMode:HealingFilter(event)
 	local ability = EntIndexToHScript(event.entindex_inflictor_const)
 	if ability:GetName() == "keeper_of_the_light_spirit_form_illuminate" and not GameRules:IsDaytime() then
 		return false
-	elseif ability:GetName() == "shadow_shaman_shackles" then
-		return false
+	elseif ability:GetName() == "shadow_shaman_shackles" then return false
+	elseif ability:GetName() == "pudge_dismember" then return false
 	end
 	return true
 end
