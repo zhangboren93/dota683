@@ -35467,6 +35467,29 @@
 				}
 			}
 		}
-
+	}
+	//=================================================================================================================
+	// Ability: Attribute Bonus
+	//=================================================================================================================
+	"special_bonus_attributes"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"730"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"              "6"
+		"RequiredLevel"         "1"
+		"LevelsBetweenUpgrades" "2"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"		"2 4 6 8 10 12 14"
+			}
+		}
 	}
 }
