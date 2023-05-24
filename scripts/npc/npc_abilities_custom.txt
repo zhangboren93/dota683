@@ -24914,26 +24914,10 @@
 	
 				"OnOrbImpact"
 				{
-					"ApplyModifier"
+					"RunScript"
 					{
-						"Target"
-						{
-							"Center"			"TARGET"
-							"Type"				"DOTA_UNIT_TARGET_BASIC"
-						}
-						"ModifierName"			"modifier_frost_arrows_slow_datadriven"
-						"Duration"				"%frost_arrows_creep_duration"
-					}
-					
-					"ApplyModifier"
-					{
-						"Target"
-						{
-							"Center"			"TARGET"
-							"Type"				"DOTA_UNIT_TARGET_HERO"
-						}
-						"ModifierName"			"modifier_frost_arrows_slow_datadriven"
-						"Duration"				"%frost_arrows_hero_duration"
+						"ScriptFile"			"heroes/hero_drow_ranger/frost_arrow.lua"
+						"Function"				"handleOrbImpact"
 					}
 				}
 			}
