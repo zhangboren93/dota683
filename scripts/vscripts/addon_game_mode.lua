@@ -872,6 +872,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:SetThink(function()
 			entity:RemoveModifierByName("modifier_spirit_bear_attack_damage")
 			entity:RemoveModifierByName("modifier_lone_druid_spirit_bear_attack_check")
+			entity:FindAbilityByName("lone_druid_bear_damage_return_cd"):SetLevel(1)
 		end, "remove spirit bear original attack bonus", 1)
 	end
 

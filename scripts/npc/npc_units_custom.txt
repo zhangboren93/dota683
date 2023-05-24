@@ -1582,6 +1582,7 @@
 		"Ability2"					"generic_hidden"			// Ability 2
 		"Ability3"					"generic_hidden"			// Ability 3
 		"Ability4"					"generic_hidden"			// Ability 4
+		"Ability5"					"lone_druid_bear_damage_return_cd"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -1619,9 +1620,9 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"1400"		// Base health.
-		"StatusHealthRegen"			"5"			// Health regeneration rate.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
 		"StatusMana"				"300"		// Base mana.
-		"StatusManaRegen"			"0.5"		// Mana regeneration rate.		 
+		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -1653,9 +1654,9 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"1800"		// Base health.
-		"StatusHealthRegen"			"6"			// Health regeneration rate.
+		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"StatusMana"				"300"		// Base mana.
-		"StatusManaRegen"			"0.5"		// Mana regeneration rate.		 	
+		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 	
 	}	
 
 	"npc_dota_lone_druid_bear3"
@@ -1673,9 +1674,9 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"2300"		// Base health.
-		"StatusHealthRegen"			"7"			// Health regeneration rate.
+		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusMana"				"300"			// Base mana.
-		"StatusManaRegen"			"0.5"		// Mana regeneration rate.		 	
+		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 	
 	}	
 	"npc_dota_lone_druid_bear4"
 	{				
@@ -1693,9 +1694,9 @@
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"2700"		// Base health.
-		"StatusHealthRegen"			"8"			// Health regeneration rate.
+		"StatusHealthRegen"			"5"			// Health regeneration rate.
 		"StatusMana"				"300"		// Base mana.
-		"StatusManaRegen"			"0.5"		// Mana regeneration rate.		 	
+		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 	
 	}	
 	"npc_dota_brewmaster_earth_1"
 	{
