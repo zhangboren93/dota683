@@ -490,6 +490,7 @@
 		"ShouldBeSuggested"	"1"
 		"ItemSellable"		"1"
 		"ItemIsNeutralDrop"	"0"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"AbilityValues"
 		{
 				"bonus_damage"			"9"
@@ -6330,7 +6331,7 @@
 		"ItemAliases"					"radiance"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
