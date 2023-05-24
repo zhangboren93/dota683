@@ -6246,23 +6246,10 @@
     					"PseudoRandom"		"DOTA_PSEUDO_RANDOM_ITEM_MKB"
     					"OnSuccess"
     					{
-    						"Damage"
+    						"RunScript"
     						{
-    							"Target"		"TARGET"
-    							"Type"			"DAMAGE_TYPE_MAGICAL"
-    							"Damage"		"%bash_damage"
-    						}
-    						
-    						"ApplyModifier"
-    						{
-    							"Target"			"TARGET"
-    							"ModifierName"		"modifier_item_monkey_king_bar_datadriven_bash"
-    						}
-    						
-    						"FireSound"
-    						{
-    							"EffectName"		"DOTA_Item.MKB.Minibash"
-    							"Target"			"TARGET"
+    							"ScriptFile"	"items/item_monkey_king_bar.lua"
+    							"Function"		"handleAttackLanded"
     						}
     					}
     				}
@@ -6284,6 +6271,21 @@
     			"States"
     			{
     				"MODIFIER_STATE_STUNNED" 		"MODIFIER_STATE_VALUE_ENABLED"
+    			}
+
+    			"OnCreated"
+    			{
+    				"Damage"
+    				{
+    					"Target"		"TARGET"
+    					"Type"			"DAMAGE_TYPE_MAGICAL"
+    					"Damage"		"%bash_damage"
+    				}
+    				"FireSound"
+    				{
+    					"EffectName"		"DOTA_Item.MKB.Minibash"
+    					"Target"			"TARGET"
+    				}
     			}
     		}
     	}
