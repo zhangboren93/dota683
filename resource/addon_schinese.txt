@@ -346,11 +346,13 @@
 		"DOTA_Tooltip_Ability_item_blink_datadriven"											"跳刀" 
 		"DOTA_Tooltip_Ability_item_blink_datadriven_Description"								"施法距离 1200，被英雄攻击进入3秒CD" 
 		"DOTA_Tooltip_Ability_item_blade_mail_Lore"												"反弹100%纯粹伤害" 
-        "DOTA_Tooltip_ability_juggernaut_omni_slash_rebuild"                                    "无敌斩"
-        "DOTA_Tooltip_ability_juggernaut_omni_slash_rebuild_Description"                        "3/6/9"
-        "DOTA_Tooltip_ability_juggernaut_omni_slash_rebuild_Scepter_Description"                "6/9/12，CD=70s"
+        "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild"                                    "无敌斩"
+        "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild_Description"                        "3/6/9"
+        "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild_Scepter_Description"                "6/9/12，CD=70s"
 		"DOTA_Tooltip_Ability_spirit_breaker_empowering_haste_Lore"								"施放减少光环移速3/5/7/9%，持续16秒"
 		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty"										"买活"
 		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty_Description"							"不能获得不可靠金钱"
+        "DOTA_Tooltip_Ability_shredder_reactive_armor_datadriven"                               "活性护甲"
+        "DOTA_Tooltip_Ability_shredder_reactive_armor_datadriven_Description"                   "+1护甲+1回血，持续16秒，叠加上限%stack_limit%"
 	}
 }

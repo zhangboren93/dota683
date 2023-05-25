@@ -2311,6 +2311,7 @@
 		"AttackAnimationPoint"		"0.36"
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
+		"Ability3"		"shredder_reactive_armor_datadriven"
 		"Ability5"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
