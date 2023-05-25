@@ -562,10 +562,12 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		for i,v in pairs(event.units) do
 			local unit = EntIndexToHScript(v)
 			local ability = unit:FindAbilityByName("hero_creep_aggro_datadriven")
-			if target:IsHero() and target:GetTeam() ~= unit:GetTeam() and ability ~= nil and ability:IsCooldownReady() then
-				aggroCreeps(unit, ability)
-			elseif target:GetTeam() == unit:GetTeam() then
-				ability:ApplyDataDrivenModifier(unit, unit, "modifier_creep_aggro_move_datadriven", {})
+			if ability ~= nil then
+				if target:IsHero() and target:GetTeam() ~= unit:GetTeam() and ability ~= nil and ability:IsCooldownReady() then
+					aggroCreeps(unit, ability)
+				elseif target:GetTeam() == unit:GetTeam() then
+					ability:ApplyDataDrivenModifier(unit, unit, "modifier_creep_aggro_move_datadriven", {})
+				end
 			end
 		end
 	end
