@@ -29,6 +29,8 @@ function flyingUpgradeChecker(event)
         entity:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
         entity:RemoveModifierByName("modifier_courier_ground_visual")
         entity:AddNewModifier(entity, entity, "modifier_courier_flying", {})
+        entity:SetDayTimeVisionRange(400)
+        entity:SetNightTimeVisionRange(400)
     else
         if not entity:HasModifier("modifier_courier_ground_visual") then
             ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_ground_visual", {})
