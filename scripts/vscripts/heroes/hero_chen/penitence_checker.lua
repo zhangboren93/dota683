@@ -12,7 +12,7 @@ function handleAbilityExecuted(keys)
             target:SetThink(function()
                 target:SetMaxHealth(target:GetMaxHealth() + event_ability:GetSpecialValueFor("health_bonus"))
                 target:Heal(event_ability:GetSpecialValueFor("health_bonus"), unit)
-            end, "health", 0.1)
+            end, "health", 0.2)
             target:RemoveModifierByName("modifier_creep_ai")
         end
     end

@@ -278,6 +278,7 @@
 		"DOTA_Tooltip_Ability_puck_dream_coil_Scepter_Description"	"+挣脱伤害，+持续时间"
 		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"				"30秒CD"
 		"DOTA_Tooltip_Ability_chen_penitence_Lore"								"加深伤害14/18/22/26%"
+		"DOTA_Tooltip_Ability_chen_holy_persuasion_Lore"						"+生命值75/150/225/300"
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven"						"失效力场"
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven_Description"			"%magic_damage_reduction_pct%%%魔抗光环"
 		"DOTA_Tooltip_Ability_dazzle_weave_Scepter_Description"					"+施法距离+护甲"
