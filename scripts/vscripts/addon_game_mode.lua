@@ -907,6 +907,12 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:GetName() == "npc_dota_courier" then
 		entity:FindAbilityByName("courier_flying_upgrade_datadriven"):SetLevel(1)
 	end
+	if entity:GetName() == "npc_dota_beastmaster_hawk" then
+		--print("owned by " .. entity:GetPlayerOwnerID())
+		entity:SetControllableByPlayer(entity:GetPlayerOwnerID(), false)
+		entity:FindAbilityByName("beastmaster_hawk_invisibility_datadriven"):SetLevel(
+			entity:GetPlayerOwner():GetAssignedHero():FindAbilityByName("beastmaster_call_of_the_wild_hawk"):GetLevel())
+	end
 end
 
 function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
@@ -1174,7 +1180,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
 	elseif event.name_const == "modifier_courier_passive_bonus" then return false
-	--elseif event.name_const == "modifier_courier_flying" then return false
+	elseif event.name_const == "modifier_beastmaster_call_of_the_wild_hawk" then return false
 	end
 	return true
 end
