@@ -269,6 +269,8 @@
 		"DOTA_Tooltip_Ability_doom_bringer_doom_Scepter_Description"				"add damage & duration"
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"Chaos attack"
 		"DOTA_Tooltip_Ability_beastmaster_primal_roar_Scepter_Description"			"+350 cast range, CD 45 seconds"
+		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven"					"Poison"
+		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_Description"		"-%movement_speed% move speed, -%attack_speed% attack speed, lasts 3s"
 		"DOTA_Tooltip_Ability_sandking_epicenter_Scepter_Description"				"+count, -CD"
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_2"							"Caustic Finale"
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_Description"				""

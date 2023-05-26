@@ -269,6 +269,8 @@
 		"DOTA_Tooltip_Ability_doom_bringer_doom_Scepter_Description"				"增加伤害和持续时间"
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"混乱攻击"
 		"DOTA_Tooltip_Ability_beastmaster_primal_roar_Scepter_Description"			"+350距离，CD45秒"
+		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven"					"毒"
+		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_Description"		"-%movement_speed%移速，-%attack_speed%攻速，持续3秒"
 		"DOTA_Tooltip_Ability_sandking_epicenter_Scepter_Description"				"+次数，-CD"
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_2"							"尸爆"
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_Description"				""
