@@ -3760,7 +3760,7 @@
 		"Ability1"					"visage_summon_familiars_stone_form"			// Ability 1.
 		"Ability2"					"visage_gravekeepers_cloak_bonus_datadriven"			// Ability 2.
 		"Ability3"					"visage_gravekeepers_cloak_bonus_active_datadriven"			// Ability 3.
-		"Ability4"					""			// Ability 4.
+		"Ability4"					"neutral_spell_immunity"			// Ability 1.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
@@ -3769,15 +3769,15 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"0"			// Physical protection.
-		"MagicalResistance"				"35"		// Magical protection.
+		"MagicalResistance"				"0"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"25"			// Damage range min.
-		"AttackDamageMax"			"25"			// Damage range max.
+		"AttackDamageMin"			"10"			// Damage range min.
+		"AttackDamageMax"			"10"			// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"0.5"		// Speed of attack.
+		"AttackRate"				"0.4"		// Speed of attack.
 		"AttackAnimationPoint"		"0.33"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"400"		// Range within a target can be acquired.
 		"AttackRange"				"160"			// Range within a target can be attacked.
@@ -3798,7 +3798,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"430"		// Speed
+		"MovementSpeed"				"380"		// Speed
 		"MovementTurnRate"			"0.9"		// Turning rate.
 
 		// Status
@@ -3828,23 +3828,13 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"1"			// Physical protection.
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"50"			// Damage range min.
-		"AttackDamageMax"			"50"			// Damage range max.
-		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"0.5"		// Speed of attack.
-		"AttackAnimationPoint"		"0.33"		// Normalized time in animation cycle to attack.
-		"AttackAcquisitionRange"	"400"		// Range within a target can be acquired.
-		"AttackRange"				"160"			// Range within a target can be attacked.
-		"ProjectileModel"			"particles/units/heroes/hero_visage/visage_familiar_base_attack.vpcf" // Particle system model for projectile.
-		"ProjectileSpeed"			"900"		// Speed of projectile.
-
+		"AttackDamageMin"			"10"			// Damage range min.
+		"AttackDamageMax"			"10"			// Damage range max.
+		"AttackRate"				"0.4"		// Speed of attack.
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"450"		// Base health.
+		"MovementSpeed"				"390"		// Speed
 	}
 
 	"npc_dota_visage_familiar3"
@@ -3854,16 +3844,13 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"2"			// Physical protection.
-
-		// Attack
-		//----------------------------------------------------------------
-		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"75"			// Damage range min.
-		"AttackDamageMax"			"75"			// Damage range max.
-
+		"AttackDamageMin"			"10"			// Damage range min.
+		"AttackDamageMax"			"10"			// Damage range max.
+		"AttackRate"				"0.4"		// Speed of attack.
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"600"		// Base health.
+		"MovementSpeed"				"400"		// Speed
 	}	
 	// Made by BMD
 	"npc_dummy_unit"

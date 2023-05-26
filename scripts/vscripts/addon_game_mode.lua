@@ -48,6 +48,7 @@ function Activate()
 	LinkLuaModifier( "modifier_doom_scorched_earth_regen",		"modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			"modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_familiar_attack_damage_lua",		"modifiers/familiar_attack_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -903,11 +904,12 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	end
 	if entity:GetName() == "npc_dota_visage_familiar" then
 		entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
+		entity:FindAbilityByName("neutral_spell_immunity"):SetLevel(1)
+		entity:AddNewModifier(entity, entity, "modifier_familiar_attack_damage_lua", {})
 	end
 	if entity:GetName() == "npc_dota_courier" then
 		entity:FindAbilityByName("courier_flying_upgrade_datadriven"):SetLevel(1)
-	end
-	if entity:GetName() == "npc_dota_beastmaster_hawk" then
+	elseif entity:GetName() == "npc_dota_beastmaster_hawk" then
 		--print("owned by " .. entity:GetPlayerOwnerID())
 		entity:SetControllableByPlayer(entity:GetPlayerOwnerID(), false)
 		entity:FindAbilityByName("beastmaster_hawk_invisibility_datadriven"):SetLevel(
@@ -1176,6 +1178,9 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_arc_warden_magnetic_field_thinker_attack_speed", {})	
 		parent:AddNewModifier(caster, ability, "modifier_arc_warden_magnetic_field_thinker_evasion", {})	
+	elseif event.name_const == "modifier_visage_summon_familiars_stone_form_buff" then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		parent:FindModifierByName("modifier_familiar_attack_damage_lua"):refreshStackCount()
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
