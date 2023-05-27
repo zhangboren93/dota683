@@ -1181,6 +1181,20 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_visage_summon_familiars_stone_form_buff" then
 		local parent = EntIndexToHScript(event.entindex_parent_const)
 		parent:FindModifierByName("modifier_familiar_attack_damage_lua"):refreshStackCount()
+	elseif event.name_const == "modifier_bane_nightmare" then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local nightmare_damage = caster:FindAbilityByName("bane_nightmare_damage_datadriven")
+		print(caster:GetName() .. " " .. nightmare_damage:GetName() .. " " .. parent:GetName())
+		nightmare_damage:SetLevel(caster:FindAbilityByName("bane_nightmare"):GetLevel())
+		if caster:GetTeam() ~= parent:GetTeam() then
+			caster:SetThink(function()
+				if parent:HasModifier("modifier_bane_nightmare") then
+					ApplyDamage({victim = parent, attacker = caster, damage = 20, damage_type = DAMAGE_TYPE_PURE})
+					nightmare_damage:ApplyDataDrivenModifier(caster, parent, "modifier_bane_nightmare_damage_active", {})
+				end
+			end, "nightmare_damage later", 1.5)
+		end
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false

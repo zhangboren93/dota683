@@ -10,3 +10,4 @@ hero_innate_abilities["npc_dota_hero_oracle"] = "oracle_fates_edict_team_same_ef
 hero_innate_abilities["npc_dota_hero_pudge"] = "pudge_rot_suicide_datadriven"
 hero_innate_abilities["npc_dota_hero_storm_spirit"] = "storm_spirit_electric_vortex_debuff_datadriven"
 hero_innate_abilities["npc_dota_hero_batrider"] = "batrider_firefly_flying_vision_datadriven"
+hero_innate_abilities["npc_dota_hero_bane"] = "bane_nightmare_damage_datadriven"
