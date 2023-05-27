@@ -7420,7 +7420,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.2"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -7591,6 +7591,41 @@
 			"tick_interval"			"0.5 0.5 0.5 0.5"
 			"tree_radius"			"100 100 100 100"
 			"bonus_vision"			"0"
+		}
+	}
+	"batrider_firefly_flying_vision_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_batrider_firefly_flying_vision_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/units/ability_execute_buff.lua"
+						"Function"		"handleAbilityExecuted"
+						"Modifier"		"modifier_batrider_firefly_flying_vision_active"
+						"TargetAbility"	"batrider_firefly"
+					}
+				}
+			}
+			"modifier_batrider_firefly_flying_vision_active"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"IsPurgable"	"0"
+				"Duration"		"18"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
     "batrider_flaming_lasso"
