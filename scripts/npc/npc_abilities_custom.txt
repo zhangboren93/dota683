@@ -5342,13 +5342,14 @@
 			}
 			"pugna_decrepify_ally_debuff_active"
 			{
-				"Passive"		"1"
+				"Passive"		"0"
 				"IsHidden"		"1"
 				"IsPurgable"	"1"
 				"IsDebuff"		"0"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-50"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" 	"-25" 
 				}
 			}
 		}
