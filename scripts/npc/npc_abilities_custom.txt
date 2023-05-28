@@ -22236,7 +22236,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50"		
+		"AbilityManaCost"				"20 30 40 50"		
 
 		"AbilityValues"
 		{
@@ -22281,7 +22281,7 @@
 				"value"					"0"
 				"RequiresScepter"		"1"
 			}
-			"bonus_attack_range"		"75"
+			"bonus_attack_range"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
