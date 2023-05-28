@@ -31,6 +31,7 @@ function flyingUpgradeChecker(event)
         entity:AddNewModifier(entity, entity, "modifier_courier_flying", {})
         entity:SetDayTimeVisionRange(400)
         entity:SetNightTimeVisionRange(400)
+        entity:FindAbilityByName("courier_burst"):SetLevel(1)
     else
         if not entity:HasModifier("modifier_courier_ground_visual") then
             ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_ground_visual", {})

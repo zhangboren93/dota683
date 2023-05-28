@@ -1063,7 +1063,7 @@ function CAddonTemplateGameMode:ModifyGoldFilter(event)
 		event.gold = 50
 	end
 	if event.reason_const == DOTA_ModifyGold_HeroKill then
-		print("Blocking default hero kill gold")
+		print("Blocking default hero kill gold " .. event.gold)
 		return false
 	end
 	if event.reason_const == DOTA_ModifyGold_Building then

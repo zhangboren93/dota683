@@ -8563,7 +8563,7 @@
 		"AbilityTextureName"			"item_diffusal_blade"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
@@ -8605,7 +8605,13 @@
 			}	
 			"ApplyModifier"
 			{
-				"Target"	"TARGET"
+				"Target"
+				{
+					"Center"			"TARGET"
+                	"Radius"			"1"
+                	"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+                	"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
 				"ModifierName"	"modifier_diffusal_purge_slow_datadriven"
 			}
 			"RunScript"

@@ -15934,6 +15934,39 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Ability: Courier Burst
+	//=================================================================================================================
+	"courier_burst"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"					"5210"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"90.0"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"4.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movement_speed"	"180"
+			}
+		}
+		
+		"MaxLevel"		"1"
+	}
 
 	"sniper_take_aim"
 	{
@@ -34607,7 +34640,7 @@
 				"EffectAttachType"	"attach_origin"
 				"States"
 				{
-					"MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
+		        	"MODIFIER_STATE_FLYING"				"MODIFIER_STATE_VALUE_ENABLED"
 		        	"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_STUNNED"			"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
@@ -34615,7 +34648,39 @@
 					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				//"OverrideAnimation"     "ACT_DOTA_FLAIL"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"				"400"
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"Target"		"TARGET"
+						"EffectName"	"DOTA_Item.Cyclone.Activate"
+					}
+				}
+				"OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"Target"		"TARGET"
+						"ModifierName"	"modifier_eul_cyclone_fall_datadriven"
+					}	
+				}
+				"OverrideAnimation"     "ACT_DOTA_FLAIL"
+			}
+			"modifier_eul_cyclone_fall_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
+				"Duration"		"0.1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"				"0"
+				}
 			}
 			"modifier_sheep_apply_break_checker"
 			{
