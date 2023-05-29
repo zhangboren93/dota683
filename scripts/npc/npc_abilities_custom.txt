@@ -28630,12 +28630,9 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"	"12"
-			"damage"			
-			{
-				"value"			"80 140 200 260"
-			}
+			"damage"			"80 140 200 260"
 			"width"				"125"
-			"duration"			"0.5 1.0 1.5 2"
+			"duration"			"1 1.5 2 2.5"
 			"length_buffer"		"275"
 			"speed"				"1800"
 		}
