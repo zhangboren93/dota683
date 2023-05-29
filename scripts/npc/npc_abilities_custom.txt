@@ -19507,7 +19507,7 @@
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
+		"AbilityCastRange"				"750"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -19516,14 +19516,13 @@
 			"lance_damage"
 			{
 				"value"				"100 150 200 250"
-				"special_bonus_unique_phantom_lancer_lance_damage"		"+50"
 			}
 			"lance_speed"				"1000 1000 1000 1000"
 			"duration"					"3.25"
 			"movement_speed_pct"		"-10 -20 -30 -40"
 			"illusion_duration"			"2.0 4.0 6.0 8.0"
-			"illusion_damage_out_pct"	"-75"
-			"tooltip_illusion_damage"	"25"
+			"illusion_damage_out_pct"	"-80"
+			"tooltip_illusion_damage"	"20"
 			"illusion_damage_in_pct"	"300 300 300 300"
 			"tooltip_illusion_total_damage_in_pct"	"400 400 400 400"
 			"fake_lance_distance"		"675"
@@ -19560,7 +19559,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -19582,7 +19581,7 @@
 			"search_radius"	"900"
 			"delay"			"1"
 			"illusion_duration"			"8"
-			"illusion_extended_duration"			"2"
+			"illusion_extended_duration"			"0"
 			"illusion_2_amount"
 			{
 				"value"					"1"
@@ -19613,7 +19612,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"min_distance"		"200"
+				"min_distance"		"300"
 				"max_distance"				
 				{
 					"value"				"600 700 800 900"
@@ -19656,77 +19655,20 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_illusions"			"6 8 10"
-				"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer_3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"max_illusions"			"5 7 9"
 				"proc_chance_pct"		"40 45 50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"illusion_proc_chance_pct"		"8"
-			}			
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"illusion_duration"			"8"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_out_pct"	"-75"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
+				"illusion_damage_out_pct"	"-84"
 				"tooltip_illusion_damage"	"25"
-				"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer_6"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_damage_in_pct"	"350"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"tooltip_total_illusion_damage_in_pct"	"400"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
+				"illusion_damage_in_pct"	"400"
+				"tooltip_total_illusion_damage_in_pct"	"500"
 				"illusion_from_illusion_duration"	"4"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"shard_bonus_illusions"		"0"
-				"RequiresShard"				"1"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"invis_duration"			"0"
-				"RequiresScepter"			"1"
-			}
-			"12"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"invis_movespeed"			"0"
-				"RequiresScepter"			"1"
-			}
 		}
 	}
 	//=================================================================================================================
