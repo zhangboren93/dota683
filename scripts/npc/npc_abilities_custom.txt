@@ -7394,7 +7394,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.55"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
 		// Time		
@@ -7416,17 +7416,17 @@
 				}
 				"AbilityCastRange"
 				{
-					"value"				"850"					
-					"special_bonus_scepter"	"+950"
+					"value"				"900"					
+					"special_bonus_scepter"	"+900"
 				}
-				"path_radius"				"260"
+				"path_radius"				"225"
 				"duration"
 				{
 					"value"					"7"
 					"special_bonus_scepter"	"+7"
 				}
 				"burn_interval"				"0.5 0.5 0.5"
-				"linger_duration"			"2"
+				"linger_duration"			"0"
 		}	
 	}
 	//=================================================================================================================
@@ -30520,20 +30520,13 @@
 	//=================================================================================================================
 	"jakiro_ice_path"
 	{
+		"AbilityCastRange"				"1100"
 		"AbilityManaCost"				"90"		
 		"AbilityValues"
 		{
 			"path_delay"				"0.5"
-			"stun_duration"
-			{
-				"value"					"1 1.4 1.8 2.2"
-				"special_bonus_unique_jakiro"		"+0.5"
-			}
-			"path_duration"
-			{
-				"value"					"2.6 2.9 3.2 3.5"
-				"special_bonus_unique_jakiro"		"+0.5"
-			}			
+			"stun_duration"				"1 1.4 1.8 2.2"
+			"path_duration"				"1 1.4 1.8 2.2"
 			"path_radius"				"150"
 			"damage"					"50"
 			"AbilityCooldown"				
