@@ -5,6 +5,7 @@ require("hero_innate_abilities")
 require("kill_bonus")
 require("heroes.hero_creep_aggro")
 require("building_bounty")
+require("root_modifiers")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
@@ -1200,6 +1201,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_tombstone_hp" then return false
 	elseif event.name_const == "modifier_courier_passive_bonus" then return false
 	elseif event.name_const == "modifier_beastmaster_call_of_the_wild_hawk" then return false
+	end
+	if root_modifiers[event.name_const] then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		if parent:IsChanneling() then
+			parent:InterruptChannel()
+		end
 	end
 	return true
 end
