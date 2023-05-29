@@ -32,7 +32,7 @@ function modifier_attribute_regen_adjust:GetModifierConstantHealthRegen()
 end
 
 function modifier_attribute_regen_adjust:GetModifierMagicalResistanceBonus()
-    return self:GetParent():GetIntellect() * (-0.1)
+    return 1 + self:GetParent():GetIntellect() * (-0.16)
 end
 
 function modifier_attribute_regen_adjust:GetTexture()
