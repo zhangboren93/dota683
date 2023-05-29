@@ -1106,7 +1106,7 @@ function CAddonTemplateGameMode:HealingFilter(event)
 end
 
 function CAddonTemplateGameMode:ModifierGainedFilter(event)
-	--print("ModifierGainedFilter " .. event.name_const)
+	-- print("ModifierGainedFilter " .. event.name_const)
 	if event.name_const == "modifier_dark_seer_wall_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local parent = EntIndexToHScript(event.entindex_parent_const)

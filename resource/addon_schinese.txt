@@ -139,6 +139,7 @@
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven_Description"		"20/30/40/50闪避"
 		"DOTA_Tooltip_ability_death_prophet_exorcism_scepter_description" 		"Bug了=没有A杖"
 		"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_scepter_description" 		"升了穿越地形，其他加成没有"
+		"DOTA_Tooltip_ability_dragon_knight_breathe_fire_datadriven" 				"喷火"
 		"DOTA_Tooltip_Ability_gyrocopter_call_down_Scepter_Description"		"全屏+伤害"
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven"					"导弹"
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_Description"		"眩晕%stun_duration%秒"
