@@ -20581,7 +20581,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"projectile_speed"	"2500"
+				"projectile_speed"	"4000"
 			}
 			"03"
 			{
@@ -20934,7 +20934,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1500"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0"
 		"AbilityCastAnimation"			"ACT_INVALID"
 
 		// Time		
