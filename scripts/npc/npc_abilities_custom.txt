@@ -29338,7 +29338,7 @@
 		"AbilityValues"
 		{
 				"width"				"140"
-				"duration"			"0.75 1.25 1.75 2.25"
+				"duration"			"1.25 1.75 2.25 2.75"
 				"length"			"700"
 				"speed"				"1600"
 				"impale_damage"			"80 140 200 260"
