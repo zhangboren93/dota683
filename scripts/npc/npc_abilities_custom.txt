@@ -20669,8 +20669,8 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityTextureName"			"tidehunter_anchor_smash"
 
 		"AbilityCastRange"				"400"
@@ -20690,31 +20690,10 @@
 				"Target"					"CASTER"
 				"EffectName"				"Hero_Tidehunter.AnchorSmash"
 			}
-			"ActOnTargets"
+			"RunScript"
 			{
-				"Target"
-				{
-					"Center"  	"CASTER"
-					"Radius" 	"%AbilityCastRange"
-					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				}
-			
-				"Action"    
-				{
-					"Damage"
-					{
-						"Type"		"DAMAGE_TYPE_PHYSICAL"
-						"Target"	"TARGET"
-						"Damage"	"%AbilityDamage"
-					}
-
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_tidehunter_anchor_smash_datadriven"
-						"Target"	"TARGET"
-					}
-				}
+				"ScriptFile"				"heroes/hero_tide_hunter/anchor_smash.lua"
+				"Function"					"handleSpellStart"
 			}
 		}
 		"Modifiers"
@@ -20724,7 +20703,7 @@
 				"Passive"		"0"
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
-				"IsPurgable"	"1"
+				"IsPurgable"	"0"
 				"Duration"		"%AbilityDuration"
 				"Properties"
 				{
