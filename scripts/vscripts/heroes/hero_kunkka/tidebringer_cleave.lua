@@ -36,14 +36,14 @@ function modifier_tidebringer_cleave:OnProcessCleave(event)
 		-- DebugDrawCircle(pos,Vector(200,200,200),15,radius,true,1)
 		local units = FindUnitsInRadius(attacker:GetTeam(),pos,nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,19,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
 		-- TODO fix effect
-	--	local effect = ParticleManager:CreateParticle("particles/heroes/kunkka/kunkka_spell_tidebringer.vpcf",PATTACH_CENTER_FOLLOW,attacker)
+		local effect = ParticleManager:CreateParticle("particles/units/heroes/hero_kunkka/kunkka_spell_tidebringer.vpcf",PATTACH_CENTER_FOLLOW,attacker)
 	--	ParticleManager:SetParticleControlOrientationFLU(effect,0,attacker:GetForwardVector()*CalcDistanceBetweenEntityOBB(attacker,target),attacker:GetRightVector(),attacker:GetUpVector())
-	--	ParticleManager:SetParticleControlEnt(effect,1,target,PATTACH_CENTER_FOLLOW,"",Vector(0,0,0),false)
+		ParticleManager:SetParticleControlEnt(effect,1,target,PATTACH_POINT_FOLLOW,"attach_hitloc",target:GetAbsOrigin(),false)
 
 		local n = 2
 		for k,v in ipairs(units) do
 			if v ~= target then
-		--		ParticleManager:SetParticleControl(effect, n, v:GetOrigin() )
+				ParticleManager:SetParticleControl(effect, n, v:GetOrigin() )
 				ApplyDamage({
 					attacker = attacker,
 					victim = v,
@@ -55,10 +55,10 @@ function modifier_tidebringer_cleave:OnProcessCleave(event)
 				n = n + 1
 			end
 		end
-		--for i = n,19 do
-		--	ParticleManager:SetParticleControl(effect,i,Vector(0,0,-2000))
-		--end
-		--ParticleManager:ReleaseParticleIndex(effect)
+		for i = n,19 do
+			ParticleManager:SetParticleControl(effect,i,Vector(0,0,-2000))
+		end
+		ParticleManager:ReleaseParticleIndex(effect)
 	end
 end
 
