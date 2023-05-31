@@ -139,6 +139,8 @@ function CAddonTemplateGameMode:InitGameMode()
 		Dynamic_Wrap(CAddonTemplateGameMode, "ModifierGainedFilter"), self)
 	GameRules:GetGameModeEntity():SetDamageFilter(
 		Dynamic_Wrap(CAddonTemplateGameMode, "DamageFilter"), self)
+	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(
+		Dynamic_Wrap(CAddonTemplateGameMode, "AbilityTuningValueFilter"), self)
 
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(self, event.entindex, event.is_respawn)
@@ -281,6 +283,13 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 				hero:HeroLevelUp(false)
 			end
 		end
+	end
+	if text == "-test" then
+		print(GetSystemTime())
+		print(GetSystemTimeMS())
+		print(GetSystemDate())
+		print(Plat_FloatTime())
+		print(Time())
 	end
 end
 
@@ -1196,6 +1205,23 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 				end
 			end, "nightmare_damage later", 1.5)
 		end
+	elseif event.name_const == "modifier_ogre_magi_ignite" then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability_multicast = caster:FindAbilityByName("ogre_magi_multicast")
+		local ability_ignite_splash = caster:FindAbilityByName("ogre_magi_multicast_bonus_datadriven")
+		ability_ignite_splash:ApplyDataDrivenModifier(caster, parent, "modifier_ignite_no_ex_duration_checker", {})
+		if ability_multicast:GetLevel() > 0 and not parent:HasModifier("modifier_ogre_magi_ignite_splash") then
+			local ability_ignite = caster:FindAbilityByName("ogre_magi_ignite")
+			local ignite_radius = ability_multicast:GetSpecialValueFor("ignite_range")
+			local units = FindUnitsInRadius(caster:GetTeam(), parent:GetAbsOrigin(), nil, ignite_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, 
+					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)
+			print("ignite splashes " .. #units)
+			for i=1,#units do
+				ability_ignite_splash:ApplyDataDrivenModifier(caster, units[i], "modifier_ogre_magi_ignite_splash", { duration = 1})
+				units[i]:AddNewModifier(caster, ability_ignite, "modifier_ogre_magi_ignite", { duration = ability_ignite:GetSpecialValueFor("duration")})
+			end
+		end
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
@@ -1243,6 +1269,18 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		end
 	end
 	return true
+end
+
+function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
+	local ability = EntIndexToHScript(event.entindex_ability_const)
+	if ability:GetName() == "ogre_magi_ignite" and event.value_name_const == "AbilityCastRange" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability_multicast = caster:FindAbilityByName("ogre_magi_multicast")
+		if ability_multicast:GetLevel() > 0 then
+			event.value = event.value + ability_multicast:GetSpecialValueFor("ignite_range")
+			return true
+		end
+	end
 end
 
 function HandleBuyback(entindex, player_id)

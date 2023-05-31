@@ -11,8 +11,6 @@ function handleAbilityExecuted(keys)
             event_ability:StartCooldown(newCooldown)
             unit:SpendMana(multicast:GetSpecialValueFor("blast_mana_cost"), event_ability)
         end, "reset blast cooldown", 0.1)
-    elseif event_ability:GetName() == "ogre_magi_ignite" then
-       ability:ApplyDataDrivenModifier(unit, target, "modifier_ignite_no_ex_duration_checker", {}) 
     elseif event_ability:GetName() == "ogre_magi_bloodlust" then
         unit:SetThink(function()
             local multicast = unit:FindAbilityByName("ogre_magi_multicast")
