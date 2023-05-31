@@ -10647,6 +10647,21 @@
 					}
 				}
 			}
+			"modifier_ignite_no_ex_duration_checker"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"Duration"		"10"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_ogre_magi/ignite.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
 		}
 	}
 	//=================================================================================================================
@@ -21029,49 +21044,16 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"speed_multiplier"				"250"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"max_charges"				"3"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
 				"charge_restore_time"			"35.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"damage"				"100 150 200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"450"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"speed"					"1300"
-			}
-			"07"
-            {
-                "var_type"				"FIELD_INTEGER"
-                "scepter_mana_cost"		"75"
-				"RequiresScepter"		"1"
-            }
-			"08"
-            {
-                "var_type"					"FIELD_INTEGER"
+                "scepter_mana_cost"		"150"
                 "shard_remnant_speed_pct"	"300"
-            }
 		}
 	}
 
@@ -29443,7 +29425,7 @@
 	{
 		"AbilityCastRange"				"600"
 		"AbilityCooldown"				"12"
-		"AbilityManaCost"				"95 105 115 125"
+		"AbilityManaCost"				"75 85 95 105"
 		"AbilityValues"
 		{
 				"stun_duration"		"1.5"
@@ -31538,42 +31520,14 @@
 		"AbilityCastRange"				"700 800 900 1000"
 		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"95 105 115 125"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"duration"			"5 6 7 8"
-			}
-
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"burn_damage"		"26 34 42 50"
-				"LinkedSpecialBonus"	"special_bonus_unique_ogre_magi_4"
-			}		
-
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"slow_movement_speed_pct"		"-20 -22 -24 -26"
-			}
-
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"projectile_speed"		"1000"
-			}	
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"multicast_delay"	"0.6"
-			}	
-			"06"
-			{
-				"var_type"			"FIELD_INT"
 				"ignite_multicast_aoe"	"1400"
-			}				
 		}
 	}
 	//=================================================================================================================
