@@ -359,5 +359,9 @@
 		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty_Description"							"不能获得不可靠金钱"
         "DOTA_Tooltip_Ability_shredder_reactive_armor_datadriven"                               "活性护甲"
         "DOTA_Tooltip_Ability_shredder_reactive_armor_datadriven_Description"                   "+1护甲+1回血，持续16秒，叠加上限%stack_limit%"
+		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven"							"尖刺外壳"
+		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_Description"				"激活状态下，尖刺外壳可以反弹并无效化司夜刺客受到的伤害（每个攻击者最多作用一次），同时眩晕攻击者。"
+		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_reflect_duration"			"反弹持续时间："
+		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_stun_duration"			"眩晕时间："
 	}
 }
