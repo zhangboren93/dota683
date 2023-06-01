@@ -29429,6 +29429,44 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
+	"nyx_assassin_spike_cancel_invis_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_nyx_assassin_spike_cancel_invis_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/units/ability_execute_buff.lua"
+						"Function"		"handleAbilityExecuted"
+						"Modifier"		"modifier_spike_cancel_invis_active"
+						"TargetAbility"	"nyx_assassin_spiked_carapace"
+					}
+				}
+			}
+			"modifier_spike_cancel_invis_active"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Duration"	"0.1"
+				"OnCreated"
+				{
+					"RemoveModifier"
+					{
+						"Target"		"TARGET"
+						"ModifierName"	"modifier_nyx_assassin_vendetta"
+					}
+				}
+			}
+		}
+	}
 	"ogre_magi_fireblast"
 	{
 		"AbilityCastRange"				"600"
