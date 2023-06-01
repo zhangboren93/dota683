@@ -13652,7 +13652,10 @@
 				"EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_odds.vpcf"
 				"EffectAttachType"	"start_at_customorigin"
 				"TargetPoint"		"POINT"	
-				"EffectRadius"		"%radius"
+		        "ControlPoints"
+        		{
+            		"04" "%radius 0 0"
+        		}
 			}
 			"RunScript"
 			{
