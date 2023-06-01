@@ -23,14 +23,17 @@ function LandMinesPlant( keys )
 
 	-- Create the land mine and apply the land mine modifier
 	local land_mine = CreateUnitByName("npc_dota_techies_land_mine", target_point, false, nil, nil, caster:GetTeamNumber())
+	land_mine:SetControllableByPlayer(caster:GetPlayerID(), true)
 	ability:ApplyDataDrivenModifier(caster, land_mine, modifier_land_mine, {})
 
 	-- Update the count and table
 	table.insert(caster.land_mine_table, land_mine)
 
 	-- If we exceeded the maximum number of mines then kill the oldest one
-	if #caster.land_mine_table > max_mines then
-		caster.land_mine_table[1]:ForceKill(true)
+	while #caster.land_mine_table > max_mines do
+		if IsValidEntity(caster.land_mine_table[1]) then
+			caster.land_mine_table[1]:ForceKill(true)
+		end
 		table.remove(caster.land_mine_table, 1)
 	end
 
