@@ -22406,7 +22406,7 @@
 				"healing_ward_aura_radius"	"500"
 				"healing_ward_movespeed_tooltip"	
 				{
-					"value"	"325"
+					"value"	"450"
 				}
 				"healing_ward_bonus_health"
 				{
@@ -30616,25 +30616,12 @@
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_attack_speed_pct" 		"-20 -30 -40 -50"
-				"LinkedSpecialBonus"	"special_bonus_unique_jakiro_4"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"300"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"12 16 20 24"
-				"LinkedSpecialBonus"	"special_bonus_unique_jakiro_8"
-			}
+			"slow_attack_speed_pct" 		"-20 -30 -40 -50"
+			"radius"				"300"
+			"damage"				"12 16 20 24"
+			"building_dmg_pct"		"100"
 		}		
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -32126,35 +32113,19 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"			"5.0 6.0 7.0 8.0"
-			"damage"		"80 120 160 200"
-			"mana_burn"		
-			{
-				"value"				"80 120 160 200"
-				"special_bonus_unique_clockwerk_8"		"+60"
-			}
-			"attacks_to_destroy"	
-			{
-				"value"					"2 2 2 3"
-				"special_bonus_unique_clockwerk_5"		"+2"
-			}
-			"push_length"		"300"
-			"push_duration"		"1"
+			"duration"				"5.0 6.0 7.0 8.0"
+			"damage"				"80 120 160 200"
+			"mana_burn"				"80 120 160 200"
+			"magic_barrier"			"0"
+			"attacks_to_destroy"	"2 2 2 3"
+			"push_length"			"300"
+			"push_duration"			"1"
 			"cogs_radius"			"215"
-			"trigger_distance"			"185"
-			"extra_pull_buffer"			"-10"
-			"bonus_armor"		"0"
-			"leash"			
-			{
-				"value"			"0"
-				"special_bonus_unique_clockwerk_2"	"+1"
-			}
-			"AbilityCooldown"				
-			{
-				"value"			"15"
-				"special_bonus_unique_clockwerk_9"		"-2"
-			}
-
+			"trigger_distance"		"185"
+			"extra_pull_buffer"		"-10"
+			"bonus_armor"			"0"
+			"leash"					"0"
+			"AbilityCooldown"		"15"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -32166,9 +32137,9 @@
 		"AbilityManaCost"				"50"
 		"AbilityValues"
 		{
-			"radius"			"600"
-			"duration"			"6.0"
-			"speed"				"2250"
+			"radius"			"575"
+			"duration"			"10"
+			"speed"				"1500"
 			"damage"			"80 120 160 200"
 			"AbilityCooldown"				
 			{
