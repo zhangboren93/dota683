@@ -3712,7 +3712,7 @@
 			"animation_rate"		"0.2"
 			"scepter_pct_damage"
 			{
-				"value"					"3.75 4.5 5.25"
+				"value"					"0"
 				"RequiresScepter"		"1"
 			}
 			"scepter_radius"	
@@ -20967,7 +20967,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.5"
+		"AbilityCooldown"				"0"
 		"AbilityCharges"				"3"
 
 		// Cost

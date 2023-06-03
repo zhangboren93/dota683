@@ -1274,6 +1274,15 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 			event.value = event.value + ability_multicast:GetSpecialValueFor("ignite_range")
 			return true
 		end
+	elseif ability:GetName() == "enigma_black_hole" and event.value_name_const == "scepter_pct_damage" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		if caster:HasScepter() then
+			local enigma_midnight_pulse = caster:FindAbilityByName("enigma_midnight_pulse")
+			if enigma_midnight_pulse:GetLevel() > 0 then
+				event.value = enigma_midnight_pulse:GetSpecialValueFor("damage_percent")
+				return true
+			end
+		end
 	end
 end
 
