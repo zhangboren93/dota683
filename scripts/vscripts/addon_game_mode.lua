@@ -675,7 +675,6 @@ end
 
 function HandleNpcSpawned(self, entityIndex, is_respawn)
 	local entity = EntIndexToHScript(entityIndex)
-	--print("NpcSpawned " .. entity:GetName())
 	if entity:IsRealHero() and is_respawn == 0 then
 		-- modifiers
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
@@ -921,14 +920,23 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 		entity:FindAbilityByName("neutral_spell_immunity"):SetLevel(1)
 		entity:AddNewModifier(entity, entity, "modifier_familiar_attack_damage_lua", {})
-	end
-	if entity:GetName() == "npc_dota_courier" then
+	elseif entity:GetName() == "npc_dota_courier" then
 		entity:FindAbilityByName("courier_flying_upgrade_datadriven"):SetLevel(1)
 	elseif entity:GetName() == "npc_dota_beastmaster_hawk" then
 		--print("owned by " .. entity:GetPlayerOwnerID())
 		entity:SetControllableByPlayer(entity:GetPlayerOwnerID(), false)
 		entity:FindAbilityByName("beastmaster_hawk_invisibility_datadriven"):SetLevel(
 			entity:GetPlayerOwner():GetAssignedHero():FindAbilityByName("beastmaster_call_of_the_wild_hawk"):GetLevel())
+	elseif entity:GetName() == "npc_dota_venomancer_plagueward" then
+		entity:SetThink(function()
+			local hero_veno = entity:GetOwner()
+			if hero_veno:IsRealHero() and hero_veno:HasAbility("venomancer_poison_sting_datadriven") then
+				local ability_sting = hero_veno:FindAbilityByName("venomancer_poison_sting_datadriven")
+				if ability_sting:GetLevel() > 0 then
+					entity:AddAbility("venomancer_ward_poison_sting_datadriven"):SetLevel(ability_sting:GetLevel())
+				end
+			end
+		end, "Add ward passive", 0.1)
 	end
 end
 

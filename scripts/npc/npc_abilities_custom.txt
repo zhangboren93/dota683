@@ -4651,8 +4651,8 @@
 		"AbilityValues"
 		{
 			"duration"				"15.0 15.0 15.0 15.0"
-			"strike_damage"			"0 30 60 90"
-			"tick_damage"			"15 30 60 90"
+			"strike_damage"			"25 50 75 100"
+			"tick_damage"			"0 30 60 90"
 			"tick_interval"			"3.0 3.0 3.0 3.0"
 			"movement_slow"			"-50 -50 -50 -50"
 			"radius"				"125"
@@ -4670,39 +4670,199 @@
 		}
 	}
 
-	//=================================================================================================================
-	// Venomancer: Poison Sting
-	//=================================================================================================================
-	"venomancer_poison_sting"
+// Rewrite of the Venomancer Poison Sting ability
+// Author: Pizzalol and Rook
+// Date: 22.12.2014.
+// Known bugs:
+//     The Plague Ward interaction with Poison Sting is hardcoded in modifier_poison_sting_debuff_datadriven_on_destroy().
+//         This can be fixed once we are able to determine the caster of a modifier.
+"venomancer_poison_sting_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	"AbilityTextureName"			"venomancer_poison_sting"
+	"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5179"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"01"
 		{
+			"var_type"				"FIELD_FLOAT"
 			"duration"				"6.0 9.0 12.0 15.0"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
 			"damage"					"5 10 15 20"
-			"movement_speed"
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"movement_speed"			"-11 -12 -13 -14"
+		}			
+	}
+
+	"Modifiers"
+	{
+		"modifier_poison_sting_datadriven"
+		{
+			"Passive"	"1"
+			"IsHidden"	"1"
+
+			"OnAttackLanded"
 			{
-				"value"			"-10 -11 -12 -13"
-				"special_bonus_unique_venomancer_2"		"-8"
-			}	
-			"hp_regen_reduction"
-			{
-				"value"				"0"
-				"special_bonus_unique_venomancer_poisonsting_regen_reduction"	"+20"
+				"ApplyModifier"
+				{
+					"ModifierName"	"modifier_poison_sting_debuff_datadriven"
+					"Target"		
+					{
+						"Center"	"TARGET"
+						"Radius"	"1"
+						"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+					}
+				}
 			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+		"modifier_poison_sting_debuff_datadriven"
+		{
+			"IsDebuff"	"1"
+			"Duration"	"%duration"
+
+			"ThinkInterval"	"1.0"
+
+			"OnIntervalThink"
+			{
+				"Damage"
+				{
+					"Target"	"TARGET"
+					"Type"		"DAMAGE_TYPE_MAGICAL"
+					"Damage"	"%damage"
+				}
+			}
+
+			"OnCreated"
+			{
+				"Damage"
+				{
+					"Target"	"TARGET"
+					"Type"		"DAMAGE_TYPE_MAGICAL"
+					"Damage"	"%damage"
+				}
+			}
+			
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movement_speed"
+			}
+		}
 	}
+}
+
+// Rewrite of the Venomancer Poison Sting ability
+// Author: Pizzalol and Rook
+// Date: 22.12.2014.
+// Known bugs:
+//     The Plague Ward interaction with Poison Sting is hardcoded in modifier_poison_sting_debuff_datadriven_on_destroy().
+//         This can be fixed once we are able to determine the caster of a modifier.
+"venomancer_ward_poison_sting_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	"AbilityTextureName"			"venomancer_poison_sting"
+	"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"				"FIELD_FLOAT"
+			"duration"				"6.0 9.0 12.0 15.0"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"damage"					"3 5 8 10"
+		}
+		"03"
+		{
+			"var_type"					"FIELD_INTEGER"
+			"movement_speed"			"-11 -12 -13 -14"
+		}			
+	}
+
+	"Modifiers"
+	{
+		"modifier_ward_poison_sting_datadriven"
+		{
+			"Passive"	"1"
+			"IsHidden"	"1"
+
+			"OnAttackLanded"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
+					"Function"		"handleWardAttackLanded"
+				}
+			}
+		}
+
+		"modifier_ward_poison_sting_debuff_datadriven"
+		{
+			"IsDebuff"	"1"
+			"Duration"	"%duration"
+
+			"ThinkInterval"	"1.0"
+
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
+					"Function"		"handleWardIntervalThink"
+				}
+				"Damage"
+				{
+					"Target"	"TARGET"
+					"Type"		"DAMAGE_TYPE_MAGICAL"
+					"Damage"	"%damage"
+				}
+			}
+
+			"OnCreated"
+			{
+				"Damage"
+				{
+					"Target"	"TARGET"
+					"Type"		"DAMAGE_TYPE_MAGICAL"
+					"Damage"	"%damage"
+				}
+			}
+			
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movement_speed"
+			}
+		}
+	}
+}
 
 	//=================================================================================================================
 	// Venomancer: Plague Ward
