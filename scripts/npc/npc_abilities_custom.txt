@@ -32565,18 +32565,143 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	"shredder_whirling_death"
+	"shredder_whirling_death_datadriven"
 	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"shredder_whirling_death"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"325"
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8.0 8.0 8.0 8.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"70 80 90 100"		
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 				"whirling_radius"			"325"
-				"whirling_damage"			"80 120 160 200"
-				"tree_damage_scale"			"25"
+				"whirling_damage"			"100 150 200 250"
 				"whirling_tick"				"0.3"
 				"stat_loss_pct"				"15"
-				"stat_loss_univ"			"15"
-				"duration"					"7"
+				"duration"					"7.0"
+		}
+
+		"precache"
+		{
+			"soundfile"		"sounds/weapons/hero/shredder/whirling_death.vsnd"
+			//"soundfile"		"sounds/weapons/hero/shredder/whirling_death_impact.vsnd"
+			"particle"		"particles/units/heroes/hero_shredder/shredder_whirling_death.vpcf"
+			"particle"		"particles/units/heroes/hero_shredder/shredder_whirling_death_debuff.vpcf"		
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"				"Hero_Shredder.WhirlingDeath.Cast"
+				"Target"					"CASTER"
+			}
+			"AttachEffect"
+			{
+				"EffectName"				"particles/units/heroes/hero_shredder/shredder_whirling_death.vpcf"
+				"EffectAttachType"			"follow_origin"
+				"Target"					"CASTER"
+			}
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center"				"CASTER"
+					"Radius"				"%whirling_radius"
+					"Teams"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"					"DOTA_UNIT_TARGET_HERO"
+				}
+				"Action"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"		"modifier_timber_whiling_death_debuff_visual"
+						"Target"			"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_shredder/whirling_death.lua"
+						"Function"			"applyAttributeDebuff"
+						"Target"			"TARGET"
+					}
+				}
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_shredder/whirling_death.lua"
+				"Function"			"applyDamage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_timber_whiling_death_debuff_visual"
+			{
+				"Passive"					"0"
+				"IsHidden"					"0"
+				"IsDebuff"					"1"
+				"IsPurgable"				"1"
+				"Duration"					"%duration"
+				"EffectName"				"particles/units/heroes/hero_shredder/shredder_whirling_death_debuff.vpcf"
+				"EffectAttachType"			"follow_origin"
+			}
+			"modifier_timber_whiling_death_debuff_str"
+			{
+				"Passive"					"0"
+				"IsHidden"					"1"
+				"IsDebuff"					"1"
+				"IsPurgable"				"1"
+				"Duration"					"%duration"
+				"Attributes" 				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"-1"
+				}
+			}
+			"modifier_timber_whiling_death_debuff_agi"
+			{
+				"Passive"					"0"
+				"IsHidden"					"1"
+				"IsDebuff"					"1"
+				"IsPurgable"				"1"
+				"Duration"					"%duration"
+				"Attributes" 				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"-1"
+				}
+			}
+			"modifier_timber_whiling_death_debuff_int"
+			{
+				"Passive"					"0"
+				"IsHidden"					"1"
+				"IsDebuff"					"1"
+				"IsPurgable"				"1"
+				"Duration"					"%duration"
+				"Attributes" 				"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"-1"
+				}
+			}
 		}
 	}
 	"tiny_avalanche"
