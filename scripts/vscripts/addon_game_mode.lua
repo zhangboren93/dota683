@@ -610,6 +610,12 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				GameRules:SendCustomMessage("末日无法大自己", -1, -1)
 				return false
 			end
+		elseif ability:GetName() == "morphling_replicate_datadriven" then
+			local target = EntIndexToHScript(event.entindex_target)
+			if target:IsRealHero() and target:GetName() == "npc_dota_hero_morphling" then
+				GameRules:SendCustomMessage("水人无法大自己", -1, -1)
+				return false
+			end
 		elseif ability:GetName() == "courier_transfer_items" then
 			print("courier_transfer_items " .. event.issuer_player_id_const)
 			local courier = EntIndexToHScript(event.units['0'])

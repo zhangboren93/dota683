@@ -31779,7 +31779,7 @@
 					"special_bonus_unique_morphling_10"	"+1"
 				}
 				"knockback_min"					"100"
-				"knockback_max"					"500"
+				"knockback_max"					"300"
 				"projectile_speed"					"1150"
 				"shared_cooldown"					"3"
 				"damage_base"					"20 40 60 80"
