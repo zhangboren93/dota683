@@ -942,7 +942,7 @@
 		"StatusManaRegen"			"0.01"
 		"Ability2"		"nyx_assassin_mana_burn"
 		"Ability3"		"nyx_assassin_spiked_carapace_datadriven"
-		"Ability4"		"generic_hidden"
+		"Ability4"		"nyx_assassin_vendetta_physical_damage_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
