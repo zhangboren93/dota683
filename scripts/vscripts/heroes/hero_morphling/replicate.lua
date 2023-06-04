@@ -51,5 +51,7 @@ function morph_replicate(event)
 		caster:SetAbsOrigin(replica:GetAbsOrigin())
 		replica:ForceKill(false)
 		caster.replica = nil
+	else
+		caster:GiveMana(150)
 	end
 end

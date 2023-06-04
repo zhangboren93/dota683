@@ -1,5 +1,8 @@
 function handleDeath(event)
 	local caster = event.caster
+	if not caster:IsRealHero() then
+		return
+	end
 	if caster:IsReincarnating() then
 		if caster:GetName() == "npc_dota_hero_skeleton_king" then
 			local skre = caster:FindAbilityByName("skeleton_king_reincarnation")
