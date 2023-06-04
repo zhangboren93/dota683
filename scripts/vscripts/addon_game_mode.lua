@@ -1230,6 +1230,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 				units[i]:AddNewModifier(caster, ability_ignite, "modifier_ogre_magi_ignite", { duration = ability_ignite:GetSpecialValueFor("duration")})
 			end
 		end
+	elseif event.name_const == "modifier_naga_siren_ensnare" then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		if parent:IsMagicImmune() then
+			return false
+		end
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
