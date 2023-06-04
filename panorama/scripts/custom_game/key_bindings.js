@@ -26,5 +26,5 @@ function OnCustomGameCourierSend()
     //$("#courier_shared_label").text = "OnCustomGameCourierSend";
 }
 
-Game.AddCommand( "CustomGameSelectCourier", OnCustomeGameSelectCourier, "", 0 );
-Game.AddCommand( "CustomGameCourierSend", OnCustomGameCourierSend, "", 0 );
+//Game.AddCommand( "CustomGameSelectCourier", OnCustomeGameSelectCourier, "", 0 );
+//Game.AddCommand( "CustomGameCourierSend", OnCustomGameCourierSend, "", 0 );
