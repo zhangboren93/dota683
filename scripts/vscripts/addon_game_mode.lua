@@ -1258,6 +1258,13 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			parent:InterruptChannel()
 		end
 	end
+	if ethereal_modifiers[event.name_const] or disarm_modifiers[event.name_const] then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		if parent:HasModifier("modifier_legion_commander_duel") then
+			print("Cannot apply ethereal or disable modifier on dualed targets")
+			return false
+		end
+	end
 	return true
 end
 
