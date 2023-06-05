@@ -1235,6 +1235,17 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		if parent:IsMagicImmune() then
 			return false
 		end
+	elseif event.name_const == "modifier_medusa_stone_gaze_stone" then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		if parent:IsIllusion() then
+			print("stone gaze kills illusion " .. parent:GetName())
+			parent:kill()
+			return false
+		end
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		print("Applying magic resist to stoned units")
+		caster:FindAbilityByName("medusa_stone_gaze_magic_resist_datadriven"):ApplyDataDrivenModifier(
+			caster, parent, "modifier_stone_gaze_magic_resist_datadriven", {})
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false

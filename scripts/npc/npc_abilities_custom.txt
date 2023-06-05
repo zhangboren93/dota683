@@ -12786,6 +12786,27 @@
 			"speed_boost"						"0"
 		}
 	}
+	"medusa_stone_gaze_magic_resist_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_stone_gaze_magic_resist_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsDebuff"		"0"
+				"IsPurgable"	"0"
+				"Duration"		"3"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
+				}
+			}
+		}
+	}
     "centaur_stampede"
 	{
 		"MaxLevel"              "3"
