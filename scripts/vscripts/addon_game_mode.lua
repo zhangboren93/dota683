@@ -1239,7 +1239,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local parent = EntIndexToHScript(event.entindex_parent_const)
 		if parent:IsIllusion() then
 			print("stone gaze kills illusion " .. parent:GetName())
-			parent:kill()
+			parent:ForceKill(false)
 			return false
 		end
 		local caster = EntIndexToHScript(event.entindex_caster_const)

@@ -15,7 +15,7 @@ ethereal_modifiers["modifier_ghost_state"] = true
 ethereal_modifiers["modifier_item_ethereal_blade_ethereal"] = true
 
 disarm_modifiers = {}
-disarm_modifiers["modifier_heavens_halberd_debuff"] = true
+disarm_modifiers["modifier_item_heavens_halberd_datadriven_disarm"] = true
 disarm_modifiers["modifier_oracle_fates_edict"] = true
 disarm_modifiers["modifier_oracle_fates_edict_allie_disarm"] = true
 
