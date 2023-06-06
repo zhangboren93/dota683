@@ -820,8 +820,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_life_stealer" then
 			entity:FindAbilityByName("life_stealer_infest_bounty_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_alchemist" then
-			entity:FindAbilityByName("alchemist_goblins_greed_2"):SetLevel(0)
 		elseif entity:GetName() == "npc_dota_hero_shredder" then
 			entity:SetThink(function()
 				if entity:HasScepter() then

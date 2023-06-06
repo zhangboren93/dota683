@@ -9650,28 +9650,29 @@
 			}
 		}
 	}
-    "alchemist_chemical_rage"
+	// Rewrite of Alchemist Chemical Rage
+	// Author: Noya
+	// Date: October 13, 2015
+	// Version: 6.85
+	// Type: Datadriven
+	// Notes: Didn't add the obnoxious "Hero_Alchemist.ChemicalRage" looping sound. 
+	//		  Neither the attack sounds, as they overlap with the original weapon sounds.
+	"alchemist_chemical_rage_datadriven"
 	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"FightRecapLevel"				"2"
+		"AbilityTextureName"			"alchemist_chemical_rage"
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5369"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_Alchemist.ChemicalRage.Cast"
-
-		"HasScepterUpgrade"			"0"
-		"AbilityDraftUltShardAbility"  "alchemist_berserk_potion"
-
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"
-		"AbilityCastAnimation"			"ACT_INVALID"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -9683,43 +9684,112 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"AbilitySpecial"
 		{
-			"duration"				"25"
-			"transformation_time"	"0.35"
-			"base_attack_time"		
+			"01"
 			{
-				"value"		"1.4 1.2 1.0"
-				"special_bonus_unique_alchemist_8"		"-0.1"
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"25.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"transformation_time"	"0.35"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"base_attack_time"		"1.4 1.2 1.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health"			"0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_health_regen"	"50 75 100"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mana_regen"		"3.0 7.5 12.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movespeed"		"20 30 50"
+			}
+		}
 
-			}
-			"bonus_health"			"0"
-			"bonus_health_regen"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+			"particle"	"particles/status_fx/status_effect_chemical_rage.vpcf"
+			"particle"	"particles/units/heroes/hero_alchemist/alchemist_chemical_rage.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
 			{
-				"value"	"50 75 100"
-				"special_bonus_unique_alchemist_4"		"+50"
+				"EffectName"	"Hero_Alchemist.ChemicalRage.Cast"
+				"Target"		"CASTER"
 			}
-			"bonus_mana_regen"		"3 7.5 12"
-			"bonus_movespeed"
+			"ApplyModifier"
 			{
-				
-				"value"		"20 30 50"
-				"special_bonus_unique_alchemist_6"			"+50"
+				"ModifierName"	"modifier_chemical_rage_transform"
+				"Target"		"CASTER"
 			}
-			"scepter_gold_damage"
+		}
+
+		"Modifiers"
+		{
+			"modifier_chemical_rage_transform"
 			{
-				"value"						"0"
-				"RequiresScepter"			"1"
+				"IsBuff"	"1"
+				"IsHidden"	"1"
+				"Duration"	"%transformation_time"
+
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_invulnerable"
+						"Target"		"CASTER"
+						"Duration"		"0.03"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_chemical_rage"
+						"Target" 		"CASTER"
+					}
+				}
 			}
-			"scepter_bonus_damage"
+
+			"modifier_chemical_rage"
 			{
-				"value"						"0"
-				"RequiresScepter"			"1"
-			}
-			"scepter_spell_amp"
-			{
-				"value"						"0"
-				"RequiresScepter"			"1"
+				"IsBuff"	"1"
+				"Duration"	"%duration"
+
+				"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_chemical_rage.vpcf"
+				"EffectAttachType"	"follow_origin"
+
+				"StatusEffectName"	"particles/status_fx/status_effect_chemical_rage.vpcf"
+				"StatusEffectPriority"	"5"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"%base_attack_time"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%bonus_mana_regen"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_movespeed"
+				}
 			}
 		}
 	}
