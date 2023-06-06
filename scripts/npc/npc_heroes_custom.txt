@@ -2625,6 +2625,7 @@
 		"AttackAnimationPoint"		"0.59"
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
+		"Ability2"		"dark_seer_ion_shell_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
