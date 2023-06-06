@@ -9469,43 +9469,92 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	//=================================================================================================================
-	// Alchemist: Goblin's Greed
-	//=================================================================================================================
-	"alchemist_goblins_greed_2"
+	// Rewrite of Alchemist Greevils Greed
+	// Author: Noya
+	// Date: October 13, 2015
+	// Version: 6.82
+	// Type: Datadriven
+	//
+	// ----- FILE REQUIREMENTS -----
+	// Script files:
+	// scripts/vscripts/heroes/hero_alchemist/goblins_greed.lua 
+	"alchemist_goblins_greed_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"alchemist_goblins_greed"
+		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"MaxLevel"						"4"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-
-
+		"AbilityTextureName"			"alchemist_goblins_greed"
+	
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"AbilitySpecial"
 		{
-			"duration"				"30"
-			"bonus_gold"			"6 8 10 12"
-			"bonus_bonus_gold"		"3"
-			"bonus_gold_cap"		"12 20 28 36"
-			"bounty_multiplier"		"1"
-			"damage"
+			"01"
 			{
-				"value"		"0"
-				"special_bonus_unique_alchemist_7"	"+1"
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold"			"6 8 10 12"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_bonus_gold"		"3"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_gold_cap"		"12 20 28 36"
 			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_alchemist.vsndevts"
+			"particle"	"particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf"
+			"particle"	"particles/units/heroes/hero_alchemist/alchemist_lasthit_msg_gold.vpcf"
+		}
+	
+		"Modifiers"
+		{
+			"modifier_goblins_greed"
+			{
+				"Passive"		"1"
+				"IsHidden"		"0"
+	
+				"OnKill"
+				{
+			    	"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_alchemist/goblins_greed.lua"
+						"Function"		"GoblinsGreed"
+					}
+		    	}
+	
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_alchemist/goblins_greed.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			"modifier_goblins_greed_stack_duration"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"IsDebuff"		"0"
+				"Duration"		"%duration"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+		}
 	}
     "alchemist_chemical_rage"
 	{

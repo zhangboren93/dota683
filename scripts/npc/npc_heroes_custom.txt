@@ -1810,7 +1810,7 @@
 		"AttackAnimationPoint"		"0.35"
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
-		"Ability3"		"alchemist_goblins_greed_2"
+		"Ability3"		"alchemist_goblins_greed_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
