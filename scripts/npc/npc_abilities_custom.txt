@@ -16347,6 +16347,7 @@
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
+				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"80"
