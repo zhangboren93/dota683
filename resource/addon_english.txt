@@ -407,5 +407,11 @@
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage"								""	
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage_physical"						"BONUS DAMAGE"	
 		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"							"Black Hole deals additional damage equivalent to midnight pulse"
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven"							"Natural Order"
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_Description"				"Reduces all elements to their basic levels, removing base armor and magic damage resistance from nearby enemy units."
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_Lore"					"As it was at the beginning, Elder Titan makes it so again."
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_radius"					"RADIUS:"
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_armor_reduction_pct"		"%BASE ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_magic_resistance"		"RESIST REDUCTION:"
 	}
 }

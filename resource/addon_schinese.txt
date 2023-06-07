@@ -408,5 +408,11 @@
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage"								""	
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage_physical"						"额外伤害："	
 		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"							"黑洞额外造成凋零伤害"
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven"							"自然秩序"
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_Description"				"使所有元素降低至基础水平，移除附近敌方单位的基础物理护甲和魔法抗性。"
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_Lore"					"上古巨神又让创世之初重现。"
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_radius"					"作用范围："
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_armor_reduction_pct"		"%基础护甲减少："
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_magic_resistance_pct"	"魔抗减少："
 	}
 }

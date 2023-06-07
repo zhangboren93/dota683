@@ -13713,12 +13713,11 @@
 		"AbilityValues"
 		{
 				"cast_time"						"1.4"
-				"radius"						"500"
+				"radius"						"475"
 				"sleep_duration"				"2 3 4 5"
 				"stomp_damage"					"80 90 100 110"
-				"var_type"						"FIELD_FLOAT"
-				"initial_stun_duration"					"0.2"
-				"animation_rate"					"0.0"
+				"initial_stun_duration"			"0.65"
+				"animation_rate"				"0.0"
 				"wake_damage_limit"				"50"
 		}
 	}
@@ -13748,33 +13747,13 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
 				"cast_time"						"1.4"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"500"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
+				"radius"						"475"
 				"sleep_duration"				"2 3 4 5"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"stomp_damage"					"80 90 100 110"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"animation_rate"					"0.0"
-			}
+				"animation_rate"				"0.0"
 		}
 	}
 	//=================================================================================================================
@@ -13847,28 +13826,68 @@
 	//=================================================================================================================
 	// Elder Titan: Natural Order
 	//=================================================================================================================
-	"elder_titan_natural_order"
+	"elder_titan_natural_order_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5593"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
  		"AbilityCastAnimation"			"ACT_INVALID"
+ 		"AbilityTextureName"			"elder_titan_natural_order"
+
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_elder_titan/elder_titan_natural_order_physical.vpcf"
+		}
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"radius"					
+			"radius" 					"275"
+			"armor_reduction_pct"	    "40 60 80 100"
+			"armor_base_pct"			"60 40 20 0"
+			"magic_resistance"			"-12 -19 -26 -33"
+		}
+		"Modifiers"
+		{
+			"modifier_elder_titan_natural_order_aura"
+			{
+				"Passive" 			"1"
+				"IsHidden" 			"0"
+				"IsBuff"			"1"
+	
+				"Aura" 				"modifier_elder_titan_natural_order_debuff"
+				"Aura_Radius" 		"%radius"
+				"Aura_Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags" 		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"OnAbilityExecuted"
 				{
-					"value"		"250"
-					"special_bonus_unique_elder_titan_5"	"+100"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_elder_titan/natural_order.lua"
+						"Function"		"handleAbilityExecuted"
+					}
 				}
-				"armor_reduction_pct"	    "40 60 80 100"
-				"magic_resistance_pct"		"40 60 80 100"
+			}
+			"modifier_elder_titan_natural_order_debuff"
+			{
+				"Passive" 			"0"
+				"IsHidden" 			"0"
+				"IsDebuff"			"1"
+				"Duration"			"0.5"
+				"EffectName"		"particles/units/heroes/hero_elder_titan/elder_titan_natural_order_physical.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"		"%magic_resistance"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BASE_PERCENTAGE"	"%armor_base_pct"
+				}
+			}
 		}
 	}
 
@@ -13883,28 +13902,16 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
  		"AbilityCastAnimation"			"ACT_INVALID"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"radius"					"250"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"armor_reduction_pct"	    "40 60 80 100"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"magic_resistance_pct"		"40 60 80 100"
-			}
 		}
 	}
 	//=================================================================================================================
