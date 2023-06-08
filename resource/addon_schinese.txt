@@ -351,6 +351,8 @@
 		"DOTA_Tooltip_ability_tiny_grow_attack_speed_reduction"					""
 		"DOTA_Tooltip_ability_tiny_grow_attack_speed_reduction_tooltip"			"攻速降低:"
 		"DOTA_Tooltip_ability_tiny_grow_bonus_move_speed_tooltip"				"移速提升:"
+		"DOTA_Tooltip_ability_tiny_grow_toss_bonus_damage_pct"					"%投掷单位伤害提升："
+		"DOTA_Tooltip_ability_tiny_grow_Scepter_Description"					"学习拔树，投掷单位伤害提升。"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"网"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"数量%count%，回血%health_regen%，移速+%bonus_movespeed%%%"
 		"DOTA_Tooltip_Ability_broodmother_insatiable_hunger_Lore"				"+60/80/100攻击力"

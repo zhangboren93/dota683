@@ -2511,6 +2511,7 @@
 		"LevelsBetweenUpgrades" "5"
 		"AbilitySound"					"Tiny.Grow"
 		"AbilityCastAnimation"		"ACT_INVALID"
+		"HasScepterUpgrade"			"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -2526,7 +2527,8 @@
 				"toss_bonus_damage_pct"
 				{
 					"value"					"35 50 65"
-					"special_bonus_scepter"	"50 65 80"	
+					"special_bonus_scepter"	"+15"	
+					"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
 				}
 		}
 	}

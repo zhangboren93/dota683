@@ -1318,6 +1318,13 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 				return true
 			end
 		end
+	elseif ability:GetName() == "tiny_toss" and event.value_name_const == "bonus_damage_pct" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability_grow = caster:FindAbilityByName("tiny_grow")
+		if ability_grow:GetLevel() > 0 then
+			event.value = ability_grow:GetSpecialValueFor("toss_bonus_damage_pct")
+			return true
+		end
 	end
 end
 
