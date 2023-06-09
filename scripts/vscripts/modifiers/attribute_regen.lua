@@ -14,7 +14,8 @@ function modifier_attribute_regen_adjust:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
         MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
+        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+        MODIFIER_PROPERTY_MOVESPEED_LIMIT
     }
     return funcs
 end
@@ -33,6 +34,10 @@ end
 
 function modifier_attribute_regen_adjust:GetModifierMagicalResistanceBonus()
     return 1 + self:GetParent():GetIntellect() * (-0.16)
+end
+
+function modifier_attribute_regen_adjust:GetModifierMoveSpeed_Limit()
+    return 522
 end
 
 function modifier_attribute_regen_adjust:GetTexture()
