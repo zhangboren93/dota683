@@ -428,5 +428,6 @@
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_radius"					"RADIUS:"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_armor_reduction_pct"		"%BASE ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_magic_resistance"		"RESIST REDUCTION:"
+		"DOTA_Tooltip_ability_oracle_fates_edict_Description"								"Oracle enraptures a target, disarming them, granting them %magic_damage_resistance_pct_tooltip%%% magic damage resistance and recieves 50%% more physical damage."
 	}
 }
