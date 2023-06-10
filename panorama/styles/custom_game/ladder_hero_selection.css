@@ -1,0 +1,11 @@
+.panel-not-visible {
+    visibility: collapse;
+}
+
+.hero-selection-ban-panel {
+    width: 80%; 
+    height: 60%; 
+    background-color: #FFFFFFFF; 
+    border: 2px solid #111111FF;
+    position: 10% 20% 10px;
+}

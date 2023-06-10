@@ -1,5 +1,8 @@
 <root>
-    <Panel style="width: 80%; height: 60%; background-color: #FFFFFFFF; border: 2px solid #111111FF; position: 10% 20% 10px;">
+	<styles>
+		<include src="file://{resources}/styles/custom_game/ladder_hero_selection.css" />
+	</styles>
+    <Panel class="hero-selection-ban-panel panel-not-visible">
         <Label text="禁用阶段："/>
         <Label id="ladder_ban_time_label" text="30秒"/>
         <Label text="力量英雄："/>
