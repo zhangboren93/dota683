@@ -2,14 +2,80 @@
 	<styles>
 		<include src="file://{resources}/styles/custom_game/ladder_hero_selection.css" />
 	</styles>
+    <scripts>
+		<include src="file://{resources}/scripts/custom_game/ladder_hero_selection.js" />
+	</scripts>
     <Panel class="hero-selection-ban-panel panel-not-visible">
         <Label text="禁用阶段："/>
         <Label id="ladder_ban_time_label" text="30秒"/>
         <Label text="力量英雄："/>
-        <Panel id="ladder_str_heroes"/>
+        <Panel id="ladder_str_heroes">
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-1"  heroimagestyle="portrait" /><Label id="ban-label-str-1"  text="禁用数量：0/2"/><Button id="ban-but-str-1"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-2"  heroimagestyle="portrait" /><Label id="ban-label-str-2"  text="禁用数量：0/2"/><Button id="ban-but-str-2"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-3"  heroimagestyle="portrait" /><Label id="ban-label-str-3"  text="禁用数量：0/2"/><Button id="ban-but-str-3"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-4"  heroimagestyle="portrait" /><Label id="ban-label-str-4"  text="禁用数量：0/2"/><Button id="ban-but-str-4"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-5"  heroimagestyle="portrait" /><Label id="ban-label-str-5"  text="禁用数量：0/2"/><Button id="ban-but-str-5"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-6"  heroimagestyle="portrait" /><Label id="ban-label-str-6"  text="禁用数量：0/2"/><Button id="ban-but-str-6"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-7"  heroimagestyle="portrait" /><Label id="ban-label-str-7"  text="禁用数量：0/2"/><Button id="ban-but-str-7"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-8"  heroimagestyle="portrait" /><Label id="ban-label-str-8"  text="禁用数量：0/2"/><Button id="ban-but-str-8"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-9"  heroimagestyle="portrait" /><Label id="ban-label-str-9"  text="禁用数量：0/2"/><Button id="ban-but-str-9"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-10" heroimagestyle="portrait" /><Label id="ban-label-str-10" text="禁用数量：0/2"/><Button id="ban-but-str-10" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-11" heroimagestyle="portrait" /><Label id="ban-label-str-11" text="禁用数量：0/2"/><Button id="ban-but-str-11" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-12" heroimagestyle="portrait" /><Label id="ban-label-str-12" text="禁用数量：0/2"/><Button id="ban-but-str-12" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-13" heroimagestyle="portrait" /><Label id="ban-label-str-13" text="禁用数量：0/2"/><Button id="ban-but-str-13" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-14" heroimagestyle="portrait" /><Label id="ban-label-str-14" text="禁用数量：0/2"/><Button id="ban-but-str-14" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-15" heroimagestyle="portrait" /><Label id="ban-label-str-15" text="禁用数量：0/2"/><Button id="ban-but-str-15" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-16" heroimagestyle="portrait" /><Label id="ban-label-str-16" text="禁用数量：0/2"/><Button id="ban-but-str-16" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-17" heroimagestyle="portrait" /><Label id="ban-label-str-17" text="禁用数量：0/2"/><Button id="ban-but-str-17" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-18" heroimagestyle="portrait" /><Label id="ban-label-str-18" text="禁用数量：0/2"/><Button id="ban-but-str-18" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-19" heroimagestyle="portrait" /><Label id="ban-label-str-19" text="禁用数量：0/2"/><Button id="ban-but-str-19" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-20" heroimagestyle="portrait" /><Label id="ban-label-str-20" text="禁用数量：0/2"/><Button id="ban-but-str-20" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+        </Panel>
         <Label text="敏捷英雄："/>
-        <Panel id="ladder_agi_heroes"/>
+        <Panel id="ladder_agi_heroes">
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-1"  heroimagestyle="portrait" /><Label id="ban-label-agi-1"  text="禁用数量：0/2"/><Button id="ban-but-agi-1"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-2"  heroimagestyle="portrait" /><Label id="ban-label-agi-2"  text="禁用数量：0/2"/><Button id="ban-but-agi-2"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-3"  heroimagestyle="portrait" /><Label id="ban-label-agi-3"  text="禁用数量：0/2"/><Button id="ban-but-agi-3"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-4"  heroimagestyle="portrait" /><Label id="ban-label-agi-4"  text="禁用数量：0/2"/><Button id="ban-but-agi-4"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-5"  heroimagestyle="portrait" /><Label id="ban-label-agi-5"  text="禁用数量：0/2"/><Button id="ban-but-agi-5"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-6"  heroimagestyle="portrait" /><Label id="ban-label-agi-6"  text="禁用数量：0/2"/><Button id="ban-but-agi-6"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-7"  heroimagestyle="portrait" /><Label id="ban-label-agi-7"  text="禁用数量：0/2"/><Button id="ban-but-agi-7"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-8"  heroimagestyle="portrait" /><Label id="ban-label-agi-8"  text="禁用数量：0/2"/><Button id="ban-but-agi-8"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-9"  heroimagestyle="portrait" /><Label id="ban-label-agi-9"  text="禁用数量：0/2"/><Button id="ban-but-agi-9"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-10" heroimagestyle="portrait" /><Label id="ban-label-agi-10" text="禁用数量：0/2"/><Button id="ban-but-agi-10" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-11" heroimagestyle="portrait" /><Label id="ban-label-agi-11" text="禁用数量：0/2"/><Button id="ban-but-agi-11" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-12" heroimagestyle="portrait" /><Label id="ban-label-agi-12" text="禁用数量：0/2"/><Button id="ban-but-agi-12" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-13" heroimagestyle="portrait" /><Label id="ban-label-agi-13" text="禁用数量：0/2"/><Button id="ban-but-agi-13" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-14" heroimagestyle="portrait" /><Label id="ban-label-agi-14" text="禁用数量：0/2"/><Button id="ban-but-agi-14" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-15" heroimagestyle="portrait" /><Label id="ban-label-agi-15" text="禁用数量：0/2"/><Button id="ban-but-agi-15" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-16" heroimagestyle="portrait" /><Label id="ban-label-agi-16" text="禁用数量：0/2"/><Button id="ban-but-agi-16" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-17" heroimagestyle="portrait" /><Label id="ban-label-agi-17" text="禁用数量：0/2"/><Button id="ban-but-agi-17" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-18" heroimagestyle="portrait" /><Label id="ban-label-agi-18" text="禁用数量：0/2"/><Button id="ban-but-agi-18" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-19" heroimagestyle="portrait" /><Label id="ban-label-agi-19" text="禁用数量：0/2"/><Button id="ban-but-agi-19" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-agi-20" heroimagestyle="portrait" /><Label id="ban-label-agi-20" text="禁用数量：0/2"/><Button id="ban-but-agi-20" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+        </Panel>
         <Label text="智力英雄："/>
-        <Panel id="ladder_intellect_heroes"/>
+        <Panel id="ladder_intellect_heroes">
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-1"  heroimagestyle="portrait" /><Label id="ban-label-int-1"  text="禁用数量：0/2"/><Button id="ban-but-int-1"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-2"  heroimagestyle="portrait" /><Label id="ban-label-int-2"  text="禁用数量：0/2"/><Button id="ban-but-int-2"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-3"  heroimagestyle="portrait" /><Label id="ban-label-int-3"  text="禁用数量：0/2"/><Button id="ban-but-int-3"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-4"  heroimagestyle="portrait" /><Label id="ban-label-int-4"  text="禁用数量：0/2"/><Button id="ban-but-int-4"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-5"  heroimagestyle="portrait" /><Label id="ban-label-int-5"  text="禁用数量：0/2"/><Button id="ban-but-int-5"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-6"  heroimagestyle="portrait" /><Label id="ban-label-int-6"  text="禁用数量：0/2"/><Button id="ban-but-int-6"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-7"  heroimagestyle="portrait" /><Label id="ban-label-int-7"  text="禁用数量：0/2"/><Button id="ban-but-int-7"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-8"  heroimagestyle="portrait" /><Label id="ban-label-int-8"  text="禁用数量：0/2"/><Button id="ban-but-int-8"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-9"  heroimagestyle="portrait" /><Label id="ban-label-int-9"  text="禁用数量：0/2"/><Button id="ban-but-int-9"  onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-10" heroimagestyle="portrait" /><Label id="ban-label-int-10" text="禁用数量：0/2"/><Button id="ban-but-int-10" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-11" heroimagestyle="portrait" /><Label id="ban-label-int-11" text="禁用数量：0/2"/><Button id="ban-but-int-11" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-12" heroimagestyle="portrait" /><Label id="ban-label-int-12" text="禁用数量：0/2"/><Button id="ban-but-int-12" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-13" heroimagestyle="portrait" /><Label id="ban-label-int-13" text="禁用数量：0/2"/><Button id="ban-but-int-13" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-14" heroimagestyle="portrait" /><Label id="ban-label-int-14" text="禁用数量：0/2"/><Button id="ban-but-int-14" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-15" heroimagestyle="portrait" /><Label id="ban-label-int-15" text="禁用数量：0/2"/><Button id="ban-but-int-15" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-16" heroimagestyle="portrait" /><Label id="ban-label-int-16" text="禁用数量：0/2"/><Button id="ban-but-int-16" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-17" heroimagestyle="portrait" /><Label id="ban-label-int-17" text="禁用数量：0/2"/><Button id="ban-but-int-17" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-18" heroimagestyle="portrait" /><Label id="ban-label-int-18" text="禁用数量：0/2"/><Button id="ban-but-int-18" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-19" heroimagestyle="portrait" /><Label id="ban-label-int-19" text="禁用数量：0/2"/><Button id="ban-but-int-19" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+            <Panel class="ban-hero"><DOTAHeroImage id="hero-image-int-20" heroimagestyle="portrait" /><Label id="ban-label-int-20" text="禁用数量：0/2"/><Button id="ban-but-int-20" onactivate="OnBanPressed(this)"><Label text="禁用"/></Button></Panel>
+        </Panel>
     </Panel>
 </root>
