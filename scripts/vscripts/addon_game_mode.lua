@@ -164,6 +164,8 @@ function CAddonTemplateGameMode:InitGameMode()
 		HandleBuyback(event.entindex, event.player_id)
 	end, nil)
 
+	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
+
 	if GetMapName() == "dota" then
 		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
 		local direMediumCamp = nil
@@ -1312,6 +1314,10 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 			return true
 		end
 	end
+end
+
+function CAddonTemplateGameMode:handleLadderHeroBanned(event)
+	print("hero banned " + event.hero_id_suffix)
 end
 
 function HandleBuyback(entindex, player_id)

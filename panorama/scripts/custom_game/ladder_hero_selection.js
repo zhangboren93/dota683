@@ -62,3 +62,8 @@ function OnLadderBanStart(data) {
     $("#hero-image-int-19").heroname(data.int_19);
     $("#hero-image-int-20").heroname(data.int_20);
 }
+
+function OnBanPressed(id_suffix) {
+    GameEvents.SendCustomGameEventToServer("ladder_hero_banned", { hero_id_suffix = id_suffix } );
+    $(".hero_ban_button").AddClass("button-invisible");
+}
