@@ -6,8 +6,7 @@
 		<include src="file://{resources}/scripts/custom_game/ladder_hero_selection.js" />
 	</scripts>
     <Panel class="hero-selection-ban-panel panel-not-visible">
-        <Label text="禁用阶段："/>
-        <Label id="ladder_ban_time_label" text="30秒"/>
+        <Label text="禁用阶段（30秒）："/>
         <Label text="力量英雄："/>
         <Panel id="ladder_str_heroes">
             <Panel class="ban-hero"><DOTAHeroImage id="hero-image-str-1"  heroimagestyle="portrait" /><Label id="ban-label-str-1"  text="禁用数量：0/2"/><Button class="hero_ban_button" id="ban-but-str-1"  onactivate="OnBanPressed('str-1')"><Label text="禁用"/></Button></Panel>

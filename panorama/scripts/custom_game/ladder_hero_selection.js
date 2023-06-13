@@ -1,4 +1,6 @@
 GameEvents.Subscribe("ladder_ban_start", OnLadderBanStart);
+GameEvents.Subscribe("ladder_pick_start", OnLadderPickStart);
+GameEvents.Subscribe("ladder_hero_ban_s2c", OnLadderBanS2C)
 function OnLadderBanStart(data) {
     $.GetContextPanel().RemoveClass("panel-not-visible");
     $("#hero-image-str-1" ).heroname(data.str_1);
@@ -66,4 +68,13 @@ function OnLadderBanStart(data) {
 function OnBanPressed(id_suffix) {
     GameEvents.SendCustomGameEventToServer("ladder_hero_banned", { hero_id_suffix = id_suffix } );
     $(".hero_ban_button").AddClass("button-invisible");
+}
+
+function OnLadderPickStart() {
+    $.GetContextPanel().visible(false)
+}
+
+function OnLadderBanS2C(event) {
+    $.Msg(event.id_suffix)
+    $("#ban-label-" + event.id_suffix).text =  $("#ban-label-" + event.id_suffix).text + "x";
 }
