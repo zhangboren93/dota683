@@ -136,12 +136,12 @@ function randomPickFromList(heroes, num)
 end
 
 function pickLadderHeroes(self) 
-    local picked_str_heroes = randomPickFromList(str_heroes, 20)
-    local picked_agi_heroes = randomPickFromList(agi_heroes, 20)
-    local picked_int_heroes = randomPickFromList(intellect_heroes, 20)
+    local picked_str_heroes = randomPickFromList(str_heroes, 13)
+    local picked_agi_heroes = randomPickFromList(agi_heroes, 13)
+    local picked_int_heroes = randomPickFromList(intellect_heroes, 13)
     -- DeepPrintTables(picked_str_heroes)
     print(#picked_str_heroes)
-    for i=1,20 do
+    for i=1,13 do
         ladder_heroes_2_ban[picked_str_heroes[i]] = 0
         ladder_heroes_2_ban[picked_agi_heroes[i]] = 0
         ladder_heroes_2_ban[picked_int_heroes[i]] = 0
@@ -161,13 +161,6 @@ function pickLadderHeroes(self)
         str_11 = picked_str_heroes[11],
         str_12 = picked_str_heroes[12],
         str_13 = picked_str_heroes[13],
-        str_14 = picked_str_heroes[14],
-        str_15 = picked_str_heroes[15],
-        str_16 = picked_str_heroes[16],
-        str_17 = picked_str_heroes[17],
-        str_18 = picked_str_heroes[18],
-        str_19 = picked_str_heroes[19],
-        str_20 = picked_str_heroes[20],
         agi_1  = picked_agi_heroes[1],
         agi_2  = picked_agi_heroes[2],
         agi_3  = picked_agi_heroes[3],
@@ -181,13 +174,6 @@ function pickLadderHeroes(self)
         agi_11 = picked_agi_heroes[11],
         agi_12 = picked_agi_heroes[12],
         agi_13 = picked_agi_heroes[13],
-        agi_14 = picked_agi_heroes[14],
-        agi_15 = picked_agi_heroes[15],
-        agi_16 = picked_agi_heroes[16],
-        agi_17 = picked_agi_heroes[17],
-        agi_18 = picked_agi_heroes[18],
-        agi_19 = picked_agi_heroes[19],
-        agi_20 = picked_agi_heroes[20],
         int_1  = picked_int_heroes[1],
         int_2  = picked_int_heroes[2],
         int_3  = picked_int_heroes[3],
@@ -201,13 +187,6 @@ function pickLadderHeroes(self)
         int_11 = picked_int_heroes[11],
         int_12 = picked_int_heroes[12],
         int_13 = picked_int_heroes[13],
-        int_14 = picked_int_heroes[14],
-        int_15 = picked_int_heroes[15],
-        int_16 = picked_int_heroes[16],
-        int_17 = picked_int_heroes[17],
-        int_18 = picked_int_heroes[18],
-        int_19 = picked_int_heroes[19],
-        int_20 = picked_int_heroes[20],
     }
     CustomGameEventManager:Send_ServerToAllClients( "ladder_ban_start", slot_2_heroes)
 end

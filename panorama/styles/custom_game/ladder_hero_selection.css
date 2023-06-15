@@ -1,9 +1,9 @@
 .hero-selection-ban-panel {
 	width: 90%; 
-	height: 60%; 
+	height: 65%; 
 	background-color: #000000FF; 
 	border: 2px solid #111111FF;
-	position: 5% 20% 10px;
+	position: 5% 15% 10px;
 	flow-children: down;
 }
 
