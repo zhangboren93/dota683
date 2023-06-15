@@ -1,9 +1,9 @@
 .hero-selection-ban-panel {
 	width: 90%; 
-	height: 70%; 
+	height: 60%; 
 	background-color: #000000FF; 
 	border: 2px solid #111111FF;
-	position: 5% 15% 10px;
+	position: 5% 20% 10px;
 	flow-children: down;
 }
 
@@ -31,12 +31,15 @@
 
 #ladder_str_heroes {
 	flow-children: right-wrap;
+	margin: 10px;
 }
 #ladder_agi_heroes {
 	flow-children: right-wrap;
+	margin: 10px;
 }
 #ladder_intellect_heroes {
 	flow-children: right-wrap;
+	margin: 10px;
 }
 
 .hero-image {
