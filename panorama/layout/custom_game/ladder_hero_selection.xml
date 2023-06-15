@@ -5,7 +5,7 @@
     <scripts>
 		<include src="file://{resources}/scripts/custom_game/ladder_hero_selection.js" />
 	</scripts>
-    <Panel class="hero-selection-ban-panel panel-not-visible">
+    <Panel class="hero-selection-ban-panel">
         <Label text="禁用阶段（30秒）："/>
         <Label text="力量英雄："/>
         <Panel id="ladder_str_heroes">

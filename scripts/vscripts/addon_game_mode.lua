@@ -1245,9 +1245,9 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 end
 
 function CAddonTemplateGameMode:handleLadderHeroBanned(event)
-	print("hero banned " .. event.hero_id_suffix)
-	DeepPrintTables(ladder_heroes_2_ban)
-	ladder_heroes_2_ban[event.hero_id_suffix] = ladder_heroes_2_ban[event.hero_id_suffix] + 1
+	local hero = slot_2_heroes[event.hero_id_suffix]
+	print("hero banned " .. hero)
+	ladder_heroes_2_ban[hero] = ladder_heroes_2_ban[hero] + 1
 	CustomGameEventManager:Send_ServerToAllClients("ladder_hero_ban_s2c", {id_suffix = event.hero_id_suffix})
 end
 
