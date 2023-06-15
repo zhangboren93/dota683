@@ -257,7 +257,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			GameRules:SetSameHeroSelectionEnabled(false)
 			GameRules:SendCustomMessage("开启队长模式", -1, -1)
 		elseif text == '-ld' then
-			GameRules:SetHeroSelectionTime(90)
+			GameRules:SetHeroSelectionTime(80)
 			GameRules:SetSameHeroSelectionEnabled(false)
 			self.game_mode = "LD"
 			GameRules:SendCustomMessage("开启天梯模式", -1, -1)
@@ -313,28 +313,33 @@ function CAddonTemplateGameMode:OnThink()
 		if self.hero_selection_state == nil then
 			self.hero_selection_state = "INI"
 		end
-		if self.hero_selection_state == "INI" and self.rdEnabled then
-			local heroes = all_heroes
-			for i=1,#heroes do
-				if RandomInt(1, 111) > 30 then
-					GameRules:AddHeroToBlacklist(heroes[i])
+		if self.hero_selection_state == "INI" then
+			if self.rdEnabled then
+				local heroes = all_heroes
+				for i=1,#heroes do
+					if RandomInt(1, 111) > 30 then
+						GameRules:AddHeroToBlacklist(heroes[i])
+					end
 				end
+				self.hero_selection_state = "PIC"
 			end
-			self.hero_selection_state = "PIC"
-		end
-		if self.hero_selection_state == "INI" and self.game_mode == "LD" then
+			if self.game_mode == "LD" then
 			-- add all heroes to ban list
-			for i=1,#all_heroes do
-				GameRules:AddHeroToBlacklist(all_heroes[i])
+				for i=1,#all_heroes do
+					GameRules:AddHeroToBlacklist(all_heroes[i])
+				end
+				pickLadderHeroes(self)
+				self.hero_selection_state = "BAN"
+			else
+				CustomGameEventManager:Send_ServerToAllClients("ladder_pick_start", {})
 			end
-			pickLadderHeroes(self)
-			self.hero_selection_state = "BAN"
 		end
 		if self.hero_selection_state == "BAN" and GameRules:GetDOTATime(true, true) > -60 then
 			print("Ban time over")
 			for i,v in pairs(ladder_heroes_2_ban) do
 				if v < 2 then
-					GameRules:AddHeroToWhitelist(i)
+					print("Adding hero to whitelist " .. i)
+					GameRules:RemoveHeroFromBlacklist(i)
 				end
 			end
 			CustomGameEventManager:Send_ServerToAllClients("ladder_pick_start", {})
@@ -432,7 +437,7 @@ function CAddonTemplateGameMode:OnThink()
 		return nil
 	end
 
-	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) and not self.rdEnabled and not self.captainEnabled then
+	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) and not self.rdEnabled and not self.captainEnabled and self.game_mode ~= 'LD' then
 		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
