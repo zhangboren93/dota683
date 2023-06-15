@@ -327,20 +327,18 @@ function CAddonTemplateGameMode:OnThink()
 			for i=1,#all_heroes do
 				GameRules:AddHeroToBlacklist(all_heroes[i])
 			end
+			pickLadderHeroes(self)
 			self.hero_selection_state = "BAN"
 		end
-		if self.hero_selection_state == "BAN" then
-			if GameRules:GetDOTATime(true, true) > 30 then
-				pickLadderHeroes(self)
-			else
-				print("Ban time over")
-				for i,v in pairs(ladder_hero_banned) do
-					if v < 2 then
-						GameRules:AddHeroToWhitelist(i)
-					end
+		if self.hero_selection_state == "BAN" and GameRules:GetDOTATime(true, true) > -60 then
+			print("Ban time over")
+			for i,v in pairs(ladder_heroes_2_ban) do
+				if v < 2 then
+					GameRules:AddHeroToWhitelist(i)
 				end
-				CustomGameEventManager:Send_ServerToAllClients("ladder_pick_start", {})
 			end
+			CustomGameEventManager:Send_ServerToAllClients("ladder_pick_start", {})
+			self.hero_selection_state = "PIC"
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and self.botEnabled and self.botInitialized == nil then
 		print("Init bot")
@@ -1247,9 +1245,9 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 end
 
 function CAddonTemplateGameMode:handleLadderHeroBanned(event)
-	print("hero banned " + event.hero_id_suffix)
-	ladder_heroes_2_ban[event.hero_id_suffix] = ladder_heroes_2_ban[event.hero_id_suffix] + 1
+	print("hero banned " .. event.hero_id_suffix)
 	DeepPrintTables(ladder_heroes_2_ban)
+	ladder_heroes_2_ban[event.hero_id_suffix] = ladder_heroes_2_ban[event.hero_id_suffix] + 1
 	CustomGameEventManager:Send_ServerToAllClients("ladder_hero_ban_s2c", {id_suffix = event.hero_id_suffix})
 end
 
