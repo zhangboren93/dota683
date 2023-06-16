@@ -550,6 +550,15 @@ function CAddonTemplateGameMode:OrderFilter(event)
 					end
 				end
 			end
+		elseif ability:GetName() == "kunkka_ghostship" then
+			-- Always land ghost ship at 1000 range
+			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
+			local target_position = Vector(event.position_x, event.position_y, event.position_z)
+			local hero_position = player_hero:GetAbsOrigin()
+			local new_target_position = hero_position + (target_position - hero_position):Normalized() * 1000
+			event.position_x = new_target_position.x
+			event.position_y = new_target_position.y
+			return true
 		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
