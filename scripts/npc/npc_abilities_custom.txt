@@ -445,7 +445,7 @@
 				"duration"					"10.0"
 				"slow"
 				{
-					"value"			"-12"
+					"value"			"0"
 					"special_bonus_unique_axe_6"	"-10"
 				}
 				"damage_per_second"			"16 24 32 40"
@@ -463,7 +463,55 @@
 					"value"			"12"
 					"special_bonus_unique_axe_8"	"+10"
 				}
+				"slow_tooltip"		"-12"
 		}		
+	}
+	"axe_battle_hunger_slow_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_battle_hunger_slow_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/ability_target_debuff.lua"
+						"Function"		"handleAbilityExecuted"
+						"TargetAbility"	"axe_battle_hunger"
+						"Modifier"		"modifier_battle_hunger_slow_debuff_active"
+						"Duration"		"10"
+					}
+				}
+			}
+			"modifier_battle_hunger_slow_debuff_active"
+			{
+				"IsHidden"		"1"
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+				"Duration"		"10"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-12" 
+				}
+				"ThinkInterval"	"0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/ability_target_debuff.lua"
+						"Function"		"handleIntervalThink"
+						"MainModifier"	"modifier_axe_battle_hunger"
+						"Modifier"		"modifier_battle_hunger_slow_debuff_active"
+					}
+				}
+			}
+		}
+		
 	}
 	// Rewrite of the Axe Counter Helix ability
 	// Author: Pizzalol

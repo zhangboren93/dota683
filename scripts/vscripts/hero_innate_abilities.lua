@@ -13,3 +13,4 @@ hero_innate_abilities["npc_dota_hero_batrider"] = "batrider_firefly_flying_visio
 hero_innate_abilities["npc_dota_hero_bane"] = "bane_nightmare_damage_datadriven"
 hero_innate_abilities["npc_dota_hero_nyx_assassin"] = "nyx_assassin_vendetta_physical_damage_datadriven"
 hero_innate_abilities["npc_dota_hero_medusa"] = "medusa_stone_gaze_magic_resist_datadriven"
+hero_innate_abilities["npc_dota_hero_axe"] = "axe_battle_hunger_slow_datadriven"
