@@ -5430,96 +5430,52 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-    "pugna_life_drain"
-	{
+// Rewrite of Pugna Life Drain
+// Author: Noya
+// Date: April 5, 2015
+"pugna_life_drain_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"				"ability_datadriven"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"pugna_life_drain"
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5189"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"FightRecapLevel"				"1"
-		"HasShardUpgrade"			"0"
 		"HasScepterUpgrade"			"1"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2 0.2 0.2"
-		"AbilityChannelTime"			"10.0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.2 0.2 0.2"
+	"AbilityChannelTime"			"10.0"
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 175 225"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// All about the damage
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"125 175 225"
+	
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityModifierSupportValue"	"0.0"	// All about the damage
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityValues"
+	{
+			"duration_tooltip"		"10"
+			"tick_rate"					"0.25 0.25 0.25"
 			"health_drain"
 			{
 				"value"					"120 160 200"
 				"special_bonus_scepter"	"+60 +80 +100"
 			}
-			"ally_healing"
-			{
-				"value"					"120 160 200"
-				"special_bonus_scepter"	"+60 +80 +100"
-			}
-			"tick_rate"					"0.25 0.25 0.25"
-			"drain_buffer"				"200"
-			"shard_damage_pct_from_ward"
-			{
-				"value"				"70"
-				"RequiresShard"		"1"
-			}
-			"bonus_heal_pct"
-			{
-				"value"					"0"
-				"special_bonus_unique_pugna_1"			"+20"
-			}
-			"spell_amp_drain_rate"
-			{
-				"value"						"0"
-				"special_bonus_scepter"		"+0"
-			}
-			"spell_amp_drain_max"
-			{
-				"value"						"0"
-				"special_bonus_scepter"		"+0"
-			}
-			"spell_amp_drain_rate_ward"
-			{
-				"value"						"0"
-				"special_bonus_scepter"		"+0"
-			}
-			"spell_amp_drain_duration"
-			{
-				"value"						"0"
-				"special_bonus_scepter"		"+0"
-			}			
-			"max_spell_amp_drain_pct"
-			{
-				"value"						"0"
-				"special_bonus_scepter"		"+0"
-			}	
 			"AbilityCooldown"				
 			{
 				"value"						"22"		
@@ -5530,8 +5486,87 @@
 				"value"				"950"
 				"special_bonus_scepter"		"+50"
 			}
+	}
+
+	"precache"
+	{
+		"particle"	"particles/units/heroes/hero_pugna/pugna_life_drain.vpcf"
+		"soundfile"	"soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
+	}
+
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"ModifierName" 	"modifier_life_drain"
+			"Target"
+			{
+				"Center"	"TARGET"
+				"Radius"	"1"
+				"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Teams"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+		}
+
+		"FireSound"
+		{
+			"EffectName"	"Hero_Pugna.LifeDrain.Target"
+			"Target" 		"CASTER"
 		}
 	}
+
+	"OnChannelFinish"
+	{
+		"RemoveModifier"
+		{
+			"ModifierName" 	"modifier_life_drain"
+			"Target"
+			{
+				"Center"	"TARGET"
+				"Radius"	"1"
+				"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Teams"		"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+		}
+	}
+
+	"Modifiers"
+	{
+		"modifier_life_drain"
+		{
+			"IsDebuff"	"1"
+			"OnCreated"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_pugna/life_drain.lua"
+					"Function"		"LifeDrainParticle"
+				}
+			}
+
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_pugna/life_drain.lua"
+					"Function"		"LifeDrainParticleEnd"
+				}
+			}
+
+			"ThinkInterval"		"%tick_rate"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_pugna/life_drain.lua"
+					"Function"		"LifeDrainHealthTransfer"
+				}
+			}
+		}
+	}
+}
 	"pugna_decrepify_ally_debuff_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
