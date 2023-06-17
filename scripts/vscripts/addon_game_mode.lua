@@ -119,6 +119,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
 	GameRules:SetGoldPerTick(0)
 	GameRules:SetGoldTickTime(1000)
+	GameRules:SetTreeRegrowTime(300)
 	if GetMapName() == "dota" then
 		GameRules:SetCreepSpawningEnabled(false)
 	end
