@@ -14,6 +14,11 @@
 		"AbilityManaCost"				"0"
 		"AbilityChannelTime"			"0"
 
+		"precache"
+		{
+			"particle"					"particles/items_fx/black_king_bar_avatar.vpcf"
+		}
+
 		"OnSpellStart"
 		{
 		    "RunScript"
@@ -29,7 +34,7 @@
 			{
 				"IsHidden"				"0"
 				"Passive"				"0"
-    			"EffectName"            "particles\items_fx\black_king_bar_avatar.vpcf"
+    			"EffectName"            "particles/items_fx/black_king_bar_avatar.vpcf"
     			"EffectAttachType"      "follow_origin"
 				"Duration"				"5"
 
@@ -526,7 +531,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
@@ -603,8 +608,8 @@
 						{
 							"RunScript"
 							{
-								"ScriptFile"	"heroes/hero_axe/counter_helix.lua"
-								"Function"		"CounterHelix"
+								"ScriptFile"		"heroes/hero_axe/counter_helix.lua"
+								"Function"			"CounterHelix"
 								"helix_modifier"	"modifier_counter_helix_datadriven"
 							}
 						}
@@ -683,7 +688,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -809,7 +814,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -875,10 +880,10 @@
 		{
 			"modifier_enfeeble_datadriven"
 			{
-				"IsDebuff"	"1"
-				"Duration"	"%AbilityDuration"
-				"IsPurgable"	"0"
-				"EffectName"	"particles/units/heroes/hero_bane/bane_enfeeble.vpcf"
+				"IsDebuff"			"1"
+				"Duration"			"%AbilityDuration"
+				"IsPurgable"		"0"
+				"EffectName"		"particles/units/heroes/hero_bane/bane_enfeeble.vpcf"
 				"EffectAttachType"	"follow_overhead"			
 	
 				"Properties"
@@ -1102,7 +1107,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -1114,8 +1119,8 @@
 		
 		"precache"
 		{
-			"particle"			"particles/units/heroes/hero_bloodseeker/bloodseeker_bloodrage.vpcf"
-			"soundfile"			"sounds/weapons/hero/bloodseeker/rage.vsnd"
+			"particle"					"particles/units/heroes/hero_bloodseeker/bloodseeker_bloodrage.vpcf"
+			"soundfile"					"sounds/weapons/hero/bloodseeker/rage.vsnd"
 		}
 	
 		// Casting
@@ -1285,9 +1290,9 @@
 	// General
 	//-------------------------------------------------------------------------------------------------------------
 
-	"BaseClass" "ability_datadriven"
-	"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	"SpellImmunityType" "SPELL_IMMUNITY_ENEMIES_YES"
+	"BaseClass" 					"ability_datadriven"
+	"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"SpellImmunityType" 			"SPELL_IMMUNITY_ENEMIES_YES"
 	"AbilityTextureName"			"bloodseeker_thirst"
 
 	"precache"
@@ -1385,8 +1390,8 @@
 			
 			"Properties"
 			{
-				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage_per_stack"
-				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_per_stack"
+				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage_per_stack"
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" 	"%bonus_movement_speed_per_stack"
 			}
 		}
 			
@@ -1409,8 +1414,8 @@
 			{
 				"RunScript"
 				{
-					"ScriptFile" "heroes/hero_bloodseeker/thirst.lua"
-					"Function" "GiveVision"
+					"ScriptFile" 	"heroes/hero_bloodseeker/thirst.lua"
+					"Function" 		"GiveVision"
 				}
 			}
 				
@@ -2007,6 +2012,11 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN" 
 		"AbilityTextureName"	"razor_unstable_current"
 		"MaxLevel"				"1"
+		"precache"
+		{
+			"particle"  		"particles/items_fx/diffusal_slow.vpcf"
+			"soundfile"				"sounds/weapons/hero/razor/unstable_current_target.vsnd"
+		}
 		"Modifiers"
 		{
 			"modifier_unstable_current_reflect"
@@ -2034,12 +2044,12 @@
 			}
 			"modifier_unstable_current_purge"
 			{
-				"IsHidden"		"0"
-				"Passive"		"0"
-				"IsDebuff"		"1"
+				"IsHidden"				"0"
+				"Passive"				"0"
+				"IsDebuff"				"1"
 		    	"EffectName"            "particles/items_fx/diffusal_slow.vpcf"
 		    	"EffectAttachType"      "PATTACH_ABSORIGIN"
-				"Duration"		"%duration"
+				"Duration"				"%duration"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-80"
@@ -9455,6 +9465,7 @@
 			}
 		}
 	}
+	//TODO Continue check if precached
 // Rewrite of Alchemist Acid Spray
 // Author: Noya
 // Date: October 13, 2015
