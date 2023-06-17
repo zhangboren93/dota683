@@ -1,10 +1,18 @@
 .hero-selection-ban-panel {
-	width: 90%; 
+	width: 80%; 
 	height: 65%; 
 	background-color: #000000FF; 
 	border: 2px solid #111111FF;
-	position: 5% 15% 10px;
 	flow-children: down;
+}
+
+.hero-selection-ban-panel-show {
+	position: 10% 15% 10px;
+}
+
+.hero-selection-ban-panel-hide {
+	position: -100% 15% 10px;
+
 }
 
 .hero-selection-ban-panel Label {
@@ -25,21 +33,15 @@
 	font-family: defaultFont;
 }
 
+
 .button-invisible {
 	visibility: collapse;
 }
 
-#ladder_str_heroes {
+.ladder_attr_heroes {
 	flow-children: right-wrap;
-	margin: 10px;
-}
-#ladder_agi_heroes {
-	flow-children: right-wrap;
-	margin: 10px;
-}
-#ladder_intellect_heroes {
-	flow-children: right-wrap;
-	margin: 10px;
+	margin: 20px;
+	horizontal-align: center;
 }
 
 .hero-image {
@@ -73,6 +75,8 @@
 	transition-property: background-color;
 	transition-duration: 0.05s;
 	transition-timing-function: linear;
+	
+	horizontal-align: center;
 }
 .DefaultValveButtonClass Label
 {

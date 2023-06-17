@@ -1,8 +1,10 @@
 GameEvents.Subscribe("ladder_ban_start", OnLadderBanStart);
 GameEvents.Subscribe("ladder_pick_start", OnLadderPickStart);
-GameEvents.Subscribe("ladder_hero_ban_s2c", OnLadderBanS2C)
+GameEvents.Subscribe("ladder_hero_ban_s2c", OnLadderBanS2C);
+
 function OnLadderBanStart(data) {
-    $.GetContextPanel().visible = true;
+    $.GetContextPanel().RemoveClass("hero-selection-ban-panel-hide")
+    $.GetContextPanel().AddClass("hero-selection-ban-panel-show")
     $("#hero-image-str-1" ).heroname = data.str_1;
     $("#hero-image-str-2" ).heroname = data.str_2;
     $("#hero-image-str-3" ).heroname = data.str_3;
@@ -88,7 +90,8 @@ function OnBanPressed(id_suffix) {
 }
 
 function OnLadderPickStart() {
-    $.GetContextPanel().visible = false
+    $.GetContextPanel().AddClass("hero-selection-ban-panel-hide")
+    $.GetContextPanel().RemoveClass("hero-selection-ban-panel-show")
 }
 
 function OnLadderBanS2C(event) {
