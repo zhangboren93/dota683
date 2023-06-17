@@ -51,6 +51,7 @@ function Activate()
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			"modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_familiar_attack_damage_lua",		"modifiers/familiar_attack_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_kill_tree_on_death", 			"modifiers/kill_tree_on_death.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -605,6 +606,9 @@ end
 
 function HandleNpcSpawned(self, entityIndex, is_respawn)
 	local entity = EntIndexToHScript(entityIndex)
+	--print(entity:GetName())
+	--print(entity:GetModelName())
+	--print(entity:GetClassname())
 	if entity:IsRealHero() and is_respawn == 0 then
 		-- modifiers
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
@@ -1174,6 +1178,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		print("Applying magic resist to stoned units")
 		caster:FindAbilityByName("medusa_stone_gaze_magic_resist_datadriven"):ApplyDataDrivenModifier(
 			caster, parent, "modifier_stone_gaze_magic_resist_datadriven", {})
+	elseif event.name_const == "modifier_ember_spirit_fire_remnant_thinker" then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		parent:SetDayTimeVisionRange(400)
+		parent:SetNightTimeVisionRange(400)
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
