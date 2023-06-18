@@ -52,6 +52,8 @@ function Activate()
 	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_familiar_attack_damage_lua",		"modifiers/familiar_attack_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_kill_tree_on_death", 			"modifiers/kill_tree_on_death.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_aggro_checker_lua", 		"modifiers/creep_aggro_checker.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_viper_orb_cd_on_attack", 		"modifiers/viper_orb_cd_on_attack.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -779,6 +781,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:SetThink(function()
 				entity:FindAbilityByName("invoker_invoke"):SetLevel(0)
 			end, "reset invoker invoke", 0.5)
+		elseif entity:GetName() == "npc_dota_hero_viper" then
+			entity:AddNewModifier(entity, nil, "modifier_viper_orb_cd_on_attack", {})
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then

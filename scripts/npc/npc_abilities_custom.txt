@@ -25674,8 +25674,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"// | DOTA_ABILITY_BEHAVIOR_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
@@ -25694,7 +25694,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		"AbilityCastPoint"				"0.33"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -25734,6 +25734,47 @@
 			}
 		}
 	
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"			"TARGET"
+				"EffectName"		"particles/units/heroes/hero_viper/viper_poison_attack.vpcf"
+				"Dodgeable"			"1"
+				"ProvidesVision"	"0"
+				"MoveSpeed"			"1200"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Viper.poisonAttack.Cast"
+				"Target"		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"units/perform_attack.lua"
+				"Function"		"setCDAndDisarm"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_viper_poison_attack_debuff_datadriven"
+				"Target"		"TARGET"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Viper.PoisonAttack.Target"
+				"Target"		"TARGET"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"units/perform_attack.lua"
+				"Function"		"handleProjectileHitUnit"
+			}
+		}
+
 		"Modifiers"
 		{
 			"modifier_viper_poison_attack_orb_datadriven"
@@ -25803,6 +25844,12 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
 				}
+			}
+
+			"modifier_dont_reset_orb_cd"
+			{
+				"Duration"		"0.1"
+				"IsHidden"		"1"
 			}
 		}
 	}
@@ -26750,7 +26797,6 @@
 			}
 		}
 	}
-	//TODO add precaches
 	// Rewrite of the Antimage Mana Break ability
 	// Author: Pizzalol
 	// Date: 16.12.2014.
