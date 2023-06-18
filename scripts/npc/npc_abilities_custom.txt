@@ -9465,7 +9465,6 @@
 			}
 		}
 	}
-	//TODO Continue check if precached
 // Rewrite of Alchemist Acid Spray
 // Author: Noya
 // Date: October 13, 2015
@@ -14076,6 +14075,12 @@
 		"AbilitySound"					"Hero_LegionCommander.Overwhelming.Location"
 		"AbilityTextureName"			"legion_commander_overwhelming_odds"
 	
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
+			"particle"		"particles/units/heroes/hero_legion_commander/legion_commander_odds.vpcf"
+		}
+
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"18.0 18.0 18.0 18.0"
@@ -19194,6 +19199,11 @@
     "AbilityCastPoint"                "0.5 0.5 0.5 0.5"
     "FightRecapLevel"                "1"
     "AbilityTextureName"            "treant_living_armor"
+
+   	"precache"
+   	{
+   		"particle"		"particles/units/heroes/hero_treant/treant_livingarmor.vpcf"
+   	}
         
     // Time        
     //-------------------------------------------------------------------------------------------------------------
@@ -26361,6 +26371,7 @@
 		"precache"
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"				
+			"particle"		"particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf"
 		}
 		
 		// Time		
@@ -26654,6 +26665,11 @@
 		"LevelsBetweenUpgrades" "5"
 		"HasScepterUpgrade"		"1"
 		
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_enchantress/enchantress_impetus.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
+		}
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"550"
@@ -26734,6 +26750,7 @@
 			}
 		}
 	}
+	//TODO add precaches
 	// Rewrite of the Antimage Mana Break ability
 	// Author: Pizzalol
 	// Date: 16.12.2014.
