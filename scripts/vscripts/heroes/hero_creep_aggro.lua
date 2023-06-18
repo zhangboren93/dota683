@@ -12,7 +12,7 @@ function handleAttackStart(event)
 		or target:GetTeam() == attacker:GetTeam() 
 		or not target:IsHero()
 		or not ability:IsCooldownReady() 
-		or attacker:HasModifier("modifier_dont_reset_orb_cd") then
+		or attacker:HasModifier("modifier_no_creep_aggro_on_attack") then
 		return
 	end
 	aggroCreeps(attacker, ability)
