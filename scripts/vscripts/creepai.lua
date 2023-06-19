@@ -105,6 +105,7 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 		and IsValidEntity(self.target.unit) 
 		and not self.target.unit:HasModifier("modifier_creep_aggro_move_datadriven") 
 		and isAttackable(self.target.unit, entity) then
+		-- TODO buildings are low attack priority
 		
 		local distance = (self.target.unit:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length()
 		if distance <= self.kv.attackrange then
@@ -120,7 +121,6 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 			self.target = nil
 		end
 	end
-	local printpath = false
 	-- TODO move to target disappear location
 	local target = self:selectTarget()
 	-- TODO alert cooldown 2.1s
@@ -212,6 +212,7 @@ function modifier_creep_ai:selectTarget()
 	if #units > 0 then
 		return { unit = units[1] }
 	end
+
 	units = FindUnitsInRadius(
 		entity:GetTeam(), position, entity, self.kv.alertRadius, 
 		DOTA_UNIT_TARGET_TEAM_ENEMY, 
@@ -220,12 +221,15 @@ function modifier_creep_ai:selectTarget()
 		FIND_CLOSEST, false)
 	if #units > 0 then
 		for i=1,#units do
+			-- find unit not transferring aggro
+			-- TODO find unit not with low attack priority
 			if not units[i]:HasModifier("modifier_creep_aggro_move_datadriven") then
 				return {
 					unit = units[i],
 				}
 			end
 		end
+		-- find closest unit
 		return {
 			unit = units[1],
 		}
