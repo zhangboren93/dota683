@@ -186,12 +186,7 @@ function modifier_creep_ai:selectTarget()
 		end
 	end
 
-	units = FindUnitsInRadius(
-		entity:GetTeam(), position, entity, self.kv.attackrange, 
-		DOTA_UNIT_TARGET_TEAM_ENEMY, 
-		DOTA_UNIT_TARGET_ALL, 
-		DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-		FIND_CLOSEST, false)
+	units = self:findUnitsInRadiusFiltered(entity, position, self.kv.attackrange)
 	for i=1,#units do
 		if units[i]:IsAttackingEntity(entity) then
 			--print("Find unit attacking me")
@@ -213,23 +208,16 @@ function modifier_creep_ai:selectTarget()
 		return { unit = units[1] }
 	end
 
-	units = FindUnitsInRadius(
-		entity:GetTeam(), position, entity, self.kv.alertRadius, 
-		DOTA_UNIT_TARGET_TEAM_ENEMY, 
-		DOTA_UNIT_TARGET_ALL, 
-		DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-		FIND_CLOSEST, false)
+	units = self:findUnitsInRadiusFiltered(entity, position, self.kv.alertRadius)
 	if #units > 0 then
 		for i=1,#units do
-			-- find unit not transferring aggro
-			-- TODO find unit not with low attack priority
+			-- find unit not transferring aggro and not techies' mine
 			if not units[i]:HasModifier("modifier_creep_aggro_move_datadriven") then
 				return {
 					unit = units[i],
 				}
 			end
 		end
-		-- find closest unit
 		return {
 			unit = units[1],
 		}
@@ -245,4 +233,22 @@ function modifier_creep_ai:selectTarget()
 		}
 	end
 	return nil
+end
+
+function modifier_creep_ai:findUnitsInRadiusFiltered(entity, position, range)
+	local units_unfiltered = FindUnitsInRadius(
+		entity:GetTeam(), position, entity, range, 
+		DOTA_UNIT_TARGET_TEAM_ENEMY, 
+		DOTA_UNIT_TARGET_ALL, 
+		DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+		FIND_CLOSEST, false)
+	-- remove techies mine
+	local units = {}
+	for i=1,#units_unfiltered do
+		-- find unit not transferring aggro and not techies' mine
+		if units_unfiltered[i]:GetName() ~= "npc_dota_techies_mines" then
+			table.insert(units, units_unfiltered[i])
+		end
+	end
+	return units
 end
