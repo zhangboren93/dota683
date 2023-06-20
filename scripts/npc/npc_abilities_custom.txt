@@ -18114,6 +18114,41 @@
 			}
 		}
 	}
+	"troll_warlord_whirling_axes_ranged_vision_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_fire_remnant_clear_tree_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/ability_execute_vision.lua"
+						"Function"		"handleAbilityExecuted"
+						"TargetAbility"	"troll_warlord_whirling_axes_ranged"
+						"Distance"		"750"
+						"Radius"		"800"
+						"Delay"			"0.5"
+						"Duration"		"3"
+					}
+				}
+			}
+			"modifier_dummy_unit_unselectable"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE" 			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
 	//=================================================================================================================
 	// Troll Warlord: Fervor
 	//=================================================================================================================

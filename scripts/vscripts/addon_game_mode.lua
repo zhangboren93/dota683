@@ -678,6 +678,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 0.2
 			end, "troll get bash on hit", 1)
+			entity:FindAbilityByName("troll_warlord_whirling_axes_ranged_vision_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_meepo" then
 			if self.mainMeepo == nil then
 				print("Registering meepo spawned")
