@@ -11066,14 +11066,9 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Undying: Decay
-	//=================================================================================================================
-	"undying_decay"
+	"undying_decay_datadriven"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"5442"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"		"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -11081,15 +11076,15 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Undying.Decay.Cast"
 		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"				"0"
-		"HasShardUpgrade"				"0"
+		"AbilityTextureName"			"undying_decay"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_DOTA_UNDYING_DECAY"
 		"AbilityCastGestureSlot"		"DEFAULT"
 		"AbilityCastRange"				"625"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.45"
+		"AOERadius"						"325"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -11100,35 +11095,92 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"70 90 110 130"
 
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_undying/undying_decay.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_undying.vsndevts"
+		}
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"decay_damage"
+			"decay_damage"		"20 60 100 140"
+			"str_steal"			"4"
+			"decay_duration"	"40"
+			"radius"			"325"
+		}
+		"Modifiers"
+		{
+			"modifier_decay_datadriven_str_debuff"
 			{
-				"value"					"20 60 100 140"
-				"special_bonus_unique_undying_8" "+50"
+				"IsDebuff"		"1"
+				"Duration"		"%decay_duration"
+				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"-4"
+				}
 			}
-
-			"str_steal"
+			"modifier_decay_datadriven_str_buff"
 			{
-				"value"		"4"
-				"special_bonus_scepter" "+0"
+				"IsDebuff"		"0"
+				"Duration"		"%decay_duration"
+				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"4"
+				}
 			}
-
-			"decay_duration"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
 			{
-				"value"		"40"
+				"EffectName"	"Hero_Undying.Decay.Cast"
+				"Target"		"CASTER"
 			}
-
-			"radius"
+			"FireEffect"
 			{
-				"value"		"325"
+				"EffectName"		"particles/units/heroes/hero_undying/undying_decay.vpcf"
+				"EffectAttachType"	"start_at_customorigin"
+				"TargetPoint"		"POINT"	
 			}
-
-			"str_scale_up"	"1"
-			"creep_damage_multiplier"	"1"
-			"shard_buff_duration"		"40"
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center"  	"POINT"
+					"Radius" 	"%radius"
+					"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types" 	"DOTA_UNIT_TARGET_HERO"
+				}
+			
+				"Action"    
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_decay_datadriven_str_debuff"
+						"Target" 		"TARGET"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_decay_datadriven_str_buff"
+						"Target" 		"CASTER"
+					}
+				}
+			}
+			"Damage"
+			{
+				"Target"	
+				{
+					"Center"	"POINT"
+					"Radius"	"%radius"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				}
+				"Type"		"DAMAGE_TYPE_MAGICAL"
+				"Damage"	"%decay_damage"
+			}
 		}
 	}
 	//=================================================================================================================
