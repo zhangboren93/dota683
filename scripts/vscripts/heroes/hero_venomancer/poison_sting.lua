@@ -8,6 +8,9 @@ function handleWardAttackLanded(event)
 	local target = event.target
 	local attacker = event.attacker
 	local ability = event.ability
+	if target:IsBuilding() then
+		return
+	end
 	if not target:HasModifier("modifier_poison_sting_debuff_datadriven") then
 		ability:ApplyDataDrivenModifier(attacker, target, "modifier_ward_poison_sting_debuff_datadriven", {})
 	else

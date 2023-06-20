@@ -101,18 +101,20 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 			entity:RemoveModifierByName("modifier_creep_aggroed_datadriven")
 		end
 	end
+
+	-- Attack units within attack range, not building
 	if self.target ~= nil 
 		and IsValidEntity(self.target.unit) 
 		and not self.target.unit:HasModifier("modifier_creep_aggro_move_datadriven") 
-		and isAttackable(self.target.unit, entity) then
-		-- TODO buildings are low attack priority
-		
+		and isAttackable(self.target.unit, entity) 
+		and not self.target.unit:IsBuilding() then
 		local distance = (self.target.unit:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length()
 		if distance <= self.kv.attackrange then
 			entity:MoveToTargetToAttack(self.target.unit)
 			return
 		end
 	end
+	-- move to target location if lose vision
 	if self.target ~= nil and IsValidEntity(self.target.unit) and not entity:CanEntityBeSeenByMyTeam(self.target.unit) then
 		if (entity:GetAbsOrigin() - self.target_loc):Length() > 100 and GameRules:GetDOTATime(false, false) - self.target_loc_time < 5 then
 			entity:MoveToPosition(self.target_loc)
@@ -121,7 +123,6 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 			self.target = nil
 		end
 	end
-	-- TODO move to target disappear location
 	local target = self:selectTarget()
 	-- TODO alert cooldown 2.1s
 	if target ~= nil then
@@ -186,7 +187,8 @@ function modifier_creep_ai:selectTarget()
 		end
 	end
 
-	units = self:findUnitsInRadiusFiltered(entity, position, self.kv.attackrange)
+	units = self:findUnitsInRadiusFiltered(
+		entity, position, self.kv.attackrange, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC)
 	for i=1,#units do
 		if units[i]:IsAttackingEntity(entity) then
 			--print("Find unit attacking me")
@@ -208,7 +210,8 @@ function modifier_creep_ai:selectTarget()
 		return { unit = units[1] }
 	end
 
-	units = self:findUnitsInRadiusFiltered(entity, position, self.kv.alertRadius)
+	units = self:findUnitsInRadiusFiltered(
+		entity, position, self.kv.alertRadius, DOTA_UNIT_TARGET_ALL)
 	if #units > 0 then
 		for i=1,#units do
 			-- find unit not transferring aggro and not techies' mine
@@ -235,11 +238,11 @@ function modifier_creep_ai:selectTarget()
 	return nil
 end
 
-function modifier_creep_ai:findUnitsInRadiusFiltered(entity, position, range)
+function modifier_creep_ai:findUnitsInRadiusFiltered(entity, position, range, target_type)
 	local units_unfiltered = FindUnitsInRadius(
 		entity:GetTeam(), position, entity, range, 
 		DOTA_UNIT_TARGET_TEAM_ENEMY, 
-		DOTA_UNIT_TARGET_ALL, 
+		target_type, 
 		DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		FIND_CLOSEST, false)
 	-- remove techies mine
