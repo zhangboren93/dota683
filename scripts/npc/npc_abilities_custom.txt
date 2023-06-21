@@ -11220,29 +11220,12 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"damage_per_unit"			"18 22 26 30"
-				"LinkedSpecialBonus"			"special_bonus_unique_undying_6"
-			}			
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"max_units"					"10 12 14 16"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"radius"					"1300"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"tombstone_heal"			"4 8 12 16"
-			}
 		}
 	}	
 	//=================================================================================================================
@@ -11263,7 +11246,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_UNDYING_TOMBSTONE"
 		"AbilityCastGestureSlot"		"DEFAULT"
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.6"
+		"AbilityCastPoint"				"0.45"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -11277,38 +11260,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"tombstone_health"
-			{
-				"value"					"200 400 600 800"
-				"special_bonus_unique_undying_5"	"+24" 
-			}
-
-			"hits_to_destroy_tooltip"
-			{
-				"value"					"200 400 600 800"
-				"special_bonus_unique_undying_5"	"+6"
-			}
-
-			"duration"				"15 20 25 30.0"
-			"radius"				"600 800 1000 1200"
+			"tombstone_health"				"200 400 600 800"
+			"hits_to_destroy_tooltip"		"200 400 600 800"
+			"duration"						"15 20 25 30"
+			"radius"						"600 800 1000 1200"
 			"health_threshold_pct_tooltip"	"20 25 30 35"
-			"zombie_interval"		"3"
-			"zombie_damage_tooltip"
-			{
-				"value"					"34"
-				"special_bonus_unique_undying" "+20"
-				"CalculateSpellDamageTooltip"	"0"
-			}
-
-			"bunker_units"				"0"
-			"bunker_heal_pct"			"0"
-			"tombstone_grab_radius"		"1"
-			"tombstone_bunker_cd"		"3000"
-
-			"zombie_damage_interval"
-			{
-				"value"					"0"
-			}
+			"zombie_interval"				"3"
+			"zombie_damage_tooltip"			"34"
+			"bunker_units"					"0"
+			"bunker_heal_pct"				"0"
+			"tombstone_grab_radius"			"1"
+			"tombstone_bunker_cd"			"3000"
+			"zombie_damage_interval"		"0"
 		}
 	}
 	//=================================================================================================================
@@ -11330,38 +11293,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"slow"					"-7"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"health_threshold_pct"	"20 25 30 35"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"2.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_move_speed"			"50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_attack_speed"			"50"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"1200"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
