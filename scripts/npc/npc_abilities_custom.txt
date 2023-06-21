@@ -7688,6 +7688,27 @@
 				"linger_duration"			"0"
 		}	
 	}
+	"jakiro_macropyre_destroy_trees_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_macropyre_destroy_trees_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_jakiro/macropyre.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+		}
+	}
 	//=================================================================================================================
 	// Batrider: Sticky Napalm
 	//=================================================================================================================
