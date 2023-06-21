@@ -1829,7 +1829,7 @@
 				"value"						"6"
 				"special_bonus_unique_pudge_6"	"+2"
 			}
-			"pull_units_per_second"		"75"
+			"pull_units_per_second"		"1"
 			"pull_distance_limit"		"125"
 			"animation_rate"		"1.5"
 			"AbilityChannelTime"			
