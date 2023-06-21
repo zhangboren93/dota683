@@ -6942,82 +6942,36 @@
 			"armor_per_stack"		"0"	
 		}
 	}
-	//=================================================================================================================
-	// Furion: Force of Nature, Nature's Call
-	//=================================================================================================================
-	"furion_force_of_nature"
+	// Rewrite of Furion Wrath of Nature
+	// Author: Noya
+	// Date: April 5, 2015
+	"furion_wrath_of_nature_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5247"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilitySound"					"Hero_Furion.ForceOfNature"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"750"
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5"
-		"AbilityCooldown"				"37"
-		"AbilityManaCost"				"160"
-		"HasScepterUpgrade"				"0"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"area_of_effect"		"150 225 300 375"
-			"max_treants"
-			{
-				"value"							"2 3 4 5"
-				"special_bonus_unique_furion_2"	"+5"
-			}
-			"treant_duration"				"60"
-			"treant_health"
-			{
-				"value"								"550"
-				"special_bonus_unique_furion"			"x2.5"
-			}
-			"treant_damage_min"
-			{
-				"value"					"22"
-				"special_bonus_unique_furion"			"x2.5"
-			}
-			"treant_damage_max"
-			{
-				"value"					"22"
-				"special_bonus_unique_furion"			"x2.5"
-			}
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
-    "furion_wrath_of_nature"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5248"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_Furion.WrathOfNature_Cast"
-
-		"HasScepterUpgrade"			"1"
+		"AbilityTextureName"			"furion_wrath_of_nature"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		"HasScepterUpgrade"				"1"
 		
 		// Unit Targeting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0.5 0.5 0.5"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
-
 		"AbilityCooldown"				"90 75 60"
 		"AbilityManaCost"				"175 225 275"
 			
@@ -7025,22 +6979,70 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"max_targets"
+			"max_targets"
+			{
+				"value"			"16"
+				"special_bonus_scepter"	"+2"
+			}
+			"damage"				
+			{
+				"value"					"140 180 225"
+				"special_bonus_scepter"	"+15 +30 +50"
+			}
+			"damage_percent_add"	"7"
+			"jump_delay"			"0.25"
+		}
+	
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_furion/furion_wrath_of_nature.vpcf"
+			"particle"  "particles/units/heroes/hero_furion/furion_wrath_of_nature_cast.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_furion.vsndevts"
+		}
+	
+		"OnAbilityPhaseStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_furion/furion_wrath_of_nature_cast.vpcf"
+				"EffectAttachType"  "follow_origin"
+				"Target"            "CASTER"
+				"ControlPointEntities"
 				{
-					"value"			"16"
-					"special_bonus_scepter"	"+2"
+					"CASTER"	"attach_origin"
+					"CASTER"	"attach_hitloc" //attach_weapon in furion.vmdl
 				}
-				"damage"				
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Furion.WrathOfNature_Cast.Self"
+				"Target" 		"CASTER"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"CreateThinker"
+			{
+				"ModifierName"	"modifier_wrath_of_nature_thinker"
+				"Target" 		"POINT"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_wrath_of_nature_thinker"
+			{
+				"IsHidden"			"1"
+				"OnCreated"
 				{
-					"value"					"140 180 225"
-					"special_bonus_scepter"	"+15 +30 +50"
-				}
-				"damage_percent_add"	"7"
-				"jump_delay"			"0.25"
-				"kill_damage"			"0"
-				"kill_damage_duration"			"0"
-				"scepter_min_entangle_duration"		"0"
-				"scepter_max_entangle_duration"		"0"
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_furion/wrath_of_nature.lua"
+						"Function"		"WrathOfNature"
+					}
+				}	
+			}
 		}
 	}
     "dark_seer_wall_of_replica"

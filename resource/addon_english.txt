@@ -456,5 +456,12 @@
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_armor_reduction_pct"		"%BASE ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_magic_resistance"		"RESIST REDUCTION:"
 		"DOTA_Tooltip_ability_oracle_fates_edict_Description"								"Oracle enraptures a target, disarming them, granting them %magic_damage_resistance_pct_tooltip%%% magic damage resistance and recieves 50%% more physical damage."
+		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven"							"Wrath of Nature"
+		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_Description"				"Damaging energy bounces around the map, striking enemies close to the cast point that are in vision. Each enemy hit beyond the first adds damage."
+		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_scepter_description"		"Add damage."
+		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_Lore"						"Nature's Prophet calls Verodicia's fury to strike down those who might ravage the wilderness."
+		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_max_targets"				"MAX TARGETS:"
+		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage"						"DAMAGE:"
+		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage_percent_add"			"%ADDED DAMAGE PER BOUNCE:"
 	}
 }
