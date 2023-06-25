@@ -14,6 +14,8 @@ function PhantomStrike( keys )
 	local duration = ability:GetDuration()
 	ability.phantom_strike_attacks = ability:GetLevelSpecialValueFor("bonus_max_attack_count", ability_level)
 
+	caster:SetAbsOrigin(target:GetAbsOrigin() + 128 * (caster:GetAbsOrigin() - target:GetAbsOrigin()):Normalized())
+
 	-- If the target is an enemy then do enemy team logic
 	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
 
@@ -42,8 +44,9 @@ function PhantomStrikeAttack( keys )
 	local ability = keys.ability
 	local phantom_strike_modifier = keys.phantom_strike_modifier
 
+print(ability.phantom_strike_attacks)
 	-- Check if the attacked target is still the original target or if it still has any attack charges left
-	if target ~= ability.phantom_strike_target or ability.phantom_strike_attacks <=0 then
+	if target ~= ability.phantom_strike_target or ability.phantom_strike_attacks <=1 then
 		-- If not then remove the attack speed modifier
 		caster:RemoveModifierByName(phantom_strike_modifier) 
 	else
