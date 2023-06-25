@@ -10004,6 +10004,7 @@
     // Author: Rook
     // Date: February 4, 2015
 
+    //TODO sell drum with no charges as half the price
     "item_ancient_janggo_datadriven"
     {
 	    // General
