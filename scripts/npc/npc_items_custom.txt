@@ -5531,7 +5531,7 @@
 		"ItemShopTags"					"regen_health;regen_mana;mana_pool;health_pool"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bs;bloodstone"
-		"ItemInitialCharges"			"8"
+		"ItemInitialCharges"			"0"
 		"ItemDisplayCharges"			"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
@@ -5607,8 +5607,22 @@
 				"var_type"							"FIELD_INTEGER"
 				"experience_on_death_range"			"1200"  //This value is hardcoded into modifier_item_bloodstone_datadriven_aura_emitter_on_death().
 			}
+		    "15"
+		    {
+			    "var_type"							"FIELD_INTEGER"
+			    "initial_equip_charges"				"8"
+		    }
 		}
 		
+	    "OnEquip"
+	    {
+		    "RunScript"
+		    {
+			    "ScriptFile"			"items/item_permanent_with_charge.lua"
+			    "Function"				"handleEquip"
+		    }
+	    }
+
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -8608,7 +8622,7 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"diffusal blade 1"
 		"ItemPermanent"					"1"
-		"ItemInitialCharges" 			"8" //How many charges should the item start with - Tango x3
+		"ItemInitialCharges" 			"0" //How many charges should the item start with - Tango x3
 		"ItemDisplayCharges" 			"1" //Hide the charges of the item - Aegis
 		"ItemRequiresCharges" 			"1" //The active ability needs charges to be used - Urn
 
@@ -8616,6 +8630,15 @@
 		"UpgradeRecipe"					"item_recipe_diffusal_blade"
 		"ShouldBeSuggested"				"1"
 		
+	    "OnEquip"
+	    {
+		    "RunScript"
+		    {
+			    "ScriptFile"			"items/item_permanent_with_charge.lua"
+			    "Function"				"handleEquip"
+		    }
+	    }
+
 		"OnSpellStart"
 		{
 		    "FireSound"
@@ -8649,13 +8672,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_agility"			"20"
-			"bonus_intellect"		"6"
-			"feedback_mana_burn"	"25"
-			"feedback_mana_burn_illusion_melee"	"25"
+			"bonus_agility"							"20"
+			"bonus_intellect"						"6"
+			"feedback_mana_burn"					"25"
+			"feedback_mana_burn_illusion_melee"		"25"
 			"feedback_mana_burn_illusion_ranged"	"25"
-			"purge_movespeed"			"-80"
-			"purge_slow_duration"	"4.0"
+			"purge_movespeed"						"-80"
+			"purge_slow_duration"					"4.0"
+		    "initial_equip_charges"					"8"
 		}
     	"Modifiers"
     	{
@@ -8737,7 +8761,7 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"diffusal blade 1"
 		"ItemPermanent"					"1"
-		"ItemInitialCharges" 			"8" //How many charges should the item start with - Tango x3
+		"ItemInitialCharges" 			"0" //How many charges should the item start with - Tango x3
 		"ItemDisplayCharges" 			"1" //Hide the charges of the item - Aegis
 		"ItemRequiresCharges" 			"1" //The active ability needs charges to be used - Urn
 
@@ -8745,6 +8769,15 @@
 		"UpgradeRecipe"					"item_recipe_diffusal_blade_datadriven"
 		"ShouldBeSuggested"				"1"
 		
+	    "OnEquip"
+	    {
+		    "RunScript"
+		    {
+			    "ScriptFile"			"items/item_permanent_with_charge.lua"
+			    "Function"				"handleEquip"
+		    }
+	    }
+
 		"OnSpellStart"
 		{
 		    "FireSound"
@@ -8772,13 +8805,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_agility"			"35"
-			"bonus_intellect"		"10"
-			"feedback_mana_burn"	"25"
-			"feedback_mana_burn_illusion_melee"	"25"
+			"bonus_agility"							"35"
+			"bonus_intellect"						"10"
+			"feedback_mana_burn"					"25"
+			"feedback_mana_burn_illusion_melee"		"25"
 			"feedback_mana_burn_illusion_ranged"	"25"
-			"purge_movespeed"			"-80"
-			"purge_slow_duration"	"4.0"
+			"purge_movespeed"						"-80"
+			"purge_slow_duration"					"4.0"
+		    "initial_equip_charges"					"8"
 		}
     	"Modifiers"
     	{
@@ -10003,8 +10037,6 @@
     // Rewrite of Drum of Endurance
     // Author: Rook
     // Date: February 4, 2015
-
-    //TODO sell drum with no charges as half the price
     "item_ancient_janggo_datadriven"
     {
 	    // General
@@ -10030,7 +10062,7 @@
 	    "ItemShopTags"					"str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
 	    "ItemQuality"					"rare"
 	    "ItemAliases"					"drum of endurance"
-	    "ItemInitialCharges"			"6"
+	    "ItemInitialCharges"			"0"
 	    "ItemDisplayCharges"			"1"
 	    "ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 	
@@ -10081,6 +10113,11 @@
 			    "var_type"								"FIELD_INTEGER"
 			    "endurance_radius"						"900"
 		    }
+		    "10"
+		    {
+			    "var_type"								"FIELD_INTEGER"
+			    "initial_equip_charges"					"6"
+		    }
 	    }
 	
 	    "OnSpellStart"
@@ -10093,6 +10130,15 @@
 		    }
 	    }
 	
+	    "OnEquip"
+	    {
+		    "RunScript"
+		    {
+			    "ScriptFile"			"items/item_permanent_with_charge.lua"
+			    "Function"				"handleEquip"
+		    }
+	    }
+
 	    "Modifiers"
 	    {
 		    "modifier_item_ancient_janggo_datadriven"
@@ -10100,7 +10146,7 @@
 			    "Passive"			"1"
 			    "IsHidden"			"1"
 			    "Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-			
+
 			    "Properties"
 			    {
 				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_stats"
