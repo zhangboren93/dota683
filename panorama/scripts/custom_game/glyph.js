@@ -5,7 +5,11 @@ function OnGlyphButtonPressed() {
 }
 
 function handleTeamGlyphCDTick(event) {
-	$("#glyph-button-label").text = event.cd;
+	if (event.cd <= 0) {
+		$("#glyph-button-label").text = "";
+	} else {
+		$("#glyph-button-label").text = event.cd;
+	}
 }
 
 GameEvents.Subscribe("team_glyph_cooldown_tick", handleTeamGlyphCDTick)

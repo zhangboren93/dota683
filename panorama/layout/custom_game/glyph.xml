@@ -9,7 +9,8 @@
 
 	<Panel class="glyph-panel">
 		<Button onactivate="OnGlyphButtonPressed()">
-			<Label id="glyph-button-label" text="塔"/>
+			<Image src="file://{images}/custom_game/glyph.png" />
+			<Label id="glyph-button-label" text=""/>
 		</Button>
     </Panel>
 </root>
