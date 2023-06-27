@@ -1,0 +1,15 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/glyph.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/glyph.js" />
+	</scripts>
+
+	<Panel class="glyph-panel">
+		<Button onactivate="OnGlyphButtonPressed()">
+			<Label id="glyph-button-label" text="塔"/>
+		</Button>
+    </Panel>
+</root>

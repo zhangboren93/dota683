@@ -437,6 +437,14 @@ function CAddonTemplateGameMode:OnThink()
 			local roshan = CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
 			self.nextRoshanTime = nil
 		end
+
+		-- send glyph cooldown time to clients
+		--print("send glyph cooldown time to clients")
+		CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_GOODGUYS, "team_glyph_cooldown_tick", {
+			cd = math.floor(Entities:FindByName(nil, "ent_dota_fountain_good"):FindAbilityByName("glyph_datadriven"):GetCooldownTimeRemaining()) })
+		CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_BADGUYS, "team_glyph_cooldown_tick", {
+			cd = math.floor(Entities:FindByName(nil, "ent_dota_fountain_bad"):FindAbilityByName("glyph_datadriven"):GetCooldownTimeRemaining()) })
+
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
 	end
@@ -473,6 +481,7 @@ end
 
 -- Add the order filter to your game mode entity
 function CAddonTemplateGameMode:OrderFilter(event)
+	--print("OrderFilter " .. event.order_type .. " " .. event.issuer_player_id_const)
 	if event.order_type == DOTA_UNIT_ORDER_GLYPH then
 		local player = PlayerResource:GetPlayer(event.issuer_player_id_const)
 		local team = player:GetTeam()
