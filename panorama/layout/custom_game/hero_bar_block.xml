@@ -1,0 +1,9 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/hero_bar_block.css" />
+	</styles>
+
+	<Panel class="hero-bar-block">
+		<Button onactivate=""/>
+    </Panel>
+</root>
