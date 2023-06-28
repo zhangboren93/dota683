@@ -792,6 +792,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:SetThink(function()
 				entity:FindAbilityByName("invoker_invoke"):SetLevel(0)
 			end, "reset invoker invoke", 0.5)
+		elseif entity:GetName() == "npc_dota_hero_earth_spirit" then
+			entity:AddItemByName("item_aghanims_shard")
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
