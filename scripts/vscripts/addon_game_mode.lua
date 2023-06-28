@@ -1196,6 +1196,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local parent = EntIndexToHScript(event.entindex_parent_const)
 		parent:SetDayTimeVisionRange(400)
 		parent:SetNightTimeVisionRange(400)
+	elseif event.name_const == "modifier_earth_spirit_magnetize" then
+		--TODO add a modifier to prevent magnetize to be purged
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
@@ -1247,6 +1249,10 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		elseif inflictor:GetName() == "phoenix_sun_ray" then
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			event.damage = event.damage / (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
+		elseif inflictor:GetName() == "earth_spirit_rolling_boulder" then
+			-- fix rolling boulder damage without strength component
+			local victim = EntIndexToHScript(event.entindex_victim_const)
+			event.damage = 100 * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
 		end
 	end
 	return true
