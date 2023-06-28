@@ -470,5 +470,6 @@
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_max_targets"				"MAX TARGETS:"
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage_percent_add"			"%ADDED DAMAGE PER BOUNCE:"
+		"DOTA_Tooltip_Ability_skywrath_mage_mystic_flare_Scepter_Description"				"CD 20/10/0s"
 	}
 }

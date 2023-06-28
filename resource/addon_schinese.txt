@@ -472,5 +472,6 @@
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_max_targets"					"最大目标数："
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage"							"伤害："
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage_percent_add"				"%每次弹跳增加伤害："
+		"DOTA_Tooltip_Ability_skywrath_mage_mystic_flare_Scepter_Description"					"CD 20/10/0秒"
 	}
 }
