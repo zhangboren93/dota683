@@ -1,0 +1,181 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/captain_hero_selection.css" />
+	</styles>
+    <scripts>
+		<include src="file://{resources}/scripts/custom_game/captain_hero_selection.js" />
+	</scripts>
+	<Panel class="captain-selection-ban-panel"> <!-- captain-selection-ban-panel-hide"-->
+        <Panel id="pick-phase-panel">
+            <Label id="pick-phase-radiant" text="近卫"/>
+            <Label id="pick-phase-dire" class="label-hide" text="天灾"/>
+            <Label id="pick-phase-ban" text="禁用"/>
+            <Label id="pick-phase-pick" class="label-hide" text="选择"/>
+            <Label text=": "/>
+            <Label id="pick-phase-time" text="40"/>
+            <Label text="秒，备用时间: "/>
+            <Label id="pick-phase-extra-time" text="110"/>
+            <Label text="秒"/>
+        </Panel>
+        <Panel id="main-content-panel">
+            <Panel id="panel-left">
+                <Panel class="ladder_attr_heroes">
+                    <DOTAHeroImage class="hero-image" id="hi_abaddon"         heroimagestyle="portrait" heroname="npc_dota_hero_abaddon"          onactivate="handleHeroClicked('abaddon')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_axe"             heroimagestyle="portrait" heroname="npc_dota_hero_axe"              onactivate="handleHeroClicked('axe')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_beastmaster"     heroimagestyle="portrait" heroname="npc_dota_hero_beastmaster"      onactivate="handleHeroClicked('beastmaster')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_brewmaster"      heroimagestyle="portrait" heroname="npc_dota_hero_brewmaster"       onactivate="handleHeroClicked('brewmaster')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_centaur"         heroimagestyle="portrait" heroname="npc_dota_hero_centaur"          onactivate="handleHeroClicked('centaur')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_chaos_knight"    heroimagestyle="portrait" heroname="npc_dota_hero_chaos_knight"     onactivate="handleHeroClicked('chaos_knight')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_dragon_knight"   heroimagestyle="portrait" heroname="npc_dota_hero_dragon_knight"    onactivate="handleHeroClicked('dragon_knight')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_earthshaker"     heroimagestyle="portrait" heroname="npc_dota_hero_earthshaker"      onactivate="handleHeroClicked('earthshaker')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_life_stealer"    heroimagestyle="portrait" heroname="npc_dota_hero_life_stealer"     onactivate="handleHeroClicked('life_stealer')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_lycan"           heroimagestyle="portrait" heroname="npc_dota_hero_lycan"            onactivate="handleHeroClicked('lycan')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_magnataur"       heroimagestyle="portrait" heroname="npc_dota_hero_magnataur"        onactivate="handleHeroClicked('magnataur')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_night_stalker"   heroimagestyle="portrait" heroname="npc_dota_hero_night_stalker"    onactivate="handleHeroClicked('night_stalker')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_omniknight"      heroimagestyle="portrait" heroname="npc_dota_hero_omniknight"       onactivate="handleHeroClicked('omniknight')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_rattletrap"      heroimagestyle="portrait" heroname="npc_dota_hero_rattletrap"       onactivate="handleHeroClicked('rattletrap')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_skeleton_king"   heroimagestyle="portrait" heroname="npc_dota_hero_skeleton_king"    onactivate="handleHeroClicked('skeleton_king')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_slardar"         heroimagestyle="portrait" heroname="npc_dota_hero_slardar"          onactivate="handleHeroClicked('slardar')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_spirit_breaker"  heroimagestyle="portrait" heroname="npc_dota_hero_spirit_breaker"   onactivate="handleHeroClicked('spirit_breaker')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_sven"            heroimagestyle="portrait" heroname="npc_dota_hero_sven"             onactivate="handleHeroClicked('sven')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_tidehunter"      heroimagestyle="portrait" heroname="npc_dota_hero_tidehunter"       onactivate="handleHeroClicked('tidehunter')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_tusk"            heroimagestyle="portrait" heroname="npc_dota_hero_tusk"             onactivate="handleHeroClicked('tusk')"/>
+                </Panel>
+                <Panel class="ladder_attr_heroes">
+                    <DOTAHeroImage class="hero-image" id="hi_abyssal_underlord"   heroimagestyle="portrait" heroname="npc_dota_hero_abyssal_underlord" onactivate="handleHeroClicked('abyssal_underlord')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_alchemist"           heroimagestyle="portrait" heroname="npc_dota_hero_alchemist"         onactivate="handleHeroClicked('alchemist')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_earth_spirit"        heroimagestyle="portrait" heroname="npc_dota_hero_earth_spirit"      onactivate="handleHeroClicked('earth_spirit')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_elder_titan"         heroimagestyle="portrait" heroname="npc_dota_hero_elder_titan"       onactivate="handleHeroClicked('elder_titan')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_huskar"              heroimagestyle="portrait" heroname="npc_dota_hero_huskar"            onactivate="handleHeroClicked('huskar')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_phoenix"             heroimagestyle="portrait" heroname="npc_dota_hero_phoenix"           onactivate="handleHeroClicked('phoenix')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_sand_king"           heroimagestyle="portrait" heroname="npc_dota_hero_sand_king"         onactivate="handleHeroClicked('sand_king')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_shredder"            heroimagestyle="portrait" heroname="npc_dota_hero_shredder"          onactivate="handleHeroClicked('shredder')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_tiny"                heroimagestyle="portrait" heroname="npc_dota_hero_tiny"              onactivate="handleHeroClicked('tiny')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_treant"              heroimagestyle="portrait" heroname="npc_dota_hero_treant"            onactivate="handleHeroClicked('treant')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_bristleback"         heroimagestyle="portrait" heroname="npc_dota_hero_bristleback"       onactivate="handleHeroClicked('bristleback')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_pudge"               heroimagestyle="portrait" heroname="npc_dota_hero_pudge"             onactivate="handleHeroClicked('pudge')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_doom_bringer"        heroimagestyle="portrait" heroname="npc_dota_hero_doom_bringer"      onactivate="handleHeroClicked('doom_bringer')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_kunkka"              heroimagestyle="portrait" heroname="npc_dota_hero_kunkka"            onactivate="handleHeroClicked('kunkka')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_legion_commander"    heroimagestyle="portrait" heroname="npc_dota_hero_legion_commander"  onactivate="handleHeroClicked('legion_commander')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_undying"             heroimagestyle="portrait" heroname="npc_dota_hero_undying"           onactivate="handleHeroClicked('undying')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_wisp"                heroimagestyle="portrait" heroname="npc_dota_hero_wisp"              onactivate="handleHeroClicked('wisp')"/>
+                </Panel>
+                <Panel class="ladder_attr_heroes">
+                    <DOTAHeroImage class="hero-image" id="hi_antimage"        heroimagestyle="portrait" heroname="npc_dota_hero_antimage"        onactivate="handleHeroClicked('antimage')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_arc_warden"      heroimagestyle="portrait" heroname="npc_dota_hero_arc_warden"      onactivate="handleHeroClicked('arc_warden')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_drow_ranger"     heroimagestyle="portrait" heroname="npc_dota_hero_drow_ranger"     onactivate="handleHeroClicked('drow_ranger')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_faceless_void"   heroimagestyle="portrait" heroname="npc_dota_hero_faceless_void"   onactivate="handleHeroClicked('faceless_void')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_juggernaut"      heroimagestyle="portrait" heroname="npc_dota_hero_juggernaut"      onactivate="handleHeroClicked('juggernaut')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_luna"            heroimagestyle="portrait" heroname="npc_dota_hero_luna"            onactivate="handleHeroClicked('luna')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_medusa"          heroimagestyle="portrait" heroname="npc_dota_hero_medusa"          onactivate="handleHeroClicked('medusa')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_morphling"       heroimagestyle="portrait" heroname="npc_dota_hero_morphling"       onactivate="handleHeroClicked('morphling')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_naga_siren"      heroimagestyle="portrait" heroname="npc_dota_hero_naga_siren"      onactivate="handleHeroClicked('naga_siren')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_nevermore"       heroimagestyle="portrait" heroname="npc_dota_hero_nevermore"       onactivate="handleHeroClicked('nevermore')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_nyx_assassin"    heroimagestyle="portrait" heroname="npc_dota_hero_nyx_assassin"    onactivate="handleHeroClicked('nyx_assassin')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_razor"           heroimagestyle="portrait" heroname="npc_dota_hero_razor"           onactivate="handleHeroClicked('razor')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_slark"           heroimagestyle="portrait" heroname="npc_dota_hero_slark"           onactivate="handleHeroClicked('slark')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_sniper"          heroimagestyle="portrait" heroname="npc_dota_hero_sniper"          onactivate="handleHeroClicked('sniper')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_terrorblade"     heroimagestyle="portrait" heroname="npc_dota_hero_terrorblade"     onactivate="handleHeroClicked('terrorblade')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_troll_warlord"   heroimagestyle="portrait" heroname="npc_dota_hero_troll_warlord"   onactivate="handleHeroClicked('troll_warlord')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_vengefulspirit"  heroimagestyle="portrait" heroname="npc_dota_hero_vengefulspirit"  onactivate="handleHeroClicked('vengefulspirit')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_viper"           heroimagestyle="portrait" heroname="npc_dota_hero_viper"           onactivate="handleHeroClicked('viper')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_weaver"          heroimagestyle="portrait" heroname="npc_dota_hero_weaver"          onactivate="handleHeroClicked('weaver')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_bounty_hunter"   heroimagestyle="portrait" heroname="npc_dota_hero_bounty_hunter"   onactivate="handleHeroClicked('bounty_hunter')"/>
+                </Panel>
+                <Panel class="ladder_attr_heroes">
+                    <DOTAHeroImage class="hero-image" id="hi_clinkz"              heroimagestyle="portrait" heroname="npc_dota_hero_clinkz"           onactivate="handleHeroClicked('clinkz')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_ember_spirit"        heroimagestyle="portrait" heroname="npc_dota_hero_ember_spirit"     onactivate="handleHeroClicked('ember_spirit')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_gyrocopter"          heroimagestyle="portrait" heroname="npc_dota_hero_gyrocopter"       onactivate="handleHeroClicked('gyrocopter')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_phantom_assassin"    heroimagestyle="portrait" heroname="npc_dota_hero_phantom_assassin" onactivate="handleHeroClicked('phantom_assassin')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_venomancer"          heroimagestyle="portrait" heroname="npc_dota_hero_venomancer"       onactivate="handleHeroClicked('venomancer')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_lone_druid"          heroimagestyle="portrait" heroname="npc_dota_hero_lone_druid"       onactivate="handleHeroClicked('lone_druid')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_mirana"              heroimagestyle="portrait" heroname="npc_dota_hero_mirana"           onactivate="handleHeroClicked('mirana')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_riki"                heroimagestyle="portrait" heroname="npc_dota_hero_riki"             onactivate="handleHeroClicked('riki')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_templar_assassin"    heroimagestyle="portrait" heroname="npc_dota_hero_templar_assassin" onactivate="handleHeroClicked('templar_assassin')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_bloodseeker"         heroimagestyle="portrait" heroname="npc_dota_hero_bloodseeker"      onactivate="handleHeroClicked('bloodseeker')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_broodmother"         heroimagestyle="portrait" heroname="npc_dota_hero_broodmother"      onactivate="handleHeroClicked('broodmother')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_meepo"               heroimagestyle="portrait" heroname="npc_dota_hero_meepo"            onactivate="handleHeroClicked('meepo')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_monkey_king"         heroimagestyle="portrait" heroname="npc_dota_hero_monkey_king"      onactivate="handleHeroClicked('monkey_king')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_phantom_lancer"      heroimagestyle="portrait" heroname="npc_dota_hero_phantom_lancer"   onactivate="handleHeroClicked('phantom_lancer')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_spectre"             heroimagestyle="portrait" heroname="npc_dota_hero_spectre"          onactivate="handleHeroClicked('spectre')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_ursa"                heroimagestyle="portrait" heroname="npc_dota_hero_ursa"             onactivate="handleHeroClicked('ursa')"/>
+                </Panel>
+                <Panel class="ladder_attr_heroes">
+                    <DOTAHeroImage class="hero-image" id="hi_ancient_apparition"  heroimagestyle="portrait" heroname="npc_dota_hero_ancient_apparition" onactivate="handleHeroClicked('ancient_apparition')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_bane"                heroimagestyle="portrait" heroname="npc_dota_hero_bane"               onactivate="handleHeroClicked('bane')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_crystal_maiden"      heroimagestyle="portrait" heroname="npc_dota_hero_crystal_maiden"     onactivate="handleHeroClicked('crystal_maiden')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_dazzle"              heroimagestyle="portrait" heroname="npc_dota_hero_dazzle"             onactivate="handleHeroClicked('dazzle')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_leshrac"             heroimagestyle="portrait" heroname="npc_dota_hero_leshrac"            onactivate="handleHeroClicked('leshrac')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_lich"                heroimagestyle="portrait" heroname="npc_dota_hero_lich"               onactivate="handleHeroClicked('lich')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_lina"                heroimagestyle="portrait" heroname="npc_dota_hero_lina"               onactivate="handleHeroClicked('lina')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_lion"                heroimagestyle="portrait" heroname="npc_dota_hero_lion"               onactivate="handleHeroClicked('lion')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_obsidian_destroyer"  heroimagestyle="portrait" heroname="npc_dota_hero_obsidian_destroyer" onactivate="handleHeroClicked('obsidian_destroyer')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_ogre_magi"           heroimagestyle="portrait" heroname="npc_dota_hero_ogre_magi"          onactivate="handleHeroClicked('ogre_magi')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_oracle"              heroimagestyle="portrait" heroname="npc_dota_hero_oracle"             onactivate="handleHeroClicked('oracle')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_pugna"               heroimagestyle="portrait" heroname="npc_dota_hero_pugna"              onactivate="handleHeroClicked('pugna')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_shadow_demon"        heroimagestyle="portrait" heroname="npc_dota_hero_shadow_demon"       onactivate="handleHeroClicked('shadow_demon')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_shadow_shaman"       heroimagestyle="portrait" heroname="npc_dota_hero_shadow_shaman"      onactivate="handleHeroClicked('shadow_shaman')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_skywrath_mage"       heroimagestyle="portrait" heroname="npc_dota_hero_skywrath_mage"      onactivate="handleHeroClicked('skywrath_mage')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_visage"              heroimagestyle="portrait" heroname="npc_dota_hero_visage"             onactivate="handleHeroClicked('visage')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_warlock"             heroimagestyle="portrait" heroname="npc_dota_hero_warlock"            onactivate="handleHeroClicked('warlock')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_windrunner"          heroimagestyle="portrait" heroname="npc_dota_hero_windrunner"         onactivate="handleHeroClicked('windrunner')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_witch_doctor"        heroimagestyle="portrait" heroname="npc_dota_hero_witch_doctor"       onactivate="handleHeroClicked('witch_doctor')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_death_prophet"       heroimagestyle="portrait" heroname="npc_dota_hero_death_prophet"      onactivate="handleHeroClicked('death_prophet')"/>
+                </Panel>
+                <Panel class="ladder_attr_heroes">
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_disruptor"           onactivate="handleHeroClicked('disruptor')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_enigma"              onactivate="handleHeroClicked('enigma')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_invoker"             onactivate="handleHeroClicked('invoker')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_jakiro"              onactivate="handleHeroClicked('jakiro')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_keeper_of_the_light" onactivate="handleHeroClicked('keeper_of_the_light')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_silencer"            onactivate="handleHeroClicked('silencer')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_tinker"              onactivate="handleHeroClicked('tinker')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_winter_wyvern"       onactivate="handleHeroClicked('winter_wyvern')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_storm_spirit"        onactivate="handleHeroClicked('storm_spirit')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_dark_seer"           onactivate="handleHeroClicked('dark_seer')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_necrolyte"           onactivate="handleHeroClicked('necrolyte')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_puck"                onactivate="handleHeroClicked('puck')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_queenofpain"         onactivate="handleHeroClicked('queenofpain')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_rubick"              onactivate="handleHeroClicked('rubick')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_techies"             onactivate="handleHeroClicked('techies')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_zuus"                onactivate="handleHeroClicked('zuus')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_batrider"            onactivate="handleHeroClicked('batrider')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_chen"                onactivate="handleHeroClicked('chen')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_enchantress"         onactivate="handleHeroClicked('enchantress')"/>
+                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_furion"              onactivate="handleHeroClicked('furion')"/>
+                </Panel>
+            </Panel>
+            <Panel id="panel-right">
+                <Panel style="flow-children: right; height: 90%; width: 100%;">
+                    <Panel id="panel-right-radiant">
+                        <Label id="panel-right-radiant-title" text="近卫阵容"/>
+                        <Panel class="hero-picked-panel hero-picked-panel-active"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-0" heroimagestyle="landscape"/></Panel>
+                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-1" heroimagestyle="landscape"/></Panel>
+                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-2" heroimagestyle="landscape"/></Panel>
+                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-3" heroimagestyle="landscape"/></Panel>
+                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-4" heroimagestyle="landscape"/></Panel>
+                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-5" heroimagestyle="landscape"/></Panel>
+                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-6" heroimagestyle="landscape"/></Panel>
+                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-7" heroimagestyle="landscape"/></Panel>
+                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-8" heroimagestyle="landscape"/></Panel>
+                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-9" heroimagestyle="landscape"/></Panel>
+                    </Panel>
+                    <Panel id="panel-right-dire">
+                        <Label id="panel-right-dire-title" text="天灾阵容"/>
+                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-0" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
+                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-1" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
+                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-2" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-3" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-4" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
+                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-5" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
+                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-6" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-7" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-8" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
+                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-9" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                    </Panel>
+                </Panel>
+                <Button id="ban-button" class="DefaultValveButtonClass button-hidden"><Label text="确定"/></Button>
+            </Panel>
+        </Panel>
+    </Panel>
+</root>

@@ -265,6 +265,11 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			GameRules:SetSameHeroSelectionEnabled(false)
 			self.game_mode = "LD"
 			GameRules:SendCustomMessage("开启天梯模式", -1, -1)
+		elseif text == '-cd' then
+			GameRules:SetHeroSelectionTime(40 * 10 + 110 * 2 + 60)
+			GameRules:SetSameHeroSelectionEnabled(false)
+			self.game_mode = "CD"
+			GameRules:SendCustomMessage("开启队长模式", -1, -1)
 		end
 	end
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
@@ -334,6 +339,12 @@ function CAddonTemplateGameMode:OnThink()
 				end
 				pickLadderHeroes(self)
 				self.hero_selection_state = "BAN"
+			elseif self.game_mode == "CD" then
+				for i=1,#all_heroes do
+					GameRules:AddHeroToBlacklist(all_heroes[i])
+				end
+				self.hero_selection_state = "CD_RAD_BAN_1"
+ 	   			CustomGameEventManager:Send_ServerToAllClients("captain_draft_start", {})
 			else
 				CustomGameEventManager:Send_ServerToAllClients("ladder_pick_start", {})
 			end
