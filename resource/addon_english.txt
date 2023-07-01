@@ -471,5 +471,13 @@
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage_percent_add"			"%ADDED DAMAGE PER BOUNCE:"
 		"DOTA_Tooltip_Ability_skywrath_mage_mystic_flare_Scepter_Description"				"CD 20/10/0s"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven"							"Eye of the Storm"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_Description"				"A powerful lightning storm strikes out at enemy units with the lowest health, dealing damage and reducing their armor."
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_scepter_description"		"Eye of the Storm can damage structures and reduce strike interval"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_Lore"						"Ride the lightning."
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_radius"						"RADIUS:"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_AbilityDuration"			"DURATION:"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_strike_interval"			"STRIKE INTERVAL:"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_armor_reduction"			"ARMOR REDUCTION:"
 	}
 }

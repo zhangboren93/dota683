@@ -473,5 +473,13 @@
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage"							"伤害："
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage_percent_add"				"%每次弹跳增加伤害："
 		"DOTA_Tooltip_Ability_skywrath_mage_mystic_flare_Scepter_Description"					"CD 20/10/0秒"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven"								"风暴之眼"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_Description"					"强大的闪电风暴，打击生命值最低的敌方单位，造成伤害并削弱护甲。"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_scepter_description"			"风暴之眼能对建筑造成伤害，并减少打击间隔。"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_Lore"							"掌控闪电。"
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_radius"							"作用范围："
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_AbilityDuration"				"持续时间："
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_strike_interval"				"打击间隔："
+		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_armor_reduction"				"护甲降低："
 	}
 }

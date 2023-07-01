@@ -2057,22 +2057,23 @@
 			}
 		}
 	}
-    "razor_eye_of_the_storm"
+    "razor_eye_of_the_storm_datadriven"
 	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5085"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"			"1"
+		"HasScepterUpgrade"				"1"
 		"AbilitySound"					"Hero_Razor.Storm.Cast"
+		"AbilityTextureName"			"razor_eye_of_the_storm"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -2091,36 +2092,68 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.1"	// Primarily about the damage
+		"AbilityDuration"				"30"
+		"AbilityDamage"					"37.5 50 62.5"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"radius"			"500"		
+			"strike_interval"	
 			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"500"		
+				"value"					"0.7 0.6 0.5"	
+				"special_bonus_scepter"	"-0.1"
 			}
-			"02"
+			"armor_reduction"	"1"		
+		}
+
+		"precache" 
+		{
+			"particle"	"particles/units/heroes/hero_razor/razor_storm_lightning_strike.vpcf"
+			"particle"	"particles/units/heroes/hero_razor/razor_rain_storm.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_razor.vsndevts"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
 			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"30.0"		
+				"EffectName"		"Hero_Razor.Storm.Cast"
+				"Target"			"CASTER"
 			}
-			"03"
+			"ApplyModifier" 
 			{
-				"var_type"				"FIELD_FLOAT"
-				"strike_interval"		"0.7 0.6 0.5"	
-				"LinkedSpecialBonus"	"special_bonus_unique_razor_2"
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_razor_eye_datadriven"
 			}
-			"04"
+		}
+
+		"Modifiers"
+		{
+			"modifier_razor_eye_datadriven"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"	"1 1 1"		
+				"EffectName"		"particles/units/heroes/hero_razor/razor_rain_storm.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Duration"			"%AbilityDuration"
+				"ThinkInterval"		"%strike_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_razor/eye_of_the_storm.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
 			}
-			"05"
+			"modifier_razor_eye_debuff_datadriven"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"37.5 50 62.5"		
+				"IsDebuff"		"1"			
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
+				}
 			}
 		}
 	}
