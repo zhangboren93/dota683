@@ -1343,14 +1343,25 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 			then
 			table.insert(captain_radiant_pick, event.sh)
 			DeepPrintTable(captain_radiant_pick)
-		elseif captain_pick_pahse == 5
-			or captain_pick_pahse == 7
-			or captain_pick_pahse == 13
-			or captain_pick_pahse == 15
-			or captain_pick_pahse == 19
+		elseif captain_pick_phase == 5
+			or captain_pick_phase == 7
+			or captain_pick_phase == 13
+			or captain_pick_phase == 15
+			or captain_pick_phase == 19
 			then
 			table.insert(captain_dire_pick, event.sh)
 			DeepPrintTable(captain_dire_pick)
+		end
+		if (captain_pick_phase == 19) then
+			GameRules:GetGameModeEntity():SetThink(function()
+				for i=1,#captain_radiant_pick do
+					GameRules:RemoveHeroFromBlacklist("npc_dota_hero_"..captain_radiant_pick[i])
+				end
+				for i=1,#captain_dire_pick do
+					GameRules:RemoveHeroFromBlacklist("npc_dota_hero_"..captain_dire_pick[i])
+				end
+				CustomGameEventManager:Send_ServerToAllClients("captain_player_pick_start", {})
+			end, "captain pick ends", 5)
 		end
 		CustomGameEventManager:Send_ServerToAllClients(
 			"captain_hero_pick_s2c", { pp = captain_pick_phase, sh = event.sh })

@@ -191,3 +191,7 @@
 .hi_selected {
 	border: 2px solid #FFFF00;
 }
+
+.hero_image_hidden {
+	visibility: collapse;
+}

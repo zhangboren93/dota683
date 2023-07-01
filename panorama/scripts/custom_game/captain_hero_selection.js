@@ -1,5 +1,6 @@
 GameEvents.Subscribe("captain_draft_start", OnCaptainDraftStart);
 GameEvents.Subscribe("captain_hero_pick_s2c", OnCaptainHeroPickS2C);
+GameEvents.Subscribe("captain_player_pick_start", OnCaptainPlayerPickStart);
 
 selected_hero = "";
 pick_phase = 0;
@@ -21,7 +22,13 @@ function OnCaptainHeroPickS2C(event) {
 			$("#hpp-" + i).RemoveClass("hero-picked-panel-active");
 		}
 	}
+	$("#hi_" + event.sh).AddClass("hero_image_hidden")
 	pick_phase = event.pp + 1;
+}
+
+function OnCaptainPlayerPickStart() {
+	$.Msg("OnCaptainPlayerPickStart");
+	$.GetContextPanel().AddClass("captain-selection-ban-panel-hide");
 }
 
 function handleHeroClicked(button) {
