@@ -149,29 +149,29 @@
                 <Panel style="flow-children: right; height: 90%; width: 100%;">
                     <Panel id="panel-right-radiant">
                         <Label id="panel-right-radiant-title" text="近卫阵容"/>
-                        <Panel id="hpp-0"  class="hero-picked-panel hero-picked-panel-active"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-0" heroimagestyle="landscape"/></Panel>
-                        <Panel id="hpp-2"  class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-2"  heroimagestyle="landscape"/></Panel>
-                        <Panel id="hpp-4"  class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-4"  heroimagestyle="landscape"/></Panel>
-                        <Panel id="hpp-6"  class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-6"  heroimagestyle="landscape"/></Panel>
-                        <Panel id="hpp-8"  class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-8"  heroimagestyle="landscape"/></Panel>
-                        <Panel id="hpp-10" class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-10" heroimagestyle="landscape"/></Panel>
-                        <Panel id="hpp-12" class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-12" heroimagestyle="landscape"/></Panel>
-                        <Panel id="hpp-14" class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-14" heroimagestyle="landscape"/></Panel>
-                        <Panel id="hpp-17" class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-17" heroimagestyle="landscape"/></Panel>
-                        <Panel id="hpp-18" class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-18" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-0"  class="hero-picked-panel hero-picked-panel-active"><Label class="hero-picked-type" text=" 1x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-0" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-2"  class="hero-picked-panel"><Label class="hero-picked-type" text=" 3x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-2"  heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-4"  class="hero-picked-panel"><Label class="hero-picked-type" text=" 5o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-4"  heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-6"  class="hero-picked-panel"><Label class="hero-picked-type" text=" 7o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-6"  heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-8"  class="hero-picked-panel"><Label class="hero-picked-type" text=" 9x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-8"  heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-10" class="hero-picked-panel"><Label class="hero-picked-type" text="11x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-10" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-12" class="hero-picked-panel"><Label class="hero-picked-type" text="13o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-12" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-14" class="hero-picked-panel"><Label class="hero-picked-type" text="15o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-14" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-17" class="hero-picked-panel"><Label class="hero-picked-type" text="18x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-17" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-18" class="hero-picked-panel"><Label class="hero-picked-type" text="19o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-18" heroimagestyle="landscape"/></Panel>
                     </Panel>
                     <Panel id="panel-right-dire">
                         <Label id="panel-right-dire-title" text="天灾阵容"/>
-                        <Panel id="hpp-1"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-1"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
-                        <Panel id="hpp-3"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-3"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
-                        <Panel id="hpp-5"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-5"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
-                        <Panel id="hpp-7"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-7"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
-                        <Panel id="hpp-9"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-9"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
-                        <Panel id="hpp-11" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-11" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
-                        <Panel id="hpp-13" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-13" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
-                        <Panel id="hpp-15" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-15" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
-                        <Panel id="hpp-16" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-16" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
-                        <Panel id="hpp-19" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-19" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                        <Panel id="hpp-1"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-1"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="x2"/></Panel>
+                        <Panel id="hpp-3"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-3"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="x4"/></Panel>
+                        <Panel id="hpp-5"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-5"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="o6"/></Panel>
+                        <Panel id="hpp-7"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-7"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="o8"/></Panel>
+                        <Panel id="hpp-9"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-9"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="x10"/></Panel>
+                        <Panel id="hpp-11" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-11" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x12"/></Panel>
+                        <Panel id="hpp-13" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-13" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o14"/></Panel>
+                        <Panel id="hpp-15" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-15" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o16"/></Panel>
+                        <Panel id="hpp-16" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-16" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x17"/></Panel>
+                        <Panel id="hpp-19" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-19" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o20"/></Panel>
                     </Panel>
                 </Panel>
                 <Button id="ban-button" class="DefaultValveButtonClass button-hidden" onactivate="handleBanClicked()"><Label text="确定"/></Button>

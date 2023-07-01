@@ -1,6 +1,7 @@
 GameEvents.Subscribe("captain_draft_start", OnCaptainDraftStart);
 GameEvents.Subscribe("captain_hero_pick_s2c", OnCaptainHeroPickS2C);
 GameEvents.Subscribe("captain_player_pick_start", OnCaptainPlayerPickStart);
+GameEvents.Subscribe("captain_pick_timer", OnCaptainPickTimer);
 
 selected_hero = "";
 pick_phase = 0;
@@ -22,6 +23,21 @@ function OnCaptainHeroPickS2C(event) {
 			$("#hpp-" + i).RemoveClass("hero-picked-panel-active");
 		}
 	}
+	if (event.pp == 0 || event.pp == 2 || event.pp == 4 || event.pp == 6 || event.pp == 8 || event.pp == 10 || event.pp == 12 || event.pp == 14 || event.pp == 15 || event.pp == 18) {
+		$("#pick-phase-radiant").AddClass("label-hide");
+		$("#pick-phase-dire").RemoveClass("label-hide");
+	} else {
+		$("#pick-phase-dire").AddClass("label-hide");
+		$("#pick-phase-radiant").RemoveClass("label-hide");
+	}
+	if ((event.pp >= 3 && event.pp <= 6) || (event.pp >= 11 && event.pp <= 14) || event.pp >= 17) {
+		$("#pick-phase-ban").AddClass("label-hide");
+		$("#pick-phase-pick").RemoveClass("label-hide");
+	} else {
+		$("#pick-phase-pick").AddClass("label-hide");
+		$("#pick-phase-ban").RemoveClass("label-hide");
+	}
+
 	$("#hi_" + event.sh).AddClass("hero_image_hidden")
 	pick_phase = event.pp + 1;
 }
@@ -29,6 +45,11 @@ function OnCaptainHeroPickS2C(event) {
 function OnCaptainPlayerPickStart() {
 	$.Msg("OnCaptainPlayerPickStart");
 	$.GetContextPanel().AddClass("captain-selection-ban-panel-hide");
+}
+
+function OnCaptainPickTimer(event) {
+	$("#pick-phase-time").text = event.nt;
+	$("#pick-phase-extra-time").text = event.et;
 }
 
 function handleHeroClicked(button) {

@@ -254,27 +254,22 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		elseif text == '-sp' then
 			GameRules:SetSameHeroSelectionEnabled(true)
 			GameRules:SendCustomMessage("开启相同英雄选择", -1, -1)
-		elseif text == '-cm' then
-			GameRules:SetHeroSelectionTime(600)
-			self.rdEnabled = false
-			self.botEnabled = false
-			self.captainEnabled = true
-			GameRules:SetSameHeroSelectionEnabled(false)
-			GameRules:SendCustomMessage("开启队长模式", -1, -1)
 		elseif text == '-ld' then
 			GameRules:SetHeroSelectionTime(80)
 			GameRules:SetSameHeroSelectionEnabled(false)
 			self.game_mode = "LD"
 			GameRules:SendCustomMessage("开启天梯模式", -1, -1)
-		elseif text == '-cd' then
+		elseif text == '-cm' then
 			GameRules:SetHeroSelectionTime(40 * 10 + 110 * 2 + 60)
 			GameRules:SetSameHeroSelectionEnabled(false)
-			self.game_mode = "CD"
+			self.rdEnabled = false
+			self.botEnabled = false
+			self.game_mode = "CM"
 			GameRules:SendCustomMessage("开启队长模式", -1, -1)
 		end
 	end
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
-		if not self.rdEnabled and not self.captainEnabled and text == '-repick' then
+		if not self.rdEnabled and not self.game_mode ~= "CM" and text == '-repick' then
 			if PlayerResource:GetSelectedHeroName(playerid) == "" or playerRepicked[playerid] then
 				GameRules:SendCustomMessage("无法重新选择英雄", -1, -1)
 				return
@@ -340,7 +335,7 @@ function CAddonTemplateGameMode:OnThink()
 				end
 				pickLadderHeroes(self)
 				self.hero_selection_state = "BAN"
-			elseif self.game_mode == "CD" then
+			elseif self.game_mode == "CM" then
 				for i=1,#all_heroes do
 					GameRules:AddHeroToBlacklist(all_heroes[i])
 				end
@@ -360,6 +355,41 @@ function CAddonTemplateGameMode:OnThink()
 			end
 			CustomGameEventManager:Send_ServerToAllClients("ladder_pick_start", {})
 			self.hero_selection_state = "PIC"
+		end
+		if self.hero_selection_state == "CD_RAD_BAN_1" then
+			if captain_pick_phase == 0
+				or captain_pick_phase == 2
+				or captain_pick_phase == 4
+				or captain_pick_phase == 6
+				or captain_pick_phase == 8
+				or captain_pick_phase == 10
+				or captain_pick_phase == 12
+				or captain_pick_phase == 14
+				or captain_pick_phase == 17
+				or captain_pick_phase == 18
+			then
+				if captain_normal_time >= 2 then
+					captain_normal_time = captain_normal_time - 2
+				elseif captain_radiant_extra_time >= 2 then
+					captain_radiant_extra_time = captain_radiant_extra_time - 2
+				else
+					captain_normal_time = 0
+					captain_radiant_extra_time = 0
+				end
+				CustomGameEventManager:Send_ServerToAllClients("captain_pick_timer", 
+					{nt = captain_normal_time, et = captain_radiant_extra_time });
+			else
+				if captain_normal_time >= 2 then
+					captain_normal_time = captain_normal_time - 2
+				elseif captain_dire_extra_time >= 2 then
+					captain_dire_extra_time = captain_dire_extra_time - 2
+				else
+					captain_normal_time = 0
+					captain_dire_extra_time = 0
+				end
+				CustomGameEventManager:Send_ServerToAllClients("captain_pick_timer", 
+					{nt = captain_normal_time, et = captain_dire_extra_time });
+			end
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and self.botEnabled and self.botInitialized == nil then
 		print("Init bot")
@@ -461,7 +491,7 @@ function CAddonTemplateGameMode:OnThink()
 		return nil
 	end
 
-	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) and not self.rdEnabled and not self.captainEnabled and self.game_mode ~= 'LD' then
+	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) and not self.rdEnabled and self.game_mode ~= 'LD' and self.game_mode ~= 'CM' then
 		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
@@ -1314,7 +1344,7 @@ captain_dire_pick = {}
 captain_dire_ban = {}
 captain_normal_time = 40;
 captain_radiant_extra_time = 110;
-captain_dira_extra_time = 110;
+captain_dire_extra_time = 110;
 function CAddonTemplateGameMode:handleCaptainClientPick(event)
 	DeepPrintTable(event)
 	if captain_pick_phase == event.pp then
@@ -1366,6 +1396,7 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 		CustomGameEventManager:Send_ServerToAllClients(
 			"captain_hero_pick_s2c", { pp = captain_pick_phase, sh = event.sh })
 		captain_pick_phase = captain_pick_phase + 1
+		captain_normal_time = 40
 	end
 end
 
