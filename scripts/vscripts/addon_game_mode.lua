@@ -170,6 +170,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	end, nil)
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
+	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
 
 	if GetMapName() == "dota" then
 		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
@@ -1304,6 +1305,57 @@ function CAddonTemplateGameMode:handleLadderHeroBanned(event)
 	print("hero banned " .. hero)
 	ladder_heroes_2_ban[hero] = ladder_heroes_2_ban[hero] + 1
 	CustomGameEventManager:Send_ServerToAllClients("ladder_hero_ban_s2c", {id_suffix = event.hero_id_suffix})
+end
+
+captain_pick_phase = 0
+captain_radiant_pick = {}
+captain_radiant_ban = {}
+captain_dire_pick = {}
+captain_dire_ban = {}
+captain_normal_time = 40;
+captain_radiant_extra_time = 110;
+captain_dira_extra_time = 110;
+function CAddonTemplateGameMode:handleCaptainClientPick(event)
+	DeepPrintTable(event)
+	if captain_pick_phase == event.pp then
+		-- TODO validate player team
+		if captain_pick_phase == 0 
+			or captain_pick_phase == 2 
+			or captain_pick_phase == 8 
+			or captain_pick_phase == 10
+			or captain_pick_phase == 17
+			then
+			table.insert(captain_radiant_ban, event.sh)
+			DeepPrintTable(captain_radiant_ban)
+		elseif captain_pick_phase == 1 
+			or captain_pick_phase == 3 
+			or captain_pick_phase == 9
+			or captain_pick_phase == 11
+			or captain_pick_phase == 16
+			then
+			table.insert(captain_dire_ban, event.sh)
+			DeepPrintTable(captain_dire_ban)
+		elseif captain_pick_phase == 4 
+			or captain_pick_phase == 6
+			or captain_pick_phase == 12
+			or captain_pick_phase == 14
+			or captain_pick_phase == 18
+			then
+			table.insert(captain_radiant_pick, event.sh)
+			DeepPrintTable(captain_radiant_pick)
+		elseif captain_pick_pahse == 5
+			or captain_pick_pahse == 7
+			or captain_pick_pahse == 13
+			or captain_pick_pahse == 15
+			or captain_pick_pahse == 19
+			then
+			table.insert(captain_dire_pick, event.sh)
+			DeepPrintTable(captain_dire_pick)
+		end
+		CustomGameEventManager:Send_ServerToAllClients(
+			"captain_hero_pick_s2c", { pp = captain_pick_phase, sh = event.sh })
+		captain_pick_phase = captain_pick_phase + 1
+	end
 end
 
 function HandleBuyback(entindex, player_id)

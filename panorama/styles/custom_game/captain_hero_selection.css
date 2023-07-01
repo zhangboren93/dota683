@@ -72,7 +72,7 @@
 
 #ban-button {
 	horizontal-align: center;
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 }
 
 .ban-button Label {
@@ -81,10 +81,8 @@
 
 .DefaultValveButtonClass
 {
-	width: 60px;
-	
-	min-width: 60px;
-	min-height: 36px;
+	width: 120px;
+	height: 50px;
 	
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( #373d45 ), to( #4d5860 ) );
 	border-style: solid;
@@ -162,7 +160,7 @@
 
 .hero-image-land {
 	width: 80px;
-	height: 45px;
+	height: 35px;
 	margin: 5px;
 }
 
@@ -188,4 +186,8 @@
 #panel-right-dire-title {
 	horizontal-align: center;
 	color:	#FF0000FF;
+}
+
+.hi_selected {
+	border: 2px solid #FFFF00;
 }

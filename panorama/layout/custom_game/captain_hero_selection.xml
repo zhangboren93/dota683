@@ -5,7 +5,7 @@
     <scripts>
 		<include src="file://{resources}/scripts/custom_game/captain_hero_selection.js" />
 	</scripts>
-	<Panel class="captain-selection-ban-panel"> <!-- captain-selection-ban-panel-hide"-->
+	<Panel class="captain-selection-ban-panel captain-selection-ban-panel-hide">
         <Panel id="pick-phase-panel">
             <Label id="pick-phase-radiant" text="近卫"/>
             <Label id="pick-phase-dire" class="label-hide" text="天灾"/>
@@ -123,58 +123,58 @@
                     <DOTAHeroImage class="hero-image" id="hi_death_prophet"       heroimagestyle="portrait" heroname="npc_dota_hero_death_prophet"      onactivate="handleHeroClicked('death_prophet')"/>
                 </Panel>
                 <Panel class="ladder_attr_heroes">
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_disruptor"           onactivate="handleHeroClicked('disruptor')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_enigma"              onactivate="handleHeroClicked('enigma')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_invoker"             onactivate="handleHeroClicked('invoker')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_jakiro"              onactivate="handleHeroClicked('jakiro')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_keeper_of_the_light" onactivate="handleHeroClicked('keeper_of_the_light')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_silencer"            onactivate="handleHeroClicked('silencer')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_tinker"              onactivate="handleHeroClicked('tinker')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_winter_wyvern"       onactivate="handleHeroClicked('winter_wyvern')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_storm_spirit"        onactivate="handleHeroClicked('storm_spirit')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_dark_seer"           onactivate="handleHeroClicked('dark_seer')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_necrolyte"           onactivate="handleHeroClicked('necrolyte')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_puck"                onactivate="handleHeroClicked('puck')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_queenofpain"         onactivate="handleHeroClicked('queenofpain')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_rubick"              onactivate="handleHeroClicked('rubick')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_techies"             onactivate="handleHeroClicked('techies')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_zuus"                onactivate="handleHeroClicked('zuus')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_batrider"            onactivate="handleHeroClicked('batrider')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_chen"                onactivate="handleHeroClicked('chen')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_enchantress"         onactivate="handleHeroClicked('enchantress')"/>
-                    <DOTAHeroImage class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_furion"              onactivate="handleHeroClicked('furion')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_disruptor"           heroimagestyle="portrait" heroname="npc_dota_hero_disruptor"           onactivate="handleHeroClicked('disruptor')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_enigma"              heroimagestyle="portrait" heroname="npc_dota_hero_enigma"              onactivate="handleHeroClicked('enigma')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_invoker"             heroimagestyle="portrait" heroname="npc_dota_hero_invoker"             onactivate="handleHeroClicked('invoker')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_jakiro"              heroimagestyle="portrait" heroname="npc_dota_hero_jakiro"              onactivate="handleHeroClicked('jakiro')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_keeper_of_the_light" heroimagestyle="portrait" heroname="npc_dota_hero_keeper_of_the_light" onactivate="handleHeroClicked('keeper_of_the_light')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_silencer"            heroimagestyle="portrait" heroname="npc_dota_hero_silencer"            onactivate="handleHeroClicked('silencer')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_tinker"              heroimagestyle="portrait" heroname="npc_dota_hero_tinker"              onactivate="handleHeroClicked('tinker')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_winter_wyvern"       heroimagestyle="portrait" heroname="npc_dota_hero_winter_wyvern"       onactivate="handleHeroClicked('winter_wyvern')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_storm_spirit"        heroimagestyle="portrait" heroname="npc_dota_hero_storm_spirit"        onactivate="handleHeroClicked('storm_spirit')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_dark_seer"           heroimagestyle="portrait" heroname="npc_dota_hero_dark_seer"           onactivate="handleHeroClicked('dark_seer')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_necrolyte"           heroimagestyle="portrait" heroname="npc_dota_hero_necrolyte"           onactivate="handleHeroClicked('necrolyte')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_puck"                heroimagestyle="portrait" heroname="npc_dota_hero_puck"                onactivate="handleHeroClicked('puck')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_queenofpain"         heroimagestyle="portrait" heroname="npc_dota_hero_queenofpain"         onactivate="handleHeroClicked('queenofpain')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_rubick"              heroimagestyle="portrait" heroname="npc_dota_hero_rubick"              onactivate="handleHeroClicked('rubick')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_techies"             heroimagestyle="portrait" heroname="npc_dota_hero_techies"             onactivate="handleHeroClicked('techies')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_zuus"                heroimagestyle="portrait" heroname="npc_dota_hero_zuus"                onactivate="handleHeroClicked('zuus')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_batrider"            heroimagestyle="portrait" heroname="npc_dota_hero_batrider"            onactivate="handleHeroClicked('batrider')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_chen"                heroimagestyle="portrait" heroname="npc_dota_hero_chen"                onactivate="handleHeroClicked('chen')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_enchantress"         heroimagestyle="portrait" heroname="npc_dota_hero_enchantress"         onactivate="handleHeroClicked('enchantress')"/>
+                    <DOTAHeroImage class="hero-image" id="hi_furion"              heroimagestyle="portrait" heroname="npc_dota_hero_furion"              onactivate="handleHeroClicked('furion')"/>
                 </Panel>
             </Panel>
             <Panel id="panel-right">
                 <Panel style="flow-children: right; height: 90%; width: 100%;">
                     <Panel id="panel-right-radiant">
                         <Label id="panel-right-radiant-title" text="近卫阵容"/>
-                        <Panel class="hero-picked-panel hero-picked-panel-active"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-0" heroimagestyle="landscape"/></Panel>
-                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-1" heroimagestyle="landscape"/></Panel>
-                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-2" heroimagestyle="landscape"/></Panel>
-                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-3" heroimagestyle="landscape"/></Panel>
-                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-4" heroimagestyle="landscape"/></Panel>
-                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-5" heroimagestyle="landscape"/></Panel>
-                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-6" heroimagestyle="landscape"/></Panel>
-                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-7" heroimagestyle="landscape"/></Panel>
-                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-8" heroimagestyle="landscape"/></Panel>
-                        <Panel class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="radiant-hero-pick-9" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-0"  class="hero-picked-panel hero-picked-panel-active"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-0" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-2"  class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-2"  heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-4"  class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-4"  heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-6"  class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-6"  heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-8"  class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-8"  heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-10" class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-10" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-12" class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-12" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-14" class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-14" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-17" class="hero-picked-panel"><Label class="hero-picked-type" text="x"/><DOTAHeroImage class="hero-image-land" id="hero-pick-17" heroimagestyle="landscape"/></Panel>
+                        <Panel id="hpp-18" class="hero-picked-panel"><Label class="hero-picked-type" text="o"/><DOTAHeroImage class="hero-image-land" id="hero-pick-18" heroimagestyle="landscape"/></Panel>
                     </Panel>
                     <Panel id="panel-right-dire">
                         <Label id="panel-right-dire-title" text="天灾阵容"/>
-                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-0" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
-                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-1" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
-                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-2" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
-                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-3" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
-                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-4" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
-                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-5" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
-                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-6" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
-                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-7" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
-                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-8" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
-                        <Panel class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="dire-hero-pick-9" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                        <Panel id="hpp-1"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-1"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
+                        <Panel id="hpp-3"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-3"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
+                        <Panel id="hpp-5"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-5"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                        <Panel id="hpp-7"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-7"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                        <Panel id="hpp-9"  class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-9"  heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
+                        <Panel id="hpp-11" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-11" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
+                        <Panel id="hpp-13" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-13" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                        <Panel id="hpp-15" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-15" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
+                        <Panel id="hpp-16" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-16" heroimagestyle="landscape"/><Label class="hero-picked-type" text="x"/></Panel>
+                        <Panel id="hpp-19" class="hero-picked-panel"><DOTAHeroImage class="hero-image-land" id="hero-pick-19" heroimagestyle="landscape"/><Label class="hero-picked-type" text="o"/></Panel>
                     </Panel>
                 </Panel>
-                <Button id="ban-button" class="DefaultValveButtonClass button-hidden"><Label text="确定"/></Button>
+                <Button id="ban-button" class="DefaultValveButtonClass button-hidden" onactivate="handleBanClicked()"><Label text="确定"/></Button>
             </Panel>
         </Panel>
     </Panel>
