@@ -248,10 +248,15 @@
 		"DOTA_Tooltip_Ability_pudge_rot_datadriven"								"Rot"
 		"DOTA_Tooltip_Ability_pudge_rot_datadriven_Description"					"-20%% move speed"
 		"DOTA_Tooltip_Ability_pudge_dismember_Scepter_Description"				"+ damage based on strength"
+		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"					"Coil"
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_Description"		"self damage %self_damage%, target damage %target_damage% or heal %heal_amount%"
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven"					"Frostmourne"
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_Description"		"attack and move speed -%slow_pct%, +15%% move speed，+%attack_speed% attack speed"
+		"DOTA_Tooltip_ability_abaddon_borrowed_time_scepter_description"		"When Borrowed Time is active, redirects 35%% of all damage dealt to ally heroes within 900 radius to Abaddon"
+		"DOTA_Tooltip_ability_abaddon_borrowed_time_redirect_range_scepter"		""
+		"DOTA_Tooltip_ability_abaddon_borrowed_time_ally_threshold_scepter"		""
+
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven"					"Mystic Snake"
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven_Description"		"damage %snake_damage%，mana steal %snake_mana_steal%，jumps %snake_jumps% times, each jump increase effect by 25%%"
 		"DOTA_Tooltip_Ability_medusa_mana_shield_datadriven"					"Mana Shield"

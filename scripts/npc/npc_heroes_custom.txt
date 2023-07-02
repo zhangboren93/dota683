@@ -32,6 +32,7 @@
 		"StatusManaRegen"			"0.01"
 		"Ability1"		"abaddon_death_coil_datadriven"
 		"Ability3"		"abaddon_frostmourne_datadriven"
+		"Ability4"		"abaddon_borrowed_time_aghs_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"

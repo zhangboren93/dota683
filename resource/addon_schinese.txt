@@ -248,10 +248,15 @@
 		"DOTA_Tooltip_Ability_pudge_rot_datadriven"								"腐烂"
 		"DOTA_Tooltip_Ability_pudge_rot_datadriven_Description"					"-20%%移速"
 		"DOTA_Tooltip_Ability_pudge_dismember_Scepter_Description"				"+力量伤害"
+		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"					"缠绕"
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_Description"		"自伤%self_damage%, 伤害%target_damage%，回复%heal_amount%"
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven"					"霜之哀伤"
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_Description"		"移速攻速-%slow_pct%，+15%%移速，+%attack_speed%攻速"
+		"DOTA_Tooltip_ability_abaddon_borrowed_time_scepter_description"		"启动回光返照后，亚巴顿附近900范围内友方英雄受到的35%%伤害会转移到亚巴顿。"
+		"DOTA_Tooltip_ability_abaddon_borrowed_time_redirect_range_scepter"		""
+		"DOTA_Tooltip_ability_abaddon_borrowed_time_ally_threshold_scepter"		""
+
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven"					"秘术银蛇"
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven_Description"		"伤害%snake_damage%，吸蓝%snake_mana_steal%，弹%snake_jumps% +25%%"
 		"DOTA_Tooltip_Ability_medusa_mana_shield_datadriven"					"魔法护盾"

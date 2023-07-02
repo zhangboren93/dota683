@@ -16,3 +16,4 @@ hero_innate_abilities["npc_dota_hero_medusa"] = "medusa_stone_gaze_magic_resist_
 hero_innate_abilities["npc_dota_hero_axe"] = "axe_battle_hunger_slow_datadriven"
 hero_innate_abilities["npc_dota_hero_ember_spirit"] = "ember_spirit_fire_remnant_clear_tree"
 hero_innate_abilities["npc_dota_hero_jakiro"] = "jakiro_macropyre_destroy_trees_datadriven"
+hero_innate_abilities["npc_dota_hero_abaddon"] = "abaddon_borrowed_time_aghs_datadriven"
