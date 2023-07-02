@@ -1,0 +1,18 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/courier.css" />
+	</styles>
+
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/key_bindings.js" />
+	</scripts>
+
+    <Panel class="courier-panel">
+        <Button id="select-courier-button" onactivate="OnCustomeGameSelectCourier()">
+			<Image src="file://{images}/custom_game/courier_icon.png" />
+		</Button>
+		<Button id="courier-send-button" onactivate="OnCustomGameCourierSend()">
+			<Image src="file://{images}/custom_game/courier_transfer_item.png" />
+		</Button>
+    </Panel>
+</root>

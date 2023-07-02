@@ -1,6 +1,7 @@
 <root>
 	<script>
 		GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false);
+		GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false);
 	</script>
 
 	<Panel>
@@ -9,6 +10,7 @@
 		<CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/captain_hero_selection.xml"/>
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/glyph.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hero_bar_block.xml" />
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/courier.xml" />
 	</Panel>
 </root>
 
