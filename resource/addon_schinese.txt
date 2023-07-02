@@ -395,8 +395,11 @@
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"网"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"数量%count%，回血%health_regen%，移速+%bonus_movespeed%%%"
 		"DOTA_Tooltip_Ability_broodmother_insatiable_hunger_Lore"				"+60/80/100攻击力"
+		//Sven
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven"						"锤子"
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven_Description"			"晕2秒"
+		"DOTA_Tooltip_Ability_sven_gods_strength_Scepter_Description"			"神之力量增加一个900范围的友军光环，增加友方英雄%scepter_aura_damage_pct%%%攻击力。"
+
 		"DOTA_Tooltip_Ability_crystal_maiden_freezing_field_Scepter_Description"	"+伤害减速"
 		"DOTA_Tooltip_Ability_kunkka_tidebringer_Lore"								"溅射范围500/500/500/600"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"折光"

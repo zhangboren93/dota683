@@ -2551,9 +2551,6 @@
 	//=================================================================================================================
 	"sven_gods_strength"
 	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5097"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
@@ -2562,6 +2559,10 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Sven.GodsStrength"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		"HasScepterUpgrade"				"1"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -2580,15 +2581,57 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"gods_strength_damage"		"100 150 200"	
-				"LinkedSpecialBonus"		"special_bonus_unique_sven_2"	
-			}
+			"gods_strength_damage"		"100 150 200"	
+			"scepter_aura_damage_pct"	"40 60 80"
 		}	
+	}
+	"sven_gods_strength_aghs_datadriven"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"				"3"
+		"AbilityTextureName"	"sven_gods_strength"
+		"AbilityValues"
+		{
+			"aura_damage_pct"	"40 60 80"
+		}
+		"Modifiers"
+		{
+			"modifier_gods_strength_aghs_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"units/ability_execute_buff.lua"
+						"Function"			"handleAbilityExecuted"
+						"TargetAbility"		"sven_gods_strength"
+						"Modifier"			"modifier_sven_gods_strength_aghs_aura"
+						"RequiresScepter"	"1"
+					}
+				}
+			}
+			"modifier_sven_gods_strength_aghs_aura"
+			{
+				"Duration"				"25"
+				"Aura" 					"modifier_sven_gods_strength_ally_buff"
+				"Aura_Radius" 			"900"
+				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_ApplyToCaster" 	"0"
+			}
+			"modifier_sven_gods_strength_ally_buff"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%aura_damage_pct"
+				}
+			}
+		}
 	}
     "tiny_grow"
 	{
