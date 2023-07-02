@@ -489,6 +489,7 @@
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_armor_reduction"			"ARMOR REDUCTION:"
 		//Luna
 		"DOTA_Tooltip_ability_luna_eclipse_scepter_description"								"Double click to cast eclipse. Increases total beams and removes the limit on beams per unit."
-
+        //Ember Spirit
+		"DOTA_Tooltip_ability_ember_spirit_sleight_of_fist_creep_damage_penalty"			"%CREEP DAMAGE:"
 	}
 }

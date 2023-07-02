@@ -52,7 +52,6 @@ function Activate()
 	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_familiar_attack_damage_lua",		"modifiers/familiar_attack_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_kill_tree_on_death", 			"modifiers/kill_tree_on_death.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_creep_aggro_checker_lua", 		"modifiers/creep_aggro_checker.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_no_creep_aggro_on_cast_orb_lua", "modifiers/no_creep_aggro_on_cast_orb.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1298,6 +1297,10 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			event.damage = 100 * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
 		end
+    else
+        if attacker:HasModifier("modifier_ember_spirit_sleight_of_fist_in_progress") and victim:IsCreep() then
+            event.damage = event.damage / 2
+        end
 	end
 	return true
 end
