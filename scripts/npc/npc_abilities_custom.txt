@@ -6403,7 +6403,7 @@
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Luna.Eclipse.Cast"
 		
-		"HasScepterUpgrade"			"0"
+		"HasScepterUpgrade"				"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -6422,16 +6422,19 @@
 			"beams"
 			{
 				"value"					"5 8 11"
+				"special_bonus_scepter"	"+1 +2 +3"
 			}
 			"beam_interval"
 			{
 				"value"					"0.6 0.6 0.6"
+				"special_bonus_scepter"	"+0"
 			}
 			"beam_interval_scepter"		"0.6" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
 			"radius"					"675"
 			"hit_count"
 			{
 				"value"					"4"
+				"special_bonus_scepter"	"+10"
 			}
 			"AbilityCastRange"
 			{
@@ -6441,6 +6444,7 @@
 			"AbilityDuration"
 			{
 				"value"					"2.4 4.2 6.0"
+				"special_bonus_scepter"	"+0.6 +1.2 +1.8"
 			}
 			"night_duration"	
 			{
