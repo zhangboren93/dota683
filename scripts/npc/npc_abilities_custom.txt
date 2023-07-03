@@ -16507,6 +16507,19 @@
 					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"				"0"
 				}
 			}
+			"modifier_courier_transfer_stop_checker"
+			{
+				"IsHidden"			"1"
+				"ThinkInterval"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_courier.lua"
+						"Function"		"transforStopChecker"
+					}
+				}
+			}
 		}
 	}
 	//=================================================================================================================

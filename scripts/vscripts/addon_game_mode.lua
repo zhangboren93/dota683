@@ -15,6 +15,9 @@ end
 
 playerRepicked = {}
 randomBonusGranted = {}
+radiant_primary_courier = nil
+dire_primary_courier = nil
+
 
 function Precache( context )
 	--[[
@@ -911,6 +914,13 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:AddNewModifier(entity, entity, "modifier_familiar_attack_damage_lua", {})
 	elseif entity:GetName() == "npc_dota_courier" then
 		entity:FindAbilityByName("courier_flying_upgrade_datadriven"):SetLevel(1)
+		if entity:GetTeam() == DOTA_TEAM_GOODGUYS and radiant_primary_courier == nil then
+			radiant_primary_courier = entity
+			entity.is_primary_courier = true
+		elseif entity:GetTeam() == DOTA_TEAM_BADGUYS and dire_primary_courier == nil then
+			dire_primary_courier = entity
+			entity.is_primary_courier = true
+		end
 	elseif entity:GetName() == "npc_dota_beastmaster_hawk" then
 		--print("owned by " .. entity:GetPlayerOwnerID())
 		entity:SetControllableByPlayer(entity:GetPlayerOwnerID(), false)
@@ -1118,7 +1128,7 @@ function CAddonTemplateGameMode:HealingFilter(event)
 end
 
 function CAddonTemplateGameMode:ModifierGainedFilter(event)
-	-- print("ModifierGainedFilter " .. event.name_const)
+	--print("ModifierGainedFilter " .. event.name_const)
 	if event.name_const == "modifier_dark_seer_wall_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local parent = EntIndexToHScript(event.entindex_parent_const)
@@ -1239,8 +1249,14 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local parent = EntIndexToHScript(event.entindex_parent_const)
 		parent:SetDayTimeVisionRange(400)
 		parent:SetNightTimeVisionRange(400)
-	elseif event.name_const == "modifier_earth_spirit_magnetize" then
-		--TODO add a modifier to prevent magnetize to be purged
+	elseif event.name_const == "modifier_courier_transfer_items" then
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		print(parent.is_primary_courier)
+		if parent.is_primary_courier then
+			CustomGameEventManager:Send_ServerToTeam(parent:GetTeam(), "courier_start_transfer", {})
+			parent:FindAbilityByName("courier_flying_upgrade_datadriven"):ApplyDataDrivenModifier(parent, parent,
+				"modifier_courier_transfer_stop_checker", {})
+		end
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false

@@ -1,3 +1,6 @@
+GameEvents.Subscribe("courier_start_transfer", OnCourierStartTransfer);
+GameEvents.Subscribe("courier_end_transfer", OnCourierEndTransfer);
+
 function OnCustomeGameSelectCourier()
 {
     let entities = Entities.GetAllEntitiesByName("npc_dota_courier");
@@ -23,3 +26,12 @@ function OnCustomGameCourierSend()
         }
     }
 }
+
+function OnCourierStartTransfer() {
+	$("#courier-ip").RemoveClass("image-hidden")
+}
+
+function OnCourierEndTransfer() {
+	$("#courier-ip").AddClass("image-hidden")
+}
+

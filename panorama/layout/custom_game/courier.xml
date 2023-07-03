@@ -7,12 +7,13 @@
 		<include src="file://{resources}/scripts/custom_game/key_bindings.js" />
 	</scripts>
 
-    <Panel class="courier-panel">
-        <Button id="select-courier-button" onactivate="OnCustomeGameSelectCourier()">
+	<Panel class="courier-panel">
+        <Button class="button-hidden" id="select-courier-button" onactivate="OnCustomeGameSelectCourier()">
 			<Image src="file://{images}/custom_game/courier_icon.png" />
 		</Button>
-		<Button id="courier-send-button" onactivate="OnCustomGameCourierSend()">
+		<Button id="courier-send-button" class="send-button-no-send" onactivate="OnCustomGameCourierSend()">
 			<Image src="file://{images}/custom_game/courier_transfer_item.png" />
 		</Button>
+		<Image id="courier-ip" class="image-hidden" src="file://{images}/custom_game/turn_rate_icon.png" />
     </Panel>
 </root>

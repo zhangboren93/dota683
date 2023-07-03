@@ -39,3 +39,11 @@ function flyingUpgradeChecker(event)
         entity:RemoveModifierByName("modifier_courier_flying")
     end
 end
+
+function transforStopChecker(event)
+    local entity = event.caster
+	if not entity:HasModifier("modifier_courier_transfer_items") then
+		CustomGameEventManager:Send_ServerToTeam(entity:GetTeam(), "courier_end_transfer", {})
+		entity:RemoveModifierByName("modifier_courier_transfer_stop_checker")
+	end
+end
