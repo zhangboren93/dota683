@@ -47,3 +47,13 @@ function transforStopChecker(event)
 		entity:RemoveModifierByName("modifier_courier_transfer_stop_checker")
 	end
 end
+
+function minimapIconChecker(event)
+    local entity = event.caster
+	if entity.is_primary_courier then
+		CreateUnitByNameAsync("npc_dummy_unit_courier", entity:GetAbsOrigin(), true, entity, entity, entity:GetTeam(), function(icon_unit)
+			icon_unit:AddNewModifier(entity, nil, "modifier_kill", { duration = 1 })
+			event.ability:ApplyDataDrivenModifier(entity, icon_unit, "modifier_courier_minimap_icon", {})
+		end)
+	end
+end
