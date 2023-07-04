@@ -306,6 +306,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		print(Plat_FloatTime())
 		print(Time())
 	end
+	if text == "-win" then
+		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+	end
 end
 
 function swapLocation(e1, e2)

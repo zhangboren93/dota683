@@ -1,0 +1,37 @@
+.end-game-summary-panel {
+	width: 1500px;
+	height: 50%; 
+	horizontal-align: center;
+	margin-top: 25%;
+	background-color: #000000FF;
+	flow-children: down;
+}
+
+.end-game-row {
+	border-bottom:4px solid #111111FF;
+	height: 8%;
+	width: 100%;
+	flow-children: right;
+	margin-left: 10px;
+}
+
+Label {
+	color: #FFFFFF;
+	font-size: 20px;
+	vertical-align: center;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+DOTAHeroImage {
+	height: 100%;
+	width: 80px;
+}
+
+DOTAItemImage {
+	height: 40px;	
+	vertical-align: center;
+	margin-left: 10px;
+}

@@ -11,6 +11,7 @@
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/glyph.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hero_bar_block.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/courier.xml" />
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/end_game_summary.xml" />
 	</Panel>
 </root>
 
