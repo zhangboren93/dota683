@@ -299,16 +299,16 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			end
 		end
 	end
-	if text == "-test" then
-		print(GetSystemTime())
-		print(GetSystemTimeMS())
-		print(GetSystemDate())
-		print(Plat_FloatTime())
-		print(Time())
-	end
-	if text == "-win" then
-		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-	end
+	--if text == "-test" then
+	--	print(GetSystemTime())
+	--	print(GetSystemTimeMS())
+	--	print(GetSystemDate())
+	--	print(Plat_FloatTime())
+	--	print(Time())
+	--end
+	--if text == "-win" then
+	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+	--end
 end
 
 function swapLocation(e1, e2)
