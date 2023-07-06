@@ -2,6 +2,7 @@ item2pctregen = {}
 item2pctregen["item_medallion_of_courage"] = 50
 item2pctregen["item_soul_ring"] = 50
 item2pctregen["item_bfury"] = 150
+item2pctregen["item_bfury_datadriven"] = 150
 item2pctregen["item_sphere"] = 150
 item2pctregen["item_refresher"] = 200
 item2pctregen["item_cyclone"] = 150

@@ -134,7 +134,7 @@
 		"item"		"item_armlet"
 		"item"		"item_invis_sword"
 		"item"		"item_basher"	
-		"item"		"item_bfury"
+		"item"		"item_bfury_datadriven"
 		"item"		"item_ethereal_blade"
 		"item"		"item_radiance"
 		"item"		"item_monkey_king_bar_datadriven" 	

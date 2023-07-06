@@ -93,7 +93,13 @@
 		"DOTA_Tooltip_Ability_item_refresher_Lore"	"+200%% mana regen, +10 attack speed, +6 intellect"
 		"DOTA_Tooltip_Ability_item_sheepstick_Lore"	"+150%% mana regen"
 		"DOTA_Tooltip_Ability_item_sphere_Lore"			"+150%% mana regen"
-		"DOTA_Tooltip_Ability_item_bfury_Lore"			"+150%% mana regen"
+        //Battle Fury
+		"DOTA_Tooltip_Ability_item_bfury_datadriven"				                    "Battle Fury"
+		"DOTA_Tooltip_ability_item_bfury_datadriven_Description"						"Deals %cleave_damage_percent%%% of attack damage as physical damage in %cleave_radius%. (Melee Only)"
+		"DOTA_Tooltip_ability_item_bfury_datadriven_bonus_damage"						"BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_item_bfury_datadriven_bonus_health_regen"					"BONUS HEALTH REGEN:"
+		"DOTA_Tooltip_ability_item_bfury_datadriven_bonus_mana_regen_percentage"		"%BONUS MANA REGEN:"
+		
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven"					"Strafe"
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven_Description"		"+%attack_speed_bonus_pct% attack speed，last %duration% seconds"
 		"DOTA_Tooltip_Ability_clinkz_death_pact_datadriven"				"Death pact"

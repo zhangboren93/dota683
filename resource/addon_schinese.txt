@@ -93,8 +93,14 @@ ilang" {
 		"DOTA_Tooltip_Ability_item_refresher_Lore"	"+200%%回蓝+10攻速+6智力"
 		"DOTA_Tooltip_Ability_item_sheepstick_Lore"	"+150%%回蓝"
 		"DOTA_Tooltip_Ability_item_sphere_Lore"			"+150%%回蓝"
-		"DOTA_Tooltip_Ability_item_bfury_Lore"			"+150%%回蓝"
-		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven"					"扫射"
+        //Battle Fury
+		"DOTA_Tooltip_Ability_item_bfury_datadriven"			    	            "狂战斧"
+		"DOTA_Tooltip_ability_item_bfury_datadriven_Description"		            "普通攻击时对目标周围%cleave_radius%半径内的区域内敌人造成%cleave_damage_percent%%%物理伤害。（仅近战有效）"
+		"DOTA_Tooltip_ability_item_bfury_datadriven_bonus_damage"		            "+伤害："
+		"DOTA_Tooltip_ability_item_bfury_datadriven_bonus_health_regen"	            "+回血："
+		"DOTA_Tooltip_ability_item_bfury_datadriven_bonus_mana_regen_percentage"	"%+回蓝："
+
+		"DOTA_Tooltip_Ability_clinkz_str_datadrivenafe_datadriven"					"扫射"
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven_Description"		"+%attack_speed_bonus_pct%攻速，持续%duration%秒"
 		"DOTA_Tooltip_Ability_clinkz_searing_arrows_datadriven"			"火箭"
 		"DOTA_Tooltip_Ability_clinkz_death_pact_datadriven"				"死亡契约"

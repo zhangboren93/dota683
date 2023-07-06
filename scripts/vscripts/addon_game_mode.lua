@@ -37,6 +37,7 @@ function Activate()
 	LinkLuaModifier( "item_equipped_bonus_modifier",		"items/item_equip_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "item_tpscroll_clear_tree_modifier",	"items/item_tpscroll_clear_trees.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_blade_mail_new_active",	"items/item_blade_mail_active.lua", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier( "item_bfury_cleave_lua",               "items/item_bfury.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 

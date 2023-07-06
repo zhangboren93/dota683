@@ -6649,11 +6649,16 @@
 	// Recipe: Battlefury
 	//=================================================================================================================
 	"item_recipe_bfury"
+    {
+        "ItemPurchasable"   "0"
+    }
+	"item_bfury"
+    {
+        "ItemPurchasable"   "0"
+    }
+    "item_recipe_bfury_datadriven"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"144"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		
+        "BaseClass"                     "item_datadriven"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
@@ -6662,23 +6667,19 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_bfury"
+		"ItemResult"					"item_bfury_datadriven"
 		"ItemRequirements"
 		{
 			"01"						"item_broadsword;item_claymore;item_pers_datadriven"
 		}
 	}	
-	//=================================================================================================================
-	// Battlefury
-	//=================================================================================================================
-	"item_bfury"
+	"item_bfury_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"145"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+        "BaseClass"                     "item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+        "AbilityTextureName"            "item_bfury"
 
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0"
@@ -6694,76 +6695,44 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		
+        "precache"
+        {
+            "particle"     "particles/items_fx/battlefury_cleave.vpcf"
+        }
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"65"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent"	"35"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_damage_percent_creep"	"35"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"quelling_bonus"			"0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"quelling_bonus_ranged"	"0"
-			}			
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_starting_width"			"150"
-			}			
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_ending_width"			"360"
-			}			
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cleave_distance"			"650"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"upgraded_cleave_bonus"			"25"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"upgraded_damage_bonus"			"15"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen_percentage"	"150"
-			}
+				"bonus_damage"			            "65"
+				"bonus_health_regen"	            "6"
+				"bonus_mana_regen_percentage"		"150"
+				"cleave_damage_percent"	            "35"
+                "cleave_radius"                     "250"
 		}
+
+        "Modifiers"
+        {
+            "modifier_bfury_passive_bonus_datadriven"
+            {
+                "Passive"   "1"
+                "IsHidden"  "1"
+                "Properties"
+                {
+    				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	    "%bonus_health_regen"
+                }
+                "ThinkInterval"     "1"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "items/item_bfury.lua"
+                        "Function"      "handleIntervalThink"
+                    }
+                }
+            }
+        }
 	}
 	//=================================================================================================================
 	// Recipe: Manta

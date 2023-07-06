@@ -1,36 +1,57 @@
-if item_bfury_regen_percentage_modifier == nil then
-    item_bfury_regen_percentage_modifier = class({})
+if item_bfury_cleave_lua == nil then
+    item_bfury_cleave_lua = class({})
 end
 
-function item_bfury_regen_percentage_modifier:GetAttributes()
+function item_bfury_cleave_lua:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function item_bfury_regen_percentage_modifier:OnCreated(kv)
---    print("item_bfury_regen_percentage_modifier:OnCreated")
-    self:StartIntervalThink(0.5)
+function item_bfury_cleave_lua:DeclareFunctions()
+	local funcs = {
+		MODIFIER_EVENT_ON_PROCESS_CLEAVE,
+	}
+	return funcs
 end
 
-function item_bfury_regen_percentage_modifier:IsHidden()
+function item_bfury_cleave_lua:OnProcessCleave(event)
+	local attacker = event.attacker
+	local target = event.target
+    local ability = self:GetAbility()
+	if attacker == self:GetParent() 
+        and not target:IsBuilding() 
+        and attacker:GetTeam() ~= target:GetTeam() 
+        and not attacker:IsRangedAttacker() then
+
+		local pct = ability:GetSpecialValueFor("cleave_damage_percent")
+		local radius = ability:GetSpecialValueFor("cleave_radius")
+		local damage = event.damage * pct /100
+		local pos = attacker:GetOrigin()+(target:GetOrigin()-attacker:GetOrigin()):Normalized()*radius
+		local units = FindUnitsInRadius(attacker:GetTeam(),pos,nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,19,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
+
+		local effect = ParticleManager:CreateParticle("particles/items_fx/battlefury_cleave.vpcf",PATTACH_CENTER_FOLLOW,attacker)
+		ParticleManager:SetParticleControlOrientationFLU(effect,0,attacker:GetForwardVector()*CalcDistanceBetweenEntityOBB(attacker,target),attacker:GetRightVector(),attacker:GetUpVector())
+		ParticleManager:SetParticleControlEnt(effect,1,target,PATTACH_POINT_FOLLOW,"attach_hitloc",target:GetAbsOrigin(),false)
+
+		for k,v in ipairs(units) do
+			if v ~= target then
+				ApplyDamage({
+					attacker = attacker,
+					victim = v,
+					damage = damage,
+					damage_type = DAMAGE_TYPE_PHYSICAL,
+					damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR,
+					ability = ability
+				})
+			end
+		end
+		ParticleManager:ReleaseParticleIndex(effect)
+	end
+end
+
+function item_bfury_cleave_lua:IsHidden()
     return true
 end
 
-function item_bfury_regen_percentage_modifier:OnIntervalThink()
-    --print("interval think")
-    local hParent = self:GetParent() --the unit.
-    if hParent == nil or hParent.FindItemInInventory == nil then
-        return
-    end
-    local item = hParent:FindItemInInventory("item_bfury")
-    if item ~= nil and item:GetItemState() == 1 then
-        --print("sheepstick state: " .. item:GetItemState())
-        
-        local mana_gen = hParent:GetManaRegen();
-        local mana_gen_bonus = item:GetSpecialValueFor("bonus_mana_regen_percentage")
-        local bonus_mana = mana_gen * mana_gen_bonus / 100
-        -- think interval is 0.5s
-        bonus_mana = bonus_mana / 2
-        -- print("orchid bonus mana " .. bonus_mana)
-        hParent:GiveMana(bonus_mana)
-    end
+function handleIntervalThink(event)
+    event.caster:AddNewModifier(event.caster, event.ability, "item_bfury_cleave_lua", {}):SetDuration(1, true)
 end
