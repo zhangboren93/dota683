@@ -518,6 +518,7 @@
 	{
 		"MovementSpeed"				"350"		// Speed
 		"Ability2"					"courier_go_to_secretshop_datadriven"		
+		"Ability4"					"courier_burst_datadriven"
 		"Ability6"					"courier_flying_upgrade_datadriven"		
 		"StatusHealth"				"75"		// Base health.
 		"VisionDaytimeRange"		"350"		// Range of vision during day light.

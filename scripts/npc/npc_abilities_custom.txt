@@ -16584,35 +16584,40 @@
 	//=================================================================================================================
 	// Ability: Courier Burst
 	//=================================================================================================================
-	"courier_burst"
+	"courier_burst_datadriven"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5210"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"		"ability_datadriven"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityTextureName"			"courier_burst"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"90.0"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityDuration"				"4"
+		"AbilityValues"
 		{
-			"01"
+			"movement_speed"			"650"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
 			{
-				"var_type"		"FIELD_FLOAT"
-				"duration"		"4.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movement_speed"	"180"
+				"ScriptFile"	"items/item_courier.lua"
+				"Function"		"handleBurstSpellStart"
 			}
 		}
-		
-		"MaxLevel"		"1"
+		"Modifiers"
+		{
+			"modifier_courier_burst_datadriven"
+			{
+				"Duration"		"%AbilityDuration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"			"%movement_speed"
+				}
+			}
+		}
 	}
 
 	"sniper_take_aim"

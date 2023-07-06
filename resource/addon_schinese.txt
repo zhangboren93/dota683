@@ -1,4 +1,4 @@
-"lang" {
+ilang" {
 	"Language" "SChinese"
 	"Tokens" {
 		"ADDON_GAME_NAME" "MobaTM v0.4b"
@@ -70,6 +70,9 @@
 		"DOTA_Tooltip_Ability_item_hood_of_defiance_datadriven_Description"	"+9回血，+30%%魔抗"
 		"DOTA_Tooltip_Ability_courier_share"					"分享信使"
 		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"			"神秘商店"
+		"DOTA_Tooltip_ability_courier_burst_datadriven"								"加速"
+		"DOTA_Tooltip_ability_courier_burst_datadriven_Description"					"信使的速度得到极大提升，持续%AbilityDuration%秒"
+		"DOTA_Tooltip_ability_courier_burst_datadriven_movement_speed"					"移速爆发："
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist"		"腐肉"
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist_Description"		"魔抗6/8/10/12%%"
 		"DOTA_Tooltip_Ability_item_soul_ring_Lore"	"+3回血+50%%回蓝"

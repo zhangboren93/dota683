@@ -31,12 +31,13 @@ function flyingUpgradeChecker(event)
         entity:AddNewModifier(entity, entity, "modifier_courier_flying", {})
         entity:SetDayTimeVisionRange(400)
         entity:SetNightTimeVisionRange(400)
-        entity:FindAbilityByName("courier_burst"):SetLevel(1)
+        entity:FindAbilityByName("courier_burst_datadriven"):SetLevel(1)
     else
         if not entity:HasModifier("modifier_courier_ground_visual") then
             ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_ground_visual", {})
         end
         entity:RemoveModifierByName("modifier_courier_flying")
+		entity:FindAbilityByName("courier_burst_datadriven"):SetLevel(0)
     end
 end
 
@@ -56,4 +57,8 @@ function minimapIconChecker(event)
 			event.ability:ApplyDataDrivenModifier(entity, icon_unit, "modifier_courier_minimap_icon", {})
 		end)
 	end
+end
+
+function handleBurstSpellStart(event)
+	event.ability:ApplyDataDrivenModifier(event.caster, event.caster, "modifier_courier_burst_datadriven", {})
 end
