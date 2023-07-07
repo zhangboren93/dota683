@@ -407,6 +407,11 @@ ilang" {
 		//Sven
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven"						"锤子"
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven_Description"			"晕2秒"
+		"DOTA_Tooltip_ability_sven_great_cleave_Description"					"斯温以巨力攻击，并对所有附近的敌方单位造成分裂攻击伤害。"
+		"DOTA_Tooltip_ability_sven_great_cleave_great_cleave_damage"			""
+		"DOTA_Tooltip_ability_sven_great_cleave_strength_bonus"					""
+		"DOTA_Tooltip_ability_sven_great_cleave_cleave_radius_damage"			"%分裂伤害："
+		"DOTA_Tooltip_ability_sven_great_cleave_cleave_radius"					"分裂半径："
 		"DOTA_Tooltip_Ability_sven_gods_strength_Scepter_Description"			"神之力量增加一个900范围的友军光环，增加友方英雄%scepter_aura_damage_pct%%%攻击力。"
 
 		"DOTA_Tooltip_Ability_crystal_maiden_freezing_field_Scepter_Description"	"+伤害减速"

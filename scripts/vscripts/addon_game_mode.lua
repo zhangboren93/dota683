@@ -61,6 +61,7 @@ function Activate()
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tidebringer_cleave",				"heroes/hero_kunkka/tidebringer_cleave.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_sven_great_cleave_radius", 		"heroes/hero_sven/great_cleave_radius.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -1289,8 +1290,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
 --		print("DamageFilter " .. inflictor:GetName())
-		--if inflictor:GetName() == "kunkka_tidebringer" or inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
-		if inflictor:GetName() == "sven_great_cleave" or inflictor:GetName() == "magnataur_empower" or inflictor:GetName() == "item_bfury" then
+		if inflictor:GetName() == "magnataur_empower" then
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			local victimarmor = victim:GetPhysicalArmorValue(false)
 			event.damage = event.damage / (1 - 0.06 * victimarmor / (1 + 0.06 * math.abs(victimarmor)))
