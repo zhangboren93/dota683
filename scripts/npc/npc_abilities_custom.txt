@@ -2739,6 +2739,14 @@
 						"Function"		"growMoveSpeed"
 					}
 				}
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_tiny/passive.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
 			}
 		}
 	}
@@ -23306,7 +23314,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Tiny.CraggyExterior.Stun"
 		"LinkedAbility"					"tiny_toss_tree"
-		"HasScepterUpgrade"				"1"
+		"HasScepterUpgrade"				"0"
         "HasShardUpgrade"               "0"
         "AbilityDraftScepterAbility"    "tiny_tree_channel"
 		"MaxLevel"						"1"
@@ -23330,55 +23338,19 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_count"				"5000"
-				"LinkedSpecialBonus"	"special_bonus_unique_tiny_6"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"					"20"				
-				"CalculateSpellDamageTooltip"	"0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
+				"attack_count"					"5000"
+				"bonus_damage"					"0"				
 				"bonus_damage_buildings"		"75"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attack_range"				"350"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"splash_width"				"200"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"splash_range"				"400"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"splash_pct"				"100"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"bat_increase"			"0.0"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"speed_reduction"			"0"
-			}
+				"attack_range"					"225"
+				"splash_width"					"200"
+				"splash_range"					"400"
+				"splash_pct"					"0"
+				"bat_increase"					"0.0"
+				"speed_reduction"				"0"
+				"cleave_radius_damage"			"50"
+				"cleave_radius"					"400"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}

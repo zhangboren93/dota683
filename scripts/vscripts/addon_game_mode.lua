@@ -61,6 +61,7 @@ function Activate()
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tidebringer_cleave",				"heroes/hero_kunkka/tidebringer_cleave.lua", LUA_MODIFIER_MOTION_NONE)
+	-- shared between sven and tiny aghs
 	LinkLuaModifier( "modifier_sven_great_cleave_radius", 		"heroes/hero_sven/great_cleave_radius.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_magnataur_empower_cleave_lua",	"heroes/hero_magnataur/empower_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 end

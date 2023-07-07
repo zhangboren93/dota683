@@ -381,6 +381,7 @@
 		"DOTA_Tooltip_Ability_abyssal_underlord_firestorm_Lore"					"burn damage 5/10/15/20"
 		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					"Stuns"
 		"DOTA_Tooltip_Ability_earth_spirit_rolling_boulder_Lore"				"-80% move speed, lasts 2 seconds"
+		//Tiny
 		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"Increase incoming damage by 20/30/40/50%"
 		"DOTA_Tooltip_ability_tiny_craggy_exterior"								"Craggy Exterior"
 		"DOTA_Tooltip_ability_tiny_craggy_exterior_Description"					"Enemies that attack Tiny have a %stun_chance%%% chance of being stunned for %stun_duration% second and taking %damage% damage. Affects enemies within 300 range of him. Procs after an attack impacts, and does not affect spell immune enemies."
@@ -399,6 +400,14 @@
 		"DOTA_Tooltip_ability_tiny_grow_bonus_move_speed_tooltip"				"MOVE SPEED:"
 		"DOTA_Tooltip_ability_tiny_grow_toss_bonus_damage_pct"					"%TOSS UNIT BONUS DAMAGE:"
 		"DOTA_Tooltip_ability_tiny_grow_Scepter_Description"					"Learn Tree Grab. Increase Toss unit damage."
+		"DOTA_Tooltip_ability_tiny_tree_grab_Description"						"Grabs a tree to whack enemies on the head. Grants bonus attack range. Attacks splash on units along the way."
+		"DOTA_Tooltip_ability_tiny_tree_grab_attack_count"						""
+		"DOTA_Tooltip_ability_tiny_tree_grab_bonus_damage"						""
+		"DOTA_Tooltip_ability_tiny_tree_grab_splash_pct"				        ""
+		"DOTA_Tooltip_ability_tiny_tree_grab_attack_range"				        "ATTACK RANGE:"
+		"DOTA_Tooltip_ability_tiny_tree_grab_cleave_radius_damage"		        "%CLEAVE DAMAGE:"
+		"DOTA_Tooltip_ability_tiny_tree_grab_cleave_radius"				        "CLEAVE RADIUS:"
+
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"Spin Web"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"max web count %count%, health regen %health_regen%, move speed +%bonus_movespeed%%%"
 		"DOTA_Tooltip_Ability_broodmother_insatiable_hunger_Lore"				"+60/80/100 damage"

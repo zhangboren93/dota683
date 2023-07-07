@@ -383,6 +383,7 @@
 		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					"眩晕"
 		"DOTA_Tooltip_Ability_earth_spirit_rolling_boulder_Lore"				"移速-80%，持续2秒"
 		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"增伤20/30/40/50%"
+		//Tiny
 		"DOTA_Tooltip_ability_tiny_craggy_exterior"								"崎岖外表"
 		"DOTA_Tooltip_ability_tiny_craggy_exterior_Description"					"小小受到攻击时有%stun_chance%%%几率眩晕敌人%stun_duration%秒，并造成%damage%点伤害。对300距离内的敌人生效。在攻击到达后触发，并且不会作用于技能免疫状态下的敌人。"
 		"DOTA_Tooltip_ability_tiny_craggy_exterior_stun_chance"					"%眩晕几率："
@@ -401,6 +402,15 @@
 		"DOTA_Tooltip_ability_tiny_grow_bonus_move_speed_tooltip"				"移速提升:"
 		"DOTA_Tooltip_ability_tiny_grow_toss_bonus_damage_pct"					"%投掷单位伤害提升："
 		"DOTA_Tooltip_ability_tiny_grow_Scepter_Description"					"学习拔树，投掷单位伤害提升。"
+		"DOTA_Tooltip_ability_tiny_tree_grab_Description"						"抓起一棵树砸向敌人的头，攻击距离得到提升。攻击路径上的单位受到溅射伤害。"
+		"DOTA_Tooltip_ability_tiny_tree_grab_attack_count"						""
+		"DOTA_Tooltip_ability_tiny_tree_grab_bonus_damage"						""
+		"DOTA_Tooltip_ability_tiny_tree_grab_bonus_damage_buildings"			"%对建筑额外伤害："
+		"DOTA_Tooltip_ability_tiny_tree_grab_splash_pct"						""
+		"DOTA_Tooltip_ability_tiny_tree_grab_attack_range"					    "攻击距离："
+		"DOTA_Tooltip_ability_tiny_tree_grab_cleave_radius_damage"			    "%分裂伤害："
+		"DOTA_Tooltip_ability_tiny_tree_grab_cleave_radius"					    "分裂半径："
+
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"网"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"数量%count%，回血%health_regen%，移速+%bonus_movespeed%%%"
 		"DOTA_Tooltip_Ability_broodmother_insatiable_hunger_Lore"				"+60/80/100攻击力"
