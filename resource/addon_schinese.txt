@@ -1,4 +1,4 @@
-ilang" {
+"lang" {
 	"Language" "SChinese"
 	"Tokens" {
 		"ADDON_GAME_NAME" "MobaTM v0.4b"
