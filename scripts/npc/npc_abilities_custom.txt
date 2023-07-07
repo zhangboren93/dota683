@@ -21924,61 +21924,18 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"skewer_speed"					"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"range"					"750 900 1050 1200"
-				"LinkedSpecialBonus"	"special_bonus_unique_magnus_3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"slow_pct"				"40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"skewer_radius"				"145"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"slow_duration"				"2.5"
-			}			
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"skewer_damage"			"70 140 210 280"
-			}			
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"tree_radius"				"200"
-			}			
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"tool_attack_slow"				"10 20 30 40"
-			}	
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"skewer_cooldown"				"30"
-				"RequiresScepter"	"1"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"skewer_manacost"				"80"
-				"RequiresScepter"	"1"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -22034,7 +21991,7 @@
 			}
 			"cleave_damage_pct"
 			{
-				"value"						"10 20 30 40"
+				"value"							"0"
 				"special_bonus_unique_magnus_2"	"+10"
 			}			
 			"cleave_starting_width"
@@ -22052,8 +22009,31 @@
 				//"special_bonus_shard"	"+400"
 			}
 			"self_multiplier"		"0"
+			"cleave_radius_damage"	"20 30 40 50"
+			"cleave_radius"			"200"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	"magnataur_empower_cleave_radius_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_empower_cleave_radius_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_magnataur/empower_cleave.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+		}
 	}
 	//=================================================================================================================
 	// Dragon Knight: Elder Dragon Form

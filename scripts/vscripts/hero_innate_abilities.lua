@@ -18,3 +18,4 @@ hero_innate_abilities["npc_dota_hero_ember_spirit"] = "ember_spirit_fire_remnant
 hero_innate_abilities["npc_dota_hero_jakiro"] = "jakiro_macropyre_destroy_trees_datadriven"
 hero_innate_abilities["npc_dota_hero_abaddon"] = "abaddon_borrowed_time_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_sven"] = "sven_gods_strength_aghs_datadriven"
+hero_innate_abilities["npc_dota_hero_magnataur"] = "magnataur_empower_cleave_radius_datadriven"

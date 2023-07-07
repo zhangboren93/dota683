@@ -507,5 +507,10 @@ ilang" {
 		"DOTA_Tooltip_ability_luna_eclipse_scepter_description"									"双击施放月食。增加月光数量，并且移除单体打击次数上限。"
         //Ember Spirit
 		"DOTA_Tooltip_ability_ember_spirit_sleight_of_fist_creep_damage_penalty"			    "%小兵伤害："
+		//Magnus
+		"DOTA_Tooltip_ability_magnataur_empower_Description"									"给予友方单位攻击力加成并且使其获得分裂攻击。"		
+		"DOTA_Tooltip_ability_magnataur_empower_cleave_damage_pct"								""
+		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius_damage"							"%分裂伤害："
+		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius"									"分裂半径："
 	}
 }

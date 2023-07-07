@@ -505,5 +505,10 @@
 		"DOTA_Tooltip_ability_luna_eclipse_scepter_description"								"Double click to cast eclipse. Increases total beams and removes the limit on beams per unit."
         //Ember Spirit
 		"DOTA_Tooltip_ability_ember_spirit_sleight_of_fist_creep_damage_penalty"			"%CREEP DAMAGE:"
+		//Magnus
+		"DOTA_Tooltip_ability_magnataur_empower_Description"								"Gives an allied unit bonus damage and cleave on attack."		
+		"DOTA_Tooltip_ability_magnataur_empower_cleave_damage_pct"							""
+		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius_damage"						"%CLEAVE DAMAGE:"
+		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius"								"CLEAVE RADIUS:"
 	}
 }

@@ -62,6 +62,7 @@ function Activate()
 
 	LinkLuaModifier( "modifier_tidebringer_cleave",				"heroes/hero_kunkka/tidebringer_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sven_great_cleave_radius", 		"heroes/hero_sven/great_cleave_radius.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_magnataur_empower_cleave_lua",	"heroes/hero_magnataur/empower_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -1290,11 +1291,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
 --		print("DamageFilter " .. inflictor:GetName())
-		if inflictor:GetName() == "magnataur_empower" then
-			local victim = EntIndexToHScript(event.entindex_victim_const)
-			local victimarmor = victim:GetPhysicalArmorValue(false)
-			event.damage = event.damage / (1 - 0.06 * victimarmor / (1 + 0.06 * math.abs(victimarmor)))
-		elseif inflictor:GetName() == "bounty_hunter_shuriken_toss" then
+		if inflictor:GetName() == "bounty_hunter_shuriken_toss" then
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			victim:AddNewModifier(attacker, attacker:FindAbilityByName("bounty_hunter_shuriken_toss"), "modifier_stunned", {duration = 0.03})
 		elseif inflictor:GetName() == "item_cyclone" then
