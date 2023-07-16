@@ -32283,21 +32283,6 @@
 				}			
 		}
 	}
-	"ogre_magi_ignite"
-	{
-		"AbilityCastRange"				"700 800 900 1000"
-		"AbilityCooldown"				"15"
-		"AbilityManaCost"				"95 105 115 125"
-		"AbilityValues"
-		{
-				"duration"			"5 6 7 8"
-				"burn_damage"		"26 34 42 50"
-				"slow_movement_speed_pct"		"-20 -22 -24 -26"
-				"projectile_speed"		"1000"
-				"multicast_delay"	"0.6"
-				"ignite_multicast_aoe"	"1400"
-		}
-	}
 	// Rewrite of the Ogre Magi Ignite ability
 	// Author: YOLOSPAGHETTI
 	// Date: February 14, 2016

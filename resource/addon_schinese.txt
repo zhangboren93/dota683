@@ -369,7 +369,16 @@
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven_duration"						"持续时间："
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven_damage_per_second"			"每秒伤害："
 		"DOTA_Tooltip_Ability_dark_seer_wall_of_replica_Scepter_Description"	"+幻像攻击力"
+        //Ogre Magi
+		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven"							"引燃"
+		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven_Description"				"使目标浸透在挥发性化学物质中，导致其瞬间被火焰吞噬。目标处在极度痛苦之中，受到伤害并且移动缓慢。"
+		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven_Lore"						"准备好！"
+		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven_burn_damage"				"燃烧伤害："
+		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven_duration"					"持续时间："
+		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven_slow_movement_speed_pct"	"%移动速度减缓："
+		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven_abilitycastrange"			"施法距离："
 		"DOTA_Tooltip_Ability_ogre_magi_multicast_Lore"							"晕CD-2/4/6秒，耗蓝+20/40/60，嗜血术CD-5/10/15秒，燃烧+150/300/450施法距离和作用范围"
+
 		"DOTA_Tooltip_ability_undying_decay"							"腐朽"
 		"DOTA_Tooltip_ability_undying_decay_Description"				"不朽尸王偷取区域内所有敌方英雄的力量，造成基础伤害并将敌人的力量据为己有。"
 		"DOTA_Tooltip_ability_undying_decay_Lore"						"生者的力量只不过是借用自死者。"
