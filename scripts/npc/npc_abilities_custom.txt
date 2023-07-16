@@ -32325,6 +32325,10 @@
 			"particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_ignite_debuff.vpcf"
 			"soundfile"		"sounds/weapons/hero/ogre_magi/ignite_cast.vsnd"
 			"soundfile"		"sounds/weapons/hero/ogre_magi/ignite_target.vsnd"
+			"particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf"
+			"soundfile"		"sounds/weapons/hero/ogre_magi/multicast01.vsnd"
+			"soundfile"		"sounds/weapons/hero/ogre_magi/multicast02.vsnd"
+			"soundfile"		"sounds/weapons/hero/ogre_magi/multicast03.vsnd"
 		}
 		
 		// Casting

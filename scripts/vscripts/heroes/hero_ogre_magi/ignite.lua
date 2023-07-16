@@ -38,6 +38,45 @@ function CheckDistance(keys)
 	local ability = keys.ability
 	local target = keys.target
 	ability:ApplyDataDrivenModifier( caster, target, "modifier_ignite_multicast", {} )
+
+	local multicast_ability = caster:FindAbilityByName("ogre_magi_multicast")
+	if multicast_ability:GetLevel() == 0 then
+		return
+	end
+	local two_times = multicast_ability:GetSpecialValueFor( "multicast_2_times")
+	local three_times = multicast_ability:GetSpecialValueFor( "multicast_3_times")
+	local four_times = multicast_ability:GetSpecialValueFor( "multicast_4_times")
+	local rand = math.random(1,100)
+	local multicast = 1
+	if rand < four_times then
+		multicast = 4
+	elseif rand < three_times then
+		multicast = 3
+	elseif rand < two_times then	
+		multicast = 2
+	else
+		return
+	end
+
+	local multicast_delay = ability:GetSpecialValueFor("multicast_delay")
+	-- Second projectile
+	ability:ApplyDataDrivenModifier( caster, caster, "modifier_ignite_multicast_action", {Duration = multicast_delay} )
+	EmitSoundOn("Hero_OgreMagi.Ignite.x1", caster)
+	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf", PATTACH_OVERHEAD_FOLLOW, caster) 
+	ParticleManager:SetParticleControl(particle, 1, Vector(multicast, 0, 0))
+	ParticleManager:ReleaseParticleIndex(particle)
+	-- Third projectile
+	if multicast > 2 then
+		ability:ApplyDataDrivenModifier( caster, caster, "modifier_ignite_multicast_action", {Duration = 2*multicast_delay} )
+		if multicast == 3 then
+			EmitSoundOn("Hero_OgreMagi.Ignite.x2", caster)
+		end
+	end
+	-- Fourth projectile
+	if multicast > 3 then
+		ability:ApplyDataDrivenModifier( caster, caster, "modifier_ignite_multicast_action", {Duration = 3*multicast_delay} )
+		EmitSoundOn("Hero_OgreMagi.Ignite.x3", caster)
+	end
 end
 
 --[[Author: YOLOSPAGHETTI
