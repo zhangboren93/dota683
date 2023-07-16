@@ -1008,6 +1008,7 @@
 		"StatusHealthRegen"			"2.5"
 		"StatusManaRegen"			"0.01"
 		"StatusMana"				"0"
+		"Ability2"		"ogre_magi_ignite_datadriven"
 		"Ability5"		"ogre_magi_multicast_bonus_datadriven"
 		"Ability7"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
