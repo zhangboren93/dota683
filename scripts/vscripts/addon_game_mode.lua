@@ -1274,7 +1274,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	local victim = EntIndexToHScript(event.entindex_victim_const)
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
---		print("DamageFilter " .. inflictor:GetName())
+	--	print("DamageFilter " .. inflictor:GetName() .. "  " .. event.damage)
 		if inflictor:GetName() == "bounty_hunter_shuriken_toss" then
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			victim:AddNewModifier(attacker, attacker:FindAbilityByName("bounty_hunter_shuriken_toss"), "modifier_stunned", {duration = 0.03})
@@ -1293,7 +1293,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		elseif inflictor:GetName() == "phoenix_sun_ray" then
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			event.damage = event.damage / (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
-		elseif inflictor:GetName() == "earth_spirit_rolling_boulder" then
+		elseif inflictor:GetName() == "earth_spirit_rolling_boulder" and event.damage > 0 then
 			-- fix rolling boulder damage without strength component
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			event.damage = 100 * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))

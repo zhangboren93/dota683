@@ -14461,9 +14461,9 @@
 			"AbilityCharges"
 			{
 				"value"							"6"
-				"special_bonus_shard"			"+4"
+				"special_bonus_shard"			"+0"
 			}
-			"shard_tooltip"						"4"
+			"shard_tooltip"						"0"
 			"rolling_offset_distance"			"150"
 			"hero_level_increment"				"100"
 		}

@@ -387,10 +387,18 @@
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Lore"							"aura increase incoming damage by 5~20%/10~25%/15~30%, creep death heal 2%, hero death heal 6%, move speed -5~20%"
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Scepter_Description"			"aura increase incoming damage by 5~25%/10~30%/15~35%, creep death heal 4%, hero death heal 10%"
 		"DOTA_Tooltip_Ability_abyssal_underlord_firestorm_Lore"					"burn damage 5/10/15/20"
-		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					"Stuns"
-		"DOTA_Tooltip_Ability_earth_spirit_rolling_boulder_Lore"				"-80% move speed, lasts 2 seconds"
-		//Tiny
+
+        //Earth Spirit
+		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					    "Stuns"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_Description"		        "Earth Spirit gathers himself into a boulder and, after a %delay%s delay, rolls toward the target location, dealing %damage% damage and slowing enemy units. He will stop if he collides with an enemy hero or is stunned. If he rolls over a Stone Remnant, he will travel further and faster."
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_stun_duration"	        ""
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_rock_bonus_duration"	    ""
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_slow_duration_tooltip"	"SLOW DURATION:"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_slow_tooltip"			"%SLOW AMOUNT:"
+
 		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"Increase incoming damage by 20/30/40/50%"
+
+		//Tiny
 		"DOTA_Tooltip_ability_tiny_craggy_exterior"								"Craggy Exterior"
 		"DOTA_Tooltip_ability_tiny_craggy_exterior_Description"					"Enemies that attack Tiny have a %stun_chance%%% chance of being stunned for %stun_duration% second and taking %damage% damage. Affects enemies within 300 range of him. Procs after an attack impacts, and does not affect spell immune enemies."
 		"DOTA_Tooltip_ability_tiny_craggy_exterior_stun_chance"					"%CHANCE TO STUN:"
