@@ -7,9 +7,6 @@ function LandMinesPlant( keys )
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
-	-- Initialize the count and table
-	caster.land_mine_table = caster.land_mine_table or {}
-
 	-- Modifiers
 	local modifier_land_mine = keys.modifier_land_mine
 	local modifier_tracker = keys.modifier_tracker
@@ -17,32 +14,37 @@ function LandMinesPlant( keys )
 	local modifier_land_mine_invisibility = keys.modifier_land_mine_invisibility
 
 	-- Ability variables
-	local activation_time = ability:GetLevelSpecialValueFor("activation_time", ability_level) 
-	local max_mines = ability:GetLevelSpecialValueFor("max_mines", ability_level) 
-	local fade_time = ability:GetLevelSpecialValueFor("fade_time", ability_level)
+	local activation_time = ability:GetSpecialValueFor("activation_time") 
+	local max_mines = ability:GetSpecialValueFor("max_mines") 
+	local fade_time = ability:GetSpecialValueFor("fade_time")
 
 	-- Create the land mine and apply the land mine modifier
-	local land_mine = CreateUnitByName("npc_dota_techies_land_mine", target_point, false, nil, nil, caster:GetTeamNumber())
+	local land_mine = CreateUnitByName("npc_dota_techies_land_mine", target_point, false, caster, caster, caster:GetTeamNumber())
 	land_mine:SetControllableByPlayer(caster:GetPlayerID(), true)
 	ability:ApplyDataDrivenModifier(caster, land_mine, modifier_land_mine, {})
-
-	-- Update the count and table
-	table.insert(caster.land_mine_table, land_mine)
+	land_mine.plant_time = GameRules:GetDOTATime(true, true)
 
 	-- If we exceeded the maximum number of mines then kill the oldest one
-	while #caster.land_mine_table > max_mines do
-		if IsValidEntity(caster.land_mine_table[1]) then
-			caster.land_mine_table[1]:ForceKill(true)
+	local my_land_mines = getMyLandMines(modifier_land_mine, caster)  
+	while #my_land_mines > 20 do
+		local oldest = my_land_mines[1]
+		for j=2,#my_land_mines do
+			if my_land_mines[j].plant_time < oldest.plant_time then
+				oldest = my_land_mines[j]
+			end
 		end
-		table.remove(caster.land_mine_table, 1)
+		oldest:ForceKill(true)
+		my_land_mines = getMyLandMines(modifier_land_mine, caster)  
 	end
+
+	local land_mine_count = #my_land_mines
 
 	-- Increase caster stack count of the caster modifier and add it to the caster if it doesnt exist
 	if not caster:HasModifier(modifier_caster) then
 		ability:ApplyDataDrivenModifier(caster, caster, modifier_caster, {})
 	end
 
-	caster:SetModifierStackCount(modifier_caster, ability, #caster.land_mine_table)
+	caster:SetModifierStackCount(modifier_caster, ability, land_mine_count)
 
 	-- Apply the tracker after the activation time
 	land_mine:SetThink(function()
@@ -68,20 +70,14 @@ function LandMinesDeath( keys )
 	local vision_radius = ability:GetLevelSpecialValueFor("vision_radius", ability_level) 
 	local vision_duration = ability:GetLevelSpecialValueFor("vision_duration", ability_level)
 
-	-- Find the mine and remove it from the table
-	for i = 1, #caster.land_mine_table do
-		if caster.land_mine_table[i] == unit then
-			table.remove(caster.land_mine_table, i)
-			break
-		end
-	end
-
 	-- Create vision on the mine position
 	ability:CreateVisibilityNode(unit:GetAbsOrigin(), vision_radius, vision_duration)
 
-	-- Update the stack count
-	caster:SetModifierStackCount("modifier_land_mine_caster_datadriven", ability, #caster.land_mine_table)
-	if #caster.land_mine_table < 1 then
+	local my_land_mines = getMyLandMines("modifier_land_mine_datadriven", caster)
+	local land_mine_count = #my_land_mines - 1
+
+	caster:SetModifierStackCount("modifier_land_mine_caster_datadriven", ability, land_mine_count)
+	if land_mine_count < 1 then
 		caster:RemoveModifierByNameAndCaster("modifier_land_mine_caster_datadriven", caster) 
 	end
 
@@ -102,7 +98,6 @@ function LandMinesDeath( keys )
 
 	-- Find the valid units in the trigger radius
 	local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, trigger_radius, target_team, target_types, target_flags, FIND_CLOSEST, false) 
-	print(#units .. " " .. damage_half)
 	for i=1,#units do
 		ApplyDamage({ victim = units[i], attacker = caster, damage = damage_half,	damage_type = DAMAGE_TYPE_PHYSICAL})
 	end
@@ -117,7 +112,6 @@ end
 	Tracks if any enemy units are within the mine radius]]
 function LandMinesTracker( keys )
 	local target = keys.target
-	--print(target:GetName())
 	if target.diesIn ~= nil then
 		if target.diesIn > 0 then
 			target.diesIn = target.diesIn - 1
@@ -149,4 +143,15 @@ function LandMinesTracker( keys )
 			target.diesIn = 3
 		end
 	end
+end
+
+function getMyLandMines(modifier_land_mine, caster)
+	local land_mines = Entities:FindAllByName("npc_dota_techies_mines")
+	local my_land_mines = {}
+	for i=1,#land_mines do
+		if land_mines[i]:IsAlive() and land_mines[i]:HasModifier(modifier_land_mine) and land_mines[i]:GetOwner() == caster then
+			table.insert(my_land_mines, land_mines[i])
+		end
+	end
+	return my_land_mines
 end
