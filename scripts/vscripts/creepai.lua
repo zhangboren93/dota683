@@ -79,7 +79,7 @@ function modifier_creep_ai:IsHidden()
 end
 
 function isAttackable(target, attacker) 
-	return IsValidEntity(target) and target:IsAlive() and attacker:CanEntityBeSeenByMyTeam(target) and not target:IsInvisible() and not target:IsAttackImmune()
+	return IsValidEntity(target) and target:IsAlive() and attacker:CanEntityBeSeenByMyTeam(target) and not target:IsInvisible() and not target:IsAttackImmune() and not target:HasModifier("modifier_bane_nightmare")
 end
 
 function modifier_creep_ai:OnIntervalThink()
@@ -110,6 +110,7 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 		and not self.target.unit:IsBuilding() then
 		local distance = (self.target.unit:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length()
 		if distance <= self.kv.attackrange then
+			--print("attack unit within range")
 			entity:MoveToTargetToAttack(self.target.unit)
 			return
 		end
@@ -117,6 +118,7 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 	-- move to target location if lose vision
 	if self.target ~= nil and IsValidEntity(self.target.unit) and not entity:CanEntityBeSeenByMyTeam(self.target.unit) then
 		if (entity:GetAbsOrigin() - self.target_loc):Length() > 100 and GameRules:GetDOTATime(false, false) - self.target_loc_time < 5 then
+			--print("move to target loc")
 			entity:MoveToPosition(self.target_loc)
 			return
 		else
@@ -136,6 +138,7 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 end
 
 function modifier_creep_ai:takePath() 
+	--print("takePath")
 	local entity = self:GetParent()
 	local position = entity:GetAbsOrigin()
 	local direction_right = entity:GetTeam() == DOTA_TEAM_GOODGUYS
@@ -191,7 +194,7 @@ function modifier_creep_ai:selectTarget()
 		entity, position, self.kv.attackrange, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC)
 	for i=1,#units do
 		if units[i]:IsAttackingEntity(entity) then
-			--print("Find unit attacking me")
+		--	print("Find unit attacking me")
 			return {
 				unit = units[i]
 			}
@@ -216,21 +219,25 @@ function modifier_creep_ai:selectTarget()
 		for i=1,#units do
 			-- find unit not transferring aggro and not techies' mine
 			if not units[i]:HasModifier("modifier_creep_aggro_move_datadriven") then
+	--			print("find unit not transferring aggro")
 				return {
 					unit = units[i],
 				}
 			end
 		end
+		--print("find unit transferring aggro")
 		return {
 			unit = units[1],
 		}
 	end
 	if self.alert_target ~= nil and isAttackable(self.alert_target, entity) then
+	--	print("find alert unit")
 		return {
 			unit = self.alert_target
 		}
 	end
 	if self.target ~= nil and isAttackable(self.target.unit, entity) then
+	--	print("find current target")
 		return {
 			unit = self.target.unit
 		}
@@ -249,7 +256,9 @@ function modifier_creep_ai:findUnitsInRadiusFiltered(entity, position, range, ta
 	local units = {}
 	for i=1,#units_unfiltered do
 		-- find unit not transferring aggro and not techies' mine
-		if units_unfiltered[i]:GetName() ~= "npc_dota_techies_mines" then
+	--	print(units_unfiltered[i]:GetName())
+	--	print(not units_unfiltered[i]:HasModifier("modifier_bane_nightmare")) 
+		if units_unfiltered[i]:GetName() ~= "npc_dota_techies_mines" and not units_unfiltered[i]:HasModifier("modifier_bane_nightmare") then
 			table.insert(units, units_unfiltered[i])
 		end
 	end
