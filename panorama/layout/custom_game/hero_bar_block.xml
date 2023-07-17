@@ -3,7 +3,14 @@
 		<include src="file://{resources}/styles/custom_game/hero_bar_block.css" />
 	</styles>
 
+	<script>
+		(function() {
+			if (Players.GetTeam(Players.GetLocalPlayer()) === DOTATeam_t.DOTA_TEAM_GOODGUYS) {
+				$("#hero-bar-block-button").AddClass("dire-block");
+			}
+		})();
+	</script>
 	<Panel class="hero-bar-block">
-		<Button onactivate=""/>
+		<Button id="hero-bar-block-button" onactivate=""/>
     </Panel>
 </root>
