@@ -337,8 +337,11 @@
 		"DOTA_Tooltip_Ability_leshrac_pulse_nova_Scepter_Description"			"+伤害"
 		"DOTA_Tooltip_Ability_visage_summon_familiars_Scepter_Description"		"+1"
 		"DOTA_Tooltip_Ability_visage_gravekeepers_cloak_Lore"					"护甲+1/2/4/5，魔抗+3/6/12/16"
+		//Bane
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven"							"虚弱"
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven_Description"				"-%enfeeble_attack_reduction%攻，持续20秒"
+		"DOTA_Tooltip_ability_bane_nightmare_Description"								"让目标敌方或友方英雄进入沉睡。睡着的单位受到攻击便会醒来，但噩梦将转移到攻击者身上。"
+
 		"DOTA_Tooltip_Ability_pugna_nether_ward_Lore"							"回蓝-1.5/3/4.5/6"
 		"DOTA_Tooltip_ability_pugna_life_drain_datadriven"						"生命汲取"
 		"DOTA_Tooltip_ability_pugna_life_drain_datadriven_Description"			"持续施法 - 使用生命汲取时，帕格纳吸取目标敌方单位的生命值，并获得其视野。如果生命值已满，而且目标是名英雄，那将开始回复魔法值。\n\n向队友施放可以将自己的生命值转移给队友。"

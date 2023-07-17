@@ -1023,6 +1023,20 @@
 					}
 				}
 			}
+			// if banes attack a nightmared target, itself is nightmared.
+			"modifier_bane_nightmare_self_attack_transfer"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_bane/nightmare.lua"
+						"Function"		"handleAttackStart"
+					}
+				}
+			}
 		}
 	}
 	//=================================================================================================================
