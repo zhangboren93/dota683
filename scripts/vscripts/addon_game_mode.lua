@@ -1312,7 +1312,7 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 	local ability = EntIndexToHScript(event.entindex_ability_const)
 	if ability:GetName() == "ogre_magi_ignite_datadriven" and event.value_name_const == "AbilityCastRange" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability_multicast = caster:FindAbilityByName("ogre_magi_multicast")
+		local ability_multicast = caster:FindAbilityByName("ogre_magi_multicast_datadriven")
 		if ability_multicast:GetLevel() > 0 then
 			event.value = event.value + ability_multicast:GetSpecialValueFor("ignite_range")
 			return true

@@ -39,7 +39,7 @@ function CheckDistance(keys)
 	local target = keys.target
 	ability:ApplyDataDrivenModifier( caster, target, "modifier_ignite_multicast", {} )
 
-	local multicast_ability = caster:FindAbilityByName("ogre_magi_multicast")
+	local multicast_ability = caster:FindAbilityByName("ogre_magi_multicast_datadriven")
 	if multicast_ability:GetLevel() == 0 then
 		return
 	end
@@ -86,7 +86,7 @@ function AOEEffect(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	local multicast = caster:FindAbilityByName("ogre_magi_multicast")
+	local multicast = caster:FindAbilityByName("ogre_magi_multicast_datadriven")
 	local ignite_aoe = ability:GetLevelSpecialValueFor("ignite_aoe", multicast:GetLevel() -1)
 	
 	if multicast:GetLevel() > 0 then
