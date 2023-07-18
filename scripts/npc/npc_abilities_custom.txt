@@ -11233,11 +11233,43 @@
 				"ignite_range"			"150 300 450"
 		}
 	}
-	"ogre_magi_multicast_bonus_datadriven"
+	//=================================================================================================================
+	// Ogre Magi: Multicast
+	//=================================================================================================================
+	"ogre_magi_multicast_datadriven"
 	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastAnimation"			"ACT_INVALID"
+		"AbilityTextureName"			"ogre_magi_multicast"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_multicast.vpcf"
+			"particle"		"particles/units/heroes/hero_ogre_magi/ogre_magi_fireblast.vpcf"
+			"soundfile"		"sounds/weapons/hero/ogre_magi/multicast01.vsnd"
+			"soundfile"		"sounds/weapons/hero/ogre_magi/multicast02.vsnd"
+			"soundfile"		"sounds/weapons/hero/ogre_magi/multicast03.vsnd"
+			"soundfile"		"sounds/weapons/hero/ogre_magi/fireblast_target.vsnd"
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"multicast_2_times"		"40 50 60"
+				"multicast_3_times"		"0 20 25"
+				"multicast_4_times"		"0 0 12.5"
+				"blast_cooldown"		"-2 -4 -6"
+				"blast_mana_cost"		"20 40 60"
+				"blood_cooldown"		"-5 -10 -15"
+				"ignite_range"			"150 300 450"
+		}
 		"Modifiers"
 		{
 			"modifier_ogre_magi_multicast_bonus_datadriven"
@@ -11253,26 +11285,25 @@
 					}
 				}
 			}
-			"modifier_ignite_no_ex_duration_checker"
+			"modifier_ogre_magi_fire_blast_multicast_datadriven"
 			{
 				"Passive"		"0"
-				"IsHidden"		"1"
-				"Duration"		"10"
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
+				"IsHidden"		"0"
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"Duration"		"1.5"
+				"States"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_ogre_magi/ignite.lua"
-						"Function"		"handleIntervalThink"
-					}
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_ogre_magi_ignite_splash"
-			{
-				"Passive"			"0"
-			}
 		}
+	}
+	"ogre_magi_multicast_bonus_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
 	}
 	"undying_decay_datadriven"
 	{
