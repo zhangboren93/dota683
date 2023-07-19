@@ -2848,7 +2848,7 @@
 		"StatusManaRegen"			"0.01"
 		"Ability1"		"riki_smoke_screen"
 		"Ability2"		"riki_permanent_invisibility"
-		"Ability3"		"riki_backstab"
+		"Ability3"		"riki_backstab_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"riki_blink_strike_datadriven"

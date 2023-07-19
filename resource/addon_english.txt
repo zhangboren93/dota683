@@ -138,8 +138,14 @@
 		"DOTA_Tooltip_Ability_static_field_datadriven"				"Static Field"
 		"DOTA_Tooltip_Ability_static_field_datadriven_Description"	"When casts spell, damage %damage_health_pct%%% current health"
 		"DOTA_Tooltip_Ability_troll_warlord_berserkers_rage_Lore"	"+100 health, +15 damage, 10%% bash that damage +20/30/40/50 and stun for 0.8/1.2/1.6/2 seconds"
+		//Riki
 		"DOTA_Tooltip_Ability_riki_permanent_invisibility_Lore"	"When in invisible state, +4/5/6/7 health regen"
 		"DOTA_Tooltip_Ability_riki_blink_strike_datadriven"				"Blink Strike"
+		"DOTA_Tooltip_ability_riki_backstab_datadriven"						"Backstab"
+		"DOTA_Tooltip_ability_riki_backstab_datadriven_Description"			"Every time Riki strikes his enemy from behind, he deals bonus damage based on his Agility."
+		"DOTA_Tooltip_ability_riki_backstab_datadriven_agility_damage"		"%AGI DAMAGE MULT:"
+		"DOTA_Tooltip_ability_riki_backstab_datadriven_Lore"				"Riki comes for you."
+
 		"DOTA_Tooltip_ability_life_stealer_infest_scepter_description" "Infest enemy but immediately comes out, CD 20 seconds."
 		"DOTA_Tooltip_ability_vengefulspirit_nether_swap_scepter_description" 		"-CD"
 		"DOTA_Tooltip_ability_vengefulspirit_command_aura_datadriven" 				"Comand Aura"
