@@ -9,6 +9,10 @@ function HeartstopperAura( keys )
 	local aura_damage = ability:GetLevelSpecialValueFor("aura_damage", (ability:GetLevel() - 1))
 	local aura_damage_interval = ability:GetLevelSpecialValueFor("aura_damage_interval", (ability:GetLevel() - 1))
 
+	-- don't apply for rosh
+	if target:HasModifier("roshan_inherent_buffs_checker_datadriven") then
+		return
+	end
 	-- Shows the debuff on the target's modifier bar only if Necrophos is visible
 	local visibility_modifier = keys.visibility_modifier
 	if target:CanEntityBeSeenByMyTeam(caster) then

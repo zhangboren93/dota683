@@ -54,7 +54,7 @@ function WrathOfNature( event )
 		target_number = target_number + 1
 		-- Jump to this target if its possible
 		local next_target = visible_enemies[target_number]
-		if next_target and IsValidEntity(next_target) then
+		if next_target and IsValidEntity(next_target) and next_target:IsAlive() then
 			-- Valid target chosen
 			targets_hit = targets_hit + 1
 			-- Deal increased damaged
