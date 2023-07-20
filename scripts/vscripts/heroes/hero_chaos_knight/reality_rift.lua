@@ -1,6 +1,7 @@
 --[[Author: Pizzalol
 	Date: 27.09.2015.
 	Calculate the rift position and play the particle]]
+require("../../items/item_sphere")
 function RealityRiftPosition( keys )
 	local caster = keys.caster
 	local target = keys.target
@@ -44,11 +45,16 @@ function RealityRift( keys )
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
+	if is_spell_blocked_by_linkens_sphere(target) then return end
+
+
 	-- Ability variables
 	local bonus_duration = ability:GetLevelSpecialValueFor("bonus_duration", ability_level) 
 	local illusion_search_radius = ability:GetLevelSpecialValueFor("illusion_search_radius", ability_level) 
 	local bonus_modifier = keys.bonus_modifier
 	
+	ability:ApplyDataDrivenModifier(caster, caster, bonus_modifier, {duration = bonus_duration})
+
 	-- Set the positions to be one on each side of the rift
 	target:SetAbsOrigin(ability.reality_rift_location - ability.reality_rift_direction * 25)
 	caster:SetAbsOrigin(ability.reality_rift_location + ability.reality_rift_direction * 25)

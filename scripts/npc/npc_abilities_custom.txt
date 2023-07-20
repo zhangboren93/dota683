@@ -25574,16 +25574,16 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"morphling_replicate"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -26684,12 +26684,13 @@
 				"Target"	"TARGET"
 			}	
 	
-			"ApplyModifier"
+			"RunScript"
 			{
-				"ModifierName" "modifier_last_word_datadriven"
-				"Target"	"TARGET"
+				"ScriptFile"	"units/spell_start_target_buf.lua"
+				"Function" 		"handleSpellStart"
+				"ModifierName"	"modifier_last_word_datadriven"
+				"Target"		"TARGET"
 			}
-	
 		}
 	
 		"Modifiers"
@@ -27232,13 +27233,6 @@
 			{
 				"EffectName"	"Hero_ChaosKnight.RealityRift.Target"
 				"Target" 		"TARGET"
-			}
-	
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_reality_rift_datadriven"
-				"Target" 		"CASTER"
-				"Duration"		"%bonus_duration"
 			}
 	
 			"RunScript"
@@ -27945,6 +27939,7 @@
 	//		  To show "Can't target self" you can add the CustomError Flash module by zedor: https://github.com/zedor/CustomError
 	//		  The ability animation still plays even when the spells is self targeted
 	//		  Projectile is only cosmetic, the damage/heal is not tied to it
+	//TODO blocked by linken
 	"abaddon_death_coil_datadriven"
 	{
 		// General

@@ -1,7 +1,10 @@
+require("../../items/item_sphere")
 function replicate(event)
     local target = event.target
     local ability = event.ability
     local caster = event.caster
+
+	if is_spell_blocked_by_linkens_sphere(target) then return end
 
 	local illusion = CreateUnitByName(target:GetUnitName(), target:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
 	illusion:SetPlayerID(caster:GetPlayerID())
