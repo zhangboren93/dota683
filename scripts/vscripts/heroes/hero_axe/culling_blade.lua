@@ -2,9 +2,13 @@
 	Date: 10.02.2015.
 	Checks if the target hp is below the threshold and depending on that it kills the target
 	or deals magic damage]]
+require("../../items/item_sphere")
 function CullingBlade( keys )
 	local caster = keys.caster
 	local target = keys.target
+
+	if is_spell_blocked_by_linkens_sphere(target) then return end
+
 	local caster_location = caster:GetAbsOrigin()
 	local target_location = target:GetAbsOrigin() 
 	local ability = keys.ability

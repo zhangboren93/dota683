@@ -868,9 +868,11 @@
 				"EffectName"	"Hero_Bane.Enfeeble"
 				"Target"		"TARGET"
 			}
-	
-			"ApplyModifier"
+
+			"RunScript"
 			{
+				"ScriptFile"	"units/spell_start_target_buf.lua"
+				"Function" 		"handleSpellStart"
 				"ModifierName"	"modifier_enfeeble_datadriven"
 				"Target"		"TARGET"
 			}
@@ -5378,10 +5380,6 @@
 	
 		"OnSpellStart"
 		{
-		//	"Blink"
-		//	{
-		//		"Target"	"TARGET"
-		//	}
 	
 			"FireSound"
 			{
