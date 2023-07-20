@@ -20866,32 +20866,10 @@
 				}
 			}
 	
-			"ActOnTargets"
+			"RunScript"
 			{
-				"Target"
-				{
-					"Center" "POINT"
-	                "Radius" "%bolt_aoe"
-	                "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
-	                "Types" "DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-				}
-	
-				"Action"
-				{
-					"Damage"
-					{
-						"Target"	"TARGET"
-						"Type"		"DAMAGE_TYPE_MAGICAL"
-						"Damage"	"%AbilityDamage"
-					}
-	
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_storm_bolt_datadriven"
-						"Target"		"TARGET"
-					}
-	
-				}
+				"ScriptFile"	"heroes/hero_sven/storm_bolt.lua"
+				"Function"		"handleProjectileHit"
 			}
 		}
 	
@@ -22163,7 +22141,7 @@
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				"ability_datadriven"
+	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"

@@ -1,6 +1,7 @@
 --[[Author: YOLOSPAGHETTI
 	Date: March 28, 2016
 	Creates the missile]]
+require("../../items/item_sphere")
 function CreateMissile(keys)
 	local caster = keys.caster
 	local target = keys.target
@@ -66,6 +67,7 @@ function MoveMissile(keys)
 			end
 			-- Checks if the missile is close enough to hit the target (melee range)
 			if distance < 128 then
+
 				ability.hit = true
 				-- The missile's distance from its starting point
 				local travel_vector_distance = caster.missile:GetAbsOrigin() - ability.starting_position
@@ -81,11 +83,22 @@ function MoveMissile(keys)
 					damage = min_damage
 				end
 				
-				-- Applies the stun to the target
-				target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
-				-- Applies the damage to the target
-				ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = ability:GetAbilityDamageType()})
+				if not is_spell_blocked_by_linkens_sphere(target) then
+					-- Applies the stun to the target
+					target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
+					-- Applies the damage to the target
+					ApplyDamage({victim = target, attacker = caster, damage = damage, damage_type = ability:GetAbilityDamageType()})
+				end
 				-- Kills the missile, which triggers the OnMissileAttacked block
+				-- Removes the missile's model, so there is no death animation
+				caster.missile:AddNoDraw()
+				-- Removes the targeting particle from the target
+				target:RemoveModifierByName("modifier_homing_missile_target")
+				-- Stops both missile sounds
+				StopSoundEvent("Hero_Gyrocopter.HomingMissile", caster.missile)
+				StopSoundEvent("Hero_Gyrocopter.HomingMissile.Enemy", caster.missile)
+				-- Plays the missile death sound
+				EmitSoundOn("Hero_Gyrocopter.HomingMissile.Target", target)
 				caster.missile:ForceKill(false)
 			else
 				-- Turns the missile so it's facing the target
