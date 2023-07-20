@@ -1,12 +1,18 @@
 --[[Author: Pizzalol
 	Date: 25.02.2015.
 	Determines if it should deal the extra damage depending on the targets level]]
+require("../../items/item_sphere")
 function LvlDeath( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
+	if is_spell_blocked_by_linkens_sphere(target) then return end
+	target:AddNewModifier(caster, ability, "modifier_stunned", { duration = 0.01 })
+	local base_damage = ability:GetSpecialValueFor("damage")
+	ApplyDamage({victim = target, attacker = caster, damage = base_damage, damage_type = DAMAGE_TYPE_MAGICAL})
+	
 	-- Particle
 	local bonus_particle = keys.bonus_particle
 

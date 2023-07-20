@@ -2,12 +2,14 @@
 	Date: February 5, 2016
 	Puts Riki behind the target, if the target is an enemy, applies the bonus damage, 
 	and queues up an attack order on the target]]
+require("items/item_sphere")
 function BlinkStrike( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
+	if is_spell_blocked_by_linkens_sphere_a(target, caster) then return end
 	-- Ability variables
 	local bonus_damage = ability:GetLevelSpecialValueFor("bonus_damage", ability_level)
 	local victim_angle = target:GetAnglesAsVector()

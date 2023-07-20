@@ -5626,7 +5626,7 @@
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				"ability_datadriven"
+	"BaseClass"						"ability_datadriven"
 	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
@@ -5636,10 +5636,10 @@
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 	"FightRecapLevel"				"1"
 	"AbilityTextureName"			"pugna_life_drain"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		"HasScepterUpgrade"			"1"
+	"MaxLevel"              		"3"
+	"RequiredLevel"         		"6"
+	"LevelsBetweenUpgrades" 		"5"
+	"HasScepterUpgrade"				"1"
 
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
@@ -5685,17 +5685,12 @@
 
 	"OnSpellStart"
 	{
-		"ApplyModifier"
+		"RunScript"
 		{
-			"ModifierName" 	"modifier_life_drain"
-			"Target"
-			{
-				"Center"	"TARGET"
-				"Radius"	"1"
-				"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Teams"		"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-			}
+			"ScriptFile"	"units/spell_start_target_buf.lua"
+			"Function" 		"handleSpellStart"
+			"ModifierName"	"modifier_life_drain"
+			"Target"		"TARGET"
 		}
 
 		"FireSound"
@@ -6688,38 +6683,10 @@
 		{
 			"DeleteOnHit"	"1"
 			
-			"FireSound"
+			"RunScript"
 			{
-				"EffectName"	"Hero_Dazzle.Poison_Touch"
-				"Target" 		"TARGET"
-			}
-	
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_poison_touch_slow_1_datadriven"
-				"Target" 		"TARGET"
-				"Duration"		"%slow_1_duration"
-			}
-	
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_poison_touch_debuff_datadriven"
-				"Target" 		"TARGET"
-				"Duration"		"%duration_tooltip"
-			}
-	
-			"DelayedAction"
-			{
-				"Delay"     "%set_time"
-				"Action"    
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_poison_touch_damage_datadriven"
-						"Target" 		"TARGET"
-						"Duration"		"%damage_duration"
-					}
-				}
+				"ScriptFile"	"heroes/hero_dazzle/poison_touch.lua"
+				"Function"		"handleProjectileHit"
 			}
 		}
 	
@@ -6729,6 +6696,7 @@
 			{
 				"IsDebuff"		"1"
 				"IsPurgable"	"1"
+				"Duration"		"%duration_tooltip"
 	
 				"EffectName"		"particles/units/heroes/hero_dazzle/dazzle_poison_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -6737,6 +6705,7 @@
 			"modifier_poison_touch_damage_datadriven"
 			{
 				"IsHidden"		"1"
+				"Duration"		"%damage_duration"
 	
 				"OnCreated"
 				{
@@ -6766,6 +6735,7 @@
 	
 				"StatusEffectName" 		"particles/status_fx/status_effect_poison_dazzle.vpcf" 	   
 				"StatusEffectPriority"  "10"
+				"Duration"				"%slow_1_duration"
 	
 				"OnDestroy"
 				{
@@ -8879,19 +8849,6 @@
 				"EffectName"        "particles/units/heroes/hero_doom_bringer/doom_bringer_lvl_death.vpcf"
 				"EffectAttachType"  "follow_origin"
 				"Target"            "TARGET"
-			}
-	
-			"Stun"
-			{
-				"Duration"   "%stun_duration"
-				"Target" 	 "TARGET"
-			}
-	
-			"Damage"
-			{
-				"Target"		"TARGET"
-				"Type"			"DAMAGE_TYPE_MAGICAL"
-				"Damage"		"%damage"
 			}
 	
 			"RunScript"
