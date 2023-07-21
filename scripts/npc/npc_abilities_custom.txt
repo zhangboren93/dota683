@@ -27939,7 +27939,6 @@
 	//		  To show "Can't target self" you can add the CustomError Flash module by zedor: https://github.com/zedor/CustomError
 	//		  The ability animation still plays even when the spells is self targeted
 	//		  Projectile is only cosmetic, the damage/heal is not tied to it
-	//TODO blocked by linken
 	"abaddon_death_coil_datadriven"
 	{
 		// General
@@ -28782,11 +28781,12 @@
 			}
 			
 			
-			"ApplyModifier"
+			"RunScript"
 			{
+				"ScriptFile"	"units/spell_start_target_buf.lua"
+				"Function" 		"handleSpellStart"
 				"ModifierName"	"modifier_mana_leak_datadriven"
-				"Target" 		"TARGET"
-				"Duration"		"%duration"
+				"Target"		"TARGET"
 			}
 		}
 	
@@ -28797,6 +28797,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"Duration"			"%duration"
 	
 				"OnCreated"
 				{
@@ -29658,7 +29659,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		
 		// Unit Targeting
@@ -29731,24 +29732,11 @@
 				"Target"		"TARGET"
 			}
 	
-			"Stun"
-			{
-				"Target"	"TARGET"
-				"Duration"	"%mini_stun"
-			}
-	
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/hero_night_stalker/void.lua"
 				"Function"		"Void"
 				"modifier"		"modifier_void_datadriven"
-			}
-	
-			"Damage"
-			{
-				"Target"	"TARGET"
-				"Type"		"DAMAGE_TYPE_MAGICAL"
-				"Damage"	"%AbilityDamage"
 			}
 		}
 	

@@ -1,6 +1,7 @@
 --[[Author: Pizzalol
 	Date: 07.03.2015.
 	Initializes all the needed starting values for the Mystic Snake]]
+require("../../items/item_sphere")
 function MysticSnakeInitialize( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -50,27 +51,32 @@ function MysticSnake( keys )
 		-- so that we can keep track that we hit it
 		table.insert(caster.mystic_snake_table, target)
 
-		-- Initialize the damage table
-		local damage_table = {}
+		if not is_spell_blocked_by_linkens_sphere(target) then
+			-- Initialize the damage table
+			local damage_table = {}
 
-		damage_table.attacker = caster
-		damage_table.victim = target
-		damage_table.ability = ability
-		damage_table.damage = caster.mystic_snake_damage
+			damage_table.attacker = caster
+			damage_table.victim = target
+			damage_table.ability = ability
+			damage_table.damage = caster.mystic_snake_damage
 
-		-- Check if it has the Dota or Datadriven Stone Gaze modifiers
-		if target:HasModifier("modifier_medusa_stone_gaze_stone") or target:HasModifier("modifier_stone_gaze_stone_datadriven") then
-			damage_table.damage_type = DAMAGE_TYPE_PURE
-		else
-			damage_table.damage_type = ability:GetAbilityDamageType()
-		end
+			-- Check if it has the Dota or Datadriven Stone Gaze modifiers
+			if target:HasModifier("modifier_medusa_stone_gaze_stone") or target:HasModifier("modifier_stone_gaze_stone_datadriven") then
+				damage_table.damage_type = DAMAGE_TYPE_PURE
+			else
+				damage_table.damage_type = ability:GetAbilityDamageType()
+			end
 
-		-- Check if the target has mana
-		-- Remove the mana if it does, update the stolen mana and increase the mana steal for the next jump
-		if target:GetMaxMana() >= 1 then
-			target:Script_ReduceMana(caster.mystic_snake_mana, ability)
-			caster.mystic_snake_stolen_mana = caster.mystic_snake_stolen_mana + caster.mystic_snake_mana
-			caster.mystic_snake_mana = caster.mystic_snake_mana * snake_scale
+			-- Check if the target has mana
+			-- Remove the mana if it does, update the stolen mana and increase the mana steal for the next jump
+			if target:GetMaxMana() >= 1 then
+				target:Script_ReduceMana(caster.mystic_snake_mana, ability)
+				caster.mystic_snake_stolen_mana = caster.mystic_snake_stolen_mana + caster.mystic_snake_mana
+				caster.mystic_snake_mana = caster.mystic_snake_mana * snake_scale
+			end
+
+			-- Deal the damage
+			ApplyDamage(damage_table)
 		end
 
 		-- Play the sound and particle of the spell
@@ -79,9 +85,6 @@ function MysticSnake( keys )
 		local particle_enemy = ParticleManager:CreateParticle(particle_impact_enemy, PATTACH_ABSORIGIN_FOLLOW, target)
 		ParticleManager:SetParticleControl(particle_enemy, 0, target_location) 
 		ParticleManager:SetParticleControl(particle_enemy, 1, target_location)
-
-		-- Deal the damage
-		ApplyDamage(damage_table)
 
 		-- Check if we can do more jumps
 		if caster.mystic_snake_jumps < max_jumps then

@@ -1,3 +1,4 @@
+require("items/item_sphere")
 --[[ ============================================================================================================
 	Author: Rook
 	Date: February 4, 2015
@@ -21,6 +22,8 @@ end
 ================================================================================================================= ]]
 function item_heavens_halberd_datadriven_on_spell_start(keys)
 	keys.caster:EmitSound("DOTA_Item.HeavensHalberd.Activate")
+
+	if is_spell_blocked_by_linkens_sphere(keys.target) then return end
 	
 	if keys.target:IsRangedAttacker() then
 		keys.ability:ApplyDataDrivenModifier(keys.caster, keys.target, "modifier_item_heavens_halberd_datadriven_disarm", {duration = keys.DisarmDurationRanged})

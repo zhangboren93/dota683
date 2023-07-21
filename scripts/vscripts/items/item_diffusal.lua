@@ -1,3 +1,5 @@
+require("items/item_sphere")
+
 function manaBurn(event)
 	local target = event.target
 	local ability = event.ability
@@ -24,10 +26,18 @@ end
 function purge(event)
 	local target = event.target
 	local caster = event.caster
+
+	if is_spell_blocked_by_linkens_sphere_a(target, caster) then return end
+
 	local RemovePositiveBuffs = not (target:GetTeam() == caster:GetTeam())
 	local RemoveDebuffs = target:GetTeam() == caster:GetTeam()
 	local BuffsCreatedThisFrameOnly = false
 	local RemoveStuns = false
 	local RemoveExceptions = false
 	target:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
+
+	if target:GetTeam() ~= caster:GetTeam() then
+		local ability = event.ability
+		ability:ApplyDataDrivenModifier(caster, target, event.ModifierName, {})
+	end
 end

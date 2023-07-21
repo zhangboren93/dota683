@@ -3,6 +3,7 @@
 	Date: 14.1.2015.
 	If cast on an ally it will heal, if cast on an enemy it will do damage
 ]]
+require("../../items/item_sphere")
 function DeathCoil( event )
 	-- Variables
 	local caster = event.caster
@@ -17,6 +18,8 @@ function DeathCoil( event )
 	-- Play the ability sound
 	caster:EmitSound("Hero_Abaddon.DeathCoil.Cast")
 	target:EmitSound("Hero_Abaddon.DeathCoil.Target")
+
+	if is_spell_blocked_by_linkens_sphere_a(target, caster) then return end
 
 	-- If the target and caster are on a different team, do Damage. Heal otherwise
 	if target:GetTeamNumber() ~= caster:GetTeamNumber() then

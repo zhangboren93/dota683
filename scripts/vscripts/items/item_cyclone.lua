@@ -1,9 +1,13 @@
+require("items/item_sphere")
 function handleAbilityExecuted(keys)
 	local unit = keys.unit
 	local ability2 = keys.ability
 	local event_ability = keys.event_ability
 	local target = keys.target
 	if event_ability:GetName() == "item_cyclone" then
+
+		if is_spell_blocked_by_linkens_sphere_a(target, unit) then return end
+
 		local RemovePositiveBuffs = not (target:GetTeam() == unit:GetTeam())
 		local RemoveDebuffs = target:GetTeam() == unit:GetTeam()
 		local BuffsCreatedThisFrameOnly = false

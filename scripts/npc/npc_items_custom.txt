@@ -8619,22 +8619,12 @@
 			{
 				
 			}	
-			"ApplyModifier"
-			{
-				"Target"
-				{
-					"Center"			"TARGET"
-                	"Radius"			"1"
-                	"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY" 
-                	"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				}
-				"ModifierName"	"modifier_diffusal_purge_slow_datadriven"
-			}
 			"RunScript"
 			{
     			"Target"		"TARGET"
     			"ScriptFile"	"items/item_diffusal.lua"
 				"Function"		"purge"
+				"ModifierName"	"modifier_diffusal_purge_slow_datadriven"
 			}
 		}
 		// Special	
@@ -8758,16 +8748,12 @@
 			{
 				
 			}	
-			"ApplyModifier"
-			{
-				"Target"	"TARGET"
-				"ModifierName"	"modifier_diffusal_2_purge_slow_datadriven"
-			}
 			"RunScript"
 			{
     			"Target"		"TARGET"
     			"ScriptFile"	"items/item_diffusal.lua"
 				"Function"		"purge"
+				"ModifierName"	"modifier_diffusal_2_purge_slow_datadriven"
 			}
 		}
 		// Special	
@@ -9440,11 +9426,13 @@
 	    		"Target"				"TARGET"
 	    	}
 
-           	"ApplyModifier"
-	    	{
-	    		"Target"			"TARGET"
-	    		"ModifierName"		"modifier_item_atos_datadriven_magic_slow"
-	    	}
+			"RunScript"
+			{
+				"ScriptFile"	"units/spell_start_target_buf.lua"
+				"Function" 		"handleSpellStart"
+				"ModifierName"	"modifier_item_atos_datadriven_magic_slow"
+				"Target"		"TARGET"
+			}
 	    }
 	    "Modifiers"
 	    {

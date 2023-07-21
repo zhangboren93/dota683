@@ -1,6 +1,9 @@
 --[[Author: YOLOSPAGHETTI
 	Date: February 14, 2016
 	Checks if the target already has a projectile flying at it, and attempts to send one at a fresh target]]
+
+require("../../items/item_sphere")
+
 function CheckTargets(keys)
 	local caster = keys.caster
 	local target = keys.target
@@ -89,6 +92,8 @@ function AOEEffect(keys)
 	local multicast = caster:FindAbilityByName("ogre_magi_multicast_datadriven")
 	local ignite_aoe = ability:GetLevelSpecialValueFor("ignite_aoe", multicast:GetLevel() -1)
 	
+	if is_spell_blocked_by_linkens_sphere(target) then return end
+
 	if multicast:GetLevel() > 0 then
 		local units = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, ignite_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, 0, 0, false)
 		for i,unit in ipairs(units) do
