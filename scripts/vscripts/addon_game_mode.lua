@@ -1246,6 +1246,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			parent:FindAbilityByName("courier_flying_upgrade_datadriven"):ApplyDataDrivenModifier(parent, parent,
 				"modifier_courier_transfer_stop_checker", {})
 		end
+	elseif event.name_const == "modifier_slark_pounce_leash" then 
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		caster:FindAbilityByName("slark_shadow_dance_heal_datadriven"):ApplyDataDrivenModifier(
+			caster, parent, "modifier_slark_pounce_leash_datadriven", { duration = 3.5 })
+		return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false

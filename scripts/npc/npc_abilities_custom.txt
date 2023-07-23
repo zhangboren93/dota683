@@ -13116,6 +13116,7 @@
 		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"						"1"
+		"AbilityTextureName"			"slark_pounce"
 		"Modifiers"
 		{
 			"modifier_slark_shadow_dance_heal_thinker"
@@ -13129,6 +13130,35 @@
 					{
 						"ScriptFile"	"heroes/hero_slark/shadow_dance_heal.lua"
 						"Function"		"updateHealModifier"
+					}
+				}
+			}
+			"modifier_slark_pounce_leash_datadriven"
+			{
+				"IsDebuff"		"1"
+				"ThinkInterval"	"0.1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_slark/pounce.lua"
+						"Function"		"handleLeashCreated"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_slark/pounce.lua"
+						"Function"		"handleLeashIntervalThink"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_slark/pounce.lua"
+						"Function"		"handleLeashDestroy"
 					}
 				}
 			}
