@@ -1,8 +1,6 @@
 function handleLeashCreated(event)
 	local target = event.target
 	local caster = event.caster
-	print(target:GetName())
-	print(caster:GetName())
 	caster.leash_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_slark/slark_pounce_leash.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:SetParticleControl(caster.leash_particle, 1, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControlEnt(caster.leash_particle, 3, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)

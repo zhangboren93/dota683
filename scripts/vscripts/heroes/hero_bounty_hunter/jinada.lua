@@ -15,6 +15,11 @@ function Jinada( keys )
 --	caster:SetThink(function()
 --		ability:ApplyDataDrivenModifier(caster, caster, modifierName, {})
 --		end, "bounty jinada", cooldown)	
+--
+	local target = keys.target
+	if caster:IsRealHero() and not target:IsBuilding() then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_jinada_slow_datadriven", {})
+	end
 end
 
 function handleAttackStart(event)

@@ -13117,6 +13117,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"						"1"
 		"AbilityTextureName"			"slark_pounce"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_slark/slark_pounce_leash.vpcf"
+		}
 		"Modifiers"
 		{
 			"modifier_slark_shadow_dance_heal_thinker"
@@ -13137,6 +13141,7 @@
 			{
 				"IsDebuff"		"1"
 				"ThinkInterval"	"0.1"
+				"IsPurgable"	"1"
 				"OnCreated"
 				{
 					"RunScript"
@@ -30668,6 +30673,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"	"bounty_hunter_jinada"
+		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_YES"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -30739,12 +30745,6 @@
 	
 				"OnAttackLanded"
 				{
-	
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_jinada_slow_datadriven"
-						"Target"	"TARGET"
-					}
 	
 					"FireEffect"
 					{

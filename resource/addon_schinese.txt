@@ -291,8 +291,15 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft_Description"				"12技能-1/2/3/4秒CD-10/15/20/25耗蓝，大招加魂数量3/4/5/6，被动移速+4/8/12/16%%"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"狂怒"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"伤害+5/6/7%%拍拍生命值"
-		"DOTA_Tooltip_Ability_bounty_hunter_jinada_datadriven"					"忍术"
-		"DOTA_Tooltip_Ability_bounty_hunter_jinada_datadriven_Description"		"暴击%crit_multiplier%%%"
+		//Bounty Hunter
+		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven"						"忍术"
+		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Description"			"赏金猎人准备好他的下次攻击，造成致命一击并残废目标。"
+		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Lore"					"刚铎庞杂的经验能确保他在交易后不会空手而归。"
+		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_crit_multiplier"		"%暴击伤害："
+		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_bonus_movespeed"		"%移速降低："
+		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_bonus_attackspeed"	"攻速降低："
+		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_duration"				"减速时间："
+
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven"				"疾风步"
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_Description"	"隐身持续%duration%秒，破隐%bonus_damage%伤害"
 		"DOTA_Tooltip_Ability_bounty_hunter_track_Lore"							"团队+20%%移速"
