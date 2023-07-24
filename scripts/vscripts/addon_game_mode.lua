@@ -178,6 +178,7 @@ function CAddonTemplateGameMode:InitGameMode()
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
+	CustomGameEventManager:RegisterListener("hero_bar_ping_miss", CAddonTemplateGameMode.handleHeroBarPingMiss)
 
 	if GetMapName() == "dota" then
 		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
@@ -1411,6 +1412,14 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 		captain_pick_phase = captain_pick_phase + 1
 		captain_normal_time = 40
 	end
+end
+
+function CAddonTemplateGameMode:handleHeroBarPingMiss(event)
+	local missing_player_id = event.mpid;
+	local reporting_player_id = event.pid;
+	local missing_hero = PlayerResource:GetPlayer(missing_player_id):GetAssignedHero():GetName()
+	local team = PlayerResource:GetPlayer(reporting_player_id):GetTeam()
+	GameRules:SendCustomMessageToTeam(string.sub(missing_hero, 15) .. "_miss", team, -1, -1)
 end
 
 function HandleBuyback(entindex, player_id)
