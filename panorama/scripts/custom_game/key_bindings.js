@@ -1,5 +1,6 @@
 GameEvents.Subscribe("courier_start_transfer", OnCourierStartTransfer);
 GameEvents.Subscribe("courier_end_transfer", OnCourierEndTransfer);
+GameEvents.Subscribe("courier_respawn_time", OnCourierRespawnTime);
 
 function OnCustomeGameSelectCourier()
 {
@@ -35,3 +36,15 @@ function OnCourierEndTransfer() {
 	$("#courier-ip").AddClass("image-hidden")
 }
 
+function OnCourierRespawnTime(event) {
+	if (event.respawned == 1) {
+		$("#courier-respawn-remaining").text = "";
+	} else {
+		var minutes = event.time % 60
+		if (minutes >= 10) {
+			$("#courier-respawn-remaining").text = Math.floor(event.time / 60) + ":" + event.time % 60;
+		} else {
+			$("#courier-respawn-remaining").text = Math.floor(event.time / 60) + ":0" + event.time % 60;
+		}
+	}
+}

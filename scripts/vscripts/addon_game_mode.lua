@@ -491,12 +491,6 @@ function CAddonTemplateGameMode:OnThink()
 			self.nextRoshanTime = nil
 		end
 
-		-- send glyph cooldown time to clients
-		--print("send glyph cooldown time to clients")
-		CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_GOODGUYS, "team_glyph_cooldown_tick", {
-			cd = math.floor(Entities:FindByName(nil, "ent_dota_fountain_good"):FindAbilityByName("glyph_datadriven"):GetCooldownTimeRemaining()) })
-		CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_BADGUYS, "team_glyph_cooldown_tick", {
-			cd = math.floor(Entities:FindByName(nil, "ent_dota_fountain_bad"):FindAbilityByName("glyph_datadriven"):GetCooldownTimeRemaining()) })
 
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
@@ -520,6 +514,39 @@ function CAddonTemplateGameMode:OnThink()
 			end
 		end
 	end
+
+	-- send times to UI
+	if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME or GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+		-- send glyph cooldown time to clients
+		--print("send glyph cooldown time to clients")
+		CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_GOODGUYS, "team_glyph_cooldown_tick", {
+			cd = math.floor(Entities:FindByName(nil, "ent_dota_fountain_good"):FindAbilityByName("glyph_datadriven"):GetCooldownTimeRemaining()) })
+		CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_BADGUYS, "team_glyph_cooldown_tick", {
+			cd = math.floor(Entities:FindByName(nil, "ent_dota_fountain_bad"):FindAbilityByName("glyph_datadriven"):GetCooldownTimeRemaining()) })
+
+		if self.radiant_courier_stat then
+			if self.radiant_courier_stat.dead then
+				self.radiant_courier_stat.respawn_time = self.radiant_courier_stat.respawn_time - 2
+				CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_GOODGUYS, "courier_respawn_time", { 
+					time = self.radiant_courier_stat.respawn_time })
+			else
+				CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_GOODGUYS, "courier_respawn_time", { 
+					respawned = 1 })
+			end
+		end
+
+		if self.dire_courier_stat then
+			if self.dire_courier_stat.dead then
+				self.dire_courier_stat.respawn_time = self.dire_courier_stat.respawn_time - 2
+				CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_BADGUYS, "courier_respawn_time", { 
+					time = self.dire_courier_stat.respawn_time })
+			else
+				CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_BADGUYS, "courier_respawn_time", { 
+					respawned = 1 })
+			end
+		end
+	end
+
 	return 2
 end
 
@@ -929,6 +956,12 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			dire_primary_courier = entity
 			entity.is_primary_courier = true
 		end
+		if entity:GetTeam() == DOTA_TEAM_GOODGUYS and entity.is_primary_courier and self.radiant_courier_stat ~= nil then
+			self.radiant_courier_stat.dead = false
+		end
+		if entity:GetTeam() == DOTA_TEAM_BADGUYS and entity.is_primary_courier and self.dire_courier_stat ~= nil then
+			self.dire_courier_stat.dead = false
+		end
 	elseif entity:GetName() == "npc_dota_beastmaster_hawk" then
 		--print("owned by " .. entity:GetPlayerOwnerID())
 		entity:SetControllableByPlayer(entity:GetPlayerOwnerID(), false)
@@ -1031,8 +1064,18 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		end		
 	end
 	if entity:IsCourier() and entity.is_primary_courier then
-		--TODO Courier bounty
-		print("Main courier killed, team " .. entity:GetTeam() .. " respawn in " .. (60 + entity:GetLevel() * 6)); 
+		local respawnTime = 60 + entity:GetLevel() * 6
+		if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
+			self.radiant_courier_stat = {
+				dead = true,
+				respawn_time = respawnTime
+			}
+		else
+			self.dire_courier_stat = {
+				dead = true,
+				respawn_time = respawnTime
+			}
+		end
 	end
 end
 
@@ -1113,7 +1156,7 @@ function CAddonTemplateGameMode:ModifyGoldFilter(event)
 		--print("Blocking buybacked hero from gaining unreliable gold")
 		return false
 	end 
-	if event.reason_const == DOTA_ModifyGold_CourierKill then
+	if event.reason_const == DOTA_ModifyGold_CourierKill or event.reason_const == DOTA_ModifyGold_CourierKilledByThisPlayer then
 		print("Give courier gold to player " .. event.player_id_const)
 		event.gold = 150
 	end

@@ -8,9 +8,7 @@
 	</scripts>
 
 	<Panel class="courier-panel">
-        <Button class="button-hidden" id="select-courier-button" onactivate="OnCustomeGameSelectCourier()">
-			<Image src="file://{images}/custom_game/courier_icon.png" />
-		</Button>
+		<Label id="courier-respawn-remaining"/>
 		<Button id="courier-send-button" class="send-button-no-send" onactivate="OnCustomGameCourierSend()">
 			<Image src="file://{images}/custom_game/courier_transfer_item.png" />
 		</Button>
