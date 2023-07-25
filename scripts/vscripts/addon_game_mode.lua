@@ -535,6 +535,7 @@ end
 -- Add the order filter to your game mode entity
 function CAddonTemplateGameMode:OrderFilter(event)
 	--print("OrderFilter " .. event.order_type .. " " .. event.issuer_player_id_const)
+	--DeepPrintTable(event)
 	if event.order_type == DOTA_UNIT_ORDER_GLYPH then
 		local player = PlayerResource:GetPlayer(event.issuer_player_id_const)
 		local team = player:GetTeam()
@@ -543,7 +544,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		else
 			fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
-		end
+		end--
 		local glyph = fountain:FindAbilityByName("glyph_datadriven")
 		glyph:CastAbility()
 		return false
@@ -1029,6 +1030,10 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			GameRules:SendCustomMessage("建筑被摧毁，".. teamname .. "玩家各获得" .. team_bounty .. "金" , -1, -1)
 		end		
 	end
+	if entity:IsCourier() and entity.is_primary_courier then
+		--TODO Courier bounty
+		print("Main courier killed, team " .. entity:GetTeam() .. " respawn in " .. (60 + entity:GetLevel() * 6)); 
+	end
 end
 
 function HandleRuneActivated(playerid, rune)
@@ -1108,6 +1113,10 @@ function CAddonTemplateGameMode:ModifyGoldFilter(event)
 		--print("Blocking buybacked hero from gaining unreliable gold")
 		return false
 	end 
+	if event.reason_const == DOTA_ModifyGold_CourierKill then
+		print("Give courier gold to player " .. event.player_id_const)
+		event.gold = 150
+	end
 	return true
 end
 

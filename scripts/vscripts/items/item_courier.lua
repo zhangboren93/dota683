@@ -16,11 +16,16 @@ function flyingUpgradeChecker(event)
     -- DeepPrintTable(event)
     local entity = event.caster
     local ability = event.ability
-    if entity:GetLevel() < 4 then
-        entity:UpgradeCourier(4)
-    end
+	-- Level 4 for flying upgrade visual, Level 10 for respawn time as 120
     if entity:HasModifier("modifier_courier_flying_upgrade_active") then
+		-- Level 20 for respawn time as 180
+		if entity:GetLevel() ~= 20 then
+			entity:UpgradeCourier(20)
+		end
         return
+    end
+    if entity:GetLevel() ~= 10 then
+        entity:UpgradeCourier(10)
     end
     if entity:HasItemInInventory("item_flying_courier_datadriven") then
         ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_flying_upgrade_active", {})
