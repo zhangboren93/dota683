@@ -61,3 +61,33 @@ function DealSplashDamage( event )
 		end
 	end
 end
+
+function handleSpellStart(event)
+	local ability = event.ability
+	local unit_name = "npc_dota_shadow_shaman_ward_" .. ability:GetLevel()
+	local point = event.target:GetAbsOrigin()
+	local caster = event.caster
+	local forward = (caster:GetAbsOrigin() - point):Normalized() * 32 * 2
+	local right = Vector(forward.y, -forward.x, 0)
+	placeWard(unit_name, ability, caster, point + forward + 2 * right)
+	placeWard(unit_name, ability, caster, point + forward + right)
+	placeWard(unit_name, ability, caster, point + forward)
+	placeWard(unit_name, ability, caster, point + forward - right)
+	placeWard(unit_name, ability, caster, point + forward - 2 * right)
+	placeWard(unit_name, ability, caster, point + right)
+	placeWard(unit_name, ability, caster, point - right)
+	placeWard(unit_name, ability, caster, point - forward - right)
+	placeWard(unit_name, ability, caster, point - forward)
+	placeWard(unit_name, ability, caster, point - forward + right)
+end
+
+function placeWard(unit_name, ability, caster, point)
+	local duration = ability:GetSpecialValueFor("duration")
+	--print(point)
+	CreateUnitByNameAsync(unit_name, point, false, caster, caster, caster:GetTeam(), function(unit)
+		--unit:AddNewModifier(caster, ability, "modifier_phased", { duration = 0.3 })
+		unit:AddNewModifier(caster, ability, "modifier_kill", { duration = duration})
+		ability:ApplyDataDrivenModifier(caster, unit, "modifier_serpent_ward", {})
+		unit:SetControllableByPlayer(caster:GetPlayerID(), false)
+	end)
+end

@@ -3295,17 +3295,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"ward_count"		"10"
-			"damage_min"			"40 55 70"
-			"damage_max"			"45 60 75"
+			"ward_count"			"10"
 			"duration"				"40"
 			"bonus_damage_scepter"	{
 				"value"						"0"
 				"special_bonus_scepter"		"45 50 55"
 			}
-			"ward_1_count"			"10 0 0"
-			"ward_2_count"			"0 10 0"
-			"ward_3_count"			"0 0 10"
+			"damage_tooltip"
+			{
+				"value"						"45 60 75"
+				"special_bonus_scepter"		"+45 +50 +55"
+			}
 			"splash_full"			"100"
 			"splash_medium"			"40"
 			"splash_small"			"20"
@@ -3327,92 +3327,28 @@
 				"EffectName"		"Hero_ShadowShaman.SerpentWard"
 				"Target"			"CASTER"
 			}
-	
-			"SpawnUnit"
+
+			"CreateThinker"
 			{
-				"UnitName"			"npc_dota_shadow_shaman_ward_1"
-				"Target"			"POINT"
-				"UnitCount"			"%ward_1_count"
-				"Duration"			"%duration"
-				"SpawnRadius"		"?10 100"
-				"GrantsGold"		"1"
-				"GrantsXP"			"1"
-	
-				"OnSpawn"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_phased"
-						"Target"		"TARGET"
-						"Duration"		"0.03"
-					}
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_serpent_ward"
-						"Target" 		"TARGET"
-						"Duration"		"%duration"
-					}
-				}
-			}	
-	
-			"SpawnUnit"
-			{
-				"UnitName"			"npc_dota_shadow_shaman_ward_2"
-				"Target"			"POINT"
-				"UnitCount"			"%ward_2_count"
-				"Duration"			"%duration"
-				"SpawnRadius"		"?10 100"
-				"GrantsGold"		"1"
-				"GrantsXP"			"1"
-	
-				"OnSpawn"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_phased"
-						"Target"		"TARGET"
-						"Duration"		"0.03"
-					}
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_serpent_ward"
-						"Target" 		"TARGET"
-						"Duration"		"%duration"
-					}
-				}
-			}	
-	
-			"SpawnUnit"
-			{
-				"UnitName"			"npc_dota_shadow_shaman_ward_3"
-				"Target"			"POINT"
-				"UnitCount"			"%ward_3_count"
-				"Duration"			"%duration"
-				"SpawnRadius"		"?10 100"
-				"GrantsGold"		"1"
-				"GrantsXP"			"1"
-	
-				"OnSpawn"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_phased"
-						"Target"		"TARGET"
-						"Duration"		"0.03"
-					}
-	
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_serpent_ward"
-						"Target" 		"TARGET"
-						"Duration"		"%duration"
-					}
-				}
+				"ModifierName"	"modifier_mass_serpent_spawn"
+				"Target" 		"POINT"
 			}
 		}
 	
 		"Modifiers"
 		{
+			"modifier_mass_serpent_spawn"
+			{
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_shadow_shaman/mass_serpent_ward.lua"
+						"Function"			"handleSpellStart"
+						"Target"				"POINT"
+					}
+				}
+			}
 			// modifier_shadow_shaman_serpent_ward is the Built-In, to give green damage to the wards
 			"modifier_serpent_ward"
 			{
