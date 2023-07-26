@@ -1979,7 +1979,7 @@
 		"Ability14"		"special_bonus_all_stats_8"
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
-		"Ability17"		"special_bonus_all_stats_14"
+		"Ability17"		""
 	}
 	"npc_dota_hero_elder_titan"			
 	{
