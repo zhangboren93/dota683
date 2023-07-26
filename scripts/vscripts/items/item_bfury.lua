@@ -26,7 +26,7 @@ function item_bfury_cleave_lua:OnProcessCleave(event)
 		local radius = ability:GetSpecialValueFor("cleave_radius")
 		local damage = event.damage * pct /100
 		local pos = attacker:GetOrigin()+(target:GetOrigin()-attacker:GetOrigin()):Normalized()*radius
-		local units = FindUnitsInRadius(attacker:GetTeam(),pos,nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,19,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
+		local units = FindUnitsInRadius(attacker:GetTeam(),pos,nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
 
 		local effect = ParticleManager:CreateParticle("particles/items_fx/battlefury_cleave.vpcf",PATTACH_CENTER_FOLLOW,attacker)
 		ParticleManager:SetParticleControlOrientationFLU(effect,0,attacker:GetForwardVector()*CalcDistanceBetweenEntityOBB(attacker,target),attacker:GetRightVector(),attacker:GetUpVector())

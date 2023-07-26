@@ -26,7 +26,7 @@ function modifier_sven_great_cleave_radius:OnProcessCleave(event)
 		local radius = ability:GetSpecialValueFor("cleave_radius")
 		local damage = event.damage * pct /100
 		local pos = attacker:GetOrigin()+(target:GetOrigin()-attacker:GetOrigin()):Normalized()*radius
-		local units = FindUnitsInRadius(attacker:GetTeam(),pos,nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,19,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
+		local units = FindUnitsInRadius(attacker:GetTeam(),pos,nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
 		for k,v in ipairs(units) do
 			if v ~= target then
 				ApplyDamage({
