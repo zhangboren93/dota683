@@ -65,15 +65,6 @@ function transforStopChecker(event)
 	end
 end
 
-function minimapIconChecker(event)
-    local entity = event.caster
-	if entity.is_primary_courier then
-		local dummy = CreateUnitByName("npc_dummy_unit_courier", entity:GetAbsOrigin(), true, entity, entity, entity:GetTeam())
-		dummy:AddNewModifier(entity, nil, "modifier_kill", { duration = 1 })
-		event.ability:ApplyDataDrivenModifier(entity, dummy, "modifier_courier_minimap_icon", {})
-	end
-end
-
 function handleBurstSpellStart(event)
 	event.ability:ApplyDataDrivenModifier(event.caster, event.caster, "modifier_courier_burst_datadriven", {})
 end

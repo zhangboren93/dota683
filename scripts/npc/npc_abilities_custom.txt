@@ -16550,32 +16550,6 @@
 					}
 				}
 			}
-			"courier_minimap_icon_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_courier.lua"
-						"Function"		"minimapIconChecker"
-					}
-				}
-			}
-			"modifier_courier_minimap_icon"
-			{
-				"States"
-				{
-					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 			"modifier_move_speed_cancel_night_datadriven"
 			{
 				"Passive"		"1"
