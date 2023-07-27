@@ -3426,6 +3426,7 @@
 		"AttackAnimationPoint"		"0.3"
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
+		"Ability1"		"ursa_earthshock_datadriven"
 		"Ability6"		"ursa_enrage_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"

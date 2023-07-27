@@ -1434,6 +1434,7 @@
 	}
 	"item_dust"
 	{
+		"ItemPurchasable"				"0"
 		"AbilityCooldown"				"60.0"
 		"ItemCost"						"180"
 		"ItemInitialCharges"			"2"		  
@@ -1444,6 +1445,99 @@
 				"movespeed"				"-15"
 				"damage"				"0"
 				"linger_duration"				"12"
+		}
+	}
+	"item_dust_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"Model"							"models/props_gameplay/dust.vmdl"
+		"Effect"						"particles/generic_gameplay/dropped_dust.vpcf"
+		"AbilityTextureName"			"item_dust"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60.0"
+		"AbilityCastRange"				"1050"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"180"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+		"ItemAliases"					"dust of appearance"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"2"		  
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+		"ItemSupport"					"1"
+		"IsTempestDoubleClonable"		"1"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"duration"				"0.1"
+				"radius"				"1050"
+				"movespeed"				"-15"
+				"damage"				"0"
+				"linger_duration"		"12"
+		}
+
+		"precache"
+		{
+			"particle"	"particles/items_fx/dust_of_appearance.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			//applies modifier_item_dustofappearance
+			"RunScript"
+			{
+				"ScriptFile"			"items/item_dust.lua"
+				"Function"				"handleSpellStart"
+			}
+			"FireSound"
+			{
+				"EffectName"			"DOTA_Item.DustOfAppearance.Activate"
+				"Target"				"CASTER"
+			}
+			"SpendCharge"
+			{
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_dust_invis_slow_checker"
+			{
+				"IsPurgable"	"1"
+				"IsHidden"		"1"
+				"Duration"		"%linger_duration"
+				"ThinkInterval"	"0.1"
+				"IsDebuff"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_dust.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			"modifier_dust_invis_slow_active"
+			{
+				"IsPurgable"	"1"
+				"Duration"		"0.15"
+				"IsHidden"		"1"
+				"IsDebuff"		"1"
+				"Properties"
+				{
+    				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movespeed"
+				}
+			}
 		}
 	}
 	"item_bottle"

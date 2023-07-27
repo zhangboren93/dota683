@@ -99,6 +99,10 @@
 		"DOTA_Tooltip_ability_item_bfury_datadriven_bonus_damage"		            "+伤害："
 		"DOTA_Tooltip_ability_item_bfury_datadriven_bonus_health_regen"	            "+回血："
 		"DOTA_Tooltip_ability_item_bfury_datadriven_bonus_mana_regen_percentage"	"%+回蓝："
+		//Dust
+		"DOTA_Tooltip_Ability_item_dust_datadriven"											"显影之尘"
+		"DOTA_Tooltip_ability_item_dust_datadriven_Description"								"<h1>使用：现形</h1>在施法者站立位置的%radius%范围内创造一片区域，使其中的隐身单位现形，并减速%movespeed%%%。<br><br>负面状态会在敌方英雄粘滞%linger_duration%秒。"
+		"DOTA_Tooltip_ability_item_dust_datadriven_Lore"										"容颜易藏，音声难隐。"
 
 		"DOTA_Tooltip_Ability_clinkz_str_datadrivenafe_datadriven"					"扫射"
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven_Description"		"+%attack_speed_bonus_pct%攻速，持续%duration%秒"
@@ -289,8 +293,15 @@
 		"DOTA_Tooltip_Ability_omniknight_guardian_angel_Lore"					"+25回复"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft"							"巫术专精"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft_Description"				"12技能-1/2/3/4秒CD-10/15/20/25耗蓝，大招加魂数量3/4/5/6，被动移速+4/8/12/16%%"
+		//Ursa
+		"DOTA_Tooltip_ability_ursa_earthshock_datadriven"											"震撼大地"
+		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_Description"								"熊战士猛击地面带来强烈的冲击，对附近范围内的所有敌方单位造成伤害并减速%abilityduration%秒。"
+		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_Lore"										"雄性熊怪有力的步伐撼动着大地，展示了他们坚定的战士之心。"
+		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_movement_slow"								"%移动速度减缓："
+		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_shock_radius"								"作用范围："
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"狂怒"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"伤害+5/6/7%%拍拍生命值"
+
 		//Bounty Hunter
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven"						"忍术"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Description"			"赏金猎人准备好他的下次攻击，造成致命一击并残废目标。"
