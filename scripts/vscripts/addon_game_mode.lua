@@ -52,7 +52,6 @@ function Activate()
 	LinkLuaModifier( "modifier_riki_invis_health_regen",		"modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",	"modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",	"modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_doom_scorched_earth_regen",		"modifiers/doom_scorched_earth_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			"modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_familiar_attack_damage_lua",		"modifiers/familiar_attack_bonus.lua", LUA_MODIFIER_MOTION_NONE)
@@ -812,17 +811,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
 		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then
 			entity:FindAbilityByName("keeper_of_the_light_spirit_form_checker"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_doom_bringer" then
-			entity:SetThink(function()
-				if entity:HasModifier("modifier_doom_bringer_scorched_earth_effect") then
-					local ability = entity:FindAbilityByName("doom_bringer_scorched_earth")
-					entity:AddNewModifier(entity, ability, "modifier_doom_scorched_earth_regen", {
-						health_regen = ability:GetSpecialValueFor("damage_per_second")})
-				else
-					entity:RemoveModifierByName("modifier_doom_scorched_earth_regen")
-				end
-				return 1
-			end, "doom", 1);
 		elseif entity:GetName() == "npc_dota_hero_slark" then
 			entity:FindAbilityByName("slark_shadow_dance_heal_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_arc_warden" then

@@ -328,10 +328,12 @@
 		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven"						"Thirst"
 		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_Description"			"+%bonus_movement_speed%%% move speed, +%bonus_damage% damage"
 		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"  	"+2 missles"
+		//Doom
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven"					"Lvl Death"
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven_Description"		"basic damage %damage%, mini stun, when level is times of %lvl_bonus_multiple% damage 20%% max health"
-		"DOTA_Tooltip_Ability_doom_bringer_scorched_earth_Lore"						"health regen"
-		"DOTA_Tooltip_Ability_doom_bringer_doom_Scepter_Description"				"add damage & duration"
+		"DOTA_Tooltip_Ability_doom_bringer_scorched_earth_damage_per_second"		"DAMAGE & HEAL:"
+		"DOTA_Tooltip_Ability_doom_bringer_doom_Scepter_Description"				"add damage & duration, and applies break."
+
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"Chaos attack"
 		"DOTA_Tooltip_Ability_beastmaster_primal_roar_Scepter_Description"			"+350 cast range, CD 45 seconds"
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven"					"Poison"

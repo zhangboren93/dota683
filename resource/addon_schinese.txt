@@ -327,10 +327,12 @@
 		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven"						"饥渴"
 		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_Description"			"+%bonus_movement_speed%%%移速，+%bonus_damage%攻击力"
 		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"  	"+2导弹数量"
+		//Doom
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven"					"等级炮"
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven_Description"		"基础伤害%damage%，短眩晕，等级为%lvl_bonus_multiple%倍数时伤害最大生命20%%"
-		"DOTA_Tooltip_Ability_doom_bringer_scorched_earth_Lore"						"回血"
-		"DOTA_Tooltip_Ability_doom_bringer_doom_Scepter_Description"				"增加伤害和持续时间"
+		"DOTA_Tooltip_Ability_doom_bringer_scorched_earth_damage_per_second"		"伤害和回血："
+		"DOTA_Tooltip_Ability_doom_bringer_doom_Scepter_Description"				"增加伤害和持续时间，并破被动。"
+
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"混乱攻击"
 		"DOTA_Tooltip_Ability_beastmaster_primal_roar_Scepter_Description"			"+350距离，CD45秒"
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven"					"毒"
