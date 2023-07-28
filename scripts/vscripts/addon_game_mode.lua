@@ -1380,23 +1380,6 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 			event.value = ability_grow:GetSpecialValueFor("toss_bonus_damage_pct")
 			return true
 		end
-	--elseif ability:GetName() == "brewmaster_drunken_brawler_datadriven" then
-	--	print(ability:GetName())
-	--	print(event.value_name_const)
-	--	if event.value_name_const == "dodge_chance" then
-	--		print("overriding dodge")
-	--		event.value = 0
-	--		return true
-	--	elseif event.value_name_const == "crit_chance" then
-	--		event.value = 0
-	--		return true
-	--	end
-	--elseif ability:GetName() == "phantom_assassin_blur_datadriven" and event.value_name_const == "bonus_evasion" and caster:PassivesDisabled() then
-	--	event.value = 0
-	--	return true
-	--elseif ability:GetName() == "slardar_bash_datadriven" and event.value_name_const == "chance" and caster:PassivesDisabled() then
-	--	event.value = 0
-	--	return true
 	--elseif ability:GetName() == "skeleton_king_vampiric_aura_datadriven" and event.value_name_const == "vampiric_aura" and caster:PassivesDisabled() then
 	--	event.value = 0
 	--	return true

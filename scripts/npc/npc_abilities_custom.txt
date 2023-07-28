@@ -16993,9 +16993,24 @@
 	
 		"Modifiers"
 		{
+			"modifier_vampiric_aura_break_checker"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/passive_disabled_by_break.lua"
+						"Function"		"handleIntervalThink"
+						"ModifierName"	"modifier_vampiric_aura"
+					}
+				}
+			}
 			"modifier_vampiric_aura"
 			{
-				"Passive" 			"1"
+				"Passive" 			"0"
 				"IsHidden" 			"1"
 				"IsBuff"			"1"
 	
@@ -18865,9 +18880,24 @@
 	
 		"Modifiers"
 		{
+			"modifier_mortal_strike_break_checker"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/passive_disabled_by_break.lua"
+						"Function"		"handleIntervalThink"
+						"ModifierName"	"modifier_mortal_strike"
+					}
+				}
+			}
 			"modifier_mortal_strike"
 			{
-			    "Passive"   "1"
+			    "Passive"   "0"
 			    "IsHidden"  "1"
 			    "OnAttackStart"
 			    {
@@ -18991,11 +19021,26 @@
 				}
 			}
 	
+			"modifier_bash_break_checker"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/passive_disabled_by_break.lua"
+						"Function"		"handleIntervalThink"
+						"ModifierName"	"modifier_bash_datadriven"
+					}
+				}
+			}
 	
 			"modifier_bash_datadriven"		
 			{
 				"IsHidden"	"1"
-				"Passive"	"1"
+				"Passive"	"0"
 	
 				"OnAttackLanded"
 				{
@@ -20236,11 +20281,33 @@
 	
 		"Modifiers"
 		{
+			"modifier_blur_evasion_break_checker"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/passive_disabled_by_break.lua"
+						"Function"		"handleIntervalThink"
+						"ModifierName"	"modifier_blur_evasion_datadriven"
+					}
+				}
+			}
+			"modifier_blur_evasion_datadriven"
+			{
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"%bonus_evasion"
+				}
+			}
 			"modifier_blur_datadriven"
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-	
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
 				{
@@ -20249,16 +20316,6 @@
 						"ScriptFile"	"scripts/vscripts/heroes/hero_phantom_assassin/blur.lua"
 						"Function"		"Blur"
 					}
-				}
-	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"%bonus_evasion"
-				}
-	
-				"States"
-				{
-					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 	
@@ -20270,7 +20327,7 @@
 	
 				"States"
 				{
-					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"		"MODIFIER_STATE_VALUE_DISABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -31487,9 +31544,24 @@
 	
 		"Modifiers"
 		{
+			"modifier_drunken_brawler_break_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/passive_disabled_by_break.lua"
+						"Function"		"handleIntervalThink"
+						"ModifierName"	"modifier_drunken_brawler"
+					}
+				}
+			}
 			"modifier_drunken_brawler"
 			{
-			    "Passive"   "1"
+			    "Passive"   "0"
 			    "IsHidden"  "1"
 	
 			    "Properties"

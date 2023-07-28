@@ -11,10 +11,10 @@ function Blur( keys )
 	local enemyHeroes = FindUnitsInRadius(caster:GetTeam(), casterLocation, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
 
 	if #enemyHeroes>0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_blur_enemy_datadriven", {})
+		caster:RemoveModifierByName("modifier_blur_enemy_datadriven")
 	else
-		if caster:HasModifier("modifier_blur_enemy_datadriven") then
-			caster:RemoveModifierByName("modifier_blur_enemy_datadriven")
+		if not caster:HasModifier("modifier_blur_enemy_datadriven") then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_blur_enemy_datadriven", {})
 		end
 	end
 end
