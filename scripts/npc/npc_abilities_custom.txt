@@ -5387,19 +5387,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_chance"				"15"
-				"LinkedSpecialBonus"		"special_bonus_unique_phantom_assassin_2"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"crit_bonus"				"220 340 450"
-			}
+			"crit_chance"				"15"
+			"crit_bonus"				"220 340 450"
 		}
 	}
 	//=================================================================================================================
@@ -17375,17 +17366,9 @@
 		{
 			"duration"					"4.0"
 			"bonus_attack_speed"		"10 15 20 25"
-			"bonus_magic_resistance"	
-			{
-				"value"								"10 15 20 25"
-				"special_bonus_unique_viper_6"		"+12"
-			}
-			"damage"
-			{
-				"value"					"10 15 20 25"
-				"special_bonus_unique_viper_1"	"+13"
-			}
-			"max_range_tooltip"					"1400"
+			"bonus_magic_resistance"	"10 15 20 25"
+			"damage"					"10 15 20 25"
+			"max_range_tooltip"			"1400"
 			"effect_multiplier_distance"
 			{
 				"value"						"0"
@@ -17710,31 +17693,12 @@
 	//=================================================================================================================
 	"huskar_berserkers_blood"
 	{
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"maximum_attack_speed"			"196 224 252 280"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"maximum_health_regen"			"0 0 0 0"
-				"LinkedSpecialBonus"			"special_bonus_unique_huskar_6"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"maximum_magic_resist"			"48 70 84 98"
-				"LinkedSpecialBonus"			"special_bonus_unique_huskar_6"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"hp_threshold_max"				"10"
-			}
-
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -18164,66 +18128,19 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_hp"				"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_move_speed"		"20 20 20 30"
-				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_armor"			"3"
-				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord"
-
-			}
-			"04"
-			{	
-				"var_type"				"FIELD_INTEGER"
 				"bonus_range"			"350"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"base_attack_time"		"1.55"
-			}	
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ensnare_chance"			"0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ensnare_duration"			"0"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"ensnare_chance"		"0"
+				"ensnare_duration"		"0"
 				"bash_chance"			"10"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"bash_duration"			"0.8 1.2 1.6 2.0"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"15"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bash_damage"			"20 30 40 50"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -21660,28 +21577,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_reset_time"				
-				{
-					"value"						"15"
-					"special_bonus_unique_ursa_4" "+20"
-				}
-				"bonus_reset_time_roshan"		"15"
-				"damage_per_stack"				
-				{
-					"value"					"15 20 25 30"
-					"LinkedSpecialBonus"			"special_bonus_unique_ursa"
-				}
-				"stun_stack_count"
-				{
-					"value"				"0"
-					"special_bonus_unique_ursa_furyswipes_stun"			"+5"	
-				}
-				"stun_duration"
-				{
-					"value"				"0"
-					"special_bonus_unique_ursa_furyswipes_stun"			"+1.5"	
-				}
-				
+			"bonus_reset_time"				"15"
+			"bonus_reset_time_roshan"		"15"
+			"damage_per_stack"				"15 20 25 30"
+			"stun_stack_count"				"0"
+			"stun_duration"					"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}		
@@ -30801,6 +30701,40 @@
 				}
 	
 			}
+
+			"modifier_jinada_breaked_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"IsDebuff"		"0"
+				"Duration"		"0.7"
+	
+				"OnAttackLanded"
+				{
+	
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_jinda_slow.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"		"TARGET"
+					}
+	
+					"FireSound"
+					{
+						"EffectName"	"Hero_BountyHunter.Jinada"
+						"Target"		"TARGET"
+					}
+	
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_bounty_hunter/jinada.lua"	
+						"Function"		"Jinada"
+						
+					}
+				}
+	
+			}
 	
 			"modifier_jinada_slow_datadriven"
 			{
@@ -31608,7 +31542,6 @@
 			        }
 				}
 			}
-	
 		}
 	}
 	//=================================================================================================================

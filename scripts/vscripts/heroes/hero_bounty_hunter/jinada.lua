@@ -27,8 +27,13 @@ function handleAttackStart(event)
 	local attacker = event.attacker
 	local target = event.target
 	if attacker:IsRealHero() and not target:IsBuilding() and ability:IsCooldownReady() and target:GetTeam() ~= attacker:GetTeam() then
-		ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_jinada_datadriven", {})
+		if attacker:PassivesDisabled() then
+			ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_jinada_breaked_datadriven", {})
+		else
+			ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_jinada_datadriven", {})
+		end
 	else
 		attacker:RemoveModifierByName("modifier_jinada_datadriven")
+		attacker:RemoveModifierByName("modifier_jinada_breaked_datadriven")
 	end
 end

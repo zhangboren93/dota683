@@ -1359,15 +1359,14 @@ end
 
 function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 	local ability = EntIndexToHScript(event.entindex_ability_const)
+	local caster = EntIndexToHScript(event.entindex_caster_const)
 	if ability:GetName() == "ogre_magi_ignite_datadriven" and event.value_name_const == "AbilityCastRange" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability_multicast = caster:FindAbilityByName("ogre_magi_multicast_datadriven")
 		if ability_multicast:GetLevel() > 0 then
 			event.value = event.value + ability_multicast:GetSpecialValueFor("ignite_range")
 			return true
 		end
 	elseif ability:GetName() == "enigma_black_hole" and event.value_name_const == "scepter_pct_damage" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
 		if caster:HasScepter() then
 			local enigma_midnight_pulse = caster:FindAbilityByName("enigma_midnight_pulse")
 			if enigma_midnight_pulse:GetLevel() > 0 then
@@ -1376,12 +1375,34 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 			end
 		end
 	elseif ability:GetName() == "tiny_toss" and event.value_name_const == "bonus_damage_pct" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability_grow = caster:FindAbilityByName("tiny_grow")
 		if ability_grow:GetLevel() > 0 then
 			event.value = ability_grow:GetSpecialValueFor("toss_bonus_damage_pct")
 			return true
 		end
+	--elseif ability:GetName() == "brewmaster_drunken_brawler_datadriven" then
+	--	print(ability:GetName())
+	--	print(event.value_name_const)
+	--	if event.value_name_const == "dodge_chance" then
+	--		print("overriding dodge")
+	--		event.value = 0
+	--		return true
+	--	elseif event.value_name_const == "crit_chance" then
+	--		event.value = 0
+	--		return true
+	--	end
+	--elseif ability:GetName() == "phantom_assassin_blur_datadriven" and event.value_name_const == "bonus_evasion" and caster:PassivesDisabled() then
+	--	event.value = 0
+	--	return true
+	--elseif ability:GetName() == "slardar_bash_datadriven" and event.value_name_const == "chance" and caster:PassivesDisabled() then
+	--	event.value = 0
+	--	return true
+	--elseif ability:GetName() == "skeleton_king_vampiric_aura_datadriven" and event.value_name_const == "vampiric_aura" and caster:PassivesDisabled() then
+	--	event.value = 0
+	--	return true
+	--elseif ability:GetName() == "skeleton_king_mortal_strike_datadriven" and event.value_name_const == "crit_chance" and caster:PassivesDisabled() then
+	--	event.value = 0
+	--	return true
 	end
 end
 

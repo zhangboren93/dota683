@@ -24,7 +24,7 @@ end
 
 function modifier_troll_warlord_bash:OnAttackLanded(event)
     local attacker = event.attacker
-    if not event.ranged_attack and event.attacker == self:GetParent() then
+    if not event.ranged_attack and event.attacker == self:GetParent() and not attacker:PassivesDisabled() then
         local ability = self:GetAbility()
         if RandomInt(1, 100) <= ability:GetSpecialValueFor("bash_chance") then
             local target = event.target

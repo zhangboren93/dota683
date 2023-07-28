@@ -21,7 +21,7 @@ function modifier_sven_great_cleave_radius:OnProcessCleave(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = self:GetAbility()
-	if attacker == self:GetParent() and not target:IsBuilding() and attacker:GetTeam() ~= target:GetTeam() then
+	if attacker == self:GetParent() and not target:IsBuilding() and attacker:GetTeam() ~= target:GetTeam() and not attacker:PassivesDisabled() then
 		local pct = ability:GetSpecialValueFor("cleave_radius_damage")
 		local radius = ability:GetSpecialValueFor("cleave_radius")
 		local damage = event.damage * pct /100

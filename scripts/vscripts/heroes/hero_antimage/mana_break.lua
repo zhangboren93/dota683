@@ -15,7 +15,7 @@ function ManaBreak( keys )
 	damageTable.ability = ability
 
 	-- If the target is not magic immune then reduce the mana and deal damage
-	if not target:IsMagicImmune() and target:GetMana() > 0 then
+	if not target:IsMagicImmune() and target:GetMana() > 0 and not caster:PassivesDisabled() then
 		-- Checking the mana of the target and calculating the damage
 		if(target:GetMana() >= manaBurn) then
 			damageTable.damage = manaBurn * manaDamage
