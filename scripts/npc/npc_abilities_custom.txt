@@ -17693,13 +17693,6 @@
 					}
 				}
 			}
-			"modifier_clinkz_attack_animation_active"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"Duration"			"1"
-				"OverrideAnimation"	"ACT_DOTA_ATTACK_STATUE"
-			}
 		}
 		
 	}
