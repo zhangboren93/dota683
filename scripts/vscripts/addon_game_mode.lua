@@ -980,6 +980,17 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end
 		end, "neutral don't cast chain lightening", 0.1)
 	end
+	if entity:HasAbility("dark_troll_warlord_ensnare") and entity:GetTeam() == DOTA_TEAM_NEUTRALS then
+		local ability = entity:FindAbilityByName("dark_troll_warlord_ensnare")
+		entity:SetThink(function()
+			if entity:GetTeam() == DOTA_TEAM_NEUTRALS then
+				ability:SetLevel(0)
+				return 1
+			else
+				ability:SetLevel(1)
+			end
+		end, "neutral don't cast ensnare", 0.1)
+	end
 end
 
 function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
