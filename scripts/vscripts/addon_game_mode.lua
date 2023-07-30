@@ -969,6 +969,17 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end
 		end, "Add ward passive", 0.1)
 	end
+	if entity:HasAbility("harpy_storm_chain_lightning") and entity:GetTeam() == DOTA_TEAM_NEUTRALS then
+		local ability = entity:FindAbilityByName("harpy_storm_chain_lightning")
+		entity:SetThink(function()
+			if entity:GetTeam() == DOTA_TEAM_NEUTRALS then
+				ability:SetLevel(0)
+				return 1
+			else
+				ability:SetLevel(1)
+			end
+		end, "neutral don't cast chain lightening", 0.1)
+	end
 end
 
 function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
