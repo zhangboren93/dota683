@@ -35320,6 +35320,14 @@
 						"function"		"handleDeath"
 					}
 				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/roshan.lua"
+						"function"		"handleAttackLanded"
+					}
+				}
 			}
 		}
 	}

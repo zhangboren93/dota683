@@ -443,9 +443,11 @@ function CAddonTemplateGameMode:OnThink()
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
 		local roshan = Entities:FindAllByClassname("npc_dota_roshan")
-		if #roshan > 0 then
+		if #roshan > 0 and self.first_roshan_spawned == nil then
 			roshan[1]:ForceKill(false)
-			self.nextRoshanTime = -1
+			print("spawn first roshan.")
+			CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
+			self.first_roshan_spawned = true
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
@@ -488,7 +490,7 @@ function CAddonTemplateGameMode:OnThink()
 
 		if self.nextRoshanTime ~= nil and time > self.nextRoshanTime then
 			print("Spawn next rosh")
-			local roshan = CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
+			CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
 			self.nextRoshanTime = nil
 		end
 

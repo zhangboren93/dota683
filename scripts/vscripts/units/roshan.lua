@@ -38,3 +38,12 @@ function handleDeath(event)
 		caster:DropItemAtPositionImmediate(caster:GetItemInSlot(i), caster:GetAbsOrigin())
 	end
 end
+
+function handleAttackLanded(event)
+	local target = event.target
+	print(target:GetName())
+	if target:HasItemInInventory("item_heart_datadriven") then
+		local heart = target:FindItemInInventory("item_heart_datadriven")
+		heart:StartCooldown(4)
+	end
+end
