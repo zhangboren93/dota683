@@ -20,3 +20,4 @@ hero_innate_abilities["npc_dota_hero_abaddon"] = "abaddon_borrowed_time_aghs_dat
 hero_innate_abilities["npc_dota_hero_sven"] = "sven_gods_strength_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_magnataur"] = "magnataur_empower_cleave_radius_datadriven"
 hero_innate_abilities["npc_dota_hero_doom_bringer"] = "doom_bringer_scorched_earth_regen_datadriven"
+hero_innate_abilities["npc_dota_hero_lich"] = "lich_chain_frost_ministun_datadriven"

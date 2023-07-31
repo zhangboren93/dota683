@@ -127,8 +127,12 @@
 		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven_Description"	"allie heroes + damage = drow's agility * %trueshot_ranged_damage%"
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven"					"Marksmanship"
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven_Description"		"When no enemy heroes in 400 range, + %marksmanship_agility_bonus% agility"
+		//Lich
 		"DOTA_Tooltip_Ability_lich_dark_ritual_datadriven"					"Dark ritrual"
 		"DOTA_Tooltip_Ability_lich_dark_ritual_datadriven_Description"		"Recover mana = %health_conversion%% * creep health"
+		"DOTA_Tooltip_ability_lich_chain_frost_stun_duration"				"TARGET STUN DURATION:"
+		"DOTA_Tooltip_Ability_lich_chain_frost_Scepter_Description"			"+90 damage，+100 cast range，remove bounce limit"
+
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven"				"Mortal Strike"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven_Description"	"15%% crit for %crit_mult%% "
 		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven"				"Vampiric Aura"
@@ -194,7 +198,6 @@
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Scepter_Description"			"kill threshold 300/425/550, CD 6 seconds, buff lasts 10 seconds"
 		"DOTA_Tooltip_Ability_axe_counter_helix_datadriven"								"Counter helix"
 		"DOTA_Tooltip_Ability_axe_counter_helix_datadriven_Description"					"20% change, CD %cooldown% seconds"
-		"DOTA_Tooltip_Ability_lich_chain_frost_Scepter_Description"						"+90 damage，+100 cast range，remove bounce limit"
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_Scepter_Description"				"+35/60/85 damage，CD 100/70/40 seconds"
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD 15 seconds"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven"							"Impetus"

@@ -3256,7 +3256,34 @@
 				"value"					"750"
 				"special_bonus_scepter"	"+100"
 			}
-		}			
+			"stun_duration"				"0.1"
+		}
+	}
+	"lich_chain_frost_ministun_datadriven"
+	{
+		
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"lich_chain_frost_ministun_checker" 
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"IsDebuff"		"0"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/ministun_target_on_cast.lua"
+						"Function"		"handleAbilityExecuted"
+						"TargetAbility"	"lich_chain_frost"
+					}
+				}
+			}
+		}
 	}
 	// Rewrite of the Shadow Shaman Mass Serpent Ward ability
 	// Author: Noya

@@ -127,8 +127,12 @@
 		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven_Description"	"友方远程英雄+攻击力=小黑%trueshot_ranged_damage%敏捷"
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven"					"射手天赋"
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven_Description"		"范围400内没有敌方英雄时+%marksmanship_agility_bonus%敏捷"
+		//Lich
 		"DOTA_Tooltip_Ability_lich_dark_ritual_datadriven"					"吃兵"
-		"DOTA_Tooltip_Ability_lich_dark_ritual_datadriven_Description"		"恢复魔法为%health_conversion%% 小兵生命"
+		"DOTA_Tooltip_Ability_lich_dark_ritual_datadriven_Description"		"恢复魔法为%health_conversion%%%小兵生命"
+		"DOTA_Tooltip_ability_lich_chain_frost_stun_duration"				"目标眩晕时间："
+		"DOTA_Tooltip_Ability_lich_chain_frost_Scepter_Description"			"伤害+90，施法距离+100，移除次数上限"
+
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven"				"暴击"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven_Description"	"15%%暴击伤害%crit_mult%% "
 		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven"				"吸血光环"
@@ -194,7 +198,6 @@
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Scepter_Description"			"斩杀上限300/425/550，CD6秒，加速持续时间10秒"
 		"DOTA_Tooltip_Ability_axe_counter_helix_datadriven"								"反击螺旋"
 		"DOTA_Tooltip_Ability_axe_counter_helix_datadriven_Description"					"20%几率触发，CD %cooldown%秒"
-		"DOTA_Tooltip_Ability_lich_chain_frost_Scepter_Description"						"伤害+90，施法距离+100，移除次数上限"
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_Scepter_Description"				"+35/60/85伤害，CD100/70/40秒"
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD15秒"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven"							"推进"
