@@ -3727,7 +3727,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5148"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Enigma.Midnight_Pulse"
@@ -3749,25 +3749,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"radius"					"550"
-				"LinkedSpecialBonus"	"special_bonus_unique_enigma_9"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"damage_percent"			"3 3.75 4.5 5.25"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"duration"					"11"
-				"LinkedSpecialBonus"	"special_bonus_unique_enigma_8"
-			}
 		}
 	}
     "enigma_black_hole"

@@ -1372,7 +1372,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			end
 			--print("Etheral damage " .. event.damage)
 		elseif inflictor:GetName() == "phoenix_sun_ray" then
-			local victim = EntIndexToHScript(event.entindex_victim_const)
 			event.damage = event.damage / (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
 		elseif inflictor:GetName() == "earth_spirit_rolling_boulder" and event.damage > 0 then
 			-- fix rolling boulder damage without strength component
@@ -1402,6 +1401,9 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			if event.damage > original_damage then
 				event.damage = original_damage
 			end
+		elseif inflictor:GetName() == "enigma_midnight_pulse" then
+			-- apply damage as pure instead of magical & percentage of max health
+			event.damage = victim:GetMaxHealth() * inflictor:GetSpecialValueFor("damage_percent") / 100
 		end
     else
 		--print(victim:GetName())
