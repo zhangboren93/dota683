@@ -287,11 +287,13 @@
 		"DOTA_Tooltip_ability_abaddon_borrowed_time_redirect_range_scepter"		""
 		"DOTA_Tooltip_ability_abaddon_borrowed_time_ally_threshold_scepter"		""
 
+		// Medusa
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven"					"秘术银蛇"
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven_Description"		"伤害%snake_damage%，吸蓝%snake_mana_steal%，弹%snake_jumps% +25%%"
 		"DOTA_Tooltip_Ability_medusa_mana_shield_datadriven"					"魔法护盾"
 		"DOTA_Tooltip_Ability_medusa_mana_shield_datadriven_Description"		"吸收60%%伤害，吸收效率%damage_per_mana%"
-		"DOTA_Tooltip_ability_medusa_stone_gaze_Description"					"任何盯着蛇发女妖的敌方单位的攻击速度和移动速度均将被减缓。如果一单位在石化凝视期间盯着蛇发女妖超过%face_duration%秒，该单位会被完全石化。被石化的单位处于眩晕状态，受到物理攻击时承受额外伤害，获得100%魔抗。"
+		"DOTA_Tooltip_ability_medusa_stone_gaze_Description"					"任何盯着蛇发女妖的敌方单位的攻击速度和移动速度均将被减缓。如果一单位盯着蛇发女妖超过%face_duration%秒，该单位会被完全石化。被石化的单位处于眩晕状态，受到物理攻击时承受额外伤害，获得100%魔抗。"
+
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven"						"魔免"
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven_Description"			"持续%duration%秒"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven"					"衰弱光环"

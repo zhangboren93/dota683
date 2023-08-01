@@ -288,11 +288,13 @@
 		"DOTA_Tooltip_ability_abaddon_borrowed_time_redirect_range_scepter"		""
 		"DOTA_Tooltip_ability_abaddon_borrowed_time_ally_threshold_scepter"		""
 
+		//Medusa
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven"					"Mystic Snake"
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven_Description"		"damage %snake_damage%，mana steal %snake_mana_steal%，jumps %snake_jumps% times, each jump increase effect by 25%%"
 		"DOTA_Tooltip_Ability_medusa_mana_shield_datadriven"					"Mana Shield"
 		"DOTA_Tooltip_Ability_medusa_mana_shield_datadriven_Description"		"absorb 60%% damage, %damage_per_mana% damage per mana"
-		"DOTA_Tooltip_ability_medusa_stone_gaze_Description"					"Any enemy units looking at Medusa will have their movement and attack speed slowed.  If %face_duration% seconds of total time is accumulated looking at Medusa while Stone Gaze is active, that unit will turn to stone.  Petrified units are stunned, take bonus physical attack damage and have 100%% magic resist."
+		"DOTA_Tooltip_ability_medusa_stone_gaze_Description"					"Any enemy units looking at Medusa will have their movement and attack speed slowed.  If %face_duration% seconds is passed looking at Medusa, that unit will turn to stone.  Petrified units are stunned, take bonus physical attack damage and have 100%% magic resist."
+
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven"						"Repel"
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven_Description"			"lasts %duration% seconds"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven"					"Degen Aura"

@@ -9,7 +9,7 @@
 		$("#death-" + i).text = Players.GetDeaths(radiant_players[i]);
 		$("#assist-" + i).text = Players.GetAssists(radiant_players[i]);
 		$("#last-hit-" + i).text = Players.GetLastHits(radiant_players[i]) + "/" + Players.GetDenies(radiant_players[i]);
-		$("#gxpm-" + i).text = Players.GetGoldPerMin(radiant_players[i]) + "/" + Players.GetXPPerMin(radiant_players[i]);
+		$("#gxpm-" + i).text = Math.floor(Players.GetGoldPerMin(radiant_players[i])) + "/" + Math.floor(Players.GetXPPerMin(radiant_players[i]));
 		var player_hero = Players.GetPlayerHeroEntityIndex(radiant_players[i])
 		for (var j = 0; j < 6; j++) {
 			var item = Entities.GetItemInSlot(player_hero, j);
@@ -30,7 +30,7 @@
 		$("#death-" + i).text = Players.GetDeaths(radiant_players[i-5]);
 		$("#assist-" + i).text = Players.GetAssists(radiant_players[i-5]);
 		$("#last-hit-" + i).text = Players.GetLastHits(radiant_players[i-5]) + "/" + Players.GetDenies(radiant_players[i-5]);
-		$("#gxpm-" + i).text = Players.GetGoldPerMin(radiant_players[i-5]) + "/" + Players.GetXPPerMin(radiant_players[i-5]);
+		$("#gxpm-" + i).text = Math.floor(Players.GetGoldPerMin(radiant_players[i-5])) + "/" + Math.floor(Players.GetXPPerMin(radiant_players[i-5]));
 		var player_hero = Players.GetPlayerHeroEntityIndex(radiant_players[i-5])
 		for (var j = 0; j < 6; j++) {
 			var item = Entities.GetItemInSlot(player_hero, j);

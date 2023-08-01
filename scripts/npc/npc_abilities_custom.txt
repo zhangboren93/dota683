@@ -13152,11 +13152,7 @@
 			"AbilityCooldown"					"90"
 			"AbilityManaCost"					"200"
 			"radius"							"800"
-			"duration"
-			{
-				"value"							"6"
-				"special_bonus_unique_medusa"	"+2"
-			}
+			"duration"							"6"
 			"slow"								"50"
 			"stone_duration"					"3.0"
 			"face_duration"						"2.0"
@@ -13186,6 +13182,19 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
+				}
+			}
+			"modifier_medusa_stone_gaze_cancel_when_turned"
+			{
+				"IsHidden"			"1"
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_medusa/stone_gaze.lua"
+						"Function"			"handleStoneGazedIntervalThink"
+					}
 				}
 			}
 		}

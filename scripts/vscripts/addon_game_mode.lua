@@ -1320,6 +1320,14 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		caster:FindAbilityByName("slark_shadow_dance_heal_datadriven"):ApplyDataDrivenModifier(
 			caster, parent, "modifier_slark_pounce_leash_datadriven", { duration = 3.5 })
 		return false
+	elseif event.name_const == "modifier_medusa_stone_gaze_slow" then
+		-- add a modifier to remove the debuff when is not facing the medusa
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local cancel_ability = caster:FindAbilityByName("medusa_stone_gaze_magic_resist_datadriven")
+		if cancel_ability ~= nil then
+			cancel_ability:ApplyDataDrivenModifier(caster, parent, "modifier_medusa_stone_gaze_cancel_when_turned", {})
+		end
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
