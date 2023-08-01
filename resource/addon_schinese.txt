@@ -362,9 +362,14 @@
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Description"			"%damage%每秒伤害，持续%duration%秒"
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Scepter_Description"	"+伤害，-CD，+持续时间"
 		"DOTA_Tooltip_Ability_puck_dream_coil_Scepter_Description"	"+挣脱伤害，+持续时间"
+		//Chen
 		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"				"30秒CD"
 		"DOTA_Tooltip_Ability_chen_penitence_Lore"								"加深伤害14/18/22/26%"
 		"DOTA_Tooltip_Ability_chen_holy_persuasion_Lore"						"+生命值75/150/225/300"
+		"DOTA_Tooltip_ability_chen_test_of_faith_teleport_datadriven"						"忠诚考验（传送）"
+		"DOTA_Tooltip_ability_chen_test_of_faith_teleport_datadriven_Description"			"将一个友方单位传送至基地。非英雄单位将被立刻传送，英雄单位将延迟一段时间传送。如果对陈自身施放，所有通过神圣劝化控制的单位都将经过一定延迟后传送至他身边。"
+		"DOTA_Tooltip_ability_chen_test_of_faith_teleport_datadriven_hero_teleport_delay"	"英雄/自身传送延迟："
+
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven"						"失效力场"
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven_Description"			"%magic_damage_reduction_pct%%%魔抗光环"
 		"DOTA_Tooltip_Ability_dazzle_weave_Scepter_Description"					"+施法距离+护甲"

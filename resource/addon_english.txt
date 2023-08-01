@@ -362,9 +362,14 @@
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Description"			"%damage% damage per second, lasts %duration% seconds"
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Scepter_Description"	"+damage, -CD, +duration"
 		"DOTA_Tooltip_Ability_puck_dream_coil_Scepter_Description"	"+break damage, +duration"
-		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"				"30s CD"
-		"DOTA_Tooltip_Ability_chen_penitence_Lore"								"take more damage 14/18/22/26%"
-		"DOTA_Tooltip_Ability_chen_holy_persuasion_Lore"						"+ max health 75/150/225/300"
+		//Chen
+		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"							"30s CD"
+		"DOTA_Tooltip_Ability_chen_penitence_Lore"											"take more damage 14/18/22/26%"
+		"DOTA_Tooltip_Ability_chen_holy_persuasion_Lore"									"+ max health 75/150/225/300"
+		"DOTA_Tooltip_ability_chen_test_of_faith_teleport_datadriven"						"Test of Faith (Teleport)"
+		"DOTA_Tooltip_ability_chen_test_of_faith_teleport_datadriven_Description"			"Teleports an allied unit back to the base.  Creeps are teleported instantly, while Heroes have a delay before teleporting. If cast on Chen, all units controlled by Chen through Holy Persuasion will be teleported to him after a delay."
+		"DOTA_Tooltip_ability_chen_test_of_faith_teleport_datadriven_hero_teleport_delay"	"HERO/SELF TP DELAY:"
+	
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven"						"Null Field"
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven_Description"			"%magic_damage_reduction_pct%%% magic resist aura"
 		"DOTA_Tooltip_Ability_dazzle_weave_Scepter_Description"					"+cast range, +armor"

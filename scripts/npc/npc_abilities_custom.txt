@@ -8112,6 +8112,20 @@
 					}
 				}
 			}
+			"modifier_test_of_faith_teleport_levelup"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_chen/test_of_faith_teleport.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
 		}
 	}
 	"chen_penitence_active_datadriven"
@@ -8194,6 +8208,142 @@
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	// Rewrite of the Chen Test of Faith ability
+	// Author: Pizzalol
+	// Date: December 30, 2015
+	// Version: 6.86
+	// Type: Datadriven
+	// NOTE: Teleports targets to the middle of the map instead of fountain
+	//
+	// ----- FILE REQUIREMENTS -----
+	// Script files:
+	// scripts/vscripts/heroes/hero_chen/test_of_faith.lua
+	//
+	// KV files:
+	// scripts/npc/abilities/chen/test_of_faith_datadriven.txt
+	"chen_test_of_faith_teleport_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
+		"AbilityTextureName"			"chen_test_of_faith_teleport"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
+			"particle"			"particles/units/heroes/hero_chen/chen_teleport_cast.vpcf"
+			"particle"			"particles/units/heroes/hero_chen/chen_teleport.vpcf"
+			"particle"			"particles/units/heroes/hero_chen/chen_teleport_flash.vpcf"
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+	
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600 600 600 600"
+		"AbilityCooldown"				"24.0 24.0 24.0 24.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200 200 200 200"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"hero_teleport_delay"	"6.0 5.0 4.0 3.0"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_chen/chen_teleport_cast.vpcf"
+				"EffectAttachType"  "attach_attack1"
+				"Target"            "CASTER"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_chen/test_of_faith_teleport.lua"
+				"Function"			"TestOfFaithTeleportTarget"
+				"sound_tp_out"		"Hero_Chen.TeleportOut"
+				"sound_tp_in"		"Hero_Chen.TeleportIn"
+				"teleport_modifier"	"modifier_test_of_faith_teleport_datadriven"
+				"teleport_particle"	"particles/units/heroes/hero_chen/chen_teleport_flash.vpcf"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_test_of_faith_teleport_datadriven"
+			{
+				"IsBuff"		"1"
+				"IsPurgable"	"1"
+	
+				"EffectName"		"particles/units/heroes/hero_chen/chen_teleport.vpcf"
+				"EffectAttachType"	"follow_origin"
+	
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Chen.TeleportLoop"
+						"Target" 		"TARGET"
+					}
+				}
+
+				"ThinkInterval"			"%hero_teleport_delay"
+	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_chen/test_of_faith_teleport.lua"
+						"Function"		"TestOfFaithStopSound"
+						"sound"			"Hero_Chen.TeleportLoop"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Chen.TeleportOut"
+						"Target" 		"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_chen/test_of_faith_teleport.lua"
+						"Function"		"TestOfFaithTeleport"
+					}
+					"FireSound"
+					{
+						"EffectName"	"Hero_Chen.TeleportIn"
+						"Target" 		"TARGET"
+					}
+					"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_chen/chen_teleport_flash.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+			}
+		}
 	}
 	//=================================================================================================================
 	// Chen: Holy Persuasion
