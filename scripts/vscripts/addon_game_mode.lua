@@ -1327,6 +1327,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local cancel_ability = caster:FindAbilityByName("medusa_stone_gaze_magic_resist_datadriven")
 		if cancel_ability ~= nil then
 			cancel_ability:ApplyDataDrivenModifier(caster, parent, "modifier_medusa_stone_gaze_cancel_when_turned", {})
+			cancel_ability:ApplyDataDrivenModifier(caster, parent, "modifier_medusa_stone_gaze_slow_full_duration", { 
+				duration = caster:FindModifierByName("modifier_medusa_stone_gaze"):GetRemainingTime() })
 		end
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

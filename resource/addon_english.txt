@@ -294,6 +294,8 @@
 		"DOTA_Tooltip_Ability_medusa_mana_shield_datadriven"					"Mana Shield"
 		"DOTA_Tooltip_Ability_medusa_mana_shield_datadriven_Description"		"absorb 60%% damage, %damage_per_mana% damage per mana"
 		"DOTA_Tooltip_ability_medusa_stone_gaze_Description"					"Any enemy units looking at Medusa will have their movement and attack speed slowed.  If %face_duration% seconds is passed looking at Medusa, that unit will turn to stone.  Petrified units are stunned, take bonus physical attack damage and have 100%% magic resist."
+		"DOTA_Tooltip_ability_medusa_stone_gaze_slow"							""
+		"DOTA_Tooltip_ability_medusa_stone_gaze_slow_full_duration"				"%SLOW:"
 
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven"						"Repel"
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven_Description"			"lasts %duration% seconds"

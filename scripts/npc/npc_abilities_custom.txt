@@ -13139,7 +13139,8 @@
 			"AbilityManaCost"					"200"
 			"radius"							"800"
 			"duration"							"6"
-			"slow"								"50"
+			"slow"								"0"
+			"slow_full_duration"				"50"
 			"stone_duration"					"3.0"
 			"face_duration"						"2.0"
 			"vision_cone"						"0.08715"		// 85 degree cone
@@ -13153,9 +13154,10 @@
 	}
 	"medusa_stone_gaze_magic_resist_datadriven"
 	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"	"medusa_stone_gaze"
+		"MaxLevel"				"1"
 		"Modifiers"
 		{
 			"modifier_stone_gaze_magic_resist_datadriven"
@@ -13181,6 +13183,16 @@
 						"ScriptFile"		"heroes/hero_medusa/stone_gaze.lua"
 						"Function"			"handleStoneGazedIntervalThink"
 					}
+				}
+			}
+			"modifier_medusa_stone_gaze_slow_full_duration"
+			{
+				"IsDebuff"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"		"-50"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-50"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
 				}
 			}
 		}
