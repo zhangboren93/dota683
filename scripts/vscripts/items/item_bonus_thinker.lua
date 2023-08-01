@@ -34,6 +34,16 @@ function handleIntervalThink(event)
 	item2modifier("item_dagon_5", 			"modifier_dagon_5_damage_bonus", caster, ability)
 	item2modifier("item_force_staff", 		"modifier_item_force_staff_health_regen", caster, ability)
 	itemPctManaRegen(caster)
+
+	-- apply gem effect
+	local gem = caster:FindItemInInventory("item_gem")
+	if gem ~= nil and gem:GetItemState() == 1 then
+		if not caster:HasModifier("modifier_gem_visual_effect_datadriven") then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_gem_visual_effect_datadriven", {})
+		end
+	else
+		caster:RemoveModifierByName("modifier_gem_visual_effect_datadriven")
+	end 
 end
 
 function item2modifier(itemname, modifier, caster, ability)

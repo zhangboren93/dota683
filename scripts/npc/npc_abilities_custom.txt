@@ -35354,6 +35354,10 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"			"1"
 		"AbilityCooldown"	"5"
+		"precache"
+		{
+			"particle"		"particles/items2_fx/true_sight_debuff.vpcf"
+		}
 		"Modifiers"
 		{
 			"modifier_item_bonus_checker_datadriven"
@@ -35697,6 +35701,12 @@
 			"modifier_no_creep_aggro_on_attack"
 			{
 				"IsHidden"		"1"
+			}
+			"modifier_gem_visual_effect_datadriven"
+			{
+				"IsHidden"			"1"
+				"EffectName"		"particles/items2_fx/true_sight_debuff.vpcf"
+				"EffectAttachType"	"follow_overhead"
 			}
 		}
 	}
