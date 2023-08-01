@@ -3707,41 +3707,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"spawn_count"			"3 3 3 3"
-				"LinkedSpecialBonus"	"special_bonus_unique_enigma"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"split_attack_count"	"6 6 6 6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"eidolon_hp_tooltip"	"180 200 220 240"
-				"LinkedSpecialBonus"	"special_bonus_unique_enigma_7"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"life_extension"		"2.0 2.0 2.0 2.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"eidolon_dmg_tooltip"	"19 29 39 49"
-				"LinkedSpecialBonus"	"special_bonus_unique_enigma_3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"creep_max_level"		"4"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}

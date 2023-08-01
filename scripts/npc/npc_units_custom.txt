@@ -137,6 +137,7 @@
 	}
 	"npc_dota_neutral_alpha_wolf"
 	{
+		"Level"						"4"
 		"ArmorPhysical"				"3"			// Physical protection.
 		"AttackDamageMin"			"30"		// Damage range min.
 		"AttackDamageMax"			"33"		// Damage range max.	
