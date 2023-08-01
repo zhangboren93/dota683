@@ -594,5 +594,9 @@
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_damage_pct"							""
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius_damage"						"%CLEAVE DAMAGE:"
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius"								"CLEAVE RADIUS:"
+
+		//Mirana
+		"DOTA_Tooltip_ability_mirana_arrow_Description"										"Fires a long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from %arrow_min_stun% to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target."
+
 	}
 }

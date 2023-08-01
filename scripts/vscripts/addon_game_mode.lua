@@ -1374,7 +1374,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			local original_damage = inflictor:GetSpecialValueFor("damage")
 			if event.damage > original_damage then
 				event.damage = original_damage
-				return true
 			end
 		elseif inflictor:GetName() == "enigma_black_hole" then
 			-- black hole's damage is magical instead of pure
@@ -1384,6 +1383,16 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				if enigma_midnight_pulse:GetLevel() > 0 then
 					event.damage = event.damage + victim:GetMaxHealth() * enigma_midnight_pulse:GetSpecialValueFor("damage_percent") / 100
 				end
+			end
+		elseif inflictor:GetName() == "mirana_arrow" and victim:IsCreep() then
+			local original_damage = inflictor:GetAbilityDamage()
+			if attacker.arrow_start_loc ~= nil then
+				local arrow_range = (victim:GetAbsOrigin() - attacker.arrow_start_loc):Length()
+				local bonus_damage = inflictor:GetSpecialValueFor("arrow_bonus_damage")
+				original_damage = original_damage + math.min(1, arrow_range / 3000) * bonus_damage
+			end
+			if event.damage > original_damage then
+				event.damage = original_damage
 			end
 		end
     else
