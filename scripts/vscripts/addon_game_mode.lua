@@ -1376,6 +1376,15 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				event.damage = original_damage
 				return true
 			end
+		elseif inflictor:GetName() == "enigma_black_hole" then
+			-- black hole's damage is magical instead of pure
+			event.damage = event.damage * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
+			if attacker:HasScepter() then
+				local enigma_midnight_pulse = attacker:FindAbilityByName("enigma_midnight_pulse")
+				if enigma_midnight_pulse:GetLevel() > 0 then
+					event.damage = event.damage + victim:GetMaxHealth() * enigma_midnight_pulse:GetSpecialValueFor("damage_percent") / 100
+				end
+			end
 		end
     else
 		--print(victim:GetName())
@@ -1398,26 +1407,12 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 			event.value = event.value + ability_multicast:GetSpecialValueFor("ignite_range")
 			return true
 		end
-	elseif ability:GetName() == "enigma_black_hole" and event.value_name_const == "scepter_pct_damage" then
-		if caster:HasScepter() then
-			local enigma_midnight_pulse = caster:FindAbilityByName("enigma_midnight_pulse")
-			if enigma_midnight_pulse:GetLevel() > 0 then
-				event.value = enigma_midnight_pulse:GetSpecialValueFor("damage_percent")
-				return true
-			end
-		end
 	elseif ability:GetName() == "tiny_toss" and event.value_name_const == "bonus_damage_pct" then
 		local ability_grow = caster:FindAbilityByName("tiny_grow")
 		if ability_grow:GetLevel() > 0 then
 			event.value = ability_grow:GetSpecialValueFor("toss_bonus_damage_pct")
 			return true
 		end
-	--elseif ability:GetName() == "skeleton_king_vampiric_aura_datadriven" and event.value_name_const == "vampiric_aura" and caster:PassivesDisabled() then
-	--	event.value = 0
-	--	return true
-	--elseif ability:GetName() == "skeleton_king_mortal_strike_datadriven" and event.value_name_const == "crit_chance" and caster:PassivesDisabled() then
-	--	event.value = 0
-	--	return true
 	end
 end
 
