@@ -258,12 +258,19 @@
 		"DOTA_Tooltip_Ability_item_desolator_datadriven_Description"	"+60攻击力\n-7护甲持续15秒"
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven"					"火矛"
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_Description"		"自减15生命，5/10/15/20每秒伤害，持续8秒"
+
+		// Outworld Destroyer
 		"DOTA_Tooltip_Ability_obsidian_destroyer_arcane_orb_datadriven"				"奥术天球"
 		"DOTA_Tooltip_Ability_obsidian_destroyer_arcane_orb_datadriven_Description"	"6/7/8/9%%魔法值伤害"
 		"DOTA_Tooltip_Ability_obsidian_destroyer_astral_imprisonment_Lore"				"偷取智力4/7/10/13"
 		"DOTA_Tooltip_Ability_obsidian_destroyer_sanity_eclipse_datadriven"						"神智之蚀"
-		"DOTA_Tooltip_Ability_obsidian_destroyer_sanity_eclipse_datadriven_Description"			"伤害智力差 * %damage_multiplier%"
-		"DOTA_Tooltip_Ability_obsidian_destroyer_sanity_eclipse_datadriven_Scepter_Description"	"伤害+1，+距离"
+		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_Description"			"释放出一道神智冲击波，伤害数值基于自身与目标的智力之差。神智之蚀可以作用于星体禁锢中的单位。智力差在%int_threshold%之内是会减少75%%的魔法值。"
+		"DOTA_Tooltip_Ability_obsidian_destroyer_sanity_eclipse_datadriven_Scepter_Description"	"魔法减少在所有情况下都会生效。"
+		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_Lore"				"当一块殁境的水晶破裂之时，灾难性的能量被释放出来，甚至在其他的空间也能感受到这股能量的回响。"
+		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_damage_multiplier"	"智力差伤害系数："
+		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_radius"				"作用范围："
+		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_AbilityCastRange"	"施法距离："
+
 		"DOTA_Tooltip_Ability_silencer_glaives_of_wisdom_datadriven"				"智慧之刃"
 		"DOTA_Tooltip_Ability_silencer_glaives_of_wisdom_datadriven_Description"	"30/48/66/84%%智力伤害\n光环偷取智力"
 		"DOTA_Tooltip_Ability_silencer_curse_of_the_silent_datadriven"				"沉默诅咒"

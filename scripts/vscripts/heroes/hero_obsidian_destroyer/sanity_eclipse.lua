@@ -38,14 +38,16 @@ function SanityEclipseDamage( keys )
 
 		--if od's int is lower than targets int then keep do nothing and keep targets mana as it is
 		if od_int < target_int then
-			target:SetMana(mana)
+			if caster:HasScepter() then
+				target:Script_ReduceMana(target:GetMana() * 0.75, ability)
+			end
+			return
+		end
 			--if the int difference is below or equal to threshold, burn 75% current mana and apply int difference * damage_modifier in magic damage
-		elseif (od_int - target_int) < threshold or (od_int - target_int) == threshold then
-			target:SetMana(mana*0.25)
-			damage_table.damage = (od_int - target_int) * dmg_multiplier
-			ApplyDamage(damage_table)
-			--if the int difference is bigger than than threshold then deal damage
-		elseif 	(od_int - target_int) > threshold then
+		if (od_int - target_int) <= threshold or caster:HasScepter() then
+			target:Script_ReduceMana(target:GetMana() * 0.75, ability)
+		end
+		if not target:IsMagicImmune() then
 			damage_table.damage = (od_int - target_int)	* dmg_multiplier
 			ApplyDamage(damage_table)
 		end
