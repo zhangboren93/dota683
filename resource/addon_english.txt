@@ -171,6 +171,8 @@
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven"				"Blur"
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven_Description"		"20/30/40/50 evasion"
 		"DOTA_Tooltip_ability_death_prophet_exorcism_scepter_description" 		"Removed by introducing a bug"
+		// Dragon Knight
+		"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_Description"				"Dragon Knight takes the form of one of three powerful elder dragons, increasing his speed, and Dragon Tail's range, while granting him new powers.\n<font color=\"#9acd32\">LEVEL 1 Green Dragon</font> - Corrosive Breath: attacks deal %corrosive_breath_damage% poison damage per second for %corrosive_breath_duration% seconds. Works on structures.\n<font color=\"#ff0000\">LEVEL 2 Red Dragon</font> - Splash Attack: attacks damage all enemy units in a %splash_radius% radius for %splash_damage_percent%%% damage.\n<font color=\"#87ceeb\">LEVEL 3 Blue Dragon</font> - Frost Breath: slows movement speed by %frost_bonus_movement_speed%%% and attack speed by %frost_bonus_attack_speed% of enemy units in Splash Attack range for %frost_duration% seconds."
 		"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_scepter_description" 		"Traverse terrains, no other bonus"
 		"DOTA_Tooltip_ability_dragon_knight_breathe_fire_datadriven" 				"Breathe Fire"
 		"DOTA_Tooltip_Ability_gyrocopter_call_down_Scepter_Description"				"ranged whole map and plus damage"

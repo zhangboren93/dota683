@@ -22248,6 +22248,43 @@
 				"model_scale"				"0 0 0 0"
 		}
 	}
+	"dragon_knight_elder_dragon_form_corrosive_breath_datadriven"
+	{
+		//modifier_dragon_knight_corrosive_breath_dot
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"	"dragon_knight_elder_dragon_form"
+		"Modifiers"
+		{
+			"modifier_dragon_knight_corrosive_breath_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_dragon_knight/elder_dragon_form.lua"
+						"Function"		"handleAttackLanded"
+					}
+				}
+			}
+			"modifier_dragon_knight_corrosive_breath_dot_datadriven"
+			{
+				"IsDebuff"			"1"
+				"ThinkInterval"		"1"
+				"Duration"			"5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_dragon_knight/elder_dragon_form.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+		}
+	}
 	//=================================================================================================================
 	// Gyrocopter: Rocket Barrage
 	//=================================================================================================================

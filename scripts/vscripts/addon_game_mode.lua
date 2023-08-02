@@ -1335,6 +1335,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_tombstone_hp" then return false
 	elseif event.name_const == "modifier_courier_passive_bonus" then return false
 	elseif event.name_const == "modifier_beastmaster_call_of_the_wild_hawk" then return false
+	elseif event.name_const == "modifier_dragon_knight_corrosive_breath_dot" then return false
 	end
 	if root_modifiers[event.name_const] then
 		local parent = EntIndexToHScript(event.entindex_parent_const)
