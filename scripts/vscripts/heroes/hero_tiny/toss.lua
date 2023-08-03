@@ -52,3 +52,52 @@ function tiny_toss_datadriven:OnSpellStart()
 	toss_unit:AddNewModifier(caster, self, "modifier_toss_flying_lua", { duration = duration })	
 	caster:EmitSound("Hero_Tiny.Toss.Target")
 end
+
+function tiny_toss_datadriven:CastFilterResultTarget(target)
+	local caster = self:GetCaster()
+	local ability = self
+	local grab_radius = self:GetSpecialValueFor("grab_radius")
+
+	if target == caster then
+		return UF_FAIL_CUSTOM
+	end
+	
+	if IsServer() then
+		local units = FindUnitsInRadius(
+			caster:GetTeamNumber(), 
+			caster:GetAbsOrigin(), nil, 
+			grab_radius, 
+			DOTA_UNIT_TARGET_TEAM_BOTH, 
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+			FIND_ANY_ORDER, false)
+		if #units <= 1 then
+			return UF_FAIL_CUSTOM
+		end
+	end
+	return UF_SUCCESS
+end
+
+function tiny_toss_datadriven:GetCustomCastErrorTarget( target )
+	local caster = self:GetCaster()
+	local ability = self
+	local grab_radius = self:GetSpecialValueFor("grab_radius")
+
+	if target == caster then
+		return "#dota_hud_error_cant_cast_on_self"
+	end
+	
+	local units = FindUnitsInRadius(
+		caster:GetTeamNumber(), 
+		caster:GetAbsOrigin(), nil, 
+		grab_radius, 
+		DOTA_UNIT_TARGET_TEAM_BOTH, 
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+		FIND_ANY_ORDER, false)
+	if #units <= 1 then
+		return "#dota_hud_error_no_units_to_grab"
+	end
+
+	return ""
+end

@@ -14,7 +14,8 @@ function modifier_no_creep_aggro_on_cast_orb_lua:DeclareFunctions()
 end
 
 function modifier_no_creep_aggro_on_cast_orb_lua:OnOrder(event)
-	if event.order_type == DOTA_UNIT_ORDER_CAST_TARGET then
+	if event.order_type == DOTA_UNIT_ORDER_CAST_TARGET 
+		and event.ability:GetName() ~= "tiny_toss_datadriven" then
 		local ability = event.ability
 		if bit.band(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_ATTACK) ~= 0 then
 			self:GetParent():FindAbilityByName("hero_intrinstic_mechanism_datadriven"):ApplyDataDrivenModifier(

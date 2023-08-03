@@ -743,5 +743,9 @@
 		"spectre_miss"				"幽鬼Miss!"
 		"undying_miss"				"尸王Miss!"
 		"ursa_miss"					"拍拍Miss!"	
+
+		//Hud error message
+		"dota_hud_error_no_units_to_grab"		"没有抓取的目标"
+		"dota_hud_error_cant_cast_on_self"		"不能对自身释放"
 	}
 }
