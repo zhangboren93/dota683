@@ -29,7 +29,7 @@ function modifier_toss_flying_lua:OnDestroy()
 				nil,
 				damage_radius,
 				DOTA_UNIT_TARGET_TEAM_ENEMY, 
-				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_BUILDING,
 				0, FIND_ANY_ORDER, false) 
 			for i=1,#units do
 				ApplyDamage({
@@ -53,6 +53,8 @@ function modifier_toss_flying_lua:OnDestroy()
 					damage_type = DAMAGE_TYPE_MAGICAL
 				})
 			end
+			ParticleManager:ReleaseParticleIndex(ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_toss_impact.vpcf", PATTACH_ABSORIGIN, parent))
+			parent:EmitSound("Hero_Tiny.CraggyExterior")
 		end
 	end
 end
@@ -78,6 +80,7 @@ end
 function modifier_toss_flying_lua:CheckState()
 	local state = {
 		[MODIFIER_STATE_STUNNED] = true,
+		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 	}
 	return state
 end

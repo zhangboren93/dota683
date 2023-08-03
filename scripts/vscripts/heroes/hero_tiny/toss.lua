@@ -49,5 +49,6 @@ function tiny_toss_datadriven:OnSpellStart()
 	print("Tossing unit " .. toss_unit:GetName())
 	
 	toss_unit.toss_to_target = target
-	toss_unit:AddNewModifier(caster, self, "modifier_toss_flying_lua", { duration = duration })
+	toss_unit:AddNewModifier(caster, self, "modifier_toss_flying_lua", { duration = duration })	
+	caster:EmitSound("Hero_Tiny.Toss.Target")
 end
