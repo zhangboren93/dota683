@@ -994,6 +994,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end
 		end, "neutral don't cast ensnare", 0.1)
 	end
+	if entity:HasAbility("undying_tombstone_spawn_zombies_datadriven") then
+		entity:FindAbilityByName("undying_tombstone_spawn_zombies_datadriven"):SetLevel(
+			entity:GetOwner():FindAbilityByName("undying_tombstone"):GetLevel())
+	end
 end
 
 function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
@@ -1337,6 +1341,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_courier_passive_bonus" then return false
 	elseif event.name_const == "modifier_beastmaster_call_of_the_wild_hawk" then return false
 	elseif event.name_const == "modifier_dragon_knight_corrosive_breath_dot" then return false
+	elseif event.name_const == "modifier_undying_tombstone_zombie_aura" then return false
 	end
 	if root_modifiers[event.name_const] then
 		local parent = EntIndexToHScript(event.entindex_parent_const)

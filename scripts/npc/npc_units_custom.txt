@@ -4050,7 +4050,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"neutral_spell_immunity"			// Ability 1.
-		"Ability2"					""			// Ability 2.
+		"Ability2"					"undying_tombstone_spawn_zombies_datadriven"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -4120,7 +4120,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"neutral_spell_immunity"			// Ability 1.
-		"Ability2"					""			// Ability 2.
+		"Ability2"					"undying_tombstone_spawn_zombies_datadriven"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -4190,7 +4190,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"neutral_spell_immunity"			// Ability 1.
-		"Ability2"					""			// Ability 2.
+		"Ability2"					"undying_tombstone_spawn_zombies_datadriven"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -4260,7 +4260,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"neutral_spell_immunity"			// Ability 1.
-		"Ability2"					""			// Ability 2.
+		"Ability2"					"undying_tombstone_spawn_zombies_datadriven"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.

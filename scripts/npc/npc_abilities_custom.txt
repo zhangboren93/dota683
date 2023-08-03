@@ -11519,7 +11519,8 @@
 			"tombstone_health"				"200 400 600 800"
 			"hits_to_destroy_tooltip"		"200 400 600 800"
 			"duration"						"15 20 25 30"
-			"radius"						"600 800 1000 1200"
+			"radius"						"0"
+			"radius_tooltip"				"600 800 1000 1200"
 			"health_threshold_pct_tooltip"	"20 25 30 35"
 			"zombie_interval"				"3"
 			"zombie_damage_tooltip"			"34"
@@ -11528,6 +11529,48 @@
 			"tombstone_grab_radius"			"1"
 			"tombstone_bunker_cd"			"3000"
 			"zombie_damage_interval"		"0"
+		}
+	}
+	"undying_tombstone_spawn_zombies_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"// | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityValues"
+		{
+			"radius"						"600 800 1000 1200"
+			"zombie_interval"				"3"
+		}
+		"Modifiers"
+		{
+			"modifier_undying_tombstone_spawn_zombies_aura"
+			{
+				"Passive"				"1"
+				"Aura"					"modifier_undying_tombstone_spawn_zombies_datadriven"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_undying_tombstone_spawn_zombies_datadriven"
+			{
+				"ThinkInterval"				"%zombie_interval"
+				"OnIntervalThink"
+				{
+					"RunScript"				
+					{
+						"ScriptFile"	"heroes/hero_undying/tombstone.lua"
+						"Function"		"tombstoneHandleIntervalThink"
+					}
+				}
+				"OnCreated"
+				{
+					"RunScript"				
+					{
+						"ScriptFile"	"heroes/hero_undying/tombstone.lua"
+						"Function"		"tombstoneHandleIntervalThink"
+					}
+				}
+			}
 		}
 	}
 	//=================================================================================================================
