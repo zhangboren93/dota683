@@ -496,6 +496,12 @@
 		"DOTA_Tooltip_ability_tiny_tree_grab_attack_range"					    "攻击距离："
 		"DOTA_Tooltip_ability_tiny_tree_grab_cleave_radius_damage"			    "%分裂伤害："
 		"DOTA_Tooltip_ability_tiny_tree_grab_cleave_radius"					    "分裂半径："
+		"DOTA_Tooltip_ability_tiny_toss_datadriven"								"投掷"
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_Description"					"抓起小小身旁%grab_radius%范围内最近的单位，不论敌友，扔向目标单位，落地时将造成伤害。对抛起的单位造成额外20%%伤害。"
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_Lore"						"小小那巨大的身形让他能够随意抛起最强壮的勇士。"
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_radius"						"作用范围："
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_abilitycastrange"			"施法距离："
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_toss_damage"					"伤害："
 
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"网"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"数量%count%，回血%health_regen%，移速+%bonus_movespeed%%%"

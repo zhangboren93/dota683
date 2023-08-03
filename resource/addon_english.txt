@@ -468,6 +468,13 @@
 		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"Increase incoming damage by 20/30/40/50%"
 
 		//Tiny
+		"DOTA_Tooltip_ability_tiny_toss_datadriven"								"Toss"
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_Description"					"Grabs the nearest unit in a %grab_radius% radius around Tiny, ally or enemy, and launches it at the target unit to deal damage where they land. Deals 20%% more damage to unit tossed."
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_Lore"						"Tiny's gargantuan stature allows him to catapult even the sturdiest of warriors."
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_Note0"						"You can toss allies, but they don't take damage."
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_radius"						"RADIUS:"
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_abilitycastrange"			"CAST RANGE:"
+		"DOTA_Tooltip_ability_tiny_toss_datadriven_toss_damage"					"DAMAGE:"
 		"DOTA_Tooltip_ability_tiny_craggy_exterior"								"Craggy Exterior"
 		"DOTA_Tooltip_ability_tiny_craggy_exterior_Description"					"Enemies that attack Tiny have a %stun_chance%%% chance of being stunned for %stun_duration% second and taking %damage% damage. Affects enemies within 300 range of him. Procs after an attack impacts, and does not affect spell immune enemies."
 		"DOTA_Tooltip_ability_tiny_craggy_exterior_stun_chance"					"%CHANCE TO STUN:"

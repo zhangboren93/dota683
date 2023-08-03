@@ -33781,6 +33781,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.25"	// generally used for damage only
 
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_tiny/tiny_toss_impact.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_tiny.vsndevts"
+		}
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -33793,17 +33799,17 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"grab_radius"			"250 250 250 250"
+				"grab_radius"			"250"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"275 275 275 275"
+				"radius"				"275"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_damage_pct"		"20 20 20 20"
+				"bonus_damage_pct"		"20"
 			}
 			"05"
 			{
@@ -33813,7 +33819,7 @@
 			"06"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"tooltip_range"		"1300"
+				"tooltip_range"				"1300"
 			}
 			"07"
 			{
