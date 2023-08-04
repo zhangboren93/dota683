@@ -5,12 +5,34 @@ function tombstoneHandleIntervalThink(event)
 	CreateUnitByNameAsync("npc_dota_unit_undying_zombie",
 		target:GetAbsOrigin(),
 		true, 
-		caster,
-		caster,
+		caster:GetOwner(),
+		caster:GetOwner(),
 		caster:GetTeam(),
 		function(unit)
-			unit:AddNewModifier(caster, ability, "modifier_kill", { duration = caster:FindModifierByName("modifier_kill"):GetRemainingTime() })
+			local duration = 0.1
+			if caster:IsAlive() then
+				duration = caster:FindModifierByName("modifier_kill"):GetRemainingTime() 
+			end
+			unit:AddNewModifier(caster, ability, "modifier_kill", { duration = duration })
 			unit:MoveToTargetToAttack(target)
 			unit.zombie_attack_target = target
+			unit:FindAbilityByName("undying_tombstone_zombie_deathstrike_datadriven"):SetLevel(
+				ability:GetLevel())
+			unit:FindAbilityByName("neutral_spell_immunity"):SetLevel(1)
 		end)
+end
+
+function deathstrikeHandleIntervalThink(event)
+	--TODO kill yourself if tombestone is destroyed or target dies
+	local target = event.target
+	local attack_target = target.zombie_attack_target
+	local ability = event.ability
+	local threshold = ability:GetSpecialValueFor("health_threshold_pct")
+	target:MoveToTargetToAttack(attack_target)
+	if attack_target:GetHealth() * 100 < attack_target:GetMaxHealth() * threshold 
+		and not target:HasModifier("modifier_undying_zombie_deathstrike_active") then
+		ability:ApplyDataDrivenModifier(target, target, "modifier_undying_zombie_deathstrike_active", {})
+	else
+		target:RemoveModifierByName("modifier_undying_zombie_deathstrike_active")
+	end
 end

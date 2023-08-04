@@ -11576,15 +11576,13 @@
 	//=================================================================================================================
 	// Undying: Tombstone Zombie Deathlust
 	//=================================================================================================================
-	"undying_tombstone_zombie_deathstrike"
+	"undying_tombstone_zombie_deathstrike_datadriven"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5446"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-	
+		"AbilityTextureName"			"undying_tombstone_zombie_deathstrike"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -11602,6 +11600,49 @@
 				"radius"				"1200"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"Modifiers"
+		{
+			"modifier_undying_zombie_deathstrike_datadriven"
+			{
+				"Passive"			"1"
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_undying_zombie_deathstrike_slow"
+						"Target"		"TARGET"
+					}
+				}
+				"ThinkInterval"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_undying/tombstone.lua"
+						"Function"		"deathstrikeHandleIntervalThink"
+					}
+				}
+			}
+			"modifier_undying_zombie_deathstrike_slow"
+			{
+				"IsDebuff"		"1"
+				"Duration"		"%duration"
+				"Attributes" 	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow"
+				}
+			}
+			"modifier_undying_zombie_deathstrike_active"
+			{
+				"IsBuff"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%bonus_move_speed"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+				}
+			}
+		}
 	}
     "undying_flesh_golem"
 	{
