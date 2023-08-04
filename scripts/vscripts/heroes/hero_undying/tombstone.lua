@@ -16,6 +16,7 @@ function tombstoneHandleIntervalThink(event)
 			unit:AddNewModifier(caster, ability, "modifier_kill", { duration = duration })
 			unit:MoveToTargetToAttack(target)
 			unit.zombie_attack_target = target
+			unit.tombstone = caster
 			unit:FindAbilityByName("undying_tombstone_zombie_deathstrike_datadriven"):SetLevel(
 				ability:GetLevel())
 			unit:FindAbilityByName("neutral_spell_immunity"):SetLevel(1)
@@ -28,6 +29,10 @@ function deathstrikeHandleIntervalThink(event)
 	local attack_target = target.zombie_attack_target
 	local ability = event.ability
 	local threshold = ability:GetSpecialValueFor("health_threshold_pct")
+	if not target.tombstone:IsAlive() or not attack_target:IsAlive() or not target:CanEntityBeSeenByMyTeam(attack_target) then
+		target:ForceKill(false)
+		return
+	end
 	target:MoveToTargetToAttack(attack_target)
 	if attack_target:GetHealth() * 100 < attack_target:GetMaxHealth() * threshold 
 		and not target:HasModifier("modifier_undying_zombie_deathstrike_active") then
