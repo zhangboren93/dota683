@@ -23,3 +23,4 @@ hero_innate_abilities["npc_dota_hero_doom_bringer"] = "doom_bringer_scorched_ear
 hero_innate_abilities["npc_dota_hero_lich"] = "lich_chain_frost_ministun_datadriven"
 hero_innate_abilities["npc_dota_hero_mirana"] = "mirana_arrow_cast_position_datadriven"
 hero_innate_abilities["npc_dota_hero_dragon_knight"] = "dragon_knight_elder_dragon_form_corrosive_breath_datadriven"
+hero_innate_abilities["npc_dota_hero_sniper"] = "sniper_shrapnel_instant_vision_datadriven"
