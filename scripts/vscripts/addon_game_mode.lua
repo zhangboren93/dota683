@@ -194,6 +194,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		local radiantSmallCamp = nil
 		for i=1,#neutralSpawners do
 			local pos = neutralSpawners[i]:GetAbsOrigin()
+			--print(pos)
 			if pos[1] == -288 and pos[2] == 3616 then
 				print("find dire small camp")
 				direSmallCamp = neutralSpawners[i]
@@ -206,6 +207,12 @@ function CAddonTemplateGameMode:InitGameMode()
 			elseif pos[1] == -384 and pos[2] == -3136 then
 				print("find radiant small camp")
 				radiantSmallCamp = neutralSpawners[i]
+			elseif pos[1] == -992 then
+				-- move to a bit left to prevent creep returning
+   --position_z                      	= 256 (number)
+   --position_y                      	= -4146.7509765625 (number)
+   --position_x                      	= -1085.1453857422 (number)
+				neutralSpawners[i]:SetAbsOrigin(Vector(pos[1] - 150, pos[2], pos[3])) 
 			end
 		end
 		swapLocation(direMediumCamp, direSmallCamp)
