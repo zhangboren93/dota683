@@ -33523,6 +33523,7 @@
 				"Aura_Radius" 		"%radius"
 				"Aura_Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
 	
 			"modifier_nether_ward_aura_mana_reduct_effect"
