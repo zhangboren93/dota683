@@ -603,6 +603,8 @@
 		"DOTA_Tooltip_ability_enigma_midnight_pulse_Description"								"使一块区域浸入暗共振中，对敌方单位造成他们基于最大生命值的伤害。"
 		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"							"黑洞额外造成凋零伤害"
 
+		// Elder Titan
+		"DOTA_Tooltip_ability_elder_titan_echo_stomp_wake_damage_limit"							""
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven"								"自然秩序"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_Description"					"使所有元素降低至基础水平，移除附近敌方单位的基础物理护甲和魔法抗性。"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_Lore"						"上古巨神又让创世之初重现。"

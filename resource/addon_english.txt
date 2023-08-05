@@ -601,12 +601,15 @@
 		"DOTA_Tooltip_ability_enigma_midnight_pulse_Description"							"Steeps an area in dark resonance, damaging enemy units based on their max HP."
 		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"							"Black Hole deals additional damage equivalent to midnight pulse"
 
+		// Elder Titan
+		"DOTA_Tooltip_ability_elder_titan_echo_stomp_wake_damage_limit"						""
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven"							"Natural Order"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_Description"				"Reduces all elements to their basic levels, removing base armor and magic damage resistance from nearby enemy units."
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_Lore"					"As it was at the beginning, Elder Titan makes it so again."
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_radius"					"RADIUS:"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_armor_reduction_pct"		"%BASE ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_magic_resistance"		"RESIST REDUCTION:"
+
 		"DOTA_Tooltip_ability_oracle_fates_edict_Description"								"Oracle enraptures a target, disarming them, granting them %magic_damage_resistance_pct_tooltip%%% magic damage resistance and recieves 50%% more physical damage."
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven"							"Wrath of Nature"
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_Description"				"Damaging energy bounces around the map, striking enemies close to the cast point that are in vision. Each enemy hit beyond the first adds damage."

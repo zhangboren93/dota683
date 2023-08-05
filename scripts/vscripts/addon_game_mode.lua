@@ -67,6 +67,7 @@ function Activate()
 
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_toss_flying_lua", 				"heroes/hero_tiny/modifier_toss_flying.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+	LinkLuaModifier( "modifier_elder_titan_echo_stomp_lua", 	"heroes/hero_elder_titan/modifier_elder_titan_echo_stomp.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -1335,6 +1336,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			cancel_ability:ApplyDataDrivenModifier(caster, parent, "modifier_medusa_stone_gaze_slow_full_duration", { 
 				duration = caster:FindModifierByName("modifier_medusa_stone_gaze"):GetRemainingTime() })
 		end
+	elseif event.name_const == "modifier_elder_titan_echo_stomp" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local parent = EntIndexToHScript(event.entindex_parent_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_elder_titan_echo_stomp_lua", { duration = ability:GetSpecialValueFor("sleep_duration") })
+		return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
