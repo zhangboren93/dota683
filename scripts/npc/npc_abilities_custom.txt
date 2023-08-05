@@ -1191,7 +1191,7 @@
 			"FireSound"
 			{
 				"Target"					"TARGET"
-				"EffectName"				"Hero_Bloodseeker.Rage"
+				"EffectName"				"hero_bloodseeker.bloodRage"
 			}
 		}
 		
