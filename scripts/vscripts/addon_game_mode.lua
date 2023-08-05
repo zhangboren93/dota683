@@ -66,8 +66,11 @@ function Activate()
 	LinkLuaModifier( "modifier_magnataur_empower_cleave_lua",	"heroes/hero_magnataur/empower_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
+
+	-- horizontal motion controllers
 	LinkLuaModifier( "modifier_toss_flying_lua", 				"heroes/hero_tiny/modifier_toss_flying.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_elder_titan_echo_stomp_lua", 	"heroes/hero_elder_titan/modifier_elder_titan_echo_stomp.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+	LinkLuaModifier( "modifier_flamebreak_knockback_lua", 		"heroes/hero_batrider/modifier_flamebreak_knockback.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -658,6 +661,9 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			event.position_x = new_target_position.x
 			event.position_y = new_target_position.y
 			return true
+		elseif ability:GetName() == "batrider_flamebreak" then
+			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
+			ability:GetCaster().flamebreak_position = Vector(event.position_x, event.position_y, event.position_z)
 		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
@@ -1209,14 +1215,13 @@ end
 
 function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	--print("ModifierGainedFilter " .. event.name_const)
+	local parent = EntIndexToHScript(event.entindex_parent_const)
 	if event.name_const == "modifier_dark_seer_wall_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		ApplyDamage({ victim = parent, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL })
 	elseif event.name_const == "modifier_morphling_adaptive_strike" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local damage = ability:GetSpecialValueFor("damage_base")
 		local damage_min = ability:GetSpecialValueFor("damage_min")
@@ -1231,55 +1236,45 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		ApplyDamage({ victim = parent, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 	elseif event.name_const == "modifier_abyssal_underlord_firestorm_burn" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local burn_datadriven = caster:FindAbilityByName("abyssal_underlord_firestorm_burn_datadriven")
 		burn_datadriven:SetLevel(caster:FindAbilityByName("abyssal_underlord_firestorm"):GetLevel())
 		burn_datadriven:ApplyDataDrivenModifier(caster, parent, "modifier_underlord_firestorm_burn_active_datadriven", {})
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		ApplyDamage({ victim = parent, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL })
 	elseif event.name_const == "modifier_earth_spirit_boulder_smash_debuff" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", {duration = ability:GetSpecialValueFor("duration")})
 	elseif event.name_const == "modifier_stunned" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		if ability:GetName() == "earth_spirit_rolling_boulder" then
 			local slow = caster:FindAbilityByName("earth_spirit_rolling_boulder_slow_datadriven")
 			slow:ApplyDataDrivenModifier(caster, parent, "modifier_earth_spirit_rolling_boulder_slow_datadriven", {})
 		end
 	elseif event.name_const == "modifier_illusion" then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		if parent:GetName() ~= "npc_dota_hero_phantom_lancer" then
 			print("illusion add")
 			parent:AddAbility("illusion_bounty_cancel_datadriven"):SetLevel(1)
 		end
 	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		caster:FindAbilityByName("winter_wyvern_arctic_burn_pure_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_arctic_burn_pure_datadriven", {})
 	elseif event.name_const == "modifier_techies_stasis_trap_stunned" then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", { duration = ability:GetSpecialValueFor("stun_duration")})
 		return false
 	elseif event.name_const == "modifier_arc_warden_magnetic_field_thinker_attack_range" then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_arc_warden_magnetic_field_thinker_attack_speed", {})	
 		parent:AddNewModifier(caster, ability, "modifier_arc_warden_magnetic_field_thinker_evasion", {})	
 	elseif event.name_const == "modifier_visage_summon_familiars_stone_form_buff" then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		parent:FindModifierByName("modifier_familiar_attack_damage_lua"):refreshStackCount()
 	elseif event.name_const == "modifier_bane_nightmare" then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local nightmare_damage = caster:FindAbilityByName("bane_nightmare_damage_datadriven")
 		print(caster:GetName() .. " " .. nightmare_damage:GetName() .. " " .. parent:GetName())
@@ -1293,12 +1288,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			end, "nightmare_damage later", 1.5)
 		end
 	elseif event.name_const == "modifier_naga_siren_ensnare" then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		if parent:IsMagicImmune() then
 			return false
 		end
 	elseif event.name_const == "modifier_medusa_stone_gaze_stone" then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		if parent:IsIllusion() then
 			print("stone gaze kills illusion " .. parent:GetName())
 			parent:ForceKill(false)
@@ -1309,11 +1302,9 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		caster:FindAbilityByName("medusa_stone_gaze_magic_resist_datadriven"):ApplyDataDrivenModifier(
 			caster, parent, "modifier_stone_gaze_magic_resist_datadriven", {})
 	elseif event.name_const == "modifier_ember_spirit_fire_remnant_thinker" then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		parent:SetDayTimeVisionRange(400)
 		parent:SetNightTimeVisionRange(400)
 	elseif event.name_const == "modifier_courier_transfer_items" then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		print(parent.is_primary_courier)
 		if parent.is_primary_courier then
 			CustomGameEventManager:Send_ServerToTeam(parent:GetTeam(), "courier_start_transfer", {})
@@ -1321,7 +1312,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 				"modifier_courier_transfer_stop_checker", {})
 		end
 	elseif event.name_const == "modifier_slark_pounce_leash" then 
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		caster:FindAbilityByName("slark_shadow_dance_heal_datadriven"):ApplyDataDrivenModifier(
 			caster, parent, "modifier_slark_pounce_leash_datadriven", { duration = 3.5 })
@@ -1329,7 +1319,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_medusa_stone_gaze_slow" then
 		-- add a modifier to remove the debuff when is not facing the medusa
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local cancel_ability = caster:FindAbilityByName("medusa_stone_gaze_magic_resist_datadriven")
 		if cancel_ability ~= nil then
 			cancel_ability:ApplyDataDrivenModifier(caster, parent, "modifier_medusa_stone_gaze_cancel_when_turned", {})
@@ -1338,9 +1327,13 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		end
 	elseif event.name_const == "modifier_elder_titan_echo_stomp" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_elder_titan_echo_stomp_lua", { duration = ability:GetSpecialValueFor("sleep_duration") })
+		return false
+	elseif event.name_const == "modifier_flamebreak_knockback" then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		parent:AddNewModifier(caster, ability, "modifier_flamebreak_knockback_lua", { duration = ability:GetSpecialValueFor("knockback_duration") })
 		return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
@@ -1351,13 +1344,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_undying_tombstone_zombie_aura" then return false
 	end
 	if root_modifiers[event.name_const] then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		if parent:IsChanneling() then
 			parent:InterruptChannel()
 		end
 	end
 	if ethereal_modifiers[event.name_const] or disarm_modifiers[event.name_const] then
-		local parent = EntIndexToHScript(event.entindex_parent_const)
 		if parent:HasModifier("modifier_legion_commander_duel") then
 			print("Cannot apply ethereal or disable modifier on dualed targets")
 			return false
