@@ -214,6 +214,31 @@ function modifier_creep_ai:selectTarget()
 	end
 
 	units = self:findUnitsInRadiusFiltered(
+		entity, position, self.kv.alertRadius, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC)
+	if #units > 0 then
+		for i=1,#units do
+			-- find unit not transferring aggro and not techies' mine
+			if not units[i]:HasModifier("modifier_creep_aggro_move_datadriven") then
+	--			print("find unit not transferring aggro")
+				return {
+					unit = units[i],
+				}
+			end
+		end
+		--print("find unit transferring aggro")
+		return {
+			unit = units[1],
+		}
+	end
+
+	if self.alert_target ~= nil and isAttackable(self.alert_target, entity) then
+	--	print("find alert unit")
+		return {
+			unit = self.alert_target
+		}
+	end
+
+	units = self:findUnitsInRadiusFiltered(
 		entity, position, self.kv.alertRadius, DOTA_UNIT_TARGET_ALL)
 	if #units > 0 then
 		for i=1,#units do
@@ -230,12 +255,7 @@ function modifier_creep_ai:selectTarget()
 			unit = units[1],
 		}
 	end
-	if self.alert_target ~= nil and isAttackable(self.alert_target, entity) then
-	--	print("find alert unit")
-		return {
-			unit = self.alert_target
-		}
-	end
+
 	if self.target ~= nil and isAttackable(self.target.unit, entity) then
 	--	print("find current target")
 		return {
