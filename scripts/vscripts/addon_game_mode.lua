@@ -1428,6 +1428,10 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			event.damage = event.damage  * 2 / 3
         end
 	end
+	-- No damage to glyphed towers
+	if victim:HasModifier("modifier_glyph_active_datadriven") then
+		event.damage = 0
+	end
 	return true
 end
 
