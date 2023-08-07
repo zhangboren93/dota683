@@ -36927,7 +36927,7 @@
 			"area_of_effect"			"175"
 			"damage"
 			{
-				"value"					"100 162.5 225 287.5 350 412.5 475 537.5"
+				"value"					"100 162.5 225 287.5 350 412.5 475"
 				"levelkey"				"exortlevel"
 			}
 			"vision_distance"			"400"
@@ -36993,26 +36993,21 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"AbilityCooldown"
-			{
-				"value"					"20"
-				"special_bonus_unique_invoker_9"	"-8"
-			}
+			"AbilityCooldown"			"20"
 			"duration"
 			{
-				"value"					"3.0 3.5 4 4.5 5.0 5.5 6 6.5"
+				"value"					"3.0 3.5 4 4.5 5.0 5.5 6"
 				"levelkey"				"quaslevel"	
-				"special_bonus_unique_invoker_7"	"+3"
 			}
 			"freeze_duration"			"0.3"
 			"freeze_cooldown"
 			{
-				"value"					"0.77 0.74 0.71 0.69 0.66 0.63 0.6 0.57"
+				"value"					"0.77 0.74 0.71 0.69 0.66 0.63 0.6"
 				"levelkey"				"quaslevel"	
 			}
 			"freeze_damage"
 			{
-				"value"					"7 14 21 28 35 42 49 56"
+				"value"					"7 14 21 28 35 42 49"
 				"levelkey"				"quaslevel"	
 			}
 			"damage_trigger"			"10.0"
@@ -37043,21 +37038,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"AbilityCooldown"
-			{
-				"value"					"35"
-			}
+			"AbilityCooldown"		"35"
 			"duration"				"60"
 			"area_of_effect"		"450"
 			"enemy_slow"
 			{
-				"value"					"-20 -25 -30 -35 -40 -45 -50 -55"
+				"value"					"-20 -25 -30 -35 -40 -45 -50"
 				"levelkey"				"quaslevel"
 				
 			}
 			"self_slow"
 			{
-				"value"					"-30 -20 -10 0 10 20 30 40"
+				"value"					"-30 -20 -10 0 10 20 30"
 				"levelkey"				"wexlevel"
 			}		
 			"aura_fade_time"			"2.0"
@@ -37090,14 +37082,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"AbilityCooldown"
-			{
-				"value"					"30"
-				"special_bonus_unique_invoker_3" "-6"
-			}
+			"AbilityCooldown"			"30"
 			"travel_distance"
 			{
-				"value"					"800 1200 1600 2000 2400 2800 3200 3600"
+				"value"					"800 1200 1600 2000 2400 2800 3200"
 				"levelkey"				"wexlevel"
 			}
 			"travel_speed"			"1000"
@@ -37107,7 +37095,6 @@
 			"lift_duration"
 			{
 				"value"				"0.8 1.1 1.4 1.7 2 2.3 2.5"
-				"special_bonus_unique_invoker_8"	"+1.25"
 				"levelkey"			"quaslevel"
 			}
 			"base_damage"			
@@ -37122,7 +37109,7 @@
 			}
 			"wex_damage"
 			{
-				"value"				"45 90 135 180 225 270 315 360"
+				"value"				"45 90 135 180 225 270 315"
 				"levelkey"			"wexlevel"
 			}
 		}
@@ -37169,12 +37156,7 @@
 				"levelkey"				"wexlevel"
 				
 			}
-			"damage_per_mana_pct"					
-			{
-				"value"			"60"
-				"special_bonus_shard"	"+50%"
-			}
-			
+			"damage_per_mana_pct"		"60"
 			"shard_drag_speed"
 			{
 				"value"					"175"
@@ -37220,13 +37202,11 @@
 			{
 				"value"					"20 30 40 50 60 70 80"
 				"levelkey"				"wexlevel"
-				"special_bonus_unique_invoker_5"	"+30"
 			}
 			"bonus_damage"
 			{
 				"value"					"20 30 40 50 60 70 80"
 				"levelkey"				"exortlevel"
-				"special_bonus_unique_invoker_5"	"+30"
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"duration"					"9"
@@ -37288,7 +37268,6 @@
 			{
 				"value"					"57.5 75 92.5 110 127.5 145 162.5"
 				"levelkey"				"exortlevel"
-				"special_bonus_unique_invoker_6"	"+80%"
 			}
 			"burn_duration"				"3.0"
 			"burn_dps"
@@ -37296,14 +37275,9 @@
 				"value"					"11.5 15 18.5 22 25.5 29 32.5"
 				"levelkey"				"exortlevel"
 				"CalculateSpellDamageTooltip"	"1"
-				"special_bonus_unique_invoker_6"	"+80%"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
-			"meteor_count"
-			{
-				"value"					"1"
-				"special_bonus_unique_invoker_additional_chaos_meteors"	"+2"
-			}
+			"meteor_count"				"1"
 		}
 	}
 	//=================================================================================================================
@@ -37338,26 +37312,26 @@
 			}
 			"spirit_mana"			
 			{	
-				"value"			"100 150 200 250 300 350 400 450"
+				"value"			"100 150 200 250 300 350 400"
 				"levelkey"		"exortlevel"
 			}
 			"spirit_armor"
 			{
-				"value"			"0 1 2 3 4 5 6 7"
+				"value"			"0 1 2 3 4 5 6"
 				"levelkey"		"exortlevel"
 			}
 			"spirit_attack_range"	
 			{
-				"value"			"300 365 430 495 560 625 690 755"
+				"value"			"300 365 430 495 560 625 690"
 				"levelkey"		"quaslevel"
 			}
 			"spirit_hp"				
-			{	"value"			"300 400 500 600 700 800 900 1000"
+			{	"value"			"300 400 500 600 700 800 900"
 				"levelkey"		"quaslevel"
 			}
 			"spirit_duration"
 			{
-				"value"			"20 30 40 50 60 70 80 90"
+				"value"			"20 30 40 50 60 70 80"
 				"levelkey"		"quaslevel"
 			}
 			"armor_per_attack"
@@ -37365,15 +37339,8 @@
 				"value"			"1"
 				"levelkey"		"exortlevel"
 			}
-			"spirit_count"
-			{
-				"value"			"1"
-				"special_bonus_unique_invoker_1"	"+4"
-			}
-			"spirit_attack_speed"
-			{
-				"special_bonus_unique_invoker_11" "+50"
-			}
+			"spirit_count"				"1"
+			"spirit_attack_speed"		"0"
 			"extra_spirit_count_quas"	"0 0 0 1 1 1 1 1"
 			"extra_spirit_count_exort"	"0 0 0 1 1 1 1 1"
 		}
@@ -37403,6 +37370,37 @@
 			"duration"				"5"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	}
+	"forged_spirit_melting_strike_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityTextureName"			"forged_spirit_melting_strike"
+		"AbilityManaCost"				"40"
+		"AbilityValues"
+		{
+			"armor_removed"			"1"
+			"max_armor_removed"		"20"
+			"duration"				"5"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"Modifiers"
+		{
+			"modifier_melting_strike_passive_datadriven"
+			{
+				"Passive"			"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_invoker/melting_strike.lua"
+						"Function"		"handleAttackLanded"
+					}
+				}
+			}
+		}
 	}
 	//=================================================================================================================
 	// Invoker: Ice Wall
@@ -37434,30 +37432,25 @@
 		{
 			"duration"
 			{
-				"value"				"3.0 4.5 6.0 7.5 9.0 10.5 12.0 13.5"
+				"value"				"3.0 4.5 6.0 7.5 9.0 10.5 12.0"
 				"levelkey"			"quaslevel"
 			}
 			"slow"
 			{
-				"value"				"-20 -40 -60 -80 -100 -120 -140 -160"
+				"value"				"-20 -40 -60 -80 -100 -120 -140"
 				"levelkey"			"quaslevel"
 			}
 			"slow_duration"			"2.0"
 			"damage_per_second"
 			{
-				"value"				"6 12 18 24 30 36 42 48"
+				"value"				"6 12 18 24 30 36 42"
 				"levelkey"			"exortlevel"
-				"special_bonus_unique_invoker_ice_wall_dps" "+50"
 			}
 			"wall_place_distance"	"200"
 			"num_wall_elements"		"15"
 			"wall_element_spacing"	"80"
 			"wall_element_radius"	"105"
-			"vector_cast_range"
-			{
-				"value"				"0"
-				"special_bonus_unique_invoker_12"	"+1200"
-			}
+			"vector_cast_range"		"0"
 		}
 	}
 
@@ -37582,16 +37575,8 @@
 		// Special
 		"AbilityValues"
 		{
-			"attack_speed_per_instance"
-			{
-				"value"					"2 4 6 8 10 12 14"
-				"special_bonus_unique_invoker_13"	"x3"
-			}
-			"move_speed_per_instance"
-			{
-				"value"					"1 2 3 4 5 6 7"
-				"special_bonus_unique_invoker_13"	"x3"
-			}
+			"attack_speed_per_instance"	"2 4 6 8 10 12 14"
+			"move_speed_per_instance"	"1 2 3 4 5 6 7"
 		}
 	}
 	//=================================================================================================================
@@ -37616,11 +37601,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage_per_instance"
-			{
-				"value"					"3 6 9 12 15 18 21"
-				"special_bonus_unique_invoker_13"	"x3"
-			}
+			"bonus_damage_per_instance"	"3 6 9 12 15 18 21"
 		}
 	}
 	"npc_dota_thinker_phase_datadriven"
