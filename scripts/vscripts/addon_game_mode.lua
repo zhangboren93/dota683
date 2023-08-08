@@ -1435,15 +1435,160 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	return true
 end
 
+cold_snap_freeze_cooldown = {0.77, 0.74, 0.71, 0.69, 0.66, 0.63, 0.6}
+tornado_lift_duration = {0.8, 1.1, 1.4, 1.7, 2, 2.3, 2.5}
+chaos_meteor_travel_distance = {465, 615, 770, 920, 1070, 1220, 1370}
 function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 	local ability = EntIndexToHScript(event.entindex_ability_const)
 	local caster = EntIndexToHScript(event.entindex_caster_const)
 	if ability:GetName() == "ogre_magi_ignite_datadriven" and event.value_name_const == "AbilityCastRange" then
 		local ability_multicast = caster:FindAbilityByName("ogre_magi_multicast_datadriven")
-		if ability_multicast:GetLevel() > 0 then
+		if ability_multicast ~= nil and ability_multicast:GetLevel() > 0 then
 			event.value = event.value + ability_multicast:GetSpecialValueFor("ignite_range")
 			return true
 		end
+	-- invoker skills aghs won't give extra level
+	elseif ability:GetName() == "invoker_sun_strike" and event.value_name_const == "damage" then
+		local ability_exort = caster:FindAbilityByName("invoker_exort")
+		if ability_exort ~= nil then
+			event.value = 37.5 + 62.5 * ability_exort:GetLevel()
+			return true
+		end
+	elseif ability:GetName() == "invoker_cold_snap" then
+		local ability_quas = caster:FindAbilityByName("invoker_quas")
+		if ability_quas == nil then
+			return false
+		end
+		if event.value_name_const == "duration" then
+			event.value = 2.5 + 0.5 * ability_quas:GetLevel()
+		elseif event.value_name_const == "freeze_cooldown" then
+			event.value = cold_snap_freeze_cooldown[ability_quas:GetLevel()]
+		elseif event.value_name_const == "freeze_damage" then
+			event.value = 7 * ability_quas:GetLevel()
+		end
+		return true
+	elseif ability:GetName() == "invoker_ghost_walk" then
+		local ability_quas = caster:FindAbilityByName("invoker_quas")
+		local ability_wex = caster:FindAbilityByName("invoker_wex")
+		if ability_quas == nil or ability_wex == nil then
+			return false
+		end
+		if event.value_name_const == "enemy_slow" then
+			event.value = -15 - 5 * ability_quas:GetLevel()
+		elseif event.value_name_const == "self_slow" then
+			event.value = -40 + 10 * ability_wex:GetLevel()
+		end
+		return true
+	elseif ability:GetName() == "invoker_tornado" then
+		local ability_quas = caster:FindAbilityByName("invoker_quas")
+		local ability_wex = caster:FindAbilityByName("invoker_wex")
+		if ability_quas == nil or ability_wex == nil then
+			return false
+		end
+		if event.value_name_const == "travel_distance" then
+			event.value = 400 + 400 * ability_wex:GetLevel()
+		elseif event.value_name_const == "lift_duration" then
+			event.value = tornado_lift_duration[ability_quas:GetLevel()]
+		elseif event.value_name_const == "wex_damage" then
+			event.value = 45 * ability_wex:GetLevel()
+		end
+		return true
+	elseif ability:GetName() == "invoker_emp" then
+		local ability_wex = caster:FindAbilityByName("invoker_wex")
+		if ability_wex == nil then
+			return false
+		end
+		if event.value_name_const == "mana_burned" then
+			event.value = 25 + 75 * ability_wex:GetLevel()
+		end
+		return true
+	elseif ability:GetName() == "invoker_alacrity" then
+		local ability_wex = caster:FindAbilityByName("invoker_wex")
+		local ability_exort = caster:FindAbilityByName("invoker_exort")
+		if ability_wex == nil or ability_exort == nil then
+			return false
+		end
+		if event.value_name_const == "bonus_attack_speed" then
+			event.value = 10 + 10 * ability_wex:GetLevel()
+		elseif event.value_name_const == "bonus_damage" then
+			event.value = 10 + 10 * ability_exort:GetLevel()
+		end
+		return true
+	elseif ability:GetName() == "invoker_chaos_meteor" then
+		local ability_wex = caster:FindAbilityByName("invoker_wex")
+		local ability_exort = caster:FindAbilityByName("invoker_exort")
+		if ability_wex == nil or ability_exort == nil then
+			return false
+		end
+		if event.value_name_const == "travel_distance" then
+			event.value = chaos_meteor_travel_distance[ability_wex:GetLevel()]
+		elseif event.value_name_const == "main_damage" then
+			event.value = 40 + 17.5 * ability_exort:GetLevel()
+		elseif event.value_name_const == "burn_dps" then
+			event.value = 8 + 3.5 * ability_exort:GetLevel()
+		end
+		return true
+	elseif ability:GetName() == "invoker_forge_spirit" then
+		local ability_quas = caster:FindAbilityByName("invoker_quas")
+		local ability_exort = caster:FindAbilityByName("invoker_exort")
+		if ability_quas == nil or ability_exort == nil then
+			return false
+		end
+		if event.value_name_const == "spirit_damage" then
+			event.value = 20 + 9 * ability_exort:GetLevel()
+		elseif event.value_name_const == "spirit_mana" then
+			event.value = 50 + 50 * ability_exort:GetLevel()
+		elseif event.value_name_const == "spirit_armor" then
+			event.value = -1 + 1 * ability_exort:GetLevel()
+		elseif event.value_name_const == "spirit_attack_range" then
+			event.value = 235 + 65 * ability_quas:GetLevel()
+		elseif event.value_name_const == "spirit_hp" then
+			event.value = 200 + 100 * ability_quas:GetLevel()
+		elseif event.value_name_const == "spirit_duration" then
+			event.value = 10 + 10 * ability_quas:GetLevel()
+		elseif event.value_name_const == "extra_spirit_count_quas" then
+			if ability_quas:GetLevel() >= 4 then
+				event.value = 1
+			else
+				event.value = 0
+			end
+		elseif event.value_name_const == "extra_spirit_count_exort" then
+			if ability_exort:GetLevel() >= 4 then
+				event.value = 1
+			else
+				event.value = 0
+			end
+		end
+		return true
+	elseif ability:GetName() == "invoker_ice_wall" then
+		local ability_quas = caster:FindAbilityByName("invoker_quas")
+		local ability_exort = caster:FindAbilityByName("invoker_exort")
+		if ability_quas == nil or ability_exort == nil then
+			return false
+		end
+		if event.value_name_const == "duration" then
+			event.value = 1.5 + 1.5 * ability_quas:GetLevel()
+		elseif event.value_name_const == "slow" then
+			event.value = -20 * ability_quas:GetLevel()
+		elseif event.value_name_const == "damage_per_second" then
+			event.value = 6 * ability_exort:GetLevel()
+		end
+		return true
+	elseif ability:GetName() == "invoker_deafening_blast" then
+		local ability_quas = caster:FindAbilityByName("invoker_quas")
+		local ability_wex = caster:FindAbilityByName("invoker_wex")
+		local ability_exort = caster:FindAbilityByName("invoker_exort")
+		if ability_quas == nil or ability_wex == nil or ability_exort == nil then
+			return false
+		end
+		if event.value_name_const == "damage" then
+			event.value = 40 * ability_exort:GetLevel()
+		elseif event.value_name_const == "knockback_duration" then
+			event.value = 0.25 * ability_quas:GetLevel()
+		elseif event.value_name_const == "disarm_duration" then
+			event.value = 0.5 + 0.5 * ability_wex:GetLevel()
+		end
+		return true
 	end
 end
 

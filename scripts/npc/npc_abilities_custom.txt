@@ -37507,12 +37507,7 @@
 				"value"					"1 1.5 2 2.5 3 3.5 4"
 				"levelkey"				"wexlevel"
 			}
-			"radial_count"
-			{
-				"value"					"1"
-				//TODO based on levels
-				"special_bonus_unique_invoker_2"	"+11"
-			}
+			"radial_count"				"1"
 		}
 	}
 
