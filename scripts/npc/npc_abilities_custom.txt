@@ -37283,7 +37283,6 @@
 	//=================================================================================================================
 	// Invoker: Forge Spirit
 	//=================================================================================================================
-	//TODO base attack time is 1.5
 	"invoker_forge_spirit"
 	{
 		// General
@@ -37346,31 +37345,6 @@
 		}
 			
 	}
-	//=================================================================================================================
-	// Invoker: Forged Spirit: Melting Strike
-	//=================================================================================================================
-	//TODO melting strike 40 mana
-	"forged_spirit_melting_strike"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5388"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"8"
-		
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"armor_removed"			"1"
-			"max_armor_removed"		"20"
-			"duration"				"5"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
 	"forged_spirit_melting_strike_datadriven"
 	{
 		"BaseClass"						"ability_datadriven"
@@ -37391,6 +37365,14 @@
 			"modifier_melting_strike_passive_datadriven"
 			{
 				"Passive"			"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_invoker/melting_strike.lua"
+						"Function"		"handleCreated"
+					}
+				}
 				"OnAttackLanded"
 				{
 					"RunScript"

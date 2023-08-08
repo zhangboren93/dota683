@@ -572,7 +572,15 @@
 		"DOTA_Tooltip_Ability_item_tranquil_boots_datadriven"									"绿鞋"
 		"DOTA_Tooltip_Ability_item_tranquil_boots_datadriven_Description"						"+90移速，+4护甲，+12回血。攻击或被攻击后失去回血和35移速"
 		"DOTA_Tooltip_Ability_winter_wyvern_arctic_burn_Lore"									"每秒6%当前生命值纯粹伤害"
+		//Invoker
 		"DOTA_Tooltip_Ability_invoker_invoke_Scepter_Description"								"-CD，不耗蓝"
+		"DOTA_Tooltip_ability_invoker_forge_spirit_spirit_mana"									"魔法值(<font color='#cabe68'>火</font>):\n"
+		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven"							"灼烧攻击"
+		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven_Description"				"当熔炉精灵的攻击将熔化敌方英雄的护甲。每次攻击命中后效果会叠加。"
+		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven_armor_removed"			"每次攻击减甲："
+		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven_max_armor_removed"		"最大叠加次数："
+		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven_duration"					"持续时间："
+
 		"DOTA_Tooltip_Ability_item_ring_of_aquila_Lore" 										"+1护甲"
 		"DOTA_Tooltip_Ability_item_crimson_guard_Lore"											"+2全属性" 
 		"DOTA_Tooltip_Ability_item_blink_datadriven"											"跳刀" 

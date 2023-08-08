@@ -570,7 +570,15 @@
 		"DOTA_Tooltip_Ability_item_tranquil_boots_datadriven"									"Tranquil Boots"
 		"DOTA_Tooltip_Ability_item_tranquil_boots_datadriven_Description"						"+90 move speed, +4 armor, +12 health regen. Attack or being attacked lose health regen and 35 move speed."
 		"DOTA_Tooltip_Ability_winter_wyvern_arctic_burn_Lore"									"Pure damage 6% current health per second"
+		// Invoker
 		"DOTA_Tooltip_Ability_invoker_invoke_Scepter_Description"								"-CD, no mana cost"
+		"DOTA_Tooltip_ability_invoker_forge_spirit_spirit_mana"									"MANA (<font color='#cabe68'>EXORT</font>):\n"
+		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven"							"Melting Strike"
+		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven_Description"				"Melts away the armor of heroes hit by the spirit's attack. Each successive hit increases the amount of armor melted."
+		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven_armor_removed"			"ARMOR REMOVED PER HIT:"
+		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven_max_armor_removed"		"MAX STACKS:"
+		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven_duration"					"DURATION:"
+
 		"DOTA_Tooltip_Ability_item_ring_of_aquila_Lore" 										"+1 armor"
 		"DOTA_Tooltip_Ability_item_crimson_guard_Lore"											"+2 all attributes" 
 		"DOTA_Tooltip_Ability_item_blink_datadriven"											"Blink dagger" 
