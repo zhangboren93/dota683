@@ -5485,58 +5485,19 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"15"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"1000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"-40"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_damage"			"200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_movement_speed"	"-40"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blast_debuff_duration"	"4.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_radius"			"900"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blast_speed"			"350"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"hp_regen_degen_aura"	"0"
-			}
+			"bonus_intellect"		"30"
+			"bonus_armor"			"15"
+			"aura_radius"			"900"
+			"aura_attack_speed"		"-40"
+			"blast_damage"			"200"
+			"blast_movement_speed"	"-40"
+			"blast_debuff_duration"	"4.0"
+			"blast_radius"			"900"
+			"blast_speed"			"350"
+			"hp_regen_degen_aura"	"0"
+			"illusion_multiplier_pct"	"100"
 		}
 	}
 	//=================================================================================================================
@@ -5859,6 +5820,9 @@
 			"bonus_mana_regen"					"0"
 			"bonus_health_regen"				"6"
 			"bonus_all_stats"					"15"
+			"upgrade_absorb_duration"			"0.0"
+			"damage_absorb"						"0"
+			"block_cooldown"					"17.0"
 		}
 	}
 
@@ -6435,6 +6399,7 @@
 				"evasion"				"0"
 				"blind_pct"				"0"
 				"aura_radius"			"700"
+				"illusion_multiplier_pct"	"100"
 		}
 	}
 	//=================================================================================================================
@@ -7717,6 +7682,7 @@
 			"chain_cooldown"		"0.2"
 			"max_charges"			"0"
 			"chain_damage_per_charge"	"0"
+			"illusion_multiplier_pct"	"100"
 		}
 	}
 	//=================================================================================================================
@@ -8182,48 +8148,17 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"24"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"chain_chance"			"25"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"chain_damage"			"120"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"chain_strikes"			"4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"chain_radius"			"650"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"chain_delay"			"0.25"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"chain_cooldown"		"0.2"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_attack_speed"	"25"
-			}
+			"bonus_damage"				"24"
+			"chain_chance"				"25"
+			"chain_damage"				"120"
+			"chain_strikes"				"4"
+			"chain_radius"				"650"
+			"chain_delay"				"0.25"
+			"chain_cooldown"			"0.2"
+			"illusion_multiplier_pct"	"100"
+			"bonus_attack_speed"		"25"
 		}
 	}
 	//=================================================================================================================
@@ -9005,6 +8940,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
+		"AbilityHealthCost"				"150"
 		"AbilityManaCost"				"0"
 		"ItemCost"						"800"
 		"ItemShopTags"					"regen_health;boost_mana"
@@ -9587,73 +9523,21 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"		"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"bonus_damage"			"100"
 				"bonus_health"			"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"bonus_health_regen"	"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"block_damage_melee"	"0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"block_damage_ranged"	"0"
-			}			
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"block_chance"			"0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_strength"		"10"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bash_chance_melee"		"25"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bash_chance_ranged"		"10"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
+				"bash_chance_ranged"	"10"
 				"bash_duration"			"1.4"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bash_cooldown"			"2.0"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"bash_cooldown"			"2"
 				"bonus_chance_damage"	"0"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"2.0"
-			}
+				"stun_duration"			"2"
 		}
 	}
 	//=================================================================================================================
