@@ -924,16 +924,8 @@
 		"AbilityManaCost"				"125 150 175 200"
 		"AbilityValues"
 		{
-			"brain_sap_damage"				
-			{
-				"value"									"90 160 230 300"
-				"special_bonus_unique_bane_2"			"+200"
-			}
-			"AbilityCooldown"
-			{	
-				"value"	"14"
-				"special_bonus_unique_bane_8"			"-3"
-			}
+			"brain_sap_damage"				"90 160 230 300"
+			"AbilityCooldown"				"14"
 			"shard_radius"
 			{
 				"special_bonus_shard"				"+550"
@@ -987,18 +979,10 @@
 			"nightmare_invuln_time"		"1.0"
 			"duration"					"4.0 5.0 6.0 7.0"
 			"animation_rate"			"0.2 0.2 0.2 0.2"
-			//TODO tick damage
 			"nightmare_tick_damage"		"20"
-			"AbilityCooldown"
-			{
-				"value"	"16 15 14 13"
-				"special_bonus_unique_bane_5" "-3"
-			}
-			"nightmare_heal_pct"
-			{
-				"value"					"0"
-				"special_bonus_unique_bane_10"		"+100"
-			}
+			"AbilityCooldown"			"16 15 14 13"
+			"nightmare_heal_pct"		"0"
+			"bonus_attack_speed"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -1082,17 +1066,17 @@
 			"fiend_grip_tick_interval"		"0.5"
 			"fiend_grip_mana_drain"	
 			{
-				"value"						"5"
+				"value"							"5"
 				"special_bonus_scepter"			"+5"
 			}
 			"AbilityChannelTime"
 			{
-				"value"					"5"
+				"value"						"5"
 				"special_bonus_scepter"		"+2"
 			}
 			"fiend_grip_damage"				
 			{
-				"value"	"100 155 215"
+				"value"					"100 155 215"
 				"special_bonus_scepter"	"+55 +60 +55"
 			}
 			"AbilityCooldown"				
@@ -4368,12 +4352,27 @@
 			"hawk_base_max_health"			"40 60 80 100"
 			"hawk_base_movespeed"			"250 300 350 400"
 			"hawk_base_gold_bounty"			"30 40 50 60"
+			"hawk_base_xp_bounty"			"77"
 			"hawk_base_vision_range"		"700 800 900 1000"
+			"hawk_base_magic_resist"		"0"
 			"AbilityCooldown"
 			{
 				"value"						"40"	
 				"special_bonus_shard"		"-10"
 			}				
+			"attack_radius"				"0"
+			"hawk_count"					
+			{
+				"value"					"1"
+				"special_bonus_shard"	"+1"
+			}
+			"dive_damage"						"0"
+			"dive_root_duration"				"0"
+			"roaming_radius"					"0"
+			"roaming_seconds_per_rotation"		"0"
+			"hawk_base_attack_interval"			"0"
+			"min_move_speed"					"250"
+			"max_move_speed"					"250"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -9090,25 +9089,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"AbilityCooldown"
-			{
-				"value"					"4"
-				"special_bonus_unique_ancient_apparition_3"			"-2"
-			}
+			"AbilityCooldown"		"4"
 			"radius"				"275"
-			"drag_speed"	"40 50 60 70"
-			"movement_speed_pct"
-			{
-				"value"	"-15 -20 -25 -30"
-				"special_bonus_unique_ancient_apparition_4"	"-5"
-			}
+			"drag_speed"			"40 50 60 70"
+			"movement_speed_pct"	"-15 -20 -25 -30"
 			"spell_resist_pct"
 			{
-				"value"		"-15 -20 -25 -30"
-				"special_bonus_unique_ancient_apparition_4"	"-5"
+				"value"				"-15 -20 -25 -30"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
-			"vision_aoe"		"200 200 200 200"
+			"vision_aoe"			"200 200 200 200"
 			"vortex_duration"		"16"
 			"shard_dps"
 			{
@@ -16221,25 +16211,22 @@
 			"radius"					"275"
 			"duration"					"3.5 4.5 5.5 6.5"
 			"tempest_duration"			"3.5 4.5 5.5 6.5"
-			"attack_speed_bonus"		
-			{
-				"value" 				"50 60 70 80"
-				"special_bonus_unique_arc_warden_3" 		"+40"
-			}
+			"attack_speed_bonus"		"50 60 70 80"
 			"evasion_chance"			"100"
 			"shard_magic_resist"
 			{
 
-				"value"						"40"
-				"RequiresShard"				"1"
+				"value"					"40"
+				"RequiresShard"			"1"
 			}
 			"shard_slow_pct"
 			{
-				"value"						"30"
-				"RequiresShard"				"1"
+				"value"					"30"
+				"RequiresShard"			"1"
 			}
-			"attack_range_bonus"				"0"
-			"attack_magic_damage"				"0"
+			"attack_range_bonus"		"0"
+			"attack_magic_damage"		"0"
+			"attack_damage_bonus"		"0"
 		}
 	}
 	//=================================================================================================================
@@ -16320,6 +16307,7 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
+	//TODO double click to self cast
     "arc_warden_tempest_double"
 	{
 		"MaxLevel"              "3"
@@ -16328,7 +16316,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5683"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT_TARGET"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_ArcWarden.TempestDouble"
@@ -16339,6 +16327,7 @@
 		"AbilityCastPoint"				"0.15"
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
 		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"150"
 		
 
 		// Time		
@@ -16350,20 +16339,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"
-			{
-				"value"				"20"
-				"special_bonus_unique_arc_warden_6"		"+12"
-			}
-			"bounty"				"180 240 300"
-			"penalty_distance"				"2000"
+			"duration"							"20"
+			"bounty"							"180 240 300"
+			"penalty_distance"					"2000"
 			"attack_damage_penalty"				"0"
-			"tempest_double_cooldown_reduction"
-			{
-				"value"							"0"
-				"special_bonus_unique_arc_warden_7"		"+50"
-			}
-			"health_cost_pct"		"30 15 0"
+			"tempest_double_cooldown_reduction"	"0"
+			"health_cost_pct"					"30 15 0"
 		}
 	}
 	"arc_warden_tempest_double_cost"
@@ -16947,7 +16928,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
-		"HasShardUpgrade"				"1"
+		"HasShardUpgrade"				"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -16966,29 +16947,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"magic_resistance"			
-			{
-				"value"			"26 34 42 50"
-				"special_bonus_unique_antimage_4"	"+20"
-			}
+			"magic_resistance"			"26 34 42 50"
 			"duration"					"0"
-			"shard_radius"				
-			{
-				"special_bonus_shard"		"+900"
-			}
-			"shard_spell_damage_reduction_pct"
-			{
-				"special_bonus_shard"					"+10"
-			}
-			"shard_bonus_aura_range"
-			{
-				"special_bonus_shard"	"+300"
-			}
-			"shard_bonus_spell_damage_reduction_pct"				
-			{
-				"special_bonus_shard"		"+30"
-			}
-			
+			"duration_illusion"			"0"
+			"outgoing_damage"			"0"
+			"incoming_damage"			"100"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityCastGestureSlot"		"DEFAULT"
