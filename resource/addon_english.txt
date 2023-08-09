@@ -651,5 +651,13 @@
 		//Mirana
 		"DOTA_Tooltip_ability_mirana_arrow_Description"										"Fires a long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from %arrow_min_stun% to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target."
 
+		//Spectre
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2"						"Spectral Dagger"
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Description"			"Spectre flings a dagger to draw a Shadow Path, dealing damage and slowing the movement speed of any enemies along the trail. Units hit by the dagger also trail a Shadow Path. While treading the path, Spectre phases through otherwise impassable terrain. Spectral Dagger applies an instance of Desolate to targets with no allied units within 400 radius of them."
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Lore"					"Mercurial's dagger eclipses the physical plane in shadow, a state in which mortals cower, but spectres thrive."
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Note0"				"There is a %dagger_grace_period% second grace period after leaving the path where no collision is preserved."
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_bonus_movespeed"		"%MOVEMENT SPEED CHANGE:"
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_hero_path_duration"	"DURATION:"
 	}
 }

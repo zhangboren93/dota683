@@ -1603,6 +1603,7 @@
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -1623,7 +1624,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1400"		// Base health.
+		"StatusHealth"				"1100"		// Base health.
 		"StatusHealthRegen"			"2"			// Health regeneration rate.
 		"StatusMana"				"300"		// Base mana.
 		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 
@@ -1657,7 +1658,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1800"		// Base health.
+		"StatusHealth"				"1400"		// Base health.
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"StatusMana"				"300"		// Base mana.
 		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 	
@@ -1677,7 +1678,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2300"		// Base health.
+		"StatusHealth"				"1700"		// Base health.
 		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusMana"				"300"			// Base mana.
 		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 	
@@ -1697,7 +1698,7 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2700"		// Base health.
+		"StatusHealth"				"2000"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
 		"StatusMana"				"300"		// Base mana.
 		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 	

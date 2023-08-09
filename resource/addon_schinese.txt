@@ -652,6 +652,15 @@
 		//Mirana
 		"DOTA_Tooltip_ability_mirana_arrow_Description"											"射出一支绝对精准的箭矢，对第一个击中的敌人造成伤害并眩晕目标。目标距离越远，眩晕时间越长，最短%arrow_min_stun%秒，最长可达%arrow_max_stun%秒。根据箭矢飞行的距离还将对目标额外造成最多%arrow_bonus_damage%点伤害。"
 
+		//Spectre
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2"						"幽鬼之刃"
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Description"			"幽鬼掷出一把匕首，留下一条暗影之径，对路径上的敌人造成伤害并减缓其移动速度。被匕首击中的单位移动时也会留下暗影之径。幽鬼在暗影之径上可以无视地形移动。幽鬼之刃对400范围内没有友军的目标施加一次荒芜伤害。"
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Lore"					"墨丘利的匕首将物质位面遮蔽于暗影中，凡人在其中畏缩不前，但幽鬼们相当强势。"
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Note0"				"在离开暗影之径后%dagger_grace_period%秒内碰撞体积依然为0，作为缓冲时间。"
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_damage"				"伤害："
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_bonus_movespeed"		"%移动速度加成："
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_hero_path_duration"	"持续时间："
+
 		//Miss message
 		"abaddon_miss"				"死骑Miss!"
 		"ancient_apparition_miss" 	"冰魂Miss!"
