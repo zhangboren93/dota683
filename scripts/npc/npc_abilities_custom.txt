@@ -1548,29 +1548,10 @@
 				"value"						"105 170 250"
 				"special_bonus_scepter"		"+65 80 60"
 			}
-			"frostbite_delay" // negative means don't apply.
-			{
-				"value"						"-1"
-				"special_bonus_scepter"		"+0"
-				"RequiresScepter"			"1"
-			}
-			"shard_bonus_explosion"
-			{
-				"shard_bonus_explosion"		"0"
-				"special_bonus_shard"		"+20"
-				"RequiresShard"				"1"
-			}
-			"shard_self_movement_speed_slow_pct"
-			{
-				"value"						"0"
-				"special_bonus_shard"		"-75"
-				"RequiresShard"				"1"
-			}
-			"can_move"
-			{
-				"value"						"0"
-				"special_bonus_shard"		"+1"
-			}
+			"frostbite_delay" 				"-1"
+			"shard_bonus_explosion"			"0"
+			"shard_self_movement_speed_slow_pct"	"0"
+			"can_move"						"0"
 		}
 	}
     "earthshaker_echo_slam"
