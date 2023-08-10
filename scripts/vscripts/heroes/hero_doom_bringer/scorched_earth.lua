@@ -7,9 +7,6 @@ function handleAbilityExecuted(event)
 		ability:SetLevel(event_ability:GetLevel())
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_doom_bringer_scorched_earth_regen_datadriven", {})
 	end
-	if event_ability:GetName() == "doom_bringer_doom" and caster:HasScepter() then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_doom_apply_break_active", {})
-	end
 	if event_ability:GetName() == "doom_bringer_devour" then
 		if target:HasAbility("harpy_storm_chain_lightning") then
 			caster:SetThink(function()
