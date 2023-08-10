@@ -2467,53 +2467,17 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"										"FIELD_FLOAT"
 				"ball_lightning_initial_mana_percentage"		"7"		
-			}
-			"02"
-			{
-				"var_type"										"FIELD_INTEGER"
 				"ball_lightning_initial_mana_base"				"15"		
-			}
-			"03"
-			{
-				"var_type"							"FIELD_INTEGER"
 				"ball_lightning_move_speed"			"1250 1875 2500"		
-			}
-			"04"
-			{
-				"var_type"							"FIELD_INTEGER"
 				"ball_lightning_aoe"				"125 200 275"		
-			}
-			"05"
-			{
-				"var_type"							"FIELD_INTEGER"
 				"ball_lightning_travel_cost_base"	"10"		
-			}
-			"06"
-			{
-				"var_type"								"FIELD_FLOAT"
 				"ball_lightning_travel_cost_percent"	"1"		
-			}
-			"07"
-			{
-				"var_type"								"FIELD_INTEGER"
 				"ball_lightning_vision_radius"			"400"		
-			}
-			"08"
-			{
-				"var_type"								"FIELD_FLOAT"
 				"blocker_duration"			"5"		
-			}
-			"09"
-			{
-				"var_type"								"FIELD_INTEGER"
 				"scepter_remnant_interval"			"300"		
-			}
 		}
 	}
 	//=================================================================================================================
@@ -2555,6 +2519,7 @@
 		{
 			"gods_strength_damage"		"100 150 200"	
 			"scepter_aura_damage_pct"	"40 60 80"
+			"bonus_slow_resistance"		"0"	
 		}	
 	}
 	"sven_gods_strength_aghs_datadriven"
@@ -2648,6 +2613,7 @@
 					"special_bonus_scepter"	"+15"	
 					"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
 				}
+				"slow_resistance"			"0"
 		}
 	}
 	//=================================================================================================================
@@ -3899,6 +3865,7 @@
 	//=================================================================================================================
 	// Ability: Warlock's Fatal Bonds
 	//=================================================================================================================
+	// TODO No imp explode
 	"warlock_fatal_bonds"
 	{
 		// General
@@ -3937,30 +3904,39 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"count"						"3 4 5 6"
-				"LinkedSpecialBonus"		"special_bonus_unique_warlock_9"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"damage_share_percentage"	"25"
-				"LinkedSpecialBonus"		"special_bonus_unique_warlock_5"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"duration"					"25.0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"search_aoe"				"700"
-			}
+				"imp_duration"				"0"
+				"imp_level"					"0"
+		}
+	}
+	//=================================================================================================================
+	// Ability: Warlock Imps Explosion
+	//=================================================================================================================
+	"warlock_imp_explode"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1200"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"explosion_delay"			"0"
+			"explosion_radius"			"0"
+			"explosion_dmg"				"0"			
+			"explosion_nonhero_reduce" 	"0"
+
+			"bonus_hp"					"0 50 100 150 250"
+			"bonus_dmg"					"0 2 4 6 8"
+			"bonus_movespeed"			"0 15 30 45 60"
 		}
 	}
 	
@@ -4072,11 +4048,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"aoe"					
-			{
-				"value"				"675"
-				"special_bonus_unique_warlock_upheaval_aoe"			"+75"
-			}
+			"aoe"					"675"
 			"slow_per_second"		"7 14 21 28"
 			"duration"				"3.0"
 			"max_slow"				"84"
@@ -4084,7 +4056,7 @@
 			"damage_per_second"		"0"
 			"max_damage"			"0"
 			"damage_tick_interval"	"1"
-			"imps_interval"				"2"
+			"imps_interval"				"2000"
 			"minor_imp_duration"		"0"
 			"major_imp_duration"		"0"
 		}
@@ -4164,17 +4136,10 @@
 				"value"					"50 75 100"
 				"RequiresScepter"		"1"
 			}
-			"bonus_magic_resistance"
-			{
-				"value"			"0"
-				"special_bonus_unique_warlock_1"		"+80"
-
-			}
-			"bonus_armor"
-			{
-				"value"			"0"
-				"special_bonus_unique_warlock_2"		"+20"
-			}
+			"bonus_magic_resistance"	"0"
+			"bonus_armor"				"0"
+			"tooltip_golem_armor"		"6 9 12"
+			"bonus_slow_resistance"		"0"
 		}
 	}
 	//=================================================================================================================
@@ -5909,70 +5874,20 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"max_traps"					"5 8 11"
-				"LinkedSpecialBonus"		"special_bonus_unique_templar_assassin_6"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"trap_fade_time"			"2.0 2.0 2.0"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"movement_speed_min"			"30"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"movement_speed_max"			"50"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"trap_duration_tooltip"			"5"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"trap_bonus_damage"			"0"
-				"LinkedSpecialBonus"	"special_bonus_unique_templar_assassin_3"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"trap_max_charge_duration"			"5"
-			}
-			"08"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"shard_min_silence_duration"		"1.5"
-				"RequiresShard"						"1"
-			}
-			"09"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"shard_max_silence_duration"		"3.5"
-				"RequiresShard"						"1"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"shard_bonus_max_traps"			"4"
-				"RequiresShard"						"1"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"shard_bonus_vision"			"125"
-				"RequiresShard"						"1"
-			}
+				"shard_min_silence_duration"		"0"
+				"shard_max_silence_duration"		"0"
+				"shard_bonus_max_traps"			"0"
+				"shard_bonus_vision"			"0"
+				"damage_tick_rate"					"1"
 		}
 	}
 	"templar_assassin_trap"
@@ -6161,12 +6076,7 @@
 		"AbilityValues"
 		{
 			"duration"				"5"
-
-			"damage"
-			{
-				"value"				"60 100 145"
-				"special_bonus_unique_viper_2"	"+80"
-			}
+			"damage"				"60 100 145"
 			"bonus_movement_speed"	"-40 -60 -80"
 			"bonus_attack_speed"	"-40 -60 -80"
 			"AbilityCooldown"
@@ -9287,8 +9197,8 @@
 				"vision_radius"			"400 400 400 400"
 				"vision_duration"		"0.94 0.94 0.94 0.94"
 				"scepter_cooldown"		"12"
-				"scepter_speed"		"0"
-				"scepter_cast_point"		"0.1"
+				"scepter_speed"			"0"
+				"scepter_cast_point"	"0.3"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -14843,49 +14753,16 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"40 44 48 52"
-				"LinkedSpecialBonus"	"special_bonus_unique_terrorblade_3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"transformation_time"	"0.35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"base_attack_time"		"1.5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_range"			"340 360 380 400"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"tooltip_attack_range"			"490 510 530 550"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"20 40 60 80"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"speed_loss"				"0"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"metamorph_aura_tooltip"				"1200"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -16017,43 +15894,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"AbilityCooldown"
-				{
-					"value"	"14"
-					"special_bonus_unique_underlord_5"	"-4"
-				}
-				"radius"					
-				{
-					"value"					"450"
-					"special_bonus_unique_underlord_8"	"+100"
-				}
-				"wave_duration"					
-				{
-					"value"	"7.0"
-					"special_bonus_unique_underlord_7"	"+2"
-				}
+				"AbilityCooldown"	"14"
+				"radius"			"450"
+				"wave_duration"					"7.0"
 				"wave_count"					"6"
 				"wave_damage"					"25 40 55 70"
 				"wave_interval"					"1.0"
-				"burn_damage"					
-				{
-					"value"					"0"
-					"special_bonus_unique_underlord_4"	"+1"
-				}
+				"burn_damage"					"0"
 				"burn_interval"					"1.0"
 				"burn_duration"					"2.0"
-				"can_target_units"
-				{
-					"special_bonus_shard"	"+1"
-				}
-				"shard_wave_count_bonus"	
-				{
-					"special_bonus_shard"	"+3"
-				}
-				"shard_wave_interval_reduction"	
-				{
-					"special_bonus_shard"	"+25"
-				}
+				"can_target_units"				"0"
+				"shard_wave_count_bonus"		"0"
+				"shard_wave_interval_reduction"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -16116,23 +15968,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"radius"
-			{
-				"value"					"275"
-				"special_bonus_unique_underlord_6"	"+75"
-			}
-
+			"radius"				"275"
 			"pit_duration"					"7.0"
 			"pit_interval"					"3.6"
-			"ensnare_duration"
-			{
-				"value"	"1 1.5 2 2.5"
-				"special_bonus_unique_underlord" "+0.65"
-			}
-			"speed_bonus"
-			{
-				"special_bonus_scepter" "+0"
-			}
+			"ensnare_duration"		"1 1.5 2 2.5"
+			"speed_bonus"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -17985,34 +17825,14 @@
 			"axe_width"					"100"
 			"axe_speed"					"1500.0"
 			"axe_range"					"950.0"
-			"axe_damage"				
-			{ 
-				"value"						"75"
-				"special_bonus_unique_troll_warlord_3"		"+90"
-			}
-			"axe_slow_duration"			
-			{
-				"value"						"3 3.75 4.5 5.25"
-				"special_bonus_unique_troll_warlord_whirling_axes_debuff_duration"				"+2"
-			}
+			"axe_damage"				"75"
+			"axe_slow_duration"			"3 3.75 4.5 5.25"
 			"movement_speed"			"30"
 			"axe_spread"				"25"
 			"axe_count"					"5"
-			"AbilityCooldown"
-			{
-				"value"							"12"
-				"special_bonus_scepter"			"-0"
-			}
-			"AbilityManacost"
-			{
-				"value"							"50"
-				"special_bonus_scepter"			"-0"
-			}
-			"pierces_magic_immunity"
-			{
-				"value"											"0"
-				"special_bonus_unique_troll_warlord_6"			"+1"
-			}
+			"AbilityCooldown"			"12"
+			"AbilityManacost"			"50"
+			"pierces_magic_immunity"	"0"
 		}
 	}
 
@@ -18044,36 +17864,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"damage"
-			{
-				"value"					"75 125 175 225"
-				"special_bonus_unique_troll_warlord_3"		"+90"
-			}
+			"damage"			"75 125 175 225"
 			"hit_radius"				"100"
 			"max_range"					"450.0"
 			"axe_movement_speed"		"1250"
-			"blind_duration"			
-			{
-				"value"						"4 5 6 7"
-				"special_bonus_unique_troll_warlord_whirling_axes_debuff_duration"				"+2"
-			}
+			"blind_duration"			"4 5 6 7"
 			"blind_pct"					"60"
 			"whirl_duration"			"3.0"
-			"AbilityCooldown"
-			{
-				"value"							"20 19 18 17"
-				"special_bonus_scepter"			"-0"
-			}
-			"AbilityManacost"
-			{
-				"value"							"50"
-				"special_bonus_scepter"			"-0"
-			}
-			"pierces_magic_immunity"
-			{
-				"value"											"0"
-				"special_bonus_unique_troll_warlord_6"			"+1"
-			}
+			"AbilityCooldown"			"20 19 18 17"
+			"AbilityManacost"			"50"
+			"pierces_magic_immunity"	"0"
 		}
 	}
 	"troll_warlord_whirling_axes_ranged_vision_datadriven"
@@ -18122,21 +17922,16 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
  		"AbilityCastAnimation"			"ACT_INVALID"
+		"HasShardUpgrade"				"0"
 		
 		// Casting
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"16 22 28 34"
-				"LinkedSpecialBonus"		"special_bonus_unique_troll_warlord_5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_stacks"			"4"
-			}
+			"attack_speed"			"16 22 28 34"
+			"max_stacks"			"4"
+			"extra_attack_chance_per_stack"	"0"
+			"base_chance"	"0"
+			"range_buffer"	"0"
 		}
 	}
 	// Rewrite of the Troll Warlord Battle Trance ability
@@ -21434,19 +21229,11 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"max_attacks"				"3 4 5 6"
-				"LinkedSpecialBonus"		"special_bonus_unique_ursa_7"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"attack_speed_bonus_pct"	"400 400 400 400"
-			}
+				"slow_resist"				"0"
 		}
 	}
 	"ember_spirit_fire_remnant"
@@ -30079,35 +29866,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"wave_speed"		"2000.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"wave_width"		"325"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"armor_reduction"	"-3 -4 -5 -6"
-				"LinkedSpecialBonus"	"special_bonus_unique_vengeful_spirit_4"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"vision_aoe"		"350"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"vision_duration"	"4"
-			}
-			
+				"attack_reduction"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
