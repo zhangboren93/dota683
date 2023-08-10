@@ -35018,16 +35018,6 @@
 					}
 				}
 			}
-			"modifier_ring_of_aquila_bonus_armor"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"1"
-				}
-			}
 			"modifier_maelstrom_bonus_attack_speed"
 			{
 				"Passive"		"0"
