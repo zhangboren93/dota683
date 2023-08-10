@@ -8650,68 +8650,6 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Doom Bringer: Doom
-	//=================================================================================================================
-	"doom_bringer_doom"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5342"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"			"1"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5"
-		"AbilityCastRange"				"550"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 200 250"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"duration"				
-			{
-				"value"								"15.0"
-				"special_bonus_scepter"		"+1"
-			}
-
-			"damage"
-			{
-				"value"								"20 35 50"
-				"special_bonus_scepter"				"+20 +25 +30"
-			}				
-			"deniable_pct"			"25 25 25"
-			"AbilityCooldown"						"100"
-			"does_break"							"1"
-			"does_mute"								"1"
-			"scepter_aura_radius"
-			{
-				"value"										"0"
-				"special_bonus_scepter"						"+0"
-			}
-		}
-	}
 	// Rewrite of the Doom Doom ability
 	// Author: Pizzalol
 	// Date: January 27, 2016
@@ -16399,45 +16337,38 @@
 	//=================================================================================================================
 	// Sniper: Assassinate
 	//=================================================================================================================
-	// TODO don't autoattack
-	"sniper_assassinate"
+	"sniper_assassinate_datadriven"
 	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5157"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"				"ability_datadriven"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"					"0"
-		"AbilitySound"					"Ability.Assassinate"
-
-		"AbilityDraftUltShardAbility"		"sniper_concussive_grenade"
-
-
+		"AbilityTextureName"			"sniper_assassinate"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2500 3000"
 		"AbilityCastRangeBuffer"		"600"
 		"AbilityCastPoint"				"1.7"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-
+	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 15 10"
-
+		"AbilityCooldown"				"20.0 15.0 10.0"
+	
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDamage"					"355 505 655"
-
+	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"175 275 375"
@@ -16445,46 +16376,149 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.0"	// Modifier just does damage
-
+	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
 				"projectile_speed"			"2500 2500 2500"
-				"scepter_stun_duration"			
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"tooltip_range"				"2000 2500 3000"
+			}
+			// Extra variables
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"charge_time"				"1.7"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"debuff_duration"			"4.0"
+			}
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+			"particle"					"particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
+			"particle"					"particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"
+		}
+		
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Ability.AssassinateLoad"
+			}
+			
+			"ApplyModifier"
+			{
+				"Target"				"CASTER"
+				"ModifierName"			"modifier_assassinate_caster_datadriven"
+			}
+		
+			"ApplyModifier"
+			{
+				"Target"				"TARGET"
+				"ModifierName"			"modifier_assassinate_target_datadriven"
+			}
+			
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_sniper/assassinate.lua"
+				"Function"				"assassinate_register_target"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Ability.Assassinate"
+			}
+		
+			"TrackingProjectile"
+			{
+				"Target"				"TARGET"
+				"EffectName"			"particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
+				"Dodgeable"				"1"
+				"ProvidesVision"		"0"
+				"MoveSpeed"				"%projectile_speed"
+				"SourceAttachment"		"DOTA_PROJECTILE_ATTACHMENT_HITLOCATION"
+			}
+			
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Hero_Sniper.AssassinateProjectile"
+			}
+		}
+		
+		"OnProjectileHitUnit"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_sniper/assassinate.lua"
+				"Function"				"handleProjectileHitUnit"
+			}
+			
+			"RemoveModifier"
+			{
+				"Target"				"TARGET"
+				"ModifierName"			"modifier_assassinate_target_datadriven"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_assassinate_caster_datadriven"
+			{
+				"Duration"				"%charge_time"
+			
+				"OnOrder"
 				{
-					"value" "0"
-					"RequiresScepter"		"1"
+					"RemoveModifier"
+					{
+						"Target"		"CASTER"
+						"ModifierName"	"modifier_assassinate_caster_datadriven"
+					}
+					
+					"RunScript"
+					{
+						"ScriptFile"			"heroes/hero_sniper/assassinate.lua"
+						"Function"				"assassinate_remove_target"
+					}
 				}
-				"scepter_crit"			
+			}
+		
+			"modifier_assassinate_target_datadriven"
+			{
+				"IsHidden"				"0"
+				"IsPurgeble"			"0"
+				"IsDebuff"				"1"
+				"Duration"				"%debuff_duration"
+				
+				"EffectName"			"particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"
+				"EffectAttachType"		"follow_overhead"
+				
+				"States"
 				{
-					"value" "0"
-					"RequiresScepter"		"1"
+					"MODIFIER_STATE_INVISIBLE" 			"MODIFIER_STATE_VALUE_DISABLED"
+					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"scepter_cast_point"			
-				{
-					"value" "1.7"
-					"RequiresScepter"		"1"
-				}
-				"scatter_range"
-				{
-					"value"			"0"
-					"special_bonus_shard"	"0"
-				}
-				"scatter_width"
-				{
-					"value"			"0"
-					"special_bonus_shard"			"0"
-					"RequiresShard"	"1"
-				}
-				"scatter_damage_pct"
-				{
-					"value"			"0"
-					"special_bonus_shard"			"0"
-					"RequiresShard"	"1"
-				}				
-				"cooldown_reduction_on_kill"		"0"
-		}		
+			}
+		}
 	}
 	//=================================================================================================================
 	// Ability: Antimage Counterspell

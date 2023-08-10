@@ -830,5 +830,14 @@
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_damage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_bonus_movespeed"		"%MOVEMENT SPEED CHANGE:"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_hero_path_duration"	"DURATION:"
+
+		//Sniper
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven"										"Assassinate"
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Description"							"Sniper locks onto a target enemy unit and, after a short aiming duration, fires a devastating shot that deals damage at long range and mini-stuns the target."
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Lore"									"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Note0"									"Crosshair effect is only visible to allies."
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Note1"									"Invisibility doesn't disjoint the projectile."
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastrange"						"CAST RANGE:"
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastpoint"						"AIM DURATION:"
 	}
 }

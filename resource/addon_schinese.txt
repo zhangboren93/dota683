@@ -833,6 +833,15 @@
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_bonus_movespeed"		"%移动速度加成："
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_hero_path_duration"	"持续时间："
 
+		//Sniper
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven"										"暗杀"
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Description"							"狙击手锁定一个目标敌方单位，经过短时间瞄准后从远距离射出一发毁灭性的子弹，对目标造成伤害及短暂眩晕。"
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Lore"									"为了完成预言然后返回家乡，卡德尔必须和参加古老考验那天一样，做出完美的射击。"
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Note0"									"准星效果只对队友可见。"
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Note1"									"隐身不能躲避该技能弹道。"
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastrange"						"施法距离："
+		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastpoint"						"瞄准持续时间："
+
 		//Miss message
 		"abaddon_miss"				"死骑Miss!"
 		"ancient_apparition_miss" 	"冰魂Miss!"
