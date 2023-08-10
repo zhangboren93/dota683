@@ -2914,6 +2914,9 @@
 					"value"						"225 350 475"
 					"special_bonus_scepter"		"+200"
 				}
+				"damage_pct"			"0"
+				"second_strike_delay"				"0"
+				"second_strike_damage_percent"		"0"
 		}
 	}
     "kunkka_ghostship"
@@ -3434,6 +3437,7 @@
 			}
 		}
 	}
+	//TODO physical damage and not bouncy to creeps
     "witch_doctor_death_ward"
 	{
 		"MaxLevel"              "3"
@@ -7371,31 +7375,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"damage"				
-			{
-				"value"										"75 100 125 150"
-				"special_bonus_unique_weaver_1"				"+50"
-			}
+			"damage"									"75 100 125 150"
 			"speed"					"250"
 			"radius"				"175 175 175 175"
 			"fade_time"				"0.25"
 			"duration"				"4.0 4.0 4.0 4.0"
-			"AbilityCharges"
-			{
-				"value"								"0"
-				"special_bonus_unique_weaver_6"		"+2"
-			}
-			"geminate_attack_mark_duration"
-			{
-				"value"									"0"
-				"special_bonus_shard"					"+6.0"
-			}
-			"shukuchi_attack_mark_radius"
-			{
-				"value"									"0"
-				"special_bonus_shard"					"+1200"
-			}
-		
+			"AbilityCharges"		"0"
+			"geminate_attack_mark_duration"	"0"
+			"shukuchi_attack_mark_radius"	"0"
+			"shukuchi_attack_delay"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -15508,36 +15496,13 @@
 				
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{	
-				"var_type"			"FIELD_FLOAT"
 				"duration"			"4.0"
-			}
-			"02"
-			{	
-				"var_type"			"FIELD_INTEGER"
 				"heal_additive"		"20"
-				"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_5"
-			}
-			"03"
-			{	
-				"var_type"			"FIELD_FLOAT"
 				"heal_percentage"	"3 4 5 6"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"shard_cooldown_reduction"			"4.0"	
-				"RequiresShard"				"1"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"shard_splinter_range"			"1200"	
-				"RequiresShard"				"1"
-			}
+				"shard_cooldown_reduction"			"0"	
+				"shard_splinter_range"			"0"	
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -15574,39 +15539,14 @@
 				
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{	
-				"var_type"			"FIELD_INTEGER"
 				"radius"			"350"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"damage_reduction"	"0"
-			}
-			"03"
-			{	
-				"var_type"			"FIELD_INTEGER"
 				"damage_amplification"	"0"
-			}
-			"04"
-			{	
-				"var_type"			"FIELD_INTEGER"
 				"bonus_attack_speed"	"0"
-			}
-			"05"
-			{	
-				"var_type"			"FIELD_FLOAT"
 				"duration"			"2.5 2.75 3"
-				"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_3"
-			}
-			"06"
-			{	
-				"var_type"			"FIELD_FLOAT"
 				"early_out_timer"	"2.5 2.75 3"
-			}
 		}
 	}
 	//=================================================================================================================
@@ -29888,10 +29828,7 @@
 				"creep_duration"		"5"
 				"base_damage"			"50"
 				"bounce_range"			"600"
-				"bounces"				
-				{ 
-					"value"					"2 4 6 8"
-				}
+				"bounces"				"2 4 6 8"
 				"speed"					"1200"
 				"bounce_delay"			"0.3"
 				"bounce_bonus_damage"	"0"
