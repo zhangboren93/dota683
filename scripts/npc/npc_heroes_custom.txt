@@ -2151,7 +2151,7 @@
 		"AttackAnimationPoint"		"0.4"
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
-		"Ability17"		"generic_hidden" 
+		"Ability17"		"invoker_orb_bonus_datadriven" 
 		"Ability18"		"generic_hidden" 
 		"Ability19"		"generic_hidden" 
 		"Ability20"		"generic_hidden" 

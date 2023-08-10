@@ -1490,7 +1490,6 @@
 			"AbilityCharges"					"0"		
 		}
 	}
-	//TODO cannot cast items or move
     "crystal_maiden_freezing_field"
 	{
 		// General
@@ -36158,7 +36157,6 @@
 	//=================================================================================================================
 	// Invoker: Quas
 	//=================================================================================================================
-	//TODO regen
 	"invoker_quas"
 	{
 		// General
@@ -36840,7 +36838,6 @@
 	//=================================================================================================================
 	// Invoker: Wex
 	//=================================================================================================================
-	//TODO attack speed
 	"invoker_wex"
 	{
 		// General
@@ -36868,7 +36865,6 @@
 	//=================================================================================================================
 	// Invoker: Exort
 	//=================================================================================================================
-	//TODO damage
 	"invoker_exort"
 	{
 		// General
@@ -36891,6 +36887,55 @@
 			"bonus_damage_per_instance"	"3 6 9 12 15 18 21"
 			"spell_amp"					"0"
 			"intelligence_bonus"		"2"
+		}
+	}
+	"invoker_orb_bonus_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_invoker_orb_bonus_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"		
+					{
+						"ScriptFile"	"heroes/hero_invoker/orb_bonus.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			"modifier_invoker_quas_regen_unit"
+			{
+				"IsHidden"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"1"
+				}
+			}
+			"modifier_invoker_wex_as_unit"
+			{
+				"IsHidden"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"2"
+				}
+			}
+			"modifier_invoker_exort_damage_unit"
+			{
+				"IsHidden"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"3"
+				}
+			}
 		}
 	}
 	"npc_dota_thinker_phase_datadriven"
