@@ -344,6 +344,7 @@
 		"DOTA_Tooltip_ability_vengefulspirit_nether_swap_scepter_description" 		"-CD"
 		"DOTA_Tooltip_ability_vengefulspirit_command_aura_datadriven" 				"Comand Aura"
 		"DOTA_Tooltip_ability_vengefulspirit_command_aura_datadriven_description" 	"900 range +%bonus_damage_pct%%% base damage, killer gains damage reduction aura"
+		//Phantom Assassin
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven"							"Phantom Strike"
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_Description"				"Teleports to a unit, friendly or enemy, and grants bonus attack speed while attacking if it's an enemy unit."
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_Lore"						"Mortred's silken veil is the last thing her unfortunate target sees."
@@ -353,6 +354,12 @@
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_bonus_max_attack_count"	"NUMBER OF ATTACKS:"
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven"				"Blur"
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven_Description"		"20/30/40/50 evasion"
+		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven"						"Coup de Grace"
+		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_Description"			"Phantom Assassin refines her combat abilities, gaining a chance of delivering a devastating critical strike to enemy units."
+		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_Lore"					"A divine strike, Mortred honors her opponent by choosing them for death."
+		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_crit_chance"			"%CRITICAL CHANCE:"
+		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_crit_bonus"				"%CRITICAL DAMAGE:"
+
 		"DOTA_Tooltip_ability_death_prophet_exorcism_scepter_description" 		"Removed by introducing a bug"
 
 		// Dragon Knight

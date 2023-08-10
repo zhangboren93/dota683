@@ -344,6 +344,7 @@
 		"DOTA_Tooltip_ability_vengefulspirit_nether_swap_scepter_description"		"-CD"
 		"DOTA_Tooltip_ability_vengefulspirit_command_aura_datadriven" 				"命令光环"
 		"DOTA_Tooltip_ability_vengefulspirit_command_aura_datadriven_description" 	"900范围+%bonus_damage_pct%%%基础攻击力，击杀者获得攻击力减弱光环"
+		//Phantom Assassin
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven"							"幻影突袭"
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_Description"				"闪烁到一个友方或敌方单位身边，如果是敌方单位则在攻击该目标时获得攻击速度加成。"
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_Lore"						"茉崔蒂的真丝面纱是她倒霉的目标临终所见之物。"
@@ -353,6 +354,12 @@
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_bonus_max_attack_count"	"攻击次数:"
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven"				"闪避"
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven_Description"		"20/30/40/50闪避"
+		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven"							"恩赐解脱"
+		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_Description"				"幻影刺客的战斗技巧得到精进，有一定概率对敌方单位造成毁灭性的致命一击。"
+		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_Lore"						"神圣的一击，茉崔蒂通过赐予对手死亡来向他们致以敬意。"
+		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_crit_chance"				"%致命一击概率："
+		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_crit_bonus"				"%致命一击伤害："
+
 		"DOTA_Tooltip_ability_death_prophet_exorcism_scepter_description" 		"Bug了=没有A杖"
 
 		// Dragon Knight
