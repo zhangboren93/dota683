@@ -862,5 +862,18 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Note1"									"Invisibility doesn't disjoint the projectile."
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastrange"						"CAST RANGE:"
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastpoint"						"AIM DURATION:"
+		
+		//Phantom Lancer
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2"								"Spirit Lance"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_Description"					"Sends a magical spirit lance to a target enemy unit that damages and slows, while summoning an illusory phantom to attack the unit."
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_Lore"							"Azwraith's proficiency at spearing his family's meal of fish is proving quite useful in the battlefield."
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_Note0"							"Nearby illusions will mimic the cast animation."
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_duration"						"SLOW DURATION:"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_movement_speed_pct"				"%MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_lance_damage"					"LANCE DAMAGE:"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_illusion_duration"				"ILLUSION DURATION:"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_abilitycastrange"				"CAST RANGE:"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_damage"		"%ILLUSION DAMAGE:"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_total_damage_in_pct"		"%ILLUSION DAMAGE TAKEN:"
 	}
 }

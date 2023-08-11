@@ -866,6 +866,19 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastrange"						"施法距离："
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastpoint"						"瞄准持续时间："
 
+		//Phantom_lancer
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2"								"灵魂之矛"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_Description"					"对敌方目标单位投出一支有魔力的灵魂之矛，造成伤害并减速，同时召唤一个幻象攻击该单位。"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_Lore"							"阿兹瑞斯对于用长矛捕鱼养家的精通被证明在战场上非常有用。"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_Note0"						"附近的幻象也会模仿施法动作。"
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_duration"						"减速持续时间："
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_movement_speed_pct"			"%移动速度降低："
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_lance_damage"					"伤害："
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_illusion_duration"			"幻象持续时间："
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_abilitycastrange"						"施法距离："
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_damage"		"%幻象继承攻击力："
+		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_total_damage_in_pct"		"%幻象承受伤害："
+
 		//Miss message
 		"abaddon_miss"				"死骑Miss!"
 		"ancient_apparition_miss" 	"冰魂Miss!"

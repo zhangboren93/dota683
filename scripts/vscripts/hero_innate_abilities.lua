@@ -26,3 +26,4 @@ hero_innate_abilities["npc_dota_hero_dragon_knight"] = "dragon_knight_elder_drag
 hero_innate_abilities["npc_dota_hero_sniper"] = "sniper_shrapnel_instant_vision_datadriven"
 hero_innate_abilities["npc_dota_hero_spectre"] = "spectre_reality_levelup_with_haunt_datadriven"
 hero_innate_abilities["npc_dota_hero_invoker"] = "invoker_orb_bonus_datadriven"
+hero_innate_abilities["npc_dota_hero_monkey_king"] = "monkey_king_pl_sound_effects"

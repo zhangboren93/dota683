@@ -20197,6 +20197,79 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
+	// Ability: Phantom Lancer's Spirit Lance
+	//=================================================================================================================
+	"phantom_lancer_spirit_lance_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"phantom_lancer_spirit_lance"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_PhantomLancer.SpiritLance.Throw"
+		"AbilityTextureName"			"phantom_lancer_spirit_lance"
+
+        "HasShardUpgrade"               "0"
+        "HasScepterUpgrade"				"0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"7"
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125 130 135 140"		
+		
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"750"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"lance_damage"
+			{
+				"value"				"100 150 200 250"
+			}
+			"lance_speed"				"1000 1000 1000 1000"
+			"duration"					"3.25"
+			"movement_speed_pct"		"-10 -20 -30 -40"
+			"illusion_duration"			"2.0 4.0 6.0 8.0"
+			"illusion_damage_out_pct"	"-80"
+			"tooltip_illusion_damage"	"20"
+			"illusion_damage_in_pct"	"300 300 300 300"
+			"tooltip_illusion_total_damage_in_pct"	"400 400 400 400"
+			"fake_lance_distance"		"675"
+			"scepter_bounce_radius"
+			{
+				"value"						"1"
+				"RequiresScepter"			"1"
+			}
+			"scepter_bonus_illusion_damage"
+			{
+				"value"						"0"
+				"RequiresScepter"			"1"
+			}
+			"scepter_total_hits"
+			{
+				"value"						"0"
+				"RequiresScepter"			"1"
+			}
+		}	
+		"AbilityCastAnimation"		"ACT_DOTA_MK_STRIKE"
+	}
+	//=================================================================================================================
 	// Ability: Phantom Lancer's Doppelwalk
 	//=================================================================================================================
 	"phantom_lancer_doppelwalk"
@@ -20321,6 +20394,15 @@
 				"shard_bonus_illusions"		"0"
 				"invis_duration"			"0"
 				"invis_movespeed"			"0"
+		}
+	}
+	"monkey_king_pl_sound_effects"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
 		}
 	}
 	//=================================================================================================================

@@ -184,6 +184,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent("dota_buyback", function(event)
 		HandleBuyback(event.entindex, event.player_id)
 	end, nil)
+	ListenToGameEvent("hero_selected", function(event)
+		HandlePlayerPickHero(event.hero_unit)
+	end, nil)
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
@@ -351,6 +354,9 @@ function CAddonTemplateGameMode:OnThink()
 				for i=1,#heroes do
 					if RandomInt(1, 111) > 30 then
 						GameRules:AddHeroToBlacklist(heroes[i])
+						if heroes[i] == "npc_dota_hero_phantom_lancer" then
+							GameRules:AddHeroToBlacklist("npc_dota_hero_monkey_king")
+						end
 					end
 				end
 				self.hero_selection_state = "PIC"
@@ -1264,8 +1270,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			slow:ApplyDataDrivenModifier(caster, parent, "modifier_earth_spirit_rolling_boulder_slow_datadriven", {})
 		end
 	elseif event.name_const == "modifier_illusion" then
-		if parent:GetName() ~= "npc_dota_hero_phantom_lancer" then
-			print("illusion add")
+		if parent:GetName() ~= "npc_dota_hero_phantom_lancer" and parent:GetName() ~= "npc_dota_hero_monkey_king" then
 			parent:AddAbility("illusion_bounty_cancel_datadriven"):SetLevel(1)
 		end
 	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then
@@ -1686,6 +1691,15 @@ function HandleBuyback(entindex, player_id)
 	entity:FindAbilityByName("hero_intrinstic_mechanism_datadriven"):ApplyDataDrivenModifier(
 		entity, entity, "modifier_hero_buybacked_gold_penalty", { duration = gold_penalty_duration });
 	PlayerResource:SetCustomBuybackCooldown(player_id, 420)
+end
+
+function HandlePlayerPickHero(hero)
+	print(hero .. " picked.")
+	if hero == "npc_dota_hero_phantom_lancer" then
+		GameRules:AddHeroToBlacklist("npc_dota_hero_monkey_king")
+	elseif hero == "npc_dota_hero_monkey_king" then
+		GameRules:AddHeroToBlacklist("npc_dota_hero_phantom_lancer")
+	end
 end
 
 function bitand(a, b)
