@@ -1603,7 +1603,6 @@
 		"AttackRange"				"150"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
 		"ProjectileSpeed"			"0"			// Speed of projectile.		   
-		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -1619,7 +1618,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"340"		// Speed.
+		"MovementSpeed"				"320"		// Speed.
 		"MovementTurnRate"			"0.6"		// Turning rate.
 
 		// Status
@@ -1652,7 +1651,7 @@
 		"ModelScale" 					".72"
 		"ArmorPhysical"				"4"			// Physical protection.
 		"AttackRate"				"1.65"		// Speed of attack.
-		"MovementSpeed"				"340"		// Speed.
+		"MovementSpeed"				"320"		// Speed.
 		"MovementTurnRate"			"0.6"		// Turning rate.
 		"Ability1"					"lone_druid_spirit_bear_return"			// Ability 1
 
@@ -1671,7 +1670,7 @@
 		"ModelScale" 					".78"
 		"ArmorPhysical"				"5"			// Physical protection.
 		"AttackRate"				"1.55"		// Speed of attack.
-		"MovementSpeed"				"340"		// Speed.
+		"MovementSpeed"				"330"		// Speed.
 		"MovementTurnRate"			"0.6"		// Turning rate.
 		"Ability1"					"lone_druid_spirit_bear_return"			// Ability 1
 		"Ability4"					"lone_druid_spirit_bear_entangle"			// Ability 4

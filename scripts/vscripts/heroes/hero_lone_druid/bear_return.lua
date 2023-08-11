@@ -8,3 +8,15 @@ function handleTakeDamage(event)
 		end
 	end
 end
+
+function handleIntervalThink(event)
+	local caster = event.caster
+	local ld = caster:GetPlayerOwner():GetAssignedHero()
+	if (caster:GetAbsOrigin() - ld:GetAbsOrigin()):Length() < 1100 then
+		caster:RemoveModifierByName("modifier_lone_druid_bear_disarm_datadriven")
+		return
+	end
+	if not caster:HasModifier("modifier_lone_druid_bear_disarm_datadriven") then
+		event.ability:ApplyDataDrivenModifier(ld, caster, "modifier_lone_druid_bear_disarm_datadriven", {})
+	end
+end

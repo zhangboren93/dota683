@@ -66,6 +66,7 @@ function Activate()
 	LinkLuaModifier( "modifier_magnataur_empower_cleave_lua",	"heroes/hero_magnataur/empower_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_melting_strike_debuff_lua",		"heroes/hero_invoker/modifier_melting_strike_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 
+	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- horizontal motion controllers
@@ -922,11 +923,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	end
 
 	if entity:GetName() == "npc_dota_lone_druid_bear" then
-		entity:SetThink(function()
-			entity:RemoveModifierByName("modifier_spirit_bear_attack_damage")
-			entity:RemoveModifierByName("modifier_lone_druid_spirit_bear_attack_check")
-			entity:FindAbilityByName("lone_druid_bear_damage_return_cd"):SetLevel(1)
-		end, "remove spirit bear original attack bonus", 1)
+		entity:FindAbilityByName("lone_druid_bear_damage_return_cd"):SetLevel(1)
 	end
 
 	if entity:GetModelName() == "models/creeps/pine_cone/pine_cone.vmdl" then
@@ -1354,6 +1351,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_beastmaster_call_of_the_wild_hawk" then return false
 	elseif event.name_const == "modifier_dragon_knight_corrosive_breath_dot" then return false
 	elseif event.name_const == "modifier_undying_tombstone_zombie_aura" then return false
+	elseif event.name_const == "modifier_spirit_bear_attack_damage" then return false
+	elseif event.name_const == "modifier_lone_druid_spirit_bear_attack_check" then return false
 	end
 	if root_modifiers[event.name_const] then
 		if parent:IsChanneling() then

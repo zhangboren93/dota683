@@ -10853,7 +10853,6 @@
 	//=================================================================================================================
 	// Lone Druid: Summon Spirit Bear
 	//=================================================================================================================
-	//TODO no Attributes
 	"lone_druid_spirit_bear"
 	{
 		// General
@@ -10882,12 +10881,12 @@
 		"AbilityValues"
 		{
 				"bear_hp"					"1100 1400 1700 2000"
-				"bear_regen_tooltip"		"5 6 7 8"
+				"bear_regen_tooltip"		"2 3 4 5"
 				"bear_bat"					"1.75 1.65 1.55 1.45"
 				"bear_armor"				"3 4 5 6"
 				"backlash_damage"			"20.0"
 				"cooldown_scepter"			"180 160 140 120.0"
-				"movespeed_tooltip"			"340 360 380 400"
+				"movespeed_tooltip"			"320 320 330 340"
 				"bear_magic_resistance"		"0 0 0 33"
 				"bonus_bear_hp"				"0"
 				"bonus_bear_armor"			"0"
@@ -36991,6 +36990,7 @@
 		"BaseClass"			"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"			"1"
+		"AbilityTextureName"	"lone_druid_spirit_bear"
 		"Modifiers"
 		{
 			"modifier_lone_druid_bear_damage_return_cd"
@@ -37004,6 +37004,34 @@
 						"ScriptFile"	"heroes/hero_lone_druid/bear_return.lua"
 						"Function"		"handleTakeDamage"
     				}
+				}
+				//No attribute gain
+				//TODO disarm spirit bear where druid is far
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"-1000"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"-1000"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"-1000"
+				}
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_lone_druid/bear_return.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			"modifier_lone_druid_bear_disarm_datadriven"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/generic_gameplay/generic_disarm.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED" 	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
