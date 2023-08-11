@@ -66,6 +66,7 @@ function Activate()
 	LinkLuaModifier( "modifier_magnataur_empower_cleave_lua",	"heroes/hero_magnataur/empower_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_melting_strike_debuff_lua",		"heroes/hero_invoker/modifier_melting_strike_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_eidelon_check_attacks_lua", 		"heroes/hero_enigma/modifier_eidelon_check_attacks.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_tempest_spawn_hide_from_map_lua","heroes/hero_arc_warden/modifier_tempest_spawn_hide_from_map.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -726,9 +727,6 @@ end
 
 function HandleNpcSpawned(self, entityIndex, is_respawn)
 	local entity = EntIndexToHScript(entityIndex)
-	--print(entity:GetName())
-	--print(entity:GetModelName())
-	--print(entity:GetClassname())
 	if entity:IsRealHero() and is_respawn == 0 then
 		-- modifiers
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
@@ -1019,6 +1017,14 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:HasAbility("undying_tombstone_spawn_zombies_datadriven") then
 		entity:FindAbilityByName("undying_tombstone_spawn_zombies_datadriven"):SetLevel(
 			entity:GetOwner():FindAbilityByName("undying_tombstone"):GetLevel())
+	end
+	if entity:IsTempestDouble() then
+		local main_dog = entity:GetPlayerOwner():GetAssignedHero()
+		entity:AddNewModifier(entity, nil, "modifier_tempest_spawn_hide_from_map_lua", { duration = 0.03 })
+		entity:SetThink(function()
+			FindClearRandomPositionAroundUnit(entity, main_dog, 64)
+			entity:Stop()
+		end, "tempest move to other", 0.03)
 	end
 end
 
