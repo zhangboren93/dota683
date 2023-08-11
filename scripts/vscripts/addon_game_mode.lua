@@ -65,6 +65,7 @@ function Activate()
 	LinkLuaModifier( "modifier_sven_great_cleave_radius", 		"heroes/hero_sven/great_cleave_radius.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_magnataur_empower_cleave_lua",	"heroes/hero_magnataur/empower_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_melting_strike_debuff_lua",		"heroes/hero_invoker/modifier_melting_strike_debuff.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_eidelon_check_attacks_lua", 		"heroes/hero_enigma/modifier_eidelon_check_attacks.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -890,6 +891,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
 	end
 
+	if not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
+		entity:AddAbility("unit_intrinstic_mechanism_datadriven"):SetLevel(1)
+	end
 
 	if entity:IsRealHero() and is_respawn == 1 and entity.loseIntOnRespawn then
 		print("Losing int at respawn")
@@ -1135,8 +1139,8 @@ end
 function HandleEntityHurt(entindex_killed, entindex_attacker, damage)
 	local target = EntIndexToHScript(entindex_killed)
 	local attacker = EntIndexToHScript(entindex_attacker)
-	if target:GetPlayerOwner() ~= nil and attacker:HasAbility("hero_intrinstic_mechanism_datadriven") and damage > 0 then 
-		local ability = attacker:FindAbilityByName("hero_intrinstic_mechanism_datadriven")
+	if attacker:HasAbility("unit_intrinstic_mechanism_datadriven") and damage > 0 then 
+		local ability = attacker:FindAbilityByName("unit_intrinstic_mechanism_datadriven")
 		attacker:RemoveModifierByName("modifier_move_speed_cancel_active_datadriven")
 		ability:StartCooldown(ability:GetCooldown(1))
 	end

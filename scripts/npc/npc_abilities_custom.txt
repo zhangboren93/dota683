@@ -3583,56 +3583,53 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
-	//=================================================================================================================
-	// Enigma: Demonic Conversion
-	//=================================================================================================================
-	//TODO cast on creep
-	"enigma_demonic_conversion"
+	"enigma_demonic_conversion_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5147"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilitySound"					"Hero_Enigma.Demonic_Conversion"
-
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "heroes/hero_enigma/demonic_conversion.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityTextureName"			"enigma_demonic_conversion"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"		"sounds/weapons/hero/enigma/demonic_conversion.vsnd"
+		}
+		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-
+	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"35"
-		"AbilityDuration"				"35.0"
-
+		"AbilityCooldown"				"35.0 35.0 35.0 35.0"
+		"AbilityDuration"				"35.0 35.0 35.0 35.0"
+	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"170"
-		"AbilityHealthCost"				"0"
-
+		"AbilityManaCost"				"170 170 170 170"
+	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 				"spawn_count"			"3 3 3 3"
 				"split_attack_count"	"6 6 6 6"
-				"eidelon_max_health"	"180 200 220 240"
 				"eidolon_hp_tooltip"	"180 200 220 240"
 				"life_extension"		"2.0 2.0 2.0 2.0"
-				"eidelon_base_damage"	"19 29 39 49"
-				"eidolon_damage_spread"	"4"
-				"eidolon_bonus_damage"	"0"
 				"eidolon_dmg_tooltip"	"19 29 39 49"
-				"eidolon_bonus_attack_speed"	"0"
-				"eidelon_base_movespeed"	"250 250 260 260"
+				"duration_tooltip"		"35.0"
+				"xp_radius"				"1300"
 				"creep_max_level"		"4"
-				"eidolon_magic_resist"		"50"
-				"eidolon_attack_range"		"500"
-				"allied_damage_pct"			"45"
-				"self_modelscale"			"-40"
-				"spawn_offset"				"100"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	//=================================================================================================================
 	// Enigma: Midnight Pulse
@@ -16276,6 +16273,27 @@
 					}
 				}
 			}
+			"modifier_courier_not_full_bottle_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsDebuff"		"1"
+				"Duration"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
+				}
+			}
+		}
+	}
+	"unit_intrinstic_mechanism_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"AbilityCooldown"	"5"
+		"Modifiers"
+		{
 			"modifier_move_speed_cancel_night_datadriven"
 			{
 				"Passive"		"1"
@@ -16307,17 +16325,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-30" 
-				}
-			}
-			"modifier_courier_not_full_bottle_datadriven"
-			{
-				"Passive"		"0"
-				"IsHidden"		"0"
-				"IsDebuff"		"1"
-				"Duration"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
 				}
 			}
 		}

@@ -792,7 +792,21 @@
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_stun_duration"			"眩晕时间："
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage"								""	
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage_physical"						"额外伤害："	
+
 		//Enigma
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven"								"恶魔转化"
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_Description"					"将一个普通单位转化成三个谜团自身的碎片。这些虚灵都由谜团控制，在反复经过几次成功的攻击后，虚灵会再次分裂，并完全回复生命值。"
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_Lore"						"谜团具备将自身的形体吸入另一个维度的能力——随之产生的就是三个追猎肉体位面的暗黑虚灵。"
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_Note0"						"转化敌方单位将给予金钱和经验。"
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_Note1"						"被转化的友方单位被视为反补。"
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_Note2"						"无法对远古中立生物或超过4级的中立生物施放。"
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_split_attack_count"			"分裂所需攻击次数："
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_spawn_count"					"转化数量："
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_eidolon_hp_tooltip"			"虚灵生命值："
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_eidolon_dmg_tooltip"			"虚灵攻击力："
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_abilityduration"				"持续时间："
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_creep_max_level"				"野怪最高等级："
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_datadriven_life_extension"				"分裂增加持续时间："
 		"DOTA_Tooltip_ability_enigma_midnight_pulse_Description"								"使一块区域浸入暗共振中，对敌方单位造成他们基于最大生命值的伤害。"
 		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"							"黑洞额外造成凋零伤害"
 
@@ -970,5 +984,6 @@
 		//Hud error message
 		"dota_hud_error_no_units_to_grab"		"没有抓取的目标"
 		"dota_hud_error_cant_cast_on_self"		"不能对自身释放"
+		"dota_hud_error_demonic_conversion_creep_level"	"单位等级太高"
 	}
 }
