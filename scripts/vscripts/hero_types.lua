@@ -119,3 +119,5 @@ same_ability_heroes["npc_dota_hero_phantom_lancer"] = "npc_dota_hero_monkey_king
 same_ability_heroes["npc_dota_hero_monkey_king"] = "npc_dota_hero_phantom_lancer"
 same_ability_heroes["npc_dota_hero_antimage"] = "npc_dota_hero_marci"
 same_ability_heroes["npc_dota_hero_marci"] = "npc_dota_hero_antimage"
+same_ability_heroes["npc_dota_hero_dark_willow"] = "npc_dota_hero_puck"
+same_ability_heroes["npc_dota_hero_puck"] = "npc_dota_hero_dark_willow"

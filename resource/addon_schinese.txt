@@ -561,7 +561,19 @@
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven"						"剧毒新星"
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Description"			"%damage%每秒伤害，持续%duration%秒"
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Scepter_Description"	"+伤害，-CD，+持续时间"
-		"DOTA_Tooltip_Ability_puck_dream_coil_Scepter_Description"	"+挣脱伤害，+持续时间"
+
+		//Puck
+		"DOTA_Tooltip_Ability_puck_dream_coil_Scepter_Description"						"+挣脱伤害，+持续时间"
+		"DOTA_Tooltip_ability_puck_dream_coil_2"										"梦境缠绕"
+		"DOTA_Tooltip_ability_puck_dream_coil_2_Description"							"创造一个变化无常的的魔法梦境来困住敌方英雄，对他们造成伤害和束缚。如果被困住的敌方英雄试图挣脱缠绕走出梦境，将因为梦境破碎而受到眩晕和额外伤害。"
+		"DOTA_Tooltip_Ability_puck_dream_coil_2_Scepter_Description"					"+挣脱伤害，+持续时间"
+		"DOTA_Tooltip_ability_puck_dream_coil_2_Lore"									"仙女龙散播混乱，让敌人陷入鲜活的梦境，见证自己死亡的命运。"
+		"DOTA_Tooltip_ability_puck_dream_coil_2_coil_duration"							"缠绕持续时间："
+		"DOTA_Tooltip_ability_puck_dream_coil_2_coil_initial_damage"					"初始伤害："
+		"DOTA_Tooltip_ability_puck_dream_coil_2_coil_break_radius"						"破碎范围："
+		"DOTA_Tooltip_ability_puck_dream_coil_2_coil_stun_duration"						"破碎眩晕持续时间："
+		"DOTA_Tooltip_ability_puck_dream_coil_2_coil_break_damage"						"破碎伤害："
+
 		//Chen
 		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"				"30秒CD"
 		"DOTA_Tooltip_Ability_chen_penitence_Lore"								"加深伤害14/18/22/26%"

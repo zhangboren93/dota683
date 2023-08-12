@@ -558,7 +558,19 @@
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven"						"Poison Nova"
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Description"			"%damage% damage per second, lasts %duration% seconds"
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Scepter_Description"	"+damage, -CD, +duration"
-		"DOTA_Tooltip_Ability_puck_dream_coil_Scepter_Description"	"+break damage, +duration"
+		
+		//Puck
+		"DOTA_Tooltip_Ability_puck_dream_coil_Scepter_Description"						"+break damage, +duration"
+		"DOTA_Tooltip_ability_puck_dream_coil_2"										"Dream Coil"
+		"DOTA_Tooltip_ability_puck_dream_coil_2_Description"							"Creates a coil of volatile magic that latches onto enemy Heroes, damaging and leashing them.  If the enemy hero stretches the coil by moving too far away, it snaps, stunning and dealing additional damage."
+		"DOTA_Tooltip_Ability_puck_dream_coil_2_Scepter_Description"					"+break damage, +duration"
+		"DOTA_Tooltip_ability_puck_dream_coil_2_Lore"									"The Faerie Dragon sows confusion by forcing its enemies to vividly dream about their own mortality."
+		"DOTA_Tooltip_ability_puck_dream_coil_2_coil_duration"							"COIL DURATION:"
+		"DOTA_Tooltip_ability_puck_dream_coil_2_coil_initial_damage"					"INITIAL DAMAGE:"
+		"DOTA_Tooltip_ability_puck_dream_coil_2_coil_break_radius"						"BREAK RADIUS:"
+		"DOTA_Tooltip_ability_puck_dream_coil_2_coil_stun_duration"						"BREAK STUN DURATION:"
+		"DOTA_Tooltip_ability_puck_dream_coil_2_coil_break_damage"						"BREAK DAMAGE:"
+
 		//Chen
 		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"							"30s CD"
 		"DOTA_Tooltip_Ability_chen_penitence_Lore"											"take more damage 14/18/22/26%"

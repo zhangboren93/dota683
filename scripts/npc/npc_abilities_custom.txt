@@ -1739,6 +1739,76 @@
 				}
 		}
 	}
+    "puck_dream_coil_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"puck_dream_coil"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Puck.Dream_Coil"
+		"MaxLevel"            		  	"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		"HasScepterUpgrade"				"1"
+		"AbilityTextureName"			"puck_dream_coil"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.1 0.1 0.1"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"85"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 150 200"
+				
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers 
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+		{
+				"coil_duration"				
+				{
+					"value"	"6"
+					"special_bonus_scepter"	"+2"
+				}
+				"coil_break_radius"			"600"
+				"stun_duration"				"0.5"
+				"coil_initial_damage"		"100 150 200"
+				"coil_stun_duration"	"1.5 2.25 3.0"
+				"coil_break_damage"			
+				{
+					"value"					"100 150 200"
+					"special_bonus_scepter"	"+100"
+				}
+				"coil_radius"				"400"
+				"coil_rapid_fire_rate"
+				{
+					"value"							"0"
+					"special_bonus_scepter"			"+0"
+				}
+				"coil_rapid_fire_z_offset"
+				{
+					"value"							"0"
+					"special_bonus_scepter"			"+0"
+				}
+		}
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
+	}
     "pudge_dismember"
 	{
 		"MaxLevel"              "3"
@@ -37045,6 +37115,15 @@
 					"MODIFIER_STATE_DISARMED" 	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+		}
+	}
+	"dark_willow_puck_sound_effects"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_puck.vsndevts"
 		}
 	}
 	//=================================================================================================================
