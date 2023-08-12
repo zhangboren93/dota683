@@ -108,9 +108,14 @@ all_heroes = {
 	"npc_dota_hero_kunkka"				,
 	"npc_dota_hero_legion_commander"	,
 	"npc_dota_hero_meepo"				,
---	"npc_dota_hero_monkey_king"			,
 	"npc_dota_hero_phantom_lancer"		,
 	"npc_dota_hero_spectre"				,
 	"npc_dota_hero_undying"				,
 	"npc_dota_hero_ursa"	
 }
+
+same_ability_heroes = {}
+same_ability_heroes["npc_dota_hero_phantom_lancer"] = "npc_dota_hero_monkey_king"
+same_ability_heroes["npc_dota_hero_monkey_king"] = "npc_dota_hero_phantom_lancer"
+same_ability_heroes["npc_dota_hero_antimage"] = "npc_dota_hero_marci"
+same_ability_heroes["npc_dota_hero_marci"] = "npc_dota_hero_antimage"

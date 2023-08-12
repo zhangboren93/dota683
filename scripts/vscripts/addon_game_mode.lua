@@ -355,8 +355,8 @@ function CAddonTemplateGameMode:OnThink()
 				for i=1,#heroes do
 					if RandomInt(1, 111) > 30 then
 						GameRules:AddHeroToBlacklist(heroes[i])
-						if heroes[i] == "npc_dota_hero_phantom_lancer" then
-							GameRules:AddHeroToBlacklist("npc_dota_hero_monkey_king")
+						if same_ability_heroes[heroes[i]] ~= nil then
+							GameRules:AddHeroToBlacklist(same_ability_heroes[heroes[i]])
 						end
 					end
 				end
@@ -1710,11 +1710,8 @@ function HandleBuyback(entindex, player_id)
 end
 
 function HandlePlayerPickHero(hero)
-	print(hero .. " picked.")
-	if hero == "npc_dota_hero_phantom_lancer" then
-		GameRules:AddHeroToBlacklist("npc_dota_hero_monkey_king")
-	elseif hero == "npc_dota_hero_monkey_king" then
-		GameRules:AddHeroToBlacklist("npc_dota_hero_phantom_lancer")
+	if same_ability_heroes[hero] ~= nil then
+		GameRules:AddHeroToBlacklist(same_ability_heroes[hero])
 	end
 end
 
