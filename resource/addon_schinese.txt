@@ -896,6 +896,14 @@
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_abilitycastrange"						"施法距离："
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_damage"		"%幻象继承攻击力："
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_total_damage_in_pct"		"%幻象承受伤害："
+		
+		//Centaur
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven"								"马蹄践踏"
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Description"					"经过短暂的蓄力后，半人马战行者猛踏地面，眩晕并伤害身边的敌方单位。"
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Lore"							"当战行者健壮的马蹄碰到了土壤，大地的震颤各处都能感受到。"
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_radius"						"范围："
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stun_duration"					"眩晕持续时间："
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stomp_damage"					"践踏伤害："
 
 		//Miss message
 		"abaddon_miss"				"死骑Miss!"

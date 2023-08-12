@@ -894,5 +894,12 @@
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_abilitycastrange"				"CAST RANGE:"
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_damage"		"%ILLUSION DAMAGE:"
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_total_damage_in_pct"		"%ILLUSION DAMAGE TAKEN:"
-	}
+
+		//Centaur
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven"								"Hoof Stomp"
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Description"					"After a brief windup, Centaur Warrunner slams the ground, stunning and damaging nearby enemy units."
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Lore"							"When the mighty hoof of the Warrunner touches soil, the tremors are felt far and wide."
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_radius"						"RADIUS:"
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stun_duration"					"STUN DURATION:"
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stomp_damage"					"STOMP DAMAGE:"
 }
