@@ -33766,7 +33766,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	//TODO only slow for stunned units
 	"kunkka_torrent"
 	{
 		"AbilityCastRange"				"1500"
@@ -33779,136 +33778,10 @@
 			"slow_duration"				"1 2 3 4"
 			"stun_duration"				"1.6"
 			"delay"						"1.6 1.6 1.6 1.6"
-			"torrent_damage"			"120 180 240 300"
-			"damage_tick_interval"				"0.2"
+			"torrent_damage"			"0"
+			"torrent_damage_tooltip"	"120 180 240 300"
+			"damage_tick_interval"		"0.2"
 		}		
-	}
-	// Rewrite of the Kunkka Tidebringer ability
-	// Author: kritth
-	// Date: February 24, 2016
-	// Version: 6.85
-	// Type: Datadriven
-	//
-	// ----- FILE REQUIREMENTS -----
-	// Script files:
-	// scripts/vscripts/heroes/hero_kunkka/tidebringer.lua
-	"kunkka_tidebringer_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"kunkka_tidebringer"
-	
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13.0 10.0 7.0 4.0"
-	
-		"AbilityDamage"					"15 30 45 60"
-		"AbilityCastRange"				"500 500 500 600"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"500 500 500 600"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_bonus"				"15 30 45 60"
-			}
-		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
-		"Modifiers"
-		{
-			"precache"
-			{
-				"soundfile"					"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
-				"particle"					"particles/units/heroes/hero_kunkka/kunkka_weapon_tidebringer.vpcf"
-				"particle"					"particles/units/heroes/hero_kunkka/kunkka_spell_tidebringer.vpcf"
-			}
-		
-			"modifier_tidebringer_splash_datadriven"
-			{
-				"Passive"					"1"
-				"IsHidden"					"1"
-				"IsPurgable"				"0"
-				
-				"OnCreated"
-				{
-					"FireEffect"
-					{
-						"Target"			"CASTER"
-						"EffectName"		"Hero_Kunkaa.Tidebringer"
-					}
-				
-					"AttachEffect"
-					{
-						"Target"			"CASTER"
-						"EffectName"		"particles/units/heroes/hero_kunkka/kunkka_weapon_tidebringer.vpcf"
-						"EffectAttachType"	"start_at_customorigin"
-						"ControlPointEntities"
-						{
-							"CASTER"		"attach_sword"
-							"CASTER"		"attach_sword"
-							"CASTER"		"attach_sword"
-						}
-					}
-				}
-				
-				"OnAttackLanded"
-				{
-					"FireSound"
-					{
-						"Target"			"TARGET"
-						"EffectName"		"Hero_Kunkka.Tidebringer.Attack"
-					}
-				
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"		"TARGET"
-							"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-						}
-						
-						"Action"
-						{
-							"FireSound"
-							{
-								"Target"			"TARGET"
-								"EffectName"		"Hero_Kunkka.TidebringerDamage"
-							}
-
-							"CleaveAttack"
-							{
-								"CleavePercent"		"100"
-								"CleaveRadius"		"%radius"
-								"CleaveEffect"		"particles/units/heroes/hero_kunkka/kunkka_spell_tidebringer.vpcf"
-							}
-							
-							"RunScript"
-							{
-								"ScriptFile"		"heroes/hero_kunkka/tidebringer.lua"
-								"Function"			"tidebringer_set_cooldown"
-							}
-						}
-					}
-				}
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%damage_bonus"
-				}
-			}
-		}
 	}
 	//=================================================================================================================
 	// Kunkka: Tidebringer
@@ -33999,6 +33872,56 @@
 		"AbilityValues"
 		{
 			"bonus_damage"	"15 30 45 60"
+		}
+	}
+	"kunkka_torrent_damage_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"	"kunkka_torrent"
+		"Modifiers"
+		{
+			"modifier_kunkka_torrent_slow_datadriven"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
+				"Duration"		"%slow_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-35"
+				}
+			}
+			"modifier_torrent_damage_datadriven"
+			{
+				"IsHidden"		"1"
+				"ThinkInterval"	"0.15"
+				"Duration"		"1.6"
+				"OnCreated"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%damage_initial"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%damage_per_tick"
+					}
+				}
+			}
+		}
+		"AbilityValues"
+		{
+			"torrent_damage"	"120 180 240 300"
+			"damage_initial"	"60 90 120 150"
+			"damage_per_tick"	"6 9 12 15"
+			"slow_duration"		"2.6 3.6 4.6 5.6"
 		}
 	}
 	//=================================================================================================================

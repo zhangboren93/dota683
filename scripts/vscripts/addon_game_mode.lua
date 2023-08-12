@@ -1359,6 +1359,15 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", { duration = ability:GetSpecialValueFor("knockback_duration") })
+	elseif event.name_const == "modifier_kunkka_torrent" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local passive_ability = caster:FindAbilityByName("kunkka_torrent_damage_datadriven")
+		if passive_ability ~= nil then
+			passive_ability:SetLevel(ability:GetLevel())
+			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_kunkka_torrent_slow_datadriven", {})
+			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_torrent_damage_datadriven", {})
+		end
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
@@ -1368,6 +1377,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_undying_tombstone_zombie_aura" then return false
 	elseif event.name_const == "modifier_spirit_bear_attack_damage" then return false
 	elseif event.name_const == "modifier_lone_druid_spirit_bear_attack_check" then return false
+	elseif event.name_const == "modifier_kunkka_torrent_slow" then return false
 	end
 	if root_modifiers[event.name_const] then
 		if parent:IsChanneling() then

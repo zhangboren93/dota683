@@ -716,7 +716,13 @@
 		"DOTA_Tooltip_Ability_sven_gods_strength_Scepter_Description"			"神之力量增加一个900范围的友军光环，增加友方英雄%scepter_aura_damage_pct%%%攻击力。"
 
 		"DOTA_Tooltip_Ability_crystal_maiden_freezing_field_Scepter_Description"	"+伤害减速"
+		//Kunkka
+		"DOTA_Tooltip_ability_kunkka_torrent_torrent_damage"						""
+		"DOTA_Tooltip_ability_kunkka_torrent_torrent_damage_tooltip"				"伤害："
 		"DOTA_Tooltip_Ability_kunkka_tidebringer_Lore"								"溅射范围500/500/500/600"
+		"DOTA_Tooltip_modifier_kunkka_torrent_slow_datadriven"					"洪流减速"
+		"DOTA_Tooltip_modifier_kunkka_torrent_slow_datadriven_Description"		"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"折光"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_Description"	"+攻%bonus_damage%，护盾数量%instances%"
 		"DOTA_Tooltip_Ability_glyph_datadriven"										"塔防"
