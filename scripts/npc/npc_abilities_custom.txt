@@ -3234,12 +3234,84 @@
 			"stun_duration"				"0.1"
 		}
 	}
+	"lich_chain_frost_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"lich_chain_frost"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"              "3"
+		"RequiredLevel"         "6"
+		"LevelsBetweenUpgrades" "5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Lich.ChainFrost"
+		"HasScepterUpgrade"				"1"
+		"AbilityTextureName"			"lich_chain_frost"
+		"AbilityCastAnimation"			"ACT_DOTA_GS_SOUL_CHAIN"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120.0 90.0 60.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200 425 500"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.0"	// Primarily about the damage
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value"		"280 370 460"
+				"special_bonus_scepter" "+90"
+			}
+			"jumps"		 			"10 10 10"
+			"jump_range"			"600"
+			"slow_movement_speed"	"-65"
+			"slow_attack_speed"		"-65"
+			"slow_duration"			"2.5"
+			"projectile_speed"		"850"
+			"vision_radius"			"800"
+			"bonus_jump_damage"		"0"
+			"initial_projectile_speed"		"1050"
+			"has_unlimited_jumps"
+			{
+				"special_bonus_scepter"	"+1"
+			}
+			"AbilityCastRange"
+			{
+				"value"					"750"
+				"special_bonus_scepter"	"+100"
+			}
+			"stun_duration"				"0.1"
+		}
+	}
 	"lich_chain_frost_ministun_datadriven"
 	{
 		
 		"BaseClass"			"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"			"1"
+		"precache"
+		{
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+		}
 		"Modifiers"
 		{
 			"lich_chain_frost_ministun_checker" 
@@ -3255,6 +3327,17 @@
 						"ScriptFile"	"units/ministun_target_on_cast.lua"
 						"Function"		"handleAbilityExecuted"
 						"TargetAbility"	"lich_chain_frost"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"units/ministun_target_on_cast.lua"
+						"Function"		"handleAbilityExecuted"
+						"TargetAbility"	"lich_chain_frost_2"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_lich/frost_armor.lua"
+						"Function"		"handleAbilityExecuted"
 					}
 				}
 			}
@@ -18560,6 +18643,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"AbilityTextureName"			"lich_dark_sorcery"
+		"AttackAnimationPoint"			"ACT_DOTA_CAST_ABILITY_5"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -18598,6 +18682,88 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
 		}
 	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Ability.DarkRitual"
+				"Target" 		"CASTER"
+			}
+	
+			"FireEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_lich/lich_dark_ritual.vpcf"
+				"EffectAttachType" 	"follow_origin"
+				"Target" 			"TARGET"
+				"ControlPointEntities"
+				{
+					"TARGET"	"attach_hitloc"
+					"CASTER"	"attach_hitloc"
+				}
+			}
+	
+			"RunScript"
+		    {
+		        "ScriptFile"    "heroes/hero_lich/dark_ritual.lua"
+		        "Function"      "DarkRitual"
+		        "Target"
+		        {
+		        	"Center"  		"TARGET"
+		        	"Radius" 		"%xp_radius"
+		        	"Teams" 		"DOTA_UNIT_TARGET_TEAM_BOTH"
+		        	"Types" 		"DOTA_UNIT_TARGET_HERO"
+			    }
+		    }
+		}
+	}
+	"lich_dark_ritual_datadriven_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_SUMMONED | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityTextureName"			"lich_dark_sorcery"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_1"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"44 36 28 20"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"25 25 25 25"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_conversion"		"25 40 55 70"
+			}
+	
+			// Extra values, for the experience share
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"xp_radius"				"1300"
+			}
+		}
+	
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_lich/lich_dark_ritual.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+		}
 		"OnSpellStart"
 		{
 			"FireSound"
@@ -31986,6 +32152,52 @@
 			"slow_attack_speed"		"-20"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+	//=================================================================================================================
+	// Lich: Frost Armor
+	//=================================================================================================================
+	"lich_frost_armor_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"lich_frost_armor"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"		
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Lich.FrostArmor"
+		"AbilityTextureName"			"lich_frost_armor"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"5.0 5.0 5.0 5.0"
+		"AbilityDuration"				"40.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 50 50 50"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.3"	// Easy to spam 
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"armor_bonus"			"3 5 7 9"
+			"slow_duration"			"2.0 2.0 2.0 2.0"
+			"slow_movement_speed"	"-30"
+			"slow_attack_speed"		"-20"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 	}
 	// Ability: Lina Dragon Slave
 	//=================================================================================================================
