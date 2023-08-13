@@ -1,5 +1,5 @@
 function handleIntervalThink(event)
-	if event.ability:IsCooldownReady() and not event.caster:HasModifier(event.ModifierName)then
+	if event.ability:IsCooldownReady() then
 		event.ability:ApplyDataDrivenModifier(event.caster, event.caster, event.ModifierName, {})
 	end
 end
