@@ -151,13 +151,13 @@
  		"item"		"item_helm_of_the_dominator_datadriven"
 		"item"		"item_sange_datadriven"
  		"item"		"item_yasha"
- 		"item"		"item_maelstrom"
+ 		"item"		"item_maelstrom_datadriven"
  		"item"		"item_diffusal_blade_datadriven"			
  		"item"		"item_desolator_datadriven"
  		"item"		"item_heavens_halberd_datadriven"
  		"item"		"item_sange_and_yasha_datadriven"
  		"item"		"item_skadi_datadriven" 
- 		"item"		"item_mjollnir"
+ 		"item"		"item_mjollnir_datadriven"
  		"item"		"item_satanic_datadriven"		
 	}
 
