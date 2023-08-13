@@ -295,11 +295,16 @@
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist" 				"Flesh heap"
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist_Description" 	"Increase magic resistance by 6/8/10/12%%"
 		
+		// Clinkz
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven"					"Strafe"
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven_Description"		"+%attack_speed_bonus_pct% attack speed，last %duration% seconds"
 		"DOTA_Tooltip_Ability_clinkz_death_pact_datadriven"				"Death pact"
 		"DOTA_Tooltip_Ability_clinkz_death_pact_datadriven_Description"	"convert current health %health_gain_pct%%%, +damage = current health * %damage_gain_pct%%%, lasts 35 seconds"
-		"DOTA_Tooltip_Ability_clinkz_searing_arrows_datadriven"	"Searing Arrows"
+		"DOTA_Tooltip_ability_clinkz_searing_arrows_datadriven"					"Searing Arrows"
+		"DOTA_Tooltip_ability_clinkz_searing_arrows_datadriven_Description"		"Imbues Clinkz's arrows with fire for extra damage.\n\n<font color=\"#ff0000\">Orb effects don't stack.</font> "
+		"DOTA_Tooltip_ability_clinkz_searing_arrows_datadriven_Lore"			"Clinkz simply lights his arrows from his flaming essence for quite the destructive effect."
+		"DOTA_Tooltip_ability_clinkz_searing_arrows_datadriven_Note0"			"Searing Arrows deal damage to structures."
+
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven"	"Nethertoxin"
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven_Description"	"Damage more the less health the target has，max +%max_damage_tooltip% damage"
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven"				"Poison Attack"

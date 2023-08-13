@@ -67,6 +67,7 @@ function Activate()
 	LinkLuaModifier( "modifier_melting_strike_debuff_lua",		"heroes/hero_invoker/modifier_melting_strike_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_eidelon_check_attacks_lua", 		"heroes/hero_enigma/modifier_eidelon_check_attacks.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tempest_spawn_hide_from_map_lua","heroes/hero_arc_warden/modifier_tempest_spawn_hide_from_map.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_clinkz_searing_arrow_lua", 		"heroes/hero_clinkz/modifier_clinkz_searing_arrows.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)

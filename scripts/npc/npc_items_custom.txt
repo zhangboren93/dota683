@@ -8258,17 +8258,12 @@
 					"CastAttack"			"0"
 				}
 	
-				"OnOrbFire"
+				"OnOrbImpact"
 				{
 					"RunScript"
 					{
 						"ScriptFile"		"items/item_desolator.lua"
 						"Function"			"handleOrbFire"
-					}
-					"FireSound"
-					{
-						"EffectName"		"Item_Desolator.Target"
-						"Target"			"TARGET"
 					}
 				}
 			}
