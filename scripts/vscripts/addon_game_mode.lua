@@ -1368,6 +1368,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_kunkka_torrent_slow_datadriven", {})
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_torrent_damage_datadriven", {})
 		end
+	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
 	elseif event.name_const == "modifier_tombstone_hp" then return false
@@ -1447,6 +1448,10 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		elseif inflictor:GetName() == "enigma_midnight_pulse" then
 			-- apply damage as pure instead of magical & percentage of max health
 			event.damage = victim:GetMaxHealth() * inflictor:GetSpecialValueFor("damage_percent") / 100
+		elseif inflictor:GetName() == "lion_impale"	then
+			if victim:IsMagicImmune() then
+				event.damage = 0
+			end
 		end
     else
 		--print(victim:GetName())
