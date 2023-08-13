@@ -9860,6 +9860,7 @@
 			}
 			"modifier_tranquil_active_datadriven"
 			{
+				"Duration"		"1"
 				"Passive"		"0"
 				"IsDebuff"		"0"
 				"IsHidden"		"1"
