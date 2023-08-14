@@ -7692,28 +7692,31 @@
 					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
 				}
 
-				"OnOrbImpact"
+				"OnOrbFire"
 				{
-					"Random"
+					"RunScript"
 					{
-						"Chance"		"%chain_chance"
-						"OnSuccess"
-						{
-							"DelayedAction"
-							{
-								"Delay"					"%chain_delay"
-								"Action"
-								{
-									"RunScript"
-									{
-										"ScriptFile"			"items/item_maelstrom.lua"
-										"Function"				"modifier_item_maelstrom_datadriven_on_orb_impact"
-									}
-								}
-							}
-						}
+						"ScriptFile"	"items/item_maelstrom.lua"
+						"Function"		"handleOrbFire"
 					}
 				}
+
+				"OnOrbImpact"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/item_maelstrom.lua"
+						"Function"				"modifier_item_maelstrom_datadriven_on_orb_impact"
+					}
+				}
+			}
+			"modifier_maelstrom_trigger_no_miss"
+			{
+				"IsHidden"	"1"
+    			"States"
+    			{
+    				"MODIFIER_STATE_CANNOT_MISS"			"MODIFIER_STATE_VALUE_ENABLED"  //When attacking uphill, cannot miss units but can still miss buildings.
+    			}
 			}
 			"modifier_item_mjollnir_shield_datadriven"
 			{
@@ -8246,7 +8249,6 @@
 	{
 		"ItemPurchasable"				"0"
 	}
-	//TODO trigger ignore evasion
 	"item_maelstrom_datadriven"
 	{
 		// General
@@ -8290,28 +8292,31 @@
 					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
 				}
 
-				"OnOrbImpact"
+				"OnOrbFire"
 				{
-					"Random"
+					"RunScript"
 					{
-						"Chance"		"%chain_chance"
-						"OnSuccess"
-						{
-							"DelayedAction"
-							{
-								"Delay"					"%chain_delay"
-								"Action"
-								{
-									"RunScript"
-									{
-										"ScriptFile"			"items/item_maelstrom.lua"
-										"Function"				"modifier_item_maelstrom_datadriven_on_orb_impact"
-									}
-								}
-							}
-						}
+						"ScriptFile"	"items/item_maelstrom.lua"
+						"Function"		"handleOrbFire"
 					}
 				}
+
+				"OnOrbImpact"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"items/item_maelstrom.lua"
+						"Function"				"modifier_item_maelstrom_datadriven_on_orb_impact"
+					}
+				}
+			}
+			"modifier_maelstrom_trigger_no_miss"
+			{
+				"IsHidden"	"1"
+    			"States"
+    			{
+    				"MODIFIER_STATE_CANNOT_MISS"			"MODIFIER_STATE_VALUE_ENABLED"  //When attacking uphill, cannot miss units but can still miss buildings.
+    			}
 			}
 		}
 		// Special	

@@ -282,12 +282,19 @@
 		"DOTA_Tooltip_modifier_item_satanic_datadriven_unholy_rage_Description"	"增加175%%的吸血。"
 
 		"DOTA_Tooltip_Ability_item_maelstrom_datadriven"						"漩涡"
-		"DOTA_Tooltip_ability_item_maelstrom_datadriven_Description"			"<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，闪电将造成%chain_damage%点魔法伤害。\n\n<font color=\"#ff0000\">法球效果无法叠加。</font>"
+		"DOTA_Tooltip_ability_item_maelstrom_datadriven_Description"			"<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，闪电将造成%chain_damage%点魔法伤害。触发闪电时无视闪避。\n\n<font color=\"#ff0000\">法球效果无法叠加。</font>"
 		"DOTA_Tooltip_ability_item_maelstrom_datadriven_Lore"					"神亲自打造的战锤，漩涡可以在攻击中发动闪电的力量。"
 		"DOTA_Tooltip_ability_item_maelstrom_datadriven_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_ability_item_maelstrom_datadriven_bonus_attack_speed"		"+$attack"
-		"DOTA_Tooltip_Ability_item_mjollnir_datadriven"						"大电锤"
-		"DOTA_Tooltip_Ability_item_mjollnir_datadriven_Description"			"护盾: 20%%周围5个单位200伤害\n+24攻击力\n+80攻速\n25%%触发闪电，150伤害，12个单位。\n\n<font color=\"#ff0000\">法球效果无法叠加。</font>"
+
+		"DOTA_Tooltip_Ability_item_mjollnir_datadriven"							"雷神之锤"
+		"DOTA_Tooltip_ability_item_mjollnir_datadriven_Description"				"<h1>主动：静电冲击</h1>对目标单位施加一个静电护盾，持续%static_duration%秒。护盾有%static_chance%%%几率对附近攻击护盾的目标及其周围%static_strikes%个敌方单位释放闪电冲击，造成%static_damage%点魔法伤害。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避。\n\n<font color=\"#ff0000\">法球效果无法叠加。</font>"
+		"DOTA_Tooltip_ability_item_mjollnir_datadriven_Lore"					"索尔的魔法之锤，由矮人名匠布鲁克和艾崔打造。"
+		"DOTA_Tooltip_ability_item_mjollnir_datadriven_Note0"					"静电冲击的触发间隔大于1秒。"
+		"DOTA_Tooltip_ability_item_mjollnir_datadriven_Note1"					"静电冲击的闪电将会对拥有护盾的英雄周围单位造成魔法伤害，静电冲击只会对%static_seconary_radius%范围以内的目标发出闪电冲击。"
+		"DOTA_Tooltip_ability_item_mjollnir_datadriven_Note2"					"静电冲击不会弹跳至处于隐身状态下或战争迷雾内的英雄。"
+		"DOTA_Tooltip_ability_item_mjollnir_datadriven_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_ability_item_mjollnir_datadriven_bonus_attack_speed"		"+$attack"		
 
 		"DOTA_Tooltip_Ability_courier_share"					"分享信使"
 		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"			"神秘商店"
