@@ -15,6 +15,7 @@ hero_innate_abilities["npc_dota_hero_nyx_assassin"] = "nyx_assassin_vendetta_phy
 hero_innate_abilities["npc_dota_hero_medusa"] = "medusa_stone_gaze_magic_resist_datadriven"
 hero_innate_abilities["npc_dota_hero_axe"] = "axe_battle_hunger_slow_datadriven"
 hero_innate_abilities["npc_dota_hero_ember_spirit"] = "ember_spirit_fire_remnant_clear_tree"
+hero_innate_abilities["npc_dota_hero_void_spirit"] = "ember_spirit_fire_remnant_clear_tree"
 hero_innate_abilities["npc_dota_hero_jakiro"] = "jakiro_macropyre_destroy_trees_datadriven"
 hero_innate_abilities["npc_dota_hero_abaddon"] = "abaddon_borrowed_time_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_sven"] = "sven_gods_strength_aghs_datadriven"

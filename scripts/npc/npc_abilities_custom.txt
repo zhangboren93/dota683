@@ -21939,6 +21939,10 @@
 	{
 		"BaseClass"			"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+		}
 		"Modifiers"
 		{
 			"modifier_fire_remnant_clear_tree_checker"
