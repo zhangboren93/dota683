@@ -2223,23 +2223,11 @@
 		"AbilityValues"
 		{
 			"burrow_width"		"150"
-			"burrow_duration"	
-			{
-				"value"			"1.65"
-				"special_bonus_unique_sand_king_burrowstrike_stun"				"+0.3"
-			}
+			"burrow_duration"	"1.65"
 			"burrow_speed"		"2000"
 			"burrow_anim_time"	"0.52"
-			"cast_range_scepter"
-			{
-				"value"						"500 550 600 650"
-				"RequiresScepter"			"1"
-			}
-			"burrow_speed_scepter"
-			{
-				"value"		"2000"
-				"RequiresScepter"			"1"
-			}
+			"cast_range_scepter"	"500 550 600 650"
+			"burrow_speed_scepter"	"2000"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -2282,21 +2270,10 @@
 			"sand_storm_radius"	"425 500 575 650"
 			"sand_storm_damage"	"25 50 80 100"
 			"fade_delay"			"1.5"
-			"scepter_explosion_radius"
-			{
-				"value"					"0"
-				"special_bonus_scepter"		"+0"
-			}
-			"scepter_explosion_min_dist"
-			{
-				"value"					"0"
-				"special_bonus_scepter"		"+0"
-			}
-			"scepter_explosions_per_pulse"
-			{
-				"value"					"0"
-				"special_bonus_scepter"		"+0"
-			}	
+			"scepter_explosion_radius"	"0"
+			"scepter_explosion_min_dist"	"0"
+			"scepter_explosions_per_pulse"	"0"
+			"sand_storm_move_speed"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -2388,31 +2365,19 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"epicenter_radius"	
-			{
-				"value"		"400 400 400 400 400 400 400 400 400 400 400 400 400 400"
-				"special_bonus_unique_sand_king_5"	"+100"
-			}
+			"epicenter_radius"	"400 400 400 400 400 400 400 400 400 400 400 400 400 400"
 			
 			"epicenter_pulses"	
 			{
 				"value"		"6 8 10"
 				"special_bonus_scepter"	"+2"
-				"LinkedSpecialBonus"	"special_bonus_unique_sand_king"
 			}
 			"epicenter_damage"	"110"
-			"epicenter_slow"	
-			{
-				"value"			"-30"
-			}
-			"epicenter_slow_as"		
-			{
-				"value"			"-30"
-			}
+			"epicenter_slow"	"-30"
+			"epicenter_slow_as"	"-30"
 			"shard_radius"	
 			{
 				"value"		"425"
-				"special_bonus_unique_sand_king_5"	"+100"
 				"RequiresShard"	"1"
 			}
 			"shard_move_distance"
@@ -2427,7 +2392,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"	"140 120 100"
+				"value"					"140 120 100"
 				"special_bonus_scepter"	"-20"
 			}
 		}
@@ -3781,11 +3746,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"radius"
-				{
-					"value"	"250 275 300 325"
-					"LinkedSpecialBonus"		"special_bonus_unique_riki_7"
-				}
+				"radius"	"250 275 300 325"
 				"duration"					"6"
 				"miss_rate"					"40 50 60 70"
 		}
@@ -6610,11 +6571,7 @@
 				"value"							"0.0"
 				"special_bonus_unique_luna_5"	"+0"
 			}
-			"AbilityCooldown"
-			{
-				"value"							"160 150 140"
-				"special_bonus_unique_luna_6"	"-0"
-			}
+			"AbilityCooldown"		"160 150 140"
 		}
 	}
 	// Rewrite of the Dazzle Poison Touch ability
@@ -15841,45 +15798,16 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"projectile_speed"		"650"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"projectile_max_time"	"1.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"split_radius"			"500"
-				"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_2"
-				
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_movespeed"		"-30"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"movespeed_slow_tooltip"		"30"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"4.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"secondary_projectile_speed"		"800"
-			}
+				"damage"				"100 180 260 340"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -16072,17 +16000,8 @@
 			"tempest_duration"			"3.5 4.5 5.5 6.5"
 			"attack_speed_bonus"		"50 60 70 80"
 			"evasion_chance"			"100"
-			"shard_magic_resist"
-			{
-
-				"value"					"40"
-				"RequiresShard"			"1"
-			}
-			"shard_slow_pct"
-			{
-				"value"					"30"
-				"RequiresShard"			"1"
-			}
+			"shard_magic_resist"		"0"
+			"shard_slow_pct"			"0"
 			"attack_range_bonus"		"0"
 			"attack_magic_damage"		"0"
 			"attack_damage_bonus"		"0"
@@ -18532,29 +18451,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"2.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"220"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"speed"					"900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"abilitycastrange"			""
-				"LinkedSpecialBonus"		"special_bonus_unique_meepo_4"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -19459,42 +19360,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
 				"damage_interval"				"1"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"leech_damage"					"15 30 45 60"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_2"
-			}		
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"movement_slow"					"-28"
-				"LinkedSpecialBonus"			"special_bonus_unique_treant_3"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-
-			}	
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"radius"						"650"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_FLOAT"
 				"duration"						"5"
-			}
-			"07"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"projectile_speed"				"450"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -19968,41 +19841,13 @@
 			"movespeed"				"-75"
 			"attackslow"			"0"
 			"slow_duration"			"5.0"
-			"scepter_duration"
-			{
-				"value"						"0"
-				"special_bonus_scepter"			"+0"
-				"RequiresScepter"			"1"
-			}
-			"scepter_aura_radius"
-			{
-				"value"						"0"
-				"special_bonus_scepter"			"+0"
-				"RequiresScepter"			"1"
-			}
-			"scepter_attack_speed"
-			{
-				"value"				"0"
-				"special_bonus_scepter"		"+0"
-				"RequiresScepter"			"1"
-			}
-			"scepter_move_speed_pct"
-			{
-				"value"							"0"
-				"special_bonus_scepter"			"+0"
-				"RequiresScepter"			"1"
-			}
-			"shard_skeleton_count"		
-			{
-				"value"							"0"
-				"special_bonus_shard"			"+3"
-			}
-			"scepter_respawn_pct"
-			{
-				"value"							"0"
-				"special_bonus_scepter"			"0"
-				"RequiresScepter"				"1"
-			}
+			"scepter_duration"		"0"
+			"scepter_aura_radius"	"0"
+			"scepter_attack_speed"	"0"
+			"scepter_move_speed_pct"	"0"
+			"shard_skeleton_count"		"0"
+			"scepter_respawn_pct"		"0"
+			"AbilityCooldown"		"260 160 60"
 		}
 	}
 	//=================================================================================================================
@@ -22065,20 +21910,12 @@
 		{
 			"shock_speed"				"900"
 			"shock_width"				"200"
-			"shock_damage"				
-			{
-				"value"			"75 150 225 300"				
-				"special_bonus_unique_magnus"	"+125"
-			}
+			"shock_damage"				"75 150 225 300"				
 			"pull_duration"				"0.2"
 			"movement_slow"				"0"
 			"slow_duration"				"2"
 			"pull_distance"				"50"
-			"basic_slow_duration"		
-			{
-				"value"					"0"
-				"LinkedSpecialBonus"	"special_bonus_unique_magnus_6"
-			}
+			"basic_slow_duration"		"0"
 			"return_damage_pct"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -22165,39 +22002,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"should_self_cast"
-			{
-				"value"								"0"
-			}
-			"empower_duration"
-			{
-				"value"		"40"
-				"special_bonus_unique_magnus_4"	"+10"
-			}
-			"bonus_damage_pct"
-			{
-				"value"							"20 30 40 50"
-				"special_bonus_unique_magnus_2"	"+10"
-			}
-			"cleave_damage_pct"
-			{
-				"value"							"0"
-				"special_bonus_unique_magnus_2"	"+10"
-			}			
-			"cleave_starting_width"
-			{
-				"value"			"150"
-			}			
-			"cleave_ending_width"
-			{
-				"value"			"360"
-			}			
+			"should_self_cast"		"0"
+			"empower_duration"		"40"
+			"bonus_damage_pct"		"20 30 40 50"
+			"cleave_damage_pct"		"0"
+			"cleave_starting_width"	"150"
+			"cleave_ending_width"	"360"
 			"cleave_distance"			"650"
-			"secondary_cleave_distance"	
-			{
-				"value"			"0"
-				//"special_bonus_shard"	"+400"
-			}
+			"secondary_cleave_distance"		"0"
 			"self_multiplier"		"0"
 			"cleave_radius_damage"	"20 30 40 50"
 			"cleave_radius"			"200"
@@ -30627,14 +30439,8 @@
 		{
 			"magic_missile_speed"	"1350"
 			"magic_missile_stun"	"1.45 1.55 1.65 1.75"
-			"magic_missile_damage"
-			{
-				"value"	"100 175 250 325"
-			}
-			"AbilityCastRange"
-			{
-				"value"						"500"
-			}
+			"magic_missile_damage"	"100 175 250 325"
+			"AbilityCastRange"		"500"
 		}
 	}
 	//=================================================================================================================
@@ -31166,29 +30972,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			
-			{
-				"value"				"100 200 250 325"
-				"special_bonus_unique_bounty_hunter_2"	"+50"
-			}
+			"bonus_damage"		"100 200 250 325"
 			"speed"					"1000 1000 1000 1000"
 			"bounce_aoe"			"900"
-			"slow_duration"			
-			{
-				"value"				"0"
-				"special_bonus_unique_bounty_hunter_5"		"+0.65"
-			}
-			"scepter_cast_range"
-			{
-
-				"value"				"1"
-				"RequiresScepter"	"1"
-			}
-			"scepter_cooldown"
-			{
-				"value"				"1"
-				"RequiresScepter"	"1"
-			}
+			"slow_duration"			"0"
+			"scepter_cast_range"	"650"
+			"scepter_cooldown"		"10"
 			"cast_range"			"650"
 			"slow"					"0"		
 			"attack_slow"			"0"
@@ -32413,12 +32202,7 @@
 			"dragon_slave_width_initial"	"275"
 			"dragon_slave_width_end"		"200"
 			"dragon_slave_distance"			"1075"
-
-			"AbilityCooldown"				
-			{ 
-				"value"						"8.5"
-				"special_bonus_unique_lina_1"		"-3.5"
-			}
+			"AbilityCooldown"			"8.5"
 		}
 	}
 	//=================================================================================================================
@@ -37033,7 +36817,6 @@
 			{
 				"value"					"-20 -25 -30 -35 -40 -45 -50"
 				"levelkey"				"quaslevel"
-				
 			}
 			"self_slow"
 			{
@@ -37045,7 +36828,6 @@
 			{
 				"value"					"0"
 				"levelkey"				"quaslevel"
-
 			}
 			"mana_regen"			
 			{
