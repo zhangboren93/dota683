@@ -534,8 +534,16 @@
 		"DOTA_Tooltip_ability_medusa_stone_gaze_slow"							""
 		"DOTA_Tooltip_ability_medusa_stone_gaze_slow_full_duration"				"%SLOW:"
 
+		//Omniknight
+		"DOTA_Tooltip_ability_omniknight_purification_2"						"Purification"
+		"DOTA_Tooltip_ability_omniknight_purification_2_Description"			"Instantly heals a friendly unit and damages all nearby enemy units."
+		"DOTA_Tooltip_ability_omniknight_purification_2_Lore"					"Priests of the Omniscience are adept at removing impurities from fellow warriors."
+		"DOTA_Tooltip_ability_omniknight_purification_2_heal"					"HEAL/DAMAGE:"
+		"DOTA_Tooltip_ability_omniknight_purification_2_radius"					"DAMAGE RADIUS:"
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven"						"Repel"
 		"DOTA_Tooltip_Ability_omniknight_repel_datadriven_Description"			"lasts %duration% seconds"
+		"DOTA_Tooltip_Ability_omniknight_repel_datadriven_2"					"Repel"
+		"DOTA_Tooltip_Ability_omniknight_repel_datadriven_2_Description"		"lasts %duration% seconds"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven"					"Degen Aura"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven_Description"		"%speed_bonus%%% move speed，%attack_bonus_tooltip% attack speed"
 		"DOTA_Tooltip_Ability_omniknight_guardian_angel_Lore"					"+25 health regen"
