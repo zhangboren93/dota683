@@ -424,7 +424,17 @@
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Scepter_Description"				"+300 cast range, pure damage, ignores spell immunity"
 		"DOTA_Tooltip_Ability_lina_fiery_soul_datadriven"							"Fiery Soul"
 		"DOTA_Tooltip_Ability_lina_fiery_soul_datadriven_Description"				"when cast spells +%fiery_soul_attack_speed_bonus% attack speed, +%fiery_soul_move_speed_bonus%%% move speed, max stack 3, lasts 9 seconds"
+
+		//Wind Runner
 		"DOTA_Tooltip_Ability_windrunner_focusfire_Scepter_Description"				"CD 15 seconds，+damage"
+		"DOTA_Tooltip_ability_windrunner_powershot_2"									"Powershot"
+		"DOTA_Tooltip_ability_windrunner_powershot_2_Description"						"CHANNELED - Windranger charges her bow for up to %abilitychanneltime% second for a single powerful shot, which deals more damage the longer it is charged. The arrow damages enemies along its path. For each enemy that Powershot hits, its damage is reduced."
+		"DOTA_Tooltip_ability_windrunner_powershot_2_Lore"								"During her early years of training, Lyralei learned to fire powerful arrows that cleaved even trees to reach their targets."
+		"DOTA_Tooltip_ability_windrunner_powershot_2_Note0"								"Powershot will destroy trees in its area of effect."
+		"DOTA_Tooltip_ability_windrunner_powershot_2_arrow_range"						"RANGE:"
+		"DOTA_Tooltip_ability_windrunner_powershot_2_powershot_damage"					"DAMAGE:"
+		"DOTA_Tooltip_ability_windrunner_powershot_2_damage_reduction"					"%REDUCTION PER UNIT:"
+
 		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Scepter_Description"		"+200 basic damage"
 		"DOTA_Tooltip_ability_juggernaut_omni_slash_scepter_description" 				"CD 70s，duration +1.2s"
 		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Scepter_Description"				"+200 damage"

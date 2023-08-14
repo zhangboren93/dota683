@@ -28,6 +28,7 @@ function Precache( context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
 	PrecacheResource( "particle", "particles/items_fx/immunity_sphere.vpcf", context )
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
 end
 
 -- Create the game mode when we activate
@@ -819,7 +820,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				return 1
 			end, "visage scepter", 1);
 			entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_windrunner" then
+		elseif entity:GetName() == "npc_dota_hero_windrunner" or entity:GetName() == "npc_dota_hero_hoodwink" then
 			entity:SetThink(function()
 				entity:RemoveModifierByName("modifier_windrunner_windrun_invis")
 				entity:RemoveModifierByName("modifier_windrunner_windrun_invis_thinker")

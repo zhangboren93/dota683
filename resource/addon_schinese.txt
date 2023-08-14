@@ -424,7 +424,17 @@
 		"DOTA_Tooltip_Ability_lina_fiery_soul_datadriven"							"炙魂"
 		"DOTA_Tooltip_Ability_lina_fiery_soul_datadriven_Description"				"施放技能时+%fiery_soul_attack_speed_bonus%攻速，+%fiery_soul_move_speed_bonus%%%移速，叠加3层，持续9秒"
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Scepter_Description"			"+300施放距离，无视魔法免疫"
+
+		//Wind Runner
 		"DOTA_Tooltip_Ability_windrunner_focusfire_Scepter_Description"		"CD15秒，加攻击"
+		"DOTA_Tooltip_ability_windrunner_powershot_2"										"强力击"
+		"DOTA_Tooltip_ability_windrunner_powershot_2_Description"							"持续施法 - 风行者为她的弓蓄力，射出一支强力的箭矢，最长可蓄力%abilitychanneltime%秒，其间可以打断蓄力，蓄力时间越长箭矢伤害越高。这支箭会对穿过的所有敌方单位造成伤害，并破坏树木。每伤害一个单位，箭矢的伤害都会降低。"
+		"DOTA_Tooltip_ability_windrunner_powershot_2_Lore"								"在早年的训练生涯，莱瑞蕾学会了射出足以破开树木击中目标的强力箭矢。"
+		"DOTA_Tooltip_ability_windrunner_powershot_2_Note0"								"强力击将摧毁作用范围内的树木。"
+		"DOTA_Tooltip_ability_windrunner_powershot_2_arrow_range"							"射程："
+		"DOTA_Tooltip_ability_windrunner_powershot_2_powershot_damage"					"伤害："
+		"DOTA_Tooltip_ability_windrunner_powershot_2_damage_reduction"					"%每个单位减少伤害："
+
 		"DOTA_Tooltip_Ability_earthshaker_echo_slam_Scepter_Description"		"+200基础伤害"
 		"DOTA_Tooltip_ability_juggernaut_omni_slash_scepter_description" 				"CD70秒，持续时间+1.2秒"
 		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Scepter_Description"				"+200伤害"
