@@ -43,7 +43,7 @@ function modifier_death_ward_attack_scepter_lua:OnAttackLanded(event)
 			iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
 			ExtraData = {
 				bn = 1,
-				bu1 = bounce_to_unit:GetEntityIndex(),
+				bu1 = target:GetEntityIndex(),
 				bu2 = nil,
 				bu3 = nil,
 				bu4 = nil}
