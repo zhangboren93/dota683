@@ -958,4 +958,14 @@
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stun_duration"					"STUN DURATION:"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stomp_damage"					"STOMP DAMAGE:"
+
+		//Witch Doctor
+		"DOTA_Tooltip_ability_witch_doctor_death_ward"									"Death Ward"
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_Description"						"CHANNELED - Summons a deadly ward to attack enemies within its attack range. Lasts a maximum of %abilitychanneltime% seconds." 
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_scepter_description"				"Death Ward attacks bounce between nearby enemies."
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_Lore"								"Witch Doctor performs a ritualistic dance, one that haunts the dreams of those who live to recount it."
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_Note0"							"The Death Ward is invulnerable, and is only destroyed if Witch Doctor is interrupted or its duration expires."
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_Note1"							"The Death Ward can be controlled, and made to attack a specific target."
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_Note2"							"Death Ward attacks once every 0.22 seconds."
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_damage"							"DAMAGE:"
 }

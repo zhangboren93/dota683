@@ -3570,62 +3570,133 @@
 			}
 		}
 	}
-	//TODO physical damage and not bouncy to creeps
-    "witch_doctor_death_ward"
+// Rewrite of Witch Doctor's Death Ward
+// Author: YOLOSPAGHETTI
+// Date: March 15, 2016
+// Version: 6.86
+// Type: Datadriven
+//
+// Notes: Some of the particles on the death ward do not appear
+//
+// ----- FILE REQUIREMENTS -----
+// Script files:
+// scripts/vscripts/heroes/hero_witch_doctor/death_ward.lua
+// scripts/npc/units/witch_doctor_death_ward_datadriven.txt
+	"witch_doctor_death_ward_datadriven"
 	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5141"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NO_INVIS | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_WitchDoctor.Death_WardBuild"
-
-		"HasShardUpgrade"			"0"
-		"HasScepterUpgrade"			"1"
-
-		"AbilityDraftUltShardAbility"		"witch_doctor_voodoo_switcheroo"
-
+		"AbilityTextureName"			"witch_doctor_death_ward"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		"HasScepterUpgrade"				"1"
+		
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf"
+			"particle"		"particles/units/heroes/hero_witchdoctor/witchdoctor_deathward_glow.vpcf"
+			"particle"		"particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf"
+			"particle"		"particles/units/heroes/hero_witchdoctor/witchdoctor_ward_cast_staff_fire.vpcf"
+			"soundfile"		"sounds/weapons/hero/witch_doctor/deathward_build.vsnd"
+		}
+	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.35 0.35 0.35"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
-
+	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"80.0"
-		"AbilityChannelTime"			"8.0"
-
+		"AbilityChannelTime"			"8.0 8.0 8.0"
+	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"200 200 200"
-
+	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 				"damage"					
 				{
-					"value"	"60 90 120"
+					"value"					"60 90 120"
 					"special_bonus_scepter"	"+30"
 				}
-				"attack_range_tooltip"		"700"
-				"bounce_radius"
+				"attack_range"				"700"
+				"scepter_bounces"			"4"
+				"bounce_radius"				"650 650 650"
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_witch_doctor/death_ward.lua"
+				"Function"		"CreateWard"
+			}
+			
+			"FireSound"
+			{
+				"EffectName"	"Hero_WitchDoctor.Death_WardBuild"
+				"Target"		"CASTER"
+			}
+		}
+		
+		"OnChannelFinish"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_witch_doctor/death_ward.lua"
+				"Function"		"DestroyWard"
+				"sound"			"Hero_WitchDoctor.Death_WardBuild"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_death_ward_datadriven"
+			{
+				"IsHidden"	"1"
+				
+				// Does Nothing
+				"EffectName"		"particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf"
+				"EffectAttachType"	"follow_origin"
+			
+				"Properties"
 				{
-					"value"	"0"
-					"special_bonus_scepter"	"+650"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage"
 				}
-				"scepter_lifesteal"			"0"
-				"bonus_accuracy"			"0"
+			
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	"death_ward_attack_scepter_lua"
+	{
+		"BaseClass"			"ability_lua"
+		"ScriptFile"		"heroes/hero_witch_doctor/death_ward_attack_scepter.lua"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"bounce_radius"	"650"
 		}
 	}
 	//=================================================================================================================
