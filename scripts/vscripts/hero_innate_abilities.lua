@@ -24,6 +24,7 @@ hero_innate_abilities["npc_dota_hero_lich"] = "lich_chain_frost_ministun_datadri
 hero_innate_abilities["npc_dota_hero_grimstroke"] = "lich_chain_frost_ministun_datadriven"
 hero_innate_abilities["npc_dota_hero_mirana"] = "mirana_arrow_cast_position_datadriven"
 hero_innate_abilities["npc_dota_hero_dragon_knight"] = "dragon_knight_elder_dragon_form_corrosive_breath_datadriven"
+hero_innate_abilities["npc_dota_hero_mars"] = "dragon_knight_elder_dragon_form_corrosive_breath_datadriven"
 hero_innate_abilities["npc_dota_hero_sniper"] = "sniper_shrapnel_instant_vision_datadriven"
 hero_innate_abilities["npc_dota_hero_spectre"] = "spectre_reality_levelup_with_haunt_datadriven"
 hero_innate_abilities["npc_dota_hero_invoker"] = "invoker_orb_bonus_datadriven"
