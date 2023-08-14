@@ -28168,7 +28168,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.4"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -28184,11 +28184,10 @@
 		"AbilityValues"
 		{
 			"duration"				"15.0"
-			"radius"				"500"
+			"radius"				"675"
 			"damage_absorb"
 			{
 				"value"			"110 140 170 200"
-				"special_bonus_unique_abaddon"		"+100"
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 		}
