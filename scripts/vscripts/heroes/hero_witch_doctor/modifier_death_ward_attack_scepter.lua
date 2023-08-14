@@ -27,7 +27,6 @@ function modifier_death_ward_attack_scepter_lua:OnAttackLanded(event)
 				table.insert(units_not_target, units[i])
 			end
 		end
-		print(#units_not_target)
 		if #units_not_target == 0 then
 			return
 		end
@@ -41,12 +40,6 @@ function modifier_death_ward_attack_scepter_lua:OnAttackLanded(event)
 			Ability = ability,
 			Source = target,
 			iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-			ExtraData = {
-				bn = 1,
-				bu1 = target:GetEntityIndex(),
-				bu2 = nil,
-				bu3 = nil,
-				bu4 = nil}
-		})
+			ExtraData = { bn = 1 }})
 	end
 end

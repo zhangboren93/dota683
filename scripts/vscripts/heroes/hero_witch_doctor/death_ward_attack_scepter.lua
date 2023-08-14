@@ -1,14 +1,14 @@
 death_ward_attack_scepter_lua = class({})
 
-function death_ward_attack_sceptert :GetIntrinsicModifierName()
+function death_ward_attack_scepter_lua:GetIntrinsicModifierName()
 	return "modifier_death_ward_attack_scepter_lua"
 end
 
-function death_ward_attack_scepter:OnProjectileHit_ExtraData(target, location, data)
+function death_ward_attack_scepter_lua:OnProjectileHit_ExtraData(target, location, data)
 	local caster = self:GetCaster()
 	ApplyDamage({
 		victim = target,
-		attacker = attacker,
+		attacker = caster, 
 		damage = caster:GetAttackDamage(),
 		damage_type = DAMAGE_TYPE_PHYSICAL})
 	if data.bn > 3 then
@@ -26,33 +26,22 @@ function death_ward_attack_scepter:OnProjectileHit_ExtraData(target, location, d
 		false)
 	local units_not_target = {}
 	for i=1,#units do
-		if units[i] ~= target 
-			and units[i]:GetEntityIndex() ~= data.bu1  
-			and units[i]:GetEntityIndex() ~= data.bu2  
-			and units[i]:GetEntityIndex() ~= data.bu3  
-			then
+		if units[i] ~= target then
 			table.insert(units_not_target, units[i])
 		end
 	end
 
 	local bounce_to_unit = units_not_target[RandomInt(1, #units_not_target)]
-	if data.dn == 1 then
-		data.dn2 = target:GetEntityIndex()
-	elseif data.dn == 2 then
-		dtat.dn3 = target:GetEntityIndex()
-	elseif data.dn == 3 then
-		dtat.dn4 = target:GetEntityIndex()
-	end
-	data.dn = data.dn + 1
+	data.bn = data.bn + 1
 	ProjectileManager:CreateTrackingProjectile({
 		Target = bounce_to_unit,
 		iMoveSpeed = caster:GetProjectileSpeed(),
 		bDodgeable = true, 
 		bIsAttack = true,
 		EffectName = "particles/units/heroes/hero_witchdoctor/witchdoctor_ward_attack.vpcf",
-		Ability = ability,
+		Ability = self,
 		Source = target,
 		iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-		ExtraData = extraData})
+		ExtraData = data})
 	return true
 end
