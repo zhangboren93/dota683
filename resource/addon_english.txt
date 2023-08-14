@@ -911,6 +911,14 @@
 		"DOTA_Tooltip_ability_luna_eclipse_scepter_description"								"Double click to cast eclipse. Increases total beams and removes the limit on beams per unit."
         //Ember Spirit
 		"DOTA_Tooltip_ability_ember_spirit_sleight_of_fist_creep_damage_penalty"			"%CREEP DAMAGE:"
+		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2"						"Flame Guard"
+		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_Description"			"Ember Spirit surrounds himself with a ring of fire that creates a magic damage barrier, absorbing damage.  Flame Guard deals damage per second in an area around Ember Spirit while Flame Guard is active.  If the barrier is broken, the damage is also lost."
+		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_radius"				"RADIUS:"
+		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_absorb_amount"			"MAGIC BARRIER:"
+		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_damage_per_second"		"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_Note0"					"Magic damage reduction is calculated before any reductions."
+		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_Lore"					"An enemy should never be allowed to approach without difficulty."
 		//Magnus
 		"DOTA_Tooltip_ability_magnataur_empower_Description"								"Gives an allied unit bonus damage and cleave on attack."		
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_damage_pct"							""

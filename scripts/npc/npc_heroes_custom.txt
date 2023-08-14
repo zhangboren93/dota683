@@ -2238,8 +2238,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"ember_spirit_searing_chains"
 		"Ability2"		"ember_spirit_sleight_of_fist"
-		//TODO change animation
-		"Ability3"		"ember_spirit_flame_guard"
+		"Ability3"		"ember_spirit_flame_guard_2"
 		"Ability4"		"ember_spirit_activate_fire_remnant"
 		"Ability5"		"ember_spirit_fire_remnant_clear_tree"
 		"Ability6"		"ember_spirit_fire_remnant"
