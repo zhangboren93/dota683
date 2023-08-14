@@ -20,6 +20,7 @@ function tombstoneHandleIntervalThink(event)
 			unit:FindAbilityByName("undying_tombstone_zombie_deathstrike_datadriven"):SetLevel(
 				ability:GetLevel())
 			unit:FindAbilityByName("neutral_spell_immunity"):SetLevel(1)
+			unit:FindAbilityByName("creep_piercing"):SetLevel(1)
 		end)
 end
 

@@ -4328,7 +4328,7 @@
 		
 		"Ability1"					"undying_tombstone_zombie_deathstrike_datadriven"			// Ability 1.
 		"Ability2"					"neutral_spell_immunity"			// Ability 2.
-		"Ability3"					""			// Ability 3.
+		"Ability3"					"creep_piercing"			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
