@@ -1076,7 +1076,11 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		end
 	end
 	if IsServer() and entity:IsRealHero() and (not entity:IsReincarnating()) then
-		handleKillBonus(self, attacker, entity)
+		local ret,error = pcall(function() handleKillBonus(self, attacker, entity) end)
+		if not ret then
+			print(error)
+			GameRules:SendCustomMessage(error, -1, -1)
+		end
 		local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
 		print("Set buyback cost to " .. buyback_cost)
 		PlayerResource:SetCustomBuybackCost(entity:GetPlayerID(), buyback_cost)
