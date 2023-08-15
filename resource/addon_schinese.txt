@@ -524,6 +524,16 @@
 		"DOTA_Tooltip_Ability_keeper_of_the_light_mana_leak_datadriven"				"法力流失"
 		"DOTA_Tooltip_Ability_keeper_of_the_light_mana_leak_datadriven_Description"	"持续%duration%秒，眩晕%stun_duration%秒"
 
+		// Pudge
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua"								"肉钩"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"					"向一个单位或方向射出血腥的肉钩。勾住第一个遭遇的单位，并将它拖到帕吉身边，敌方单位则会造成伤害。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Lore"							"屠夫的肉钩是噩梦的象征，锋利的倒钩暗示了他嗜血的本性。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"						"钩中敌人后将打断持续施法类技能。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note1"						"肉钩能击中隐身单位。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note2"						"肉钩可以穿过树木、地形、建筑、远古生物和肉山。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note3"						"肉钩可以拖拽友方单位，不过他们不会受到伤害。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_damage"						"伤害："
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_distance"				"施法距离："
 		"DOTA_Tooltip_Ability_pudge_rot_datadriven"								"腐烂"
 		"DOTA_Tooltip_Ability_pudge_rot_datadriven_Description"					"-20%%移速"
 		"DOTA_Tooltip_Ability_pudge_dismember_Scepter_Description"				"+力量伤害"

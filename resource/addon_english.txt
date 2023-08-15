@@ -523,9 +523,21 @@
 		"DOTA_Tooltip_Ability_keeper_of_the_light_spirit_form_Scepter_Description"	"Always active. During day 75%% recovery from Illuminate, unblocked vision"
 		"DOTA_Tooltip_Ability_keeper_of_the_light_mana_leak_datadriven"				"Mana Leak"
 		"DOTA_Tooltip_Ability_keeper_of_the_light_mana_leak_datadriven_Description"	"lasts %duration% seconds, stun for %stun_duration% seconds"
+
+		// Pudge
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua"								"Meat Hook"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"					"Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge, dealing damage if it is an enemy."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Lore"							"The Butcher's hook is a symbolic nightmare, its curved blade a frightening reminder of his slaughterous intent."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"						"Interrupts channeling spells of the primary target if it's an enemy."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note1"						"Meat Hook hits invisible units."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note2"						"Meat Hook can go through trees, cliffs, buildings, ancient units and Roshan."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note3"						"Meat Hook can drag friendly units, but they won't be damaged."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_damage"						"DAMAGE:"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_distance"				"CAST RANGE:"
 		"DOTA_Tooltip_Ability_pudge_rot_datadriven"								"Rot"
 		"DOTA_Tooltip_Ability_pudge_rot_datadriven_Description"					"-20%% move speed"
 		"DOTA_Tooltip_Ability_pudge_dismember_Scepter_Description"				"+ damage based on strength"
+
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"					"Coil"
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_Description"		"self damage %self_damage%, target damage %target_damage% or heal %heal_amount%"
