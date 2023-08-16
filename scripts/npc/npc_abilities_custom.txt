@@ -14768,49 +14768,122 @@
 	//=================================================================================================================
 	// Earth Spirit: Rolling Boulder
 	//=================================================================================================================
-	//TODO not invulnerable
-	"earth_spirit_rolling_boulder"
+	"earth_spirit_rolling_boulder_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5609"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilitySound"					"Hero_EarthSpirit.RollingBoulder.Cast"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityTextureName"			"earth_spirit_rolling_boulder"
 		"AbilityCastRange"				"3000"
 		"AbilityCastPoint"				"0"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"16.0 12.0 8.0 4.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"50"
-
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityValues"
 		{
 				"radius"				"160"
 				"speed"					"1000"
 				"rock_speed"			"1600"
-				"distance"				"800.0"
-				"rock_distance_multiplier"	"2.0"
-				"delay"					"0.6"
+				"distance"				"800"
+				"rock_distance"			"1600"
 				"damage"				"100"
-				"stun_duration"			"0"
-				"rock_bonus_duration"	"0"
-				"damage_str"			"0"
 				"slow_duration_tooltip"	"2"
 				"slow_tooltip"			"-80"
+				"delay"					"0.6"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+			"particle"					"particles/units/heroes/hero_earth_spirit/espirit_rollingboulder.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"				"CASTER"
+				"EffectName"			"Hero_EarthSpirit.RollingBoulder.Cast"
+			}
+			"RunScript"
+			{
+			    "ScriptFile"    "scripts/vscripts/heroes/hero_earth_spirit/rolling_boulder.lua"
+			    "Function" 		"handleSpellStart"
+				"Target"		"POINT"
+			}
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_rolling_boulder_check_hit_units"
+			}
+			"DelayedAction"
+			{
+				"Delay"	"%delay"
+				"Action"
+				{
+					"ApplyMotionController"
+					{
+					    "Target"		"CASTER"
+					    "ScriptFile"    "scripts/vscripts/heroes/hero_earth_spirit/rolling_boulder.lua"
+					    "HorizontalControlFunction" 	"rollingMotion"
+					}
+					"FireSound"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"Hero_EarthSpirit.RollingBoulder.Loop"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_rolling_boulder_check_hit_units"
+			{
+				"IsHidden"		"1"
+				"Duration"		"2.6"
+				"EffectName"	"particles/units/heroes/hero_earth_spirit/espirit_rollingboulder.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"ThinkInterval"	"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_earth_spirit/rolling_boulder.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_rolling_boulder_creep_hit"
+			{
+				"Duration"		"2"
+				"OnCreated"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Damage"	"%damage"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+					}
+				}
+			}
+			"modifier_rolling_boulder_hero_slow"
+			{
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
+				"Duration"		"%slow_duration_tooltip"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_tooltip"
+				}
+			}
+		}
 	}
 	"earth_spirit_rolling_boulder_slow_datadriven"
 	{

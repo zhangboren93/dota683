@@ -1275,13 +1275,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", {duration = ability:GetSpecialValueFor("duration")})
-	elseif event.name_const == "modifier_stunned" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		if ability:GetName() == "earth_spirit_rolling_boulder" then
-			local slow = caster:FindAbilityByName("earth_spirit_rolling_boulder_slow_datadriven")
-			slow:ApplyDataDrivenModifier(caster, parent, "modifier_earth_spirit_rolling_boulder_slow_datadriven", {})
-		end
 	elseif event.name_const == "modifier_illusion" then
 		if parent:GetName() ~= "npc_dota_hero_phantom_lancer" and parent:GetName() ~= "npc_dota_hero_monkey_king" then
 			parent:AddAbility("illusion_bounty_cancel_datadriven"):SetLevel(1)

@@ -756,11 +756,19 @@
 
         //Earth Spirit
 		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					    "Stuns"
-		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_Description"		        "Earth Spirit gathers himself into a boulder and, after a %delay%s delay, rolls toward the target location, dealing %damage% damage and slowing enemy units. He will stop if he collides with an enemy hero or is stunned. If he rolls over a Stone Remnant, he will travel further and faster."
-		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_stun_duration"	        ""
-		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_rock_bonus_duration"	    ""
-		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_slow_duration_tooltip"	"SLOW DURATION:"
-		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_slow_tooltip"			"%SLOW AMOUNT:"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven"						"Rolling Boulder"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Description"			"Earth Spirit gathers himself into a boulder and, after a %delay%s delay, rolls toward the target location, dealing %damage% damage and slowing enemy units. He will stop if he collides with an enemy hero or is stunned. If he rolls over a Stone Remnant, he will travel further and faster."
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Lore"					"Calling upon his connection to the land, the Earth Spirit draws loose stone to him, which forms a protective ball that he can use to roll short distances."
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_speed"				"SPEED:"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_rock_speed"			"SPEED (REMNANT):"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_distance"				"DISTANCE:"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_rock_distance"		"DISTANCE (REMNANT):"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_rock_bonus_duration"	"ROCK BONUS STUN DURATION:"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_slow_duration_tooltip"	"SLOW DURATION:"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_slow_tooltip"				"%SLOW AMOUNT:"
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Note0"					"Rolling over a Stone Remnant will destroy the Remnant."
+		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Note1"					"The boulder has a radius of 160."
 
 		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"Increase incoming damage by 20/30/40/50%"
 
