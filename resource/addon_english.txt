@@ -303,9 +303,9 @@
 		"DOTA_Tooltip_ability_courier_burst_datadriven_movement_speed"					"BURST MOVE SPEED:"
 
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven"						"Primal Split"
-		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"Splits Brewmaster into elements, forming 4 specialized warriors, adept at survival, each with their own abilities. If any of them survive until the end of their summoned timer, the Brewmaster is reborn."
+		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"Splits Brewmaster into elements, forming 3 specialized warriors, adept at survival, each with their own abilities. If any of them survive until the end of their summoned timer, the Brewmaster is reborn."
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_duration"				"Duration: "
-		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_scepter_description"	"Grants Earth warrior Thunder Clap.<br>Grants Storm warrior Drunken Haze.<br>Grants Brewmaster Fire minimap icon Fire warrior Drunken Brawler."
+		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_scepter_description"	"Grants Earth warrior Thunder Clap.<br>Grants Storm warrior Drunken Haze.<br>Grants Brewmaster Fire warrior Drunken Brawler."
 		//Chaos Knight
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven"							"Reality Rift"
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven_Description"				"Teleports you, any images you have and the target unit to a point along the line between the two of you. Chaos Knight gains attack power bonus."
