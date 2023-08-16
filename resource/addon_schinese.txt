@@ -1065,6 +1065,16 @@
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven"				"醉拳"
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"	"+10/15/20/25%%闪避和暴击，暴击伤害200%%"
 
+		//Disrupter
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven"							"风雷之击"
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_Description"				"用闪电反复打击目标单位。每次打击会伤害附近小范围内的敌方单位。提供目标的视野。"
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_Lore"						"干扰者的充能线圈有时会超负荷，然后他的敌人就只剩一块烤焦的盔甲碎片或者一簇毛皮了。"
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_AbilityCastrange"			"施法距离："
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_radius"					"作用范围："
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strikes"					"打击次数："
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_interval"			"打击间隔："
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_damage"			"打击伤害："
+
 		//Miss message
 		"abaddon_miss"				"死骑Miss!"
 		"ancient_apparition_miss" 	"冰魂Miss!"

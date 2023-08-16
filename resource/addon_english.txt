@@ -1067,4 +1067,14 @@
 
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven"				"Drunken Brawler"
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"	"+10/15/20/25%% evasion and crit, crit damage 200%%"
+
+		//Disruptor
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven"							"Thunder Strike"
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_Description"				"Repeatedly strikes the targeted unit with lightning.  Each strike damages nearby enemy units in a small radius.  Provides vision of its target."
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_Lore"						"Disruptor's charged coils occasionally overload, and a singed armor plate or tuft of fur is the enemy's result."
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_AbilityCastrange"			"CAST RANGE:"
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_radius"					"RADIUS:"
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strikes"					"STRIKES:"
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_interval"			"STRIKE INTERVAL:"
+		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_damage"			"STRIKE DAMAGE:"
 }
