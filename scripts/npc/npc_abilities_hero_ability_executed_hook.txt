@@ -1,0 +1,120 @@
+"DOTAAbilities"
+{
+	"hero_ability_executed_hook_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"Modifiers"
+		{
+			"modifier_arc_warden_tempest_double_cost"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_arc_warden/tempest_double_cost.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"modifier_battle_hunger_slow_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/ability_target_debuff.lua"
+						"Function"		"handleAbilityExecuted"
+						"TargetAbility"	"axe_battle_hunger"
+						"Modifier"		"modifier_battle_hunger_slow_debuff_active"
+						"Duration"		"10"
+					}
+				}
+			}
+			"modifier_battle_hunger_slow_debuff_active"
+			{
+				"IsHidden"		"1"
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+				"Duration"		"10"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-12" 
+				}
+				"ThinkInterval"	"0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/ability_target_debuff.lua"
+						"Function"		"handleIntervalThink"
+						"MainModifier"	"modifier_axe_battle_hunger"
+						"Modifier"		"modifier_battle_hunger_slow_debuff_active"
+					}
+				}
+			}
+			"modifier_bane_nightmare_damage_active"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"Duration"		"7"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_bane/nightmare.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			// if banes attack a nightmared target, itself is nightmared.
+			"modifier_bane_nightmare_self_attack_transfer"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_bane/nightmare.lua"
+						"Function"		"handleAttackStart"
+					}
+				}
+			}
+			"modifier_dragon_knight_corrosive_breath_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_dragon_knight/elder_dragon_form.lua"
+						"Function"		"handleAttackLanded"
+					}
+				}
+			}
+			"modifier_dragon_knight_corrosive_breath_dot_datadriven"
+			{
+				"IsDebuff"			"1"
+				"ThinkInterval"		"1"
+				"Duration"			"5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_dragon_knight/elder_dragon_form.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+
+		}}}

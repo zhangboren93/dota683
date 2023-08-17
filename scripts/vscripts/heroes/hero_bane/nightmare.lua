@@ -11,6 +11,9 @@ function handleAttackStart(event)
 	local attacker = event.attacker
 	local caster = event.caster
 	local nightmare = caster:FindAbilityByName("bane_nightmare")
+	if nightmare == nil then
+		return
+	end
 	if target:HasModifier("modifier_bane_nightmare") and target:GetTeam() ~= attacker:GetTeam() then
 		attacker:AddNewModifier(caster, nightmare, "modifier_bane_nightmare",
 			{duration = nightmare:GetSpecialValueFor("duration")})

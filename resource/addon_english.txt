@@ -761,6 +761,7 @@
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven"							"Enfeeble"
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven_Description"				"-%enfeeble_attack_reduction% damage, lasts 20 seconds"
 		"DOTA_Tooltip_ability_bane_nightmare_Description"						"Puts the target enemy or friendly Hero to sleep. Sleeping units are awakened when damaged. If the target was directly attacked, the Nightmare passes to the attacking unit."
+		"DOTA_Tooltip_ability_bane_nightmare_tick_damage"						"DAMAGE/s:"
 
 		"DOTA_Tooltip_Ability_pugna_nether_ward_Lore"							"mana regen -1.5/3/4.5/6"
 		"DOTA_Tooltip_ability_pugna_life_drain_datadriven"											"Life Drain"
@@ -773,7 +774,10 @@
 		"DOTA_Tooltip_ability_pugna_life_drain_datadriven_abilitychanneltime"	"MAX DURATION:"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven"					"Rip tide"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_Description"		"%AbilityDamage% damage, reduce armor by %armor_reduction%, lasts 8 seconds"
-		"DOTA_Tooltip_Ability_arc_warden_tempest_double_Lore"							"Cost 30/15/0% health and mana"
+
+		//Arc Warden
+		"DOTA_Tooltip_Ability_arc_warden_tempest_double_health_cost_pct"		"%HEALTH AND MANA COST:"
+
 		"DOTA_Tooltip_Ability_nevermore_requiem_Lore"							"700 range -20% move speed, -50% damage, lasts 5 seconds"
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven"								"Ion Shell"
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven_Description"					"Surrounds the target unit with a bristling shield that damages enemy units in an area around it."

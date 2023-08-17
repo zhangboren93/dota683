@@ -769,6 +769,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		-- abilities
 		entity:AddAbility("hero_creep_aggro_datadriven"):SetLevel(1)
 		entity:AddAbility("hero_intrinstic_mechanism_datadriven"):SetLevel(1)
+		entity:AddAbility("hero_ability_executed_hook_datadriven"):SetLevel(1)
 
 		local player = entity:GetPlayerOwner()
 		if player ~= nil then
@@ -842,8 +843,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("keeper_of_the_light_spirit_form_checker"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_slark" then
 			entity:FindAbilityByName("slark_shadow_dance_heal_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_arc_warden" then
-			entity:FindAbilityByName("arc_warden_tempest_double_cost"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_nevermore" then
 			entity:FindAbilityByName("nevermore_requiem_slow_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_sand_king" then
@@ -1296,9 +1295,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		parent:FindModifierByName("modifier_familiar_attack_damage_lua"):refreshStackCount()
 	elseif event.name_const == "modifier_bane_nightmare" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local nightmare_damage = caster:FindAbilityByName("bane_nightmare_damage_datadriven")
-		print(caster:GetName() .. " " .. nightmare_damage:GetName() .. " " .. parent:GetName())
-		nightmare_damage:SetLevel(caster:FindAbilityByName("bane_nightmare"):GetLevel())
+		local nightmare_damage = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		if caster:GetTeam() ~= parent:GetTeam() then
 			caster:SetThink(function()
 				if parent:HasModifier("modifier_bane_nightmare") then

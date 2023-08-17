@@ -759,6 +759,7 @@
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven"							"虚弱"
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven_Description"				"-%enfeeble_attack_reduction%攻，持续20秒"
 		"DOTA_Tooltip_ability_bane_nightmare_Description"								"让目标敌方或友方英雄进入沉睡。睡着的单位受到攻击便会醒来，但噩梦将转移到攻击者身上。"
+		"DOTA_Tooltip_ability_bane_nightmare_tick_damage"						"每秒伤害："
 
 		"DOTA_Tooltip_Ability_pugna_nether_ward_Lore"							"回蓝-1.5/3/4.5/6"
 		"DOTA_Tooltip_ability_pugna_life_drain_datadriven"						"生命汲取"
@@ -771,7 +772,10 @@
 		"DOTA_Tooltip_ability_pugna_life_drain_datadriven_abilitychanneltime"	"最大持续时间："
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven"					"激流"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_Description"		"%AbilityDamage%伤害，减甲%armor_reduction%，持续8秒"
-		"DOTA_Tooltip_Ability_arc_warden_tempest_double_Lore"							"消耗30/15/0%生命和魔法"
+
+		//Arc Warden
+		"DOTA_Tooltip_Ability_arc_warden_tempest_double_health_cost_pct"		"%生命和魔法消耗："
+
 		"DOTA_Tooltip_Ability_nevermore_requiem_Lore"							"700范围-20%移速-50%攻击力，持续5秒"
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven"								"离子外壳"
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven_Description"					"将目标用一个尖刺之盾包裹起来，对周围的敌人造成伤害。"
