@@ -1,5 +1,4 @@
 hero_innate_abilities = {}
-hero_innate_abilities["npc_dota_hero_juggernaut"] = "juggernaut_blade_fury_magic_immune_datadriven"
 hero_innate_abilities["npc_dota_hero_kunkka"] = "kunkka_tidebringer_deny_damage_datadriven"
 hero_innate_abilities["npc_dota_hero_winter_wyvern"] = "winter_wyvern_arctic_burn_pure_datadriven"
 hero_innate_abilities["npc_dota_hero_clinkz"] = "clinkz_attack_animation_datadriven"
@@ -19,7 +18,6 @@ hero_innate_abilities["npc_dota_hero_abaddon"] = "abaddon_borrowed_time_aghs_dat
 hero_innate_abilities["npc_dota_hero_sven"] = "sven_gods_strength_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_magnataur"] = "magnataur_empower_cleave_radius_datadriven"
 hero_innate_abilities["npc_dota_hero_doom_bringer"] = "doom_bringer_scorched_earth_regen_datadriven"
-hero_innate_abilities["npc_dota_hero_lich"] = "lich_chain_frost_ministun_datadriven"
 hero_innate_abilities["npc_dota_hero_grimstroke"] = "lich_chain_frost_ministun_datadriven"
 hero_innate_abilities["npc_dota_hero_mirana"] = "mirana_arrow_cast_position_datadriven"
 hero_innate_abilities["npc_dota_hero_sniper"] = "sniper_shrapnel_instant_vision_datadriven"
