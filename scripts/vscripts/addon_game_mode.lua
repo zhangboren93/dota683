@@ -1369,6 +1369,16 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_od_imprison_int_steal", {})
 			passive_ability:ApplyDataDrivenModifier(caster, caster, "modifier_od_imprison_int_gain", {})
 	    end
+	elseif event.name_const == "modifier_oracle_fates_edict" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		local duration = ability:GetSpecialValueFor("duration")
+		if caster:GetTeam() == parent:GetTeam() then
+			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_allie_disarm", { duration = duration })
+		else
+			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_enemy_resist", { duration = duration })
+		end
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

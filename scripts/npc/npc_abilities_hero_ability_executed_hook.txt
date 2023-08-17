@@ -268,4 +268,31 @@
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"-50"
 				}
 			}
+			"modifier_oracle_fates_edict_allie_disarm"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"				
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"		"50"
+				}
+			}
+			"modifier_oracle_fates_edict_enemy_resist"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"		"50"
+				}
+			}
 		}}}

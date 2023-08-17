@@ -15529,56 +15529,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	"oracle_fates_edict_team_same_effect"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"Modifiers"
-		{
-			"modifier_oracle_fates_edict_team_same_effect_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_oracle/fates_edict.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
-			"modifier_oracle_fates_edict_allie_disarm"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsDebuff"		"1"
-				"IsPurgable"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"				
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"		"50"
-				}
-			}
-			"modifier_oracle_fates_edict_enemy_resist"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsDebuff"		"1"
-				"IsPurgable"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"		"50"
-				}
-			}
-		}
-	}
-
 	//=================================================================================================================
 	// Oracle: Purifying Flames
 	//=================================================================================================================
