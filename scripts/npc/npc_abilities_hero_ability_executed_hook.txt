@@ -179,4 +179,93 @@
 					}
 				}
 			}
+			"modifier_life_stealer_infest_bounty_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_life_stealer/infest_bounty.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"modifier_empower_cleave_radius_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_magnataur/empower_cleave.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"modifier_stone_gaze_magic_resist_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"IsPurgable"	"0"
+				"Duration"		"3"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
+				}
+			}
+			"modifier_medusa_stone_gaze_cancel_when_turned"
+			{
+				"IsHidden"			"1"
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_medusa/stone_gaze.lua"
+						"Function"			"handleStoneGazedIntervalThink"
+					}
+				}
+			}
+			"modifier_medusa_stone_gaze_slow_full_duration"
+			{
+				"IsDebuff"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"		"-50"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-50"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
+				}
+			}
+			"modifier_nevermore_requiem_slow_datadriven"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_nevermore/requiem_slow.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			//TODO modifier texture
+			"modifier_nevermore_requiem_slow_active_datadriven"
+			{
+				"IsHidden"		"0"
+				"Passive"		"0"
+				"Duration"		"5"
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-20"
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"-50"
+				}
+			}
 		}}}

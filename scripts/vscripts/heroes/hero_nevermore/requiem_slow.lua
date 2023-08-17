@@ -5,7 +5,7 @@ function handleAbilityExecuted(keys)
     if event_ability:GetName() == "nevermore_requiem" then
 	    local units = FindUnitsInRadius(caster:GetTeam(),
             caster:GetAbsOrigin(), nil,
-            ability:GetSpecialValueFor("slow_range"),
+            700,
             DOTA_UNIT_TARGET_TEAM_ENEMY, 
             DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
             0, 0, false)

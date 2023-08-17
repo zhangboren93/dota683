@@ -843,8 +843,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("keeper_of_the_light_spirit_form_checker"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_slark" then
 			entity:FindAbilityByName("slark_shadow_dance_heal_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_nevermore" then
-			entity:FindAbilityByName("nevermore_requiem_slow_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_sand_king" then
 			entity:AddNewModifier(entity, entity, "modifier_sandstorm_channel_end", {})
 		elseif entity:GetName() == "npc_dota_hero_razor" then
@@ -855,14 +853,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("undying_flesh_golem_aura_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_shadow_demon" then
 			entity:FindAbilityByName("shadow_demon_soul_catcher_debuff_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_obsidian_destroyer" then
-			entity:FindAbilityByName("obsidian_destroyer_imprison_int_steal_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_wisp" then
 			entity:FindAbilityByName("wisp_tether_charge_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_chen" then
 			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_life_stealer" then
-			entity:FindAbilityByName("life_stealer_infest_bounty_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_shredder" then
 			entity:SetThink(function()
 				if entity:HasScepter() then
@@ -890,6 +884,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_earth_spirit" then
 			entity:AddItemByName("item_aghanims_shard")
 			entity:AddAbility("special_bonus_unique_earth_spirit_2"):SetLevel(1)
+		elseif entity:GetName() == "npc_dota_hero_rubick" then
+			entity:AddAbility("nyx_assassin_vendetta_physical_damage_datadriven"):SetLevel(1)
+			entity:AddAbility("obsidian_destroyer_imprison_int_steal_datadriven"):SetLevel(1)
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
@@ -1304,10 +1301,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 				end
 			end, "nightmare_damage later", 1.5)
 		end
-	elseif event.name_const == "modifier_naga_siren_ensnare" then
-		if parent:IsMagicImmune() then
-			return false
-		end
+	elseif event.name_const == "modifier_naga_siren_ensnare" and parent:IsMagicImmune() then 
+		return false
 	elseif event.name_const == "modifier_medusa_stone_gaze_stone" then
 		if parent:IsIllusion() then
 			print("stone gaze kills illusion " .. parent:GetName())
@@ -1316,7 +1311,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		end
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		print("Applying magic resist to stoned units")
-		caster:FindAbilityByName("medusa_stone_gaze_magic_resist_datadriven"):ApplyDataDrivenModifier(
+		caster:FindAbilityByName("hero_ability_executed_hook_datadriven"):ApplyDataDrivenModifier(
 			caster, parent, "modifier_stone_gaze_magic_resist_datadriven", {})
 	elseif event.name_const == "modifier_ember_spirit_fire_remnant_thinker" then
 		parent:SetDayTimeVisionRange(400)
@@ -1365,6 +1360,15 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_kunkka_torrent_slow_datadriven", {})
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_torrent_damage_datadriven", {})
 		end
+	elseif event.name_const == "modifier_obsidian_destroyer_astral_imprisonment_prison" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local passive_ability = caster:FindAbilityByName("obsidian_destroyer_imprison_int_steal_datadriven")
+	    if parent:IsRealHero() and passive_ability ~= nil then
+			passive_ability:SetLevel(ability:GetLevel())
+			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_od_imprison_int_steal", {})
+			passive_ability:ApplyDataDrivenModifier(caster, caster, "modifier_od_imprison_int_gain", {})
+	    end
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
