@@ -295,4 +295,31 @@
 					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"		"50"
 				}
 			}
+			"pugna_decrepify_ally_debuff_checker" 
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"IsDebuff"		"0"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_pugna/decrepify.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"pugna_decrepify_ally_debuff_active"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsPurgable"	"1"
+				"IsDebuff"		"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-50"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" 	"-25" 
+				}
+			}
 		}}}

@@ -4,7 +4,6 @@ hero_innate_abilities["npc_dota_hero_winter_wyvern"] = "winter_wyvern_arctic_bur
 hero_innate_abilities["npc_dota_hero_clinkz"] = "clinkz_attack_animation_datadriven"
 hero_innate_abilities["npc_dota_hero_silencer"] = "silencer_global_silence_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_spirit_breaker"] = "spirit_breaker_empowering_haste_activate_debuff_datadriven"
-hero_innate_abilities["npc_dota_hero_pugna"] = "pugna_decrepify_ally_debuff_datadriven"
 hero_innate_abilities["npc_dota_hero_pudge"] = "pudge_rot_suicide_datadriven"
 hero_innate_abilities["npc_dota_hero_storm_spirit"] = "storm_spirit_electric_vortex_debuff_datadriven"
 hero_innate_abilities["npc_dota_hero_batrider"] = "batrider_firefly_flying_vision_datadriven"

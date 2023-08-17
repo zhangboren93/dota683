@@ -1278,7 +1278,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
-		"Ability4"					"pugna_decrepify_ally_debuff_datadriven"
+		"Ability4"					"generic_hidden"
 		"Ability6"					"pugna_life_drain_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
@@ -1372,6 +1372,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		//TODO rewrite soul catcher
 		"Ability2"		"shadow_demon_soul_catcher"
 		"Ability5"		"shadow_demon_soul_catcher_debuff_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
