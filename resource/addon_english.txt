@@ -843,7 +843,12 @@
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Note0"					"Rolling over a Stone Remnant will destroy the Remnant."
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Note1"					"The boulder has a radius of 160."
 
-		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"Increase incoming damage by 20/30/40/50%"
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven"							"Soul Catcher"
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_Description"				"Captures the soul of a random enemy in an area, amplifies all damage they take. Units under the effect of Disruption can still be affected by Soul Catcher."
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_Lore"					"Trying to resist the Shadow Demon's corruption is mostly a useless endeavor."
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_radius"					"RADIUS:"
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_incoming_damage_pct"		"%DAMAGE AMPLIFICATION:"
 
 		//Tiny
 		"DOTA_Tooltip_ability_tiny_toss_datadriven"								"Toss"

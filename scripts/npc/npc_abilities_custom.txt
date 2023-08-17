@@ -10535,43 +10535,56 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	"shadow_demon_soul_catcher_debuff_datadriven"
+	"shadow_demon_soul_catcher_datadriven"
 	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"	"shadow_demon_soul_catcher"
-		"MaxLevel"			"4"
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_ShadowDemon.Soul_Catcher"
+		"AbilityTextureName"			"shadow_demon_soul_catcher"
+		"AbilityCooldown"				"13"
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AoERadius"						"500"
+		"AbilityManaCost"				"50 60 70 80"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityValues"
+		{
+				"radius"				"450"
+				"duration"				"12"
+				"incoming_damage_pct"	"20 30 40 50"
+		}
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_shadow_demon/shadow_demon_soul_catcher_debuff.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_shadow_demon/soul_catcher.lua"
+				"Function"		"handleSpellStart"
+				"Target"		"POINT"
+			}
+		}
 		"Modifiers"
 		{
-			"modifier_sd_soul_catcher_debuff_checker_datadriven"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_shadow_demon/soul_catcher.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
 			"modifier_sd_soul_catcher_debuff_datadriven"
 			{
 				"Passive"		"0"
-				"IsHidden"		"1"
+				"IsHidden"		"0"
 				"IsDebuff"		"1"
-				"Duration"		"12"
+				"Duration"		"%duration"
 				"IsPurgable"	"1"
+				"EffectName"	"particles/units/heroes/hero_shadow_demon/shadow_demon_soul_catcher_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%incoming_damage_pct"
 				}
 			}
-		}
-		"AbilityValues"
-		{
-			"incoming_damage_pct"	"20 30 40 50"
 		}
 	}
 	//=================================================================================================================

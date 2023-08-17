@@ -1,33 +1,41 @@
-function handleAbilityExecuted(keys)
-    local unit = keys.unit
-    local ability = keys.ability
-    local event_ability = keys.event_ability
-    if event_ability:GetName() == "shadow_demon_soul_catcher" then
-        ability:SetLevel(event_ability:GetLevel())
-        unit:SetThink(function()
-	        local units = FindUnitsInRadius(
-                unit:GetTeam(), 
-                unit:GetAbsOrigin(), nil,
-                1200, 
-                DOTA_UNIT_TARGET_TEAM_ENEMY, 
-                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 
-                0, 0, false)
-            local catchedUnits = {}
-            for i=1,#units do
-                if units[i]:HasModifier("modifier_shadow_demon_soul_catcher") then
-                    table.insert(catchedUnits, units[i])
-                end
-            end
-            if #catchedUnits == 0 then
-                return
-            end
-            local pickedUnit = catchedUnits[RandomInt(1, #catchedUnits)]
-            ability:ApplyDataDrivenModifier(unit, pickedUnit, "modifier_sd_soul_catcher_debuff_datadriven", {})
-            for i=1,#catchedUnits do
-                if catchedUnits[i] ~= pickedUnit then
-                    catchedUnits[i]:RemoveModifierByName("modifier_shadow_demon_soul_catcher")
-                end
-            end
-        end, "soul catcher debuff", 0.1) 
+function handleSpellStart(event)
+	local target_point = event.target_points[1]
+	local caster = event.caster
+	local ability = event.ability
+	local radius = ability:GetSpecialValueFor("radius")
+
+	caster:EmitSound("Hero_ShadowDemon.Soul_Catcher.Cast")
+
+	local units = FindUnitsInRadius(
+        caster:GetTeam(), 
+        target_point, nil,
+        radius, 
+        DOTA_UNIT_TARGET_TEAM_ENEMY, 
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 
+        0, 0, false)
+	local invulnerable_units = FindUnitsInRadius(
+        caster:GetTeam(), 
+        target_point, nil,
+        radius, 
+        DOTA_UNIT_TARGET_TEAM_ENEMY, 
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 
+        DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, 0, false)
+	for i=1,#invulnerable_units do
+		if invulnerable_units[i]:HasModifier("modifier_shadow_demon_disruption") then
+			table.insert(units, invulnerable_units[i])
+		end
+	end
+    if #units == 0 then
+        return
     end
+    local pickedUnit = units[RandomInt(1, #units)]
+	if pickedUnit:HasModifier("modifier_shadow_demon_disruption") then
+		caster:SetThink(function()
+    		ability:ApplyDataDrivenModifier(caster, pickedUnit, "modifier_sd_soul_catcher_debuff_datadriven", {})
+		end, "soul catch after disruption", pickedUnit:FindModifierByName("modifier_shadow_demon_disruption"):GetRemainingTime() + 0.1)
+	else
+    	ability:ApplyDataDrivenModifier(caster, pickedUnit, "modifier_sd_soul_catcher_debuff_datadriven", {})
+	end
+
+	pickedUnit:EmitSound("Hero_ShadowDemon.Soul_Catcher")
 end

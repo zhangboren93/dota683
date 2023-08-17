@@ -839,7 +839,13 @@
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_slow_duration_tooltip"	"减速时间："
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_slow_tooltip"			"%减速："
 
-		"DOTA_Tooltip_Ability_shadow_demon_soul_catcher_Lore"					"增伤20/30/40/50%"
+		//Shadow Demon
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven"					"灵魂猎手"
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_Description"		"俘获区域内的随机一个敌人的灵魂，使其受到的所有伤害均有所增加。处于崩裂禁锢中的单位仍然可以被灵魂猎手影响。"
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_Lore"			"抵抗暗影恶魔的腐蚀通常都是徒劳的。"
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_radius"			"作用范围："
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_duration"		"持续时间："
+		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_incoming_damage_pct"		"%伤害加深："
 
 		//Tiny
 		"DOTA_Tooltip_ability_tiny_craggy_exterior"								"崎岖外表"
