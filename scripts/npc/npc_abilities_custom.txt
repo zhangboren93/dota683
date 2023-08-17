@@ -12109,9 +12109,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"					"180.0 240.0 300.0"
-				"projectile_speed"			"1200"
-				"stolen_debuff_amp"			"0"
+			"duration"					"180.0 240.0 300.0"
+			"projectile_speed"			"1200"
+			"stolen_debuff_amp"			"0"
 			"AbilityCastRange"
 			{
 				"value"				"1000"
@@ -12121,6 +12121,27 @@
 			{
 				"value"				"20 18 16"
 				"special_bonus_scepter"		"-15 -13 -11"
+			}
+		}
+	}
+	"rubick_spell_steal_limit_one_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"rubick_spell_steal_limit_one_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_rubick/spell_steal.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
 			}
 		}
 	}
