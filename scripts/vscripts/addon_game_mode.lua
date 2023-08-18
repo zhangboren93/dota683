@@ -1351,12 +1351,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_kunkka_torrent" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local passive_ability = caster:FindAbilityByName("kunkka_torrent_damage_datadriven")
-		if passive_ability ~= nil then
-			passive_ability:SetLevel(ability:GetLevel())
-			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_kunkka_torrent_slow_datadriven", {})
-			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_torrent_damage_datadriven", {})
-		end
+		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		local slow_duration = ability:GetSpecialValueFor("slow_duration")
+		local stun_duration = ability:GetSpecialValueFor("stun_duration")
+		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_kunkka_torrent_slow_datadriven", { duration = slow_duration + stun_duration })
+		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_torrent_damage_datadriven", {})
 	elseif event.name_const == "modifier_obsidian_destroyer_astral_imprisonment_prison" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)

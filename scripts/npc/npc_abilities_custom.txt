@@ -33688,7 +33688,9 @@
 			"delay"						"1.6 1.6 1.6 1.6"
 			"torrent_damage"			"0"
 			"torrent_damage_tooltip"	"120 180 240 300"
-			"damage_tick_interval"		"0.2"
+			"damage_tick_interval"		"0.15"
+			"damage_initial"	"60 90 120 150"
+			"damage_per_tick"	"6 9 12 15"
 		}		
 	}
 	//=================================================================================================================
@@ -33780,56 +33782,6 @@
 		"AbilityValues"
 		{
 			"bonus_damage"	"15 30 45 60"
-		}
-	}
-	"kunkka_torrent_damage_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"	"kunkka_torrent"
-		"Modifiers"
-		{
-			"modifier_kunkka_torrent_slow_datadriven"
-			{
-				"IsDebuff"		"1"
-				"IsPurgable"	"1"
-				"Duration"		"%slow_duration"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-35"
-				}
-			}
-			"modifier_torrent_damage_datadriven"
-			{
-				"IsHidden"		"1"
-				"ThinkInterval"	"0.15"
-				"Duration"		"1.6"
-				"OnCreated"
-				{
-					"Damage"
-					{
-						"Target"	"TARGET"
-						"Type"		"DAMAGE_TYPE_MAGICAL"
-						"Damage"	"%damage_initial"
-					}
-				}
-				"OnIntervalThink"
-				{
-					"Damage"
-					{
-						"Target"	"TARGET"
-						"Type"		"DAMAGE_TYPE_MAGICAL"
-						"Damage"	"%damage_per_tick"
-					}
-				}
-			}
-		}
-		"AbilityValues"
-		{
-			"torrent_damage"	"120 180 240 300"
-			"damage_initial"	"60 90 120 150"
-			"damage_per_tick"	"6 9 12 15"
-			"slow_duration"		"2.6 3.6 4.6 5.6"
 		}
 	}
 	//=================================================================================================================
