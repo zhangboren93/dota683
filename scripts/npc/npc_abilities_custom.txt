@@ -7923,6 +7923,7 @@
 				"bonus_attack_speed"		"0"
 				"damage"					"0"
 				"self_attack_range_bonus"	"0"
+				"incoming_damage_pct"	"14 18 22 26"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -7933,19 +7934,6 @@
 		"MaxLevel"			"1"
 		"Modifiers"
 		{
-			"modifier_chen_penitence_incoming_dmg_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_chen/penitence_checker.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
 			"modifier_test_of_faith_teleport_levelup"
 			{
 				"Passive"		"1"
@@ -7960,31 +7948,6 @@
 					}
 				}
 			}
-		}
-	}
-	"chen_penitence_active_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityDuration"	"5 6 7 8"
-		"Modifiers"
-		{
-			"modifier_chen_penitence_active_datadriven"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"IsDebuff"	"1"
-				"IsPurgable"	"1"
-				"Duration"	"%AbilityDuration"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%incoming_damage_pct"
-				}
-			}
-		}
-		"AbilityValues"
-		{
-			"incoming_damage_pct"	"14 18 22 26"
 		}
 	}
 	//=================================================================================================================
