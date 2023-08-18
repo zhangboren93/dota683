@@ -7829,41 +7829,6 @@
 			"bonus_vision"			"0"
 		}
 	}
-	"batrider_firefly_flying_vision_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"Modifiers"
-		{
-			"modifier_batrider_firefly_flying_vision_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/units/ability_execute_buff.lua"
-						"Function"		"handleAbilityExecuted"
-						"Modifier"		"modifier_batrider_firefly_flying_vision_active"
-						"TargetAbility"	"batrider_firefly"
-					}
-				}
-			}
-			"modifier_batrider_firefly_flying_vision_active"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsDebuff"		"0"
-				"IsPurgable"	"0"
-				"Duration"		"18"
-				"States"
-				{
-					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
     "batrider_flaming_lasso"
 	{
 		"MaxLevel"              "3"
@@ -15607,113 +15572,24 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"9"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"attack_range_bonus"	"275 375 475 575"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"percent_damage"		"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"tick_rate"				"1.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"damage_duration"		"6.0"
-				"CalculateSpellDamageTooltip"	"0"
-				"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_6"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
-
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"move_slow"				"25 30 35 40"
-				"LinkedSpecialBonus"	"special_bonus_unique_winter_wyvern_1"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"night_vision_bonus"	"400"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"projectile_speed_bonus"	"500"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"tree_destruction_radius"	"175"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"attack_point"			"0.1"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"max_attacks"			"5"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"mana_cost_scepter"		"2000"
-				"RequiresScepter"			"1"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"movement_scepter"		"0"
-				"RequiresScepter"			"1"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"percent_damage_pure"	"6"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	"winter_wyvern_arctic_burn_pure_datadriven"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"	"winter_wyvern_arctic_burn"
-		"Modifiers"
-		{
-			"modifier_winter_wyvern_arctic_burn_pure_datadriven"
-			{
-				"Passive"		"0"
-				"IsHidden"		"0"
-				"IsDebuff"		"1"
-				"Duration"		"6"
-				"IsPurgable"	"1"
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_winter_wyvern/arctic_burn.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-			}
-		}
 	}
 	//=================================================================================================================
 	// Winter Wyvern: Splinter Blast
@@ -23919,44 +23795,7 @@
 			"shard_damage_per_tick"	"0"
 			"shard_damage_tick_interval"	"1"
 			"creep_lifesteal_reduction_pct"	"0"
-		}
-	}
-	"broodmother_insatiable_hunger_damage_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"Modifiers"
-		{
-			"modifier_insatiable_hunger_damage_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/units/ability_execute_buff.lua"
-						"Function"		"handleAbilityExecuted"
-						"Modifier"		"modifier_insatiable_hunger_damage_datadriven"
-						"TargetAbility"	"broodmother_insatiable_hunger"
-					}
-				}
-			}
-			"modifier_insatiable_hunger_damage_datadriven"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"IsDebuff"	"0"
-				"Duration"	"14"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
-				}
-			}
-		}
-		"AbilityValues"
-		{
-			"bonus_damage"	"60 80 100"
+			"bonus_damage_tooltip"	"60 80 100"
 		}
 	}
 	//=================================================================================================================
@@ -27574,7 +27413,6 @@
 				"IsHidden"		"1"
 				"IsDebuff"		"0"
 				"IsPurgable"	"0"
-				"ThinkInterval"		"0.2"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -30998,43 +30836,6 @@
 				}
 		}
 	}
-	"storm_spirit_electric_vortex_debuff_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"AbilityTextureName"	"storm_spirit_electric_vortex"
-		"Modifiers"
-		{
-			"modifier_storm_spirit_electric_vortex_debuff_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/units/ability_execute_buff.lua"
-						"Function"		"handleAbilityExecuted"
-						"Modifier"		"modifier_storm_spirit_electric_vortex_debuff"
-						"TargetAbility"	"storm_spirit_electric_vortex"
-					}
-				}
-			}
-			"modifier_storm_spirit_electric_vortex_debuff"
-			{
-				"Passive"		"0"
-				"IsHidden"		"0"
-				"IsDebuff"		"1"
-				"IsPurgable"	"0"
-				"Duration"		"3"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
-				}
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: Storm Spirit Overload
 	//=================================================================================================================
@@ -33764,27 +33565,6 @@
 				"scepter_starstorm_target_pct"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-	"mirana_arrow_cast_position_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"Modifiers"
-		{
-			"modifier_mirana_arrow_cast_position_cheker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_mirana/arrow.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
-		}
 	}
 	"puck_illusory_orb"
 	{

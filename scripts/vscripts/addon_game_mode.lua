@@ -851,8 +851,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("lone_druid_true_form_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_undying" then
 			entity:FindAbilityByName("undying_flesh_golem_aura_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_wisp" then
-			entity:FindAbilityByName("wisp_tether_charge_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_chen" then
 			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_shredder" then
@@ -871,8 +869,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("legion_commander_press_the_attack_as_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_morphling" then
 			entity:FindAbilityByName("morphling_morph_attribute_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_broodmother" then
-			entity:FindAbilityByName("broodmother_insatiable_hunger_damage_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_kunkka" then
 			entity:AddNewModifier(entity, nil, "modifier_tidebringer_cleave", {})
 		elseif entity:GetName() == "npc_dota_hero_invoker" then
@@ -1277,7 +1273,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		end
 	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		caster:FindAbilityByName("winter_wyvern_arctic_burn_pure_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_arctic_burn_pure_datadriven", {})
+		caster:FindAbilityByName("hero_ability_executed_hook_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_arctic_burn_pure_datadriven", {})
 	elseif event.name_const == "modifier_techies_stasis_trap_stunned" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)

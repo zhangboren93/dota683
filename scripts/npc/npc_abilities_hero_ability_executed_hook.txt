@@ -422,4 +422,114 @@
 					}
 				}
 			}
+			"modifier_winter_wyvern_arctic_burn_pure_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsDebuff"		"1"
+				"Duration"		"6"
+				"IsPurgable"	"1"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_winter_wyvern/arctic_burn.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			"modifier_storm_spirit_electric_vortex_debuff_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/units/ability_execute_buff.lua"
+						"Function"		"handleAbilityExecuted"
+						"Modifier"		"modifier_storm_spirit_electric_vortex_debuff"
+						"TargetAbility"	"storm_spirit_electric_vortex"
+					}
+				}
+			}
+			//TODO debuff icon
+			"modifier_storm_spirit_electric_vortex_debuff"
+			{
+				"Passive"		"0"
+				"IsHidden"		"0"
+				"IsDebuff"		"1"
+				"IsPurgable"	"0"
+				"Duration"		"3"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
+				}
+			}
+			"modifier_mirana_arrow_cast_position_cheker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_mirana/arrow.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"modifier_batrider_firefly_flying_vision_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/units/ability_execute_buff.lua"
+						"Function"		"handleAbilityExecuted"
+						"Modifier"		"modifier_batrider_firefly_flying_vision_active"
+						"TargetAbility"	"batrider_firefly"
+					}
+				}
+			}
+			"modifier_batrider_firefly_flying_vision_active"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"0"
+				"IsPurgable"	"0"
+				"Duration"		"18"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_insatiable_hunger_damage_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_broodmother/insatiable_hunger.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"modifier_insatiable_hunger_damage_datadriven"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"Duration"	"14"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"10"
+				}
+			}
 		}}}
