@@ -1029,6 +1029,11 @@
 		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_Note0"					"Magic damage reduction is calculated before any reductions."
 		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_Lore"					"An enemy should never be allowed to approach without difficulty."
 		//Magnus
+		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven"							"Shockwave"
+		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven_Description"				"Magnus sends out a wave of force, damaging enemy units in a line."
+		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven_Lore"						"Mt. Joerlak was a somewhat unstable mass, and Magnus has learned to channel its reverberations."
+		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven_shock_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven_AbilityCastRange"			"CAST RANGE:"
 		"DOTA_Tooltip_ability_magnataur_empower_Description"								"Gives an allied unit bonus damage and cleave on attack."		
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_damage_pct"							""
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius_damage"						"%CLEAVE DAMAGE:"

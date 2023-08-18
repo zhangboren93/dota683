@@ -1027,6 +1027,11 @@
 		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_Note0"					"魔法伤害的吸收伤害值计算先于任何伤害减免效果。"
 		"DOTA_Tooltip_ability_ember_spirit_flame_guard_2_Lore"					"近身之敌，自讨苦吃。"
 		//Magnus
+		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven"							"震荡波"
+		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven_Description"				"马格纳斯放出一道能量波，对一条直线上的敌方单位造成伤害。"
+		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven_Lore"						"杰尔拉克山体并不稳定，马格纳斯已经学会如何将山体里的回响引导出来。"
+		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven_shock_damage"				"伤害："
+		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven_AbilityCastRange"			"施法距离："
 		"DOTA_Tooltip_ability_magnataur_empower_Description"									"给予友方单位攻击力加成并且使其获得分裂攻击。"		
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_damage_pct"								""
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius_damage"							"%分裂伤害："
