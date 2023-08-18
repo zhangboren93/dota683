@@ -44,10 +44,12 @@ end
 
 function handleIntervalThink(event)
 	local caster = event.caster
-	if not caster:HasModifier("modifier_sven_great_cleave_radius") then
-		local great_cleave = caster:FindAbilityByName("sven_great_cleave")
-		if great_cleave:GetLevel() > 0 then
-			caster:AddNewModifier(caster, great_cleave, "modifier_sven_great_cleave_radius", {})
+	if IsServer() and caster:HasAbility("sven_great_cleave") then
+		if not caster:HasModifier("modifier_sven_great_cleave_radius") then
+			local great_cleave = caster:FindAbilityByName("sven_great_cleave")
+			if great_cleave:GetLevel() > 0 then
+				caster:AddNewModifier(caster, great_cleave, "modifier_sven_great_cleave_radius", {})
+			end
 		end
 	end
 end

@@ -29,6 +29,7 @@ function Precache( context )
 	]]
 	PrecacheResource( "particle", "particles/items_fx/immunity_sphere.vpcf", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
+	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts", context)
 end
 
 -- Create the game mode when we activate
@@ -797,7 +798,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 0.2
 			end, "troll get bash on hit", 1)
-			entity:FindAbilityByName("troll_warlord_whirling_axes_ranged_vision_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_meepo" then
 			if self.mainMeepo == nil then
 				print("Registering meepo spawned")
@@ -885,6 +885,11 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_rubick" then
 			entity:AddAbility("nyx_assassin_vendetta_physical_damage_datadriven"):SetLevel(1)
 			entity:AddAbility("obsidian_destroyer_imprison_int_steal_datadriven"):SetLevel(1)
+			entity:AddAbility("slark_shadow_dance_heal_datadriven"):SetLevel(1)
+			entity:AddAbility("spirit_breaker_empowering_haste_activate_debuff_datadriven"):SetLevel(1)
+			entity:AddAbility("sven_gods_strength_aghs_datadriven"):SetLevel(1)
+			-- TODO make fire burn value from ability
+	--		entity:AddAbility("abyssal_underlord_firestorm_burn_datadriven"):SetLevel(1)
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
