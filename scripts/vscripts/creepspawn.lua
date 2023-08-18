@@ -168,3 +168,242 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 		end
 	end
 end
+
+--radiant camp 1
+--Vector 000000000239EC30 [3008.000000 -4800.000000 512.000000]
+--{
+--   Maxs                            	= Vector 0000000002330988 [768.000000 512.000000 128.000000] (userdata)
+--   Mins                            	= Vector 000000000266DCF0 [-768.000000 -512.000000 -128.000000] (userdata)
+--}
+--radiant camp 2
+--Vector 00000000023EEED8 [3232.000000 -3520.000000 512.000000]
+--{
+--   Maxs                            	= Vector 00000000023EF048 [544.000000 576.000000 128.000000] (userdata)
+--   Mins                            	= Vector 00000000023EEFC8 [-544.000000 -576.000000 -128.000000] (userdata)
+--}
+--radiant camp 3
+--Vector 0000000002308B88 [1696.000000 -3872.000000 512.000000]
+--{
+--   Maxs                            	= Vector 0000000002338B48 [608.000000 672.000000 128.000000] (userdata)
+--   Mins                            	= Vector 0000000002338AC8 [-608.000000 -672.000000 -128.000000] (userdata)
+--}
+--radiant camp 4
+--Vector 00000000023F12C0 [-480.000000 -2912.000000 384.000000]
+--{
+--   Maxs                            	= Vector 00000000024064B8 [544.000000 544.000000 128.000000] (userdata)
+--   Mins                            	= Vector 0000000002406470 [-544.000000 -544.000000 -128.000000] (userdata)
+--}
+--radiant camp 5
+--Vector 00000000023F1698 [-1563.430054 -3872.000000 480.000000]
+--{
+--   Maxs                            	= Vector 00000000023F1808 [859.430054 352.000000 224.000000] (userdata)
+--   Mins                            	= Vector 00000000023F1788 [-164.569946 -608.000000 -224.000000] (userdata)
+--}
+--radiant camp 6
+--Vector 000000000239E130 [-3040.000000 256.000000 512.000000]
+--{
+--   Maxs                            	= Vector 000000000239E2A0 [480.000000 512.000000 128.000000] (userdata)
+--   Mins                            	= Vector 000000000239E220 [-480.000000 -512.000000 -128.000000] (userdata)
+--}
+--dire camp 1
+--Vector 00000000023A6748 [-4384.000000 3808.000000 512.000000]
+--{
+--   Maxs                            	= Vector 000000000266E758 [672.000000 544.000000 128.000000] (userdata)
+--   Mins                            	= Vector 000000000266E6D8 [-672.000000 -544.000000 -128.000000] (userdata)
+--}
+--dire camp 2
+--Vector 000000000263FF28 [-3072.000000 4512.000000 512.000000]
+--{
+--   Maxs                            	= Vector 000000000269D238 [384.000000 416.000000 128.000000] (userdata)
+--   Mins                            	= Vector 0000000002640018 [-384.000000 -544.000000 -128.000000] (userdata)
+--}
+--dire camp 3
+--Vector 00000000023555C8 [-1440.000000 2720.000000 384.000000]
+--{
+--   Maxs                            	= Vector 00000000023556D8 [479.999969 416.000000 128.000000] (userdata)
+--   Mins                            	= Vector 0000000002355658 [-528.000000 -544.000000 -128.000000] (userdata)
+--}
+--dire camp 4
+--Vector 00000000023D50F8 [-416.000000 3648.000000 512.000000]
+--{
+--   Maxs                            	= Vector 0000000002355B08 [416.000000 448.000000 128.000000] (userdata)
+--   Mins                            	= Vector 0000000002355A88 [-416.000000 -448.000000 -128.000000] (userdata)
+--}
+--dire camp 5
+--Vector 0000000002716300 [1056.000000 3296.000000 512.000000]
+--{
+--   Maxs                            	= Vector 0000000002355D20 [608.000000 480.000000 128.000000] (userdata)
+--   Mins                            	= Vector 00000000027163F0 [-608.000000 -480.000000 -128.000000] (userdata)
+--}
+--dire camp 6
+--Vector 00000000022FB218 [4072.179932 -792.000000 384.000000]
+--{
+--   Maxs                            	= Vector 00000000022FB388 [471.820068 407.999969 128.000000] (userdata)
+--   Mins                            	= Vector 00000000022FB308 [-616.179932 -359.999969 -128.000000] (userdata)
+--}
+CAMP_SIZE_SMALL = 1
+CAMP_SIZE_MEDIUM = 2
+CAMP_SIZE_LARGE = 3
+CAMP_SIZE_ANCIENT = 4
+neutralcamp_name_2_size = {
+	neutralcamp_good_1 = CAMP_SIZE_SMALL,
+	neutralcamp_good_2 = CAMP_SIZE_MEDIUM,
+	neutralcamp_good_3 = CAMP_SIZE_LARGE,
+	neutralcamp_good_4 = CAMP_SIZE_MEDIUM,
+	neutralcamp_good_5 = CAMP_SIZE_LARGE,
+	neutralcamp_good_6 = CAMP_SIZE_ANCIENT,
+	neutralcamp_evil_1 = CAMP_SIZE_LARGE,
+	neutralcamp_evil_2 = CAMP_SIZE_SMALL,
+	neutralcamp_evil_3 = CAMP_SIZE_MEDIUM,
+	neutralcamp_evil_4 = CAMP_SIZE_MEDIUM,
+	neutralcamp_evil_5 = CAMP_SIZE_LARGE,
+	neutralcamp_evil_6 = CAMP_SIZE_ANCIENT,
+}
+neutralcamp_name_2_location = {
+	neutralcamp_good_1 = Vector(2989, -4621, 384),
+	neutralcamp_good_2 = Vector(3093, -3307, 384),
+	neutralcamp_good_3 = Vector(1642, -3600, 384),
+	neutralcamp_good_4 = Vector(-295, -3085, 256),
+	neutralcamp_good_5 = Vector(-1044, -4127, 256),
+	neutralcamp_good_6 = Vector(-3024, 195, 384),
+	neutralcamp_evil_1 = Vector(-4465, 3502, 384),
+	neutralcamp_evil_2 = Vector(-3048, 4511, 384),
+	neutralcamp_evil_3 = Vector(-1586, 2599, 256),
+	neutralcamp_evil_4 = Vector(-231, 3626, 384),
+	neutralcamp_evil_5 = Vector(1324, 3318, 384),
+	neutralcamp_evil_6 = Vector(4060, -666, 256)
+}
+neutralcamp_size_2_creeps = {
+	{ 
+		{
+			"npc_dota_neutral_kobold",
+			"npc_dota_neutral_kobold",
+			"npc_dota_neutral_kobold",
+			"npc_dota_neutral_kobold_tunneler",
+			"npc_dota_neutral_kobold_taskmaster",
+		},
+		{
+			"npc_dota_neutral_fel_beast",
+			"npc_dota_neutral_fel_beast",
+			"npc_dota_neutral_ghost"	
+		},
+		{
+			"npc_dota_neutral_gnoll_assassin",
+			"npc_dota_neutral_gnoll_assassin",
+			"npc_dota_neutral_gnoll_assassin"
+		},
+		{
+			"npc_dota_neutral_harpy_scout",
+			"npc_dota_neutral_harpy_scout",
+			"npc_dota_neutral_harpy_storm"
+		},
+		{
+			"npc_dota_neutral_forest_troll_berserker",
+			"npc_dota_neutral_forest_troll_berserker",
+			"npc_dota_neutral_forest_troll_high_priest"	
+		}
+	},
+	{ 
+		{
+			"npc_dota_neutral_centaur_khan",
+			"npc_dota_neutral_centaur_outrunner",
+		},
+		{
+			"npc_dota_neutral_mud_golem",
+			"npc_dota_neutral_mud_golem"
+		},
+		{
+			"npc_dota_neutral_ogre_mauler",
+			"npc_dota_neutral_ogre_mauler",
+			"npc_dota_neutral_ogre_magi"
+		},
+		{
+			"npc_dota_neutral_giant_wolf",
+			"npc_dota_neutral_giant_wolf",
+			"npc_dota_neutral_alpha_wolf"
+		},
+	},
+	{
+		{
+			"npc_dota_neutral_polar_furbolg_champion",
+			"npc_dota_neutral_polar_furbolg_ursa_warrior"
+		},
+		{
+			"npc_dota_neutral_wildkin",
+			"npc_dota_neutral_wildkin",
+			"npc_dota_neutral_enraged_wildkin"
+		},
+		{
+			"npc_dota_neutral_satyr_soulstealer",
+			"npc_dota_neutral_satyr_trickster",
+			"npc_dota_neutral_satyr_hellcaller"
+		},
+		{
+			"npc_dota_neutral_dark_troll_warlord",
+			"npc_dota_neutral_dark_troll",
+			"npc_dota_neutral_dark_troll"
+		}
+	},
+	{ 
+		{
+			"npc_dota_neutral_big_thunder_lizard",
+			"npc_dota_neutral_small_thunder_lizard",
+			"npc_dota_neutral_small_thunder_lizard"
+		},
+		{
+			"npc_dota_neutral_black_dragon",
+			"npc_dota_neutral_black_drake",
+			"npc_dota_neutral_black_drake"
+		},
+		{
+			"npc_dota_neutral_rock_golem",
+			"npc_dota_neutral_rock_golem",
+			"npc_dota_neutral_granite_golem"
+		},
+		{
+			"npc_dota_neutral_ice_shaman",
+			"npc_dota_neutral_frostbitten_golem",
+			"npc_dota_neutral_frostbitten_golem",
+		}
+		--TODO add monkey king creep
+	}
+}
+
+function SpawnNeutralCreepsCustom()
+	SpawnNeutralCreepsCustomOfSide("neutralcamp_good_")
+	SpawnNeutralCreepsCustomOfSide("neutralcamp_evil_")
+end
+
+function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
+	for i=1,6 do
+		local trigger_name = trigger_name_prefix .. i
+		local spawn_trigger = Entities:FindByName(nil, trigger_name)
+		local spawner_empty = true
+		local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, spawn_trigger:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, FIND_ANY_ORDER, false)
+		for j=1,#units do
+			if spawn_trigger:IsTouching(units[j]) then
+				spawner_empty = false
+				break
+			end
+		end
+		if spawner_empty then
+			local camp_size = neutralcamp_name_2_size[trigger_name]
+			local camp_types = neutralcamp_size_2_creeps[camp_size]
+			local camp_type = camp_types[RandomInt(1, #camp_types)]
+			local camp_location = neutralcamp_name_2_location[trigger_name]
+			for j=1,#camp_type do
+				CreateUnitByNameAsync(camp_type[j], camp_location, true, nil, nil, DOTA_TEAM_NEUTRALS, function(entity)
+					for k=1,entity:GetAbilityCount() do
+						local ability = entity:GetAbilityByIndex(k)
+						if ability ~= nil then
+							ability:SetLevel(1)
+						else
+							break
+						end
+					end
+				end)
+			end
+		end
+	end
+end

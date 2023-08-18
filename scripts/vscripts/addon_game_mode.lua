@@ -193,82 +193,29 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent("hero_selected", function(event)
 		HandlePlayerPickHero(event.hero_unit)
 	end, nil)
+	ListenToGameEvent("dota_game_state_change", function(event)
+		print("dota_game_state_change " .. event.old_state .. " to " .. event.new_state) 
+		local first_creep_spawned = false
+		if event.new_state == 5 then
+			GameRules:GetGameModeEntity():SetThink(function()
+				SpawnNeutralCreepsCustom()
+				if first_creep_spawned then
+					return 60
+				else
+					first_creep_spawned = true
+					return 30
+				end
+			end, "spawn neutral creep", 30)
+		end
+	end, nil)
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
 	CustomGameEventManager:RegisterListener("hero_bar_ping_miss", CAddonTemplateGameMode.handleHeroBarPingMiss)
 
-	if GetMapName() == "dota" then
-		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
-		local direMediumCamp = nil
-		local direSmallCamp = nil
-		local radiantMediumCamp = nil
-		local radiantSmallCamp = nil
-		for i=1,#neutralSpawners do
-			local pos = neutralSpawners[i]:GetAbsOrigin()
-			--print(pos)
-			if pos[1] == -288 and pos[2] == 3616 then
-				print("find dire small camp")
-				direSmallCamp = neutralSpawners[i]
-			elseif pos[1] == -3104 and pos[2] == 4448 then
-				print("find dire medium camp")
-				direMediumCamp = neutralSpawners[i]
-			elseif math.floor(pos[1]) == 3016 and math.floor(pos[2]) == -4513 then
-				print("find radiant medium camp")
-				radiantMediumCamp = neutralSpawners[i]
-			elseif pos[1] == -384 and pos[2] == -3136 then
-				print("find radiant small camp")
-				radiantSmallCamp = neutralSpawners[i]
-			elseif pos[1] == -992 then
-				-- move to a bit left to prevent creep returning
-   --position_z                      	= 256 (number)
-   --position_y                      	= -4146.7509765625 (number)
-   --position_x                      	= -1085.1453857422 (number)
-				neutralSpawners[i]:SetAbsOrigin(Vector(pos[1] - 150, pos[2], pos[3])) 
-			end
-		end
-		swapLocation(direMediumCamp, direSmallCamp)
-		swapLocation(radiantMediumCamp, radiantSmallCamp)
-
-		local neutraltriggers = Entities:FindAllByClassname("trigger_multiple")
-		local direTrigger1 = Entities:FindByName(nil, "neutralcamp_evil_4")
-		local direTrigger2 = Entities:FindByName(nil, "neutralcamp_evil_2")
-		swapLocation(direTrigger1, direTrigger2)
-		local radiantTrigger1 = Entities:FindByName(nil, "neutralcamp_good_1")
-		local radiantTrigger2 = Entities:FindByName(nil, "neutralcamp_good_4")
-		swapLocation(radiantTrigger1, radiantTrigger2)
-	end
-	if GetMapName() == "dota_low_poly" then
-		local neutralSpawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
-		for i=1,#neutralSpawners do
-			local pos = neutralSpawners[i]:GetAbsOrigin()
-			print(pos)
-			if (pos[1] > -3723 and pos[1] < -3722) 
-				or (pos[1] > -4967 and pos[1] < -4966) 
-				or (pos[1] > 4451 and pos[1] < 4453) 
-				or (pos[1] > -248 and pos[1] < -246) 
-				or (pos[1] > -133 and pos[1] < -132) 
-				or (pos[1] > 2548 and pos[1] < 2549) then
-				print("destroy npc_dota_neutral_spawner")
-				neutralSpawners[i]:Destroy()
-			elseif (pos[1] > -2545 and pos[1] < -2543) then
-				neutralSpawners[i]:SetAbsOrigin(Vector(-3037, -253, pos[3]))
-			elseif (pos[1] > 4195 and pos[1] < 4196) then
-				neutralSpawners[i]:SetAbsOrigin(Vector(3869, -511, pos[3]))
-			elseif (pos[1] > -2465 and pos[1] < -2463) then
-				neutralSpawners[i]:SetAbsOrigin(Vector(-2871, 4540, pos[3]))
-			end
-		end
-		local bountyRuneSpawners = Entities:FindAllByClassname("dota_item_rune_spawner_bounty")
-		print(#bountyRuneSpawners)
-		for i=1,#bountyRuneSpawners do
-			bountyRuneSpawners[i]:Destroy()
-		end
-		local healers = Entities:FindAllByClassname("npc_dota_healer")
-		print(#healers)
-		for i=1,#healers do
-			healers[i]:Destroy()
-		end
+	local spawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
+	for i=1,#spawners do
+		spawners[i]:Destroy()
 	end
 end
 
@@ -328,6 +275,8 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			for i=1,24 do
 				hero:HeroLevelUp(false)
 			end
+		elseif text == 'neutrals' then
+			SpawnNeutralCreepsCustom()
 		end
 	end
 	--if text == "-test" then
@@ -478,19 +427,6 @@ function CAddonTemplateGameMode:OnThink()
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
-		if time >= 30 and self.hasSpawnNeutralsAt30s == nil then
-			print("Spawn neutral creep at 30s")
-			local spawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
-			for i,v in pairs(spawners) do
-				v:CreatePendingUnits()
-				v:CreatePendingUnits()
-				v:CreatePendingUnits()
-				v:CreatePendingUnits()
-				v:CreatePendingUnits()
-				v:SpawnNextBatch(false)
-			end
-			self.hasSpawnNeutralsAt30s = true
-		end
 
 		if not self.botEnabled and GetMapName() == "dota" and time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
 			spawnCreepsLua()
@@ -933,21 +869,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:FindAbilityByName("lone_druid_bear_damage_return_cd"):SetLevel(1)
 	end
 
-	if entity:GetModelName() == "models/creeps/pine_cone/pine_cone.vmdl" then
-		entity:ForceKill(false)
-		entity:SetThink(function()
-			print("warpine thinks")
-			local neutralSpawner = Entities:FindByClassnameNearest("npc_dota_neutral_spawner", entity:GetAbsOrigin(), 200)
-			if neutralSpawner == nil then
-				print("No spawner found")
-				return
-			end
-			neutralSpawner:CreatePendingUnits()
-			neutralSpawner:CreatePendingUnits()
-			neutralSpawner:CreatePendingUnits()
-			neutralSpawner:SpawnNextBatch(false)
-		end, "warpine replace with other creeps", RandomFloat(0.2,0.5))
-	end
 	if entity:GetName() == "npc_dota_tusk_frozen_sigil" then
 		entity:FindAbilityByName("tusk_frozen_sigil_aura_datadriven"):SetLevel(
 			entity:GetOwner():FindAbilityByName("tusk_frozen_sigil"):GetLevel())
@@ -1765,3 +1686,4 @@ function bitand(a, b)
     end
     return result
 end
+
