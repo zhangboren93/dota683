@@ -20338,6 +20338,67 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
+	//=================================================================================================================
+	// Ability: Slardar Slithereen Crush
+	//=================================================================================================================
+	"slardar_slithereen_crush_2"
+	{
+		"BaseClass"						"slardar_slithereen_crush"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Slardar.Slithereen_Crush"
+		"AbilityTextureName"			"slardar_slithereen_crush"
+        "HasScepterUpgrade"			"0"
+        "HasShardUpgrade"               "0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.35 0.35 0.35 0.35"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"8"
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"85 100 115 130"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Applies multiple modifiers
+
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"crush_radius"				"315"
+				"crush_extra_slow"			"-20"
+				"crush_attack_slow_tooltip"		"-20"
+				"crush_extra_slow_duration"		"2"
+				"stun_duration"					"1.6 1.9 2.2 2.5"
+				"puddle_duration"			"0"
+				"puddle_radius"				"0"
+				"crush_damage"				"50 100 150 200"
+				"shard_amp_duration"			
+				{
+					"value"				"5.0"
+					"RequiresShard"					"1"
+				}
+				"shard_bonus_radius"			
+				{
+					"value"				"75"
+					"RequiresShard"					"1"
+				}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate"  	"2"
+	}
 	// Rewrite of the Slardar Sprint
 	// Author: chrislotix
 	// Date: 01.01.2015.
