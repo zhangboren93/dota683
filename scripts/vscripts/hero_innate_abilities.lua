@@ -3,7 +3,6 @@ hero_innate_abilities["npc_dota_hero_clinkz"] = "clinkz_attack_animation_datadri
 hero_innate_abilities["npc_dota_hero_silencer"] = "silencer_global_silence_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_spirit_breaker"] = "spirit_breaker_empowering_haste_activate_debuff_datadriven"
 hero_innate_abilities["npc_dota_hero_pudge"] = "pudge_rot_suicide_datadriven"
-hero_innate_abilities["npc_dota_hero_nyx_assassin"] = "nyx_assassin_vendetta_physical_damage_datadriven"
 hero_innate_abilities["npc_dota_hero_abaddon"] = "abaddon_borrowed_time_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_sven"] = "sven_gods_strength_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_spectre"] = "spectre_reality_levelup_with_haunt_datadriven"

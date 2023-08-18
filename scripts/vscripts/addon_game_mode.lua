@@ -880,11 +880,13 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddItemByName("item_aghanims_shard")
 			entity:AddAbility("special_bonus_unique_earth_spirit_2"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_rubick" then
-			entity:AddAbility("nyx_assassin_vendetta_physical_damage_datadriven"):SetLevel(1)
+			--  TODO move following abilities to hooks
 			entity:AddAbility("obsidian_destroyer_imprison_int_steal_datadriven"):SetLevel(1)
 			entity:AddAbility("slark_shadow_dance_heal_datadriven"):SetLevel(1)
+
 			entity:AddAbility("spirit_breaker_empowering_haste_activate_debuff_datadriven"):SetLevel(1)
 			entity:AddAbility("sven_gods_strength_aghs_datadriven"):SetLevel(1)
+			entity:AddAbility("undying_flesh_golem_aura_datadriven"):SetLevel(1)
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
@@ -1388,6 +1390,14 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local modifier_count = ability:GetSpecialValueFor("damage_per_second") / 6
 		for i=1,modifier_count do
 			passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_doom_bringer_scorched_earth_regen_datadriven", { duration = duration})
+		end
+	elseif event.name_const == "modifier_nyx_assassin_vendetta" then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		local modifier_count = ability:GetSpecialValueFor("bonus_damage_physical") / 50
+		for i=1,modifier_count do
+			passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_vendetta_physical_damage_active", {})
 		end
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false

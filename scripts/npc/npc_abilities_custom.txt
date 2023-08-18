@@ -12258,59 +12258,6 @@
 			"mana_removal_pct"		"0"
 		}
 	}
-	"nyx_assassin_vendetta_physical_damage_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"3"
-		"AbilityValues"
-		{
-			"bonus_damage_physical"		"250 400 550"
-		}
-		"Modifiers"
-		{
-			"modifier_vendetta_physical_damage_checker_datadriven"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_nyx_assassin/vendetta.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
-			"modifier_vendetta_physical_damage_active"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"ThinkInterval"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage_physical"
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_nyx_assassin/vendetta.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_nyx_assassin/vendetta.lua"
-						"Function"		"handleAttackLanded"
-					}
-				}
-			}
-		}
-	}
     "naga_siren_song_of_the_siren"
 	{
 		"MaxLevel"              "3"
