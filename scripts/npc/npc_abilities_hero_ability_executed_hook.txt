@@ -565,4 +565,14 @@
 					}
 				}
 			}
+			"modifier_doom_bringer_scorched_earth_regen_datadriven"
+			{
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"6"
+				}
+			}
 		}}}

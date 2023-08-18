@@ -1380,6 +1380,15 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local duration = ability:GetSpecialValueFor("duration")
 		parent:AddNewModifier(caster, ability, "modifier_chen_penitence_incoming_damage_lua", { duration = duration })
+	elseif event.name_const == "modifier_doom_bringer_scorched_earth_effect" then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		local duration = ability:GetSpecialValueFor("duration")
+		local modifier_count = ability:GetSpecialValueFor("damage_per_second") / 6
+		for i=1,modifier_count do
+			passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_doom_bringer_scorched_earth_regen_datadriven", { duration = duration})
+		end
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

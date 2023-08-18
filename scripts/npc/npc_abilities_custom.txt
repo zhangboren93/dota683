@@ -8824,47 +8824,6 @@
 			}
 		}
 	}
-	"doom_bringer_scorched_earth_regen_datadriven"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"				"4"
-		"Modifiers"
-		{
-			"modifier_doom_bringer_scorched_earth_regen_checker"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"IsDebuff"		"0"
-				"IsPurgable"	"0"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_doom_bringer/scorched_earth.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
-			"modifier_doom_bringer_scorched_earth_regen_datadriven"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"IsDebuff"		"0"
-				"Duration"		"%duration"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%damage_per_second"
-				}
-			}
-		}
-		"AbilityValues"
-		{
-			"damage_per_second"		"12 18 24 30"
-			"duration"				"10.0 12.0 14.0 16.0"
-		}
-	}
 	//=================================================================================================================
 	// Ancient Apparition: Cold Feet
 	//=================================================================================================================
