@@ -888,8 +888,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddAbility("slark_shadow_dance_heal_datadriven"):SetLevel(1)
 			entity:AddAbility("spirit_breaker_empowering_haste_activate_debuff_datadriven"):SetLevel(1)
 			entity:AddAbility("sven_gods_strength_aghs_datadriven"):SetLevel(1)
-			-- TODO make fire burn value from ability
-	--		entity:AddAbility("abyssal_underlord_firestorm_burn_datadriven"):SetLevel(1)
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
@@ -1263,8 +1261,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		ApplyDamage({ victim = parent, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 	elseif event.name_const == "modifier_abyssal_underlord_firestorm_burn" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local burn_datadriven = caster:FindAbilityByName("abyssal_underlord_firestorm_burn_datadriven")
-		burn_datadriven:SetLevel(caster:FindAbilityByName("abyssal_underlord_firestorm"):GetLevel())
+		local burn_datadriven = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		burn_datadriven:ApplyDataDrivenModifier(caster, parent, "modifier_underlord_firestorm_burn_active_datadriven", {})
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)

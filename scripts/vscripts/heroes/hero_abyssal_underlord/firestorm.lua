@@ -5,7 +5,7 @@ function cancelBurn(event)
 	    ApplyDamage({ 
             victim = event.target, 
             attacker = event.caster, 
-            damage = event.ability:GetAbilityDamage(), 
+            damage = event.caster:FindAbilityByName("abyssal_underlord_firestorm"):GetSpecialValueFor("burn_damage_tooltip"), 
             damage_type = DAMAGE_TYPE_MAGICAL })
     end
 end

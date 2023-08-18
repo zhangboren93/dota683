@@ -7653,27 +7653,6 @@
 			"ice_edge_movement_slow"	"0"
 		}	
 	}
-	"jakiro_macropyre_destroy_trees_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"Modifiers"
-		{
-			"modifier_macropyre_destroy_trees_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_jakiro/macropyre.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
-		}
-	}
 	//=================================================================================================================
 	// Batrider: Sticky Napalm
 	//=================================================================================================================
@@ -16136,34 +16115,9 @@
 				"can_target_units"				"0"
 				"shard_wave_count_bonus"		"0"
 				"shard_wave_interval_reduction"		"0"
+				"burn_damage_tooltip"			"5 10 15 20"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	"abyssal_underlord_firestorm_burn_datadriven"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"	"abyssal_underlord_firestorm"
-		"AbilityDamage"			"5 10 15 20"
-		"Modifiers"
-		{
-			"modifier_underlord_firestorm_burn_active_datadriven"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsDebuff"		"1"
-				"ThinkInterval"	"1"
-				"IsPurgable"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_abyssal_underlord/firestorm.lua"
-						"Function"		"cancelBurn"
-					}
-				}
-			}
-		}
 	}
 	//=================================================================================================================
 	// Abyssal Underlord: Pit of Malice

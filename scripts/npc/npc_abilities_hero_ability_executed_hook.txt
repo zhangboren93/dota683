@@ -393,4 +393,33 @@
 					}
 				}
 			}
+			"modifier_underlord_firestorm_burn_active_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"IsDebuff"		"1"
+				"ThinkInterval"	"1"
+				"IsPurgable"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_abyssal_underlord/firestorm.lua"
+						"Function"		"cancelBurn"
+					}
+				}
+			}
+			"modifier_macropyre_destroy_trees_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_jakiro/macropyre.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
 		}}}
