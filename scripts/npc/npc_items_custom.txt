@@ -1392,18 +1392,11 @@
 		"ItemStockMax"					"0"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"0"
-		"AbilitySpecial"
+		"AbilityCastRange"				"100"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"mana_regen"			"3.75"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"buff_duration"			"40"
-			}			
 		}
 	}
 	"item_flask"
@@ -1414,38 +1407,12 @@
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"0"
 		"ItemCost"						"110"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"buff_duration"			"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regen"			"40"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_on_hero_damage"	"1"
-			}
-		}
-	}
-	"item_dust"
-	{
-		"ItemPurchasable"				"0"
-		"AbilityCooldown"				"60.0"
-		"ItemCost"						"180"
-		"ItemInitialCharges"			"2"		  
+		"AbilityCastRange"				"100"
 		"AbilityValues"
 		{
-				"duration"				"0.1"
-				"radius"				"1050"
-				"movespeed"				"-15"
-				"damage"				"0"
-				"linger_duration"				"12"
+				"buff_duration"			"10"
+				"health_regen"			"40"
+				"break_on_hero_damage"	"1"
 		}
 	}
 	"item_dust_datadriven"
@@ -1464,7 +1431,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"5"
 		"ItemCost"						"180"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
