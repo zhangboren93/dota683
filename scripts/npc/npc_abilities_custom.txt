@@ -29583,12 +29583,24 @@
 				}
 			}
 
-			"modifer_darkness_scepter_datadriven"
+			"modifier_darkness_scepter_checker"
 			{
-				"IsDebuff"	"0"
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"Duration"	"%duration"
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_night_stalker/darkness.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			"modifier_darkness_scepter_datadriven"
+			{
+				"IsHidden"	"1"
+				"Duration"	"1.5"
 				"States"
 				{
 					"MODIFIER_STATE_FORCED_FLYING_VISION"	"MODIFIER_STATE_VALUE_ENABLED"

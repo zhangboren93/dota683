@@ -35,9 +35,6 @@ function Darkness( keys )
 		end
 	end, "darkness", 1)
 
-	if keys.caster:HasScepter() then
-		ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifer_darkness_scepter_datadriven", {})
-	end
 end
 
 --[[Author: Pizzalol
@@ -60,4 +57,12 @@ function RevertVision( keys )
 	local target = keys.target
 
 	target:SetNightTimeVisionRange(target.original_vision)
+end
+
+function handleIntervalThink(event)
+	local caster = event.caster
+	local ability = event.ability
+	if caster:HasScepter() and not GameRules:IsDaytime() then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_darkness_scepter_datadriven", {})
+	end
 end
