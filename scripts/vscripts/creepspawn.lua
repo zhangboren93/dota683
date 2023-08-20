@@ -364,8 +364,12 @@ neutralcamp_size_2_creeps = {
 			"npc_dota_neutral_ice_shaman",
 			"npc_dota_neutral_frostbitten_golem",
 			"npc_dota_neutral_frostbitten_golem",
+		},
+		{
+			"npc_dota_neutral_elder_jungle_stalker",
+			"npc_dota_neutral_jungle_stalker",
+			"npc_dota_neutral_jungle_stalker"
 		}
-		--TODO add monkey king creep
 	}
 }
 
