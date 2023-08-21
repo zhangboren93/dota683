@@ -5344,9 +5344,6 @@
 	// Author: Pizzalol
 	// Date: 21.12.2014.
 	// Changed: 01.02.2015.
-	// Reason: Fixed attachment point for particle
-	// NOTE: Orientation is wrong
-	//TODO effect Orientation
 	"phantom_assassin_coup_de_grace_datadriven"
 	{
 		// General
@@ -5435,16 +5432,10 @@
 						"Target"		"CASTER"
 					}
 	
-					"FireEffect"
+					"RunScript"
 					{
-						"EffectName"	"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
-						"EffectAttachType"	"start_at_customorigin"
-						
-						"ControlPointEntities"
-						{
-							"TARGET"	"follow_origin"
-							"TARGET"	"follow_origin"
-						}
+						"ScriptFile"	"heroes/hero_phantom_assassin/coup_de_grace.lua"
+						"Function"		"handleAttackLanded"
 					}
 	
 					"FireSound"
