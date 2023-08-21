@@ -870,12 +870,11 @@
 	{
 		"ItemPurchasable"	"0"
 	}
-	"item_quelling_blade_datadriven"
+
+	"item_quelling_blade_lua"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass" 					"item_datadriven"
-		"ID"							"1211"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"		"item_lua"
+		"ScriptFile"	"items/item_quelling_blade.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM | DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -902,51 +901,6 @@
 		"ItemPurchasable" 				"1"
 		"ItemDroppable" 				"1"
 
-		"Modifiers"
-		{
-			"item_quelling_blade_modifier"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_quelling_blade.lua"
-						"Function"		"quelling_blade_attack_start"
-					}
-				}
-			}
-			"item_quelling_blade_active_ranged_modifier"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"Duration"			"0.5"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"			"%damage_bonus_ranged"
-				}
-			}
-			"item_quelling_blade_active_melee_modifier"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				"Duration"			"0.5"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"			"%damage_bonus"
-				}
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/item_quelling_blade.lua"
-				"Function"		"quelling_blade_kill_tree"
-			}
-		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"

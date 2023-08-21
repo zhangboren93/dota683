@@ -1,28 +1,30 @@
-function quelling_blade_kill_tree(keys)
-	local target = keys.target
-    local attacker = keys.attacker
-    local ability = keys.ability
+item_quelling_blade_lua = class({})
+function item_quelling_blade_lua:CastFilterResultTarget( target )
     if target:GetClassname() == "ent_dota_tree" then
-        target:CutDown(attacker:GetTeamNumber())
+		return UF_SUCCESS
+	elseif target:GetName() == "npc_dota_ward_base" or target:GetName() == "npc_dota_ward_base_truesight" then
+		return UF_SUCCESS
+	elseif target:IsCreep() then
+		return UF_FAIL_CREEP
+	elseif target:IsBuilding() then
+		return UF_FAIL_BUILDING
+	elseif target:IsHero() then
+		return UF_FAIL_HERO 
+	else
+		return UF_FAIL_CUSTOM
+	end
+end
+
+function item_quelling_blade_lua:OnSpellStart()
+	local target = self:GetCursorTarget()
+    if target:GetClassname() == "ent_dota_tree" then
+        target:CutDown(self:GetCaster():GetTeamNumber())
     end
     if target:GetName() == "npc_dota_ward_base" or target:GetName() == "npc_dota_ward_base_truesight" then
-        target:Kill(ability, attacker)
+        target:Kill(self, self:GetCaster())
     end
 end
 
-function quelling_blade_attack_start(event)
-    local target = event.target
-    local attacker = event.attacker
-    local ability = event.ability
-    if target:IsCreep() and target:GetTeamNumber() ~= attacker:GetTeamNumber() and target:GetModelName() ~= "models/creeps/roshan/roshan.vmdl" then
-        if attacker:IsRangedAttacker() then
-            ability:ApplyDataDrivenModifier(attacker, attacker, "item_quelling_blade_active_ranged_modifier", {})
-        else
-           -- print("Adding bonus damage modifier")
-            ability:ApplyDataDrivenModifier(attacker, attacker, "item_quelling_blade_active_melee_modifier", {})
-        end
-    else
-        attacker:RemoveModifierByName("item_quelling_blade_active_ranged_modifier")
-        attacker:RemoveModifierByName("item_quelling_blade_active_melee_modifier")
-    end
+function item_quelling_blade_lua:GetIntrinsicModifierName()
+	return "modifier_item_quelling_blade_hooks_lua"
 end

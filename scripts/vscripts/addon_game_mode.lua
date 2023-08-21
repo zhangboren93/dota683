@@ -41,6 +41,9 @@ function Activate()
 	LinkLuaModifier( "item_tpscroll_clear_tree_modifier",	"items/item_tpscroll_clear_trees.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_blade_mail_new_active",	"items/item_blade_mail_active.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier( "item_bfury_cleave_lua",               "items/item_bfury.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_quelling_blade_hooks_lua", "items/modifier_item_quelling_blade_hooks.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_quelling_blade_active_ranged_lua", "items/modifier_item_quelling_blade_active_ranged.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_quelling_blade_active_melee_lua", "items/modifier_item_quelling_blade_active_melee.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 
