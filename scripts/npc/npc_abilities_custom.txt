@@ -5630,6 +5630,8 @@
 	"RequiredLevel"         		"6"
 	"LevelsBetweenUpgrades" 		"5"
 	"HasScepterUpgrade"				"1"
+	"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+	"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
@@ -36910,7 +36912,6 @@
     				}
 				}
 				//No attribute gain
-				//TODO disarm spirit bear where druid is far
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"-1000"

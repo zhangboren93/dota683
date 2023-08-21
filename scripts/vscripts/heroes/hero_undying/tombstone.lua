@@ -25,7 +25,6 @@ function tombstoneHandleIntervalThink(event)
 end
 
 function deathstrikeHandleIntervalThink(event)
-	--TODO kill yourself if tombestone is destroyed or target dies
 	local target = event.target
 	local attack_target = target.zombie_attack_target
 	local ability = event.ability
