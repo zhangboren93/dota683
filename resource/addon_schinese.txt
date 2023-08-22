@@ -1154,6 +1154,15 @@
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_interval"			"打击间隔："
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_damage"			"打击伤害："
 
+		// Warlock
+		"DOTA_Tooltip_ability_warlock_fatal_bonds"										"致命连接"
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_Description"							"将数个敌方单位连接在一起，其中一人所受伤害的一定百分比会被其他所有人感受到。"
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_Lore"									"一个远古咒语，能将多个生命体的生命能量连接成一个集合体。"
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_count"								"连接敌人数："
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_damage_share_percentage"				"%伤害共享："
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_duration"								"持续时间："
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_Note0"								"共享伤害的类型与原伤害相同。"
+
 		//Miss message
 		"abaddon_miss"				"死骑Miss!"
 		"ancient_apparition_miss" 	"冰魂Miss!"

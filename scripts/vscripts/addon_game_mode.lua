@@ -28,6 +28,7 @@ function Precache( context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
 	PrecacheResource( "particle", "particles/items_fx/immunity_sphere.vpcf", context )
+	PrecacheResource( "particle", "particles/units/heroes/hero_warlock/warlock_fatal_bonds_icon.vpcf", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts", context)
 end
@@ -75,6 +76,7 @@ function Activate()
 	LinkLuaModifier( "modifier_clinkz_searing_arrow_lua", 		"heroes/hero_clinkz/modifier_clinkz_searing_arrows.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_death_ward_attack_scepter_lua",	"heroes/hero_witch_doctor/modifier_death_ward_attack_scepter.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_chen_penitence_incoming_damage_lua",	"heroes/hero_chen/modifier_chen_penitence_incoming_damage.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_warlock_fatal_bonds_lua", 		"heroes/hero_warlock/modifier_warlock_fatal_bonds.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1324,6 +1326,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		for i=1,modifier_count do
 			passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_vendetta_physical_damage_active", {})
 		end
+	elseif event.name_const == "modifier_warlock_fatal_bonds" then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local duration = ability:GetSpecialValueFor("duration")
+		parent:AddNewModifier(caster, ability, "modifier_warlock_fatal_bonds_lua", { duration = duration })
+		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

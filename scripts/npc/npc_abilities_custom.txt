@@ -3931,7 +3931,6 @@
 	//=================================================================================================================
 	// Ability: Warlock's Fatal Bonds
 	//=================================================================================================================
-	// TODO No imp explode
 	"warlock_fatal_bonds"
 	{
 		// General
@@ -3978,31 +3977,6 @@
 				"search_aoe"				"700"
 				"imp_duration"				"0"
 				"imp_level"					"0"
-		}
-	}
-	//=================================================================================================================
-	// Ability: Warlock Imps Explosion
-	//=================================================================================================================
-	"warlock_imp_explode"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1200"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"MaxLevel"						"1"
-
-		"AbilityValues"
-		{
-			"explosion_delay"			"0"
-			"explosion_radius"			"0"
-			"explosion_dmg"				"0"			
-			"explosion_nonhero_reduce" 	"0"
-
-			"bonus_hp"					"0 50 100 150 250"
-			"bonus_dmg"					"0 2 4 6 8"
-			"bonus_movespeed"			"0 15 30 45 60"
 		}
 	}
 	

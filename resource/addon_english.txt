@@ -1152,4 +1152,13 @@
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strikes"					"STRIKES:"
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_interval"			"STRIKE INTERVAL:"
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_damage"			"STRIKE DAMAGE:"
+
+		//WARLOCK
+		"DOTA_Tooltip_ability_warlock_fatal_bonds"										"Fatal Bonds"
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_Description"							"Binds several enemy units together, causing a percentage of the damage dealt to one of them to be felt by the others."
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_Lore"									"An ancient incantation that links the vital energies of multiple lifeforms into one collective body."
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_count"								"ENEMIES BOUND:"
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_damage_share_percentage"				"%SHARED DAMAGE:"
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_duration"								"DURATION:"
+		"DOTA_Tooltip_ability_warlock_fatal_bonds_Note0"								"The shared damage type is the same as the type of damage inflicted."
 }
