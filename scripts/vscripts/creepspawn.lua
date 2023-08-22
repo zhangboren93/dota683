@@ -342,6 +342,10 @@ neutralcamp_size_2_creeps = {
 			"npc_dota_neutral_dark_troll_warlord",
 			"npc_dota_neutral_dark_troll",
 			"npc_dota_neutral_dark_troll"
+		},
+		{
+			"npc_dota_neutral_centaur_khan",
+			"npc_dota_neutral_centaur_outrunner",
 		}
 	},
 	{ 
