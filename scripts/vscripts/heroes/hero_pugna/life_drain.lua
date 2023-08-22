@@ -23,6 +23,7 @@ end
 	When cast on an ally, it will drain his own health into his ally.
 ]]
 function LifeDrainHealthTransfer( event )
+	print("LifeDrainHealthTransfer")
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
@@ -76,7 +77,7 @@ function LifeDrainHealthTransfer( event )
 		ParticleManager:SetParticleControl(caster.LifeDrainParticle, 11, Vector(0,0,0))
 
 	else
-		if caster:GetHealthDeficit() > 0 then
+		if caster:GetHealthDeficit() > 0 or target:IsCreep() then
 			-- Health Transfer Enemy->Caster
 			ApplyDamage({ victim = target, attacker = caster, damage = HP_drain, damage_type = DAMAGE_TYPE_MAGICAL })
 			caster:Heal( HP_gain, caster)
