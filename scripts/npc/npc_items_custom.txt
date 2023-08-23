@@ -5151,11 +5151,6 @@
 				"var_type"							"FIELD_FLOAT"
 				"cooldown_melee"					"4"
 			}
-			"05"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"heal_interval"						".03"
-			}
 		}
 		
 		"Modifiers"
@@ -5177,15 +5172,13 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 				
-				"ThinkInterval" 		"%heal_interval"
+				"ThinkInterval" 		"0.1"
 				"OnIntervalThink"  //Heal the unit if the item is not on cooldown.
 				{
 					"RunScript"
 					{
 						"ScriptFile"					"items/item_heart.lua"
 						"Function"						"modifier_item_heart_datadriven_regen_on_interval_think"
-						"HealthRegenPercentPerSecond"	"%health_regen_percent_per_second"
-						"HealInterval"					"%heal_interval"
 					}
 				}
 				
@@ -5207,11 +5200,6 @@
 						"Function"			"modifier_item_heart_datadriven_regen_on_destroy"
 					}
 				}
-			}
-			"modifier_item_heart_datadriven_regen_visible"  //A modifier that will appear on the unit's modifier bar while they are being healed.
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
 			}
 		}
 	}

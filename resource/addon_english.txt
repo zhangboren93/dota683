@@ -172,10 +172,12 @@
 		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_bonus_mana_regen_percentage"	"%+$mana_regen"
 		"DOTA_Tooltip_Ability_item_sphere_bonus_mana_regen_percentage"				"%+$mana_regen"
 		"DOTA_Tooltip_Ability_item_heart_datadriven"				"Heart of Tarrasque"
-		"DOTA_Tooltip_Ability_item_heart_datadriven_Description"	"<h1>Passive: Health Regeneration</h1>Restores 4% of max health per second. <br><br>If damage is taken from an enemy hero or Roshan, this ability is disabled for 4 seconds for melee heroes, or 6 seconds for ranged heroes."
+		"DOTA_Tooltip_Ability_item_heart_datadriven_Description"	"<h1>Passive: Health Regeneration</h1>Restores 2% of max health per second. <br><br>If damage is taken from an enemy hero or Roshan, this ability is disabled for 4 seconds for melee heroes, or 6 seconds for ranged heroes."
 		"DOTA_Tooltip_Ability_item_heart_datadriven_Lore"			"Preserved heart of an extinct monster, it bolsters the bearer's fortitude."
 		"DOTA_Tooltip_Ability_item_heart_datadriven_bonus_strength"	"+$str"
 		"DOTA_Tooltip_Ability_item_heart_datadriven_bonus_health"	"+$health"
+		"DOTA_Tooltip_modifier_item_heart_regen_lua" 				"Health Regeneration."
+		"DOTA_Tooltip_modifier_item_heart_regen_lua_Description"	"Restores 2%% of max health per second."
 
 		"DOTA_Tooltip_Ability_item_bfury_datadriven"			    	            "Battle Fury"
 		"DOTA_Tooltip_ability_item_bfury_datadriven_Description"					"<h1>Passive: Cleave</h1>Deals %cleave_damage_percent%%% of attack damage as physical damage in %cleave_radius%. (Melee Only)"

@@ -13,8 +13,8 @@ function modifier_item_heart_datadriven_regen_on_take_damage(keys)
 			keys.ability:StartCooldown(keys.CooldownMelee)
 		end
 		
-		if keys.caster:HasModifier("modifier_item_heart_datadriven_regen_visible") then
-			keys.caster:RemoveModifierByNameAndCaster("modifier_item_heart_datadriven_regen_visible", keys.caster)
+		if keys.caster:HasModifier("modifier_item_heart_regen_lua") then
+			keys.caster:RemoveModifierByName("modifier_item_heart_regen_lua")
 		end
 	end
 end
@@ -29,12 +29,11 @@ end
 ================================================================================================================= ]]
 function modifier_item_heart_datadriven_regen_on_interval_think(keys)
 	if keys.ability:IsCooldownReady() and keys.caster:IsRealHero() then
-		keys.caster:Heal(keys.caster:GetMaxHealth() * (keys.HealthRegenPercentPerSecond / 100) * keys.HealInterval, keys.caster)
-		if not keys.caster:HasModifier("modifier_item_heart_datadriven_regen_visible") then
-			keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_item_heart_datadriven_regen_visible", {duration = -1})
+		if not keys.caster:HasModifier("modifier_item_heart_regen_lua") then
+			keys.caster:AddNewModifier(keys.caster, keys.ability, "modifier_item_heart_regen_lua", {})
 		end
-	elseif keys.caster:HasModifier("modifier_item_heart_datadriven_regen_visible") then  --This is mostly a failsafe.
-		keys.caster:RemoveModifierByNameAndCaster("modifier_item_heart_datadriven_regen_visible", keys.caster)
+	else  --This is mostly a failsafe.
+		keys.caster:RemoveModifierByName("modifier_item_heart_regen_lua")
 	end
 end
 
@@ -45,5 +44,5 @@ end
 	Called when Heart of Tarrasque is dropped or sold or something.  Removes the visible modifier from the modifier bar.
 ================================================================================================================= ]]
 function modifier_item_heart_datadriven_regen_on_destroy(keys)
-	keys.caster:RemoveModifierByNameAndCaster("modifier_item_heart_datadriven_regen_visible", keys.caster)
+	keys.caster:RemoveModifierByName("modifier_item_heart_regen_lua")
 end
