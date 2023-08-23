@@ -6,7 +6,9 @@
 	Additional parameters: keys.CooldownMelee
 ================================================================================================================= ]]
 function modifier_item_heart_datadriven_regen_on_take_damage(keys)
-	if keys.attacker:IsRealHero() or keys.attacker:IsControllableByAnyPlayer() then
+	if keys.attacker:IsRealHero() or keys.attacker:IsControllableByAnyPlayer() 
+		or keys.attacker:HasModifier("roshan_inherent_buffs_checker_datadriven") then
+
 		if keys.caster:IsRangedAttacker() then
 			keys.ability:StartCooldown(keys.ability:GetCooldown(keys.ability:GetLevel()))
 		else  --If the caster is melee.
