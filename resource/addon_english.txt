@@ -987,7 +987,25 @@
 		//Arc Warden
 		"DOTA_Tooltip_Ability_arc_warden_tempest_double_health_cost_pct"		"%HEALTH AND MANA COST:"
 
-		"DOTA_Tooltip_Ability_nevermore_requiem_Lore"							"700 range -20% move speed, -50% damage, lasts 5 seconds"
+		//Shadow Fiend
+		"DOTA_Tooltip_ability_nevermore_requiem"										"Requiem of Souls"
+		"DOTA_Tooltip_ability_nevermore_requiem_Description"							"Shadow Fiend gathers his captured souls to release them as lines of demonic energy. Units near Shadow Fiend when the souls are released can be damaged by several lines of energy. Units in 700 radius will have its movement speed and outgoing damage reduced for %slow_duration% seconds. Lines of energy are created for every soul captured through Necromastery. <br><br> Requiem of Souls is automatically cast whenever Shadow Fiend dies, regardless of its cooldown."
+		"DOTA_Tooltip_ability_nevermore_requiem_abilitycastpoint"             	     	"CAST DELAY:"
+		"DOTA_Tooltip_ability_nevermore_requiem_requiem_reduction_ms"					""
+		"DOTA_Tooltip_ability_nevermore_requiem_requiem_reduction_mres"					""
+		"DOTA_Tooltip_ability_nevermore_requiem_requiem_damage_pct_scepter"             ""
+		"DOTA_Tooltip_ability_nevermore_requiem_requiem_heal_pct_scepter"				""
+		"DOTA_Tooltip_ability_nevermore_requiem_requiem_slow_duration"					""
+		"DOTA_Tooltip_ability_nevermore_requiem_requiem_slow_duration_max"				""
+		"DOTA_Tooltip_ability_nevermore_requiem_abilitycooldown"						""
+		"DOTA_Tooltip_ability_nevermore_requiem_slow_duration"							"SLOW DURATION:"
+		"DOTA_Tooltip_ability_nevermore_requiem_slow_pct"								"%SLOW:"
+		"DOTA_Tooltip_ability_nevermore_requiem_damage_reduct_pct"						"%OUTGOING DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_nevermore_requiem_Lore"									"The captured souls of those past slain are released to ravage their former allies."
+		"DOTA_Tooltip_ability_nevermore_requiem_Note0"									"One line is generated from Shadow Fiend for every %requiem_soul_conversion% soul in his possession."
+		"DOTA_Tooltip_modifier_requiem_slow_lua"										"Requiem of Souls"
+		"DOTA_Tooltip_modifier_requiem_slow_lua_Description"							"Movement speed reduced by 20%%, damage reduced by 50%%."
+
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven"								"Ion Shell"
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven_Description"					"Surrounds the target unit with a bristling shield that damages enemy units in an area around it."
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven_Lore"							"The Dark Seer slices holes into the 'Land Behind the Wall,' causing prismatic energy to seep forth."

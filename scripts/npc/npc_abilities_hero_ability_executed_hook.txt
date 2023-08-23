@@ -253,21 +253,6 @@
 					}
 				}
 			}
-			//TODO modifier texture
-			"modifier_nevermore_requiem_slow_active_datadriven"
-			{
-				"IsHidden"		"0"
-				"Passive"		"0"
-				"Duration"		"5"
-				"IsPurgable"	"1"
-				"IsDebuff"		"1"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-20"
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"-50"
-				}
-			}
 			"modifier_oracle_fates_edict_allie_disarm"
 			{
 				"Passive"		"0"

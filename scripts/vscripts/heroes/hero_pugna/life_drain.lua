@@ -70,7 +70,6 @@ function LifeDrainHealthTransfer( event )
 		-- Health Transfer Caster->Ally
 		ApplyDamage({ victim = caster, attacker = caster, damage = HP_drain, damage_type = DAMAGE_TYPE_MAGICAL })
 		target:Heal( HP_gain, caster)
-		--TODO: Check if this damage transfer should be lethal
 		
 		-- Set the particle control color as green
 		ParticleManager:SetParticleControl(caster.LifeDrainParticle, 10, Vector(0,0,0))

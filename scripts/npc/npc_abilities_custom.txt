@@ -22605,12 +22605,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"AbilityCooldown"				
-				{
-					"value"		"120 110 100"
-					"special_bonus_scepter"	"-0"
-				}
-
+				"AbilityCooldown"	"120 110 100"
 				"requiem_radius"	"1000"		
 				"requiem_reduction_ms"	"-20"
 				"requiem_reduction_mres"	"-0"
@@ -22622,21 +22617,12 @@
 				"requiem_line_width_end"	"350"
 				"requiem_line_speed"	"700 700 700"
 				"soul_death_release"	"0.5"
-				"requiem_heal_pct_scepter"	
-				{
-					"value"			"0"
-					"RequiresScepter"			"1"
-				}	
-				"requiem_damage_pct_scepter"	
-				{
-					"value"			"0"
-					"RequiresScepter"			"1"
-					"CalculateSpellDamageTooltip"	"0"
-				}
+				"requiem_heal_pct_scepter"	"0"
+				"requiem_damage_pct_scepter"	"0"
 				"slow_range"		"700"
 				"slow_duration"		"5"
-				"slow_pct"			"20"
-				"damage_reduct_pct"	"50"
+				"slow_pct"			"-20"
+				"damage_reduct_pct"	"-50"
 		}
 	}
 	//=================================================================================================================
