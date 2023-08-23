@@ -824,7 +824,8 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_regen_duration"				"恢复持续时间："
 		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven"				"偷属性" 
 		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven_Description"	"持续15/30/60/120秒" 
-		"DOTA_Tooltip_Ability_slark_shadow_dance_Lore"						"回血3/5/7%" 
+		"DOTA_Tooltip_Ability_slark_shadow_dance_bonus_regen"							"" 
+		"DOTA_Tooltip_Ability_slark_shadow_dance_bonus_pct_regen"						"%回血：" 
 		//Techies
 		"DOTA_Tooltip_ability_techies_land_mines_datadriven"						"地雷"
 		"DOTA_Tooltip_ability_techies_land_mines_datadriven_Lore"					"起重港的噩梦！"

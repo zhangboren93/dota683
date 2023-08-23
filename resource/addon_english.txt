@@ -824,7 +824,8 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_regen_duration"				"REGEN DURATION:"
 		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven"				"Essence shift" 
 		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven_Description"	"lasts 15/30/60/120 seconds" 
-		"DOTA_Tooltip_Ability_slark_shadow_dance_Lore"						"health regen 3/5/7%" 
+		"DOTA_Tooltip_Ability_slark_shadow_dance_bonus_regen"							"" 
+		"DOTA_Tooltip_Ability_slark_shadow_dance_bonus_pct_regen"						"%HEALTH REGEN:" 
 		//Techies
 		"DOTA_Tooltip_ability_techies_land_mines_datadriven"						"Land Mines"
 		"DOTA_Tooltip_ability_techies_land_mines_datadriven_Lore"					"The bane of Toterin!"
