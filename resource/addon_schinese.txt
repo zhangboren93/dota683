@@ -1184,6 +1184,11 @@
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_duration"								"持续时间："
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_Note0"								"共享伤害的类型与原伤害相同。"
 
+		// Storm Spirit
+		"DOTA_Tooltip_ability_storm_spirit_electric_vortex_Description"					"将一个敌人拖到风暴之灵所在位置的涡流。蓝猫自身会被减速50%%，持续3秒。"
+		"DOTA_Tooltip_modifier_electric_vortex_self_slow_lua"				"电子涡流减速"
+		"DOTA_Tooltip_modifier_electric_vortex_self_slow_lua_Description"	"减速50%%。"
+
 		//Miss message
 		"abaddon_miss"				"死骑Miss!"
 		"ancient_apparition_miss" 	"冰魂Miss!"
