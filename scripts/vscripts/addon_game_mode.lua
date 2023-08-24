@@ -154,6 +154,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:SetGoldPerTick(0)
 	GameRules:SetGoldTickTime(1000)
 	GameRules:SetTreeRegrowTime(300)
+	GameRules:SetHeroSelectionTime(80)
 	if GetMapName() == "dota" then
 		GameRules:SetCreepSpawningEnabled(false)
 	end
@@ -245,7 +246,6 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			GameRules:SetSameHeroSelectionEnabled(true)
 			GameRules:SendCustomMessage("开启相同英雄选择", -1, -1)
 		elseif text == '-ld' then
-			GameRules:SetHeroSelectionTime(80)
 			GameRules:SetSameHeroSelectionEnabled(false)
 			self.game_mode = "LD"
 			GameRules:SendCustomMessage("开启天梯模式", -1, -1)
