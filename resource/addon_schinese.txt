@@ -1135,6 +1135,11 @@
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_hero_path_duration"	"持续时间："
 
 		//Sniper
+		"DOTA_Tooltip_ability_sniper_headshot_datadriven"										"爆头"
+		"DOTA_Tooltip_ability_sniper_headshot_datadriven_Description"							"狙击手提高他的精确度，有一定概率造成额外伤害。爆头会短暂地降低敌人100%%移动和攻击速度。触发爆头的攻击无法被闪避。"
+		"DOTA_Tooltip_ability_sniper_headshot_datadriven_Lore"									"童年时对潜行兽的胡乱射击现在被练就成攻击敌人的技术。"
+		"DOTA_Tooltip_ability_sniper_headshot_datadriven_proc_chance"							"%概率："
+		"DOTA_Tooltip_ability_sniper_headshot_datadriven_slow_duration"							"减速持续时间："
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven"										"暗杀"
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Description"							"狙击手锁定一个目标敌方单位，经过短时间瞄准后从远距离射出一发毁灭性的子弹，对目标造成伤害及短暂眩晕。"
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Lore"									"为了完成预言然后返回家乡，卡德尔必须和参加古老考验那天一样，做出完美的射击。"
