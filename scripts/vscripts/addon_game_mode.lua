@@ -1203,9 +1203,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", {duration = ability:GetSpecialValueFor("duration")})
 	elseif event.name_const == "modifier_illusion" then
-		if parent:GetName() ~= "npc_dota_hero_phantom_lancer" and parent:GetName() ~= "npc_dota_hero_monkey_king" then
-			parent:AddAbility("illusion_bounty_cancel_datadriven"):SetLevel(1)
-		end
+		parent:AddAbility("illusion_bounty_cancel_datadriven"):SetLevel(1)
 	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		caster:FindAbilityByName("hero_ability_executed_hook_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_arctic_burn_pure_datadriven", {})
