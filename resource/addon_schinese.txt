@@ -1193,6 +1193,10 @@
 		"DOTA_Tooltip_modifier_electric_vortex_self_slow_lua"				"电子涡流减速"
 		"DOTA_Tooltip_modifier_electric_vortex_self_slow_lua_Description"	"减速50%%。"
 
+		//Lion
+		"DOTA_Tooltip_ability_lion_finger_of_death_Description"							"撕裂一个敌方单位，将其折磨得死去活来，并造成巨大伤害。"
+		"DOTA_Tooltip_ability_lion_finger_of_death_damage_per_kill"						""
+
 		//Miss message
 		"abaddon_miss"				"死骑Miss!"
 		"ancient_apparition_miss" 	"冰魂Miss!"

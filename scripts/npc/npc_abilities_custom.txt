@@ -23886,12 +23886,7 @@
 					"value"				"600 725 850"
 					"special_bonus_scepter"		"+125 +150 +175"
 				}
-				"damage_per_kill"			
-				{
-					"value"				"0"
-					"special_bonus_unique_lion_8"	"+20"
-					"CalculateSpellDamageTooltip"	"0"
-				}
+				"damage_per_kill"			"0"
 				"grace_period"				"3"
 				"damage_delay"				
 				{
@@ -23905,7 +23900,7 @@
 				}
 				"splash_radius_scepter"		
 				{
-					"value"		"0"
+					"value"		"200"
 					"RequiresScepter"			"1"
 				}
 		}

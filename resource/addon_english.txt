@@ -1191,5 +1191,9 @@
 		"DOTA_Tooltip_ability_storm_spirit_electric_vortex_Description"				"A vortex that pulls an enemy unit to Storm Spirit's location. Storm Spirit himself will be slowed for 50%% for 3 seconds."
 		"DOTA_Tooltip_modifier_electric_vortex_self_slow_lua"						"Electric Vortex Slow"
 		"DOTA_Tooltip_modifier_electric_vortex_self_slow_lua_Description"			"Slowed by 50%%."
+		
+		//Lion
+		"DOTA_Tooltip_ability_lion_finger_of_death_Description"							"Rips at an enemy unit, trying to turn it inside-out. Deals massive damage."
+		"DOTA_Tooltip_ability_lion_finger_of_death_damage_per_kill"						""
 	}
 }
