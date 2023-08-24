@@ -1064,6 +1064,10 @@
 		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty"										"买活"
 		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty_Description"							"不能获得不可靠金钱"
 
+		//Nyx
+		"DOTA_Tooltip_ability_nyx_assassin_impale_Description"									"岩石尖刺在地上沿一条直线穿刺而出。敌方单位被抛向空中，落地时受到伤害和眩晕。"
+		"DOTA_Tooltip_ability_nyx_assassin_impale_impale_damage"								""
+		"DOTA_Tooltip_ability_nyx_assassin_impale_impale_damage_tooltip"						"穿刺伤害："
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven"							"尖刺外壳"
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_Description"				"激活状态下，尖刺外壳可以反弹并无效化司夜刺客受到的伤害（每个攻击者最多作用一次），同时眩晕攻击者。"
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_reflect_duration"			"反弹持续时间："

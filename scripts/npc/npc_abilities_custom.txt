@@ -29553,7 +29553,9 @@
 				"duration"			"1.25 1.75 2.25 2.75"
 				"length"			"700"
 				"speed"				"1600"
-				"impale_damage"			"80 140 200 260"
+				//Apply impale damage after land instead of cast
+				"impale_damage"		"0"
+				"impale_damage_tooltip"	"80 140 200 260"
 		}
 	}
 	//=================================================================================================================

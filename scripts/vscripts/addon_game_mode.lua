@@ -1342,6 +1342,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		caster:AddNewModifier(caster, ability, "modifier_electric_vortex_self_slow_lua", { duration = 3 })
+	elseif event.name_const == "modifier_nyx_assassin_impale" then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		parent:SetThink(function() 
+			ApplyDamage({victim = parent, attacker = caster, damage = ability:GetSpecialValueFor("impale_damage_tooltip"), damage_type = DAMAGE_TYPE_MAGICAL})
+		end, "impale damage late", 0.5) 
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
