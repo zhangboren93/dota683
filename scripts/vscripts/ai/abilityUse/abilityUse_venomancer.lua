@@ -1,0 +1,331 @@
+-------------------------------------------------------------------------------
+--- AUTHOR: Nostrademous
+--- GITHUB REPO: https://github.com/Nostrademous/Dota2-FullOverwrite
+-------------------------------------------------------------------------------
+
+BotsInit = require( "game/botsinit" )
+local genericAbility = BotsInit.CreateGeneric()
+
+local heroData = require( GetScriptDirectory().."/hero_data" )
+local utils = require( GetScriptDirectory().."/utility" )
+local gHeroVar = require( GetScriptDirectory().."/global_hero_data" )
+
+function setHeroVar(bot, var, value)
+    gHeroVar.SetVar(bot:GetPlayerID(), var, value)
+end
+
+function getHeroVar(bot, var)
+    return gHeroVar.GetVar(bot:GetPlayerID(), var)
+end
+
+local Abilities = {
+    heroData.venomancer.SKILL_0,
+    heroData.venomancer.SKILL_1,
+    heroData.venomancer.SKILL_2,
+    heroData.venomancer.SKILL_3
+}
+
+local abilityQ = ""
+local abilityW = ""
+local abilityE = ""
+local abilityR = ""
+
+local castQDesire   = 0
+local castWDesire   = 0
+local castRDesire   = 0
+
+local AttackRange   = 0
+local ManaPerc      = 0.0
+local HealthPerc    = 0.0
+local modeName      = nil
+
+function ConsiderQ(bot)
+    
+    if not abilityQ:IsFullyCastable() then
+        return BOT_ACTION_DESIRE_NONE, {}
+    end
+    
+    local CastRange = abilityQ:GetCastRange()
+    local Damage    = abilityQ:GetSpecialValueFor("strike_damage")+5*(abilityQ:GetSpecialValueFor("tick_damage"))
+    local Radius    = abilityQ:GetAOERadius()
+    
+    local HeroHealth    = 10000
+    local CreepHealth   = 10000
+
+
+    local WeakestEnemy, HeroHealth = utils.GetWeakestHero(bot, CastRange+150)
+
+    --------------------------------------
+    -- Global high-priorty usage
+    --------------------------------------
+    --try to kill enemy hero
+    if modeName ~= "retreat" or (modeName == "retreat" and bot.SelfRef:getCurrentModeValue() < BOT_MODE_DESIRE_VERYHIGH) then
+        if utils.ValidTarget(WeakestEnemy) then
+            if not utils.IsTargetMagicImmune( WeakestEnemy ) then
+                if HeroHealth <= GetActualIncomingDamage(WeakestEnemy, Damage, DAMAGE_TYPE_MAGICAL) then
+                    local dist = GetUnitToUnitDistance(bot, WeakestEnemy)
+                    if dist < (CastRange + Radius) then
+                        return BOT_ACTION_DESIRE_HIGH, utils.VectorTowards(bot:GetAbsOrigin(), WeakestEnemy:GetAbsOrigin(), 100)
+                    else
+                        return BOT_ACTION_DESIRE_HIGH, utils.VectorTowards(bot:GetAbsOrigin(), WeakestEnemy:GetAbsOrigin(), dist+100)
+                    end
+                end
+            end
+        end
+    end
+
+    --------------------------------------
+    -- Mode based usage
+    --------------------------------------
+    -- fighting (team fight) and can hit 2+ enemies
+    if modeName == "fight" then
+        if ManaPerc > 0.25 then
+            local locationAoE = bot:FindAoELocation( true, false, bot:GetAbsOrigin(), CastRange, Radius, 0, 0 )
+            if locationAoE.count >= 2 then
+                return BOT_ACTION_DESIRE_MODERATE, locationAoE.targetloc
+            end
+        end
+    end
+    
+    -- If we're pushing or defending a lane and can hit 3+ creeps, go for it
+    if modeName == "defendlane" or modeName == "pushlane" then
+        if ManaPerc > 0.4 then
+            local locationAoE = bot:FindAoELocation( true, false, bot:GetAbsOrigin(), CastRange, Radius, 0, 0 )
+            if locationAoE.count >= 3 then
+                return BOT_ACTION_DESIRE_MODERATE, locationAoE.targetloc
+            end
+        end
+    end
+
+    -- If my mana is enough and we have at least level 2 of ability, and can hit 2 enemies
+    if ManaPerc > 0.4 and abilityQ:GetLevel() >= 2 then
+        local locationAoE = bot:FindAoELocation( true, true, bot:GetAbsOrigin(), CastRange, Radius, 0, 0 )
+        if locationAoE.count >= 2 then
+            return BOT_ACTION_DESIRE_LOW, locationAoE.targetloc
+        end
+    end
+    
+    -- If we're going after someone
+    if modeName == "roam" or modeName == "defendally" or modeName == "fight" then
+        local npcEnemy = getHeroVar(bot, "RoamTarget")
+        if npcEnemy == nil then npcEnemy = getHeroVar(bot, "Target") end
+        
+        if utils.ValidTarget(npcEnemy) then
+            if not utils.IsTargetMagicImmune( npcEnemy ) and utils.IsCrowdControlled(npcEnemy) then
+                return BOT_ACTION_DESIRE_MODERATE, npcEnemy:GetAbsOrigin()
+            end
+        end
+    end
+	
+    -- If we're farming and can kill 3+ creeps
+    if modeName == "jungling" or modeName == "laning" then
+        if ManaPerc > 0.25 then
+            local locationAoE = bot:FindAoELocation( true, false, bot:GetAbsOrigin(), CastRange, Radius, 0, Damage )
+            if ( locationAoE.count >= 3 ) then
+                return BOT_ACTION_DESIRE_LOW, locationAoE.targetloc
+            end
+        end
+    end
+    
+    return BOT_ACTION_DESIRE_NONE, {}
+end
+
+function ConsiderE(bot)
+    
+    if not abilityE:IsFullyCastable() then
+        return BOT_ACTION_DESIRE_NONE, nil
+    end
+    
+    local CastRange = abilityE:GetCastRange()
+    
+    --------------------------------------
+    -- Global high-priorty usage
+    --------------------------------------
+    local enemies = gHeroVar.GetNearbyEnemies( bot, 1200 )
+	
+    -- if I'm retreating
+    if modeName == "retreat" or modeName == "shrine" then
+        if #enemies >= 1 or bot:WasRecentlyDamagedByAnyHero(5.0) then
+            return BOT_ACTION_DESIRE_MODERATE, bot:GetAbsOrigin() + RandomVector( RandomInt(0, CastRange) )
+        end
+    end
+    
+    --------------------------------------
+    -- Mode based usage
+    --------------------------------------
+
+    -- If we're pushing a lane and attacking a tower
+    if modeName == "pushlane" or modeName == "defendlane" then
+        local target = bot:GetAttackTarget()
+        if utils.ValidTarget(target) then
+            if ManaPerc > 0.4 and target:IsTower() then
+                if not utils.IsTargetMagicImmune( bot ) then
+                    return BOT_ACTION_DESIRE_LOW, target:GetAbsOrigin() + RandomVector( RandomInt(0, CastRange) )
+                end
+            end
+        end
+    
+        local friendlyTower = gHeroVar.GetNearbyAlliedTowers(bot, CastRange+300)
+        if #friendlyTower >= 1 and utils.ValidTarget(friendlyTower[1]) then
+            if ManaPerc > 0.4 and #gHeroVar.GetNearbyEnemyCreep(bot, 900) > 1 then
+                return BOT_ACTION_DESIRE_LOW, friendlyTower[1]:GetAbsOrigin() + RandomVector( RandomInt(0, CastRange) )
+            end
+        end
+    end
+
+    -- If we're going after someone
+    if modeName == "roam" or modeName == "defendally" or modeName == "fight" then
+        local npcEnemy = getHeroVar(bot, "RoamTarget")
+        if npcEnemy == nil then npcEnemy = getHeroVar(bot, "Target") end
+            
+        if ManaPerc > 0.4 then
+            if utils.ValidTarget(npcEnemy) then
+                return BOT_ACTION_DESIRE_MODERATE, utils.VectorTowards(bot:GetAbsOrigin(), npcEnemy:GetAbsOrigin(), RandomInt(0, CastRange))
+            end
+        end
+    end
+    
+    -- If we're Roshing
+    if modeName == "roshan" then
+        if GetUnitToLocationDistance(bot, utils.ROSHAN) < 600 then
+            local eCreep = gHeroVar.GetNearbyEnemyCreep(bot, 600)
+            local roshan = nil
+            for _, creep in pairs(eCreep) do
+                if utils.ValidTarget(creep) and creep:GetUnitName() == "npc_dota_roshan" then
+                    roshan = creep
+                    break
+                end
+            end
+            if utils.ValidTarget(roshan) then
+                return BOT_ACTION_DESIRE_MODERATE, utils.VectorTowards(bot:GetAbsOrigin(), roshan:GetAbsOrigin(), RandomInt(0, CastRange))
+            end
+        end
+    end
+    
+    -- If we're farming
+    local creeps = gHeroVar.GetNearbyEnemyCreep( bot, 900 )
+    if modeName == "laning" or modeName == "jungling" then
+        if #creeps >= 2 then
+            if ManaPerc > 0.4 and utils.ValidTarget(creeps[1]) then
+                return BOT_ACTION_DESIRE_LOW, utils.VectorTowards(bot:GetAbsOrigin(), creeps[1]:GetAbsOrigin(), RandomInt(0, CastRange))
+            end	
+        end
+    end
+
+    return BOT_ACTION_DESIRE_NONE, nil
+end
+
+function ConsiderR(bot)
+    
+    if not abilityR:IsFullyCastable() then
+        return BOT_ACTION_DESIRE_NONE, nil
+    end
+
+    local CastRange = abilityR:GetCastRange()
+    local Radius    = abilityR:GetAOERadius()
+    
+    --------------------------------------
+    -- Global high-priorty usage
+    --------------------------------------
+
+    --try to kill enemy heroes
+    local enemies = gHeroVar.GetNearbyEnemies(bot, Radius)
+    local disabledHeroCount = 0
+    for _, eHero in pairs(enemies) do
+        if utils.ValidTarget(eHero) and (utils.IsCrowdControlled(eHero) or GetCurrentMovementSpeed(eHero) <= 200) then
+            disabledHeroCount = disabledHeroCount + 1
+        end
+    end
+    
+    if (modeName == "fight" and #enemies >= 2) or disabledHeroCount >= 2 then
+        return BOT_ACTION_DESIRE_HIGH
+    end
+	
+    --------------------------------------
+    -- Mode based usage
+    --------------------------------------
+    -- If we're going after someone
+    if modeName == "roam" or modeName == "defendally" or modeName == "fight" then
+        local npcEnemy = getHeroVar(bot, "RoamTarget")
+        if npcEnemy == nil then npcEnemy = getHeroVar(bot, "Target") end
+
+        if utils.ValidTarget(npcEnemy) then
+            if not utils.IsTargetMagicImmune(npcEnemy) and
+                npcEnemy:GetHealth() <= GetActualIncomingDamage(npcEnemy, GetOffensivePower(bot), DAMAGE_TYPE_MAGICAL) and
+                GetUnitToUnitDistance(bot, npcEnemy) <= Radius then
+                return BOT_ACTION_DESIRE_MODERATE
+            end
+        end
+    end
+    
+    return BOT_ACTION_DESIRE_NONE
+end
+
+function genericAbility:AbilityUsageThink(bot)
+    -- Check if we're already using an ability
+    if utils.IsBusy(bot) then return true end
+    
+    -- Check to see if we are CC'ed
+    if utils.IsUnableToCast(bot) then return false end
+
+    if abilityQ == "" then abilityQ = bot:GetAbilityByName( Abilities[1] ) end
+    if abilityW == "" then abilityW = bot:GetAbilityByName( Abilities[2] ) end
+    if abilityE == "" then abilityE = bot:GetAbilityByName( Abilities[3] ) end
+    if abilityR == "" then abilityR = bot:GetAbilityByName( Abilities[4] ) end
+    
+    -- WRITE CODE HERE --
+    AttackRange   = bot:Script_GetAttackRange()
+    ManaPerc      = bot:GetMana()/bot:GetMaxMana()
+    HealthPerc    = bot:GetHealth()/bot:GetMaxHealth()
+    modeName      = bot.SelfRef:getCurrentMode():GetName()
+    
+    local modeDesire    = Max(0.01, bot.SelfRef:getCurrentModeValue())
+    
+    -- Consider using each ability
+    local castQDesire, castQLocation  = ConsiderQ(bot)
+    local castEDesire, castELocation  = ConsiderE(bot)
+    local castRDesire, castRTarget    = ConsiderR(bot)
+    
+    if castRDesire >= modeDesire and castRDesire >= Max(castQDesire, castEDesire) then
+        gHeroVar.HeroUseAbility(bot,  abilityR )
+        return true
+    end
+    
+    if castEDesire >= modeDesire and castEDesire >= castQDesire then
+        gHeroVar.HeroUseAbilityOnLocation(bot,  abilityE, castELocation )
+        return true
+    end
+    
+    if castQDesire >= modeDesire then
+        gHeroVar.HeroUseAbilityOnLocation(bot,  abilityQ, castQLocation )
+        return true
+    end
+    
+    return false
+end
+
+function genericAbility:nukeDamage( bot, enemy )
+    if not utils.ValidTarget(enemy) then return 0, {}, 0, 0, 0 end
+
+    local comboQueue = {}
+    local manaAvailable = bot:GetMana()
+    local dmgTotal = GetOffensivePower(bot)
+    local castTime = 0
+    local stunTime = 0
+    local slowTime = 0
+    local engageDist = 500
+    
+    -- WRITE CODE HERE --
+    
+    return dmgTotal, comboQueue, castTime, stunTime, slowTime, engageDist
+end
+
+function genericAbility:queueNuke(bot, enemy, castQueue, engageDist)
+    if not utils.ValidTarget(enemy) then return false end
+    
+    -- WRITE CODE HERE --
+    
+    return false
+end
+
+return genericAbility

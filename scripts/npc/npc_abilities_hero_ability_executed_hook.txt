@@ -665,4 +665,16 @@
 					}
 				}
 			}
+			"modifier_bot_ability_execute_tracker_datadriven"
+			{
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/ability_execute_tracker.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
 		}}}

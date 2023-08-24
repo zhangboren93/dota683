@@ -310,6 +310,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			elseif text == '-vsbot' then
 				self.botEnabled = true
 				GameRules:SendCustomMessage("Bot模式开启", -1, -1)
+				GameRules:SetCustomGameDifficulty(2) -- 2 for hard as default
 			elseif text == '-sp' then
 				GameRules:SetSameHeroSelectionEnabled(true)
 				GameRules:SendCustomMessage("开启相同英雄选择", -1, -1)
@@ -458,8 +459,50 @@ function CAddonTemplateGameMode:OnThink()
 					{nt = captain_normal_time, et = captain_dire_extra_time });
 			end
 		end
-	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and self.botEnabled and self.botInitialized == nil then
-		print("Init bot")
+	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and (self.botEnabled or GetMapName() == "bot") and self.botInitialized == nil then
+		if GetMapName() == "bot" then
+			local botHeroPool = {
+				"npc_dota_hero_antimage",
+				"npc_dota_hero_lina",
+				"npc_dota_hero_viper",
+				"npc_dota_hero_venomancer",
+				"npc_dota_hero_crystal_maiden",
+				"npc_dota_hero_drow_ranger",
+				"npc_dota_hero_phantom_assassin",
+				"npc_dota_hero_spirit_breaker",
+				"npc_dota_hero_sniper"
+			}
+			Tutorial:StartTutorialMode()	
+			GameRules:SetSameHeroSelectionEnabled(true)
+			-- pick 5 random hero to play
+			local player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+
+    	    --local botHero = GameRules:AddBotPlayerWithEntityScript(
+			--	"npc_dota_hero_phantom_assassin", "Rad Bot 0", DOTA_TEAM_GOODGUYS, 
+			--	"ai/bot_phantom_assassin.lua", true)
+			--botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
+    	    --FindClearSpaceForUnit(botHero, Vector(-7111, -6618, 520), true)
+
+			for i=1, 5 - player_count do
+				local heroNumber = RandomInt(1, #botHeroPool)	
+    	        local botHero = GameRules:AddBotPlayerWithEntityScript(
+					botHeroPool[heroNumber], "Rad Bot " .. i, DOTA_TEAM_GOODGUYS, 
+					"ai/bot_" .. string.sub(botHeroPool[heroNumber], 15) .. ".lua", true)
+				botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
+    	        FindClearSpaceForUnit(botHero, Vector(-7111, -6618, 520), true)
+				table.remove(botHeroPool, heroNumber)
+			end
+			player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
+			for i=1, 5 - player_count do
+				local heroNumber = RandomInt(1, #botHeroPool)	
+    	        local botHero = GameRules:AddBotPlayerWithEntityScript(
+					botHeroPool[heroNumber], "Dire Bot " .. i, DOTA_TEAM_BADGUYS, 
+					"ai/bot_" .. string.sub(botHeroPool[heroNumber], 15) .. ".lua", true)
+				botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
+    	        FindClearSpaceForUnit(botHero, Vector(7022, 6346, 512), true)
+				table.remove(botHeroPool, heroNumber)
+			end
+		else
 		local botHeroPool = {
 			"npc_dota_hero_axe",
 			--"npc_dota_hero_ogre_magi",
@@ -490,6 +533,7 @@ function CAddonTemplateGameMode:OnThink()
 		end
 		GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
 		GameRules:SetCreepSpawningEnabled(true)
+		end -- experimental_bot
 		self.botInitialized = true
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		local time = GameRules:GetDOTATime(true, true) 
@@ -507,7 +551,10 @@ function CAddonTemplateGameMode:OnThink()
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
 
-		if not self.botEnabled and time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
+		if (not self.botEnabled) 
+			and time > 0 
+			and (math.floor(time) % 30) < 3 
+			and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
 			spawnCreepsLua()
 			self.creepSpawnTime = time
 		end
@@ -614,7 +661,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		else
 			fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
-		end--
+		end
 		local glyph = fountain:FindAbilityByName("glyph_datadriven")
 		glyph:CastAbility()
 		return false
@@ -1719,6 +1766,17 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	if victim:HasModifier("modifier_glyph_active_datadriven") then
 		event.damage = 0
 	end
+	-- record last attacked by hero time
+	if attacker:IsHero() and event.damage > 0 then
+		victim.lastAttackedByHeroTime = GameRules:GetGameTime()
+	end
+	if attacker:IsCreep() and event.damage > 0 then
+		victim.damagedByCreepTime = GameRules:GetGameTime()
+	elseif attacker:IsConsideredHero() and event.damage > 0 then
+		victim.damagedByHeroTime = GameRules:GetGameTime()
+		victim.damagedByHero = attacker
+	end
+
 	return true
 end
 

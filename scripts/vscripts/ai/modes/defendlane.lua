@@ -1,0 +1,149 @@
+-------------------------------------------------------------------------------
+--- AUTHOR: Keithen
+--- GITHUB REPO: https://github.com/Nostrademous/Dota2-FullOverwrite
+-------------------------------------------------------------------------------
+
+BotsInit = require( "game/botsinit" )
+local X = BotsInit.CreateGeneric()
+
+local gHeroVar = require( GetScriptDirectory().."/global_hero_data" )
+local utils = require( GetScriptDirectory().."/utility" )
+require( GetScriptDirectory().."/buildings_status" )
+
+local function setHeroVar(bot, var, value)
+    gHeroVar.SetVar(bot:GetPlayerID(), var, value)
+end
+
+local function getHeroVar(bot, var)
+    return gHeroVar.GetVar(bot:GetPlayerID(), var)
+end
+
+function X:GetName()
+    return "defendlane"
+end
+
+function X:OnStart(myBot)
+    local bot = GetBot()
+    bot.defendingLane = true
+end
+
+function X:OnEnd()
+    local bot = GetBot()
+    bot.defendingLane = false
+end
+
+function X:Desire(bot)
+    local defInfo = getHeroVar(bot, "DoDefendLane")
+    local building = defInfo[2]
+    local hBuilding = buildings_status.GetHandle(bot:GetTeam(), building)
+    
+    if #defInfo > 0 then    
+        if hBuilding == nil then
+            -- if building falls, don't stick around and defend area
+            return BOT_MODE_DESIRE_NONE
+        else
+            return BOT_MODE_DESIRE_MODERATE
+        end
+    end
+    
+    -- if we are defending the lane, stay until all enemy
+    -- creep is pushed back and enemies are not nearby
+    if bot.SelfRef:getCurrentMode():GetName() == "defendlane" and
+        (#gHeroVar.GetNearbyEnemyCreep(bot, 1500) > 0 or
+        #gHeroVar.GetNearbyEnemies(bot, 1500)) and
+        utils.ValidTarget(hBuilding) and GetUnitToUnitDistance(bot, hBuilding) < 900 then
+        return bot.SelfRef:getCurrentModeValue()
+    end
+
+    return BOT_MODE_DESIRE_NONE
+end
+
+function X:DefendTower(bot, hBuilding)
+    -- TODO: all of this should use the fighting system.
+    local enemies = gHeroVar.GetNearbyEnemies(bot, 1500)
+    local allies = gHeroVar.GetNearbyAllies(bot, 1500)
+    local eCreep = gHeroVar.GetNearbyEnemyCreep(bot, 1200)
+    
+    local defenseLane = utils.NearestLane(bot)
+    if defenseLane > 0 and getHeroVar(bot, "CurLane") ~= defenseLane then
+        setHeroVar(bot, "CurLane", defenseLane)
+    end
+    
+    if #enemies > 0 and #allies >= #enemies then -- we are good to go
+        if utils.ValidTarget(enemies[1]) then
+            gHeroVar.HeroAttackUnit(bot, enemies[1], true) -- Charge! at the closes enemy
+            return
+        end
+    else -- stay back
+        local closestEnemyDist = 10000
+        if #enemies > 0 then
+            closestEnemyDist = GetUnitToUnitDistance(bot, enemies[1])
+            if closestEnemyDist < 900 then -- they are too close
+                gHeroVar.HeroMoveToLocation(bot, utils.VectorAway(bot:GetLocation(), enemies[1]:GetLocation(), 900-closestEnemyDist))
+                return
+            end
+        end
+        
+        if #eCreep > 0 then
+            local weakestCreep, _ = utils.GetWeakestCreep(eCreep)
+            if utils.ValidTarget(weakestCreep) and GetUnitToUnitDistance(bot, weakestCreep) < closestEnemyDist then
+                gHeroVar.HeroAttackUnit(bot, weakestCreep, true)
+                return
+            end
+            
+            getHeroVar(bot, "AbilityUsageClass"):AbilityUsageThink(bot)
+            return
+        end
+        
+        if GetUnitToUnitDistance(bot, hBuilding) > 400 then
+            gHeroVar.HeroMoveToUnit(bot, hBuilding)
+            return
+        end
+    end
+end
+
+function X:Think(bot)
+    if utils.IsBusy(bot) then return end
+    
+    if utils.IsCrowdControlled(bot) then return end
+
+    local defInfo = getHeroVar(bot, "DoDefendLane") -- TEAM has made the decision.
+    -- TODO: unpack function??
+    local lane = defInfo[1]
+    local building = defInfo[2]
+    local numEnemies = defInfo[3]
+
+    local hBuilding = buildings_status.GetHandle(bot:GetTeam(), building)
+
+    if hBuilding == nil then
+        setHeroVar(bot, "DoDefendLane", {})
+        return
+    end
+
+    local distFromBuilding = GetUnitToUnitDistance(bot, hBuilding)
+    local timeToReachBuilding = distFromBuilding/GetCurrentMovementSpeed(bot)
+
+    if timeToReachBuilding <= 5.0 then
+        X:DefendTower(bot, hBuilding)
+    else
+        if utils.IsBusy(bot) then return end
+        local tp = utils.GetTeleportationAbility(bot)
+        if tp == nil then
+            X:DefendTower(bot, hBuilding)
+        else
+            -- calculate position for a defensive teleport
+            -- TODO: consider hiding in trees, position of enemy
+            -- TODO: is there, should there be a utils function for this?
+            local pos = hBuilding:GetAbsOrigin()
+            local vec = utils.Fountain(bot:GetTeam()) - pos
+            vec = vec * 575 / #vec -- resize to 575 units (max tp range from tower)
+            pos = pos + vec
+            gHeroVar.HeroUseAbilityOnLocation(bot, tp, pos)
+            return
+        end
+    end
+
+    return
+end
+
+return X

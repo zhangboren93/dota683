@@ -1,0 +1,162 @@
+-------------------------------------------------------------------------------
+--- AUTHOR: Nostrademous
+--- GITHUB REPO: https://github.com/Nostrademous/Dota2-FullOverwrite
+-------------------------------------------------------------------------------
+
+BotsInit = require( "game/botsinit" )
+local X = BotsInit.CreateGeneric()
+
+require( GetScriptDirectory().."/constants")
+require( GetScriptDirectory().."/item_usage")
+require( GetScriptDirectory().."/modifiers")
+
+----------
+local utils = require( GetScriptDirectory().."/utility")
+local gHeroVar = require( GetScriptDirectory().."/global_hero_data" )
+
+local function setHeroVar(bot, var, value)
+    gHeroVar.SetVar(bot:GetPlayerID(), var, value)
+end
+
+local function getHeroVar(bot, var)
+    return gHeroVar.GetVar(bot:GetPlayerID(), var)
+end
+
+function X:GetName()
+    return "retreat"
+end
+
+function X:OnStart(myBot)
+    utils.IsInLane(myBot)
+end
+
+function X:OnEnd(bot)
+    setHeroVar(bot, "RetreatLane", nil)
+    setHeroVar(bot, "RetreatPos", nil)
+    bot.IsRetreating = false
+    bot.retreat_desire_debug = ""
+end
+
+local function Updates(bot)
+    setHeroVar(bot, "RetreatPos", utils.PositionAlongLane(bot, getHeroVar(bot, "RetreatLane")))
+end
+
+function X:Think(bot)
+
+    if utils.IsBusy(bot) then return end
+    
+    Updates(bot)
+    
+    local rLane = getHeroVar(bot, "RetreatLane")
+    local rPos = getHeroVar(bot, "RetreatPos")
+
+    nextmove = bot:GetLocationAlongLane(rLane, 0.0)
+    if getHeroVar(bot, "IsInLane") and rPos < 0.75 then
+        nextmove = bot:GetLocationAlongLane(rLane, Max(rPos-0.03, 0.0))
+    end
+
+    --utils.myPrint("MyLanePos: ", tostring(bot:GetLocation()), ", RetreatPos: ", tostring(nextmove))
+    
+    local nearbyEnemies = gHeroVar.GetNearbyEnemies(bot, 1600)
+    local nearbyETowers = gHeroVar.GetNearbyEnemyTowers(bot, 1600)
+    if #nearbyEnemies > 0 or #nearbyETowers > 0 then
+        local listDangerHandles = { unpack(nearbyEnemies), unpack(nearbyETowers) }
+        nextmove = utils.DirectionAwayFromDanger(bot, listDangerHandles, nextmove)
+    end
+    
+    if utils.IsItemAvailable(bot, "item_blink") then
+        local value = 1200 -- max blink distance
+        local rLane = getHeroVar(bot, "RetreatLane")
+        
+        if rLane == nil or rLane == LANE_NONE then
+            nextmove = utils.VectorTowards(bot:GetLocation(), utils.Fountain(), 1190)
+        else
+            local scale = 242.0
+            if rLane == nil or rLane == LANE_MID or rLane == LANE_NONE then scale = 173.5 end
+            
+            value = (value/scale)*0.01
+            nextmove = bot:GetLocationAlongLane(rLane, Max(rPos-value, 0.0))
+            nextmove = utils.VectorTowards(bot:GetLocation(), nextmove, 1190)
+        end
+        
+        item_usage.UseBlink(nextmove)
+        return
+    end
+    
+    if not modifiers.IsInvisible(bot) then
+
+        if item_usage.UseRegenItems(bot) then return end
+        
+        if item_usage.UseMovementItems(bot, nextmove) then return end
+    end
+    
+    gHeroVar.HeroMoveToLocation(bot, nextmove)
+end
+
+function X:Desire(bot)
+    local enemies = gHeroVar.GetNearbyEnemies(bot, 1200)
+    local allies  = gHeroVar.GetNearbyAllies(bot, 1200)
+    
+    local MaxStun = 0
+    for _,enemy in pairs(enemies) do
+        if utils.ValidTarget(enemy) and enemy:GetHealth()/enemy:GetMaxHealth() > 0.25 then
+            MaxStun = Max(MaxStun, Max(GetStunDuration(enemy, true), GetSlowDuration(enemy, true)/1.5))
+        end
+    end
+
+    local enemyDamage = 0
+    for _,enemy in pairs(enemies) do
+        if utils.ValidTarget(enemy) and enemy:GetHealth()/enemy:GetMaxHealth() > 0.25 then
+            local damage = GetEstimatedDamageToTarget(enemy, true, bot, MaxStun, DAMAGE_TYPE_ALL)
+            enemyDamage = enemyDamage + damage
+        end
+    end
+    
+    local HealthPerc    = bot:GetHealth()/bot:GetMaxHealth()
+    local ManaPerc      = bot:GetMana()/bot:GetMaxMana()
+    
+    if enemyDamage/#allies > bot:GetHealth() then
+        if #allies == 1 and HealthPerc > 0.6 then
+            --utils.myPrint("What to do... I'm almost at full health but can die to enemy burst!")
+            -- TODO: need to request support from allies
+        else
+            if HealthPerc < 0.5 then
+                bot.IsRetreating = true
+            end
+        end
+
+        bot.retreat_desire_debug = "Reason #1"
+        return BOT_MODE_DESIRE_VERYHIGH
+    end
+    
+    if HealthPerc > 0.9 and ManaPerc > 0.9 then
+        bot.IsRetreating = false
+        return BOT_MODE_DESIRE_NONE
+    end
+
+    if HealthPerc > 0.65 and ManaPerc > 0.6 and bot:DistanceFromFountain() > 6000 then
+        bot.IsRetreating = false
+        return BOT_MODE_DESIRE_NONE
+    end
+
+    if HealthPerc > 0.8 and ManaPerc > 0.36 and bot:DistanceFromFountain() > 6000 then
+        bot.IsRetreating = false
+        return BOT_MODE_DESIRE_NONE
+    end
+    
+    if bot.IsRetreating then
+        return BOT_MODE_DESIRE_HIGH
+    end
+    
+    if HealthPerc < bot.RetreatHealthPerc and bot:GetHealthRegen() < 7.9 or 
+        (ManaPerc < 0.07 and bot.SelfRef:getCurrentMode():GetName() == "laning" and
+        bot:GetManaRegen() < 6.0 and not utils.IsCore(bot) ) then
+		bot.IsRetreating = true
+        bot.retreat_desire_debug = "Reason #2"
+		return BOT_MODE_DESIRE_HIGH
+	end
+   
+    return BOT_MODE_DESIRE_NONE
+end
+
+return X

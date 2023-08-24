@@ -1,0 +1,333 @@
+-------------------------------------------------------------------------------
+--- AUTHOR: Nostrademous
+--- GITHUB REPO: https://github.com/Nostrademous/Dota2-FullOverwrite
+-------------------------------------------------------------------------------
+
+BotsInit = require( "game/botsinit" )
+local genericAbility = BotsInit.CreateGeneric()
+
+require( GetScriptDirectory().."/fight_simul" )
+
+local heroData = require( GetScriptDirectory().."/hero_data" )
+local utils = require( GetScriptDirectory().."/utility" )
+local gHeroVar = require( GetScriptDirectory().."/global_hero_data" )
+
+function setHeroVar(bot, var, value)
+    gHeroVar.SetVar(bot:GetPlayerID(), var, value)
+end
+
+function getHeroVar(bot, var)
+    return gHeroVar.GetVar(bot:GetPlayerID(), var)
+end
+
+local Abilities = {
+    heroData.spirit_breaker.SKILL_0,
+    heroData.spirit_breaker.SKILL_1,
+    heroData.spirit_breaker.SKILL_2,
+    heroData.spirit_breaker.SKILL_3
+}
+
+local abilityQ = ""
+local abilityW = ""
+local abilityE = ""
+local abilityR = ""
+
+local AttackRange   = 0
+local ManaPerc      = 0.0
+local HealthPerc    = 0.0
+local modeName      = nil
+
+function genericAbility:AbilityUsageThink(bot)
+    -- Check if we're already using an ability
+    if utils.IsBusy(bot) then return true end
+    
+    -- Check to see if we are CC'ed
+    if utils.IsUnableToCast(bot) then return false end
+
+    if abilityQ == "" then abilityQ = bot:GetAbilityByName( Abilities[1] ) end
+    if abilityW == "" then abilityW = bot:GetAbilityByName( Abilities[2] ) end
+    if abilityE == "" then abilityE = bot:GetAbilityByName( Abilities[3] ) end
+    if abilityR == "" then abilityR = bot:GetAbilityByName( Abilities[4] ) end
+    
+    AttackRange   = bot:Script_GetAttackRange()
+	ManaPerc      = bot:GetMana()/bot:GetMaxMana()
+	HealthPerc    = bot:GetHealth()/bot:GetMaxHealth()
+    modeName      = bot.SelfRef:getCurrentMode():GetName()
+    
+    local modeDesire    = Max(0.01, bot.SelfRef:getCurrentModeValue())
+    
+    -- WRITE CODE HERE --
+    
+    -- Consider using each ability
+	local castQDesire, castQTarget  = ConsiderQ(bot)
+	local castWDesire               = ConsiderW(bot)
+	local castRDesire, castRTarget  = ConsiderR(bot)
+    
+    if castRDesire >= modeDesire and castRDesire >= Max(castWDesire, castQDesire) then
+		gHeroVar.HeroUseAbilityOnEntity(bot, abilityR, castRTarget )
+		return true
+	end
+	
+	if castWDesire >= modeDesire and castWDesire >= castQDesire then
+		gHeroVar.HeroUseAbility(bot,  abilityW )
+		return true
+	end
+
+	if castQDesire >= modeDesire then
+        bot:ActionPush_Delay(0.25)
+		gHeroVar.HeroPushUseAbilityOnEntity(bot, abilityQ, castQTarget )
+		return true
+	end
+    
+    return false
+end
+
+function ConsiderQ(bot)
+    
+    if not abilityQ:IsFullyCastable() then
+		return BOT_ACTION_DESIRE_NONE, nil
+	end
+    
+    --------------------------------------
+	-- Global high-priorty usage
+	--------------------------------------
+    
+    local enemies = gHeroVar.GetNearbyEnemies(bot, 1600)
+    
+	-- Check for a channeling enemy
+    for _, npcEnemy in pairs( enemies ) do
+        if utils.ValidTarget(npcEnemy) and npcEnemy:IsChanneling() and not utils.IsTargetMagicImmune(npcEnemy) then
+            bot.dontInterruptTimer = GameTime()
+            return BOT_ACTION_DESIRE_HIGH, npcEnemy
+        end
+    end
+	
+	-- Try to kill enemy hero
+	if modeName ~= "retreat" or (modeName == "retreat" and bot.SelfRef:getCurrentModeValue() < BOT_MODE_DESIRE_VERYHIGH) then
+		local WeakestEnemy, HeroHealth = utils.GetWeakestHero(bot, 1600, enemies)
+		if utils.ValidTarget(WeakestEnemy) then
+            if not utils.IsTargetMagicImmune(WeakestEnemy) and not utils.IsCrowdControlled(WeakestEnemy) then
+				if HeroHealth <= GetActualIncomingDamage(WeakestEnemy, ComboDmg(bot, WeakestEnemy), DAMAGE_TYPE_PHYSICAL) then
+                    bot.dontInterruptTimer = GameTime()
+					return BOT_ACTION_DESIRE_HIGH, WeakestEnemy
+				end
+			end
+		end
+	end
+	
+	-- Gank
+	if modeName ~= "retreat" and modeName ~= "fight" and HealthPerc >= 0.75 and ManaPerc >= 0.4	then
+		-- protect teammate
+		for _, npcAlly in pairs(bot:GetUnitList(UNIT_LIST_ALLIED_HEROES)) do
+			local enemies3  = gHeroVar.GetNearbyEnemies(npcAlly, 1200)
+			local allies3   = gHeroVar.GetNearbyAllies(npcAlly, 1200)
+            if npcAlly:GetPlayerID() ~= bot:GetPlayerID() then
+                if not npcAlly:IsIllusion() and ((npcAlly:IsControllableByAnyPlayer() or npcAlly.SelfRef:getCurrentMode():GetName() == "retreat") or
+                    npcAlly:GetHealth()/npcAlly:GetMaxHealth() <= (0.4+0.1*#enemies3)) then
+                    if #enemies3 == 1 then
+                        local npcEnemy = enemies3[1]
+                        local timeToGetThere = GetUnitToUnitDistance(bot, npcAlly)/abilityQ:GetSpecialValueFor("movement_speed")
+                        if utils.ValidTarget(npcEnemy) and npcAlly:GetHealth() > GetEstimatedDamageToTarget(npcEnemy, true, npcAlly, timeToGetThere, DAMAGE_TYPE_ALL) then
+                            bot.dontInterruptTimer = GameTime()
+                            return BOT_ACTION_DESIRE_HIGH, npcEnemy
+                        end
+                    end
+                end
+            end
+		end
+		
+		-- we have a roam target
+		local roamTarget = getHeroVar(bot, "RoamTarget")
+        if utils.ValidTarget(roamTarget) then
+			local enemies3  = gHeroVar.GetNearbyAllies(roamTarget, Min(1600, roamTarget:GetCurrentVisionRange()))
+			local allies3   = gHeroVar.GetNearbyEnemies(roamTarget, Min(1600, roamTarget:GetCurrentVisionRange()))
+			local sumdamage = GetEstimatedDamageToTarget(bot, true, roamTarget, 4.0, DAMAGE_TYPE_ALL)
+			
+			if #enemies3 <= 2 then
+				for _, npcAlly in pairs(allies3) do
+					if not npcAlly:IsIllusion() and npcAlly:GetHealth()/npcAlly:GetMaxHealth() >= 0.7 and 
+                        (npcAlly.SelfRef:getCurrentMode():GetName() ~= "retreat" or npcAlly:IsControllableByAnyPlayer()) then
+						sumdamage = sumdamage + GetEstimatedDamageToTarget(npcAlly, true, roamTarget, 4.0, DAMAGE_TYPE_ALL)
+					end
+				end
+                
+				if roamTarget:GetHealth()*1.1 <= sumdamage then
+                    setHeroVar(bot, "Target", roamTarget)
+                    bot.dontInterruptTimer = GameTime()
+					return BOT_ACTION_DESIRE_HIGH, roamTarget
+				end
+			end
+		end
+	end
+	
+	--------------------------------------
+	-- Mode based usage
+	--------------------------------------
+	-- If we're retreating, see if we can run to another safe lane
+	if modeName == "retreat" or modeName == "shrine" then
+        if bot:WasRecentlyDamagedByAnyHero( 2.0 ) then
+            for _, npcAlly in pairs(bot:GetUnitList(UNIT_LIST_ALLIED_HEROES)) do
+                if npcAlly:IsAlive() then
+                    local enemies3 = gHeroVar.GetNearbyEnemies(npcAlly, 1600)
+                    local creep    = gHeroVar.GetNearbyEnemyCreep(npcAlly, 1600)
+                    if utils.ValidTarget(creep[1]) then
+                        if #enemies3 == 0 and #creep > 0 then
+                            bot.dontInterruptTimer = GameTime()
+                            return BOT_ACTION_DESIRE_HIGH, creep[1]
+                        elseif #enemies3 == 1 and #creep > 0 then
+                            bot.dontInterruptTimer = GameTime()
+                            return BOT_ACTION_DESIRE_HIGH, creep[1]
+                        end
+                    end
+                end
+			end
+		end
+	end
+	
+	-- If we're going after someone
+	if modeName == "roam" or modeName == "defendally" or modeName == "fight" then
+		local npcEnemy = getHeroVar(bot, "RoamTarget")
+        if npcEnemy == nil then npcEnemy = getHeroVar(bot, "Target") end
+		
+        if utils.ValidTarget(npcEnemy) then
+            local enemies3  = gHeroVar.GetNearbyAllies(npcEnemy, Min(1200, npcEnemy:GetCurrentVisionRange()))
+            local allies3   = gHeroVar.GetNearbyEnemies(npcEnemy, Min(1600, npcEnemy:GetCurrentVisionRange()))
+		
+			if not utils.IsTargetMagicImmune(npcEnemy) and not utils.IsCrowdControlled(npcEnemy) and 
+                #enemies3 <= #allies3 then
+                setHeroVar(bot, "Target", npcEnemy)
+                bot.dontInterruptTimer = GameTime()
+				return BOT_ACTION_DESIRE_MODERATE, npcEnemy
+			end
+		end
+	end
+
+    return BOT_ACTION_DESIRE_NONE, nil
+end
+
+function ConsiderW(bot)
+    
+    if not abilityW:IsFullyCastable() then
+		return BOT_ACTION_DESIRE_NONE
+	end
+    
+    --------------------------------------
+	-- Mode based usage
+	--------------------------------------
+	-- If we're retreating
+	if modeName == "retreat" or modeName == "shrine" then
+		if bot:WasRecentlyDamagedByAnyHero( 2.0 ) then
+			return BOT_ACTION_DESIRE_HIGH
+		end
+	end
+
+	-- If we're going after someone
+	if modeName == "roam" or modeName == "defendally" or modeName == "fight" then
+		local npcEnemy = getHeroVar(bot, "RoamTarget")
+        if npcEnemy == nil then npcEnemy = getHeroVar(bot, "Target") end
+
+		if utils.ValidTarget(npcEnemy) and ManaPerc > 0.4 then
+            if GetUnitToUnitDistance(bot, npcEnemy) < 900 then
+                return BOT_ACTION_DESIRE_MODERATE
+            end
+		end
+	end
+    
+    return BOT_ACTION_DESIRE_NONE
+end
+
+function ConsiderR(bot)
+    
+    if not abilityR:IsFullyCastable() then
+		return BOT_ACTION_DESIRE_NONE, nil
+	end
+    
+    local CastRange = abilityR:GetCastRange()
+    local Damage    = abilityR:GetSpecialValueFor("damage")
+    
+    --------------------------------------
+	-- Global high-priorty usage
+	--------------------------------------
+    
+    local enemies = gHeroVar.GetNearbyEnemies(bot, CastRange+300)
+    
+	-- Check for a channeling enemy
+	for _, npcEnemy in pairs( enemies )	do
+		if utils.ValidTarget(npcEnemy) and npcEnemy:IsChanneling() and not utils.IsTargetMagicImmune( npcEnemy ) then
+			return BOT_ACTION_DESIRE_HIGH, npcEnemy
+		end
+	end
+	
+	-- Try to kill enemy hero
+	if modeName ~= "retreat" then
+        local WeakestEnemy, HeroHealth = utils.GetWeakestHero(bot, CastRange+300, enemies)
+		if utils.ValidTarget(WeakestEnemy) then
+            if not utils.IsTargetMagicImmune(WeakestEnemy) and not utils.IsCrowdControlled(WeakestEnemy) then
+				if HeroHealth <= GetActualIncomingDamage(WeakestEnemy, Damage, DAMAGE_TYPE_MAGICAL) then
+					return BOT_ACTION_DESIRE_HIGH, WeakestEnemy
+				end
+			end
+		end
+	end
+	
+	--------------------------------------
+	-- Mode based usage
+	--------------------------------------
+	-- If we're retreating, see if we can land a stun on someone who's damaged us recently
+	if modeName == "retreat" or modeName == "shrine" then
+		for _, npcEnemy in pairs( enemies ) do
+			if utils.ValidTarget(npcEnemy) and WasRecentlyDamagedByHero(bot, npcEnemy, 2.0 ) then
+				if not utils.IsTargetMagicImmune( npcEnemy ) and not utils.IsCrowdControlled(npcEnemy) and
+                    GetUnitToUnitDistance(bot, npcEnemy) < CastRange then
+					return BOT_ACTION_DESIRE_HIGH, npcEnemy
+				end
+			end
+		end
+	end
+	
+	-- If we're going after someone
+	if modeName == "roam" or modeName == "defendally" or modeName == "fight" then
+		local npcEnemy = getHeroVar(bot, "RoamTarget")
+        if npcEnemy == nil then npcEnemy = getHeroVar(bot, "Target") end
+
+		if utils.ValidTarget(npcEnemy) then
+            local allies = gHeroVar.GetNearbyAllies( bot, 1200 )
+			if not utils.IsTargetMagicImmune( npcEnemy ) and not utils.IsCrowdControlled(npcEnemy) and 
+                GetUnitToUnitDistance(bot, npcEnemy) < (CastRange + 75*#allies) then
+				return BOT_ACTION_DESIRE_MODERATE, npcEnemy
+			end
+		end
+	end
+    
+    return BOT_ACTION_DESIRE_NONE, nil
+end
+
+function ComboDmg(bot, enemy)
+    return GetOffensivePower(bot) + fight_simul.estimateRightClickDamage( bot, enemy, 4.0 )
+end
+
+function genericAbility:nukeDamage( bot, enemy )
+    if not utils.ValidTarget(enemy) then return 0, {}, 0, 0, 0 end
+
+    local comboQueue = {}
+    local manaAvailable = bot:GetMana()
+    local dmgTotal = GetOffensivePower(bot)
+    local castTime = 0
+    local stunTime = 0
+    local slowTime = 0
+    local engageDist = 500
+    
+    -- WRITE CODE HERE --
+    
+    return dmgTotal, comboQueue, castTime, stunTime, slowTime, engageDist
+end
+
+function genericAbility:queueNuke(bot, enemy, castQueue, engageDist)
+    if not utils.ValidTarget(enemy) then return false end
+    
+    -- WRITE CODE HERE --
+    
+    return false
+end
+
+return genericAbility
