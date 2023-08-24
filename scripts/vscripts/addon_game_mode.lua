@@ -81,6 +81,7 @@ function Activate()
 	LinkLuaModifier( "modifier_slark_shadow_dance_passive_regen_lua", "heroes/hero_slark/modifier_slark_shadow_dance_passive_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_requiem_slow_lua", 				"heroes/hero_nevermore/modifier_requiem_slow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_electric_vortex_self_slow_lua",  "heroes/hero_storm_spirit/modifier_electric_vortex_self_slow.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_torrent_slow_lua", 				"heroes/hero_kunkka/modifier_torrent_slow.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1287,7 +1288,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		local slow_duration = ability:GetSpecialValueFor("slow_duration")
 		local stun_duration = ability:GetSpecialValueFor("stun_duration")
-		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_kunkka_torrent_slow_datadriven", { duration = slow_duration + stun_duration })
+		parent:AddNewModifier(caster, ability, "modifier_torrent_slow_lua", { duration = slow_duration + stun_duration })
 		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_torrent_damage_datadriven", {})
 	elseif event.name_const == "modifier_obsidian_destroyer_astral_imprisonment_prison" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)

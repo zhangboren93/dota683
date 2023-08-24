@@ -489,17 +489,6 @@
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"10"
 				}
 			}
-			//TODO modifier icon
-			"modifier_kunkka_torrent_slow_datadriven"
-			{
-				"IsDebuff"		"1"
-				"IsPurgable"	"1"
-				"Duration"		"%slow_duration"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-35"
-				}
-			}
 			"modifier_torrent_damage_datadriven"
 			{
 				"IsHidden"		"1"
