@@ -1180,7 +1180,7 @@
 		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_damage"						"攻击力："
 		
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven"				"醉拳"
-		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"	"+10/15/20/25%%闪避和暴击，暴击伤害200%%"
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"	"+10/15/20/25%%闪避和暴击，暴击伤害200%%。16/14/12/10秒后确保暴击和闪避一次。"
 
 		//Disrupter
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven"							"风雷之击"

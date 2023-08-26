@@ -1183,7 +1183,7 @@
 		"DOTA_Tooltip_ability_witch_doctor_death_ward_damage"							"DAMAGE:"
 
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven"				"Drunken Brawler"
-		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"	"+10/15/20/25%% evasion and crit, crit damage 200%%"
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"	"+10/15/20/25%% evasion and crit, crit damage 200%%. Guarentee crit and dodge in 16/14/12/10s."
 
 		//Disruptor
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven"							"Thunder Strike"
