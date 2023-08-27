@@ -364,6 +364,16 @@
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven"					"毒"
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_Description"		"-%movement_speed%移速，-%attack_speed%攻速，持续3秒"
 		//Brewmaster
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven"					"醉拳"
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"		"有一定概率闪避攻击并能造成致命一击。只要在若干秒内没有发动攻击，或没有受到攻击，醉拳的被动效果将下一次攻击或被攻击时必定触发。"
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_dodge_chance"		"%闪避："
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_crit_chance"		"%致命一击几率："
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_crit_multiplier"	"%致命一击伤害："
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_last_proc"			"必定触发计时："
+		"DOTA_Tooltip_modifier_drunken_brawler_guaranteed_crit"						"醉拳必定暴击"
+		"DOTA_Tooltip_modifier_drunken_brawler_guaranteed_crit_Description"			"下次攻击必定暴击。"
+		"DOTA_Tooltip_modifier_drunken_brawler_guaranteed_dodge"					"醉拳必定闪避"
+		"DOTA_Tooltip_modifier_drunken_brawler_guaranteed_dodge_Description"		"下次受击必定闪避。"
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven"						"元素分离"
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"酒仙分裂成元素，产生3个各有所长的战士，生存能力极强。只要其中任何一个在召唤时间结束后存活下来，酒仙就能重生。"
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_duration"				"持续时间："
@@ -1178,9 +1188,6 @@
 		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_Note1"							"死亡守卫可以受到控制，选择攻击特定目标。"
 		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_Note2"							"死亡守卫每0.22秒攻击一次。"
 		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_damage"						"攻击力："
-		
-		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven"				"醉拳"
-		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"	"+10/15/20/25%%闪避和暴击，暴击伤害200%%。16/14/12/10秒后确保暴击和闪避一次。"
 
 		//Disrupter
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven"							"风雷之击"
@@ -1209,6 +1216,8 @@
 		//Lion
 		"DOTA_Tooltip_ability_lion_finger_of_death_Description"							"撕裂一个敌方单位，将其折磨得死去活来，并造成巨大伤害。"
 		"DOTA_Tooltip_ability_lion_finger_of_death_damage_per_kill"						""
+
+		"npc_dota_roshan_datadriven"								"肉山"
 
 		//Miss message
 		"abaddon_miss"				"死骑Miss!"

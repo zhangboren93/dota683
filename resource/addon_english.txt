@@ -364,6 +364,16 @@
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven"					"Poison"
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_Description"		"-%movement_speed% move speed, -%attack_speed% attack speed, lasts 3s"
 		//brewmaster
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven"					"Drunken Brawler"
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"		"Gives a chance to avoid attacks and to deal critical damage. Drunken Brawler will always trigger if you have not attacked, or have not been attacked, in the last several seconds."
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_dodge_chance"		"%Evasion: "
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_crit_chance"		"%Critical Chance: "
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_crit_multiplier"	"%Critical Damage: "
+		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_last_proc"			"Certain Trigger Timer: "
+		"DOTA_Tooltip_modifier_drunken_brawler_guaranteed_crit"						"Guaranteed Crit"
+		"DOTA_Tooltip_modifier_drunken_brawler_guaranteed_crit_Description"			"Next attack will definitely crit."
+		"DOTA_Tooltip_modifier_drunken_brawler_guaranteed_dodge"					"Guaranteed Dodge"
+		"DOTA_Tooltip_modifier_drunken_brawler_guaranteed_dodge_Description"		"Next being attacked will be definitely dodged."
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven"						"Primal Split"
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"Splits Brewmaster into elements, forming 3 specialized warriors, adept at survival, each with their own abilities. If any of them survive until the end of their summoned timer, the Brewmaster is reborn."
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_duration"				"Duration: "
@@ -1182,9 +1192,6 @@
 		"DOTA_Tooltip_ability_witch_doctor_death_ward_Note2"							"Death Ward attacks once every 0.22 seconds."
 		"DOTA_Tooltip_ability_witch_doctor_death_ward_damage"							"DAMAGE:"
 
-		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven"				"Drunken Brawler"
-		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"	"+10/15/20/25%% evasion and crit, crit damage 200%%. Guarentee crit and dodge in 16/14/12/10s."
-
 		//Disruptor
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven"							"Thunder Strike"
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_Description"				"Repeatedly strikes the targeted unit with lightning.  Each strike damages nearby enemy units in a small radius.  Provides vision of its target."
@@ -1212,5 +1219,7 @@
 		//Lion
 		"DOTA_Tooltip_ability_lion_finger_of_death_Description"							"Rips at an enemy unit, trying to turn it inside-out. Deals massive damage."
 		"DOTA_Tooltip_ability_lion_finger_of_death_damage_per_kill"						""
+
+		"npc_dota_roshan_datadriven"								"Roshan"
 	}
 }
