@@ -316,12 +316,18 @@ function CAddonTemplateGameMode:OnThink()
 		if self.hero_selection_state == "INI" then
 			if self.rdEnabled then
 				local heroes = all_heroes
-				for i=1,#heroes do
-					if RandomInt(1, 111) > 30 then
-						GameRules:AddHeroToBlacklist(heroes[i])
-						if same_ability_heroes[heroes[i]] ~= nil then
-							GameRules:AddHeroToBlacklist(same_ability_heroes[heroes[i]])
-						end
+				for i=2,#heroes do
+					local j=RandomInt(1,i)
+					if i ~= j then
+						local tmp = heroes[i];
+						heroes[i] = heroes[j];
+						heroes[j] = tmp;
+					end
+				end
+				for i=31,#heroes do
+					GameRules:AddHeroToBlacklist(heroes[i])
+					if same_ability_heroes[heroes[i]] ~= nil then
+						GameRules:AddHeroToBlacklist(same_ability_heroes[heroes[i]])
 					end
 				end
 				self.hero_selection_state = "PIC"
