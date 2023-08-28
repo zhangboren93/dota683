@@ -1529,7 +1529,7 @@
 		"Ability1"		"slardar_sprint_datadriven"
 		"Ability2"		"slardar_slithereen_crush_2"
 		"Ability3"		"slardar_bash_datadriven"
-		"Ability4"		"generic_hidden"
+		"Ability4"		"primal_beast_attack_animation_datadriven"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"slardar_amplify_damage"
 		"Ability10"		"special_bonus_all_stats_4"
