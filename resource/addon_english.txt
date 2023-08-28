@@ -717,6 +717,8 @@
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"			"increase outgoing and incoming damage for %damage_increase_pct%%%, kill recovers 25%%, lasts %duration% seconds"
 		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven"						"Thirst"
 		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_Description"			"+%bonus_movement_speed%%% move speed, +%bonus_damage% damage"
+		"DOTA_Tooltip_modifier_thirst_debuff_datadriven"				"Thirst"
+		"DOTA_Tooltip_modifier_thirst_debuff_datadriven_Description"	"Bloodseeker senses your injuries, and knows exactly where you are."
 		//Bounty Hunter
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven"						"Jinada"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Description"			"Bounty Hunter plans his next hit, passively adding a critical strike and maim to his next attack."

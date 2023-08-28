@@ -127,5 +127,9 @@ function GiveVision(keys)
 	caster = keys.caster
 	target = keys.target
 	
+	if not caster:IsAlive() then
+		target:RemoveModifierByName("modifier_thirst_debuff_datadriven")
+		return
+	end
 	AddFOWViewer(caster:GetTeam(), target:GetAbsOrigin(), 10, 0.01, false)
 end
