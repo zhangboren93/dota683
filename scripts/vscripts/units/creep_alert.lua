@@ -8,6 +8,10 @@ function handleTakeDamage(event)
 		return
 	end
 	local units = FindUnitsInRadius(unit:GetTeam(), unit:GetAbsOrigin(), unit, 500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_CREEP, 0, 0, true)
+	if unit.creepAlertCD ~= nil and unit.creepAlertCD < GameRules:GetGameTime() then
+		return
+	end
+	unit.creepAlertCD = GameRules:GetGameTime() + 2
 	for i=1,#units do
 		local unit = units[i]
 		if unit:HasModifier("modifier_creep_ai") then
