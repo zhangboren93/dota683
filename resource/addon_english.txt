@@ -1052,8 +1052,10 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft"							"Witchcraft"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft_Description"				"Swarm and Silence CD -1/2/3/4 seconds, -10/15/20/25 mana cost，exorcism +3/4/5/6 souls，passive move speed +4/8/12/16%%"
 
+		//Ancient Apparition
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven"					"Chilling Touch"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven_Description"		"Attack adds magic damage %bonus_damage%, -20 attack speed, max attack %max_attacks%, lasts 30 seconds"
+		"DOTA_Tooltip_Ability_ancient_apparition_ice_blast_Scepter_Description"				"Increase Duration."
 
 		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"  	"+2 missles"
 

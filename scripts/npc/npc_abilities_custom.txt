@@ -9251,11 +9251,7 @@
 			}
 			"dot_damage"			"12.5 20.0 32.0"
 			"speed"					"1500 1500 1500 1500"
-			"kill_pct"
-			{	
-				"value"				"10 11 12"
-				"special_bonus_unique_ancient_apparition_5"	"+4"
-			}
+			"kill_pct"				"10 11 12"
 			"target_sight_radius"	"500 500 500"
 		}
 	}
