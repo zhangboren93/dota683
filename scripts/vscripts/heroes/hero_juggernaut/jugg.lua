@@ -154,8 +154,6 @@ function juggernaut_blade_fury_datadriven:GetCastRange() return self:GetSpecialV
 function juggernaut_blade_fury_datadriven:OnSpellStart()
     self:GetCaster():Purge(false, true, false, false, false)
     self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_juggernaut_blade_fury_datadriven", {duration = self:GetDuration()})
-    local rand = RandomInt(2, 9)
-    if (rand >= 2 and rand <= 3) or (rand >= 5 and rand <= 9) then EmitSoundOnEntityForPlayer("juggernaut_jug_ability_bladefury_0"..rand, self:GetCaster(), self:GetCaster():GetPlayerID()) end
 end
 modifier_juggernaut_blade_fury_datadriven = class({})
 function modifier_juggernaut_blade_fury_datadriven:IsPurgable() return false end
