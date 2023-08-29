@@ -88,7 +88,7 @@
 		"item"		"item_buckler_2"
 		"item"		"item_urn_of_shadows_datadriven"
 		"item"		"item_tranquil_boots_datadriven"
-		"item"		"item_ring_of_aquila"	
+		"item"		"item_ring_of_aquila_lua"	
 		"item"		"item_medallion_of_courage"
 		"item"		"item_arcane_boots"
 		"item"		"item_ancient_janggo_datadriven"

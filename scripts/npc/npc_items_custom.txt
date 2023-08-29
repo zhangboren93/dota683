@@ -473,24 +473,48 @@
 	}
 
 
-	"item_recipe_ring_of_aquila"
+	"item_recipe_ring_of_aquila_lua"
 	{
-		"ItemPurchasable"	"1"
-		"IsObsolete"		"0"
+		"BaseClass"						"item_datadriven"
+		"ItemCost"						"0"	
+		"ItemPurchasable"				"1"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_ring_of_aquila_lua"
+		"AbilityTextureName"			"item_recipe"
 		"ItemRequirements"
 		{
 			"01"	"item_wraith_band_datadriven;item_ring_of_basilius_datadriven"
 			"02"	"item_wraith_band_datadriven;item_ring_of_basilius_inactive_datadriven"
 		}
 	}
-	"item_ring_of_aquila"
+
+	"item_ring_of_aquila_lua"
 	{
-		"ItemPurchasable"	"1"
-		"IsObsolete"		"0"
-		"ShouldBeSuggested"	"1"
-		"ItemSellable"		"1"
-		"ItemIsNeutralDrop"	"0"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_ring_of_aquila.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityCastRange" 				"900"
+		"AbilityTextureName"			"item_ring_of_aquila"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemAliases"					"roa;ring of aquila"
+		"ItemPurchasable"				"1"
+		"ShouldBeSuggested"				"0"
+		"ItemSellable"					"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ItemCost"						"1010"
+
+		// Sound
+		//-------------------------------------------------------------------------------------------------------------			
+		"UIPickupSound"					"Item.PickUpRingShop"
+		"UIDropSound"					"Item.DropRingShop"
+		"WorldDropSound"				"Item.DropRingWorld"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 				"bonus_damage"			"9"
@@ -501,7 +525,7 @@
 				"aura_radius"			"900"
 				"aura_mana_regen"		"0.65"
 				"aura_bonus_armor"		"2"
-		}	
+		}		
 	}
 
 	"item_glimmer_cape"
@@ -2603,7 +2627,6 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1275"
 		"BaseClass"           			"item_datadriven"
 		"AbilityTextureName" 			"item_wraith_band"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"

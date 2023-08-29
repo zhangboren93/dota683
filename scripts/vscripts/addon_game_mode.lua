@@ -46,6 +46,9 @@ function Activate()
 	LinkLuaModifier( "modifier_item_quelling_blade_active_ranged_lua", "items/modifier_item_quelling_blade_active_ranged.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_quelling_blade_active_melee_lua", "items/modifier_item_quelling_blade_active_melee.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_heart_regen_lua",		"items/modifier_item_heart_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_ring_of_aquila_lua", 	"items/modifier_item_ring_of_aquila.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_ring_of_aquila_aura_lua", 	"items/modifier_item_ring_of_aquila_aura.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_ring_of_aquila_aura_active_lua",	"items/modifier_item_ring_of_aquila_aura_active.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 
