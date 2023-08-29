@@ -721,16 +721,22 @@
 		
 		// Antimage
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"				"Mana Break"
-		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"28/40/52/64 mana reduce, damage for 60%%"
+		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"Burns an opponent's mana on each attack. Mana Break deals 60%% of the mana burned as damage to the target."
+		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"	"Mana Burned per Hit: "
 		//Arc Warden
 		"DOTA_Tooltip_Ability_arc_warden_tempest_double_health_cost_pct"		"%HEALTH AND MANA COST:"
 		// Bloodseeker
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"						"Bloodrage"
-		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"			"increase outgoing and incoming damage for %damage_increase_pct%%%, kill recovers 25%%, lasts %duration% seconds"
+		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"			"Drives a unit into a bloodthirsty rage during which a unit deals, and takes, increased damage.<br>Units affected by Bloodrage will be healed for a percentage of the max health of any units they kill. Units affected by Bloodrage when killed will heal a percentage of their max health to their killer."
+		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_damage_increase_pct"	"%Damage Amplification: "
+		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_health_bonus_pct"	"%Max Health as Heal: "
+		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_duration"			"Duration: "
+		"DOTA_Tooltip_modifier_blood_rage_datadriven"							"Bloodrage"
+		"DOTA_Tooltip_modifier_blood_rage_datadriven_Lore"						"Deals and takes increased damage, killers will be healed when killing units or killed."
 		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven"						"Thirst"
-		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_Description"			"+%bonus_movement_speed%%% move speed, +%bonus_damage% damage"
-		"DOTA_Tooltip_modifier_thirst_debuff_datadriven"				"Thirst"
-		"DOTA_Tooltip_modifier_thirst_debuff_datadriven_Description"	"Bloodseeker senses your injuries, and knows exactly where you are."
+		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_Description"			"Bloodseeker is invigorated by the wounds of his enemies, gaining bonus movement speed and attack speed whenever an enemy hero's health falls below %buff_threshold_pct%%%, with the bonuses increasing as their health falls further. If an enemy hero's health falls below %visibility_threshold_pct%%%, he will also gain vision and True Sight of that hero. Bonuses stack per hero."
+		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_bonus_movement_speed"	"%Max Move Speed Bonus per Hero:"
+		"DOTA_Tooltip_Ability_bloodseeker_thirst_datadriven_bonus_damage"			"Max Damage Bonus per Hero:"
 		//Bounty Hunter
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven"						"Jinada"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Description"			"Bounty Hunter plans his next hit, passively adding a critical strike and maim to his next attack."
@@ -739,9 +745,10 @@
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_bonus_movespeed"		"%MOVE SPEED SLOW:"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_bonus_attackspeed"	"ATTACK SPEED SLOW:"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_duration"				"SLOW DURATION:"
-		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven"				"Wind walk"
-		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_Description"	"invis lasts %duration% seconds, + %bonus_damage% damage"
-		"DOTA_Tooltip_Ability_bounty_hunter_track_Lore"							"team +20%% move speed"
+		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven"				"Shadow walk"
+		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_Description"	"Bounty Hunter becomes invisible and gains the ability to move through other units until he attacks or uses an ability. If he breaks the invisibility with an attack, that attack will deal bonus damage."
+		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_duration"		"Duration:"
+		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_bonus_damage"	"Bonus Damage:"
 		// Broodmother
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"Spin Web"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"max web count %count%, health regen %health_regen%, move speed +%bonus_movespeed%%%"
@@ -1242,6 +1249,8 @@
 		//Lion
 		"DOTA_Tooltip_ability_lion_finger_of_death_Description"							"Rips at an enemy unit, trying to turn it inside-out. Deals massive damage."
 		"DOTA_Tooltip_ability_lion_finger_of_death_damage_per_kill"						""
+
+		"DOTA_Tooltip_Ability_bounty_hunter_track_Lore"							"team +20%% move speed"
 
 		"npc_dota_roshan_datadriven"								"Roshan"
 	}

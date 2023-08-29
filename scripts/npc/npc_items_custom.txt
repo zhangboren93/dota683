@@ -525,7 +525,7 @@
 				"aura_radius"			"900"
 				"aura_mana_regen"		"0.65"
 				"aura_bonus_armor"		"2"
-		}		
+		}	
 	}
 
 	"item_glimmer_cape"
@@ -1586,23 +1586,11 @@
 	{
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"health_regen"			"7.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"buff_duration"			"16.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration_to_use"	    "4000"
-			}
+				"duration_to_use"	    "86400"
 		}
 	}
 	"item_tpscroll"
