@@ -37134,4 +37134,35 @@
 			}
 		}
 	}
+    "minimap_camp_icon_datadriven"
+    {
+        "BaseClass"                     "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "Modifiers"
+        {
+            "modifier_minimap_camp_icon_datadriven"
+            {
+                "Passive"       "1"
+                "States"
+                {
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVISIBLE"		    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_OUT_OF_GAME"	    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+                }
+
+                "ThinkInterval" "1"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "minimap_camp_icon.lua"
+                        "Function"      "handleIntervalThink"
+                    }
+                }
+            }
+        }
+    }
 }

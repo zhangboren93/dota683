@@ -378,6 +378,7 @@ neutralcamp_size_2_creeps = {
 }
 
 function SpawnNeutralCreepsCustom()
+    if not IsServer() then return end
 	SpawnNeutralCreepsCustomOfSide("neutralcamp_good_")
 	SpawnNeutralCreepsCustomOfSide("neutralcamp_evil_")
 end
@@ -388,18 +389,18 @@ function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
 		local spawn_trigger = Entities:FindByName(nil, trigger_name)
 		local spawner_empty = true
 		local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, spawn_trigger:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, FIND_ANY_ORDER, false)
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 		for j=1,#units do
 			if spawn_trigger:IsTouching(units[j]) then
 				spawner_empty = false
 				break
 			end
 		end
+		local camp_location = neutralcamp_name_2_location[trigger_name]
 		if spawner_empty then
 			local camp_size = neutralcamp_name_2_size[trigger_name]
 			local camp_types = neutralcamp_size_2_creeps[camp_size]
 			local camp_type = camp_types[RandomInt(1, #camp_types)]
-			local camp_location = neutralcamp_name_2_location[trigger_name]
 			for j=1,#camp_type do
 				CreateUnitByNameAsync(camp_type[j], camp_location, true, nil, nil, DOTA_TEAM_NEUTRALS, function(entity)
 					for k=1,entity:GetAbilityCount() do
@@ -413,5 +414,41 @@ function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
 				end)
 			end
 		end
+        local all_units = Entities:FindAllInSphere(camp_location, 100)
+        local has_radiant_camp = false
+        local has_dire_camp = false
+        for j=1,#all_units do
+            if all_units[j].HasModifier ~= nil and all_units[j]:HasModifier("modifier_minimap_camp_icon_datadriven") then
+                if all_units[j]:GetTeam() == DOTA_TEAM_GOODGUYS then
+                    has_radiant_camp = true
+                else
+                    has_dire_camp = true
+                end
+            end
+        end
+        CreateUnitByNameAsync("npc_dummy_unit_minimap_camp",
+            camp_location,
+            true,
+            nil, 
+            nil,
+            DOTA_TEAM_GOODGUYS,
+            function(entity)
+                entity:FindAbilityByName("minimap_camp_icon_datadriven"):SetLevel(1)
+                if has_radiant_camp then
+                    entity:AddNewModifier(entity, nil, "modifier_kill", { duration = 1 })
+                end
+            end)
+        CreateUnitByNameAsync("npc_dummy_unit_minimap_camp",
+            camp_location,
+            true,
+            nil, 
+            nil,
+            DOTA_TEAM_BADGUYS,
+            function(entity)
+                entity:FindAbilityByName("minimap_camp_icon_datadriven"):SetLevel(1)
+                if has_dire_camp then
+                    entity:AddNewModifier(entity, nil, "modifier_kill", { duration = 1 })
+                end
+            end)
 	end
 end
