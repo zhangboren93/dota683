@@ -22568,117 +22568,184 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-	//=================================================================================================================
-	// Ability: Earthshaker Totem
-	n//=================================================================================================================
-	"earthshaker_enchant_totem"
+// Rewrite of Earthshaker Enchant Totem
+// Author: YOLOSPAGHETTI
+// Date: July 30, 2016
+// Version: 6.88
+// Type: Datadriven
+//
+// Notes: No attack blur
+"earthshaker_enchant_totem_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityTextureName"			"earthshaker_enchant_totem"
+	"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	"AnimationPlaybackRate"  	"0.7"
+	
+	"precache"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5024"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"Hero_EarthShaker.Totem"
+		"particle"		"particles/units/heroes/hero_earthshaker/earthshaker_totem_blur.vpcf"
+		"soundfile" 	"sounds/weapons/hero/earthshaker/enchant.vsnd"
+		"soundfile" 	"sounds/weapons/hero/earthshaker/enchant_attack.vsnd"
+	}
 
-		"HasScepterUpgrade"			"0"
-		
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"0"
+	"AbilityCastPoint"				"0.69"
+	"FightRecapLevel"				"1"
+	"AbilityTextureName"			"earthshaker_enchant_totem"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0.6"
-		"FightRecapLevel"				"1"
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"5"
+	"AbilityDuration"				"14"
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0"
-		"AbilityDuration"				"14"
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"0 0 0 0"
 
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0 0 0 0"
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"20 30 40 50"		
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"20 30 40 50"		
-
-		"AbilityValues"
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
 		{
-			"totem_damage_percentage"	
+			"var_type"					"FIELD_INTEGER"
+			"totem_damage_percentage"	"100 200 300 400"
+		}
+		"02"
+		{
+			"var_type"					"FIELD_FLOAT"
+			"tooltip_duration"			"14.0 14.0 14.0 14.0"
+		}
+	}
+	
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"	"Hero_EarthShaker.Totem"
+			"Target"		"CASTER"
+		}
+	
+		"ApplyModifier"
+		{
+			"ModifierName"	"modifier_enchant_totem_datadriven"
+			"Target"		"CASTER"
+		}
+	}
+	
+	"Modifiers"
+	{
+		"modifier_enchant_totem_datadriven"
+		{
+			"Duration"		"%tooltip_duration"
+			
+			"OnAttackLanded"
 			{
-				"value"		"100 200 300 400"
-				"CalculateSpellDamageTooltip"	"0"
+				"RemoveModifier"
+				{
+					"ModifierName"	"modifier_enchant_totem_datadriven"
+					"Target"		"CASTER"
+				}
+				
+				"FireSound"
+				{
+					"EffectName"	"Hero_EarthShaker.Totem.Attack"
+					"Target"		"CASTER"
+				}
 			}
-			"distance_scepter"			
+			
+			"Properties"
 			{
-				"value"		"1"
-				"RequiresScepter"		"1"
+				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%totem_damage_percentage"
 			}
+		}
+	}
+}
+// Rewrite of Earthshaker Aftershock
+// Author: YOLOSPAGHETTI
+// Date: July 30, 2016
+// Version: 6.88
+// Type: Datadriven
+//
+// ----- FILE REQUIREMENTS -----
+// Script files:
+// scripts/vscripts/heroes/hero_earthshaker/aftershock.lua
+
+"earthshaker_aftershock_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"				"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"AbilityTextureName"			"earthshaker_aftershock"
+
+	"precache"
+	{
+		"particle"		"particles/units/heroes/hero_earthshaker/temp_eruption_dirt.vpcf"
+		"particle"		"particles/units/heroes/hero_earthshaker/temp_eruption_ripple_b.vpcf"
+	}
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDuration"				"0.6 0.9 1.2 1.5"
+
+	// Damage.
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityDamage"					"50 75 100 125"
+	
+	// Stats
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityModifierSupportBonus"	"100"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilitySpecial"
+	{
+		"01"
+		{
+			"var_type"					"FIELD_INTEGER"
 			"aftershock_range"			"300"
-			"scepter_height"			"950"
-			"scepter_height_arcbuffer"	"100"
-			"scepter_acceleration_z"	"4000"
-			"scepter_acceleration_horizontal"	"3000"
-			"scepter_leap_duration"		"0.8"
-			"scepter_cleave_pct"
-			{
-				"value"					"0"
-				"RequiresScepter"		"1"
-			}
-			"scepter_cleave_starting_width"
-			{
-				"value"					"0"
-				"RequiresScepter"		"1"
-			}
-			"scepter_cleave_ending_width"
-			{
-				"value"					"0"
-				"RequiresScepter"		"1"
-			}
-			"scepter_cleave_distance"
-			{
-				"value"					"0"
-				"RequiresScepter"		"1"
-			}
-			"bonus_attack_range"		"0"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-	//=================================================================================================================
-	// Ability: Earthshaker Aftershock
-	//=================================================================================================================
-	"earthshaker_aftershock"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5025"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"0.6 0.9 1.2 1.5"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"	"100"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"02"
 		{
-				"aftershock_range"			"300"
-				"aftershock_damage"			"50 75 100 125"
+			"var_type"					"FIELD_FLOAT"
+			"tooltip_duration"			"0.6 0.9 1.2 1.5"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
+	
+	"Modifiers"
+	{
+		"modifier_aftershock_datadriven"
+		{
+			"Passive"	"1"
+			"IsHidden"	"1"
+			
+			"OnAbilityExecuted"
+			{
+						"RunScript"
+						{
+							"ScriptFile"	"heroes/hero_earthshaker/aftershock.lua"
+							"Function"		"Aftershock"
+							"particle1"		"particles/units/heroes/hero_earthshaker/temp_eruption_dirt.vpcf"
+							"particle2"		"particles/units/heroes/hero_earthshaker/temp_eruption_ripple_b.vpcf"
+						}
+			}
+		}
+	}
+}
+	//=================================================================================================================
 	// Ability: Nevermore Requiem of Souls
 	//=================================================================================================================
 	"nevermore_requiem"
