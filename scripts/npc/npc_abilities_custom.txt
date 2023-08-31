@@ -31602,6 +31602,11 @@
 		"AbilityTextureName"			"juggernaut_blade_fury"
 		"FightRecapLevel"				"1"
 
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+		}
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
