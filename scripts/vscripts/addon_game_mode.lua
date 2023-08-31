@@ -67,6 +67,7 @@ function Activate()
 	LinkLuaModifier( "modifier_familiar_attack_damage_lua",		"modifiers/familiar_attack_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_kill_tree_on_death", 			"modifiers/kill_tree_on_death.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_no_creep_aggro_on_cast_orb_lua", "modifiers/no_creep_aggro_on_cast_orb.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_bounty_hunter_track_aura_lua", 	"heroes/hero_bounty_hunter/modifier_bounty_hunter_track_aura.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -706,24 +707,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
 		end, "remove tpscroll", 0.5)
 
-		entity:SetThink(function()
-			if entity:HasModifier("modifier_bounty_hunter_track") then
-				local units = FindUnitsInRadius(
-					entity:GetTeam(), 
-					entity:GetAbsOrigin(), nil, 
-					900, 
-					DOTA_UNIT_TARGET_TEAM_ENEMY, 
-					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-					0, 
-					FIND_ANY_ORDER, 
-					false)
-				for i=1,#units do
-					units[i]:AddNewModifier(units[i], nil, "modifier_bounty_hunter_track_effect_lua", {}):SetDuration(1, true)
-				end
-			end
-			return 1
-		end, "Bounty Track aura", 1)
-
 		-- abilities
 		entity:AddAbility("hero_creep_aggro_datadriven"):SetLevel(1)
 		entity:AddAbility("hero_intrinstic_mechanism_datadriven"):SetLevel(1)
@@ -1358,6 +1341,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		parent:SetThink(function() 
 			ApplyDamage({victim = parent, attacker = caster, damage = ability:GetSpecialValueFor("impale_damage_tooltip"), damage_type = DAMAGE_TYPE_MAGICAL})
 		end, "impale damage late", 0.5) 
+	elseif event.name_const == "modifier_bounty_hunter_track" then 
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local duration = ability:GetSpecialValueFor("duration")
+		parent:AddNewModifier(caster, ability, "modifier_bounty_hunter_track_aura_lua", { duration = duration })
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

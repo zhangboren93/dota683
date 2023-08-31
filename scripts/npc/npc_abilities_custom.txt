@@ -30631,50 +30631,17 @@
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"target_crit_multiplier"	"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_gold_radius"		"1200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_gold_self"		"200 275 300"
-				"LinkedSpecialBonus"	"special_bonus_unique_bounty_hunter_3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_gold"			"50 100 150"
-				"LinkedSpecialBonus"	"special_bonus_unique_bounty_hunter_3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"30.0 30.0 30.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"gold_steal"			"0"
-			}			
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_move_speed_pct"	"0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
+				"bonus_move_speed_pct_aura"	"20"
 				"toss_crit_multiplier"	"100"
-			}
 		}
 	}
 	"ember_spirit_searing_chains"
