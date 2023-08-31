@@ -545,6 +545,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability2"		"earthshaker_enchant_totem_datadriven"
 		"Ability3"		"earthshaker_aftershock_datadriven"
+		"Ability6"		"earthshaker_echo_slam_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
