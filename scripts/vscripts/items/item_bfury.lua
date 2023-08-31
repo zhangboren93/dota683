@@ -20,6 +20,7 @@ function item_bfury_cleave_lua:OnProcessCleave(event)
 	if attacker == self:GetParent() 
         and not target:IsBuilding() 
         and attacker:GetTeam() ~= target:GetTeam() 
+		and not attacker:IsIllusion()
         and not attacker:IsRangedAttacker() then
 
 		local pct = ability:GetSpecialValueFor("cleave_damage_percent")
