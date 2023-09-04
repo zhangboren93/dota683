@@ -1280,7 +1280,17 @@
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven_radius"						"作用范围："
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven_duration"						"持续时间："
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven_damage_per_second"			"每秒伤害："
-		"DOTA_Tooltip_Ability_dark_seer_wall_of_replica_Scepter_Description"	"+幻像攻击力"
+		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_datadriven"							"复制之墙"
+		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_datadriven_Description"				"制造一堵扭曲的光墙，对穿过的敌方英雄复制一个其自身的幻象，幻象由黑暗贤者控制，持续到光墙消失，或者被敌人消灭。"
+		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_datadriven_Lore"					"尽管黑暗贤者无法重返原来的国度，但他仍然能运用强大的心智力量召唤出幻墙的一部分，在敌阵中散播混乱。"
+		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_datadriven_Note0"					"幻象不会产生幻象。"
+		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_datadriven_Note1"					"每堵光墙同一时间产生的为一名英雄产生的幻象只有一个。"
+		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_datadriven_duration"				"光墙持续时间："
+		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_datadriven_tooltip_outgoing"		"%幻象继承攻击力："
+		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_datadriven_tooltip_replica_total_damage_incoming"		"%幻象承受伤害："
+		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_datadriven_abilitycastrange"		"施法距离："
+		"DOTA_Tooltip_ability_dark_seer_wall_of_replica_datadriven_damage"					"伤害："
+		"DOTA_Tooltip_Ability_dark_seer_wall_of_replica_datadriven_Scepter_Description"		"+幻像攻击力"
 
 		//Shadow Demon
 		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven"					"灵魂猎手"
