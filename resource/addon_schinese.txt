@@ -1396,8 +1396,13 @@
 		"DOTA_Tooltip_ability_lion_finger_of_death_Description"							"撕裂一个敌方单位，将其折磨得死去活来，并造成巨大伤害。"
 		"DOTA_Tooltip_ability_lion_finger_of_death_damage_per_kill"						""
 
-		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven"				"强击光环"
-		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven_Description"	"友方远程英雄+攻击力=小黑%trueshot_ranged_damage%敏捷"
+		//Drow
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven"								"精准光环"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven_Description"					"提高所有友方远程英雄的攻击力，提升数值是卓尔游侠敏捷值的一定百分比。施放后对所有普通单位生效，持续30秒。"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven_Lore"						"崔希丝在卓尔族森林中独处的时光让她有时间教导其他弓箭手如何提高弓技。"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven_trueshot_ranged_damage"		"%远程攻击力提升："
+		"DOTA_Tooltip_modifier_trueshot_effect_datadriven"						"精准光环"
+		"DOTA_Tooltip_modifier_trueshot_effect_datadriven_Description"			"攻击力提升。"
 
 		"npc_dota_roshan_datadriven"								"肉山"
 

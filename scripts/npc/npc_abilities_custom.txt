@@ -17236,10 +17236,14 @@
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"				"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 	"AbilityTextureName"			"drow_ranger_trueshot"
+	"AbilityCastRange"				"0"
+	"AbilityCastPoint"				"0"
+	"AbilityDuration"				"30.0"
+	"AbilityCooldown"				"120"
 
 	// Special
 	//-------------------------------------------------------------------------------------------------------------
@@ -17259,6 +17263,16 @@
 		}
 	}
 	
+	"OnSpellStart"
+	{
+		"ApplyModifier"
+		{
+			"Target"				"CASTER"
+			"ModifierName"			"modifier_trueshot_aura_creep_datadriven"
+			"Duration"				"%AbilityDuration"
+		}
+	}
+
 	"Modifiers"
 	{
 		"modifier_trueshot_aura_datadriven"
@@ -17271,6 +17285,18 @@
 			"Aura_Radius"			"%global_radius"
 			"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 			"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+			"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_RANGED_ONLY"
+		}
+
+		"modifier_trueshot_aura_creep_datadriven"
+		{
+			"IsPurgable"			"0"
+			"IsHidden"				"1"
+			
+			"Aura"					"modifier_trueshot_effect_datadriven"
+			"Aura_Radius"			"%global_radius"
+			"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+			"Aura_Types"			"DOTA_UNIT_TARGET_BASIC"
 			"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_RANGED_ONLY"
 		}
 		

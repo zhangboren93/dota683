@@ -1398,8 +1398,13 @@
 		"DOTA_Tooltip_ability_lion_finger_of_death_Description"							"Rips at an enemy unit, trying to turn it inside-out. Deals massive damage."
 		"DOTA_Tooltip_ability_lion_finger_of_death_damage_per_kill"						""
 
-		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven"				"Trueshot"
-		"DOTA_Tooltip_Ability_drow_ranger_trueshot_datadriven_Description"	"allie heroes + damage = drow's agility * %trueshot_ranged_damage%"
+		//Drow
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven"									"Precision Aura"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven_Description"						"Adds bonus damage to the physical attack of allied, ranged Hero units based on a percentage of Drow's agility.  Affects creeps for 30 seconds when cast."
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven_Lore"								"Traxex' time spent alone in the forests of her Drow home has allowed her to teach other archers how to improve their bow skills."
+		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven_trueshot_ranged_damage"			"%RANGE DAMAGE BONUS:"
+		"DOTA_Tooltip_modifier_trueshot_effect_datadriven"										"Precision Aura"
+		"DOTA_Tooltip_modifier_trueshot_effect_datadriven_Description"							"Increase Damage."
 
 		"npc_dota_roshan_datadriven"								"Roshan"
 	}
