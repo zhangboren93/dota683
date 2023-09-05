@@ -79,7 +79,13 @@ function modifier_creep_ai:IsHidden()
 end
 
 function isAttackable(target, attacker) 
-	return IsValidEntity(target) and target:IsAlive() and attacker:CanEntityBeSeenByMyTeam(target) and not target:IsInvisible() and not target:IsAttackImmune() and not target:HasModifier("modifier_bane_nightmare")
+	return (IsValidEntity(target) 
+		and target:IsAlive() 
+		and attacker:CanEntityBeSeenByMyTeam(target) 
+		and not target:IsInvisible() 
+		and not target:IsAttackImmune() 
+		and not target:HasModifier("modifier_bane_nightmare") 
+		and not target:IsInvulnerable())
 end
 
 function modifier_creep_ai:OnIntervalThink()
@@ -94,6 +100,9 @@ end
 
 function modifier_creep_ai:OnIntervalThinkInternal()
 	local entity = self:GetParent()
+	if entity:IsDominated() then
+		self:Destroy()
+	end
 	if entity:HasModifier("modifier_creep_aggroed_datadriven") then
 		if self.target ~= nil and isAttackable(self.target.unit, entity) then
 			return
