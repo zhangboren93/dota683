@@ -18221,6 +18221,45 @@
 			}
 		}
 	}
+	"troll_warload_berserkers_rage_bash_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_troll_warlord_berserkers_rage_bash_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"ThinkInterval"		"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_troll_warlord/berserkers_rage.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_troll_warlord/berserkers_rage.lua"
+						"Function"		"handleAttackLanded"
+					}
+				}
+			}
+			"modifier_berserkers_rage_active_datadriven"
+			{
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" 	"15"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"-22"
+				}
+			}
+		}
+	}
 	//=================================================================================================================
 	// Meepo: Earthbind
 	//=================================================================================================================

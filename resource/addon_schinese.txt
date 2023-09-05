@@ -1080,10 +1080,25 @@
 		// Templar Assassin
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"折光"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_Description"	"+攻%bonus_damage%，护盾数量%instances%"
+		
 		// Troll Warlord
-		"DOTA_Tooltip_Ability_troll_warlord_berserkers_rage_Lore"	"+100生命+15攻击力10%%击晕+20/30/40/50伤害持续0.8/1.2/1.6/2秒"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage"					"狂战士之怒"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_Description"		"激活后巨魔战将从远程形态变成近战进行攻击。近战攻击时将有几率击晕。狂战士之怒还将提供额外的移动速度，护甲，攻击力，血量并且降低攻击间隔。\n\n狂战士之怒激活后会改变旋风飞斧的作用机制。"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_Lore"				"跟巨魔战将的怒火一样，他的斧头也是源源不断。"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_Note0"				"近战或远程物品的冷却时间不同时将根据巨魔战将在使用物品时处于远程或近战形态而定。"		
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bonus_move_speed"	"移动速度加成："
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bonus_armor"		"护甲加成："		
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_base_attack_time"	"基础攻击间隔（近战）："
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_ensnare_chance"		""
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_ensnare_duration"	""
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bonus_hp"			"血量加成："
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bonus_damage"		"伤害加成："
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bash_chance"		"%击晕几率："
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bash_damage"		"击晕伤害："
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bash_duration"		"眩晕时间："
 		"DOTA_Tooltip_Ability_troll_warlord_battle_trance_datadriven"				"吼"
 		"DOTA_Tooltip_Ability_troll_warlord_battle_trance_datadriven_Description"	"全体英雄+%attack_speed%攻速，持续7秒"
+
 		//Ursa
 		"DOTA_Tooltip_ability_ursa_earthshock_datadriven"											"震撼大地"
 		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_Description"								"熊战士猛击地面带来强烈的冲击，对附近范围内的所有敌方单位造成伤害并减速%abilityduration%秒。"

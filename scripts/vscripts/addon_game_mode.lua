@@ -729,18 +729,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
 
 
-		if entity:GetName() == "npc_dota_hero_troll_warlord" then
-			entity:SetThink(function()
-				if entity:HasModifier("modifier_troll_warlord_berserkers_rage") then
-					local ability = entity:FindAbilityByName("troll_warlord_berserkers_rage")
-					entity:AddNewModifier(entity, ability, "modifier_troll_warlord_bash", {
-						bonus_damage = bonus_damage, bash_chance = bash_chance})
-				else
-					entity:RemoveModifierByName("modifier_troll_warlord_bash")
-				end
-				return 0.2
-			end, "troll get bash on hit", 1)
-		elseif entity:GetName() == "npc_dota_hero_meepo" then
+		if entity:GetName() == "npc_dota_hero_meepo" then
 			if self.mainMeepo == nil then
 				print("Registering meepo spawned")
 				self.mainMeepo = entity

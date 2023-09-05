@@ -1080,10 +1080,25 @@
 		// Templar Assassin
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"Refraction"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_Description"	"damage +%bonus_damage%, %instances% instances"
+
 		// Troll Warlord
-		"DOTA_Tooltip_Ability_troll_warlord_berserkers_rage_Lore"	"+100 health, +15 damage, 10%% bash that damage +20/30/40/50 and stun for 0.8/1.2/1.6/2 seconds"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage"					"Berserker's Rage"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_Description"		"While active, Troll Warlord swaps from using ranged to melee attacks. Melee attacks have a chance to bash. Berserker's Rage also grants additional movement speed, armor, health, damage, and decreases base attack time.\n\nWhirling Axes has different functionality while Berserker's Rage is active."
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_Lore"				"Like his anger, Troll Warlord's supply of axes is infinite."
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_Note0"				"Cooldowns of items that are different for ranged and melee units will be based on which form Troll Warlord was in when the item was used."		
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bonus_move_speed"	"BONUS MOVE SPEED:"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bonus_armor"		"BONUS ARMOR:"		
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_base_attack_time"	"MELEE BASE ATTACK TIME:"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_ensnare_chance"		""
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_ensnare_duration"	""
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bonus_hp"			"BONUS HEALTH:"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bonus_damage"		"BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bash_chance"		"%BASH CHANCE:"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bash_damage"		"BASH DAMAGE:"
+		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage_bash_duration"		"STUN DURATION:"
 		"DOTA_Tooltip_Ability_troll_warlord_battle_trance_datadriven"				"Battle Trance"
 		"DOTA_Tooltip_Ability_troll_warlord_battle_trance_datadriven_Description"	"All allie heroes +%attack_speed% attack speed, lasts 7 seconds"
+
 		//Ursa
 		"DOTA_Tooltip_ability_ursa_earthshock_datadriven"											"Earthshock"
 		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_Description"								"Ursa slams the earth, causing a powerful shock to damage and slow all enemy units in a nearby area for %abilityduration% seconds."
