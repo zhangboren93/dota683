@@ -21103,7 +21103,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_DeathProphet.Exorcism.Cast"
-        "HasScepterUpgrade"			"1"
+        "HasScepterUpgrade"			"0"
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
@@ -32312,6 +32312,7 @@
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Morphling.AdaptiveStrike"
 		"LinkedAbility"					"morphling_adaptive_strike_agi"
+		"HasShardUpgrade"				"0"
 
 
 		// Casting
@@ -32375,7 +32376,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"LinkedAbility"					"morphling_morph_str"
 		"AbilityCastAnimation"			"ACT_INVALID"
-		"HasShardUpgrade"               "0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -32390,7 +32390,7 @@
 			"bonus_attributes"		
 			{
 				"value"					"3 4 5 6"
-				"special_bonus_shard"					"+6"
+				"special_bonus_shard"					"+0"
 			}
 			"morph_rate_tooltip"	"2 4 6 10"
 			"mana_cost"				"30"
@@ -32413,7 +32413,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"LinkedAbility"					"morphling_morph_agi"
  		"AbilityCastAnimation"			"ACT_INVALID"
-		"HasShardUpgrade"               "0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -32428,7 +32427,7 @@
 			"bonus_attributes"		
 			{
 				"value"					"3 4 5 6"
-				"special_bonus_shard"					"+6"
+				"special_bonus_shard"					"+0"
 			}
 			"morph_rate_tooltip"	"2 4 6 10"
 			"mana_cost"				"30"

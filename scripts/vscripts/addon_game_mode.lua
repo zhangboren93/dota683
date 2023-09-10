@@ -799,6 +799,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_legion_commander" then
 			entity:FindAbilityByName("legion_commander_press_the_attack_as_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_morphling" then
+			entity:AddItemByName("item_aghanims_shard")
 			entity:FindAbilityByName("morphling_morph_attribute_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_kunkka" then
 			entity:AddNewModifier(entity, nil, "modifier_tidebringer_cleave", {})

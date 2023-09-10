@@ -585,7 +585,7 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_datadriven_blast_mana_cost"		"火焰爆轰加蓝耗："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_datadriven_blood_cooldown"		"嗜血术减CD："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_datadriven_ignite_range"			"引燃加施法和作用范围："
-		/Omniknight
+		//Omniknight
 		"DOTA_Tooltip_ability_omniknight_purification_2"								"洗礼"
 		"DOTA_Tooltip_ability_omniknight_purification_2_Description"					"立即治疗一个友方单位，并对周围的敌军造成伤害。"
 		"DOTA_Tooltip_ability_omniknight_purification_2_Lore"							"全知的牧师们善于清除己方战士们身心中的污杂。"
