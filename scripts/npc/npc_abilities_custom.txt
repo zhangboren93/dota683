@@ -384,23 +384,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"radius"
-			{
-				"value"							"275"
-			}
-			"bonus_armor"	
-			{
-				"value"							"40"
-			}
+			"radius"				"275"
+			"bonus_armor"			"40"
 			"duration"				"2.0 2.4 2.8 3.2"
-			"scepter_cooldown_reduction"
-			{
-				"special_bonus_scepter" "+0"
-			}
-			"applies_battle_hunger"
-			{
-				"special_bonus_scepter" "+0"
-			}
+			"scepter_cooldown_reduction"	"+0"
+			"applies_battle_hunger"			"0"
 		}
 	}
 	//=================================================================================================================
@@ -4478,17 +4466,9 @@
 			"hawk_base_xp_bounty"			"77"
 			"hawk_base_vision_range"		"700 800 900 1000"
 			"hawk_base_magic_resist"		"0"
-			"AbilityCooldown"
-			{
-				"value"						"40"	
-				"special_bonus_shard"		"-10"
-			}				
+			"AbilityCooldown"				"40"
 			"attack_radius"				"0"
-			"hawk_count"					
-			{
-				"value"					"1"
-				"special_bonus_shard"	"+1"
-			}
+			"hawk_count"				"1"					
 			"dive_damage"						"0"
 			"dive_root_duration"				"0"
 			"roaming_radius"					"0"
@@ -5657,11 +5637,7 @@
 				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
 			}
 			"bonus_movement_speed"		"-50"
-			"AbilityDuration"				
-			{
-				"value"				"2 2.5 3 3.5"
-				"special_bonus_unique_pugna_5" "+1.0"
-			}
+			"AbilityDuration"			"2 2.5 3 3.5"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -7579,61 +7555,22 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"damage"			"15 20 25 30"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"attack_rate"		"1.35"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"count"				"12 12 12 12"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"armor_reduction"	"1 1 1 1"
-				"LinkedSpecialBonus"	"special_bonus_unique_weaver_3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"duration"			"14 16 18 20"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"destroy_attacks"	"4"
-				"LinkedSpecialBonus"	"special_bonus_unique_weaver_4"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"radius"			"100 100 100 100"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"speed"				"750 750 750 750"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"spawn_radius"		"300 300 300 300"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"shard_cooldown_reduction"		"2"
-				"RequiresShard"		"1"
-			}
+				"shard_cooldown_reduction"		
+				{
+					"value"		"2"
+					"RequiresShard"		"1"
+				}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -8676,19 +8613,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_gold"			
-			{
-				"value"				"25 50 75 100"
-				"LinkedSpecialBonus"	"special_bonus_unique_doom_3"
-			}
+			"bonus_gold"		"25 50 75 100"
 			"armor"					"0"
 			"creep_level"			"6"
 			"hero_ability_steal_time"	"99999"
-			"magic_resist"
-			{
-				"value"			"0"
-				"special_bonus_unique_doom_3"	"+15"
-			}
+			"magic_resist"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -11851,43 +11780,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"damage"					"70 140 210 280"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"jump_damage_reduction_pct"	"4"
-				"CalculateSpellDamageTooltip"	"0"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"attack_damage_reduction"	"12 20 26 32"
-				"LinkedSpecialBonus"		"special_bonus_unique_rubick_2"
-				"CalculateSpellDamageTooltip"	"0"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"duration"					"10.0 10.0 10.0 10.0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"radius"					"440"
-			}			
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"jump_delay"				"0.25 0.25 0.25 0.25"
-			}
 		}
 	}	
 // Rewrite of Rubick Null Field
@@ -12437,6 +12337,8 @@
 				"RequiresShard"		"1"
 			}
 			"mana_removal_pct"		"0"
+			"attack_animation_bonus"	"0"
+			"attack_range_bonus"		"0"
 		}
 	}
     "naga_siren_song_of_the_siren"
@@ -13401,11 +13303,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"			
-			{
-				"value"						"3.5"
-				"special_bonus_unique_centaur_7"	"+1"
-			}
+			"duration"			"3.5"
 			"base_damage"		"0"
 			"strength_damage"	
 			{
@@ -13415,19 +13313,9 @@
 			"slow_duration"		"1.5"
 			"radius"			"105"
 			"slow_movement_speed"			"100"
-			"damage_reduction"	
-			{
-			//	"special_bonus_scepter"	"+20 +25 +30"
-			}
-			"AbilityCooldown"
-			{
-				"value"					"90 75 60"
-				"special_bonus_unique_centaur_5"	"-25"
-			}
-			"has_flying_movement"	
-			{
-			//	"special_bonus_scepter"	"+1"
-			}
+			"damage_reduction"	"0"
+			"AbilityCooldown"	"90 75 60"
+			"has_flying_movement"	"0"
 		}
 	}
     "magnataur_reverse_polarity"
@@ -13467,22 +13355,10 @@
 		{
 			"pull_radius"					"410"
 			"polarity_damage"				"50 125 200"
-			"hero_stun_duration"
-			{
-				"value"					"2.25 3 4"
-				"special_bonus_unique_magnus_5"	"+1"
-			}
+			"hero_stun_duration"			"2.25 3 4"
 			"pull_duration"			"0.0 0.0 0.0"
-			"strength_buff_duration"
-			{
-				"value"					"0"
-				"special_bonus_unique_magnus_reverse_polarity_strength"			"+15"
-			}
-			"strength_per_stack"
-			{
-				"value"					"0"
-				"special_bonus_unique_magnus_reverse_polarity_strength"			"+12"
-			}
+			"strength_buff_duration"		"0"
+			"strength_per_stack"			"0"
 		}
 	}
 	//=================================================================================================================
@@ -13522,24 +13398,12 @@
 			"goo_speed"				"1000"
 			"goo_duration"			"5.0"
 			"base_armor"			"1 1 2 2"
-			"armor_per_stack"
-			{
-				"value"		"1 1 2 2"
-				"special_bonus_unique_bristleback_4"	"+0.75"
-			}
+			"armor_per_stack"		"1 1 2 2"
 			"base_move_slow"		"20"
 			"move_slow_per_stack"	"3 6 9 12"
-			"stack_limit"
-			{
-				"value"			"4"
-				"special_bonus_scepter"	"+3"
-			}
-			"goo_duration_creep"			"5.0"
-			"AbilityCastRange"
-			{
-				"value"				"600"
-				"special_bonus_unique_bristleback_5"				"+150"
-			}
+			"stack_limit"			"4"
+			"goo_duration_creep"	"5.0"
+			"AbilityCastRange"		"600"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -15901,19 +15765,11 @@
 				"RequiresScepter"						"1"
 			}	
 			"radius"									"375"
-			"spark_damage_base"
-			{
-				"value"									"150 200 250 300"
-				"special_bonus_unique_arc_warden"		"+35%"
-			}
+			"spark_damage_base"							"150 200 250 300"
 			"base_activation_delay"						"3.0"
 			"wraith_speed_base"							"400"
 			"duration"									"50"
-			"spark_damage_tempest"
-			{
-				"value"									"150 200 250 300"
-				"special_bonus_unique_arc_warden"		"+35%"
-			}			
+			"spark_damage_tempest"						"150 200 250 300"
 			"tempest_activation_delay"					"3.0"
 			"wraith_speed_tempest"						"400"
 			"think_interval"							"0.2"
@@ -15940,6 +15796,7 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
+	//TODO Spawned with less health and mana
     "arc_warden_tempest_double"
 	{
 		// General
@@ -16360,30 +16217,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
 		"AbilityCastPoint"				"0 0 0 0"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"bonus_attack_range"			"100 200 300 400"
-				"LinkedSpecialBonus"			"special_bonus_unique_sniper_6"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
 				"duration"			"0"
-				"LinkedSpecialBonus"			"special_bonus_unique_sniper_4"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"slow"			"0"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"headshot_chance"			"0"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -19378,24 +19217,10 @@
 		"AbilityValues"
 		{
 				"duration"						"3 3.75 4.5"
-				"radius"						
-				{
-					"value"		"625"
-					"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
-				}	
-			
-				"eyes_radius"					
-				{
-					"value"						"800"
-					"LinkedSpecialBonus"			"special_bonus_unique_treant_5"
-				}
+				"radius"						"625"
+				"eyes_radius"				"800"
 				"damage"						"0"
-				"purgable"
-				{
-					"value"								"0"
-					"special_bonus_unique_treant_11"	"+1"
-				}
-			
+				"purgable"					"0"
 		}
 	}
 	//=================================================================================================================
@@ -22397,11 +22222,7 @@
 			"max_attacks"				"3 4 5 6"
 			"projectile_speed"			"800"
 			"bonus_damage"				"0"
-			"fire_rate"  
-			{
-				"value"								"0"
-				"RequiresScepter"					"1"
-			}
+			"fire_rate"  		"0"
 			"scepter_radius"
 			{
 				"value"								"0"
@@ -29374,11 +29195,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"AbilityCooldown"				
-			{
-				"value"				"30 24 16 12"
-				"special_bonus_unique_lion_5"	"-2"
-			}
+			"AbilityCooldown"	"30 24 16 12"
 			"duration"					"2.5 3 3.5 4"
 			"movespeed"					"120"
 		}
@@ -29469,46 +29286,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"illusion_duration"			"30"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"outgoing_damage"			"-80 -75 -70 -65"
-				"LinkedSpecialBonus"		"special_bonus_unique_naga_siren_4"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"outgoing_damage_tooltip"	"20 25 30 35"
-				"LinkedSpecialBonus"		"special_bonus_unique_naga_siren_4"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"incoming_damage"			"500 400 300 200"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"tooltip_incoming_damage_total_pct"			"600 500 400 300"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"images_count"				"3 3 3 3"
-				"LinkedSpecialBonus"		"special_bonus_unique_naga_siren"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"invuln_duration"			"0.3"
-			}			
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -30328,6 +30114,8 @@
 	{
 		"AbilityCooldown"				"13"
 		"AbilityManaCost"				"110 140 170 200"
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0"
 		"AbilityValues"
 		{
 				"movespeed"					"100"
@@ -30500,6 +30288,7 @@
 		"AbilityCastRange"				"700"
 		"AbilityCooldown"				"20.0 18.0 16.0 14.0"
 		"AbilityManaCost"				"110 120 130 140"
+		"AbilityCastPoint"				"0.35"
 		"AbilityValues"
 		{
 				"hero_duration"			"1.0 1.0 1.0 1.0"
@@ -33800,29 +33589,12 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"250 350 450 550"
-				"LinkedSpecialBonus"	"special_bonus_unique_dark_seer_2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"0.3 0.4 0.5 0.6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"damage"				"40 80 120 160"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius_tree"				"150"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -34218,39 +33990,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"true_sight_radius"		"750"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"sight_radius_day"		"750"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"sight_radius_night"	"750"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"sight_duration"		"5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"spread_aoe"	"325"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"ministun_duration"		"0.01"
-				"LinkedSpecialBonus"	"special_bonus_unique_zeus_3"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
