@@ -1245,7 +1245,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_medusa_stone_gaze_slow" then
 		-- add a modifier to remove the debuff when is not facing the medusa
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local cancel_ability = caster:FindAbilityByName("medusa_stone_gaze_magic_resist_datadriven")
+		local cancel_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		if cancel_ability ~= nil then
 			cancel_ability:ApplyDataDrivenModifier(caster, parent, "modifier_medusa_stone_gaze_cancel_when_turned", {})
 			cancel_ability:ApplyDataDrivenModifier(caster, parent, "modifier_medusa_stone_gaze_slow_full_duration", { 
