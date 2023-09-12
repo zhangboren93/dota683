@@ -15796,7 +15796,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-	//TODO Spawned with less health and mana
     "arc_warden_tempest_double"
 	{
 		// General

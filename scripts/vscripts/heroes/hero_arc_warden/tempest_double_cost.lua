@@ -27,6 +27,9 @@ function handleAbilityExecuted(keys)
 					if caster:HasItemInInventory("item_flask") then double:AddItemByName("item_flask") end
 					if caster:HasItemInInventory("item_clarity") then double:AddItemByName("item_clarity") end
 					if caster:HasItemInInventory("item_dust") then double:AddItemByName("item_dust") end
+
+					units[i]:SetHealth(caster:GetHealth())
+					units[i]:SetMana(caster:GetMana())
 					return
 				end
 			end
