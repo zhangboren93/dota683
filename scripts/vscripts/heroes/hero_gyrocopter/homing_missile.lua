@@ -29,6 +29,7 @@ function CreateMissile(keys)
 	-- Attaches the fuse particle to the missile
 	local particle = ParticleManager:CreateParticle(keys.particle, PATTACH_ABSORIGIN_FOLLOW, caster.missile) 
 	ParticleManager:SetParticleControlEnt(particle, 1, caster.missile, PATTACH_POINT_FOLLOW, "attach_hitloc", caster.missile:GetAbsOrigin(), true)
+	caster.missile:SetForwardVector(Vector(1, 0, 0))
 end
 
 --[[Author: YOLOSPAGHETTI
@@ -102,7 +103,7 @@ function MoveMissile(keys)
 				caster.missile:ForceKill(false)
 			else
 				-- Turns the missile so it's facing the target
-				caster.missile:SetForwardVector(Vector(direction.x/2, direction.y/2, -1))
+				caster.missile:SetForwardVector(Vector(direction.x/2, direction.y/2, 0))
 				-- Calculates the time after launch so we can solve for the new speed (after acceleration)
 				local move_duration = math.modf(ability.time_passed - pre_flight_time)
 				speed = speed + acceleration * move_duration
