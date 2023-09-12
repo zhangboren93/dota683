@@ -287,6 +287,7 @@
 	}
 	"npc_dota_neutral_big_thunder_lizard"
 	{
+		"Ability3"					"neutral_spell_immunity"			// Ability 3
 		"MagicalResistance"				"100"		// Magical protection.
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"71"		// Damage range min.
@@ -298,7 +299,8 @@
 	}
 	"npc_dota_neutral_small_thunder_lizard"
 	{
-		"Ability1"					"generic_hidden"
+		"Ability1"					"neutral_spell_immunity"
+		"Ability2"					"generic_hidden"
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"41"		// Damage range min.
 		"AttackDamageMax"			"48"		// Damage range max.	
@@ -308,7 +310,8 @@
 	}
 	"npc_dota_neutral_black_dragon"	
 	{
-		"Ability3"					"generic_hidden"			// Ability 3
+		"Ability3"					"neutral_spell_immunity"			// Ability 3
+		"Ability4"					"generic_hidden"					// Ability 4
 		"ArmorPhysical"				"6"			// Physical protection.
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"70"		// Damage range min.
@@ -320,6 +323,7 @@
 	"npc_dota_neutral_black_drake"	
 	{
 		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability2"					"generic_hidden"			// Ability 2
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"56"		// Damage range max.
 		"BountyXP"					"62"		// Experience earn.
@@ -328,7 +332,8 @@
 	}
 	"npc_dota_neutral_rock_golem"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"neutral_spell_immunity"			// Ability 1
+		"Ability2"					"generic_hidden"					// Ability 2
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"29"		// Damage range min.
 		"AttackDamageMax"			"33"		// Damage range max.	
@@ -339,7 +344,7 @@
 	}
 	"npc_dota_neutral_granite_golem"
 	{
-		"Ability1"					"generic_hidden"			// Ability 3
+		"Ability2"					"neutral_spell_immunity"			// Ability 2
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"77"		// Damage range min.
 		"AttackDamageMax"			"87"		// Damage range max.	
