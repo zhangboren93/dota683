@@ -766,6 +766,14 @@
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"Burns an opponent's mana on each attack. Mana Break deals 60%% of the mana burned as damage to the target."
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"	"Mana Burned per Hit: "
 		//Arc Warden
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua"						"Spark Wraith"
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_Description"			"Summons a Spark Wraith that slowly materializes and patrols a targeted area until an enemy comes within its range. Once a target has been found the wraith fuses with them, dealing magical damage."
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_Lore"					"Lesser fragments of Zet's original self."
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_Note0"				"Spark Wraiths can not be disjointed."
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_radius"				"SEARCH RADIUS:"
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_startup_time"			"ACTIVATION DELAY:"
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_speed"				"WRAITH SPEED:"
 		"DOTA_Tooltip_Ability_arc_warden_tempest_double_health_cost_pct"		"%HEALTH AND MANA COST:"
 		// Bloodseeker
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"						"Bloodrage"

@@ -764,8 +764,18 @@
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"				"法力损毁"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"每次攻击损毁目标一定量的魔法值，并额外造成相当于损毁魔法值60%%的伤害。"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"	"每次攻击损毁魔法："
+
 		//Arc Warden
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua"			"闪光幽魂"
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_Description"	"召唤一个缓慢实体化的闪光怨灵萦绕在目标区域。一旦有敌方单位进入范围，怨灵将贴近敌人自我熔化并造成魔法伤害。"
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_Lore"		"泽特原始自我的低级碎片。"
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_Note0"		"闪光幽魂无法被躲避。"
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_search_radius"			"搜寻范围："
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_startup_time"	"启动延迟："
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_duration"		"持续时间："
+		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_speed"	"幽魂速度："
 		"DOTA_Tooltip_Ability_arc_warden_tempest_double_health_cost_pct"		"%生命和魔法消耗："
+
 		// Bloodseeker
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"						"血怒"
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"			"让一个单位陷入渴望鲜血的狂怒中，使其在持续时间内造成和承受的伤害都会被加深。<br>血怒状态下的单位杀死任一单位后将回复阵亡单位最大生命值的一定百分比；血怒状态下的单位被击杀则击杀者将回复阵亡英雄最大生命值的一定百分比。"
