@@ -49,11 +49,11 @@ function Activate()
 	LinkLuaModifier( "modifier_item_ring_of_aquila_lua", 	"items/modifier_item_ring_of_aquila.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_ring_of_aquila_aura_lua", 	"items/modifier_item_ring_of_aquila_aura.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_ring_of_aquila_aura_active_lua",	"items/modifier_item_ring_of_aquila_aura_active.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_crimson_guard_effect", "modifiers/crimson_guard_effect.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_attribute_regen_adjust", "modifiers/attribute_regen.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_buff_extension", "modifiers/buff_extension.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_troll_warlord_bash", "modifiers/troll_bash.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_safe_lane_move_speed_bonus", "modifiers/creep.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_cancels_item_on_hit", "modifiers/item_cancel_on_hit.lua", LUA_MODIFIER_MOTION_NONE)
@@ -696,7 +696,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		-- modifiers
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
 		entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
-		entity:AddNewModifier(entity, nil, "modifier_buff_extension" , {})
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
 		entity:AddNewModifier(entity, nil, "item_tpscroll_clear_tree_modifier", {})
 		entity:AddNewModifier(entity, nil, "modifier_no_creep_aggro_on_cast_orb_lua", {})
@@ -1344,6 +1343,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_beastmaster_wild_axes_damage_lua", {})
+	elseif event.name_const == "modifier_item_crimson_guard_extra" then
+		print('test crimson guard')
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local duration = ability:GetSpecialValueFor("duration")
+		parent:AddNewModifier(caster, ability, "modifier_item_crimson_guard_effect", { duration = duration })
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

@@ -5919,9 +5919,8 @@
 			"block_chance"					"80"
 			"duration"						"10"
 			"bonus_aoe_radius"				"750"
-			"bonus_aoe_armor"				"2"
-			"block_damage_melee_active"		"75" 				
-			"block_damage_ranged_active"	"75"
+			"bonus_aoe_armor"				"2" // unused
+			"block_damage_active"			"50" 				
 			"block_chance_active"			"100"
 			"tooltip_reapply_time"			"70"
 			"bonus_strength"				"0"

@@ -169,7 +169,7 @@
 		"DOTA_Tooltip_Ability_item_hood_of_defiance_datadriven_bonus_health_regen"				"+$hp_regen"
 		"DOTA_Tooltip_Ability_item_hood_of_defiance_datadriven_bonus_magic_resist_percentage"	"%+$spell_resist"
 		"DOTA_Tooltip_Ability_item_blade_mail_Description"								"<h1>主动：反弹伤害</h1>以100%纯粹伤害的形式反弹所有受到的伤害，持续4秒。"
-		"DOTA_Tooltip_Ability_item_crimson_guard_Description"					"<h1>主动：坚盾</h1>使周围所有友方英雄和建筑每次受到物理攻击都有%block_chance_active%%%几率格挡%block_damage_melee_active%点伤害，并提升%bonus_aoe_armor%点护甲。持续%duration%秒。<br>每%tooltip_reapply_time%秒才能被坚盾作用一次。<br><br>作用范围：%bonus_aoe_radius%\n\n<h1>被动：伤害格挡</h1>拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
+		"DOTA_Tooltip_Ability_item_crimson_guard_Description"					"<h1>主动：坚盾</h1>使周围所有友方英雄和建筑每次受到物理攻击都有%block_chance_active%%%几率格挡%block_damage_active%点伤害，并提升%bonus_aoe_armor%点护甲。持续%duration%秒。<br>每%tooltip_reapply_time%秒才能被坚盾作用一次。<br><br>作用范围：%bonus_aoe_radius%\n\n<h1>被动：伤害格挡</h1>拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
 		"DOTA_Tooltip_Ability_item_crimson_guard_all_stats_bonus"				"+$all"
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven"						"黑皇杖"
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven_Description"			"<h1>主动：天神下凡</h1>获得魔法免疫，持续%duration%秒。"
