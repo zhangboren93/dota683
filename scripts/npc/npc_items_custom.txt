@@ -9935,13 +9935,8 @@
 						"Function"		"handleAttacked"
 					}
 				}
-				"OnAttackLanded"
+				"OnAttack"
 				{
-					"RemoveModifier"
-					{
-						"Target"		"ATTACKER"
-						"ModifierName"	"modifier_tranquil_active_datadriven"
-					}
 					"RunScript"
 					{
 						"ScriptFile"	"items/item_tranquil_boots.lua"
