@@ -5916,7 +5916,7 @@
 			"bonus_armor"					"5"
 			"block_damage_melee"			"40"
 			"block_damage_ranged"			"20"
-			"block_chance"					"80"
+			"block_chance"					"67"
 			"duration"						"10"
 			"bonus_aoe_radius"				"750"
 			"bonus_aoe_armor"				"2" // unused
