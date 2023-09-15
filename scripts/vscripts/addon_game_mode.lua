@@ -1344,7 +1344,9 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_beastmaster_wild_axes_damage_lua", {})
 	elseif event.name_const == "modifier_item_crimson_guard_extra" then
-		print('test crimson guard')
+		if parent:IsBuilding() then
+			return false
+		end
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local duration = ability:GetSpecialValueFor("duration")
