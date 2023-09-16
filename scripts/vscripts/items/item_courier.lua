@@ -1,7 +1,11 @@
 function enableCourier(event)
     local caster = event.caster
    -- TODO create courier at base
-    caster:GetPlayerOwner():SpawnCourierAtPosition(caster:GetAbsOrigin())
+    local courier = caster:GetPlayerOwner():SpawnCourierAtPosition(caster:GetAbsOrigin())
+	CustomGameEventManager:Send_ServerToTeam(caster:GetTeam(), "courier_spawned", { 
+		id = tostring(courier:GetEntityIndex()) ,
+		owner_name = caster:GetName()
+	})
 end
 
 function go_to_secret(event)
@@ -60,7 +64,7 @@ end
 function transforStopChecker(event)
     local entity = event.caster
 	if not entity:HasModifier("modifier_courier_transfer_items") then
-		CustomGameEventManager:Send_ServerToTeam(entity:GetTeam(), "courier_end_transfer", {})
+		CustomGameEventManager:Send_ServerToTeam(entity:GetTeam(), "courier_end_transfer", { id = tostring(entity:GetEntityIndex()) })
 		entity:RemoveModifierByName("modifier_courier_transfer_stop_checker")
 	end
 end

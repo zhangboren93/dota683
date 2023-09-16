@@ -48,10 +48,15 @@ Button:active {
     border-right-color: #444444;
 }
 
+Button .disabled {
+	opacity: 0.6;
+}
+
 #courier-ip {
 	width: 40px;
 	height: 40px;
 	margin-left: -40px;
+	vertical-align: center;
 }
 
 .image-hidden {
@@ -62,8 +67,32 @@ Button:active {
 	visibility: collapse;
 }
 
-Label {
+#courier-select-button {
+	margin-right: 5px;
+	vertical-align:center;
+}
+
+#courier-send-button {
+	vertical-align:center;
+}
+
+#courier-select-next-button {
+	vertical-align: center;
+	margin-right: 5px;
+	height: 40px;
+	width: 40px;
+}
+
+#courier-select-next-label {
+	margin-right: 0;
+	horizontal-align: center;
+	vertical-align: center;
+	color: #FFFFFF;
+}
+
+#courier-respawn-remaining {
 	font-size: 24px;
 	vertical-align: center;
-	margin-right: 10px;
+	margin-right: 5px;
+/*	border: 2px solid #111111FF;*/
 }
