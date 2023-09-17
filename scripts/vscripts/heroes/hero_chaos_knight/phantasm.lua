@@ -88,6 +88,8 @@ function Phantasm( keys )
 		end
 
 		-- Recreate the items of the caster
+		illusion:StopThink("remove tpscroll")
+		illusion:RemoveItem(illusion:FindItemInInventory("item_tpscroll"))
 		for itemSlot=0,5 do
 			local item = caster:GetItemInSlot(itemSlot)
 			if item ~= nil then
@@ -141,6 +143,8 @@ function Phantasm( keys )
 		end
 
 		-- Recreate the items of the caster
+		illusion:StopThink("remove tpscroll")
+		illusion:RemoveItem(illusion:FindItemInInventory("item_tpscroll"))
 		for itemSlot=0,5 do
 			local item = caster:GetItemInSlot(itemSlot)
 			if item ~= nil then

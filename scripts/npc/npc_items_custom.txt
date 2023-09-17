@@ -5981,43 +5981,15 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"22"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"passive_reflection_constant"			"0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"passive_reflection_pct"			"0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_reflection_pct"			"0"
-			}
+			"bonus_damage"			"22"
+			"bonus_armor"			"6"
+			"bonus_intellect"		"10"
+			"duration"				"4.5"
+			"passive_reflection_constant"	"0"
+			"passive_reflection_pct"		"0"
+			"active_reflection_pct"			"0"
 		}
 	}
 	//=================================================================================================================

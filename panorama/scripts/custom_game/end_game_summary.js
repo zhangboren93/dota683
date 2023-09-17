@@ -5,7 +5,7 @@
 		$("#hero-image-" + i).heroname = Players.GetPlayerSelectedHero(radiant_players[i]);
 		$("#player-name-" + i).text = Players.GetPlayerName(radiant_players[i]);
 		$("#level-" + i).text = Players.GetLevel(radiant_players[i]);
-		$("#kill-" + i).text = Players.GetLevel(radiant_players[i]);
+		$("#kill-" + i).text = Players.GetKills(radiant_players[i]);
 		$("#death-" + i).text = Players.GetDeaths(radiant_players[i]);
 		$("#assist-" + i).text = Players.GetAssists(radiant_players[i]);
 		$("#last-hit-" + i).text = Players.GetLastHits(radiant_players[i]) + "/" + Players.GetDenies(radiant_players[i]);
@@ -26,7 +26,7 @@
 		$("#hero-image-" + i).heroname = Players.GetPlayerSelectedHero(radiant_players[i-5]);
 		$("#player-name-" + i).text = Players.GetPlayerName(radiant_players[i-5]);
 		$("#level-" + i).text = Players.GetLevel(radiant_players[i-5]);
-		$("#kill-" + i).text = Players.GetLevel(radiant_players[i-5]);
+		$("#kill-" + i).text = Players.GetKills(radiant_players[i-5]);
 		$("#death-" + i).text = Players.GetDeaths(radiant_players[i-5]);
 		$("#assist-" + i).text = Players.GetAssists(radiant_players[i-5]);
 		$("#last-hit-" + i).text = Players.GetLastHits(radiant_players[i-5]) + "/" + Players.GetDenies(radiant_players[i-5]);
