@@ -1270,23 +1270,11 @@
 	{
 		"ItemCost"						"1600"
 		"AbilityCooldown"				"30.0"		 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"7"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"extra_spell_damage_percent"	"-40"
-			}
+			"bonus_all_stats"		"7"
+			"duration"				"4.0"
+			"extra_spell_damage_percent"	"-40"
 		}
 	}
 	"item_clarity"
@@ -1413,48 +1401,16 @@
 	"item_bottle"
 	{
 		"ItemCost"						"700"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_restore"		"135"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_restore"			"70"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_restore_pct"	"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_restore_pct"		"0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"restore_time"			"3.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_charges"			"3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"break_on_hero_damage"	"1"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"rune_expire_time"		"90.0"
-			}
+			"health_restore"		"135"
+			"mana_restore"			"70"
+			"health_restore_pct"	"0"
+			"mana_restore_pct"		"0"
+			"restore_time"			"3.0"
+			"max_charges"			"3"
+			"break_on_hero_damage"	"1"
+			"rune_expire_time"		"90.0"
 		}
 	}
 	"item_ward_observer"
@@ -1551,23 +1507,11 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"minimun_distance"		"70"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maximum_distance"		"575"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_radius"			"200"
-			}
+			"minimun_distance"		"70"
+			"maximum_distance"		"575"
+			"vision_radius"			"200"
 		}
 	}
 
@@ -1589,7 +1533,7 @@
 	{
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_travel_boots"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2515,7 +2459,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"ID"							"1274"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_wraith_band"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2616,7 +2560,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"ID"							"1276"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_null_talisman"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
