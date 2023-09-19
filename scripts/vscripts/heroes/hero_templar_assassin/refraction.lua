@@ -5,21 +5,22 @@ function ApplyModifiers(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local stacks = ability:GetLevelSpecialValueFor( "instances", ability:GetLevel() - 1 )
+	local duration = ability:GetLevelSpecialValueFor( "duration", ability:GetLevel() - 1 )
 	
 	-- Applies the damage absorb buff
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_damage_absorb", {})
+	caster:AddNewModifier(caster, ability, "modifier_templar_assassin_refraction_absorb", { duration = duration, damage_threshold = 5 })
 	-- Applies the bonus damage buff
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bonus_damage", {})
 	-- Shows the current stacks of bonus damage
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_bonus_damage_visual", {})
-	caster:SetModifierStackCount("modifier_damage_absorb", ability, stacks)
+	caster:SetModifierStackCount("modifier_templar_assassin_refraction_absorb", ability, stacks)
 	caster:SetModifierStackCount("modifier_bonus_damage_visual", ability, stacks)
 	
 	-- Attaches the particle to the caster
-	ability.particle = ParticleManager:CreateParticle(keys.particle, PATTACH_ABSORIGIN_FOLLOW, caster)
-	ParticleManager:SetParticleControlEnt(ability.particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
-	ParticleManager:SetParticleControlEnt(ability.particle, 2, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
-	ParticleManager:SetParticleControlEnt(ability.particle, 3, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+	--ability.particle = ParticleManager:CreateParticle(keys.particle, PATTACH_ABSORIGIN_FOLLOW, caster)
+	--ParticleManager:SetParticleControlEnt(ability.particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+	--ParticleManager:SetParticleControlEnt(ability.particle, 2, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
+	--ParticleManager:SetParticleControlEnt(ability.particle, 3, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true)
 end
 
 --[[Author: YOLOSPAGHETTI
