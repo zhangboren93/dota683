@@ -10726,8 +10726,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_attack_speed"	"10 20 30 40"		
-				"bonus_move_speed"		"5 10 15 20"
+				"bonus_attack_speed"			"0"		
+				"bonus_move_speed"				"0"
+				"bonus_attack_speed_tooltip"	"10 20 30 40"
+				"bonus_move_speed_tooltip"		"5 10 15 20"
 				"rabid_duration"		"10"
 		}
 	}

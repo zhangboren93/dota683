@@ -70,6 +70,7 @@ function Activate()
 	LinkLuaModifier( "modifier_no_creep_aggro_on_cast_orb_lua", "modifiers/no_creep_aggro_on_cast_orb.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bounty_hunter_track_aura_lua", 	"heroes/hero_bounty_hunter/modifier_bounty_hunter_track_aura.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_beastmaster_wild_axes_damage_lua", "heroes/hero_beastmaster/modifier_beastmaster_wild_axes_damage.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_lone_druid_rabid_lua", 			"heroes/hero_lone_druid/modifier_lone_druid_rabid.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -1307,6 +1308,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local duration = ability:GetSpecialValueFor("duration")
 		parent:AddNewModifier(caster, ability, "modifier_item_crimson_guard_effect", { duration = duration })
+	elseif event.name_const == "modifier_lone_druid_rabid" then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		parent:AddNewModifier(caster, ability, "modifier_lone_druid_rabid_lua", {})
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
