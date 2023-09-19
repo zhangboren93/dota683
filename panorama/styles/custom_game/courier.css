@@ -8,6 +8,11 @@
 	padding-right: 10px;
 }
 
+.HUDFlipped .courier-panel {
+	horizontal-align: left;
+	margin-left: 120px;
+}
+
 .panel-hidden {
 	position: -100% 0 0;
 }
