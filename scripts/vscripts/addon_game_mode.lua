@@ -1563,6 +1563,15 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 			event.value = 0.5 + 0.5 * ability_wex:GetLevel()
 		end
 		return true
+	elseif ability:GetName() == "lone_druid_rabid" then
+		if event.value_name_const == "rabid_duration" then
+			local ability_synergy = caster:FindAbilityByName("lone_druid_synergy_datadriven")
+			if ability_synergy == nil or ability_synergy:GetLevel() == 0 then
+				return false
+			end
+			event.value = event.value + ability_synergy:GetSpecialValueFor("rabid_duration_bonus")
+			return true
+		end
 	end
 end
 

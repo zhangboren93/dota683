@@ -10724,24 +10724,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_attack_speed"		"10 20 30 40"		
-				"LinkedSpecialBonus"	"special_bonus_unique_lone_druid_6"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_move_speed"	"5 10 15 20"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"rabid_duration"	"25"
-			}
+				"bonus_attack_speed"	"10 20 30 40"		
+				"bonus_move_speed"		"5 10 15 20"
+				"rabid_duration"		"10"
 		}
 	}
 	// Rewrite of Lone Druid Synergy

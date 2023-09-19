@@ -16,30 +16,21 @@ function SynergyLevel( event )
 	
 	-- Re-apply modifier_bear_synergy, only check for units that start with the unit_name
 	for _,unit in pairs(targets) do
-		--print(unit:GetUnitName())
-		if unit:GetOwner() == caster then
-			local u = unit:GetUnitName()
-			local string_contains_unit = string.find( tostring(u) , tostring(unit_name))
+		local u = unit:GetUnitName()
+		local string_contains_unit = string.find( tostring(u) , tostring(unit_name))
 
-			if string_contains_unit == 1 then
-				unit:RemoveModifierByName("modifier_bear_synergy")
-				ability:ApplyDataDrivenModifier(caster, unit, "modifier_bear_synergy", {} )
-			end
+		unit:RemoveModifierByName("modifier_bear_synergy")
+		if string_contains_unit == 1 and not unit:HasModifier("modifier_bear_synergy") then
+			ability:ApplyDataDrivenModifier(caster, unit, "modifier_bear_synergy", {} )
 		end
 	end
 
 	-- Re-apply modifier_true_form on the caster
 	if caster:HasModifier("modifier_lone_druid_true_form") then
-		caster:RemoveModifierByName("modifier_true_form_synergy")
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_true_form_synergy", {} )
+		if not caster:HasModifier("modifier_true_form_synergy") then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_true_form_synergy", {} )
+		end
 	else
 		caster:RemoveModifierByName("modifier_true_form_synergy")
-	end
-
-	if not caster:HasAbility("special_bonus_lone_druid_synergy_rabid") then
-		caster:AddAbility("special_bonus_lone_druid_synergy_rabid")
-	end
-	if ability:GetLevel() >= 2 and caster:HasAbility("special_bonus_lone_druid_synergy_rabid2") then
-		caster:AddAbility("special_bonus_lone_druid_synergy_rabid2")
 	end
 end
