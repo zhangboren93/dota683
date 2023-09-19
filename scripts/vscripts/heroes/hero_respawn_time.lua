@@ -1,6 +1,6 @@
 function handleDeath(event)
 	local caster = event.caster
-	if not caster:IsRealHero() then
+	if not caster:IsRealHero() or caster:GetName() == "npc_dota_lone_druid_bear" then
 		return
 	end
 	if caster:IsReincarnating() then
@@ -15,7 +15,7 @@ function handleDeath(event)
 		return
 	end
 	local ability = event.ability
-	print(caster:GetName())
+	print("Setting Custom respawn time " .. caster:GetName())
 
 	local new_time_until_respawn = 4 * caster:GetLevel()
 	local bs = caster:FindItemInInventory("item_bloodstone_datadriven")
