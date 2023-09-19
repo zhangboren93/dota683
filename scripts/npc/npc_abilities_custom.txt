@@ -5951,7 +5951,8 @@
 		
 		"modifier_bonus_damage_visual"
 		{
-			"Duration"	"%duration"
+			"Duration"		"%duration"
+			"TextureName"	"templar_assassin_refraction_damage"
 		}
 	}
 }
