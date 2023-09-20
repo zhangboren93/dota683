@@ -7,7 +7,8 @@ function handleAbilityExecuted(keys)
             700,
             DOTA_UNIT_TARGET_TEAM_ENEMY, 
             DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
-            0, 0, false)
+            DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			0, false)
         for i=1,#units do
             units[i]:AddNewModifier(caster, event_ability, "modifier_requiem_slow_lua", { duration = 5})
         end
