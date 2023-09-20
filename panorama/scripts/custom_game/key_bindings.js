@@ -32,7 +32,7 @@ function OnCustomGameCourierSend()
 	}
 	let courier = parseInt(current_courier_id)
     GameUI.SelectUnit(courier, false);
-    let sendItemAbility = Entities.GetAbilityByName(courier, "courier_transfer_items")
+    let sendItemAbility = Entities.GetAbilityByName(courier, "courier_take_stash_items")
     Abilities.ExecuteAbility(sendItemAbility, courier, false)
     GameUI.SelectUnit(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), false);
 }

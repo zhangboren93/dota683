@@ -128,6 +128,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 		"AbilityTextureName" 			"item_courier"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
