@@ -15,8 +15,6 @@ end
 
 playerRepicked = {}
 randomBonusGranted = {}
-radiant_primary_courier = nil
-dire_primary_courier = nil
 
 
 function Precache( context )
@@ -598,19 +596,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			if target:IsRealHero() and target:GetName() == "npc_dota_hero_morphling" then
 				GameRules:SendCustomMessage("水人无法大自己", -1, -1)
 				return false
-			end
-		elseif ability:GetName() == "courier_transfer_items" then
-			print("courier_transfer_items " .. event.issuer_player_id_const)
-			local courier = EntIndexToHScript(event.units['0'])
-			print(courier:GetName())
-			if courier:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
-				local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
-				for i=DOTA_STASH_SLOT_1,DOTA_STASH_SLOT_6 do
-					local stash_item = player_hero:GetItemInSlot(i)
-					if stash_item ~= nil and hasRoomForItem(courier) then
-						courier:AddItem(player_hero:TakeItem(stash_item))
-					end
-				end
 			end
 		elseif ability:GetName() == "kunkka_ghostship" then
 			-- Always land ghost ship at 1000 range
