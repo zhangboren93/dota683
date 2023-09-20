@@ -1424,12 +1424,12 @@
 		"AbilityValues"
 		{
 			"AbilityChannelTime"			"10"
-			"AbilityCastPoint"				"0"
+			"AbilityCastPoint"				"0.3"
 			"AbilityCooldown"				"150 120 90"
 			"AbilityDuration"				"10.0"
 			"AbilityManaCost"				"200 400 600"
-			"radius"						"810"
-			"explosion_radius"				"320"
+			"radius"						"835"
+			"explosion_radius"				"300"
 			"bonus_armor"					"0"
 			"explosion_interval"			"0.1"
 			"movespeed_slow"				
@@ -28953,12 +28953,10 @@
 	{
 		"AbilityValues"
 		{
-			"base_mana_regen"					
-			{
-				"value"					"1 1.5 2 2.5"
-				"special_bonus_unique_crystal_maiden_4" 	"+0.5"
-			}
-			"self_factor"					"1"
+			"base_mana_regen"				"1 1.5 2 2.5"
+			"proximity_mana_regen_tooltip"	"1 1.5 2 2.5"
+			"self_mana_regen_tooltip"		"2 3 4 5"
+			"self_factor"					"2"
 			"proximity_bonus_factor"		"1"
 			"proximity_bonus_radius"		"1200"
 		}

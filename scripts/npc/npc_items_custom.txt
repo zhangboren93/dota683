@@ -894,13 +894,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"3"
-			}
+			"bonus_agility"			"3"
 		}
 	}
 
@@ -921,13 +917,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"6"
-			}
+			"bonus_strength"		"6"
 		}
 	}
 
@@ -951,13 +943,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"6"
-			}
+			"bonus_agility"			"6"
 		}
 	}
 
@@ -981,13 +969,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"6"
-			}
+			"bonus_intellect"		"6"
 		}
 	}
 
@@ -2393,13 +2377,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"2"
-			}
+			"bonus_all_stats"		"2"
 		}
 	}
 
@@ -2656,7 +2636,7 @@
 		"ID"							"1278"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_mekansm"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2850,7 +2830,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_vladmir"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3015,7 +2995,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_datadriven"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_buckler"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3515,7 +3495,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_urn_of_shadows"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3772,7 +3752,7 @@
     	"BaseClass"						"item_datadriven"
 		"ID"							"1293"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_headdress"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4964,7 +4944,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"1313"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_heart"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5098,7 +5078,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_black_king_bar"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5308,7 +5288,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"1320"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_bloodstone"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5637,13 +5617,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"10"
-			}
+			"bonus_all_stats"		"10"
 		}
 	}
 
@@ -7154,13 +7130,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_strength"		"3"
-			}
 		}
 	}
 	
@@ -7183,13 +7155,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"3"
-			}
+			"bonus_intellect"		"3"
 		}
 	}
 
@@ -7207,7 +7175,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"155"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_satanic"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7375,7 +7343,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_mjollnir"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7691,7 +7659,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"1361"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_sange"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -8105,7 +8073,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_desolator"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -8270,7 +8238,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"1371"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_mask_of_madness"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -8432,7 +8400,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"1373"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_diffusal_blade"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9081,7 +9049,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"1389"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_veil_of_discord"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9814,7 +9782,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"1384"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_ancient_janggo"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -10047,18 +10015,10 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tree_duration"			"0"
-			}
+			"bonus_all_stats"		"1"
+			"tree_duration"			"0"
 		}
 	}
 	"item_blood_grenade"
