@@ -578,23 +578,11 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blink_range"			"1200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blink_damage_cooldown"	"3.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blink_range_clamp"		"960"
-			}
+			"blink_range"			"1200"
+			"blink_damage_cooldown"	"3.0"
+			"blink_range_clamp"		"960"
 		}
 	}
 	
@@ -991,13 +979,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"20"
-			}
+			"bonus_attack_speed"	"20"
 		}
 	}
 
@@ -1064,13 +1048,9 @@
 		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"lifesteal_percent"		"15"
-			}
+			"lifesteal_percent"		"15"
 		}
 	}
 
@@ -1099,13 +1079,9 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"2"
-			}
+			"bonus_health_regen"	"2"
 		}		
 	}
 
@@ -1125,13 +1101,9 @@
 		"ItemDroppable" 		"1"
 		"ItemShareability"  	"ITEM_PARTIALLY_SHAREABLE"
 		"SideShop"				"1"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_mana_regen"		"50"
-			}
+			"bonus_mana_regen"		"50"
 		}
 	}
 
@@ -1156,13 +1128,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"50"
-			}
+			"bonus_movement_speed"	"50"
 		}
 	}
 
@@ -1186,18 +1154,10 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_magical_armor"	"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_resist"	"15"
-			}
+			"bonus_magical_armor"	"15"
+			"tooltip_resist"	"15"
 		}
 	}
 
@@ -1223,11 +1183,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_evasion"			"25"
-			}
+			"bonus_evasion"			"25"
 		}
 	}
 
