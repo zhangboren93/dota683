@@ -2281,6 +2281,7 @@
 	}
     "sandking_epicenter"
 	{
+		"BaseClass"				"ability_datadriven"
 		"MaxLevel"              "3"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "5"
@@ -2288,12 +2289,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5105"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Ability.SandKing_Epicenter"
+		"AbilityTextureName"			"sandking_epicenter"
 
         "HasShardUpgrade"               "0"
 		"HasScepterUpgrade"				"1"
@@ -2301,8 +2303,9 @@
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDuration"				"3.0"
-		"AbilityCastPoint"				"2.0"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastPoint"				"0.0"
+		"AbilityChannelTime"			"2.0 2.0 2.0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 
 		// Cost
@@ -2317,8 +2320,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"epicenter_radius"	"400 400 400 400 400 400 400 400 400 400 400 400 400 400"
-			
+			"epicenter_radius"	"275 325 375 425 475 525 575 650 675 700 775 800"
 			"epicenter_pulses"	
 			{
 				"value"		"6 8 10"
@@ -2346,6 +2348,42 @@
 			{
 				"value"					"140 120 100"
 				"special_bonus_scepter"	"-20"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"		"modifier_sand_king_epicenter"
+				"Target"			"CASTER"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_epicenter_precast"
+				"Target"			"CASTER"
+			}
+			
+			"FireSound"
+			{
+				"EffectName"		"Ability.SandKing_Epicenter.spell"
+				"Target"			"CASTER"
+			}
+		}
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"		"modifier_epicenter_precast"
+				"Target"			"CASTER"
+			}
+		}
+		"OnChannelSucceeded"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_sand_king_epicenter"
+				"Target"			"CASTER"
 			}
 		}
 	}
