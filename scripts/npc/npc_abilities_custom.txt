@@ -2279,21 +2279,20 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-    "sandking_epicenter"
+	"sandking_epicenter_lua"
 	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5105"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_sand_king/epicenter.lua"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Ability.SandKing_Epicenter"
+		"AbilityTextureName"			"sandking_epicenter"
 
         "HasShardUpgrade"               "0"
 		"HasScepterUpgrade"				"1"
@@ -2301,8 +2300,9 @@
 		// Time
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDuration"				"3.0"
-		"AbilityCastPoint"				"2.0"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastPoint"				"0.0"
+		"AbilityChannelTime"			"2.0 2.0 2.0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 
 		// Cost
@@ -2317,31 +2317,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"epicenter_radius"	"400 400 400 400 400 400 400 400 400 400 400 400 400 400"
-			
+			"epicenter_radius"			"275 325 375 425 475 525 575 650 675 700 725 750 775 800"
 			"epicenter_pulses"	
 			{
 				"value"		"6 8 10"
 				"special_bonus_scepter"	"+2"
 			}
-			"epicenter_damage"	"110"
-			"epicenter_slow"	"-30"
-			"epicenter_slow_as"	"-30"
-			"shard_radius"	
-			{
-				"value"		"425"
-				"RequiresShard"	"1"
-			}
-			"shard_move_distance"
-			{
-				"value"				"700.0"
-				"RequiresShard"		"1"
-			}
-			"shard_epicenter_pulse_damage_bonus"
-			{
-				"value"			"10"
-				"RequiresShard"	"1"
-			}
+			"epicenter_damage"			"110"
+			"epicenter_slow"			"-30"
+			"epicenter_slow_as"			"-30"
+			"epicenter_damage_interval" "0.5"
 			"AbilityCooldown"
 			{
 				"value"					"140 120 100"
