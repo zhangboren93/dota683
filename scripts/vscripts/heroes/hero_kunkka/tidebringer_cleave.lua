@@ -41,7 +41,10 @@ function modifier_tidebringer_cleave:OnProcessCleave(event)
 
 		local n = 2
 		for k,v in ipairs(units) do
-			if v ~= target then
+			if v ~= target
+                -- cleave won't work for dragon ancient camp
+                and string.find(v:GetModelName(), "black_dragon") == nil
+                and string.find(v:GetModelName(), "black_drake") == nil then
 				ParticleManager:SetParticleControl(effect, n, v:GetOrigin() )
 				ApplyDamage({
 					attacker = attacker,
