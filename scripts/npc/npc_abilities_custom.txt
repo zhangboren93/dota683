@@ -12090,6 +12090,14 @@
 					"Function"		"providesVision"
 				}
 			}
+			"OnDeath"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_disruptor/thunder_strike.lua"
+					"Function"		"handleDeath"
+				}
+			}
 		}
 	}
 }
