@@ -624,11 +624,10 @@
 		// Rattletrap
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD 15 seconds"
 		// Sand King
-		"DOTA_Tooltip_Ability_sandking_caustic_finale_2"							"Caustic Finale"
-		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_Description"				"Sand King's attacks inject a venom, When it dies, it will violently explode."
-		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_caustic_finale_radius"		"Damage Radius: "
-		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_caustic_finale_damage_base"	"Explode Damage: "
-		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_caustic_finale_duration"	"Duration: "
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven"							"Caustic Finale"
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_Description"				"Sand King's attacks inject a venom, When it dies, it will violently explode."
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_caustic_finale_radius"		"Damage Radius: "
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_caustic_finale_duration"	"Duration: "
 		"DOTA_Tooltip_ability_sandking_epicenter_lua"									"Epicenter"
 		"DOTA_Tooltip_ability_sandking_epicenter_lua_Description"						"CHANNELED - After channeling for 2 seconds, Sand King sends a disturbance into the earth, causing it to shudder violently. All enemies caught within range will take damage and become slowed. Each subsequent pulse increases the radius of damage dealt.\n\nUpgradable by Aghanim's Scepter."
 		"DOTA_Tooltip_Ability_sandking_epicenter_lua_Scepter_Description"				"Decreases cooldown by 20 seconds and increases number of pulses."
@@ -1198,7 +1197,7 @@
 		"DOTA_Tooltip_modifier_poison_nova_debuff_datadriven_Description"	"Ticking for damage."
 		// Viper
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven"						"Poison Attack"
-		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_Description"			"Intensifies Viper's venom, adding an effect to his normal attack that slows attack and movement speed while dealing damage over time.\n\nPoison Attack is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers."\
+		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_Description"			"Intensifies Viper's venom, adding an effect to his normal attack that slows attack and movement speed while dealing damage over time.\n\nPoison Attack is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers."
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_Note0"					"Successive casts don't increase slow or damage, but refresh the duration."
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_duration"				"DURATION:"
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_damage"				"DAMAGE PER SECOND:"

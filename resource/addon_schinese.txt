@@ -624,11 +624,10 @@
 		// Rattletrap
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD15秒"
 		// Sand King
-		"DOTA_Tooltip_Ability_sandking_caustic_finale_2"							"尸爆"
-		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_Description"				"沙王的攻击对敌方单位注入毒液，死亡时发生剧烈爆炸。"
-		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_caustic_finale_radius"		"伤害范围："
-		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_caustic_finale_damage_base"	"爆炸伤害："
-		"DOTA_Tooltip_Ability_sandking_caustic_finale_2_caustic_finale_duration"	"持续时间："
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven"							"尸爆"
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_Description"				"沙王的攻击对敌方单位注入毒液，死亡时发生剧烈爆炸。"
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_caustic_finale_radius"		"伤害范围："
+		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_caustic_finale_duration"	"持续时间："
 		"DOTA_Tooltip_ability_sandking_epicenter_lua"									"地震"
 		"DOTA_Tooltip_ability_sandking_epicenter_lua_Description"						"持续施法 - 在2秒吟唱后，沙王向地中发送扰动，引起大地剧烈震动。所有范围内的敌人会受到伤害并被减速。每次后续震击都会提高伤害传播半径。"
 		"DOTA_Tooltip_Ability_sandking_epicenter_lua_Scepter_Description"				"减少20秒冷却时间，增加地震波数量。"
