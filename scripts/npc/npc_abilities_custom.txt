@@ -2157,7 +2157,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"500 550 600 650"
+		"AbilityCastRange"				"350 450 550 650"
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
 		
 		// Time		
@@ -2175,10 +2175,10 @@
 		"AbilityValues"
 		{
 			"burrow_width"		"150"
-			"burrow_duration"	"1.65"
+			"burrow_duration"	"2.17"
 			"burrow_speed"		"2000"
 			"burrow_anim_time"	"0.52"
-			"cast_range_scepter"	"500 550 600 650"
+			"cast_range_scepter"	"350 450 550 650"
 			"burrow_speed_scepter"	"2000"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -2219,8 +2219,8 @@
 		"AbilityValues"
 		{
 			"damage_tick_rate"	"0.2"
-			"sand_storm_radius"	"425 500 575 650"
-			"sand_storm_damage"	"25 50 80 100"
+			"sand_storm_radius"	"525"
+			"sand_storm_damage"	"25 50 75 100"
 			"fade_delay"			"1.5"
 			"scepter_explosion_radius"	"0"
 			"scepter_explosion_min_dist"	"0"
@@ -2229,55 +2229,89 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
-	//=================================================================================================================
-	// Ability: Sand King Caustic Finale
-	//=================================================================================================================
-	"sandking_caustic_finale_2"
+	"sandking_caustic_finale_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"sandking_caustic_finale"
+		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"Ability.SandKing_CausticFinale"
+		"AbilityTextureName"			"sandking_caustic_finale"
+		
+		"AbilityDuration"				"8.0 8.0 8.0 8.0"
 		"AbilityDamage"					"90 130 170 220"
-
+		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"caustic_finale_radius"		"400"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"caustic_finale_damage_base"		"90 130 170 220"
-				"LinkedSpecialBonus"	"special_bonus_unique_sand_king_8"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"caustic_finale_damage_pct"		"0"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"caustic_finale_duration"	"8"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"caustic_finale_slow"		"-0"
-				"LinkedSpecialBonus"	"special_bonus_unique_sand_king_6"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
-			}				
+				"caustic_finale_damage"		"90 130 170 220"
+				"caustic_finale_duration"	"8.0 8.0 8.0 8.0"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_sandking.vsndevts"
+			"particle"				"particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf"
+		}
+		
+		"Modifiers"
+		{
+			"modifier_caustic_finale_buff_datadriven"
+			{
+				"IsHidden"			"1"
+				"IsPurgable"		"0"
+				"Passive"			"1"
+				"OnAttack"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"		"modifier_caustic_finale_debuff_datadriven"
+						"Target"
+						{
+							"Center"		"TARGET"
+							"Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+					}
+				}
+			}
+			
+			"modifier_caustic_finale_debuff_datadriven"
+			{
+				"IsDebuff"			"1"
+				"IsPurgable"		"0"
+				"Duration"			"%caustic_finale_duration"
+				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_sand_king/caustic_finale.lua"
+						"Function"			"caustic_finale_dead_effect"
+					}
+				}
+				
+				"OnDeath"
+				{
+					"Damage"
+					{
+						"Type"				"DAMAGE_TYPE_MAGICAL"
+						"Damage"			"%caustic_finale_damage"
+						"Target"
+						{
+							"Center"		"UNIT"
+							"Radius"		"%caustic_finale_radius"
+							"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
+						}
+					}
+				}
+			}
+		}
 	}
 	"sandking_epicenter_lua"
 	{

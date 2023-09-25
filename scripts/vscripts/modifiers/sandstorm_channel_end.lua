@@ -14,7 +14,7 @@ function modifier_sandstorm_channel_end:DeclareFunctions()
 end
 
 function modifier_sandstorm_channel_end:IsHidden()
-    return false
+    return true
 end
 
 function modifier_sandstorm_channel_end:OnAbilityEndChannel(event)
