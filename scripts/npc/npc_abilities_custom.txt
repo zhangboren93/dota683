@@ -7418,7 +7418,7 @@
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"127 175 250"
+		"AbilityManaCost"				"125 175 250"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -32418,6 +32418,8 @@
 	//=================================================================================================================
 	"omniknight_purification"
 	{
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.5"
 		"AbilityCooldown"				"10"
@@ -32436,8 +32438,9 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Omniknight.Purification"
 		"AbilityTextureName"			"omniknight_purification"
@@ -32490,13 +32493,9 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6.0 8.0 10.0 12.0"
-			}
+			"duration"				"6.0 8.0 10.0 12.0"
 		}
 	
 		"precache"
@@ -32574,13 +32573,9 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"6.0 8.0 10.0 12.0"
-			}
+			"duration"				"6.0 8.0 10.0 12.0"
 		}
 	
 		"precache"
@@ -32636,7 +32631,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"omniknight_degen_aura"
@@ -32647,23 +32642,12 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed_bonus"			"-10 -18 -26 -34"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_bonus_tooltip"	"-10 -18 -26 -34"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"350"
-			}
+			"speed_bonus"			"-10 -18 -26 -34"
+			"attack_bonus_tooltip"	"-10 -18 -26 -34"
+			"radius"				"350"
+			"think_interval"		"0.1"
 		}
 	
 		"precache"
@@ -32671,24 +32655,72 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
 			"particle"	"particles/units/heroes/hero_omniknight/omniknight_degen_aura_debuff.vpcf"
 		}
-	
+
 		"Modifiers"
 		{
-			"modifier_degen_aura"
+			"modifier_omniknight_degen_aura"
 			{
 				"Passive" 			"1"
 				"IsHidden" 			"1"
-				"IsBuff"			"1"
 	
-				"Aura" 				"modifier_degen_aura_effect"
-				"Aura_Radius" 		"%radius"
-				"Aura_Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+				"OnCreated"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"CASTER"
+							"Radius" 	"%radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+						}
+					
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"heroes/hero_omniknight/omniknight_degen_aura.lua"
+								"Function"		"DegenAura"
+								"modifier"		"modifier_degen_aura_effect"
+								"duration"		"2.0"
+							}
+						}
+					}
+				}
+	
+				"ThinkInterval"  "%think_interval"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"CASTER"
+							"Radius" 	"%radius"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+						}
+					
+						"Action"    
+						{
+							"RunScript"
+							{
+								"ScriptFile"	"heroes/hero_omniknight/omniknight_degen_aura.lua"
+								"Function"		"DegenAura"
+								"modifier"		"modifier_degen_aura_effect"
+								"duration"		"2.0"
+							}
+						}
+					}
+				}
 			}
 	
 			"modifier_degen_aura_effect"
 			{
 				"IsDebuff"			"1"
+				"IsPurgable"		"0"
 				"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_degen_aura_debuff.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"
