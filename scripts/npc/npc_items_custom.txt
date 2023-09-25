@@ -1675,13 +1675,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"46"
-			}
+			"bonus_damage"			"46"
 		}
 	}
 
@@ -1705,13 +1701,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"25"
-			}
+			"bonus_agility"			"25"
 		}
 	}
 
@@ -1735,13 +1727,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"25"
-			}
+			"bonus_strength"		"25"
 		}
 	}
 
@@ -1765,13 +1753,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"60"
-			}
+			"bonus_damage"			"60"
 		}
 	}
 
@@ -1795,13 +1779,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"55"
-			}
+			"bonus_attack_speed"	"55"
 		}
 	}
 
@@ -1832,13 +1812,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health_regen"	"5"
-			}
+			"bonus_health_regen"	"5"
 		}
 	}
 	//=================================================================================================================
@@ -1871,13 +1847,9 @@
 		"ItemShareability"  	"ITEM_PARTIALLY_SHAREABLE"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana_regen_percentage"		"100"
-			}
+			"bonus_mana_regen_percentage"		"100"
 		}
 	}
 
@@ -1902,13 +1874,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"25"
-			}
+			"bonus_intellect"		"25"
 		}
 	}
 	
@@ -1933,13 +1901,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"250"
-			}
+			"bonus_mana"			"250"
 		}
 	}
 
@@ -1963,19 +1927,10 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"150"
-			}
-			
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"200"
-			}
+			"bonus_mana"			"150"
+			"bonus_health"			"200"
 		}
 	}
 
@@ -2000,13 +1955,9 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"250"
-			}
+			"bonus_health"			"250"
 		}
 	}
 
@@ -7010,28 +6961,12 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"poison_damage"			"3.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"poison_movement_speed_melee"		"-12"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"poison_movement_speed_range"		"-4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"poison_duration"		"4.0"
-			}			
+			"poison_damage"			"3.0"
+			"poison_movement_speed_melee"		"-12"
+			"poison_movement_speed_range"		"-4"
+			"poison_duration"		"4.0"
 		}
 	}
 
