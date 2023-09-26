@@ -201,33 +201,13 @@
 		"ItemPurchasable"			"1"
 		"ItemIsNeutralDrop"			"0"
 		"ItemSellable"				"1"
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_block_melee"	"20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_block_ranged"	"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_chance"			"50"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_chance_hero"		"100"
-			}
+			"bonus_agility"			"6"
+			"damage_block_melee"	"20"
+			"damage_block_ranged"	"10"
+			"block_chance"			"50"
+			"block_chance_hero"		"100"
 		}
 	}
 	
@@ -2125,28 +2105,12 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"75"
-			}
+			"bonus_damage"			"15"
+			"bonus_intellect"		"6"
+			"bonus_attack_speed"	"10"
+			"bonus_mana_regen"		"75"
 		}
 		"Modifiers"
 		{
@@ -2244,23 +2208,11 @@
 		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"125"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"10"
-			}
+			"bonus_health_regen"	"5"
+			"bonus_mana_regen"		"125"
+			"bonus_damage"			"10"
 		}
 	}
 
@@ -2406,28 +2358,12 @@
 		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"			"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"3"
-			}
+			"bonus_agility"			"6"
+			"bonus_strength"			"3"
+			"bonus_intellect"			"3"
+			"bonus_damage"			"3"
 		}
 	}
 
@@ -2508,28 +2444,12 @@
 		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"			"6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"3"
-			}
+			"bonus_agility"			"3"
+			"bonus_strength"			"3"
+			"bonus_intellect"			"6"
+			"bonus_damage"			"3"
 		}
 	}
 	
