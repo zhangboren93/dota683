@@ -29,6 +29,7 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_warlock/warlock_fatal_bonds_icon.vpcf", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts", context)
+	PrecacheResource( "soundfile", "soundevents/custom_sounds.vsndevts", context)
 end
 
 -- Create the game mode when we activate

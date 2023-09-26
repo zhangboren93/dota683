@@ -40,5 +40,14 @@ function handleDeath(event)
 		caster:SetTimeUntilRespawn(new_time_until_respawn)
 		caster.necrospawnminus = nil
 		caster.buybacked = nil
+
+		if (new_time_until_respawn > 3) then
+			caster:SetThink(function()
+				if not caster:IsAlive() then
+					print("Emit respawn sound")
+					EmitSoundOnEntityForPlayer("MobaTimeMachine.Hero_Respawn", caster, caster:GetPlayerID())
+				end
+			end, "respawn music", new_time_until_respawn - 3)
+		end
 	end, "set time until respawn", 0.5)
 end
