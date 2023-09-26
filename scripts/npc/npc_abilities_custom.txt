@@ -1672,7 +1672,11 @@
 				"coil_break_radius"			"600"
 				"stun_duration"				"0.5"
 				"coil_initial_damage"		"100 150 200"
-				"coil_stun_duration"	"1.5 2.25 3.0"
+				"coil_stun_duration"
+				{
+					"value"					"1.5 2.25 3.0"
+					"special_bonus_scepter"	"+0 +0.75 +1.5"
+				}
 				"coil_break_damage"			
 				{
 					"value"					"100 150 200"
@@ -1689,6 +1693,26 @@
 					"value"							"0"
 					"special_bonus_scepter"			"+0"
 				}
+		}
+	}
+	"special_bonus_unique_puck_5"
+	{
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"1"
+				"ad_linked_abilities"		"puck_dream_coil"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"value"						"1"
+				"ad_linked_abilities"		"puck_dream_coil_2"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
+			}
 		}
 	}
     "puck_dream_coil_2"
@@ -1741,7 +1765,11 @@
 				"coil_break_radius"			"600"
 				"stun_duration"				"0.5"
 				"coil_initial_damage"		"100 150 200"
-				"coil_stun_duration"	"1.5 2.25 3.0"
+				"coil_stun_duration"
+				{
+					"value"					"1.5 2.25 3.0"
+					"special_bonus_scepter"	"+0 +0.75 +1.5"
+				}
 				"coil_break_damage"			
 				{
 					"value"					"100 150 200"
