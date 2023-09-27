@@ -2518,48 +2518,16 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"750"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_health_regen"		"4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_amount"			"250"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_radius"			"750"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_bonus_armor"		"2"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_armor_duration"	"25.0"
-			}
+			"bonus_all_stats"		"5"
+			"bonus_armor"			"5"
+			"aura_radius"			"750"
+			"aura_health_regen"		"4"
+			"heal_amount"			"250"
+			"heal_radius"			"750"
+			"heal_bonus_armor"		"2"
+			"heal_armor_duration"	"25.0"
 		}
 
 		"Modifiers"
@@ -2694,38 +2662,14 @@
 		"ItemAliases"					"vladmir's offering;vlads"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"aura_radius"				"900"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"lifesteal_aura_percent"	"16"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_aura_percent"		"15"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"armor_aura"				"5"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"mana_regen_aura"			"0.8"  //This variable is unused due to an obscure engine bug.
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"hp_regen"					"2"
-			}
+			"aura_radius"				"900"
+			"lifesteal_aura_percent"	"16"
+			"damage_aura_percent"		"15"
+			"armor_aura"				"5"
+			"mana_regen_aura"			"0.8"  //This variable is unused due to an obscure engine bug.
+			"hp_regen"					"2"
 		}
 		
 		"Modifiers"
@@ -2868,38 +2812,14 @@
 		"ItemQuality"					"rare"
 		"ItemAliases"					"buckler"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_all_stats"		"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_radius"			"750"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_armor"			"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_duration_unit"	"25.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_duration_hero"	"25.0"
-			}
+			"bonus_armor"			"5"
+			"bonus_all_stats"		"2"
+			"active_radius"			"750"
+			"active_armor"			"2"
+			"active_duration_unit"	"25.0"
+			"active_duration_hero"	"25.0"
 		}
 		
 		"OnSpellStart"
@@ -3051,33 +2971,13 @@
 		"UIDropSound"					"Item.DropRingShop"
 		"WorldDropSound"				"Item.DropRingWorld"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aura_mana_regen"		"0.65"  //This variable is unused due to an obscure engine bug.
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_bonus_armor"		"2"
-			}
+			"bonus_damage"			"6"
+			"bonus_armor"			"1"
+			"aura_radius"			"900"
+			"aura_mana_regen"		"0.65"  //This variable is unused due to an obscure engine bug.
+			"aura_bonus_armor"		"2"
 		}
 		
 		"OnSpellStart"  //Switch to the inactive version of Ring of Basilius.
@@ -3381,63 +3281,19 @@
 		
 	// Special	
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilitySpecial"
+	"AbilityValues"
 	{
-		"01"
-		{
-			"var_type"				"FIELD_INTEGER"
-			"bonus_mana_regen_percentage"	"50"
-		}
-		"02"
-		{
-			"var_type"				"FIELD_INTEGER"
-			"bonus_strength"		"6"
-		}
-		"03"
-		{
-			"var_type"				"FIELD_INTEGER"
-			"soul_radius"			"1400"
-		}
-		"04"
-		{
-			"var_type"				"FIELD_INTEGER"
-			"soul_initial_charge"	"2"
-		}
-		"05"
-		{
-			"var_type"				"FIELD_INTEGER"
-			"soul_additional_charges"	"1"
-		}
-		"06"
-		{
-			"var_type"				"FIELD_FLOAT"
-			"soul_heal_interval"	"0.25"
-		}
-		"07"
-		{
-			"var_type"				"FIELD_FLOAT"
-			"soul_damage_interval"	"1"
-		}
-		"08"
-		{
-			"var_type"				"FIELD_INTEGER"
-			"soul_heal_amount"		"400"
-		}	
-		"09"
-		{
-			"var_type"				"FIELD_INTEGER"
-			"soul_damage_amount"	"150"
-		}
-		"10"
-		{
-			"var_type"				"FIELD_FLOAT"
-			"soul_heal_duration"	"8.0"
-		}
-		"11"
-		{
-			"var_type"				"FIELD_FLOAT"
-			"soul_damage_duration"	"8.0"
-		}
+		"bonus_mana_regen_percentage"	"50"
+		"bonus_strength"		"6"
+		"soul_radius"			"1400"
+		"soul_initial_charge"	"2"
+		"soul_additional_charges"	"1"
+		"soul_heal_interval"	"0.25"
+		"soul_damage_interval"	"1"
+		"soul_heal_amount"		"400"
+		"soul_damage_amount"	"150"
+		"soul_heal_duration"	"8.0"
+		"soul_damage_duration"	"8.0"
 	}
 	
 	"OnSpellStart"
@@ -3617,23 +3473,11 @@
     	"ItemQuality"					"rare"
     	"ItemAliases"					"headdress"
     	
-    	"AbilitySpecial"
+    	"AbilityValues"
     	{
-    		"01"
-    		{
-    			"var_type"				"FIELD_INTEGER"
-    			"bonus_all_stats"		"2"
-    		}
-    		"02"
-    		{
-    			"var_type"				"FIELD_INTEGER"
-    			"aura_radius"			"750"
-    		}
-    		"03"
-    		{
-    			"var_type"				"FIELD_INTEGER"
-    			"aura_health_regen"		"3"
-    		}
+   			"bonus_all_stats"		"2"
+   			"aura_radius"			"750"
+   			"aura_health_regen"		"3"
     	}
     	
     	"Modifiers"
@@ -8703,28 +8547,12 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement"		"55"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mana"			"250"
-			}			
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replenish_amount"		"135"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"replenish_radius"		"600"
-			}
+			"bonus_movement"		"55"
+			"bonus_mana"			"250"
+			"replenish_amount"		"135"
+			"replenish_radius"		"600"
 		}
 	}
 	//=================================================================================================================
@@ -9666,58 +9494,18 @@
 	    "ItemDisplayCharges"			"1"
 	    "ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 	
-	    "AbilitySpecial"
+	    "AbilityValues"
 	    {
-		    "01"
-		    {
-			    "var_type"								"FIELD_INTEGER"
-			    "bonus_stats"							"9"
-		    }
-		    "02"
-		    {
-			    "var_type"								"FIELD_INTEGER"
-			    "bonus_damage"							"3"
-		    }
-		    "03"
-		    {
-			    "var_type"								"FIELD_INTEGER"
-			    "aura_bonus_attack_speed"				"5"
-		    }
-		    "04"
-		    {
-			    "var_type"								"FIELD_INTEGER"
-			    "aura_bonus_movement_speed_pct"			"5"
-		    }
-		    "05"
-		    {
-			    "var_type"								"FIELD_INTEGER"
-			    "endurance_bonus_attack_speed"			"10"
-		    }
-		    "06"
-		    {
-			    "var_type"								"FIELD_INTEGER"
-			    "endurance_bonus_movement_speed_pct"	"10"
-		    }
-		    "07"
-		    {
-			    "var_type"								"FIELD_FLOAT"
-			    "endurance_duration"					"6.0"
-		    }
-		    "08"
-		    {
-			    "var_type"								"FIELD_INTEGER"
-			    "aura_radius"							"900"
-		    }
-		    "09"
-		    {
-			    "var_type"								"FIELD_INTEGER"
-			    "endurance_radius"						"900"
-		    }
-		    "10"
-		    {
-			    "var_type"								"FIELD_INTEGER"
-			    "initial_equip_charges"					"6"
-		    }
+		    "bonus_stats"							"9"
+		    "bonus_damage"							"3"
+		    "aura_bonus_attack_speed"				"5"
+		    "aura_bonus_movement_speed_pct"			"5"
+		    "endurance_bonus_attack_speed"			"10"
+		    "endurance_bonus_movement_speed_pct"	"10"
+		    "endurance_duration"					"6.0"
+		    "aura_radius"							"900"
+		    "endurance_radius"						"900"
+			"initial_equip_charges"					"6"
 	    }
 	
 	    "OnSpellStart"
