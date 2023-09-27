@@ -70,6 +70,7 @@ function Activate()
 	LinkLuaModifier( "modifier_beastmaster_wild_axes_damage_lua", "heroes/hero_beastmaster/modifier_beastmaster_wild_axes_damage.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_lone_druid_rabid_lua", 			"heroes/hero_lone_druid/modifier_lone_druid_rabid.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_thunder_strike_after_death_lua", "heroes/hero_disruptor/modifier_thunder_strike_after_death.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_cloak_bonus",					"heroes/hero_visage/cloak_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -709,6 +710,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_riki" then
 			entity:AddNewModifier(entity, entity:FindAbilityByName("riki_permanent_invisibility"), "modifier_riki_invis_health_regen", {})
 		elseif entity:GetName() == "npc_dota_hero_visage" then
+			entity:AddNewModifier(entity, entity:FindAbilityByName("visage_gravekeepers_cloak"), "modifier_cloak_bonus", {})
 			entity:SetThink(function()
 				if entity:HasScepter() and not entity:HasAbility("special_bonus_unique_visage_6") then
 					local ability = entity:AddAbility("special_bonus_unique_visage_6")
@@ -717,7 +719,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 1
 			end, "visage scepter", 1);
-			entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
+			-- entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_windrunner" or entity:GetName() == "npc_dota_hero_hoodwink" then
 			entity:SetThink(function()
 				entity:RemoveModifierByName("modifier_windrunner_windrun_invis")

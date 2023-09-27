@@ -12823,7 +12823,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 14 12 10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -12835,28 +12834,13 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"chill_duration"			"3 4 5 6"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"movespeed_bonus"				"32"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"attackspeed_bonus"				"64"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"900"
-			}
+			"AbilityCooldown"			"16 14 12 10"
+			"chill_duration"			"3 4 5 6"
+			"movespeed_bonus"			"32"
+			"attackspeed_bonus"			"64"
+			"radius"					"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}	
@@ -12895,55 +12879,21 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"bolt_speed"				"1000"
+			"soul_base_damage"			"20"
+			"soul_charge_damage"		"65"
+			"stack_limit"				"3 4 5 6"
+			"stack_duration"			"6.0"
+			"damage_limit"				
 			{
-				"var_type"					"FIELD_INTEGER"
-				"bolt_speed"				"1000"
+				"value"					"110"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"soul_base_damage"			"20"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"soul_charge_damage"		"65"
-				"LinkedSpecialBonus"		"special_bonus_unique_visage_4"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"stack_limit"				"3 4 5 6"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stack_duration"			"6.0"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_limit"				"110"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"radius"					"1200"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_min"				"2.0"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"damage_max"				"3000.0"
-			}
+			"radius"					"1375"
+			"damage_min"				"2.0"
+			"damage_max"				"3000.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
@@ -12983,12 +12933,12 @@
 			"04"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"minimum_damage"					"40"
+				"minimum_damage"					"2"
 			}
 			"05"
 			{
 				"var_type"							"FIELD_INTEGER"
-				"radius"							"1200"
+				"radius"							"0"
 			}
 			"06"
 			{
@@ -13012,10 +12962,23 @@
 				"var_type"							"FIELD_INTEGER"
 				"shard_manacost"				"125"
 				"RequiresShard"						"1"
-			}		
+			}
+			"10"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_armor"						"1 2 4 5"
+			}
+			"11"
+			{
+				"var_type"							"FIELD_INTEGER"
+				"bonus_resist"						"3 6 12 16"
+			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
+	//=================================================================================================================
+	// Deprecated
+	//=================================================================================================================
 	"visage_gravekeepers_cloak_bonus_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
@@ -13065,6 +13028,9 @@
 			"bonus_armor"			"1 2 4 5"
 		}
 	}
+	//=================================================================================================================
+	// Visage : Summon Familiars
+	//=================================================================================================================
     "visage_summon_familiars"
 	{
 		"MaxLevel"              "3"
