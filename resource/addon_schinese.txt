@@ -399,6 +399,15 @@
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"酒仙分裂成元素，产生3个各有所长的战士，生存能力极强。只要其中任何一个在召唤时间结束后存活下来，酒仙就能重生。"
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_duration"				"持续时间："
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_scepter_description"	"大地战士获得当前等级雷霆一击，狂风战士获得当前等级醉酒云雾，烈火战士获得当前等级醉拳。"
+		//Bristleback
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven"						"钢毛后背"
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Description"			"如果伤害来自钢背兽的侧面或者背后，他将会受到较少的伤害。钢毛后背每吸收%quill_release_threshold%点伤害会自动释放一次当前等级的刺针扫射。"
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Lore"					"在战斗中背部迎人或许正好合适。"
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Note0"					"钢背兽的背面是以背部中心点为原点，向左向右各呈70度角的扇形区域。"
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Note1"					"钢背兽的侧面是以背部中心点为原点，向左向右各呈110度角的扇形区域，背面的扇形区域不算在内。"
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_side_damage_reduction"	"%侧面伤害减少："
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_back_damage_reduction"	"%背后伤害减少："
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_quill_release_threshold"	"伤害吸收触发值："
 		//Centaur
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven"								"马蹄践踏"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Description"					"经过短暂的蓄力后，半人马战行者猛踏地面，眩晕并伤害身边的敌方单位。"

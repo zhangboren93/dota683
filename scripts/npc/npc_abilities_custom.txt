@@ -13408,7 +13408,7 @@
 		{
 			"goo_speed"				"1000"
 			"goo_duration"			"5.0"
-			"base_armor"			"1 1 2 2"
+			"base_armor"			"0"
 			"armor_per_stack"		"1 1 2 2"
 			"base_move_slow"		"20"
 			"move_slow_per_stack"	"3 6 9 12"
@@ -13452,86 +13452,76 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"625"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"quill_base_damage"		"20 40 60 80"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"quill_stack_damage"	"30 32 34 36"
-				"LinkedSpecialBonus"	"special_bonus_unique_bristleback_2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"quill_stack_duration"	"14.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"max_damage"			"400.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"projectile_speed"		"2400"
-			}
+				"projectile_speed"		"24000"
 		}
 	}
-	//=================================================================================================================
-	// Bristleback: Bristleback
-	//=================================================================================================================
-	"bristleback_bristleback"
+	// Ability: Bristleback
+	// By: Ragnar Homsar
+	// Date: November 28, 2015
+	// Version: 6.85
+	// Type: Datadriven
+	//
+	// ----- FILE REQUIREMENTS -----
+	// Script files:
+	// scripts/vscripts/heroes/hero_bristleback/bristleback.lua
+	//
+	// KV files:
+	// scripts/npc/abilities/bristleback/quill_spray_datadriven.txt
+	"bristleback_bristleback_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5550"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilitySound"					"Hero_Bristleback.Bristleback"
-		"HasScepterUpgrade"				"0"
-
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"bristleback_bristleback"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+				
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"side_damage_reduction"
-			{
-				"value"													"8 12 16 20"
-				"special_bonus_unique_bristleback_6"					"+4"
-			}
-			"back_damage_reduction"
-			{
-				"value"			"16 24 32 40"
-				"special_bonus_unique_bristleback_6"						"+8"
-			}
-			"side_angle"							"110"
-			"back_angle"							"70"
-			"quill_release_threshold"				"250"
-			"quill_release_interval"				".1"
-
-			"activation_cooldown"					"20000"
-			"activation_manacost"					"10000"
-			"activation_delay"						"0.5"
-			"activation_num_quill_sprays"			"0"
-			"activation_spray_interval"				"0.35"
-			"activation_angle"						"45"
-			"cast_range_bonus"						"0"
-			"activation_movement_speed_pct"			"-40"
-			"activation_turn_rate_pct"				"-100"
-			"activation_disable_turning"			"1"
-			"activation_ignore_cast_angle"			"1"
-			"activation_turn_rate"					"500"
+				"side_damage_reduction"			"8 12 16 20"
+				"back_damage_reduction"			"16 24 32 40"
+				"side_angle"					"110"
+				"back_angle"					"70"
+				"quill_release_threshold"		"250.0"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_bristleback/bristleback_side_dmg.vpcf"
+			"particle"	"particles/units/heroes/hero_bristleback/bristleback_back_dmg.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_bristleback.vsndevts"
+		}
+	
+		"Modifiers"
+		{
+			"modifier_bristleback"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+	
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_bristleback/bristleback.lua"
+						"Function"		"bristleback_takedamage"
+						"Damage"		"%attack_damage"
+						"back_particle"	"particles/units/heroes/hero_bristleback/bristleback_back_dmg.vpcf"
+						"side_particle"	"particles/units/heroes/hero_bristleback/bristleback_side_dmg.vpcf"
+						"sound"			"Hero_Bristleback.Bristleback"
+					}		
+				}
+			}
+		}
 	}
 	//=================================================================================================================
 	// Bristleback: Warpath
@@ -13556,29 +13546,12 @@
 				
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"damage_per_stack"					"20 25 30"
-				"LinkedSpecialBonus"	"special_bonus_unique_bristleback_3"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"move_speed_per_stack"				"3 4 5"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
 				"stack_duration"				"16.0"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
 				"max_stacks"					"5 6 7"
-			}
 		}
 	}
     "tusk_walrus_punch"

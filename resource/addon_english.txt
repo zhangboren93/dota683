@@ -399,6 +399,15 @@
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"Splits Brewmaster into elements, forming 3 specialized warriors, adept at survival, each with their own abilities. If any of them survive until the end of their summoned timer, the Brewmaster is reborn."
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_duration"				"Duration: "
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_scepter_description"	"Grants Earth warrior Thunder Clap.<br>Grants Storm warrior Drunken Haze.<br>Grants Brewmaster Fire warrior Drunken Brawler."
+		//Bristleback
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven"							"Bristleback"
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Description"				"Bristleback takes less damage if hit on the sides or rear.  If Bristleback takes %quill_release_threshold% damage from the rear, he releases a Quill Spray of the current level."
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Lore"						"Turning his back to a fight might be just the thing."
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Note0"						"Bristleback's rear is considered to be within 70 degrees from the back."
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Note1"						"Bristleback's side is considered to be within 110 degrees from the back."
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_side_damage_reduction"		"%SIDE DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_back_damage_reduction"		"%BACK DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_quill_release_threshold"	"DAMAGE THRESHOLD:"
 		//Centaur
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven"								"Hoof Stomp"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Description"					"After a brief windup, Centaur Warrunner slams the ground, stunning and damaging nearby enemy units."
