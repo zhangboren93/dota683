@@ -22843,66 +22843,122 @@
 		}
 	}
 }
-	//=================================================================================================================
-	// Ability: Nevermore Requiem of Souls
-	//=================================================================================================================
-	"nevermore_requiem"
+	"nevermore_requiem_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5064"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"				"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"2"
-		"HasScepterUpgrade"			"0"
-		"AbilitySound"					"Hero_Nevermore.RequiemOfSouls"
-
+		"AbilityTextureName"			"nevermore_requiem"
+		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"1.67 1.67 1.67"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
-
+	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-
+		"AbilityCooldown"				"120.0 110.0 100.0"
+		"AbilityDuration"				"5.0 5.0 5.0"
+	
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDamage"					"80 120 160"
-
+	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150 175 200"
-
+	
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"0.5"	// Primarily about the damage
-
+	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
+		"AbilitySpecial"
 		{
-				"AbilityCooldown"	"120 110 100"
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
 				"requiem_radius"	"975 1000 1025"		
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
 				"requiem_reduction_ms"	"-25"
-				"requiem_reduction_mres"	"-0"
-				"requiem_slow_duration"		"0"
-				"requiem_slow_duration_max"	"0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"requiem_slow_duration"	"5.0"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"requiem_reduction_damage"	"-50"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"requiem_reduction_tooltip"	"-50"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
 				"requiem_reduction_radius"	"700 700 700"
-				"requiem_soul_conversion"	"1"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"requiem_soul_conversion"	"2"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
 				"requiem_line_width_start"	"75 100 125"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
 				"requiem_line_width_end"	"400 425 450"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_INTEGER"
 				"requiem_line_speed"	"700 700 700"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_FLOAT"
 				"soul_death_release"	"0.5"
-				"requiem_heal_pct_scepter"	"0"
-				"requiem_damage_pct_scepter"	"0"
-				"slow_range"		"700"
-				"slow_duration"		"5"
-				"slow_pct"			"-25"
-				"damage_reduct_pct"	"-50"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Nevermore.RequiemOfSoulsCast"
+				"Target"		"CASTER"
+			}
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Nevermore.RequiemOfSouls"
+				"Target"		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_nevermore/requiem.lua"
+				"Function"		"handleAbilityStart"
+			}
 		}
 	}
+
 	//=================================================================================================================
 	// Ability: Juggernaut Healing Ward
 	//=================================================================================================================
