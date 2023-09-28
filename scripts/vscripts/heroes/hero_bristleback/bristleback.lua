@@ -101,7 +101,41 @@ function bristleback_takedamage(params)
 		if ability_index_1 ~= nil then 
 			if ability_index_1:GetAbilityName() == "quill_spray_datadriven" or ability_index_1:GetAbilityName() == "bristleback_quill_spray" then
 				--TODO manually trigger the quill_spray effect so that it doesn't add warpath stacks.
-				ability_index_1:CastAbility()
+				local quill_spray_particle_name = "particles/units/heroes/hero_bristleback/bristleback_quill_spray.vpcf"
+				local quill_spray_sound = "Hero_Bristleback.QuillSpray.Cast"
+				local stack_duration = ability_index_1:GetSpecialValueFor("quill_stack_duration")
+				local base_damage = ability_index_1:GetSpecialValueFor("quill_base_damage")
+				local stack_damage = ability_index_1:GetSpecialValueFor("quill_stack_damage")
+				local max_damage = ability_index_1:GetSpecialValueFor("max_damage")
+				local radius = ability_index_1:GetSpecialValueFor("radius")
+				local units = FindUnitsInRadius(params.unit:GetTeam(), 
+					params.unit:GetAbsOrigin(),
+					nil, radius, 
+					DOTA_UNIT_TARGET_TEAM_ENEMY,
+					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+					FIND_ANY_ORDER,
+					false)
+				for i=1,#units do
+					local modifier_bristleback_quill_spray_stack = units[i]:FindModifierByName("modifier_bristleback_quill_spray")
+					local stacks = 0
+					if modifier_bristleback_quill_spray_stack ~= nil then
+						stacks = modifier_bristleback_quill_spray_stack:GetStackCount()
+					end
+					local damage = math.min(base_damage + stacks * stack_damage, max_damage)
+					ApplyDamage({victim = units[i], attacker = params.unit, damage_type = DAMAGE_TYPE_PHYSICAL, damage = damage})
+					if modifier_bristleback_quill_spray_stack == nil then
+						units[i]:AddNewModifier(params.unit, ability_index_1, "modifier_bristleback_quill_spray", { duration = stack_duration }):SetStackCount(1)
+						units[i]:AddNewModifier(params.unit, ability_index_1, "modifier_bristleback_quill_spray_stack", { duration = stack_duration })
+					else
+						modifier_bristleback_quill_spray_stack:SetStackCount(stacks + 1)
+						modifier_bristleback_quill_spray_stack:SetDuration(stack_duration, true)
+						units[i]:AddNewModifier(params.unit, ability_index_1, "modifier_bristleback_quill_spray_stack", { duration = stack_duration })
+					end
+				end
+				params.unit:EmitSound(quill_spray_sound)
+				local particle = ParticleManager:CreateParticle(quill_spray_particle_name, PATTACH_ABSORIGIN, params.unit)
+				ParticleManager:ReleaseParticleIndex(particle)
 			end
 		end
 
