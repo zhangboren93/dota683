@@ -227,19 +227,6 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
 				}
 			}
-			"modifier_nevermore_requiem_slow_datadriven"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_nevermore/requiem_slow.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
 			"modifier_oracle_fates_edict_allie_disarm"
 			{
 				"Passive"		"0"
