@@ -22854,6 +22854,9 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"			"nevermore_requiem"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -22936,6 +22939,11 @@
 				"soul_death_release"	"0.5"
 			}
 		}
+		"precache"
+		{
+			"particle" 	"particles/units/heroes/hero_nevermore/nevermore_requiem_head.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+		}
 		"OnAbilityPhaseStart"
 		{
 			"FireSound"
@@ -22955,6 +22963,54 @@
 			{
 				"ScriptFile"	"heroes/hero_nevermore/requiem.lua"
 				"Function"		"handleAbilityStart"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit" "0"
+			"Damage"
+			{
+				"Target" "TARGET"
+				"Type" 	 "DAMAGE_TYPE_MAGICAL"
+				"Damage" "%AbilityDamage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_requiem_head_datadriven"
+			{
+				"EffectName"	"particles/units/heroes/hero_nevermore/nevermore_requiem_head.vpcf"
+				"Duration" 		"2"
+				"ThinkInterval"	"0.03"
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_TEAM_SELECT"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_nevermore/requiem.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			"modifier_requiem_trigger_on_death"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_nevermore/requiem.lua"
+						"Function"		"handleDeath"
+					}
+				}
 			}
 		}
 	}
