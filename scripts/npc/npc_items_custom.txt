@@ -3721,38 +3721,14 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cyclone_duration"		"2.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_drop_damage"	"0"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana_regen_percentage"	"150"
-			}
+			"bonus_intellect"		"10"
+			"bonus_mana_regen"		"0"
+			"bonus_movement_speed"	"40"
+			"cyclone_duration"		"2.5"
+			"tooltip_drop_damage"	"0"
+			"bonus_mana_regen_percentage"	"150"
 		}
 	}
 	//=================================================================================================================
@@ -4153,83 +4129,23 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"8 12 16"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"summon_duration"		"40 35 35"
-			}			
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_health_tooltip"	"800 1200 1600"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_damage_tooltip"	"25 45 65"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_mana_feedback"	"30 40 50"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_mana_break_tooltip"	"30 40 50"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"explosion"				"600 700 800"
-			}			
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_truesight"		"400 800 1200"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_health_tooltip"	"800 1200 1600"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_damage_tooltip"	"37 57 75"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_mana_burn"		"125 175 225"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_aura_radius_tooltip"	"1200"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_move_speed"	"5 7 9"
-			}
-			"16"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"15 21 24"
-			}
+			"bonus_strength"		"8 12 16"
+			"bonus_mana_regen"		"0"
+			"summon_duration"		"40 35 35"
+			"warrior_health_tooltip"	"800 1200 1600"
+			"warrior_damage_tooltip"	"25 45 65"
+			"warrior_mana_feedback"	"30 40 50"
+			"warrior_mana_break_tooltip"	"30 40 50"
+			"explosion"				"600 700 800"
+			"warrior_truesight"		"400 800 1200"
+			"archer_health_tooltip"	"800 1200 1600"
+			"archer_damage_tooltip"	"37 57 75"
+			"archer_mana_burn"		"125 175 225"
+			"archer_aura_radius_tooltip"	"1200"
+			"archer_move_speed"	"5 7 9"
+			"bonus_intellect"		"15 21 24"
 		}
 	}
 	"item_necronomicon_2"
@@ -4267,83 +4183,23 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"8 12 16"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"summon_duration"		"40 35 35"
-			}			
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_health_tooltip"	"800 1200 1600"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_damage_tooltip"	"25 45 65"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_mana_feedback"	"30 40 50"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_mana_break_tooltip"	"30 40 50"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"explosion"				"600 700 800"
-			}			
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_truesight"		"400 800 1200"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_health_tooltip"	"800 1200 1600"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_damage_tooltip"	"37 57 75"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_mana_burn"		"125 175 225"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_aura_radius_tooltip"	"1200"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_move_speed"	"5 7 9"
-			}
-			"16"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"15 21 24"
-			}
+			"bonus_strength"		"8 12 16"
+			"bonus_mana_regen"		"0"
+			"summon_duration"		"40 35 35"
+			"warrior_health_tooltip"	"800 1200 1600"
+			"warrior_damage_tooltip"	"25 45 65"
+			"warrior_mana_feedback"	"30 40 50"
+			"warrior_mana_break_tooltip"	"30 40 50"
+			"explosion"				"600 700 800"
+			"warrior_truesight"		"400 800 1200"
+			"archer_health_tooltip"	"800 1200 1600"
+			"archer_damage_tooltip"	"37 57 75"
+			"archer_mana_burn"		"125 175 225"
+			"archer_aura_radius_tooltip"	"1200"
+			"archer_move_speed"	"5 7 9"
+			"bonus_intellect"		"15 21 24"
 		}
 	}
 
@@ -4379,83 +4235,23 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"8 12 16"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mana_regen"		"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"summon_duration"		"40 35 35"
-			}			
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_health_tooltip"	"800 1200 1600"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_damage_tooltip"	"25 45 65"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_mana_feedback"	"30 40 50"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_mana_break_tooltip"	"30 40 50"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"explosion"				"600 700 800"
-			}			
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"warrior_truesight"		"400 800 1200"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_health_tooltip"	"800 1200 1600"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_damage_tooltip"	"37 57 75"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_mana_burn"		"125 175 225"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_aura_radius_tooltip"	"1200"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"archer_move_speed"	"5 7 9"
-			}
-			"16"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"15 21 24"
-			}
+			"bonus_strength"		"8 12 16"
+			"bonus_mana_regen"		"0"
+			"summon_duration"		"40 35 35"
+			"warrior_health_tooltip"	"800 1200 1600"
+			"warrior_damage_tooltip"	"25 45 65"
+			"warrior_mana_feedback"	"30 40 50"
+			"warrior_mana_break_tooltip"	"30 40 50"
+			"explosion"				"600 700 800"
+			"warrior_truesight"		"400 800 1200"
+			"archer_health_tooltip"	"800 1200 1600"
+			"archer_damage_tooltip"	"37 57 75"
+			"archer_mana_burn"		"125 175 225"
+			"archer_aura_radius_tooltip"	"1200"
+			"archer_move_speed"	"5 7 9"
+			"bonus_intellect"		"15 21 24"
 		}
 	}
 	//=================================================================================================================
@@ -8739,7 +8535,7 @@
 	"AbilitySpecial"
 	{
 		"01"
-		{
+	{
 			"var_type"					"FIELD_INTEGER"
 			"bonus_health_regen"		"6"
 		}

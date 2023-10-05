@@ -1202,6 +1202,22 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		caster:FindAbilityByName("slark_shadow_dance_heal_datadriven"):ApplyDataDrivenModifier(
 			caster, parent, "modifier_slark_pounce_leash_datadriven", { duration = 3.5 })
 		return false
+	elseif event.name_const == "modifier_lich_frostnova_slow" then 
+		local modifier = parent:FindModifierByName("modifier_lich_chainfrost_slow")
+		if (modifier ~= nil) then
+			if(modifier:GetDuration() < 4.0) then
+				modifier:SetDuration(4.0, true)
+			end
+			return false
+		end
+	elseif event.name_const == "modifier_lich_chainfrost_slow" then 
+		local modifier = parent:FindModifierByName("modifier_lich_frostnova_slow")
+		if (modifier ~= nil) then
+			if (modifier:GetDuration() < 4.0) then
+				modifier:SetDuration(4.0, true)
+			end
+			return false
+		end
 	elseif event.name_const == "modifier_medusa_stone_gaze_slow" then
 		-- add a modifier to remove the debuff when is not facing the medusa
 		local caster = EntIndexToHScript(event.entindex_caster_const)
