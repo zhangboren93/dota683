@@ -9426,33 +9426,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_self"	"6 10 14 18"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_allies"	"6 10 14 18"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_extra"		"3 5 7 9"
-			}
-			"05s"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"			"6"
-			}
+			"bonus_movespeed_pct_self"		"6 10 14 18"
+			"bonus_movespeed_pct_allies"	"6 10 14 18"
+			"aura_radius"					"900"
+			"bonus_movespeed_pct_extra"		"6 10 14 18"
+			"bonus_movespeed_pct_extra_tooltip"	"3 5 7 9"
+			"duration"						"6"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}

@@ -695,11 +695,13 @@
 		"DOTA_Tooltip_Ability_slardar_sprint_datadriven_bonus_speed"	"%Movement speed bonus: "
 		"DOTA_Tooltip_Ability_slardar_sprint_datadriven_duration"		"Duration: "
 		// Spirit Breaker
-		"DOTA_Tooltip_Ability_spirit_breaker_charge_of_darkness_movement_speed"	"CHARGE SPEED:"
-		"DOTA_Tooltip_Ability_spirit_breaker_empowering_haste_Description"		"Causes Spirit Breaker to gain power with higher movement speed. His presence increases the movement speed of nearby allied units. Can be cast to improve the movement speed bonus for %duration% seconds, however afterward the passive bonus will be halved while the ability is on cooldown."
-		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_Description"			"Gives a chance to stun and knockback an enemy unit on an attack, as well as gaining bonus movement speed after a bash occurs. Deals a percentage of movement speed as damage."
-		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_bonus_movespeed_pct"	"%BONUS MOVE SPEED:"
-		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_movespeed_duration"	"SPEED DURATION:"
+		"DOTA_Tooltip_Ability_spirit_breaker_charge_of_darkness_movement_speed"						"CHARGE SPEED:"
+		"DOTA_Tooltip_Ability_spirit_breaker_empowering_haste_Description"							"Causes Spirit Breaker to gain power with higher movement speed. His presence increases the movement speed of nearby allied units. Can be cast to improve the movement speed bonus for %duration% seconds, however afterward the passive bonus will be halved while the ability is on cooldown."
+		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_bonus_movespeed_pct_extra"			""
+		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_bonus_movespeed_pct_extra_tooltip"	"%CAST ADDED BONUS SPEED:"
+		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_Description"								"Gives a chance to stun and knockback an enemy unit on an attack, as well as gaining bonus movement speed after a bash occurs. Deals a percentage of movement speed as damage."
+		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_bonus_movespeed_pct"						"%BONUS MOVE SPEED:"
+		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_movespeed_duration"						"SPEED DURATION:"
 		//Sven
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven"						"Storm Bolt"
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven_Description"			"Sven unleashes his magical gauntlet that deals damage and stuns enemy units in a small area around the target."

@@ -695,11 +695,13 @@
 		"DOTA_Tooltip_Ability_slardar_sprint_datadriven_bonus_speed"	"%移动速度加成："
 		"DOTA_Tooltip_Ability_slardar_sprint_datadriven_duration"		"持续时间："
 		// Spirit Breaker
-		"DOTA_Tooltip_Ability_spirit_breaker_charge_of_darkness_movement_speed"	"冲刺速度："
-		"DOTA_Tooltip_Ability_spirit_breaker_empowering_haste_Description"		"裂魂人的高速移动给他带来力量，提高附近友军单位的移动速度。技能可以施放，施放后效果提升50%%，持续%duration%秒，然而技能在冷却过程中被动效果将会减半。"
-		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_Description"			"攻击时有一定概率眩晕并击退敌方单位，打出重击后获得移动速度加成。重击的伤害值为移动速度的一定百分比。"
-		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_bonus_movespeed_pct"	"%移动速度提升："
-		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_movespeed_duration"	"速度持续时间："
+		"DOTA_Tooltip_Ability_spirit_breaker_charge_of_darkness_movement_speed"						"冲刺速度："
+		"DOTA_Tooltip_Ability_spirit_breaker_empowering_haste_Description"							"裂魂人的高速移动给他带来力量，提高附近友军单位的移动速度。技能可以施放，施放后效果提升50%%，持续%duration%秒，然而技能在冷却过程中被动效果将会减半。"
+		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_bonus_movespeed_pct_extra"			""
+		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_bonus_movespeed_pct_extra_tooltip"	"%施放后额外速度加成："
+		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_Description"								"攻击时有一定概率眩晕并击退敌方单位，打出重击后获得移动速度加成。重击的伤害值为移动速度的一定百分比。"
+		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_bonus_movespeed_pct"						"%移动速度提升："
+		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_movespeed_duration"						"速度持续时间："
 		//Sven
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven"						"风暴之拳"
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven_Description"			"斯温用他充满魔力的手套对目标周围内所有敌人造成伤害和眩晕。"
