@@ -177,7 +177,7 @@
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven_bonus_strength"		"+$str"
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_bloodstone_datadriven"								"Bloodstone"
-		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_Description"					"<h1>Active: Pocket Deny</h1>Instantly causes the user to die.\n<h1>Passive: Bloodpact</h1>Gain charges when enemy heroes dies，loss 1/3 charges when you died，1 charge gives extra 1/s mana regen."
+		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_Description"					"<h1>Active: Pocket Deny</h1>Instantly causes the user to die.\n<h1>Passive: Bloodpact</h1>Begins with %initial_equip_charges% charges, and gains a charge each time an enemy hero dies within %charge_range% range.<br><br>If the bearer dies, %heal_on_death_base% + %heal_on_death_per_charge% health per charge is restored to all allies within a %heal_on_death_range% radius, while the Bloodstone loses a third of its charges. <br><br>Each charge grants %bonus_mana_regen_per_charge% mana regeneration per second, reduces the gold lost from death by %death_gold_reduction_per_charge%, and reduces respawn time by %respawn_time_reduction_per_charge% seconds."
 		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_Lore"							"The Bloodstone's bright ruby color is unmistakable on the battlefield, as the owner seems to have infinite vitality and spirit."
 		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_bonus_health"					"+$health"
 		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_bonus_mana"					"+$mana"
