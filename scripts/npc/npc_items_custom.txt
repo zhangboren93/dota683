@@ -4362,38 +4362,14 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"35"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_attack_speed"		"20"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_positive_armor"	"5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_negative_armor"	"-5"
-			}			
+			"bonus_attack_speed"	"35"
+			"bonus_armor"			"10"
+			"aura_radius"			"900"
+			"aura_attack_speed"		"20"
+			"aura_positive_armor"	"5"
+			"aura_negative_armor"	"-5"
 		}
 	}
 	"item_recipe_heart"
@@ -4456,28 +4432,12 @@
 	
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_strength"					"40"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_health"						"300"
-			}
-			"03"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"health_regen_percent_per_second"	"2"
-			}
-			"04"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"cooldown_melee"					"4"
-			}
+			"bonus_strength"					"40"
+			"bonus_health"						"300"
+			"health_regen_percent_per_second"	"2"
+			"cooldown_melee"					"4"
 		}
 		
 		"Modifiers"
@@ -4590,33 +4550,13 @@
 		"ItemSellable"					"0"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_strength"				"10"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_damage"					"24"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"duration"						"10.0 9.0 8.0 7.0 6.0 5.0"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"max_level"						"6"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"percentage_over_model_scale"	"30"
-			}
+			"bonus_strength"				"10"
+			"bonus_damage"					"24"
+			"duration"						"10.0 9.0 8.0 7.0 6.0 5.0"
+			"max_level"						"6"
+			"percentage_over_model_scale"	"30"
 		}
 		
 		"OnSpellStart"
@@ -4810,83 +4750,23 @@
 		"ItemDisplayCharges"			"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_health"						"500"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_mana"						"400"
-			}
-			"03"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_health_regen"				"9"
-			}
-			"04"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_mana_regen_percentage"		"200"
-			}
-			"05"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"charge_range"						"1600"
-			}
-			"06"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"heal_on_death_range"				"1675"
-			}
-			"07"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"heal_on_death_base"				"500"
-			}
-			"08"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"heal_on_death_per_charge"			"30"
-			}
-			"09"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"vision_on_death_radius"			"1800"
-			}
-			"10"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"respawn_time_reduction_per_charge"	"4.0"
-			}
-			"11"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"death_gold_reduction_per_charge"	"-25"
-			}
-			"12"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"on_death_charge_percent"			"0.67" //33% gone.
-			}
-			"13"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_mana_regen_per_charge"		"1"
-			}
-			"14"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"experience_on_death_range"			"1200"  //This value is hardcoded into modifier_item_bloodstone_datadriven_aura_emitter_on_death().
-			}
-		    "15"
-		    {
-			    "var_type"							"FIELD_INTEGER"
-			    "initial_equip_charges"				"8"
-		    }
+			"bonus_health"						"500"
+			"bonus_mana"						"400"
+			"bonus_health_regen"				"9"
+			"bonus_mana_regen_percentage"		"200"
+			"charge_range"						"1600"
+			"heal_on_death_range"				"1675"
+			"heal_on_death_base"				"500"
+			"heal_on_death_per_charge"			"30"
+			"vision_on_death_radius"			"1800"
+			"respawn_time_reduction_per_charge"	"4.0"
+			"death_gold_reduction_per_charge"	"-25"
+			"on_death_charge_percent"			"0.67" //33% gone.
+			"bonus_mana_regen_per_charge"		"1"
+			"experience_on_death_range"			"1200"  //This value is hardcoded into modifier_item_bloodstone_datadriven_aura_emitter_on_death().
+		    "initial_equip_charges"				"8"
 		}
 		
 	    "OnEquip"
@@ -5137,33 +5017,13 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"250"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_health_regen"	"6.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_melee"	"40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_damage_ranged"	"20"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"block_chance"			"80"
-			}
+			"bonus_health"			"250"
+			"bonus_health_regen"	"6.0"
+			"block_damage_melee"	"40"
+			"block_damage_ranged"	"20"
+			"block_chance"			"80"
 		}
 	}
 	//=================================================================================================================
@@ -5361,18 +5221,10 @@
 	
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_magic_resist_percentage"		"30"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_INTEGER"
-				"bonus_health_regen"				"9"
-			}
+			"bonus_magic_resist_percentage"		"30"
+			"bonus_health_regen"				"9"
 		}
 		
 		"Modifiers"
@@ -6020,83 +5872,23 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_strength"		"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_agility"			"26"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"15"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movement_speed"	"10"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"images_count"			"2"
-			}			
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_illusion_duration"			"20"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"images_do_damage_percent_melee"	"-67"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_damage_outgoing_melee"			"33"
-			}	
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"images_take_damage_percent"	"350"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_damage_incoming_total_pct"			"350"
-			}			
-			"12"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"images_do_damage_percent_ranged"	"-72"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"tooltip_damage_outgoing_ranged"			"28"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"invuln_duration"		"0.1"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_radius"			"1000"
-			}
+			"bonus_strength"		"10"
+			"bonus_agility"			"26"
+			"bonus_intellect"		"10"
+			"bonus_attack_speed"	"15"
+			"bonus_movement_speed"	"10"
+			"images_count"			"2"
+			"tooltip_illusion_duration"			"20"
+			"images_do_damage_percent_melee"	"-67"
+			"tooltip_damage_outgoing_melee"			"33"
+			"images_take_damage_percent"	"350"
+			"tooltip_damage_incoming_total_pct"			"350"
+			"images_do_damage_percent_ranged"	"-72"
+			"tooltip_damage_outgoing_ranged"			"28"
+			"invuln_duration"		"0.1"
+			"vision_radius"			"1000"
 		}
 	}
 	//=================================================================================================================

@@ -1150,6 +1150,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", {duration = ability:GetSpecialValueFor("duration")})
+	elseif event.name_const == "modifier_knockback" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		caster:AddNewModifier(caster, ability, "modifier_spirit_breaker_greater_bash_speed", {duration = ability:GetSpecialValueFor("movespeed_duration")})
 	elseif event.name_const == "modifier_illusion" then
 		parent:AddAbility("illusion_bounty_cancel_datadriven"):SetLevel(1)
 	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then

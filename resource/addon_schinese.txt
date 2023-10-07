@@ -177,7 +177,7 @@
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven_bonus_strength"		"+$str"
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_bloodstone_datadriven"								"血精石"
-		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_Description"					"<h1>主动：绝地自尽</h1>立刻原地自杀。\n<h1>被动：血之契约</h1>范围内敌方英雄死亡会涨点数，自身死亡会掉1/3。<br>每点能量提供%bonus_mana_regen_per_charge%点/秒魔法恢复，同时减少%death_gold_reduction_per_charge%金钱损失和%respawn_time_reduction_per_charge%秒复活时间。<br><br>初始点数：%initial_equip_charges%<br>能量获得范围：%charge_range%"
+		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_Description"					"<h1>主动：绝地自尽</h1>立刻原地自杀。\n<h1>被动：血之契约</h1>具有%initial_equip_charges%点初始能量。%charge_range%范围内敌方英雄死亡会涨点数。<br><br>当持有者死亡时，回复周围%heal_on_death_range%范围内的友军单位%heal_on_death_base%+%heal_on_death_per_charge%×能量点数的生命值，并失去1/3的能量。<br><br>每点能量提供%bonus_mana_regen_per_charge%点/秒魔法恢复，同时减少%death_gold_reduction_per_charge%金钱损失和%respawn_time_reduction_per_charge%秒复活时间。"
 		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_Lore"							"血精石鲜红的色彩在战场上绝对不会被看错，拥有者似乎有无限的生命力和精力。"
 		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_bonus_health"					"+$health"
 		"DOTA_Tooltip_Ability_item_bloodstone_datadriven_bonus_mana"					"+$mana"
@@ -695,7 +695,13 @@
 		"DOTA_Tooltip_Ability_slardar_sprint_datadriven_bonus_speed"	"%移动速度加成："
 		"DOTA_Tooltip_Ability_slardar_sprint_datadriven_duration"		"持续时间："
 		// Spirit Breaker
-		"DOTA_Tooltip_Ability_spirit_breaker_empowering_haste_Lore"				"施放减少光环移速3/5/7/9%，持续16秒"
+		"DOTA_Tooltip_Ability_spirit_breaker_charge_of_darkness_movement_speed"						"冲刺速度："
+		"DOTA_Tooltip_Ability_spirit_breaker_empowering_haste_Description"							"裂魂人的高速移动给他带来力量，提高附近友军单位的移动速度。技能可以施放，施放后效果提升50%%，持续%duration%秒，然而技能在冷却过程中被动效果将会减半。"
+		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_bonus_movespeed_pct_extra"			""
+		"DOTA_Tooltip_ability_spirit_breaker_empowering_haste_bonus_movespeed_pct_extra_tooltip"	"%施放后额外速度加成："
+		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_Description"								"攻击时有一定概率眩晕并击退敌方单位，打出重击后获得移动速度加成。重击的伤害值为移动速度的一定百分比。"
+		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_bonus_movespeed_pct"						"%移动速度提升："
+		"DOTA_Tooltip_Ability_spirit_breaker_greater_bash_movespeed_duration"						"速度持续时间："
 		//Sven
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven"						"风暴之拳"
 		"DOTA_Tooltip_Ability_sven_storm_bolt_datadriven_Description"			"斯温用他充满魔力的手套对目标周围内所有敌人造成伤害和眩晕。"

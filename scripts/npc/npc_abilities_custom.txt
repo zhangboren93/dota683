@@ -9336,7 +9336,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.47"
 		"AbilityCastRange"				"0"
 
 		// Time		
@@ -9362,7 +9362,7 @@
 				"vision_duration"		"0.94 0.94 0.94 0.94"
 				"scepter_cooldown"		"12"
 				"scepter_speed"			"0"
-				"scepter_cast_point"	"0.3"
+				"scepter_cast_point"	"0.47"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -9385,33 +9385,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_self"	"6 10 14 18"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_allies"	"6 10 14 18"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed_pct_extra"		"6 10 14 18"
-			}
-			"05s"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"			"6"
-			}
+			"bonus_movespeed_pct_self"		"6 10 14 18"
+			"bonus_movespeed_pct_allies"	"6 10 14 18"
+			"aura_radius"					"900"
+			"bonus_movespeed_pct_extra"		"6 10 14 18"
+			"bonus_movespeed_pct_extra_tooltip"	"3 5 7 9"
+			"duration"						"6"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -9497,7 +9478,7 @@
 				"damage"				"22 28 34 40"
 				"duration"				"1 1.2 1.4 1.6"
 				"knockback_duration"	"0.5 0.5 0.5 0.5"
-				"knockback_distance"	"140 180 220 260"
+				"knockback_distance"	"143 152 158 162"
 				"knockback_height"		"50 50 50 50"
 				"bonus_movespeed_pct"	"15"
 				"movespeed_duration"	"3.0 3.0 3.0 3.0"
