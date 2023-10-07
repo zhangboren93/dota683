@@ -520,4 +520,20 @@
 					}
 				}
 			}
+			"modifier_fountain_aura_tp_persist_datadriven"
+			{
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/modifiers/fountain.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			"modifier_fountain_aura_buff_datadriven"
+			{
+				"EffectName"	"TODO"
+			}
 		}}}

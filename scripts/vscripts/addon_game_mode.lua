@@ -1334,6 +1334,14 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_lone_druid_rabid_lua", {})
+	elseif event.name_const == "modifier_fountain_aura_buff" then
+		if not parent:HasModifier("modifier_fountain_aura_tp_persist_datadriven") then
+			local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+			if passive_ability ~= nil then
+				local caster = EntIndexToHScript(event.entindex_caster_const)
+				passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_fountain_aura_tp_persist_datadriven", {})
+			end
+		end
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
