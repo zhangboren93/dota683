@@ -1590,6 +1590,8 @@
 
 		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty"										"Buybacked"
 		"DOTA_Tooltip_modifier_hero_buybacked_gold_penalty_Description"							"Cannot gain unreliable gold."
+		"DOTA_Tooltip_modifier_fountain_aura_buff_lua"								"Fountain Rejuvenation"
+		"DOTA_Tooltip_modifier_fountain_aura_buff_lua_Description"					"Heals HP and mana."
 
 		"npc_dota_roshan_datadriven"								"Roshan"
 	}

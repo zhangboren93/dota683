@@ -51,6 +51,7 @@ function Activate()
 	LinkLuaModifier( "modifier_item_crimson_guard_effect", "modifiers/crimson_guard_effect.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_fountain_aura_buff_lua", "modifiers/modifier_fountain_aura_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_attribute_regen_adjust", "modifiers/attribute_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_troll_warlord_bash", "modifiers/troll_bash.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1336,7 +1337,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		parent:AddNewModifier(caster, ability, "modifier_lone_druid_rabid_lua", {})
 	elseif event.name_const == "modifier_fountain_aura_buff" then
 		if not parent:HasModifier("modifier_fountain_aura_tp_persist_datadriven") then
-			local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+			local passive_ability = parent:FindAbilityByName("hero_ability_executed_hook_datadriven")
 			if passive_ability ~= nil then
 				local caster = EntIndexToHScript(event.entindex_caster_const)
 				passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_fountain_aura_tp_persist_datadriven", {})

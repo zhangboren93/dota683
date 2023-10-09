@@ -522,6 +522,7 @@
 			}
 			"modifier_fountain_aura_tp_persist_datadriven"
 			{
+				"IsHidden"			"1"
 				"ThinkInterval"		"0.1"
 				"OnIntervalThink"
 				{
@@ -531,9 +532,13 @@
 						"Function"		"handleIntervalThink"
 					}
 				}
-			}
-			"modifier_fountain_aura_buff_datadriven"
-			{
-				"EffectName"	"TODO"
+				"OnTakeDamage"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_fountain_aura_tp_persist_datadriven"
+						"Target"		"UNIT"
+					}
+				}
 			}
 		}}}
