@@ -1435,11 +1435,11 @@
 		"DOTA_Tooltip_Ability_obsidian_destroyer_astral_imprisonment_int_steal"					"INTELLIGENCE STEAL:"
 		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven"						"Sanity's Eclipse"
 		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_Description"			"Unleashes a psychic blast that deals damage to enemies based on the difference between your intellect and the target's intellect. Sanity's Eclipse can hit units trapped by Astral Imprisonment. Additionally drain 75%% current mana if intellect difference is within %int_threshold%."
-		"DOTA_Tooltip_Ability_obsidian_destroyer_sanity_eclipse_datadriven_Scepter_Description"	"Reduce mana regardless of intellect difference."
+		"DOTA_Tooltip_Ability_obsidian_destroyer_sanity_eclipse_datadriven_Scepter_Description"	"Increases damage multiplier, casting range and causes the ability to always trigger mana drain."
 		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_Lore"				"When an Outworld crystal ruptures, cataclysmic energies are released, and the reverberations of this power are felt interdimensionally."
 		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_damage_multiplier"	"INTELLECT DIFFERENCE MULTIPLIER:"
 		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_radius"				"RADIUS:"
-		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_AbilityCastRange"	"CAST RANGE:"
+		"DOTA_Tooltip_ability_obsidian_destroyer_sanity_eclipse_datadriven_cast_range"			"CAST RANGE:"
 		//Puck
 		"DOTA_Tooltip_Ability_puck_dream_coil_Scepter_Description"						"+break damage, +duration"
 		"DOTA_Tooltip_ability_puck_dream_coil_2"										"Dream Coil"
