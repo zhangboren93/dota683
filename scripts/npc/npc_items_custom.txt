@@ -5300,33 +5300,13 @@
     
     	// Special	
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilitySpecial"
+    	"AbilityValues"
     	{
-    		"01"
-    		{
-    			"var_type"				"FIELD_INTEGER"
-    			"bonus_damage"			"88"
-    		}
-    		"02"
-    		{
-    			"var_type"				"FIELD_INTEGER"
-    			"bonus_attack_speed"	"15"
-    		}
-    		"03"
-    		{
-    			"var_type"				"FIELD_INTEGER"
-    			"bash_chance"			"35"
-    		}
-    		"04"
-    		{
-    			"var_type"				"FIELD_INTEGER"
-    			"bash_damage"			"100"
-    		}
-    		"05"
-    		{
-    			"var_type"				"FIELD_FLOAT"
-    			"bash_stun"				"0.01"
-    		}
+   			"bonus_damage"			"88"
+   			"bonus_attack_speed"	"15"
+   			"bash_chance"			"35"
+			"bash_damage"			"100"
+   			"bash_stun"				"0.01"
     	}
     	
     	"Modifiers"
@@ -5527,38 +5507,14 @@
     		
     	// Special	
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilitySpecial"
+    	"AbilityValues"
     	{
-    		"01"
-    		{
-    			"var_type"						"FIELD_INTEGER"
-    			"bonus_agility"					"30"
-    		}
-    		"02"
-    		{
-    			"var_type"						"FIELD_INTEGER"
-    			"bonus_damage"					"30"
-    		}
-    		"03"
-    		{
-    			"var_type"						"FIELD_INTEGER"
-    			"bonus_evasion"					"35"
-    		}
-    		"04"
-    		{
-    			"var_type"						"FIELD_INTEGER"
-    			"bonus_attack_speed"			"30"
-    		}
-    		"05"
-    		{
-    			"var_type"						"FIELD_FLOAT"
-    			"duration"						"8"
-    		}
-    		"06"
-    		{
-    			"var_type"						"FIELD_INTEGER"
-    			"bonus_move_speed_percent"		"20"
-    		}
+			"bonus_agility"					"30"
+   			"bonus_damage"					"30"
+			"bonus_evasion"					"35"
+   			"bonus_attack_speed"			"30"
+   			"duration"						"8"
+   			"bonus_move_speed_percent"		"20"
     	}
     	
     	"OnSpellStart"
@@ -6059,38 +6015,14 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"22"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack_speed"	"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"windwalk_duration"		"14.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"windwalk_movement_speed"	"20"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"windwalk_fade_time"	"0.3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"windwalk_bonus_damage"	"175"
-			}
+			"bonus_damage"			"22"
+			"bonus_attack_speed"	"30"
+			"windwalk_duration"		"14.0"
+			"windwalk_movement_speed"	"20"
+			"windwalk_fade_time"	"0.3"
+			"windwalk_bonus_damage"	"175"
 		}
 	}
 	//=================================================================================================================
