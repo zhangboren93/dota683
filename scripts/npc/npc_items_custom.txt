@@ -1162,7 +1162,7 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
 			"bonus_evasion"			"25"
 		}
@@ -3055,33 +3055,13 @@
 		"UIDropSound"					"Item.DropRingShop"
 		"WorldDropSound"				"Item.DropRingWorld"
 			
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"1"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_radius"			"900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aura_mana_regen"		"0.65"  //This variable is unused due to an obscure engine bug.
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"aura_bonus_armor"		"2"
-			}
+			"bonus_damage"			"6"
+			"bonus_armor"			"1"
+			"aura_radius"			"900"
+			"aura_mana_regen"		"0.65"  //This variable is unused due to an obscure engine bug.
+			"aura_bonus_armor"		"2"
 		}
 		
 		"OnSpellStart"  //Switch to the active version of Ring of Basilius.
@@ -8080,43 +8060,15 @@
 	"ItemAliases"					"vod;veil of discord"
 	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 	
-	"AbilitySpecial"
+	"AbilityValues"
 	{
-		"01"
-	{
-			"var_type"					"FIELD_INTEGER"
-			"bonus_health_regen"		"6"
-		}
-		"02"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"bonus_stats"				"6"
-		}
-		"03"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"bonus_damage"				"6"
-		}
-		"04"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"bonus_armor"				"6"
-		}
-		"05"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"debuff_radius"				"600"  //Be sure to change AOEradius if debuff_radius is.
-		}
-		"06"
-		{
-			"var_type"					"FIELD_FLOAT"
-			"resist_debuff_duration"	"25.0"
-		}
-		"07"
-		{
-			"var_type"					"FIELD_INTEGER"
-			"resist_debuff"				"-25"
-		}
+		"bonus_health_regen"		"6"
+		"bonus_stats"				"6"
+		"bonus_damage"				"6"
+		"bonus_armor"				"6"
+		"debuff_radius"				"600"  //Be sure to change AOEradius if debuff_radius is.
+		"resist_debuff_duration"	"25.0"
+		"resist_debuff"				"-25"
 	}
 	
 	"OnSpellStart"
@@ -8265,29 +8217,12 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{		
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_intellect"		"25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"350"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"slow_percentage_active"	"-60"
-			}
-
+			"bonus_intellect"		"25"
+			"duration"				"4.0"
+			"bonus_health"			"350"
+			"slow_percentage_active"	"-60"
 		}
 	    "OnSpellStart"
 	    {
