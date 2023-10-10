@@ -13954,6 +13954,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_ElderTitan.EarthSplitter.Cast"
+		"HasScepterUpgrade"				"1"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -13977,7 +13978,11 @@
 				"crack_width"				"300"
 				"crack_distance"			"2400"
 				"slow_pct"					"30 40 50"
-				"slow_duration"				"3.0 4.0 5.0"
+				"slow_duration"
+				{
+					"value"					"3.0 4.0 5.0"
+					"special_bonus_scepter" "+1.0"
+				}
 				"speed"						"1100"
 				"damage_pct"				"35"
 				"vision_width"				"500"
@@ -13985,7 +13990,6 @@
 				"vision_duration"			"4.0"
 				"vision_step"				"200"
 				"total_steps"				"12"
-				"slow_duration_scepter"		"4.0 5.0 6.0"
 		}
 	}
 	"legion_commander_overwhelming_odds_datadriven"
