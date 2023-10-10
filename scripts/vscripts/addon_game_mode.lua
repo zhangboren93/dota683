@@ -27,6 +27,7 @@ function Precache( context )
 	]]
 	PrecacheResource( "particle", "particles/items_fx/immunity_sphere.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_warlock/warlock_fatal_bonds_icon.vpcf", context )
+	PrecacheResource( "particle", "particles/units/heroes/hero_elder_titan/elder_titan_scepter_disarm.vpcf", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/custom_sounds.vsndevts", context)
@@ -78,6 +79,7 @@ function Activate()
 
 	LinkLuaModifier( "modifier_tidebringer_cleave",				"heroes/hero_kunkka/tidebringer_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 	-- shared between sven and tiny aghs
+	LinkLuaModifier( "modifier_elder_titan_earth_splitter_disarm", "heroes/hero_elder_titan/modifier_earth_splitter_disarm.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sven_great_cleave_radius", 		"heroes/hero_sven/great_cleave_radius.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_magnataur_empower_cleave_lua",	"heroes/hero_magnataur/empower_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_melting_strike_debuff_lua",		"heroes/hero_invoker/modifier_melting_strike_debuff.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1151,6 +1153,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", {duration = ability:GetSpecialValueFor("duration")})
+	elseif event.name_const == "modifier_elder_titan_earth_splitter" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		if caster:HasScepter() then
+			local ability = EntIndexToHScript(event.entindex_ability_const)
+			parent:AddNewModifier(caster, ability, "modifier_elder_titan_earth_splitter_disarm", {duration = ability:GetSpecialValueFor("slow_duration")})
+		end
 	elseif event.name_const == "modifier_knockback" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)

@@ -489,6 +489,9 @@
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_radius"					"RADIUS:"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_armor_reduction_pct"		"%BASE ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_magic_resistance"		"RESIST REDUCTION:"
+		"DOTA_Tooltip_ability_elder_titan_earth_splitter_Scepter_Description"				"Increases slow duration, and units pulled in by Earth Splitter are also disarmed."
+		"DOTA_Tooltip_modifier_elder_titan_earth_splitter_disarm"							"Earth Splitter"
+		"DOTA_Tooltip_modifier_elder_titan_earth_splitter_disarm_Description"				"Disarmed."
 		// Huskar
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven"					"Burning Spear"
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_Description"		"Huskar drains some of his health, setting his spears aflame, dealing damage over time with his regular attack. Multiple attacks will stack additional damage."

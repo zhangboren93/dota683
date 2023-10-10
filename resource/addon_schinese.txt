@@ -488,7 +488,10 @@
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_Lore"						"上古巨神又让创世之初重现。"
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_radius"						"作用范围："
 		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_armor_reduction_pct"			"%基础护甲减少："
-		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_magic_resistance_pct"		"魔抗减少："
+		"DOTA_Tooltip_ability_elder_titan_natural_order_datadriven_magic_resistance"			"魔抗减少："
+		"DOTA_Tooltip_ability_elder_titan_earth_splitter_Scepter_Description"					"提升减速效果的持续时间，而且受到裂地沟壑牵引的单位还将被缴械。"
+		"DOTA_Tooltip_modifier_elder_titan_earth_splitter_disarm"								"裂地沟壑"
+		"DOTA_Tooltip_modifier_elder_titan_earth_splitter_disarm_Description"					"被缴械。"
 		// Huskar
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven"					"火矛"
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_Description"		"哈斯卡牺牲哈斯卡生命值将其长矛点燃，在普通攻击的同时对敌方单位造成持续伤害。多次攻击会造成持续伤害叠加。"
