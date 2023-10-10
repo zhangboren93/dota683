@@ -23,14 +23,19 @@ function handleKillBonus(self, attacker, entity)
 	if attacker:GetTeam() == DOTA_TEAM_BADGUYS then
 		teamname = "天灾"
 	end
+
+	local player2gold = {}
 	local entityName = string.sub(entity:GetName(), 15)
-	if attacker:IsOwnedByAnyPlayer() then
+	if attacker:IsOwnedByAnyPlayer() and attacker:GetPlayerOwnerID() ~= nil then
 		local attacker_player_id = attacker:GetPlayerOwnerID()
 		if self.firstBlood == nil then
 			print("give gold first blood kill")
 			PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_GameTick)
+			player2gold[attacker_player_id] = 135
 			self.firstBlood = true
 			goldRecord[1] = 135
+		else
+			player2gold[attacker_player_id] = 0
 		end
 		
 		--PlayerResource:IncrementStreak(attacker_player_id, 1)
@@ -42,6 +47,7 @@ function handleKillBonus(self, attacker, entity)
 		print("shutdown gold " .. shutdownGold)
 		PlayerResource:ModifyGold(attacker_player_id, shutdownGold, true, DOTA_ModifyGold_GameTick)
 		goldRecord[2] = killGold + shutdownGold 
+		player2gold[attacker_player_id] = player2gold[attacker_player_id] + killGold + shutdownGold
 	elseif attacker:IsBuilding() or attacker:IsCreep() then
 		-- killed by building or creep
 		if #assist_players == 0 then
@@ -52,7 +58,9 @@ function handleKillBonus(self, attacker, entity)
 			local goldPerPlayer = (killGold + shutdownGold) / playerCount
 			print("feeds to building " .. goldPerPlayer)
 			for i=1,playerCount do
-				PlayerResource:ModifyGold(PlayerResource:GetNthPlayerIDOnTeam(attacker:GetTeam(), i), goldPerPlayer, true, DOTA_ModifyGold_GameTick)
+				local playerId = PlayerResource:GetNthPlayerIDOnTeam(attacker:GetTeam(), i)
+				PlayerResource:ModifyGold(playerId, goldPerPlayer, true, DOTA_ModifyGold_GameTick)
+				player2gold[playerId] = goldPerPlayer
 			end
 			GameRules:SendCustomMessage(entityName .. "死了，".. teamname .. "玩家各获得" .. goldPerPlayer .. "金" , -1, -1)
 		elseif #assist_players == 1 then
@@ -62,8 +70,11 @@ function handleKillBonus(self, attacker, entity)
 			if self.firstBlood == nil then
 				print("give gold first blood kill")
 				PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_GameTick)
+				player2gold[attacker_player_id] = 135
 				self.firstBlood = true
 				goldRecord[1] = 135
+			else
+				player2gold[attacker_player_id] = 0
 			end
 		
 			--PlayerResource:IncrementStreak(attacker_player_id, 1)
@@ -75,6 +86,7 @@ function handleKillBonus(self, attacker, entity)
 			print("shutdown gold " .. shutdownGold)
 			PlayerResource:ModifyGold(attacker_player_id, shutdownGold, true, DOTA_ModifyGold_GameTick)
 			goldRecord[2] = killGold + shutdownGold 
+			player2gold[attacker_player_id] = player2gold[attacker_player_id] + killGold + shutdownGold
 		else
 			-- split kill amount assisters
 			local killGold = 110 + entity:GetLevel() * 9.9
@@ -83,6 +95,7 @@ function handleKillBonus(self, attacker, entity)
 			print("Spliting kill gold for assisters " .. #assist_players .. " " .. goldPerPlayer)
 			for i=1,#assist_players do
 				PlayerResource:ModifyGold(assist_players[i], goldPerPlayer, true, DOTA_ModifyGold_GameTick)
+				player2gold[assist_players[i]] = goldPerPlayer
 			end
 			goldRecord[3] = math.floor(goldPerPlayer) 
 		end
@@ -110,6 +123,11 @@ function handleKillBonus(self, attacker, entity)
 		print("Assist gold = " .. baseGold .. "+" .. goldPerLevel .. "*" .. level .. "+" .. cbfFactor .. "*" .. cbFactor .. "*" .. networth .. "=" .. assist_gold)
 		for i=1,#assist_players do
 			PlayerResource:ModifyGold(assist_players[i], assist_gold, true, DOTA_ModifyGold_GameTick)
+			if player2gold[assist_players[i]] == nil then
+				player2gold[assist_players[i]] = assist_gold
+			else
+				player2gold[assist_players[i]] = player2gold[assist_players[i]] + assist_gold
+			end
 		end
 		goldRecord[3] = goldRecord[3] + math.floor(assist_gold) 
 	end
@@ -122,6 +140,12 @@ function handleKillBonus(self, attacker, entity)
 		GameRules:SendCustomMessage(attackerName .. "杀了" .. entityName .. "获得" .. (goldRecord[1] + goldRecord[2]) .. "金+助攻" .. goldRecord[3] .. "金" .. (assisterCount - 1) .. "人助攻" , -1, -1)
 	elseif assisterCount > 0 then
 		GameRules:SendCustomMessage(entityName .. "死了，" .. teamname 	.. assisterCount .. "人获得" .. goldRecord[3] .. "金" , -1, -1)
+	end
+
+	DeepPrintTable(player2gold)
+	for playerId, gold in pairs(player2gold) do
+		local player = PlayerResource:GetPlayer(playerId)
+		SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player:GetAssignedHero(), gold, player)
 	end
 
 	-- give experience
