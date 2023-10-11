@@ -67,14 +67,24 @@ function LifeDrainHealthTransfer( event )
 	end
 
 	if targetTeam == casterTeam then
-		-- Health Transfer Caster->Ally
-		ApplyDamage({ victim = caster, attacker = caster, damage = HP_drain, damage_type = DAMAGE_TYPE_MAGICAL })
-		target:Heal( HP_gain, caster)
-		
-		-- Set the particle control color as green
-		ParticleManager:SetParticleControl(caster.LifeDrainParticle, 10, Vector(0,0,0))
-		ParticleManager:SetParticleControl(caster.LifeDrainParticle, 11, Vector(0,0,0))
+		if target:GetHealthDeficit() > 0 or target:IsCreep() then
+			-- Health Transfer Caster->Ally
+			ApplyDamage({ victim = caster, attacker = caster, damage = HP_drain, damage_type = DAMAGE_TYPE_MAGICAL })
+			target:Heal( HP_gain, caster)
 
+			-- Set the particle control color as green
+			ParticleManager:SetParticleControl(caster.LifeDrainParticle, 10, Vector(0,0,0))
+			ParticleManager:SetParticleControl(caster.LifeDrainParticle, 11, Vector(0,0,0))
+
+		elseif target:IsHero() then
+			-- Health to Mana Transfer Caster->Ally
+			ApplyDamage({ victim = caster, attacker = caster, damage = HP_drain, damage_type = DAMAGE_TYPE_MAGICAL })
+			target:GiveMana(HP_gain)
+
+			-- Set the particle control color as BLUE
+			ParticleManager:SetParticleControl(caster.LifeDrainParticle, 10, Vector(1,0,0))
+			ParticleManager:SetParticleControl(caster.LifeDrainParticle, 11, Vector(1,0,0))
+		end
 	else
 		if caster:GetHealthDeficit() > 0 or target:IsCreep() then
 			-- Health Transfer Enemy->Caster
@@ -101,4 +111,9 @@ function LifeDrainParticleEnd( event )
 	local caster = event.caster
 	ParticleManager:DestroyParticle(caster.LifeDrainParticle,false)
 	caster:StopSound("Hero_Pugna.LifeDrain.Target")
+end
+
+function LifeDrainRemoveModifier( event )
+	local target = event.target
+	target:RemoveModifierByName("modifier_life_drain")
 end
