@@ -5806,18 +5806,6 @@
 			"Function" 		"LifeDrainRemoveModifier"
 			"Target"		"TARGET"
 		}
-		"RemoveModifier" // Useless when target is HIDDEN
-		{
-			"ModifierName" 	"modifier_life_drain"
-			"Target"
-			{
-				"Center"	"TARGET"
-				"Radius"	"1"
-				"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Teams"		"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-			}
-		}
 	}
 
 	"Modifiers"
