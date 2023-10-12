@@ -5615,7 +5615,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"structure_damage_mod"		"0.5"
+				"structure_damage_mod"		"50"
 				"delay"						"0.9"
 				"radius"					"400"
 				"blast_damage"				"100 175 250 325"
@@ -5630,7 +5630,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5187"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK |  DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -5654,12 +5654,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_spell_damage_pct_allies"	
+			"bonus_spell_damage_pct_allies_tooltip"
 			{
-				"value"	"-50"
+				"value"	"-25"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
 			}
-			"bonus_movement_speed_allies"		"0"
+			"bonus_movement_speed_allies_tooltip"	"-25"
 			"bonus_heal_amp_pct_allies"			"0"
 			"bonus_spell_damage_pct"	
 			{
@@ -5770,7 +5770,7 @@
 			}
 			"AbilityCastRange"
 			{
-				"value"				"950"
+				"value"						"1100"
 				"special_bonus_scepter"		"+50"
 			}
 	}
@@ -5800,17 +5800,11 @@
 
 	"OnChannelFinish"
 	{
-		"RemoveModifier"
+		"RunScript"
 		{
-			"ModifierName" 	"modifier_life_drain"
-			"Target"
-			{
-				"Center"	"TARGET"
-				"Radius"	"1"
-				"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Teams"		"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-			}
+			"ScriptFile"	"heroes/hero_pugna/life_drain.lua"
+			"Function" 		"LifeDrainRemoveModifier"
+			"Target"		"TARGET"
 		}
 	}
 
