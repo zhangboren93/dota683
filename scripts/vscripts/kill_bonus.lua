@@ -26,8 +26,11 @@ function handleKillBonus(self, attacker, entity)
 
 	local player2gold = {}
 	local entityName = string.sub(entity:GetName(), 15)
+	local credit_killer_pid = nil
 	if attacker:IsOwnedByAnyPlayer() and attacker:GetPlayerOwnerID() ~= nil then
 		local attacker_player_id = attacker:GetPlayerOwnerID()
+		credit_killer_pid = attacker_player_id
+
 		if self.firstBlood == nil then
 			print("give gold first blood kill")
 			PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_GameTick)
@@ -67,6 +70,7 @@ function handleKillBonus(self, attacker, entity)
 			-- credit kill
 			print("credit to only 1 assist")
 			local attacker_player_id = assist_players[1]
+			credit_killer_pid = attacker_player_id
 			if self.firstBlood == nil then
 				print("give gold first blood kill")
 				PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_GameTick)
@@ -134,7 +138,7 @@ function handleKillBonus(self, attacker, entity)
 	
 	if goldRecord[1] + goldRecord[2] > 0 then
 		local attackerName = attacker:GetName()
-		if attacker:IsControllableByAnyPlayer() then
+		if attacker:IsControllableByAnyPlayer() and attacker:GetPlayerOwnerID() ~= nil then
 			attackerName = string.sub(attacker:GetPlayerOwner():GetAssignedHero():GetName(), 15)
 		end
 		GameRules:SendCustomMessage(attackerName .. "杀了" .. entityName .. "获得" .. (goldRecord[1] + goldRecord[2]) .. "金+助攻" .. goldRecord[3] .. "金" .. (assisterCount - 1) .. "人助攻" , -1, -1)
@@ -146,7 +150,15 @@ function handleKillBonus(self, attacker, entity)
 	for playerId, gold in pairs(player2gold) do
 		local player = PlayerResource:GetPlayer(playerId)
 		SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player:GetAssignedHero(), gold, player)
+		if credit_killer_pid == playerId then
+			CustomGameEventManager:Send_ServerToAllClients("player_kill_custom_bonus", {
+				kpid = credit_killer_pid,
+				vpid = entity_player_id,
+				gold = math.floor(gold)
+			})
+		end
 	end
+	-- TODO update gold if hero killed by tower or creep
 
 	-- give experience
 	local units = FindUnitsInRadius( entity:GetTeamNumber(), entity:GetAbsOrigin(), nil, 1300,

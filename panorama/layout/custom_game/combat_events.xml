@@ -1,0 +1,12 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/combat_events.css" />
+	</styles>
+	
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/combat_events.js" />
+	</scripts>
+
+	<Panel class="custom_combat_events">
+    </Panel>
+</root>

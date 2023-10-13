@@ -1,0 +1,5 @@
+<root>
+	<Panel class="combat_event_hero_kill">
+		<Label id="label_gold_amount"/>
+	</Panel>
+</root>
