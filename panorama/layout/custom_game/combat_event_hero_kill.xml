@@ -1,5 +1,14 @@
 <root>
-	<Panel class="combat_event_hero_kill">
+	<styles>
+		<include src="file://{resources}/styles/custom_game/combat_events.css" />
+	</styles>
+	<Panel class="combat_event_line combat_event_hero_kill">
+		<DOTAHeroImage id="killer_hero" class="hero" heroimagestyle="icon" />
+		<Label id="killer_player_name" class="player_name" />
+		<Image id="kill_icon" src="file://{images}/custom_game/melee_icon.png"/>
+		<DOTAHeroImage id="victim_hero" class="hero" heroimagestyle="icon" />
+		<Label id="victim_player_name" class="player_name" />
+		<Image id="gold_icon" src="file://{images}/custom_game/gold_symbol.png"/>
 		<Label id="label_gold_amount"/>
 	</Panel>
 </root>

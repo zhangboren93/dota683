@@ -6,5 +6,17 @@ function OnPlayerKillCustomBonus(event) {
 	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "pke_" + event.kpid + "x" + event.vpid + "g" + event.gold);
 	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_hero_kill.xml", false, false);
 	newChildPanel.FindChildTraverse("label_gold_amount").text = event.gold
-	//TODO schedule removing panel
+	newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(event.kpid);
+	newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(event.kpid);
+	newChildPanel.FindChildTraverse("victim_hero").heroname = Players.GetPlayerSelectedHero(event.vpid);
+	newChildPanel.FindChildTraverse("victim_player_name").text = Players.GetPlayerName(event.vpid);
+	if (parentPanel.GetChildCount() > 1) {
+		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
+	}
+	if (Players.GetTeam(event.vpid) == Players.GetTeam(Players.GetLocalPlayer())) {
+		newChildPanel.AddClass("combat_event_hostile");
+	} else {
+		newChildPanel.AddClass("combat_event_friendly");
+	}
+	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }

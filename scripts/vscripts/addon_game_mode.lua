@@ -495,7 +495,7 @@ function CAddonTemplateGameMode:OnThink()
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
 			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] and not playerRepicked[playerid] then
-				PlayerResource:ModifyGold(playerid, 250, false, DOTA_ModifyGold_Unspecified)
+				PlayerResource:ModifyGold(playerid, 200, false, DOTA_ModifyGold_Unspecified)
 				randomBonusGranted[playerid] = true
 			end
 		end
@@ -503,7 +503,7 @@ function CAddonTemplateGameMode:OnThink()
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
 			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] and not playerRepicked[playerid] then
-				PlayerResource:ModifyGold(playerid, 250, false, DOTA_ModifyGold_Unspecified)
+				PlayerResource:ModifyGold(playerid, 200, false, DOTA_ModifyGold_Unspecified)
 				randomBonusGranted[playerid] = true
 			end
 		end

@@ -1,8 +1,64 @@
 .custom_combat_events {
-	border: 2px solid #111111FF;
+	/*border: 2px solid #111111FF;*/
 	width: 500px;
 	height: 500px;
 	horizontal-align: left;
 	vertical-align: bottom;
 	margin-bottom: 300px;
+	overflow: clip;
+	flow-children: up;
+}
+
+.HUDFlipped .custom_combat_events {
+	horizontal-align: right;
+}
+
+.combat_event_line {
+	height:	30px;
+	/*border: 2px solid #111111FF;*/
+	flow-children: right;
+}
+
+.combat_event_friendly {
+	background-color: #3F6600;
+}
+
+.combat_event_hostile {
+	background-color: #820014;
+}
+
+#label_gold_amount {
+	font-size: 20px;
+	color: #FFC53D;
+	vertical-align: center;
+	margin-left: 5px;
+	padding-right: 10px;
+}
+
+.hero {
+	height: 20px;
+	width: 20px;
+	vertical-align: center;
+	margin-left: 10px;
+}
+
+.player_name {
+	font-size: 20px;
+	color: #FFFFFF;
+	vertical-align: center;
+	margin-left: 5px;
+}
+
+#kill_icon {
+	height: 20px;
+	width: 20px;
+	vertical-align: center;
+	margin-left: 10px;
+}
+
+#gold_icon {
+	height: 20px;
+	width: 20px;
+	vertical-align: center;
+	margin-left: 10px;
 }
