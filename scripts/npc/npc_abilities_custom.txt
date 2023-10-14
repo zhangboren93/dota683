@@ -27520,48 +27520,15 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"rot_radius"			"250"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"rot_tick"				"0.2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"rot_slow"				"-20"
-				"LinkedSpecialBonus"			"special_bonus_unique_pudge_4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"rot_damage"			"35 60 85 110"
-				"LinkedSpecialBonus"	"special_bonus_unique_pudge_2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"scepter_rot_damage_bonus"			"0"
-				"RequiresScepter"			"1"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"scepter_rot_radius_bonus"			"0"
-				"RequiresScepter"			"1"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"scepter_rot_regen_reduction_pct"			"0"
-				"RequiresScepter"				"1"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -27593,6 +27560,7 @@
 				"IsHidden"		"1"
 				"IsDebuff"		"0"
 				"IsPurgable"	"0"
+				"ThinkInterval"	"0.2"
 				"OnIntervalThink"
 				{
 					"RunScript"

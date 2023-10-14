@@ -1,0 +1,14 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/combat_events.css" />
+	</styles>
+	<Panel class="combat_event_line combat_event_creep_kill">
+		<Label id="label_radiant_killer" class="player_name" text="近卫军团" />
+		<Label id="label_dire_killer" class="player_name" text="天灾军团" />
+		<Image id="kill_icon" src="file://{images}/custom_game/melee_icon.png"/>
+		<DOTAHeroImage id="victim_hero" class="hero" heroimagestyle="icon" />
+		<Label id="victim_player_name" class="player_name" />
+		<Image id="gold_icon" src="file://{images}/custom_game/gold_symbol.png"/>
+		<Label id="label_gold_amount"/>
+	</Panel>
+</root>

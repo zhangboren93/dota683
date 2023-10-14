@@ -1,5 +1,6 @@
 GameEvents.Subscribe("player_kill_custom_bonus", OnPlayerKillCustomBonus);
 GameEvents.Subscribe("player_killed_by_creep_bonus", OnPlayerKilledByCreepBonus);
+GameEvents.Subscribe("player_denied", OnPlayerDenied);
 
 function OnPlayerKillCustomBonus(event) {
 	$.Msg("OnPlayerKillCustomBonus " + event.kpid + " " + event.vpid + " " + event.gold);
@@ -11,6 +12,7 @@ function OnPlayerKillCustomBonus(event) {
 	newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(event.kpid);
 	newChildPanel.FindChildTraverse("victim_hero").heroname = Players.GetPlayerSelectedHero(event.vpid);
 	newChildPanel.FindChildTraverse("victim_player_name").text = Players.GetPlayerName(event.vpid);
+
 	combatEventCommon(parentPanel, newChildPanel, event)
 }
 
@@ -28,6 +30,26 @@ function OnPlayerKilledByCreepBonus(event) {
 	}
 
 	combatEventCommon(parentPanel, newChildPanel, event)
+}
+
+function OnPlayerDenied(event) {
+	let parentPanel = $.GetContextPanel()
+	if (event.kpid == event.vpid) {
+		let newChildPanel = $.CreatePanel( "Panel", parentPanel, "ps_" + event.vpid);
+		newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_hero_suicide.xml", false, false);
+		newChildPanel.FindChildTraverse("victim_hero").heroname = Players.GetPlayerSelectedHero(event.vpid);
+		newChildPanel.FindChildTraverse("victim_player_name").text = Players.GetPlayerName(event.vpid);
+		combatEventCommon(parentPanel, newChildPanel, event)
+	} else {
+		let newChildPanel = $.CreatePanel( "Panel", parentPanel, "pd_" + event.kpid + "x" + event.vpid);
+		newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_player_denied.xml", false, false);
+		newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(event.kpid);
+		newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(event.kpid);
+		newChildPanel.FindChildTraverse("victim_hero").heroname = Players.GetPlayerSelectedHero(event.vpid);
+		newChildPanel.FindChildTraverse("victim_player_name").text = Players.GetPlayerName(event.vpid);
+		combatEventCommon(parentPanel, newChildPanel, event)
+	}
+
 }
 
 function combatEventCommon(parentPanel, newChildPanel, event) {

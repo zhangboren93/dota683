@@ -2,6 +2,10 @@ function handleKillBonus(self, attacker, entity)
 	local entity_player_id = entity:GetPlayerOwnerID()
 	if attacker:GetTeam() == entity:GetTeam() then
 		print("Denied, no gold/XP bonus")
+		CustomGameEventManager:Send_ServerToAllClients("player_denied", {
+			kpid = attacker:GetPlayerOwnerID(),
+			vpid = entity_player_id,
+		})
 		return
 	end
 	if attacker:IsCreep() and attacker:GetTeam() == DOTA_TEAM_NEUTRALS then

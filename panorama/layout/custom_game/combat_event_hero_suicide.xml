@@ -1,0 +1,10 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/combat_events.css" />
+	</styles>
+	<Panel class="combat_event_line combat_event_hero_suicide">
+		<DOTAHeroImage id="victim_hero" class="hero" heroimagestyle="icon" />
+		<Label id="victim_player_name" class="player_name" />
+		<Label id="label_deny" text="自杀了"/>
+	</Panel>
+</root>

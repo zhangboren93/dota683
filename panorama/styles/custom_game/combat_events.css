@@ -63,3 +63,18 @@
 	vertical-align: center;
 	margin-left: 10px;
 }
+
+#label_deny {
+	font-size: 20px;
+	color: #FFFFFF;
+	vertical-align: center;
+	margin-left: 5px;
+}
+
+.combat_event_player_denied #victim_player_name {
+	margin-right: 10px;
+}
+
+.combat_event_hero_suicide #label_deny {
+	margin-right: 10px;
+}
