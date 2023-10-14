@@ -65,7 +65,10 @@ function handleKillBonus(self, attacker, entity)
 				PlayerResource:ModifyGold(playerId, goldPerPlayer, true, DOTA_ModifyGold_GameTick)
 				player2gold[playerId] = goldPerPlayer
 			end
-			GameRules:SendCustomMessage(entityName .. "死了，".. teamname .. "玩家各获得" .. goldPerPlayer .. "金" , -1, -1)
+			CustomGameEventManager:Send_ServerToAllClients("player_killed_by_creep_bonus", {
+				vpid = entity_player_id,
+				gold = math.floor(goldPerPlayer)
+			})
 		elseif #assist_players == 1 then
 			-- credit kill
 			print("credit to only 1 assist")
@@ -138,7 +141,10 @@ function handleKillBonus(self, attacker, entity)
 	
 	if goldRecord[1] + goldRecord[2] > 0 then
 	elseif assisterCount > 0 then
-		GameRules:SendCustomMessage(entityName .. "死了，" .. teamname 	.. assisterCount .. "人获得" .. goldRecord[3] .. "金" , -1, -1)
+		CustomGameEventManager:Send_ServerToAllClients("player_killed_by_creep_bonus", {
+			vpid = entity_player_id,
+			gold = math.floor(goldRecord[3])
+		})
 	end
 
 	DeepPrintTable(player2gold)

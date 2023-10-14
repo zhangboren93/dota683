@@ -17,6 +17,7 @@
 	height:	30px;
 	/*border: 2px solid #111111FF;*/
 	flow-children: right;
+	margin-bottom: 10px;
 }
 
 .combat_event_friendly {
