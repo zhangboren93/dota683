@@ -1,6 +1,7 @@
 GameEvents.Subscribe("player_kill_custom_bonus", OnPlayerKillCustomBonus);
 GameEvents.Subscribe("player_killed_by_creep_bonus", OnPlayerKilledByCreepBonus);
 GameEvents.Subscribe("player_denied", OnPlayerDenied);
+GameEvents.Subscribe("player_killed_by_neutral", OnPlayerKilledByNeutral);
 
 function OnPlayerKillCustomBonus(event) {
 	$.Msg("OnPlayerKillCustomBonus " + event.kpid + " " + event.vpid + " " + event.gold);
@@ -50,6 +51,15 @@ function OnPlayerDenied(event) {
 		combatEventCommon(parentPanel, newChildPanel, event)
 	}
 
+}
+
+function OnPlayerKilledByNeutral(event) {
+	let parentPanel = $.GetContextPanel()
+	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "pkn_" + event.vpid);
+	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_hero_killed_by_neutral.xml", false, false);
+	newChildPanel.FindChildTraverse("victim_hero").heroname = Players.GetPlayerSelectedHero(event.vpid);
+	newChildPanel.FindChildTraverse("victim_player_name").text = Players.GetPlayerName(event.vpid);
+	combatEventCommon(parentPanel, newChildPanel, event)
 }
 
 function combatEventCommon(parentPanel, newChildPanel, event) {

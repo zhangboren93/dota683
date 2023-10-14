@@ -10,6 +10,9 @@ function handleKillBonus(self, attacker, entity)
 	end
 	if attacker:IsCreep() and attacker:GetTeam() == DOTA_TEAM_NEUTRALS then
 		print("killed by neutral, no gold/XP bonus")
+		CustomGameEventManager:Send_ServerToAllClients("player_killed_by_neutral", {
+			vpid = entity_player_id,
+		})
 		return
 	end
 	local assist_players = {}

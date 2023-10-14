@@ -78,3 +78,7 @@
 .combat_event_hero_suicide #label_deny {
 	margin-right: 10px;
 }
+
+.combat_event_hero_killed_by_neutral #victim_player_name {
+	margin-right: 10px;
+}
