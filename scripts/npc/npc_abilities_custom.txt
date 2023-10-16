@@ -33206,34 +33206,17 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"chain_radius"		"90 90 90 90"
+			"range"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"chain_radius"		"90 90 90 90"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"				"800 1000 1200 1400"
+				"value"				"800 1000 1200 1400"
 				"LinkedSpecialBonus"	"special_bonus_unique_timbersaw_3"
 			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"		"225 225 225 225"
-			}
-			"04"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"2200 2400 2600 2800"
-			}
-			"05"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"100 140 180 220"
-			}
+			"radius"		"225 225 225 225"
+			"speed"				"1600 2000 2400 2800"
+			"damage"			"100 140 180 220"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -33250,7 +33233,7 @@
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"325"
+		"AbilityCastRange"				"300"
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
 	
 		// Time		
@@ -33265,7 +33248,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"whirling_radius"			"325"
+				"whirling_radius"			"300"
 				"whirling_damage"			"100 150 200 250"
 				"whirling_tick"				"0.3"
 				"stat_loss_pct"				"15"
@@ -34262,7 +34245,7 @@
 				"break_distance"		"2000.0"
 				"mana_per_second"		"20 25 30"
 				"pass_slow_duration"	"0.5"
-				"slow_health_percentage"	"5"
+				"slow_health_percentage"	"5"	
 				"castpoint_scepter"		
 				{
 					"value"			"0.15"
@@ -34271,7 +34254,7 @@
 				"second_chakram"
 				{
 					"value"			"0"
-					"special_bonus_unique_timbersaw"	"+1"
+					"special_bonus_scepter"	"+1"
 				}
 		}
 	}
@@ -34281,6 +34264,7 @@
 	//=================================================================================================================
 	"shredder_chakram_2"
 	{
+		"IsGrantedByScepter"			"1"
 		"AbilityManaCost"				"100 150 200"
 		"AbilityValues"
 		{
@@ -34343,7 +34327,7 @@
 				"second_chakram"
 				{
 					"value"			"0"
-					"special_bonus_unique_timbersaw"	"+1"
+					"special_bonus_scepter"	"+1"
 				}
 		}
 	}
