@@ -1003,6 +1003,15 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			GameRules:SendCustomMessage("建筑被反补，".. teamname .. "玩家各获得" .. team_bounty .. "金" , -1, -1)
 		else
 			GameRules:SendCustomMessage("建筑被摧毁，".. teamname .. "玩家各获得" .. team_bounty .. "金" , -1, -1)
+			local attacker_player_id = -1;
+			if attacker:IsOwnedByAnyPlayer() then
+				attacker_player_id = attacker:GetPlayerOwnerID();
+			end
+			CustomGameEventManager:Send_ServerToAllClients("team_bounty_building_destroyed", {
+				kpid = attacker_player_id,
+				bname = entity:GetName(),
+				gold = team_bounty
+			})
 		end		
 	end
 	if entity:IsCourier() then

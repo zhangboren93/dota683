@@ -2,6 +2,7 @@ GameEvents.Subscribe("player_kill_custom_bonus", OnPlayerKillCustomBonus);
 GameEvents.Subscribe("player_killed_by_creep_bonus", OnPlayerKilledByCreepBonus);
 GameEvents.Subscribe("player_denied", OnPlayerDenied);
 GameEvents.Subscribe("player_killed_by_neutral", OnPlayerKilledByNeutral);
+GameEvents.Subscribe("team_bounty_building_destroyed", OnTeamBountyBuildingDestroyed);
 
 function OnPlayerKillCustomBonus(event) {
 	$.Msg("OnPlayerKillCustomBonus " + event.kpid + " " + event.vpid + " " + event.gold);
@@ -60,6 +61,24 @@ function OnPlayerKilledByNeutral(event) {
 	newChildPanel.FindChildTraverse("victim_hero").heroname = Players.GetPlayerSelectedHero(event.vpid);
 	newChildPanel.FindChildTraverse("victim_player_name").text = Players.GetPlayerName(event.vpid);
 	combatEventCommon(parentPanel, newChildPanel, event)
+}
+
+function OnTeamBountyBuildingDestroyed(event) {
+	let parentPanel = $.GetContextPanel()
+	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "tbbd_" + event.kpid + "x" + event.bname + "g" + event.gold);
+	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_building_destroyed.xml", false, false);
+	let buildingTeam = getBuildingTeam(event.bname);
+	if (event.pkid == -1) {
+		if (buildingTeam == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
+			newChildPanel.FindChildTraverse("killer_name").text = "天灾军团";
+		} else {
+			newChildPanel.FindChildTraverse("killer_name").text = "近卫军团";
+		}
+	} else {
+		newChildPanel.FindChildTraverse("killer_name").text = Players.GetPlayerName(event.kpid);
+		newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(event.kpid);
+	}
+	//TODO buildingType image
 }
 
 function combatEventCommon(parentPanel, newChildPanel, event) {
