@@ -769,18 +769,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("undying_flesh_golem_aura_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_chen" then
 			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_shredder" then
-			entity:SetThink(function()
-				if entity:HasScepter() then
-					local ability = entity:FindAbilityByName("shredder_chakram_2")
-					local ability2 = entity:FindAbilityByName("shredder_return_chakram_2")
-					if ability:IsHidden() and ability2:IsHidden() then
-						ability:SetLevel(entity:FindAbilityByName("shredder_chakram"):GetLevel())
-						ability:SetHidden(false)
-					end
-				end
-				return 2
-			end, "timbersaw scepter", 2);
 		elseif entity:GetName() == "npc_dota_hero_legion_commander" then
 			entity:FindAbilityByName("legion_commander_press_the_attack_as_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_morphling" then
