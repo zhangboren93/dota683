@@ -63,22 +63,75 @@ function OnPlayerKilledByNeutral(event) {
 	combatEventCommon(parentPanel, newChildPanel, event)
 }
 
+BUILDING_NAME_2_TYPE_ID = {
+	dota_goodguys_tower1_top: "塔",
+	dota_goodguys_tower1_mid: "塔",
+	dota_goodguys_tower1_bot: "塔",
+	dota_goodguys_tower2_top: "塔",
+	dota_goodguys_tower2_mid: "塔",
+	dota_goodguys_tower2_bot: "塔",
+	dota_goodguys_tower3_top: "塔",
+	dota_goodguys_tower3_mid: "塔",
+	dota_goodguys_tower3_bot: "塔",
+	dota_badguys_tower4_top: "塔",
+	dota_badguys_tower4_bot: "塔",
+	dota_badguys_tower1_top: "塔",
+	dota_badguys_tower1_mid: "塔",
+	dota_badguys_tower1_bot: "塔",
+	dota_badguys_tower2_top: "塔",
+	dota_badguys_tower2_mid: "塔",
+	dota_badguys_tower2_bot: "塔",
+	dota_badguys_tower3_top: "塔",
+	dota_badguys_tower3_mid: "塔",
+	dota_badguys_tower3_bot: "塔",
+	dota_badguys_tower4_top: "塔",
+	dota_badguys_tower4_bot: "塔",
+	good_rax_melee_top: "近战兵营",
+	good_rax_melee_mid: "近战兵营",
+	good_rax_melee_bot: "近战兵营",
+	bad_rax_melee_top: "近战兵营",
+	bad_rax_melee_mid: "近战兵营",
+	bad_rax_melee_bot: "近战兵营",
+	good_rax_range_top: "远程兵营",
+	good_rax_range_mid: "远程兵营",
+	good_rax_range_bot: "远程兵营",
+	bad_rax_range_top: "远程兵营",
+	bad_rax_range_mid: "远程兵营",
+	bad_rax_range_bot: "远程兵营",
+	dota_badguys_fort: "基地",
+	dota_goodguys_fort: "基地"
+}
+function getBuildingTeam(bname) {
+	return bname.includes("good") ? DOTATeam_t.DOTA_TEAM_GOODGUYS : DOTATeam_t.DOTA_TEAM_BADGUYS; 
+}
 function OnTeamBountyBuildingDestroyed(event) {
+	$.Msg("OnTeamBountyBuildingDestroyed " + event.bname + " " + BUILDING_NAME_2_TYPE_ID[event.bname]);
 	let parentPanel = $.GetContextPanel()
 	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "tbbd_" + event.kpid + "x" + event.bname + "g" + event.gold);
 	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_building_destroyed.xml", false, false);
 	let buildingTeam = getBuildingTeam(event.bname);
-	if (event.pkid == -1) {
+	if (event.kpid == -1) {
 		if (buildingTeam == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
 			newChildPanel.FindChildTraverse("killer_name").text = "天灾军团";
 		} else {
 			newChildPanel.FindChildTraverse("killer_name").text = "近卫军团";
 		}
+		newChildPanel.FindChildTraverse("killer_hero").visible = false;
 	} else {
 		newChildPanel.FindChildTraverse("killer_name").text = Players.GetPlayerName(event.kpid);
 		newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(event.kpid);
 	}
-	//TODO buildingType image
+	newChildPanel.FindChildTraverse("label_gold_amount").text = event.gold
+	newChildPanel.FindChildTraverse("victim_tower").text = BUILDING_NAME_2_TYPE_ID[event.bname];
+	if (parentPanel.GetChildCount() > 1) {
+		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
+	}
+	if (buildingTeam == Players.GetTeam(Players.GetLocalPlayer())) {
+		newChildPanel.AddClass("combat_event_hostile");
+	} else {
+		newChildPanel.AddClass("combat_event_friendly");
+	}
+	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }
 
 function combatEventCommon(parentPanel, newChildPanel, event) {
