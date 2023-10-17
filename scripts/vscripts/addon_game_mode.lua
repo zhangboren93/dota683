@@ -93,6 +93,7 @@ function Activate()
 	LinkLuaModifier( "modifier_requiem_slow_lua", 				"heroes/hero_nevermore/modifier_requiem_slow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_electric_vortex_self_slow_lua",  "heroes/hero_storm_spirit/modifier_electric_vortex_self_slow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_torrent_slow_lua", 				"heroes/hero_kunkka/modifier_torrent_slow.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_reset_visual_z", 				"heroes/hero_tiny/modifier_reset_visual_z.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -968,7 +969,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		PlayerResource:ModifyGold(attacker:GetPlayerOwnerID(), bounty, false, DOTA_ModifyGold_Building)
 		local playerId = attacker:GetPlayerOwnerID()
 		local player = PlayerResource:GetPlayer(playerId)
-		SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player:GetAssignedHero(), bounty, player)
+		SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, entity, bounty, player)
 	end
 	if entity:IsBuilding() and building2teambounty[entity:GetName()] ~= nil then
 		-- grant team bounty
