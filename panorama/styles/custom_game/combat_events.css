@@ -82,3 +82,11 @@
 .combat_event_hero_killed_by_neutral #victim_player_name {
 	margin-right: 10px;
 }
+
+#deny_label {
+	color: #FFCCC7;
+	font-size: 20px;
+	margin-left: -10px;
+	margin-right: 15px;
+	vertical-align: center;
+}

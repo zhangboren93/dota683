@@ -301,13 +301,13 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			SpawnNeutralCreepsCustom()
 		end
 	end
-	--if text == "-test" then
-	--	print(GetSystemTime())
-	--	print(GetSystemTimeMS())
-	--	print(GetSystemDate())
-	--	print(Plat_FloatTime())
-	--	print(Time())
-	--end
+	if text == "-test" then
+	--	CustomGameEventManager:Send_ServerToAllClients("team_bounty_building_destroyed", {
+	--		kpid = 0,
+	--		bname = "dota_goodguys_tower4_top",
+	--		gold = 10
+	--	})
+	end
 	--if text == "-win" then
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	--end
@@ -966,8 +966,9 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		-- grant building kill bonus
 		local bounty = entity:GetGoldBounty()
 		PlayerResource:ModifyGold(attacker:GetPlayerOwnerID(), bounty, false, DOTA_ModifyGold_Building)
-		local attackerName = string.sub(attacker:GetName(), 15)
-		GameRules:SendCustomMessage(attackerName .. "摧毁了建筑，获得" .. bounty .. "钱", -1, -1)
+		local playerId = attacker:GetPlayerOwnerID()
+		local player = PlayerResource:GetPlayer(playerId)
+		SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player:GetAssignedHero(), bounty, player)
 	end
 	if entity:IsBuilding() and building2teambounty[entity:GetName()] ~= nil then
 		-- grant team bounty
@@ -985,12 +986,18 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		end
 		local playerCount = PlayerResource:GetPlayerCountForTeam(grant_team)
 		for i=1,playerCount do
-			PlayerResource:ModifyGold(PlayerResource:GetNthPlayerIDOnTeam(grant_team, i), team_bounty, false, DOTA_ModifyGold_Building)
+			local playerId = PlayerResource:GetNthPlayerIDOnTeam(grant_team, i)
+			local player = PlayerResource:GetPlayer(playerId)
+			PlayerResource:ModifyGold(playerId, team_bounty, false, DOTA_ModifyGold_Building)
+			SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player:GetAssignedHero(), team_bounty, player)
 		end
 		if is_deny then
-			GameRules:SendCustomMessage("建筑被反补，".. teamname .. "玩家各获得" .. team_bounty .. "金" , -1, -1)
+			CustomGameEventManager:Send_ServerToAllClients("team_bounty_building_destroyed", {
+				kpid = attacker:GetPlayerOwnerID(),
+				bname = entity:GetName(),
+				gold = team_bounty
+			})
 		else
-			GameRules:SendCustomMessage("建筑被摧毁，".. teamname .. "玩家各获得" .. team_bounty .. "金" , -1, -1)
 			local attacker_player_id = -1;
 			if attacker:IsOwnedByAnyPlayer() then
 				attacker_player_id = attacker:GetPlayerOwnerID();
