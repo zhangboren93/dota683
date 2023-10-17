@@ -17,9 +17,21 @@ function go_to_secret(event)
 end
 
 function flyingUpgradeChecker(event)
-    -- DeepPrintTable(event)
     local entity = event.caster
     local ability = event.ability
+	
+	-- fountain fills bottle
+	local bottle = entity:FindItemInInventory("item_bottle")
+	if bottle ~= nil then
+		if bottle:GetCurrentCharges() < 3 then
+			if entity:HasModifier("modifier_fountain_aura_buff") then
+				bottle:SetCurrentCharges(3)
+			else
+				ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_not_full_bottle_datadriven", {})
+			end
+		end
+	end
+
 	-- Level 4 for flying upgrade visual, Level 10 for respawn time as 120
     if entity:HasModifier("modifier_courier_flying_upgrade_active") then
 		-- Level 20 for respawn time as 180
@@ -48,17 +60,6 @@ function flyingUpgradeChecker(event)
         entity:RemoveModifierByName("modifier_courier_flying")
 		entity:FindAbilityByName("courier_burst_datadriven"):SetLevel(0)
     end
-
-	local bottle = entity:FindItemInInventory("item_bottle")
-	if bottle ~= nil then
-		if bottle:GetCurrentCharges() < 3 then
-			if entity:HasModifier("modifier_fountain_aura_buff") then
-				bottle:SetCurrentCharges(3)
-			else
-				ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_not_full_bottle_datadriven", {})
-			end
-		end
-	end
 end
 
 function transforStopChecker(event)
