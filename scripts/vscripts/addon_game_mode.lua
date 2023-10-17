@@ -303,11 +303,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 	if text == "-test" then
-	--	CustomGameEventManager:Send_ServerToAllClients("team_bounty_building_destroyed", {
-	--		kpid = 0,
-	--		bname = "dota_goodguys_tower4_top",
-	--		gold = 10
-	--	})
+--		CustomGameEventManager:Send_ServerToAllClients("dota_buyback", {
+--			player_id = 0
+--		})
 	end
 	--if text == "-win" then
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)

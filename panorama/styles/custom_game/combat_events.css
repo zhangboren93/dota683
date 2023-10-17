@@ -18,6 +18,7 @@
 	/*border: 2px solid #111111FF;*/
 	flow-children: right;
 	margin-bottom: 10px;
+	padding-right: 10px;
 }
 
 .combat_event_friendly {
@@ -71,18 +72,6 @@
 	margin-left: 5px;
 }
 
-.combat_event_player_denied #victim_player_name {
-	margin-right: 10px;
-}
-
-.combat_event_hero_suicide #label_deny {
-	margin-right: 10px;
-}
-
-.combat_event_hero_killed_by_neutral #victim_player_name {
-	margin-right: 10px;
-}
-
 #deny_label {
 	color: #FFCCC7;
 	font-size: 20px;
@@ -90,3 +79,4 @@
 	margin-right: 15px;
 	vertical-align: center;
 }
+

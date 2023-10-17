@@ -1,0 +1,10 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/combat_events.css" />
+	</styles>
+	<Panel class="combat_event_line combat_event_buyback">
+		<DOTAHeroImage id="hero_icon" class="hero" heroimagestyle="icon" />
+		<Label id="killer_name" class="player_name" text=""/>
+		<Label class="player_name" text="买活"/>
+	</Panel>
+</root>

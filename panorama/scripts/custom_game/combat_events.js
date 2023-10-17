@@ -3,6 +3,7 @@ GameEvents.Subscribe("player_killed_by_creep_bonus", OnPlayerKilledByCreepBonus)
 GameEvents.Subscribe("player_denied", OnPlayerDenied);
 GameEvents.Subscribe("player_killed_by_neutral", OnPlayerKilledByNeutral);
 GameEvents.Subscribe("team_bounty_building_destroyed", OnTeamBountyBuildingDestroyed);
+GameEvents.Subscribe("dota_buyback", OnBuyback);
 
 function OnPlayerKillCustomBonus(event) {
 	$.Msg("OnPlayerKillCustomBonus " + event.kpid + " " + event.vpid + " " + event.gold);
@@ -130,6 +131,22 @@ function OnTeamBountyBuildingDestroyed(event) {
 		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
 	}
 	if (buildingTeam == Players.GetTeam(Players.GetLocalPlayer())) {
+		newChildPanel.AddClass("combat_event_hostile");
+	} else {
+		newChildPanel.AddClass("combat_event_friendly");
+	}
+	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
+}
+
+function OnBuyback(event) {
+	let parentPanel = $.GetContextPanel()
+	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "bb_" + event.player_id);
+	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_buyback.xml", false, false);
+	newChildPanel.FindChildTraverse("hero_icon").heroname = Players.GetPlayerSelectedHero(event.player_id);
+	if (parentPanel.GetChildCount() > 1) {
+		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
+	}
+	if (Players.GetTeam(event.player_id) != Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
