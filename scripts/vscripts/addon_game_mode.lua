@@ -302,11 +302,11 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			SpawnNeutralCreepsCustom()
 		end
 	end
-	if text == "-test" then
---		CustomGameEventManager:Send_ServerToAllClients("dota_buyback", {
---			player_id = 0
---		})
-	end
+	--if text == "-test" then
+	--	CustomGameEventManager:Send_ServerToAllClients("combat_event_roshan_killed", {
+	--		kpid = 0
+	--	})
+	--end
 	--if text == "-win" then
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	--end
@@ -923,7 +923,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		or name == "dota_goodguys_tower1_bot" then
 		local fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		fountain:FindAbilityByName("glyph_datadriven"):EndCooldown()
-	elseif entity:GetModelName() == "models/creeps/roshan/roshan.vmdl" then
+	elseif entity:HasModifier("roshan_inherent_buffs_checker_datadriven") then
 		print("roshan killed")
 		self.nextRoshanTime = GameRules:GetDOTATime(false, false) + RandomInt(480, 660);
 		print("next rosh respawn time is " .. self.nextRoshanTime);
@@ -933,10 +933,12 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			for i=1,n do
 				local playerid = PlayerResource:GetNthPlayerIDOnTeam(team, i)
 				PlayerResource:ModifyGold(playerid, 200, false, DOTA_ModifyGold_RoshanKill)
+				local player = PlayerResource:GetPlayer(playerid)
+				SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, player:GetAssignedHero(), 200, player)
 			end
-			local teamname = "近卫"
-			if team == DOTA_TEAM_BADGUYS then teamname = "天灾" end
-			GameRules:SendCustomMessage("肉山被击杀，"..teamname.."全员获得200金", -1, -1)
+			CustomGameEventManager:Send_ServerToAllClients("combat_event_roshan_killed", {
+				kpid = attacker:GetPlayerOwnerID(),
+			})
 		end
 	end
 	if ability ~= nil and ability:GetName() == "necrolyte_reapers_scythe" and entity:IsRealHero() and not entity:IsReincarnating() then

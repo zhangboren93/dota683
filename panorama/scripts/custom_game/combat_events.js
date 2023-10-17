@@ -4,6 +4,7 @@ GameEvents.Subscribe("player_denied", OnPlayerDenied);
 GameEvents.Subscribe("player_killed_by_neutral", OnPlayerKilledByNeutral);
 GameEvents.Subscribe("team_bounty_building_destroyed", OnTeamBountyBuildingDestroyed);
 GameEvents.Subscribe("dota_buyback", OnBuyback);
+GameEvents.Subscribe("combat_event_roshan_killed", OnRoshanKilled);
 
 function OnPlayerKillCustomBonus(event) {
 	$.Msg("OnPlayerKillCustomBonus " + event.kpid + " " + event.vpid + " " + event.gold);
@@ -143,10 +144,29 @@ function OnBuyback(event) {
 	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "bb_" + event.player_id);
 	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_buyback.xml", false, false);
 	newChildPanel.FindChildTraverse("hero_icon").heroname = Players.GetPlayerSelectedHero(event.player_id);
+	newChildPanel.FindChildTraverse("killer_name").text = Players.GetPlayerName(event.player_id);
 	if (parentPanel.GetChildCount() > 1) {
 		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
 	}
 	if (Players.GetTeam(event.player_id) != Players.GetTeam(Players.GetLocalPlayer())) {
+		newChildPanel.AddClass("combat_event_hostile");
+	} else {
+		newChildPanel.AddClass("combat_event_friendly");
+	}
+	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
+}
+
+function OnRoshanKilled(event) {
+	let kpid = event.kpid
+	let parentPanel = $.GetContextPanel()
+	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "rk_" + kpid);
+	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_roshan_killed.xml", false, false);
+	newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(kpid);
+	newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(kpid);
+	if (parentPanel.GetChildCount() > 1) {
+		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
+	}
+	if (Players.GetTeam(kpid) != Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
@@ -165,3 +185,4 @@ function combatEventCommon(parentPanel, newChildPanel, event) {
 	}
 	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }
+
