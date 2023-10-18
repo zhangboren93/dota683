@@ -1012,9 +1012,15 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		end		
 	end
 	if entity:IsCourier() then
-		CustomGameEventManager:Send_ServerToTeam(entity:GetTeam(), "courier_killed", { 
+		local kpid = -1
+		if attacker:IsOwnedByAnyPlayer() then
+			kpid = attacker:GetPlayerOwnerID()
+		end
+		CustomGameEventManager:Send_ServerToAllClients("courier_killed", { 
 			id = tostring(entity:GetEntityIndex()),
-			respawn = 60 + entity:GetLevel() * 6 });
+			respawn = 60 + entity:GetLevel() * 6,
+			kpid = kpid,
+		});
 	end
 end
 

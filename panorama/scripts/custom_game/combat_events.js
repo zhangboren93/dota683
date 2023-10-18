@@ -6,6 +6,7 @@ GameEvents.Subscribe("team_bounty_building_destroyed", OnTeamBountyBuildingDestr
 GameEvents.Subscribe("dota_buyback", OnBuyback);
 GameEvents.Subscribe("combat_event_roshan_killed", OnRoshanKilled);
 GameEvents.Subscribe("aegis_picked_up", OnAegisPickedUp);
+GameEvents.Subscribe("courier_killed", OnCourierKilled);
 
 function OnPlayerKillCustomBonus(event) {
 	$.Msg("OnPlayerKillCustomBonus " + event.kpid + " " + event.vpid + " " + event.gold);
@@ -186,6 +187,34 @@ function OnAegisPickedUp(event) {
 		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
 	}
 	if (Players.GetTeam(kpid) != Players.GetTeam(Players.GetLocalPlayer())) {
+		newChildPanel.AddClass("combat_event_hostile");
+	} else {
+		newChildPanel.AddClass("combat_event_friendly");
+	}
+	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
+}
+
+function OnCourierKilled(event) {
+	let kpid = event.kpid	
+	let courier_team = Entities.GetTeamNumber(parseInt(event.id))
+	let parentPanel = $.GetContextPanel()
+	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "ck_" + kpid + "x" + event.id);
+	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_courier_killed.xml", false, false);
+	if (kpid == -1) {
+		newChildPanel.FindChildTraverse("killer_hero").visible = false
+		if (courier_team == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
+			newChildPanel.FindChildTraverse("killer_player_name").text = "天灾军团";
+		} else {
+			newChildPanel.FindChildTraverse("killer_player_name").text = "近卫军团";
+		}
+	} else {
+		newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(kpid);
+		newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(kpid);
+	}
+	if (parentPanel.GetChildCount() > 1) {
+		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
+	}
+	if (courier_team == Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
