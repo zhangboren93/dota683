@@ -1,0 +1,12 @@
+
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/combat_events.css" />
+	</styles>
+	<Panel class="combat_event_line">
+		<DOTAHeroImage id="killer_hero" class="hero" heroimagestyle="icon" />
+		<Label id="killer_player_name" class="player_name" />
+		<Label class="player_name" text="获得了"/>
+		<Image id="kill_icon" src="file://{images}/custom_game/aegis_icon.png"/>
+	</Panel>
+</root>

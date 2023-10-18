@@ -232,6 +232,7 @@ function CAddonTemplateGameMode:InitGameMode()
 			end, "spawn neutral creep", 30)
 		end
 	end, nil)
+	ListenToGameEvent("dota_item_picked_up", function(event) HandleItemPickedUp(event.itemname, event.PlayerID)	end, nil)
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
@@ -303,7 +304,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 	--if text == "-test" then
-	--	CustomGameEventManager:Send_ServerToAllClients("combat_event_roshan_killed", {
+	--	CustomGameEventManager:Send_ServerToAllClients("aegis_picked_up", {
 	--		kpid = 0
 	--	})
 	--end
@@ -1720,6 +1721,11 @@ function HandlePlayerPickHero(hero)
 	end
 end
 
+function HandleItemPickedUp(itemname, playerid)
+	if itemname == "item_aegis" then
+		CustomGameEventManager:Send_ServerToAllClients("aegis_picked_up", { kpid = playerid })
+	end
+end
 function bitand(a, b)
     local result = 0
     local bitval = 1
