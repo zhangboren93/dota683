@@ -1016,7 +1016,6 @@
 			{
 				"Passive" "0"
 				"IsHidden" "1"
-				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
 				"OnDealDamage"
 				{
 					"Lifesteal"

@@ -9,7 +9,8 @@ function VampiricAuraApply( event )
 	local target = event.target
 	local ability = event.ability
 
-	if not target:IsIllusion() and not target:IsBuilding() then
+	if not target:IsIllusion() and not target:IsBuilding() 
+		and target:GetTeam() ~= attacker:GetTeam() then
 		ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_vampiric_aura_lifesteal", {duration = 0.03})
 	end
 end
