@@ -17,8 +17,12 @@
 	height:	30px;
 	/*border: 2px solid #111111FF;*/
 	flow-children: right;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	padding-right: 10px;
+}
+
+.HUDFlipped .combat_event_line {
+	horizontal-align: right;
 }
 
 .combat_event_friendly {
