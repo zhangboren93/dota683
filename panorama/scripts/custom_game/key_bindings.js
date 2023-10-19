@@ -34,7 +34,11 @@ function OnCustomGameCourierSend()
     GameUI.SelectUnit(courier, false);
     let sendItemAbility = Entities.GetAbilityByName(courier, "courier_take_stash_items")
     Abilities.ExecuteAbility(sendItemAbility, courier, false)
-    GameUI.SelectUnit(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), false);
+	$.Schedule(0.03, function() { 
+    	let sendItemAbility2 = Entities.GetAbilityByName(courier, "courier_transfer_items")
+    	Abilities.ExecuteAbility(sendItemAbility2, courier, false)
+    	GameUI.SelectUnit(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), false);
+	});
 }
 
 function OnCourierStartTransfer(event) {
