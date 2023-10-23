@@ -1248,8 +1248,9 @@
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven_enfeeble_attack_reduction"	"攻击力削弱："
 		"DOTA_Tooltip_modifier_enfeeble_datadriven"									"虚弱"
 		"DOTA_Tooltip_modifier_enfeeble_datadriven_Description"						"攻击力降低%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%"
-		"DOTA_Tooltip_ability_bane_nightmare_Description"						"让目标敌方或友方英雄进入沉睡。睡着的单位受到攻击便会醒来，但噩梦将转移到攻击者身上。"
+		"DOTA_Tooltip_ability_bane_nightmare_Description"						"让目标敌方或友方英雄进入沉睡并每秒造成伤害。睡着的单位受到攻击便会醒来，但噩梦将转移到攻击者身上。噩梦中的单位受到伤害便会醒来。"
 		"DOTA_Tooltip_ability_bane_nightmare_tick_damage"						"每秒伤害："
+		"DOTA_Tooltip_Ability_bane_fiends_grip_scepter_description"				"提高每秒伤害和魔法吸取量，并增加持续时间。如果敌人在祸乱之源施放魔爪期间向其攻击，那么他们会马上被施加当前等级的噩梦。"
 		//Chen
 		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"				"减少冷却时间至30秒。"
 		"DOTA_Tooltip_Ability_chen_penitence_Description"						"迫使一个敌方单位移动变慢，受到的攻击和技能伤害增加。"

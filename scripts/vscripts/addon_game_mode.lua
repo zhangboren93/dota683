@@ -1758,8 +1758,6 @@ function CAddonTemplateGameMode:HandleChannelFinish(event)
 	-- DeepPrintTable(event)
 	local caster = EntIndexToHScript(event.caster_entindex)
 	if event.abilityname == "bane_fiends_grip" then
-		print("test channel finish")
 		caster:RemoveModifierByName("modifier_bane_fiends_grip_scepter")
-		caster:EmitSound("Hero_Abaddon.BorrowedTime")
 	end
 end
