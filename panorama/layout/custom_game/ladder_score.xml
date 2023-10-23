@@ -1,0 +1,5 @@
+<root>
+	<Panel style="height:45px;width:45px;vertical-align:middle;">
+		<Label id="ladder_score_label" text="1000" style="color:white;font-size:18px;vertical-align:center;"/>
+	</Panel>
+</root>

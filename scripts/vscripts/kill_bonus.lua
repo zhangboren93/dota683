@@ -42,8 +42,8 @@ function handleKillBonus(self, attacker, entity)
 			print("give gold first blood kill")
 			PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_GameTick)
 			player2gold[attacker_player_id] = 135
-			self.firstBlood = true
 			goldRecord[1] = 135
+			self:handleFirstBlood()
 		else
 			player2gold[attacker_player_id] = 0
 		end
@@ -85,8 +85,8 @@ function handleKillBonus(self, attacker, entity)
 				print("give gold first blood kill")
 				PlayerResource:ModifyGold(attacker_player_id, 135, true, DOTA_ModifyGold_GameTick)
 				player2gold[attacker_player_id] = 135
-				self.firstBlood = true
 				goldRecord[1] = 135
+				self:handleFirstBlood()
 			else
 				player2gold[attacker_player_id] = 0
 			end

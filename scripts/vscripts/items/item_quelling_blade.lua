@@ -19,7 +19,13 @@ function item_quelling_blade_lua:OnSpellStart()
 	local target = self:GetCursorTarget()
     if target:GetClassname() == "ent_dota_tree" then
         target:CutDown(self:GetCaster():GetTeamNumber())
+		return
+	elseif target:GetClassname() == "dota_temp_tree" then
+		--TODO emit tree kill animation
+		target:Kill()
+		return
     end
+	--TODO require 2 count to cut down ward
     if target:GetName() == "npc_dota_ward_base" or target:GetName() == "npc_dota_ward_base_truesight" then
         target:Kill(self, self:GetCaster())
     end

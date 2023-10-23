@@ -8,14 +8,20 @@ require("building_bounty")
 require("root_modifiers")
 require("hero_types")
 require("ladder_game_mode")
+require("rank_trees")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
 
+RANK_PLAYER_COUNT_REQ = 10
+LADDER_HOST = "119.8.186.190"
+
 playerRepicked = {}
 randomBonusGranted = {}
-
+notValidRankedGame = false
+hasGameEnded = false
+playerId2LadderScore = {}
 
 function Precache( context )
 	--[[
@@ -230,6 +236,39 @@ function CAddonTemplateGameMode:InitGameMode()
 					return 30
 				end
 			end, "spawn neutral creep", 30)
+			if isMapRanked() and not notValidRankedGame and not hasGameEnded then
+				GameRules:GetGameModeEntity():SetThink(function()
+					if not notValidRankedGame and not hasGameEnded then
+						putGameToLadderServer()
+					end
+				end, "validate rank game after 5 minutes", 300)
+			end
+		elseif event.new_state == 4 then
+			if isMapRanked() then
+				spawnBaseTrees()
+			end
+
+			CustomGameEventManager:Send_ServerToAllClients("player_ladder_scores", playerId2LadderScore)
+		elseif event.new_state == DOTA_GAMERULES_STATE_SCENARIO_SETUP then
+			if isMapRanked() then
+				local playerCount = PlayerResource:NumPlayers()
+				print("Number of players is " .. playerCount)
+				--verify number of players is 10
+				if playerCount ~= RANK_PLAYER_COUNT_REQ then
+					GameRules:SendCustomMessage("天梯比赛需要10名玩家，本次对局不记录天梯分数!", -1, -1)
+					GameRules:SetGameWinner(DOTA_TEAM_NOTEAM)
+					hasGameEnded = true
+					notValidRankedGame = true
+				else
+					GameRules:GetGameModeEntity():SetThink(function()
+						getAllPlayerScores()
+					end, "Fetching player scores", 1)
+				end
+				for i=1,#all_heroes do
+					GameRules:AddHeroToBlacklist(all_heroes[i])
+				end
+				self.game_mode = "LD"
+			end
 		end
 	end, nil)
 	ListenToGameEvent("dota_item_picked_up", function(event) HandleItemPickedUp(event.itemname, event.PlayerID)	end, nil)
@@ -247,30 +286,28 @@ end
 
 function HandlePlayerChat(self, teamonly, text, playerid)
 	if teamonly == 0 and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
-		if text == '-rd' then
-			self.rdEnabled = true
-			GameRules:SendCustomMessage("RD模式开启", -1, -1)
-		elseif text == '-ap' then
-			self.rdEnabled = false
-			self.botEnabled = false
-			GameRules:SendCustomMessage("AP模式开启", -1, -1)
-		elseif text == '-vsbot' then
-			self.botEnabled = true
-			GameRules:SendCustomMessage("Bot模式开启", -1, -1)
-		elseif text == '-sp' then
-			GameRules:SetSameHeroSelectionEnabled(true)
-			GameRules:SendCustomMessage("开启相同英雄选择", -1, -1)
-		elseif text == '-ld' then
-			GameRules:SetSameHeroSelectionEnabled(false)
-			self.game_mode = "LD"
-			GameRules:SendCustomMessage("开启天梯模式", -1, -1)
-		elseif text == '-cm' then
-			GameRules:SetHeroSelectionTime(40 * 10 + 110 * 2 + 60)
-			GameRules:SetSameHeroSelectionEnabled(false)
-			self.rdEnabled = false
-			self.botEnabled = false
-			self.game_mode = "CM"
-			GameRules:SendCustomMessage("开启队长模式", -1, -1)
+		if not isMapRanked() then
+			if text == '-rd' then
+				self.rdEnabled = true
+				GameRules:SendCustomMessage("RD模式开启", -1, -1)
+			elseif text == '-ap' then
+				self.rdEnabled = false
+				self.botEnabled = false
+				GameRules:SendCustomMessage("AP模式开启", -1, -1)
+			elseif text == '-vsbot' then
+				self.botEnabled = true
+				GameRules:SendCustomMessage("Bot模式开启", -1, -1)
+			elseif text == '-sp' then
+				GameRules:SetSameHeroSelectionEnabled(true)
+				GameRules:SendCustomMessage("开启相同英雄选择", -1, -1)
+			elseif text == '-cm' then
+				GameRules:SetHeroSelectionTime(40 * 10 + 110 * 2 + 60)
+				GameRules:SetSameHeroSelectionEnabled(false)
+				self.rdEnabled = false
+				self.botEnabled = false
+				self.game_mode = "CM"
+				GameRules:SendCustomMessage("开启队长模式", -1, -1)
+			end
 		end
 	end
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
@@ -304,11 +341,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			SpawnNeutralCreepsCustom()
 		end
 	end
-	--if text == "-test" then
-	--	CustomGameEventManager:Send_ServerToAllClients("aegis_picked_up", {
-	--		kpid = 0
-	--	})
-	--end
+	if text == "-test" then
+		--putGameToLadderServer()
+	end
 	--if text == "-win" then
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	--end
@@ -346,10 +381,6 @@ function CAddonTemplateGameMode:OnThink()
 				self.hero_selection_state = "PIC"
 			end
 			if self.game_mode == "LD" then
-			-- add all heroes to ban list
-				for i=1,#all_heroes do
-					GameRules:AddHeroToBlacklist(all_heroes[i])
-				end
 				pickLadderHeroes(self)
 				self.hero_selection_state = "BAN"
 			elseif self.game_mode == "CM" then
@@ -486,7 +517,23 @@ function CAddonTemplateGameMode:OnThink()
 			self.nextRoshanTime = nil
 		end
 
+		-- respawn base trees in rank map
+		if isMapRanked() then
+			spawnBaseTrees()
 
+			-- if all players from one team has disconnected from the game, call other team the winner.
+			if not notValidRankedGame and not hasGameEnded then
+				if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
+					GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
+					hasGameEnded = true
+					GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+				elseif getConnectedPlayerCount(DOTA_TEAM_BADGUYS) == 0 then
+					GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
+					hasGameEnded = true
+					GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+				end
+			end
+		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
 	end
@@ -1760,4 +1807,68 @@ function CAddonTemplateGameMode:HandleChannelFinish(event)
 	if event.abilityname == "bane_fiends_grip" then
 		caster:RemoveModifierByName("modifier_bane_fiends_grip_scepter")
 	end
+end
+
+function getAllPlayerScores()
+	local playerIds = {}
+	for i=1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) do
+		local player = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
+		table.insert(playerIds, PlayerResource:GetSteamAccountID(player))
+	end
+	for i=1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS) do
+		local player = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
+		table.insert(playerIds, PlayerResource:GetSteamAccountID(player))
+	end
+	for i=1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_NOTEAM) do
+		local player = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
+		table.insert(playerIds, PlayerResource:GetSteamAccountID(player))
+	end
+	DeepPrintTable(playerIds)
+	local query = "p0="..playerIds[1]
+	for i=2,#playerIds do
+		query = query.."&p"..(i-1).."="..playerIds[i]
+	end
+	print(query)
+	CreateHTTPRequest("GET", "http://"..LADDER_HOST.."/dota683_ladder/players?" .. query):Send(function(response)
+		print("status code " .. response.StatusCode)
+		if response.StatusCode == 200 then
+			print("response " .. response.Body)
+			for w in string.gmatch(response.Body, "[0-9%-]+") do
+				table.insert(playerId2LadderScore, tonumber(w))
+			end
+			DeepPrintTable(playerId2LadderScore)
+			GameRules:SendCustomMessage("启用天梯模式！", -1, -1);
+		else
+			GameRules:SendCustomMessage("获取天梯分数失败，本次比赛将不会计算天梯分数！", -1, -1);
+			notValidRankedGame = true
+		end
+	end)
+end
+
+function CAddonTemplateGameMode:handleFirstBlood()
+	self.firstBlood = true
+	if isMapRanked() and not notValidRankedGame and not hasGameEnded then
+		putGameToLadderServer()
+	end
+end
+
+function putGameToLadderServer()
+	CreateHTTPRequest("GET", "http://" .. LADDER_HOST .. "/dota683_ladder/game/register/" .. GameRules:Script_GetMatchID():__tostring()
+		):Send(function(response)
+		print("post game status code " .. response.StatusCode)
+		if response.StatusCode ~= 200 then
+			notValidRankedGame = true
+		end
+	end)
+end
+
+function getConnectedPlayerCount(team)
+	local ret = 0
+	for i=1,PlayerResource:GetPlayerCountForTeam(team) do
+		local state = PlayerResource:GetConnectionState(PlayerResource:GetNthPlayerIDOnTeam(team, i))
+		if state == DOTA_CONNECTION_STATE_CONNECTED or state == DOTA_CONNECTION_STATE_NOT_YET_CONNECTED then
+			ret = ret + 1
+		end
+	end
+	return ret
 end

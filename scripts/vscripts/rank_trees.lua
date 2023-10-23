@@ -1,0 +1,150 @@
+-- because ranked map cannot render trees in bases correctly, we will render tree and manage tree respawn time manually.
+BASE_TREE_ORIGINS = {
+	Vector(-6144, -6912, 384),
+	Vector(-5952, -6912, 384),
+	Vector(-5824, -6912, 384),
+	Vector(-5120, -6912, 384),
+	Vector(-4736, -6912, 384),
+	Vector(-4352, -6912, 384),
+	Vector(-4160, -6912, 384),
+	Vector(-4032, -6912, 384),
+	Vector(-5632, -6848, 384),
+	Vector(-5376, -6848, 384),
+	Vector(-4608, -6848, 384),
+	Vector(-6016, -6784, 384),
+	Vector(-5888, -6784, 384),
+	Vector(-5504, -6784, 384),
+	Vector(-5248, -6784, 384),
+	Vector(-4416, -6784, 384),
+	Vector(-4288, -6784, 384),
+	Vector(-4160, -6784, 384),
+	Vector(-6144, -6720, 384),
+	Vector(-5760, -6720, 384),
+	Vector(-5632, -6720, 384),
+	Vector(-3904, -6720, 384),
+	Vector(-6016, -6656, 384),
+	Vector(-6144, -6592, 384),
+	Vector(-5632, -6592, 384),
+	Vector(-7424, -5632, 384),
+	Vector(-7296, -5632, 384),
+	Vector(-7168, -5632, 384),
+	Vector(-7168, -5504, 384),
+	Vector(-7424, -5440, 384),
+	Vector(-7168, -5248, 384),
+	Vector(-7424, -5120, 384),
+	Vector(-7296, -5120, 384),
+	Vector(-7168, -5056, 384),
+	Vector(-7424, -4992, 384),
+	Vector(-7296, -4928, 384),
+	Vector(-7168, -4928, 384),
+	Vector(-4352, -4928, 384),
+	Vector(-7424, -4864, 384),
+	Vector(-7232, -4800, 384),
+	Vector(-7424, -4736, 384),
+	Vector(-4224, -4736, 384),
+	Vector(-7296, -4672, 384),
+	Vector(-7360, -4544, 384),
+	Vector(-7168, -4544, 384),
+	Vector(-7424, -4416, 384),
+	Vector(-7232, -4416, 384),
+	Vector(-7040, -4416, 384),
+	Vector(-7168, -4288, 384),
+	Vector(-7296, -4224, 384),
+	Vector(-7424, -4096, 384),
+	Vector(-7296, -4096, 384),
+	Vector(-7168, -4096, 384),
+	Vector(-7424, -3968, 384),
+	Vector(-7168, -3968, 384),
+	Vector(-7296, -3904, 384),
+	Vector(-7424, -3840, 384),
+	Vector(-7168, -3840, 384),
+	Vector(-7296, -3776, 384),
+	Vector(-7424, -3712, 384),
+	Vector(-7296, -3648, 384),
+	Vector(-7424, -3520, 384),
+	Vector(-7296, -3520, 384),
+	Vector(-7424, -3328, 384),
+	Vector(-7168, -3328, 384),
+	Vector(-7296, -3200, 384),
+	Vector(-7424, -3136, 384),
+	Vector(5440, 2560, 384),
+	Vector(5568, 2560, 384),
+	Vector(5696, 2560, 384),
+	Vector(7296, 2624, 384),
+	Vector(7168, 2752, 384),
+	Vector(7296, 2752, 384),
+	Vector(4800, 2816, 384),
+	Vector(4608, 2880, 384),
+	Vector(7104, 3072, 384),
+	Vector(7296, 3072, 384),
+	Vector(7296, 3328, 384),
+	Vector(7232, 3520, 384),
+	Vector(7232, 3648, 384),
+	Vector(7296, 3776, 384),
+	Vector(7232, 4032, 384),
+	Vector(7232, 4160, 384),
+	Vector(3840, 4352, 384),
+	Vector(7360, 4352, 384),
+	Vector(7232, 4480, 384),
+	Vector(3968, 4544, 384),
+	Vector(3136, 4608, 384),
+	Vector(7232, 4736, 384),
+	Vector(7232, 4928, 384),
+	Vector(7360, 5056, 384),
+	Vector(7296, 5248, 384),
+	Vector(5248, 6528, 384),
+	Vector(3904, 6592, 384),
+	Vector(5056, 6592, 384),
+	Vector(5504, 6592, 384),
+	Vector(5632, 6592, 384),
+	Vector(3456, 6656, 384),
+	Vector(4608, 6656, 384),
+	Vector(4864, 6656, 384),
+	Vector(5248, 6656, 384),
+	Vector(3136, 6720, 384),
+	Vector(3264, 6720, 384),
+	Vector(3648, 6720, 384),
+	Vector(3776, 6720, 384),
+	Vector(3968, 6720, 384),
+	Vector(4416, 6720, 384),
+	Vector(5120, 6720, 384),
+	Vector(5376, 6720, 384),
+	Vector(5568, 6720, 384),
+	Vector(5760, 6720, 384),
+	Vector(3520, 6784, 384),
+	Vector(4224, 6784, 384),
+	Vector(4608, 6784, 384),
+	Vector(3968, 6848, 384),
+	Vector(4480, 6848, 384),
+	Vector(4736, 6848, 384),
+	Vector(5312, 6848, 384),
+	Vector(5440, 6848, 384),
+	Vector(5568, 6848, 384),
+	Vector(5696, 6848, 384),
+	Vector(5824, 6848, 384)}
+
+spawnedTrees = {}
+
+function spawnBaseTrees() 
+	if #spawnedTrees == 0 then
+		for i=1,#BASE_TREE_ORIGINS do
+			--TODO create tree with model
+			local tempTree = CreateTempTree(BASE_TREE_ORIGINS[i], 10000)
+			table.insert(spawnedTrees, { entity = tempTree })
+		end
+	else
+		local time = GameRules:GetGameTime()
+		for i=1,#spawnedTrees do
+			if not IsValidEntity(spawnedTrees[i].entity) or not spawnedTrees[i].entity:IsAlive() then
+--				print("Tree " .. i .. " has been destroyed.")
+--				print(spawnedTrees[i].respawnTime)
+				if spawnedTrees[i].respawnTime == nil then
+					spawnedTrees[i].respawnTime = time + 300;
+				elseif spawnedTrees[i].respawnTime < time then
+					local newTempTree = CreateTempTree(BASE_TREE_ORIGINS[i], 10000)
+					spawnedTrees[i] = { entity = newTempTree }
+				end
+			end
+		end
+	end
+end

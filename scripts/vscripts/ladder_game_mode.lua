@@ -190,3 +190,8 @@ function pickLadderHeroes(self)
     }
     CustomGameEventManager:Send_ServerToAllClients( "ladder_ban_start", slot_2_heroes)
 end
+
+RANK_MAP_NAME = "rank"
+function isMapRanked()
+	return GetMapName() == RANK_MAP_NAME 
+end
