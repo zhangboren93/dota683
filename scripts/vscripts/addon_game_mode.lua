@@ -233,6 +233,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		end
 	end, nil)
 	ListenToGameEvent("dota_item_picked_up", function(event) HandleItemPickedUp(event.itemname, event.PlayerID)	end, nil)
+	ListenToGameEvent("dota_ability_channel_finished", Dynamic_Wrap(CAddonTemplateGameMode, 'HandleChannelFinish'), self)
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
@@ -1203,6 +1204,13 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 				end
 			end, "nightmare_damage later", 1.5)
 		end
+	elseif event.name_const == "modifier_bane_fiends_grip" then 
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		if caster:HasScepter() then
+			local hook = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+			local ability = EntIndexToHScript(event.entindex_ability_const)
+			hook:ApplyDataDrivenModifier(caster, caster, "modifier_bane_fiends_grip_scepter", {duration = ability:GetSpecialValueFor("AbilityChannelTime")})
+		end
 	elseif event.name_const == "modifier_naga_siren_ensnare" and parent:IsMagicImmune() then 
 		return false
 	elseif event.name_const == "modifier_medusa_stone_gaze_stone" then
@@ -1746,3 +1754,10 @@ function bitand(a, b)
     return result
 end
 
+function CAddonTemplateGameMode:HandleChannelFinish(event)
+	-- DeepPrintTable(event)
+	local caster = EntIndexToHScript(event.caster_entindex)
+	if event.abilityname == "bane_fiends_grip" then
+		caster:RemoveModifierByName("modifier_bane_fiends_grip_scepter")
+	end
+end

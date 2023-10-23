@@ -763,6 +763,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"bane_enfeeble"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -788,13 +789,9 @@
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"enfeeble_attack_reduction"		"-30 -60 -90 -120"
-			}
+			"enfeeble_attack_reduction"		"-30 -60 -90 -120"
 		}
 	
 		"OnSpellStart"
@@ -856,8 +853,8 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastRange"				"625"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCastRange"				"600"
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
@@ -899,7 +896,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500 550 600 650"
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.5"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -955,7 +952,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"625"
-		"AbilityCastPoint"				"0.2"
+		"AbilityCastPoint"				"0.5"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 
 		// Cost
@@ -966,7 +963,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"fiend_grip_tick_interval"		"0.5"
+			"fiend_grip_tick_interval"		"1.0"
 			"fiend_grip_mana_drain"	
 			{
 				"value"							"5"

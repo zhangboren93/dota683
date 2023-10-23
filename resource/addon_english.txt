@@ -1248,8 +1248,9 @@
 		"DOTA_Tooltip_ability_bane_enfeeble_datadriven_enfeeble_attack_reduction"	"REDUCTION:"
 		"DOTA_Tooltip_modifier_enfeeble_datadriven"									"Enfeeble"
 		"DOTA_Tooltip_modifier_enfeeble_datadriven_Description"						"Attack damage reduced by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%"
-		"DOTA_Tooltip_ability_bane_nightmare_Description"						"Puts the target enemy or friendly Hero to sleep. Sleeping units are awakened when damaged. If the target was directly attacked, the Nightmare passes to the attacking unit."
+		"DOTA_Tooltip_ability_bane_nightmare_Description"							"Puts the target enemy or friendly Hero to sleep and deals damage per second.  Sleeping units are awakened when attacked, but the Nightmare passes to the attacking unit.  The nightmared unit instantly wakes up if it takes damage."
 		"DOTA_Tooltip_ability_bane_nightmare_tick_damage"						"DAMAGE/s:"
+		"DOTA_Tooltip_Ability_bane_fiends_grip_scepter_description"				"Increases damage per second, mana drain, and duration. If an enemy tries to attack Bane while he is channeling Fiend's Grip, they will instantly have Bane's current level of Nightmare inflicted upon them."
 		//Chen
 		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"				"Reduces cooldown to 30 seconds."
 		"DOTA_Tooltip_Ability_chen_penitence_Description"						"Forces an enemy unit to move slower and take more damage from attacks and spells."

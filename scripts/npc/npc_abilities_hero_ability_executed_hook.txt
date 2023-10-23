@@ -93,6 +93,19 @@
 					}
 				}
 			}
+			"modifier_bane_fiends_grip_scepter"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_bane/fiends_grip.lua"
+						"Function"		"handleAttacked"
+					}
+				}
+			}
 			"modifier_dragon_knight_corrosive_breath_checker"
 			{
 				"Passive"	"1"
