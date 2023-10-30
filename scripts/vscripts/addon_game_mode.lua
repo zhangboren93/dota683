@@ -174,9 +174,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:SetGoldTickTime(1000)
 	GameRules:SetTreeRegrowTime(300)
 	GameRules:SetHeroSelectionTime(80)
-	if GetMapName() == "dota" then
-		GameRules:SetCreepSpawningEnabled(false)
-	end
+	GameRules:SetCreepSpawningEnabled(false)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 
@@ -488,7 +486,7 @@ function CAddonTemplateGameMode:OnThink()
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
 
-		if not self.botEnabled and GetMapName() == "dota" and time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
+		if not self.botEnabled and time > 0 and (math.floor(time) % 30) < 3 and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
 			spawnCreepsLua()
 			self.creepSpawnTime = time
 		end
