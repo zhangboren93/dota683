@@ -36961,13 +36961,9 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"channel_tooltip"		"0.1"		
-			}
+			"channel_tooltip"		"0.1"		
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -37045,13 +37041,9 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"		"2 4 6 8 10 12 14"
-			}
+			"value"		"2 4 6 8 10 12 14"
 		}
 	}
     "minimap_camp_icon_datadriven"
@@ -37098,18 +37090,10 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_hp"			"15"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"900"
-			}
+			"bonus_hp"			"15"
+			"radius"			"900"
 		}
 	}
 }
