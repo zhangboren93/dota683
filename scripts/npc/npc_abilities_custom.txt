@@ -1144,34 +1144,14 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
+				"AbilityCooldown"				"29 26 23 20"
 				"radius"						"600"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"silence_duration"			"3 4 5 6"
-			}			
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"damage"					"120 160 200 240"
-				"LinkedSpecialBonus"		"special_bonus_unique_bloodseeker_2"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"delay"						"2.6"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"delay_plus_castpoint_tooltip"						"2.9"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -1595,29 +1575,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"fade_delay"			"2.5 2.0 1.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"15.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_movement_speed"		"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"evasion"		"0"
-				"LinkedSpecialBonus"	"special_bonus_unique_mirana_5"
-			}
 		}
 	}
     "puck_dream_coil"
@@ -2422,30 +2385,12 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"static_remnant_radius"		"260"		
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"static_remnant_damage_radius"	"260"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
 				"static_remnant_delay"		"1.0"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
 				"static_remnant_damage"			"140 180 220 260"
-				"LinkedSpecialBonus"	"special_bonus_unique_storm_spirit_5"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -5106,38 +5051,13 @@
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"40.0"
-				"LinkedSpecialBonus"		"special_bonus_unique_venomancer_7"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"ward_hp_tooltip"		"75 200 325 450"
-				"LinkedSpecialBonus"	"special_bonus_unique_venomancer"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"ward_damage_tooltip"	"11 21 32 42"
-				"LinkedSpecialBonus"	"special_bonus_unique_venomancer"
-				"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_MULTIPLY"
-			}
-			"04" // For special bonus at level 25
-			{
-				"var_type"				"FIELD_INTEGER"
 				"ward_hp"		"75 200 325 450"
-			}
-			"05" // For special bonus at level 25
-			{
-				"var_type"				"FIELD_INTEGER"
 				"ward_damage"	"11 21 32 42"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -6006,19 +5926,10 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"bonus_damage"				"50 100 150 200"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"bonus_armor"				"-2 -4 -6 -8"
-				"LinkedSpecialBonus"		"special_bonus_unique_templar_assassin_2"
-			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
