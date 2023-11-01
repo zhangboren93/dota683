@@ -115,7 +115,6 @@ function OnTeamBountyBuildingDestroyed(event) {
 	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_building_destroyed.xml", false, false);
 	let buildingTeam = getBuildingTeam(event.bname);
 	if (event.kpid == -1) {
-		newChildPanel.FindChildTraverse("deny_label").visible = false;
 		if (buildingTeam == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
 			newChildPanel.FindChildTraverse("killer_name").text = "天灾军团";
 		} else {
@@ -125,9 +124,6 @@ function OnTeamBountyBuildingDestroyed(event) {
 	} else {
 		newChildPanel.FindChildTraverse("killer_name").text = Players.GetPlayerName(event.kpid);
 		newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(event.kpid);
-		if (buildingTeam != Players.GetTeam(event.kpid)) {
-			newChildPanel.FindChildTraverse("deny_label").visible = false;
-		}
 	}
 	newChildPanel.FindChildTraverse("label_gold_amount").text = event.gold
 	newChildPanel.FindChildTraverse("victim_tower").text = BUILDING_NAME_2_TYPE_ID[event.bname];
@@ -141,7 +137,9 @@ function OnTeamBountyBuildingDestroyed(event) {
 		newChildPanel.AddClass("combat_event_friendly");
 		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
-	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
+	if(event.kpid == -1 || buildingTeam != Players.GetTeam(event.kpid)) {
+		$.Schedule(10, function () {newChildPanel.DeleteAsync(0);});
+	}
 }
 
 function OnBuyback(event) {
