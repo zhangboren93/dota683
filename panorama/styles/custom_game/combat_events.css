@@ -26,11 +26,11 @@
 }
 
 .combat_event_friendly {
-	background-color: #3F6600;
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000088 ), to( #2E4826cc ) );
 }
 
 .combat_event_hostile {
-	background-color: #820014;
+	background-color: gradient( linear, 100% 0%, 0% 0%, from( #00000088 ), to( #5B3525cc ) );
 }
 
 #label_gold_amount {
@@ -67,6 +67,26 @@
 	width: 20px;
 	vertical-align: center;
 	margin-left: 10px;
+}
+
+.EnemyKillIcon {
+	width: 48px;
+	height: 48px;
+	margin-top: 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+	background-image: url( "s2r://panorama/images/hud/icon_kill_enemy_psd.vtex");
+	background-size: 100%;
+}
+
+.AllyKillIcon {
+	width: 48px;
+	height: 48px;
+	margin-top: 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+	background-image: url( "s2r://panorama/images/hud/icon_kill_ally_psd.vtex");
+	background-size: 100%;
 }
 
 #label_deny {

@@ -115,6 +115,7 @@ function OnTeamBountyBuildingDestroyed(event) {
 	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_building_destroyed.xml", false, false);
 	let buildingTeam = getBuildingTeam(event.bname);
 	if (event.kpid == -1) {
+		newChildPanel.FindChildTraverse("deny_label").visible = false;
 		if (buildingTeam == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
 			newChildPanel.FindChildTraverse("killer_name").text = "天灾军团";
 		} else {
@@ -135,8 +136,10 @@ function OnTeamBountyBuildingDestroyed(event) {
 	}
 	if (buildingTeam == Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
 	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }
@@ -170,8 +173,10 @@ function OnRoshanKilled(event) {
 	}
 	if (Players.GetTeam(kpid) != Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
 	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }
@@ -216,8 +221,10 @@ function OnCourierKilled(event) {
 	}
 	if (courier_team == Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
 	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }
@@ -228,8 +235,10 @@ function combatEventCommon(parentPanel, newChildPanel, event) {
 	}
 	if (Players.GetTeam(event.vpid) == Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
 	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }

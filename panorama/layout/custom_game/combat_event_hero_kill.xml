@@ -5,7 +5,7 @@
 	<Panel class="combat_event_line combat_event_hero_kill">
 		<DOTAHeroImage id="killer_hero" class="hero" heroimagestyle="icon" />
 		<Label id="killer_player_name" class="player_name" />
-		<Image id="kill_icon" src="file://{images}/custom_game/melee_icon.png"/>
+		<Image id="killer_icon" />
 		<DOTAHeroImage id="victim_hero" class="hero" heroimagestyle="icon" />
 		<Label id="victim_player_name" class="player_name" />
 		<Image id="gold_icon" src="file://{images}/custom_game/gold_symbol.png"/>

@@ -5,7 +5,7 @@
 	<Panel class="combat_event_line combat_event_building_destroyed">
 		<DOTAHeroImage id="killer_hero" class="hero" heroimagestyle="icon" />
 		<Label id="killer_name" class="player_name" text=""/>
-		<Image id="kill_icon" src="file://{images}/custom_game/melee_icon.png"/>
+		<Image id="killer_icon" />
 		<Label id="deny_label" text="!"/>
 		<Label id="victim_tower" class="player_name" text="塔"/>
 		<Image id="gold_icon" src="file://{images}/custom_game/gold_symbol.png"/>
