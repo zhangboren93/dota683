@@ -110,35 +110,36 @@ function getBuildingTeam(bname) {
 }
 function OnTeamBountyBuildingDestroyed(event) {
 	$.Msg("OnTeamBountyBuildingDestroyed " + event.bname + " " + BUILDING_NAME_2_TYPE_ID[event.bname]);
-	let parentPanel = $.GetContextPanel()
-	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "tbbd_" + event.kpid + "x" + event.bname + "g" + event.gold);
-	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_building_destroyed.xml", false, false);
-	let buildingTeam = getBuildingTeam(event.bname);
-	if (event.kpid == -1) {
-		if (buildingTeam == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
-			newChildPanel.FindChildTraverse("killer_name").text = "天灾军团";
+	if(event.kpid == -1 || buildingTeam != Players.GetTeam(event.kpid)) {
+		let parentPanel = $.GetContextPanel()
+		let newChildPanel = $.CreatePanel( "Panel", parentPanel, "tbbd_" + event.kpid + "x" + event.bname + "g" + event.gold);
+		newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_building_destroyed.xml", false, false);
+		let buildingTeam = getBuildingTeam(event.bname);
+		if (event.kpid == -1) {
+			if (buildingTeam == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
+				newChildPanel.FindChildTraverse("killer_name").text = "天灾军团";
+			} else {
+				newChildPanel.FindChildTraverse("killer_name").text = "近卫军团";
+			}
+			newChildPanel.FindChildTraverse("killer_hero").visible = false;
 		} else {
-			newChildPanel.FindChildTraverse("killer_name").text = "近卫军团";
+			newChildPanel.FindChildTraverse("killer_name").text = Players.GetPlayerName(event.kpid);
+			newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(event.kpid);
 		}
-		newChildPanel.FindChildTraverse("killer_hero").visible = false;
-	} else {
-		newChildPanel.FindChildTraverse("killer_name").text = Players.GetPlayerName(event.kpid);
-		newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(event.kpid);
-		if (buildingTeam != Players.GetTeam(event.kpid)) {
-			newChildPanel.FindChildTraverse("deny_label").visible = false;
+		newChildPanel.FindChildTraverse("label_gold_amount").text = event.gold
+		newChildPanel.FindChildTraverse("victim_tower").text = BUILDING_NAME_2_TYPE_ID[event.bname];
+		if (parentPanel.GetChildCount() > 1) {
+			parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
 		}
+		if (buildingTeam == Players.GetTeam(Players.GetLocalPlayer())) {
+			newChildPanel.AddClass("combat_event_hostile");
+			newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
+		} else {
+			newChildPanel.AddClass("combat_event_friendly");
+			newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
+		}
+		$.Schedule(10, function () {newChildPanel.DeleteAsync(0);});
 	}
-	newChildPanel.FindChildTraverse("label_gold_amount").text = event.gold
-	newChildPanel.FindChildTraverse("victim_tower").text = BUILDING_NAME_2_TYPE_ID[event.bname];
-	if (parentPanel.GetChildCount() > 1) {
-		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
-	}
-	if (buildingTeam == Players.GetTeam(Players.GetLocalPlayer())) {
-		newChildPanel.AddClass("combat_event_hostile");
-	} else {
-		newChildPanel.AddClass("combat_event_friendly");
-	}
-	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }
 
 function OnBuyback(event) {
@@ -170,8 +171,10 @@ function OnRoshanKilled(event) {
 	}
 	if (Players.GetTeam(kpid) != Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
 	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }
@@ -216,8 +219,10 @@ function OnCourierKilled(event) {
 	}
 	if (courier_team == Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
 	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }
@@ -228,8 +233,10 @@ function combatEventCommon(parentPanel, newChildPanel, event) {
 	}
 	if (Players.GetTeam(event.vpid) == Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
 	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
 }
