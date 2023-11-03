@@ -19,8 +19,8 @@ Label {
 	color: #FFFFFF;
 	font-size: 20px;
 	vertical-align: center;
-	margin-left: 10px;
-	margin-right: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 	padding-left: 5px;
 	padding-right: 5px;
 }
@@ -34,4 +34,16 @@ DOTAItemImage {
 	height: 40px;	
 	vertical-align: center;
 	margin-left: 10px;
+}
+
+.hero-damage {
+	width: 100px;
+} 
+
+.kill-column {
+	width: 35px;
+}
+
+.gpm-column {
+	width: 150px;
 }

@@ -1,4 +1,5 @@
 GameEvents.Subscribe("player_ladder_scores", OnPlayerLadderScores);
+GameEvents.Subscribe("end_game_summary_stats", OnEndGameStats);
 function OnPlayerLadderScores(event) {
 	$.Msg("player ladder scores");
 	$.Msg(event);
@@ -52,6 +53,11 @@ function replaceLadderScoreboard(player2score) {
 	}
 }
 
+function OnEndGameStats(event) {
+	$.Msg("OnEndGameStats")
+	$.Msg(event)
+	Players.extraPlayerStats = event;
+}
 (function() {
 	var PanelHUD = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements");
 	var RadarButton = PanelHUD.FindChildTraverse("RadarButton");

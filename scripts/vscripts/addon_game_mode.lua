@@ -9,6 +9,7 @@ require("root_modifiers")
 require("hero_types")
 require("ladder_game_mode")
 require("rank_trees")
+require("end_game")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
@@ -340,7 +341,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 	if text == "-test" then
-		--putGameToLadderServer()
+		local fort = Entities:FindByName(nil, "dota_badguys_fort")
+		fort:Kill(nil, PlayerResource:GetPlayer(playerid):GetAssignedHero())
+		--GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	end
 	--if text == "-win" then
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
@@ -521,6 +524,7 @@ function CAddonTemplateGameMode:OnThink()
 
 			-- if all players from one team has disconnected from the game, call other team the winner.
 			if not notValidRankedGame and not hasGameEnded then
+				sendEndGameStats()
 				if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
 					GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
 					hasGameEnded = true
@@ -1067,6 +1071,10 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			respawn = 60 + entity:GetLevel() * 6,
 			kpid = kpid,
 		});
+	end
+	if entity:IsFort() then
+		--End game, send player status to clients
+		sendEndGameStats()
 	end
 end
 
