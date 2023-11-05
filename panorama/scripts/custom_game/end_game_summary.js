@@ -6,6 +6,19 @@ function formatDamage(damage) {
 	return Math.floor(damage/1000) + "." + hundreds + "k";
 }
 
+function fillExtraSummaryInfo(players, slot) {
+	for (var i = 0; i < players.length; i++) {
+		let heroDamage = Players.extraPlayerStats.heroDamage[i + slot]
+		if (heroDamage) {
+			$("#hero-damage-" + (i+slot)).text = formatDamage(heroDamage)
+		}
+		let netWorth = Players.extraPlayerStats.netWorth[i + slot]
+		if (netWorth) {
+			$("#networth-" + (i+slot)).text = formatDamage(netWorth);
+		}
+	}
+}
+
 (function () {
 	var radiant_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)
 	$.Msg("Radiant player count " + radiant_players.length)
@@ -50,16 +63,6 @@ function formatDamage(damage) {
 	}
 
 	$.Msg("Global player stat is " + Players.extraPlayerStats);
-	for (var i = 0; i < radiant_players.length; i++) {
-		let heroDamage = Players.extraPlayerStats.heroDamage[i]
-		if (heroDamage) {
-			$("#hero-damage-" + i).text = formatDamage(heroDamage)
-		}
-	}
-	for (var i = 0; i < dire_players.length; i++) {
-		let heroDamage = Players.extraPlayerStats.heroDamage[i + 5]
-		if (heroDamage) {
-			$("#hero-damage-" + (i + 5)).text = formatDamage(heroDamage)
-		}
-	}
+	fillExtraSummaryInfo(radiant_players, 0);
+	fillExtraSummaryInfo(dire_players, 5);
 })();
