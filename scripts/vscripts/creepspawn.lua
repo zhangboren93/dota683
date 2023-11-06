@@ -391,7 +391,9 @@ function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
 		local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, spawn_trigger:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 
 			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 		for j=1,#units do
-			if spawn_trigger:IsTouching(units[j]) then
+			if spawn_trigger:IsTouching(units[j]) 
+				and units[j]:GetName() ~= "npc_dota_templar_assassin_psionic_trap" 
+				and units[j]:GetName() ~= "npc_dota_techies_mines" then
 				spawner_empty = false
 				break
 			end
