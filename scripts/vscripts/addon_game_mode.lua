@@ -81,6 +81,8 @@ function Activate()
 	LinkLuaModifier( "modifier_lone_druid_rabid_lua", 			"heroes/hero_lone_druid/modifier_lone_druid_rabid.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_thunder_strike_after_death_lua", "heroes/hero_disruptor/modifier_thunder_strike_after_death.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_cloak_bonus",					"heroes/hero_visage/cloak_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_doom_bringer_scorched_earth_buff_lua",		"heroes/hero_doom_bringer/scorched_earth.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_doom_bringer_scorched_earth_buff_aura_lua",	"heroes/hero_doom_bringer/scorched_earth.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -645,6 +647,12 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			local target = EntIndexToHScript(event.entindex_target)
 			if target:IsRealHero() and target:GetName() == "npc_dota_hero_doom_bringer" then
 				GameRules:SendCustomMessage("末日无法大自己", -1, -1)
+				return false
+			end
+		elseif ability:GetName() == "doom_bringer_devour" then
+			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
+			if player_hero:HasModifier("modifier_doom_bringer_devour") then
+				GameRules:SendCustomMessage("#dota_hud_error_doom_already_devouring", -1, -1) -- 消化期间无法吞噬
 				return false
 			end
 		elseif ability:GetName() == "morphling_replicate_datadriven" then
@@ -1362,12 +1370,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_doom_bringer_scorched_earth_effect" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		local duration = ability:GetSpecialValueFor("duration")
-		local modifier_count = ability:GetSpecialValueFor("damage_per_second") / 6
-		for i=1,modifier_count do
-			passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_doom_bringer_scorched_earth_regen_datadriven", { duration = duration})
-		end
+		parent:AddNewModifier(caster, ability, "modifier_doom_bringer_scorched_earth_buff_aura_lua", { duration = duration })
 	elseif event.name_const == "modifier_nyx_assassin_vendetta" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)

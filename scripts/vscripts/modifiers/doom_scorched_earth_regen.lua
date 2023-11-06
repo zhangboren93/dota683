@@ -1,3 +1,5 @@
+-- Deprecated
+
 if modifier_doom_scorched_earth_regen == nil then
     modifier_doom_scorched_earth_regen = class({})
 end
