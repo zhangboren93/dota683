@@ -1,6 +1,8 @@
 --[[Author: Pizzalol
 	Date: 26.02.2015.
 	Purges positive buffs from the target]]
+
+-- Todo: Timer stop aura (scepter)
 function DoomPurge( keys )
 	local target = keys.target
 	local caster = keys.caster
@@ -22,8 +24,8 @@ function DoomPurge( keys )
 
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_doom_datadriven", {})
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_doom_deny_check_datadriven", {})
-	if caster:HasScepter() and not target:HasModifier("modifier_doom_deny_datadriven") then
-		ability:ApplyDataDrivenModifier(caster, target, "modifier_doom_deny_datadriven", {})
+	if caster:HasScepter() then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_doom_apply_break_active", {})
 	end
 end
 
