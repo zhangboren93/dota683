@@ -498,6 +498,7 @@
 					}
 				}
 			}
+			// Deprecated
 			"modifier_doom_bringer_scorched_earth_regen_datadriven"
 			{
 				"IsHidden"		"1"
