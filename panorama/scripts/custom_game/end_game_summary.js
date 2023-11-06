@@ -16,6 +16,10 @@ function fillExtraSummaryInfo(players, slot) {
 		if (netWorth) {
 			$("#networth-" + (i+slot)).text = formatDamage(netWorth);
 		}
+		let buildingDamage = Players.extraPlayerStats.buildingDamage[i + slot];
+		if (buildingDamage) {
+			$("#building-damage-" + (i+slot)).text = formatDamage(buildingDamage);
+		}
 	}
 }
 

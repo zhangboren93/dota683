@@ -23,6 +23,7 @@ randomBonusGranted = {}
 notValidRankedGame = false
 hasGameEnded = false
 playerId2LadderScore = {}
+player2BuildingDamage = {}
 
 function Precache( context )
 	--[[
@@ -343,8 +344,8 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 	if text == "-test" then
-		--local fort = Entities:FindByName(nil, "dota_badguys_fort")
-		--fort:Kill(nil, PlayerResource:GetPlayer(playerid):GetAssignedHero())
+		local fort = Entities:FindByName(nil, "dota_badguys_fort")
+		fort:Kill(nil, PlayerResource:GetPlayer(playerid):GetAssignedHero())
 		--GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	end
 	--if text == "-win" then
@@ -526,7 +527,7 @@ function CAddonTemplateGameMode:OnThink()
 
 			-- if all players from one team has disconnected from the game, call other team the winner.
 			if not notValidRankedGame and not hasGameEnded then
-				sendEndGameStats()
+				sendEndGameStats(player2BuildingDamage)
 				if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
 					GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
 					hasGameEnded = true
@@ -1082,7 +1083,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 	end
 	if entity:IsFort() then
 		--End game, send player status to clients
-		sendEndGameStats()
+		sendEndGameStats(player2BuildingDamage)
 	end
 end
 
@@ -1120,6 +1121,15 @@ function HandleEntityHurt(entindex_killed, entindex_attacker, damage)
 			target.time_attacked = {}
 		end
 		target.time_attacked[attacker:GetPlayerOwnerID()] = GameRules:GetDOTATime(true, false)
+	end
+	if target:IsBuilding() and attacker:IsOwnedByAnyPlayer() then
+		local building_damage = player2BuildingDamage[attacker:GetPlayerOwnerID()]
+		local owner_id = attacker:GetPlayerOwnerID()
+		if building_damage then
+			player2BuildingDamage[owner_id] = building_damage + damage
+		else
+			player2BuildingDamage[owner_id] = damage
+		end
 	end
 end
 
