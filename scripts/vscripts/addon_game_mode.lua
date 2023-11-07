@@ -1010,6 +1010,9 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			end, "", {}, entity:GetLevel() * 4 + 30)
 		end
 	end
+	if entity:HasModifier("modifier_doom_bringer_devour") then
+		entity:RemoveModifierByName("modifier_doom_bringer_devour")
+	end
 	if IsServer() and entity:IsRealHero() and (not entity:IsReincarnating()) then
 		local ret,error = pcall(function() handleKillBonus(self, attacker, entity) end)
 		if not ret then
