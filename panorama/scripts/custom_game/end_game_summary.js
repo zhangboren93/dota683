@@ -6,6 +6,22 @@ function formatDamage(damage) {
 	return Math.floor(damage/1000) + "." + hundreds + "k";
 }
 
+function getKDA(playerId) {
+	let kill = Players.GetKills(playerId);
+	let death = Players.GetDeaths(playerId);
+	let assist = Players.GetAssists(playerId);
+	if (death == 0) {
+		return (kill + assist).toString()
+	}
+	let kda = Math.floor((kill + assist) / death)
+	let kdadecimal = Math.floor(((kill + assist) * 10 / death) % 10)
+	if (kdadecimal == 0) {
+		return kda.toString();
+	} else {
+		return kda + "." + kdadecimal;
+	}
+}
+
 function fillExtraSummaryInfo(players, slot) {
 	for (var i = 0; i < players.length; i++) {
 		let heroDamage = Players.extraPlayerStats.heroDamage[i + slot]
@@ -33,6 +49,7 @@ function fillExtraSummaryInfo(players, slot) {
 		$("#kill-" + i).text = Players.GetKills(radiant_players[i]);
 		$("#death-" + i).text = Players.GetDeaths(radiant_players[i]);
 		$("#assist-" + i).text = Players.GetAssists(radiant_players[i]);
+		$("#kda-" + i).text = getKDA(radiant_players[i]);
 		$("#last-hit-" + i).text = Players.GetLastHits(radiant_players[i]) + "/" + Players.GetDenies(radiant_players[i]);
 		$("#gxpm-" + i).text = formatDamage(Players.GetGoldPerMin(radiant_players[i])) + "/" + formatDamage(Players.GetXPPerMin(radiant_players[i]));
 		var player_hero = Players.GetPlayerHeroEntityIndex(radiant_players[i])
@@ -54,6 +71,7 @@ function fillExtraSummaryInfo(players, slot) {
 		$("#kill-" + i).text = Players.GetKills(dire_players[i-5]);
 		$("#death-" + i).text = Players.GetDeaths(dire_players[i-5]);
 		$("#assist-" + i).text = Players.GetAssists(dire_players[i-5]);
+		$("#kda-" + i).text = getKDA(dire_players[i-5]);
 		$("#last-hit-" + i).text = Players.GetLastHits(dire_players[i-5]) + "/" + Players.GetDenies(dire_players[i-5]);
 		$("#gxpm-" + i).text = formatDamage(Players.GetGoldPerMin(dire_players[i-5])) + "/" + formatDamage(Players.GetXPPerMin(dire_players[i-5]));
 		var player_hero = Players.GetPlayerHeroEntityIndex(dire_players[i-5])

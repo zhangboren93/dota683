@@ -344,8 +344,8 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 	if text == "-test" then
-		local fort = Entities:FindByName(nil, "dota_badguys_fort")
-		fort:Kill(nil, PlayerResource:GetPlayer(playerid):GetAssignedHero())
+		--local fort = Entities:FindByName(nil, "dota_badguys_fort")
+		--fort:Kill(nil, PlayerResource:GetPlayer(playerid):GetAssignedHero())
 		--GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 	end
 	--if text == "-win" then

@@ -1,5 +1,5 @@
 .end-game-summary-panel {
-	width: 1300px;
+	width: 1350px;
 	height: 50%; 
 	horizontal-align: center;
 	margin-top: 25%;
@@ -23,6 +23,7 @@ Label {
 	margin-right: 5px;
 	padding-left: 5px;
 	padding-right: 5px;
+	text-align: center;
 }
 
 DOTAHeroImage {
@@ -42,6 +43,10 @@ DOTAItemImage {
 
 .kill-column {
 	width: 35px;
+}
+
+.kda-column {
+	width: 60px;
 }
 
 .gpm-column {
