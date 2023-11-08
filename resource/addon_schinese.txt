@@ -1,7 +1,7 @@
 "lang" {
 	"Language" "SChinese"
 	"Tokens" {
-		"ADDON_GAME_NAME" "MobaTM v0.4b"
+		"ADDON_GAME_NAME" "DT683 v0.5a"
 		"DOTA_Tooltip_modifier_attribute_regen_adjust"		"属性削弱"
 		"DOTA_Tooltip_modifier_attribute_regen_adjust_Description"	"减少力量生命恢复，智力魔法恢复，基础生命魔法"
 

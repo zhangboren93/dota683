@@ -74,7 +74,6 @@ agi_heroes = {
     "npc_dota_hero_bloodseeker"         ,
     "npc_dota_hero_broodmother"         ,
     "npc_dota_hero_meepo"               ,
-    "npc_dota_hero_monkey_king"         ,
     "npc_dota_hero_phantom_lancer"      ,
     "npc_dota_hero_spectre"             ,
     "npc_dota_hero_ursa"    
