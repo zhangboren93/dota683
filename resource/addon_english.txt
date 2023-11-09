@@ -1,7 +1,7 @@
 "lang" {
 	"Language" "English"
 	"Tokens" {
-		"ADDON_GAME_NAME" "MobaTM v0.4b"
+		"ADDON_GAME_NAME" "DT683 v0.5a"
 		"DOTA_Tooltip_modifier_attribute_regen_adjust"		"Attribute gains reduction"
 		"DOTA_Tooltip_modifier_attribute_regen_adjust_Description"	"Reduce health regen per strength, mana regen per intellect, base health and mana"
 
