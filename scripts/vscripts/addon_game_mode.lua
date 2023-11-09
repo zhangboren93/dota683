@@ -23,7 +23,6 @@ randomBonusGranted = {}
 notValidRankedGame = false
 hasGameEnded = false
 playerId2LadderScore = {}
-player2BuildingDamage = {}
 
 function Precache( context )
 	--[[
@@ -527,7 +526,7 @@ function CAddonTemplateGameMode:OnThink()
 
 			-- if all players from one team has disconnected from the game, call other team the winner.
 			if not notValidRankedGame and not hasGameEnded then
-				sendEndGameStats(player2BuildingDamage)
+				sendEndGameStats()
 				if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
 					GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
 					hasGameEnded = true
@@ -783,12 +782,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				return 1
 			end, "visage scepter", 1);
 			-- entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_windrunner" or entity:GetName() == "npc_dota_hero_hoodwink" then
-			entity:SetThink(function()
-				entity:RemoveModifierByName("modifier_windrunner_windrun_invis")
-				entity:RemoveModifierByName("modifier_windrunner_windrun_invis_thinker")
-				return 0.3
-			end, "windrunner scepter", 0.3);
 		elseif entity:GetName() == "npc_dota_hero_tiny" then
 			entity:SetThink(function()
 				if entity:HasScepter() and not entity:HasAbility("tiny_tree_grab") then
@@ -1086,7 +1079,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 	end
 	if entity:IsFort() then
 		--End game, send player status to clients
-		sendEndGameStats(player2BuildingDamage)
+		sendEndGameStats()
 	end
 end
 
@@ -1124,15 +1117,6 @@ function HandleEntityHurt(entindex_killed, entindex_attacker, damage)
 			target.time_attacked = {}
 		end
 		target.time_attacked[attacker:GetPlayerOwnerID()] = GameRules:GetDOTATime(true, false)
-	end
-	if target:IsBuilding() and attacker:IsOwnedByAnyPlayer() then
-		local building_damage = player2BuildingDamage[attacker:GetPlayerOwnerID()]
-		local owner_id = attacker:GetPlayerOwnerID()
-		if building_damage then
-			player2BuildingDamage[owner_id] = building_damage + damage
-		else
-			player2BuildingDamage[owner_id] = damage
-		end
 	end
 end
 
@@ -1455,6 +1439,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_lion_finger_of_death_kill_counter" then return false
 	elseif event.name_const == "modifier_nevermore_requiem_slow" then return false
 	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
+	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
+	elseif event.name_const == "modifier_windrunner_windrun_invis_thinker" then return false
 	end
 	if root_modifiers[event.name_const] then
 		if parent:IsChanneling() then
