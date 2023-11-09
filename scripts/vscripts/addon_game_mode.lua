@@ -783,12 +783,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				return 1
 			end, "visage scepter", 1);
 			-- entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_windrunner" or entity:GetName() == "npc_dota_hero_hoodwink" then
-			entity:SetThink(function()
-				entity:RemoveModifierByName("modifier_windrunner_windrun_invis")
-				entity:RemoveModifierByName("modifier_windrunner_windrun_invis_thinker")
-				return 0.3
-			end, "windrunner scepter", 0.3);
 		elseif entity:GetName() == "npc_dota_hero_tiny" then
 			entity:SetThink(function()
 				if entity:HasScepter() and not entity:HasAbility("tiny_tree_grab") then
@@ -1455,6 +1449,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_lion_finger_of_death_kill_counter" then return false
 	elseif event.name_const == "modifier_nevermore_requiem_slow" then return false
 	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
+	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
+	elseif event.name_const == "modifier_windrunner_windrun_invis_thinker" then return false
 	end
 	if root_modifiers[event.name_const] then
 		if parent:IsChanneling() then

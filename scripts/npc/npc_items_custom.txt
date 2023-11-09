@@ -1564,7 +1564,7 @@
 				"Function"		"handleChannelInterrupted"
 			}
 		}
-		"AbilityCastAnimation"   		"ACT_DOTA_IDLE"
+		"AbilityCastAnimation"   		"ACT_DOTA_TELEPORT"
 	}
 	
 	"item_travel_boots_2"
@@ -7183,6 +7183,7 @@
 				"Duration"				"%corruption_duration"
 				"Passive"				"0"
 				"IsHidden"				"0"
+				"IsDebuff"				"1"
 				
 				"Properties"
 				{

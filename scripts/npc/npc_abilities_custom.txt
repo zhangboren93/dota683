@@ -13550,7 +13550,7 @@
 				"TargetPoint"		"POINT"	
 		        "ControlPoints"
         		{
-            		"04" "%radius 0 0"
+            		"04" "360 0 0"
         		}
 			}
 			"RunScript"

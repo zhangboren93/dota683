@@ -258,7 +258,7 @@
 		"DOTA_Tooltip_Ability_item_sange_and_yasha_datadriven_bonus_damage"					"+$damage"
 		"DOTA_Tooltip_Ability_item_sange_and_yasha_datadriven_bonus_strength"				"+$str"
 		"DOTA_Tooltip_Ability_item_sange_and_yasha_datadriven_bonus_agility"				"+$agi"
-		"DOTA_Tooltip_Ability_item_sange_and_yasha_datadriven_movement_speed_percent_bonus"	"+$move_speed"
+		"DOTA_Tooltip_Ability_item_sange_and_yasha_datadriven_movement_speed_percent_bonus"	"%+$move_speed"
 		"DOTA_Tooltip_Ability_item_sange_and_yasha_datadriven_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_modifier_item_sange_and_yasha_datadriven_greater_maim"					"Maim"
 		"DOTA_Tooltip_modifier_item_sange_and_yasha_datadriven_greater_maim_Description"		"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
