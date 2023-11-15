@@ -520,7 +520,10 @@
 		"DOTA_Tooltip_modifier_legion_odds_ms_datadriven_Description"			"移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
 		"DOTA_Tooltip_Ability_legion_commander_press_the_attack_Description"					"解除指定友方单位的一切负面效果和控制技能，并提升其攻击速度和生命恢复，持续一定时间。"
 		"DOTA_Tooltip_Ability_legion_commander_press_the_attack_attack_speed"					"攻击速度加成："
+		"DOTA_Tooltip_modifier_legion_press_active_datadriven"								"强攻"
+		"DOTA_Tooltip_modifier_legion_press_active_datadriven_Description"					"攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%，生命恢复速率提升%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点。"
 		"DOTA_Tooltip_ability_legion_commander_duel_Description"								"军团指挥官强制与目标敌方英雄进行决斗，持续短暂的数秒。决斗开始后双方英雄只能进行物理攻击，不能使用任何物品和技能。如果有英雄在决斗期间死亡，赢得决斗的英雄将永久获得额外攻击力。决斗中的单位不能被缴械或虚无。"
+		"DOTA_Tooltip_ability_legion_commander_duel_Note1"										""
 		// Lifestealer
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven"						"狂暴" 
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_Description"			"进入狂暴状态，对技能免疫并提升攻击速度。"
