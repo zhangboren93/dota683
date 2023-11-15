@@ -14,7 +14,8 @@ function handleSpellStart(event)
 		ApplyDamage({ victim = target_entities[i], attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
     end
     local movespeedCount = creepCount + heroCount * 3
-    for i=1,movespeedCount do
-        ability:ApplyDataDrivenModifier(caster, caster, "modifier_legion_odds_ms_datadriven", {})
-    end
+    if movespeedCount > 0 then
+        local buff = ability:ApplyDataDrivenModifier(caster, caster, "modifier_legion_odds_ms_datadriven", {})
+        buff:SetStackCount(movespeedCount)
+    end 
 end

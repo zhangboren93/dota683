@@ -844,6 +844,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddAbility("spirit_breaker_empowering_haste_activate_debuff_datadriven"):SetLevel(1)
 			entity:AddAbility("sven_gods_strength_aghs_datadriven"):SetLevel(1)
 			entity:AddAbility("undying_flesh_golem_aura_datadriven"):SetLevel(1)
+			entity:AddAbility("legion_commander_press_the_attack_as_datadriven"):SetLevel(1)
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
@@ -1451,6 +1452,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis_thinker" then return false
+	elseif event.name_const == "modifier_legion_commander_press_the_attack" then return false
 	end
 	if root_modifiers[event.name_const] then
 		if parent:IsChanneling() then
