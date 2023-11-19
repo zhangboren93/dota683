@@ -4099,6 +4099,7 @@
 		"CanBeDominated"			"0"
 		"ConsideredHero"			"1"
 		"IsNeutralUnitType"			"1"
+		"ConsideredHero"			"0"
 				
 		// Abilities
 		//----------------------------------------------------------------
