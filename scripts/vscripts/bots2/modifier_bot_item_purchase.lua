@@ -7,7 +7,7 @@ ItemsToBuyHeroes["npc_dota_hero_axe"] = {
 	"item_stout_shield",
 	"item_bracer",
 	"item_bracer",
-	"item_tranquil_boots", --相位
+	"item_tranquil_boots_datadriven", --相位
     "item_ring_of_health",
     "item_vitality_booster",
 	"item_blink", --跳刀
@@ -22,8 +22,8 @@ ItemsToBuyHeroes["npc_dota_hero_luna"] = {
     "item_boots_of_elves",
 	"item_gloves", --假腿7.21
 	"item_manta",
-	"item_butterfly", --蝴蝶
-	"item_satanic"
+	"item_butterfly_datadriven", --蝴蝶
+	"item_satanic_datadriven"
 }
 ItemsToBuyHeroes["npc_dota_hero_skywrath_mage"] = {
 	"item_tango",
@@ -42,7 +42,7 @@ ItemsToBuyHeroes["npc_dota_hero_lina"] = {
 	"item_phase_boots",
 	"item_ultimate_scepter", --蓝杖
 	"item_greater_crit",
-	"item_skadi",
+	"item_skadi_datadriven",
 }
 ItemsToBuyHeroes["npc_dota_hero_bristleback"] = {
 	"item_tango",
@@ -53,8 +53,8 @@ ItemsToBuyHeroes["npc_dota_hero_bristleback"] = {
     "item_ring_of_health",
     "item_vitality_booster",
 	"item_phase_boots", --相位
-	"item_hood_of_defiance",
-	"item_black_king_bar", --BKB
+	"item_hood_of_defiance_datadriven",
+	"item_black_king_bar_datadriven", --BKB
 	"item_shivas_guard",
 	"item_heart_datadriven",
 }
@@ -85,7 +85,7 @@ ItemsToBuyHeroes["npc_dota_hero_skeleton_king"] = {
 	"item_flask",
 	"item_stout_shield",
 	"item_power_treads",
-	"item_desolator",
+	"item_desolator_datadriven",
 	"item_black_king_bar", --bkb
 	"item_assault", --强袭
 	"item_monkey_king_bar_datadriven"
@@ -94,7 +94,7 @@ ItemsToBuyHeroes["npc_dota_hero_lion"] = {
 	"item_tango",
 	"item_null_talisman_datadriven",
 	"item_null_talisman_datadriven",
-	"item_tranquil_boots",
+	"item_tranquil_boots_datadriven",
 	"item_force_staff",
 	"item_ultimate_scepter", --蓝杖
 	"item_sphere"
@@ -105,7 +105,7 @@ ItemsToBuyHeroes["npc_dota_hero_vengefulspirit"] = {
 	"item_wraith_band_datadriven",
 	"item_power_treads", --假腿7.21
 	"item_medallion_of_courage", --勋章
-	"item_skadi",
+	"item_skadi_datadriven",
 	"item_butterfly_datadriven"
 }
 ItemsToBuyHeroes["npc_dota_hero_sniper"] = {
@@ -113,21 +113,21 @@ ItemsToBuyHeroes["npc_dota_hero_sniper"] = {
 	"item_wraith_band_datadriven", --系带
 	"item_wraith_band_datadriven", --系带
 	"item_power_treads",
-	"item_maelstrom",
-	"item_desolator",
+	"item_maelstrom_datadriven",
+	"item_desolator_datadriven",
 	"item_hyperstone",
-	"item_recipe_mjollnir", --大雷锤
+	"item_recipe_mjollnir_datadriven", --大雷锤
 	"item_greater_crit"
 }
 ItemsToBuyHeroes["npc_dota_hero_phantom_assassin"] = {
 	"item_tango",
 	"item_wraith_band_datadriven",
 	"item_phase_boots", --相位7.21
-	"item_bfury",
+	"item_bfury_datadriven",
 	"item_desolator",
-	"item_black_king_bar", --bkb
+	"item_black_king_bar_datadriven", --bkb
 	"item_abyssal_blade", --大晕锤
-	"item_satanic", --撒旦7.07
+	"item_satanic_datadriven", --撒旦7.07
 }
 
 if modifier_bot_item_purchase == nil then
