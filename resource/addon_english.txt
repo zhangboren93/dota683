@@ -1595,14 +1595,14 @@
 		"DOTA_Tooltip_ability_winter_wyvern_arctic_burn_percent_damage"			""
 		"DOTA_Tooltip_ability_winter_wyvern_arctic_burn_percent_damage_pure"	"%HEALTH BURN:"
 		//Witch Doctor
-		"DOTA_Tooltip_ability_witch_doctor_death_ward"									"Death Ward"
-		"DOTA_Tooltip_ability_witch_doctor_death_ward_Description"						"CHANNELED - Summons a deadly ward to attack enemies within its attack range. Lasts a maximum of %abilitychanneltime% seconds." 
-		"DOTA_Tooltip_ability_witch_doctor_death_ward_scepter_description"				"Death Ward attacks bounce between nearby enemies."
-		"DOTA_Tooltip_ability_witch_doctor_death_ward_Lore"								"Witch Doctor performs a ritualistic dance, one that haunts the dreams of those who live to recount it."
-		"DOTA_Tooltip_ability_witch_doctor_death_ward_Note0"							"The Death Ward is invulnerable, and is only destroyed if Witch Doctor is interrupted or its duration expires."
-		"DOTA_Tooltip_ability_witch_doctor_death_ward_Note1"							"The Death Ward can be controlled, and made to attack a specific target."
-		"DOTA_Tooltip_ability_witch_doctor_death_ward_Note2"							"Death Ward attacks once every 0.22 seconds."
-		"DOTA_Tooltip_ability_witch_doctor_death_ward_damage"							"DAMAGE:"
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven"						"Death Ward"
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_Description"			"CHANNELED - Summons a deadly ward to attack enemies within its attack range. Level 3 Death Ward bounces once. Lasts a maximum of %abilitychanneltime% seconds." 
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_scepter_description"	"Increases ward damage.  Death Ward attack bounces 4 times."
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_Lore"					"Witch Doctor performs a ritualistic dance, one that haunts the dreams of those who live to recount it."
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_Note0"					"The Death Ward is invulnerable, and is only destroyed if Witch Doctor is interrupted or its duration expires."
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_Note1"					"The Death Ward can be controlled, and made to attack a specific target."
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_Note2"					"Death Ward attacks once every 0.22 seconds."
+		"DOTA_Tooltip_ability_witch_doctor_death_ward_datadriven_damage"				"DAMAGE:"
 		// Zeus
 		"DOTA_Tooltip_Ability_static_field_datadriven"						"Static Field"
 		"DOTA_Tooltip_Ability_static_field_datadriven_Description"			"Zeus shocks all nearby enemy units whenever he casts a spell, causing damage proportional to their current health."
@@ -1619,5 +1619,6 @@
 		"DOTA_Tooltip_modifier_fountain_aura_buff_lua_Description"					"Heals HP and mana."
 
 		"npc_dota_roshan_datadriven"								"Roshan"
+		"witch_doctor_death_ward_datadriven"						"Death Ward"
 	}
 }
