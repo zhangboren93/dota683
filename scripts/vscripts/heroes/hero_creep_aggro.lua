@@ -10,6 +10,8 @@ function handleAttackStart(event)
 	local ability = event.ability
 	if target == nil 
 		or target:GetTeam() == attacker:GetTeam() 
+		or target:GetClassname() == "dota_item_drop"
+		or target:GetClassname() == "dota_item_rune"
 		or not target:IsHero()
 		or not ability:IsCooldownReady() 
 		or attacker:HasModifier("modifier_no_creep_aggro_on_attack") then

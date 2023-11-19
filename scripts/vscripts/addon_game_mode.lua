@@ -606,7 +606,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 	end
 	if event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 		local target = EntIndexToHScript(event.entindex_target)
-		if target:GetClassname() == "dota_item_drop" then
+		if target:GetClassname() == "dota_item_drop" or target:GetClassname() == "dota_item_rune" then
 			return true
 		end
 		for i,v in pairs(event.units) do
