@@ -5052,9 +5052,6 @@
 	        "CombatClassAttack"     "DOTA_COMBAT_CLASS_ATTACK_HERO"
 	        "CombatClassDefend"     "DOTA_COMBAT_CLASS_DEFEND_STRONG"
 	        "UnitRelationShipClass" "DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-
-
-			"Ability1"					"death_ward_attack_scepter_lua"	// Ability 1
 	}
 	// Made by BMD
 	"npc_dummy_unit_minimap_camp"

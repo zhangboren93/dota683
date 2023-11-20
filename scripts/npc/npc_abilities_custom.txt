@@ -3552,7 +3552,11 @@
 					"special_bonus_scepter"	"+30"
 				}
 				"attack_range"				"700"
-				"scepter_bounces"			"4"
+				"bounces"
+				{
+					"values"				"0 0 1"
+					"special_bonus_scepter"	"+4 +4 +3"
+				}
 				"bounce_radius"				"650 650 650"
 		}
 		

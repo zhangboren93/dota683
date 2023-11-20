@@ -10,8 +10,9 @@ function CreateWard(keys)
 	caster.death_ward = CreateUnitByName("witch_doctor_death_ward_datadriven", position, true, caster, nil, caster:GetTeam())
 	caster.death_ward:SetControllableByPlayer(caster:GetPlayerID(), true)
 	caster.death_ward:SetOwner(caster)
-	if caster:HasScepter() then
-		caster.death_ward:FindAbilityByName("death_ward_attack_scepter_lua"):SetLevel(1)
+	local bounces = ability:GetSpecialValueFor("bounces")
+	if bounces > 0 then
+		caster.death_ward:AddAbility("death_ward_attack_scepter_lua"):SetLevel(1)
 	end
 	
 	-- Applies the modifier (gives it damage, removes health bar, and makes it invulnerable)

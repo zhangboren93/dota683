@@ -6,12 +6,13 @@ end
 
 function death_ward_attack_scepter_lua:OnProjectileHit_ExtraData(target, location, data)
 	local caster = self:GetCaster()
+	local bounces = self:GetSpecialValueFor("bounces")
 	ApplyDamage({
 		victim = target,
 		attacker = caster, 
 		damage = caster:GetAttackDamage(),
 		damage_type = DAMAGE_TYPE_PHYSICAL})
-	if data.bn > 3 then
+	if data.bn > bounces then
 		return true
 	end
 	local bounce_radius = self:GetSpecialValueFor("bounce_radius")
@@ -20,7 +21,7 @@ function death_ward_attack_scepter_lua:OnProjectileHit_ExtraData(target, locatio
 		nil, 
 		bounce_radius,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_HERO,
 		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		FIND_ANY_ORDER, 
 		false)
