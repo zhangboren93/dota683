@@ -1249,10 +1249,14 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		end
 	elseif event.name_const == "modifier_knockback" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		caster:AddNewModifier(caster, ability, "modifier_spirit_breaker_greater_bash_speed", {duration = ability:GetSpecialValueFor("movespeed_duration")})
+		if caster:GetName() == "npc_dota_hero_spirit_breaker" then
+			local ability = EntIndexToHScript(event.entindex_ability_const)
+			caster:AddNewModifier(caster, ability, "modifier_spirit_breaker_greater_bash_speed", {duration = ability:GetSpecialValueFor("movespeed_duration")})
+		end
 	elseif event.name_const == "modifier_illusion" then
-		parent:AddAbility("illusion_bounty_cancel_datadriven"):SetLevel(1)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local hook = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		hook:ApplyDataDrivenModifier(caster, parent, "modifier_illusion_bounty_cancel_datadriven", {})
 	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		caster:FindAbilityByName("hero_ability_executed_hook_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_arctic_burn_pure_datadriven", {})

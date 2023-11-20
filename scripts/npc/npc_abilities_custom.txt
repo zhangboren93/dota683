@@ -33849,28 +33849,7 @@
 			}
 		}
 	}
-	"illusion_bounty_cancel_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"Modifiers"
-		{
-			"modifier_illusion_bounty_cancel_datadriven"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"units/illusion.lua"
-						"Function"		"handleTakeDamage"
-					}
-				}
-			}
-		}
-	}
+
 	"hero_intrinstic_mechanism_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
@@ -34193,6 +34172,7 @@
 					}
 				}
 			}
+			// Apply break, block disable & evade disable
 			"modifier_sheep_apply_break_active"
 			{
 				"Passive"		"0"
@@ -34202,6 +34182,8 @@
 				"States"
 				{
 					"MODIFIER_STATE_PASSIVES_DISABLED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_BLOCK_DISABLED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_EVADE_DISABLED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_hero_buybacked_gold_penalty"

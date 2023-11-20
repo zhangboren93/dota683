@@ -27,6 +27,10 @@ function HandleLivingArmor(keys)
 	local target = keys.unit
 
 	local damage = keys.damage
+	if damage <= 0 then
+		return
+	end
+
 	local block = ability:GetSpecialValueFor("damage_block")
 	-- heal handling --
 	local heal = damage

@@ -555,4 +555,17 @@
 					}
 				}
 			}
+			"modifier_illusion_bounty_cancel_datadriven"
+			{
+				"Passive"		"0"
+				"IsHidden"		"1"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/illusion.lua"
+						"Function"		"handleTakeDamage"
+					}
+				}
+			}
 		}}}
