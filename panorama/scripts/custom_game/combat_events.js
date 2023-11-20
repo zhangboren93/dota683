@@ -110,11 +110,11 @@ function getBuildingTeam(bname) {
 }
 function OnTeamBountyBuildingDestroyed(event) {
 	$.Msg("OnTeamBountyBuildingDestroyed " + event.bname + " " + BUILDING_NAME_2_TYPE_ID[event.bname]);
+	let buildingTeam = getBuildingTeam(event.bname);
 	if(event.kpid == -1 || buildingTeam != Players.GetTeam(event.kpid)) {
 		let parentPanel = $.GetContextPanel()
 		let newChildPanel = $.CreatePanel( "Panel", parentPanel, "tbbd_" + event.kpid + "x" + event.bname + "g" + event.gold);
 		newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_building_destroyed.xml", false, false);
-		let buildingTeam = getBuildingTeam(event.bname);
 		if (event.kpid == -1) {
 			if (buildingTeam == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
 				newChildPanel.FindChildTraverse("killer_name").text = "天灾军团";
