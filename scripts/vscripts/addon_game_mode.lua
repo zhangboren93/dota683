@@ -361,6 +361,7 @@ end
 
 -- Evaluate the state of the game
 function CAddonTemplateGameMode:OnThink()
+	local ret,error = pcall(function()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION and IsServer() then
 		if self.hero_selection_state == nil then
 			self.hero_selection_state = "INI"
@@ -571,7 +572,12 @@ function CAddonTemplateGameMode:OnThink()
 		CustomGameEventManager:Send_ServerToTeam(DOTA_TEAM_BADGUYS, "team_glyph_cooldown_tick", {
 			cd = math.floor(Entities:FindByName(nil, "ent_dota_fountain_bad"):FindAbilityByName("glyph_datadriven"):GetCooldownTimeRemaining()) })
 	end
-
+	end)
+	if not ret then
+		print(error)
+		GameRules:SendCustomMessage("Game main thinker failed.", -1, -1)
+		GameRules:SendCustomMessage(error, -1, -1)
+	end
 	return 2
 end
 
