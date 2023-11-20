@@ -86,7 +86,7 @@ ItemsToBuyHeroes["npc_dota_hero_skeleton_king"] = {
 	"item_stout_shield",
 	"item_power_treads",
 	"item_desolator_datadriven",
-	"item_black_king_bar", --bkb
+	"item_black_king_bar_datadriven", --bkb
 	"item_assault", --强袭
 	"item_monkey_king_bar_datadriven"
 }
@@ -124,7 +124,7 @@ ItemsToBuyHeroes["npc_dota_hero_phantom_assassin"] = {
 	"item_wraith_band_datadriven",
 	"item_phase_boots", --相位7.21
 	"item_bfury_datadriven",
-	"item_desolator",
+	"item_desolator_datadriven",
 	"item_black_king_bar_datadriven", --bkb
 	"item_abyssal_blade", --大晕锤
 	"item_satanic_datadriven", --撒旦7.07
@@ -150,12 +150,16 @@ function modifier_bot_item_purchase:IsHidden()
 end
 
 function modifier_bot_item_purchase:OnIntervalThink()
-    if not self:GetParent():HasItemInInventory("item_tpscroll") then
+	if GameRules:State_Get() == 5 then
+		return
+	end
+	if not self:GetParent():HasItemInInventory("item_tpscroll") then
         local item = CreateItem("item_tpscroll", self:GetParent(), self:GetParent())
         self:GetParent():AddItem(item)
     end
-    if self.progression < 0 then
+    if self.progression < 0 or self:GetParent().GetItemInSlot == nil then
         -- has bought everything
+		-- or can't check
         return
     end
 	for i=9,14 do

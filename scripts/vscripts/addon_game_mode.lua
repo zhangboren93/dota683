@@ -1374,11 +1374,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		else
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_enemy_resist", { duration = duration })
 		end
-	elseif event.name_const == "modifier_phantom_assassin_stiflingdagger" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local damage = ability:GetSpecialValueFor("base_damage")
-		ApplyDamage({ victim = parent, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_PURE })
 	elseif event.name_const == "modifier_chen_penitence" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
