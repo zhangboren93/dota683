@@ -17470,7 +17470,7 @@
 				}
 				"tooltip_share_percentage"		"20"
 				"tooltip_share_percentage_scepter"		"100"
-				"respawn"		"0.0"
+				"respawn"		"0.2"
 				"tooltip_respawn"		"20"
 				"movement_slow"		"0"
 				"magic_resist"	"0"
@@ -33347,6 +33347,7 @@
 			}
 		}
 	}
+	// Deprecated
 	"prowler_evasion"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -35808,6 +35809,29 @@
 		{
 			"bonus_hp"			"15"
 			"radius"			"900"
+		}
+	}
+	"blue_dragonspawn_overseer_devotion_aura"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_armor"		"3"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"900"
+			}
 		}
 	}
 }

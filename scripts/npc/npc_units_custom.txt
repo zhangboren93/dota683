@@ -92,8 +92,8 @@
 	}
 	"npc_dota_neutral_mud_golem"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
-		"Ability2"					"generic_hidden"			// Ability 2
+		"Ability1"					"neutral_spell_immunity"			// Ability 1
+		"Ability2"					""			// Ability 2
 		"MagicalResistance"			"100"		// Magical protection.  
 		"ArmorPhysical"				"2"			// Physical protection.
 		"BountyXP"					"88"		// Experience earn.
@@ -126,7 +126,7 @@
 	}
 	"npc_dota_neutral_giant_wolf"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"giant_wolf_critical_strike"			// Ability 1
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"21"		// Damage range min.
 		"AttackDamageMax"			"24"		// Damage range max.	
@@ -310,8 +310,8 @@
 	}
 	"npc_dota_neutral_black_dragon"	
 	{
-		"Ability3"					"neutral_spell_immunity"			// Ability 3
-		"Ability4"					"generic_hidden"					// Ability 4
+		"Ability1"					"neutral_spell_immunity"			// Ability 1
+		"Ability3"					""			// Ability 3
 		"ArmorPhysical"				"6"			// Physical protection.
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"70"		// Damage range min.
@@ -366,7 +366,7 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"prowler_evasion"			// Ability 1
+		"Ability1"					"blue_dragonspawn_sorcerer_evasion"			// Ability 1
 		"Ability2"					""	// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
@@ -421,8 +421,7 @@
 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-	}		
-	//TODO fix toughness aura
+	}
 	"npc_dota_neutral_frostbitten_golem"
 	{										
 		// General
@@ -439,9 +438,9 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"prowler_evasion"			// Ability 1
-		"Ability2"					"generic_hidden"			// Ability 4
-		"Ability3"					"enraged_wildkin_toughness_aura"			// Ability 3
+		"Ability1"					"blue_dragonspawn_overseer_evasion"			// Ability 1
+		"Ability2"					"blue_dragonspawn_overseer_devotion_aura"			// Ability 2
+		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
 		// Armor
