@@ -3605,6 +3605,15 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
+				
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_witch_doctor/death_ward.lua"
+						"Function"		"handleAttackStart"
+					}
+				}
 			}
 		}
 	}

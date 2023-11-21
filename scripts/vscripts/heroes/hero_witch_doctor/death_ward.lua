@@ -1,6 +1,9 @@
 --[[Author: YOLOSPAGHETTI
 	Date: March 15, 2016
 	Creates the death ward]]
+
+WARD_ATTACK_RANGE = 700
+
 function CreateWard(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -26,4 +29,25 @@ function DestroyWard(keys)
 	local caster = keys.caster
 	StopSoundEvent(keys.sound, caster)
 	caster.death_ward:Destroy()
+end
+
+function handleAttackStart(event)
+	local target = event.target
+	local attacker = event.attacker
+	if not target:IsHero() then
+		attacker:AddNewModifier(attacker, event.ability, "modifier_disarmed", {duration = 0.1})
+		local units = FindUnitsInRadius(attacker:GetTeam(),
+			attacker:GetAbsOrigin(),
+			nil, 
+			WARD_ATTACK_RANGE,
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_HERO,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
+			FIND_CLOSEST, 
+			false)
+		if #units > 0 and IsValidEntity(units[1]) and units[1]:IsAlive() then
+			attacker:MoveToTargetToAttack(units[1])
+			return
+		end
+	end
 end
