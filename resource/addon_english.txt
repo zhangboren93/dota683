@@ -1618,6 +1618,8 @@
 		"DOTA_Tooltip_modifier_fountain_aura_buff_lua"								"Fountain Rejuvenation"
 		"DOTA_Tooltip_modifier_fountain_aura_buff_lua_Description"					"Heals HP and mana."
 
+		"npc_dota_neutral_ice_shaman"								"Ancient Drakken Sentinel"
+		"npc_dota_neutral_frostbitten_golem"						"Ancient Drakken Armorers"
 		"npc_dota_roshan_datadriven"								"Roshan"
 		"witch_doctor_death_ward_datadriven"						"Death Ward"
 	}

@@ -1618,6 +1618,8 @@
 		"DOTA_Tooltip_modifier_fountain_aura_buff_lua"							"泉水回春"
 		"DOTA_Tooltip_modifier_fountain_aura_buff_lua_Description"				"恢复生命和魔法。"
 
+		"npc_dota_neutral_ice_shaman"								"远古亚龙护卫"
+		"npc_dota_neutral_frostbitten_golem"						"远古亚龙兵士"
 		"npc_dota_roshan_datadriven"								"肉山"
 		"witch_doctor_death_ward_datadriven"						"死亡守卫"
 
