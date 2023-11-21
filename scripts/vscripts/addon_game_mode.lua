@@ -1385,6 +1385,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local duration = ability:GetSpecialValueFor("duration")
 		parent:AddNewModifier(caster, ability, "modifier_chen_penitence_incoming_damage_lua", { duration = duration })
+	elseif event.name_const == "modifier_crystal_maiden_frostbite" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_stunned", {duration = 0.1})
 	elseif event.name_const == "modifier_doom_bringer_scorched_earth_effect" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
