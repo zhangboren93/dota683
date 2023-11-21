@@ -32,6 +32,11 @@ function handleDeath(event)
 		if caster.buybacked ~= nil then
 			new_time_until_respawn = new_time_until_respawn * 1.25
 		end
+		-- divided we stand respawn time decrease
+		local meepo_ulti = caster:FindAbilityByName("meepo_divided_we_stand");
+		if meepo_ulti ~= nil then
+			new_time_until_respawn = new_time_until_respawn * (1 - meepo_ulti:GetSpecialValueFor("respawn"))
+		end
 		if new_time_until_respawn < 0 then
 			new_time_until_respawn = 0
 		end

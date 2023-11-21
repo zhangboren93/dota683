@@ -17461,7 +17461,7 @@
 				}
 				"tooltip_share_percentage"		"20"
 				"tooltip_share_percentage_scepter"		"100"
-				"respawn"		"0.0"
+				"respawn"		"0.2"
 				"tooltip_respawn"		"20"
 				"movement_slow"		"0"
 				"magic_resist"	"0"
