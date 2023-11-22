@@ -426,6 +426,14 @@
 		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven_images_count"		"Number of Illusions: "
 		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven_illusion_duration"	"Duration: "
 		//Doom
+		"DOTA_Tooltip_ability_doom_bringer_devour_datadriven"						"Devour"
+		"DOTA_Tooltip_ability_doom_bringer_devour_datadriven_Description"			"Consumes an enemy or neutral creep, acquiring any special abilities that it possessed while it digests the creep. Duration is equal to the creep health / 20."
+		"DOTA_Tooltip_ability_doom_bringer_devour_datadriven_Lore"					"Lucifer's appetite and greed are never sated."
+		"DOTA_Tooltip_ability_doom_bringer_devour_datadriven_Note0"					"Gives Doom the original bounty of the creep, along with the bonus gold."
+		"DOTA_Tooltip_ability_doom_bringer_devour_datadriven_Note1"					"If you devour a creep without abilities, you'll keep the abilities you had previously."
+		"DOTA_Tooltip_ability_doom_bringer_devour_datadriven_bonus_gold"			"BONUS GOLD:"
+		"DOTA_Tooltip_modifier_devour_datadriven"									"Devour"
+		"DOTA_Tooltip_modifier_devour_datadriven_Description"						"Still digesting that delicious creep."
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven"					"Lvl Death"
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven_Description"		"Ignites an enemy hero's soul, dealing base damage and a mini-stun. If the target hero's level is a multiple of the Hero Level Multiplier, or they are level 25, they will be dealt additional damage equal to 20% of their maximum health.
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven_lvl_bonus_multiple"	"Hero Level Multiplier: "

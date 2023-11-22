@@ -1,5 +1,6 @@
 // Dota Heroes File
 #base "npc_abilities_hero_ability_executed_hook.txt"
+#base "npc_abilities_hero_doom_bringer.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"
@@ -8376,46 +8377,6 @@
 				}
 			}
 		}
-	}
-	//=================================================================================================================
-	// Doom Bringer: Devour
-	//=================================================================================================================
-	"doom_bringer_devour"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5339"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilitySound"					"Hero_DoomBringer.Devour"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"300 300 300 300"
-		"AbilityCooldown"				"70 60 50 40"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"bonus_gold"		"25 50 75 100"
-			"armor"					"0"
-			"creep_level"			"6"
-			"hero_ability_steal_time"	"99999"
-			"magic_resist"	"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Doom Bringer: Scorched Earth

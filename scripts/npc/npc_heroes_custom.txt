@@ -3614,6 +3614,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability1"		"doom_bringer_devour_datadriven"
 		"Ability3"		"doom_bringer_lvl_death_datadriven"
 		"Ability6"		"doom_bringer_doom_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
