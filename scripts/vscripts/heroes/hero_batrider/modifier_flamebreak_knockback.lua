@@ -6,6 +6,12 @@ function modifier_flamebreak_knockback_lua:OnCreated()
 			self:Destroy()
 			return
 		end
+		local target = self:GetParent()
+		local caster = self:GetCaster()
+		local knockback_duration = 0.4 - (target:GetAbsOrigin() - caster.flamebreak_position):Length2D() / 1000
+		if knockback_duration > 0 then
+			target:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { duration = knockback_duration })
+		end
 	end
 end
 

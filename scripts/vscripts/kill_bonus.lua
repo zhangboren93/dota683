@@ -34,7 +34,8 @@ function handleKillBonus(self, attacker, entity)
 	local player2gold = {}
 	local entityName = string.sub(entity:GetName(), 15)
 	local credit_killer_pid = nil
-	if attacker:IsOwnedByAnyPlayer() and attacker:GetPlayerOwnerID() ~= nil then
+	if attacker:IsOwnedByAnyPlayer() and attacker:GetPlayerOwnerID() ~= nil and attacker:GetPlayerOwnerID() >= 0 then
+		print("attacker owned by player " .. attacker:GetPlayerOwnerID())
 		local attacker_player_id = attacker:GetPlayerOwnerID()
 		credit_killer_pid = attacker_player_id
 
@@ -123,6 +124,7 @@ function handleKillBonus(self, attacker, entity)
 	--	attacker = attacker:GetOwner()
 	--end
 
+	print("assist_players")
 	DeepPrintTable(assist_players)
 	local assisterCount = #assist_players
 	if assisterCount > 0 then
@@ -154,6 +156,7 @@ function handleKillBonus(self, attacker, entity)
 		})
 	end
 
+	print("player2gold")
 	DeepPrintTable(player2gold)
 	for playerId, gold in pairs(player2gold) do
 		local player = PlayerResource:GetPlayer(playerId)
