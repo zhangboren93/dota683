@@ -1107,6 +1107,8 @@
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_strike_interval"			"STRIKE INTERVAL:"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_armor_reduction"			"ARMOR REDUCTION:"
 		//Riki
+		"DOTA_Tooltip_ability_riki_smoke_screen_attack_speed_slow"							"ATTACK SPEED SLOW:"
+		"DOTA_Tooltip_ability_riki_smoke_screen_move_speed_slow"							"%MOVE SPEED SLOW:"
 		"DOTA_Tooltip_Ability_riki_permanent_invisibility_Lore"	"When in invisible state, +4/5/6/7 health regen"
 		"DOTA_Tooltip_Ability_riki_blink_strike_datadriven"				"Blink Strike"
 		"DOTA_Tooltip_ability_riki_backstab_datadriven"						"Backstab"

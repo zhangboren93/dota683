@@ -1108,6 +1108,8 @@
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_strike_interval"				"打击间隔："
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_armor_reduction"				"护甲降低："
 		//Riki
+		"DOTA_Tooltip_ability_riki_smoke_screen_attack_speed_slow"								"攻速降低："
+		"DOTA_Tooltip_ability_riki_smoke_screen_move_speed_slow"								"%移速降低："
 		"DOTA_Tooltip_Ability_riki_permanent_invisibility_Lore"	"隐身+4/5/6/7回血"
 		"DOTA_Tooltip_Ability_riki_blink_strike_datadriven"				"闪烁"
 		"DOTA_Tooltip_ability_riki_backstab_datadriven"					"背刺"
