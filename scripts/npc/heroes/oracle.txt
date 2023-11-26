@@ -1,0 +1,62 @@
+// Abilities for oracle
+"DOTAAbilities"
+{
+    "Version"       "1"
+
+	// Overwrite from dota_imba
+	//=================================================================================================================
+	// Oracle: Fortune's End
+	//=================================================================================================================
+	"oracle_fortunes_end_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_oracle/fortunes_end.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"oracle_fortunes_end"
+		"AbilitySound"					"Hero_Oracle.FortunesEnd.Target"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"650"
+		"AbilityCastPoint"				"0.3"
+		"AbilityChannelTime"			"2.5"
+		"AOERadius"						"%radius"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"130"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage"					"75 150 225 300"
+			"bolt_speed"				"1200"
+			"minimum_purge_duration"	"0.5"
+			"maximum_purge_duration"	"2.5"
+			"radius"					"215"
+			"channel_time"				"2.5"
+		}
+
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_oracle/oracle_fortune_channel.vpcf"
+			"particle"					"particles/units/heroes/hero_oracle/oracle_fortune_cast_tgt.vpcf"
+			"particle"					"particles/units/heroes/hero_oracle/oracle_fortune_prj.vpcf"
+			"particle"					"particles/units/heroes/hero_oracle/oracle_fortune_aoe.vpcf"
+		}
+	}
+}
