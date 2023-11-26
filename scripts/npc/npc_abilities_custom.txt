@@ -1,6 +1,7 @@
 // Dota Heroes File
 #base "npc_abilities_hero_ability_executed_hook.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
+#base "heroes/legion_commander.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"
@@ -13644,74 +13645,6 @@
 			
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
-    "legion_commander_duel"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5598"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_LegionCommander.Duel"
-
-		"HasScepterUpgrade"			"0"
-
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"150"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 75 75"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"3.0"	// Value much higher than cost.
-
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"duration"				"4.0 4.75 5.5"
-				"duration_scepter"		
-				{
-					"value"			"4.0 4.75 5.5"
-					"RequiresScepter"	"1"
-				}
-				"reward_damage"			
-				{
-					"value"			"10 14 18"
-					"LinkedSpecialBonus"	"special_bonus_unique_legion_commander"
-				}
-				"victory_range"			"600"
-				"scepter_damage_reduction_pct"			
-				{
-					"value"				"0"
-					"RequiresScepter"						"1"
-				}
-				"scepter_cooldown_reduction"			
-				{
-					"value"			"0.0"
-					"RequiresScepter"						"1"
-				}
-				"AbilityCooldown"	"50"				
-		}
 	}
 	"legion_commander_press_the_attack_as_datadriven"
 	{
