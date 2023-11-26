@@ -14548,7 +14548,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Oracle.FatesEdict.Cast"
 
 
@@ -14571,7 +14571,7 @@
 		{
 				"duration"								"3 4.0 5 6.0"
 				"magic_damage_resistance_pct_tooltip"	"100"
-				"incoming_physical_damage"				"50"
+				"damage_amp"							"50"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -14618,7 +14618,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	} 
-	//TODO invis
     "oracle_false_promise"
 	{
 		"MaxLevel"              "3"
@@ -14648,7 +14647,6 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -14664,20 +14662,24 @@
 				"special_bonus_unique_oracle"	"+1.5"
 			}
 			"radius"				"400"
+			"AbilityCooldown"		"20"
 			"shard_fade_time"
 			{
-				"value"								"0.15"
-				"RequiresShard"						"1"
+				"value"								"0"
+				"RequiresShard"						"0"
+				"RequiresScepter"					"0"
 			}
 			"shard_spell_amp_bonus"
 			{
-				"value"								"25"
-				"RequiresShard"						"1"
+				"value"								"0"
+				"RequiresShard"						"0"
+				"RequiresScepter"					"0"
 			}
 			"shard_bat_bonus"
 			{
-				"value"								"0.25"
-				"RequiresShard"						"1"
+				"value"								"0"
+				"RequiresShard"						"0"
+				"RequiresScepter"					"0"
 			}
 			"bonus_armor"
 			{

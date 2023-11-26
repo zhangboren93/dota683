@@ -1380,6 +1380,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		else
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_enemy_resist", { duration = duration })
 		end
+	elseif event.name_const == "modifier_oracle_false_promise_timer" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_oracle_false_promise_invis", {});
 	elseif event.name_const == "modifier_chen_penitence" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)

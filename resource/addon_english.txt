@@ -1461,7 +1461,14 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_hero_multiplier"				"HERO KILL REGEN MULTIPLIER:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_regen_duration"				"REGEN DURATION:"
 		// Oracle
-		"DOTA_Tooltip_ability_oracle_fates_edict_Description"								"Oracle enraptures a target, disarming them, granting them %magic_damage_resistance_pct_tooltip%%% magic damage resistance and recieves 50%% more physical damage."
+		"DOTA_Tooltip_Ability_oracle_fates_edict_Description"							"Oracle enraptures a target, disarming them, granting them %magic_damage_resistance_pct_tooltip%%% magic damage resistance and recieves 50%% more physical damage."
+		"DOTA_Tooltip_Ability_oracle_fates_edict_Note0"									"Cannot be dispelled by purges, except for the purge from Fortune's End."
+		"DOTA_Tooltip_Ability_oracle_fates_edict_damage_amp"							"%DAMAGE AMPLIFICATION:"
+		"DOTA_Tooltip_modifier_oracle_fates_edict_Description"						"Disarmed, magic damage resistance increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%, all other incoming damage increased by 50%%."
+		"DOTA_Tooltip_Ability_oracle_false_promise_Description"							"Temporarily alters an ally's destiny, rendering them invisible while moving, attacking, or using abilities, and delaying any healing or damage taken until False Promise ends. Any healing that is delayed by False Promise is doubled. Removes most negative status effects and disables when applied.\n\nDISPEL TYPE: Strong Dispel"
+		"DOTA_Tooltip_Ability_oracle_false_promise_Lore"								"As false prophets are blind to the future, so your enemies shall be blind to your allies."
+		"DOTA_Tooltip_Ability_oracle_false_promise_Note2"								"Heroes hidden by False Promise can still be revealed by True Sight."
+		"DOTA_Tooltip_modifier_oracle_false_promise_timer_Description"				"Invisible while attacking and moving. Any healing or damage taken is delayed until False Promise ends."
 		// Outword Destroy
 		"DOTA_Tooltip_Ability_obsidian_destroyer_arcane_orb_datadriven"							"Arcane Orb"
 		"DOTA_Tooltip_Ability_obsidian_destroyer_arcane_orb_datadriven_Description"				"Adds extra pure damage to Outworld Devourer's attacks, based on his remaining mana pool.  Arcane Orb also does bonus damage to summoned units and illusions.\n\nArcane Orb is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers."
