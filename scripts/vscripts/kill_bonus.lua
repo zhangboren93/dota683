@@ -192,8 +192,9 @@ function handleKillBonus(self, attacker, entity)
 	end
 	DeepPrintTable(exp_entity_ids)
 	print(tablen)
-	local assist_exp = playerXPBase(tablen) * entity:GetLevel() +
-		cbXPRate(tablen) * GetAssistXPComebackFactor(entity:GetTeam()) * entity:GetCurrentXP()
+	local assist_exp = playerKillXPBase(entity:GetLevel()) / tablen +  -- base experience to split
+					   playerXPBase(tablen) * entity:GetLevel() + -- base assist experience
+					   cbXPRate(tablen) * GetAssistXPComebackFactor(entity:GetTeam()) * entity:GetCurrentXP() -- assist experience comback factor
 	print("Granting assist experience " .. assist_exp .. " to " .. tablen .. " players.")
 	for i,v in pairs(exp_entity_ids) do
 		print(EntIndexToHScript(i):GetName())
@@ -305,6 +306,22 @@ function playerXPBase(count)
 		return 7
 	else
 		return 5
+	end
+end
+
+function playerKillXPBase(lvl) 
+	if lvl <= 1 then
+		return 100
+	elseif lvl == 2 then
+		return 120
+	elseif lvl == 3 then
+		return 160
+	elseif lvl == 4 then
+		return 220
+	elseif lvl == 5 then
+		return 300
+	else
+		return 100 * lvl - 200
 	end
 end
 
