@@ -1090,6 +1090,26 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		--End game, send player status to clients
 		sendEndGameStats(player2BuildingDamage)
 	end
+	if IsServer() and entity:IsCreep() and not entity:IsNeutralUnitType() then
+		-- find creeps nearby whose target is me, preempty trigger its interval think
+		local units = FindUnitsInRadius(
+			entity:GetTeam(),
+			entity:GetAbsOrigin(),
+			nil,
+			600,
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_CREEP,
+			DOTA_UNIT_TARGET_FLAG_NOT_DOMINATED,
+			FIND_ANY_ORDER,
+			false)
+		for i=1,#units do
+			local ai = units[i]:FindModifierByName("modifier_creep_ai")
+			if ai ~= nil and ai.target ~=nil and ai.target.unit == entity then
+				ai.target = nil
+				ai:OnIntervalThink()
+			end
+		end
+	end
 end
 
 function HandleRuneActivated(playerid, rune)

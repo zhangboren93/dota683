@@ -66,7 +66,7 @@ pathCornersMap["bt"] = {
 function modifier_creep_ai:OnCreated(kv)
 	if IsServer() then
 		self.kv = kv
-		self:StartIntervalThink(0.5) 
+		self:StartIntervalThink(1) 
 	end
 end
 
@@ -120,7 +120,7 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 		local distance = (self.target.unit:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length()
 		if distance <= self.kv.attackrange then
 			--print("attack unit within range")
-			entity:MoveToTargetToAttack(self.target.unit)
+			--entity:MoveToTargetToAttack(self.target.unit)
 			return
 		end
 	end
@@ -142,7 +142,9 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 		self.target_loc_time = GameRules:GetDOTATime(false, false)
 		entity:MoveToTargetToAttack(self.target.unit)
 	else
-		self:takePath()
+		if not entity:IsAttacking() then
+			self:takePath()
+		end
 	end
 end
 
@@ -171,7 +173,11 @@ function modifier_creep_ai:takePath()
 			end
 		end
 	end 
-	entity:MoveToPosition(nextPathPosition)
+	-- Move in direction aggressively (considering 1s think interval)
+	if (position - nextPathPosition):Length2D() < 500 then
+		nextPathPosition = (nextPathPosition - position):Normalized() * 500 + position
+	end
+	entity:MoveToPositionAggressive(nextPathPosition)
 end
 
 function modifier_creep_ai:selectTarget()
@@ -244,24 +250,6 @@ function modifier_creep_ai:selectTarget()
 	--	print("find alert unit")
 		return {
 			unit = self.alert_target
-		}
-	end
-
-	units = self:findUnitsInRadiusFiltered(
-		entity, position, self.kv.alertRadius, DOTA_UNIT_TARGET_ALL)
-	if #units > 0 then
-		for i=1,#units do
-			-- find unit not transferring aggro and not techies' mine
-			if not units[i]:HasModifier("modifier_creep_aggro_move_datadriven") then
-	--			print("find unit not transferring aggro")
-				return {
-					unit = units[i],
-				}
-			end
-		end
-		--print("find unit transferring aggro")
-		return {
-			unit = units[1],
 		}
 	end
 
