@@ -68,6 +68,7 @@ function Activate()
 	LinkLuaModifier( "modifier_cancels_item_on_hit", "modifiers/item_cancel_on_hit.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_ai", "creepai.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_health_bonus", "modifiers/creep_health.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_oracle_fortunes_end_purge_lua",	"heroes/hero_oracle/fortunes_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_pudge_flesh_magic_resist",		"modifiers/pudge_flesh_magic_resist.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_riki_invis_health_regen",		"modifiers/riki_invis_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",	"modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1380,6 +1381,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		else
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_enemy_resist", { duration = duration })
 		end
+	elseif event.name_const == "modifier_oracle_false_promise_timer" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_oracle_false_promise_invis", {});
 	elseif event.name_const == "modifier_chen_penitence" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)

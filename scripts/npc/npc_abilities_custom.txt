@@ -1,6 +1,8 @@
 // Dota Heroes File
 #base "npc_abilities_hero_ability_executed_hook.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
+#base "heroes/legion_commander.txt"
+#base "heroes/oracle.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"
@@ -13645,74 +13647,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-    "legion_commander_duel"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5598"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_LegionCommander.Duel"
-
-		"HasScepterUpgrade"			"0"
-
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"150"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 75 75"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"3.0"	// Value much higher than cost.
-
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"duration"				"4.0 4.75 5.5"
-				"duration_scepter"		
-				{
-					"value"			"4.0 4.75 5.5"
-					"RequiresScepter"	"1"
-				}
-				"reward_damage"			
-				{
-					"value"			"10 14 18"
-					"LinkedSpecialBonus"	"special_bonus_unique_legion_commander"
-				}
-				"victory_range"			"600"
-				"scepter_damage_reduction_pct"			
-				{
-					"value"				"0"
-					"RequiresScepter"						"1"
-				}
-				"scepter_cooldown_reduction"			
-				{
-					"value"			"0.0"
-					"RequiresScepter"						"1"
-				}
-				"AbilityCooldown"	"50"				
-		}
-	}
 	"legion_commander_press_the_attack_as_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
@@ -14542,67 +14476,6 @@
 		}
 	}
 	//=================================================================================================================
-	// Oracle: Fortune's End
-	//=================================================================================================================
-	"oracle_fortunes_end"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5637"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Oracle.FortunesEnd.Target"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"650"
-		"AbilityCastPoint"				"0"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"130"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"channel_time"
-			{
-				"value"								"3"
-				"special_bonus_unique_oracle_7"		"-2.5"
-			}
-			"damage"
-			{
-				"value"					"75 150 225 300"
-				"special_bonus_unique_oracle_fortunes_end_damage"		"+80"
-			}
-			"bolt_speed"				"1000"
-			"minimum_purge_duration"
-			{
-				"value"								"0.5"
-				"special_bonus_unique_oracle_2"		"+0.5"
-			}
-			"maximum_purge_duration"
-			{
-				"value"								"3"
-				"special_bonus_unique_oracle_2"		"+0.5"
-			}
-			"radius"								"215"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-
-	//=================================================================================================================
 	// Oracle: Fate's Edict
 	//=================================================================================================================
 	"oracle_fates_edict"
@@ -14615,7 +14488,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Hero_Oracle.FatesEdict.Cast"
 
 
@@ -14638,7 +14511,7 @@
 		{
 				"duration"								"3 4.0 5 6.0"
 				"magic_damage_resistance_pct_tooltip"	"100"
-				"incoming_physical_damage"				"50"
+				"damage_amp"							"50"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -14663,7 +14536,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"750"
-		"AbilityCastPoint"				"0.15"
+		"AbilityCastPoint"				"0.3"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -14685,7 +14558,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	} 
-	//TODO invis
     "oracle_false_promise"
 	{
 		"MaxLevel"              "3"
@@ -14715,7 +14587,6 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -14731,20 +14602,24 @@
 				"special_bonus_unique_oracle"	"+1.5"
 			}
 			"radius"				"400"
+			"AbilityCooldown"		"20"
 			"shard_fade_time"
 			{
-				"value"								"0.15"
-				"RequiresShard"						"1"
+				"value"								"0"
+				"RequiresShard"						"0"
+				"RequiresScepter"					"0"
 			}
 			"shard_spell_amp_bonus"
 			{
-				"value"								"25"
-				"RequiresShard"						"1"
+				"value"								"0"
+				"RequiresShard"						"0"
+				"RequiresScepter"					"0"
 			}
 			"shard_bat_bonus"
 			{
-				"value"								"0.25"
-				"RequiresShard"						"1"
+				"value"								"0"
+				"RequiresShard"						"0"
+				"RequiresScepter"					"0"
 			}
 			"bonus_armor"
 			{
