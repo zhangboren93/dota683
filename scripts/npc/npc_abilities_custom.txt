@@ -3748,6 +3748,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"AbilityTextureName"			"enigma_demonic_conversion"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"CastFilterRejectCaster"		"1"
 		
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
