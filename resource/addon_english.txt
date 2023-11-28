@@ -1103,6 +1103,8 @@
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_damage"		"%ILLUSION DAMAGE:"
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_total_damage_in_pct"		"%ILLUSION DAMAGE TAKEN:"
 		// Razor
+		"DOTA_Tooltip_modifier_unstable_current_purge"								"Unstable Current"
+		"DOTA_Tooltip_modifier_unstable_current_purge_Description"					"Movement speed affected by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%%"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven"							"Eye of the Storm"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_Description"				"A powerful lightning storm strikes out at enemy units with the lowest health, dealing damage and reducing their armor."
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_scepter_description"		"Eye of the Storm can damage structures and reduce strike interval"
@@ -1111,6 +1113,10 @@
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_AbilityDuration"			"DURATION:"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_strike_interval"			"STRIKE INTERVAL:"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_armor_reduction"			"ARMOR REDUCTION:"
+		"DOTA_Tooltip_modifier_razor_eye_datadriven"								"Eye of the Storm"
+		"DOTA_Tooltip_modifier_razor_eye_datadriven_Description"					"Taking damage and armor reduced with each lightning strike."
+		"DOTA_Tooltip_modifier_razor_eye_debuff_datadriven"							"Eye of the Storm Armor"
+		"DOTA_Tooltip_modifier_razor_eye_debuff_datadriven_Description"				"Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 		//Riki
 		"DOTA_Tooltip_ability_riki_smoke_screen_attack_speed_slow"							"ATTACK SPEED SLOW:"
 		"DOTA_Tooltip_ability_riki_smoke_screen_move_speed_slow"							"%MOVE SPEED SLOW:"
