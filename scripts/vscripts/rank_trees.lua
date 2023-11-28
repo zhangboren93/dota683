@@ -265,7 +265,7 @@ function spawnBaseTrees()
 				if spawnedTrees[i].respawnTime == nil then
 					spawnedTrees[i].respawnTime = time + 300;
 				elseif spawnedTrees[i].respawnTime < time then
-					local newTempTree = CreateTempTree(BASE_TREE_ORIGINS[i], 10000, TREE_MODELS[i])
+					local newTempTree = CreateTempTreeWithModel(BASE_TREE_ORIGINS[i], 10000, TREE_MODELS[i])
 					newTempTree:SetBodygroupByName("default", 1)
 					spawnedTrees[i] = { entity = newTempTree }
 				end
