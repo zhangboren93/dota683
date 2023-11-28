@@ -3317,7 +3317,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"riki_smoke_screen"
-		"Ability2"		"riki_permanent_invisibility"
+		"Ability2"		"riki_permanent_invisibility_datadriven"
 		"Ability3"		"riki_backstab_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"

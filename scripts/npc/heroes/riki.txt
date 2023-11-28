@@ -1,0 +1,53 @@
+// Abilities for Riki
+"DOTAAbilities"
+{
+    "Version"       "1"
+	"riki_permanent_invisibility_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityTextureName"			"riki_permanent_invisibility"
+		"AbilityCooldown"				"8 6 4 2"
+		
+		"Modifiers"
+		{
+			"modifier_riki_permanent_invisibility_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"ThinkInterval"	"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_riki/permanent_invisibility.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_riki/permanent_invisibility.lua"
+						"Function"		"handleAttackLanded"
+					}
+				}
+			}
+			"modifier_riki_permanent_invisibility_regen_datadriven"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{	
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
+				}
+			}
+		}
+
+		"AbilityValues"
+		{
+			"health_regen"				"4 5 6 7"
+		}
+	}
+}

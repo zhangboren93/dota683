@@ -1114,6 +1114,11 @@
 		//Riki
 		"DOTA_Tooltip_ability_riki_smoke_screen_attack_speed_slow"							"ATTACK SPEED SLOW:"
 		"DOTA_Tooltip_ability_riki_smoke_screen_move_speed_slow"							"%MOVE SPEED SLOW:"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_datadriven"						"Permanent Invisibility"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_datadriven_Description"			"Riki fades into the shadows, becoming invisible. When Riki attacks, he becomes visible."
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_datadriven_Lore"					"Riki comes for you."
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_datadriven_Note0"					"Riki won't auto attack enemies while invisible."
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_datadriven_health_regen"			"HEALTH REGEN:"
 		"DOTA_Tooltip_Ability_riki_permanent_invisibility_Lore"	"When in invisible state, +4/5/6/7 health regen"
 		"DOTA_Tooltip_Ability_riki_blink_strike_datadriven"				"Blink Strike"
 		"DOTA_Tooltip_ability_riki_backstab_datadriven"						"Backstab"

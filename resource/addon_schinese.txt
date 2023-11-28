@@ -1115,7 +1115,11 @@
 		//Riki
 		"DOTA_Tooltip_ability_riki_smoke_screen_attack_speed_slow"								"攻速降低："
 		"DOTA_Tooltip_ability_riki_smoke_screen_move_speed_slow"								"%移速降低："
-		"DOTA_Tooltip_Ability_riki_permanent_invisibility_Lore"	"隐身+4/5/6/7回血"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_datadriven"							"永久隐身"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_datadriven_Description"				"力丸遁入阴影，保持隐身状态。主动攻击敌人，力丸将会显形。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_datadriven_Lore"						"力丸来找你了。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_datadriven_Note0"						"力丸在隐身时不会自动攻击敌人。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_datadriven_health_regen"				"回血："
 		"DOTA_Tooltip_Ability_riki_blink_strike_datadriven"				"闪烁"
 		"DOTA_Tooltip_ability_riki_backstab_datadriven"					"背刺"
 		"DOTA_Tooltip_ability_riki_backstab_datadriven_Description"		"每次力丸从背后攻击敌人都会造成基于敏捷值的额外伤害。"

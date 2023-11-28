@@ -3,6 +3,7 @@
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/legion_commander.txt"
 #base "heroes/oracle.txt"
+#base "heroes/riki.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"
