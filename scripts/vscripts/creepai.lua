@@ -264,7 +264,7 @@ end
 
 function modifier_creep_ai:findUnitsInRadiusFiltered(entity, position, range, target_type)
 	local units_unfiltered = FindUnitsInRadius(
-		entity:GetTeam(), position, entity, range, 
+		entity:GetTeam(), position, nil, range, 
 		DOTA_UNIT_TARGET_TEAM_ENEMY, 
 		target_type, 
 		DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
