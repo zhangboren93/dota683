@@ -3747,7 +3747,7 @@
         "ScriptFile"                    "heroes/hero_enigma/demonic_conversion.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"AbilityTextureName"			"enigma_demonic_conversion"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
@@ -3807,7 +3807,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_MIDNIGHT_PULSE"
 		"AbilityCastGestureSlot"		"DEFAULT"
 		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -3821,7 +3821,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"radius"					"550"
+				"radius"					"600"
 				"damage_percent"			"3 3.75 4.5 5.25"
 				"duration"					"11"
 				"tick_rate"					"1"
@@ -3865,12 +3865,15 @@
 		{
 			"damage"				"50 100 150"
 			"radius"				"400"
-			"pull_speed"			"30"
+			"pull_speed"			"40"
 			"tick_rate"				"0.1 0.1 0.1"
 			"duration"				"4.0 4.0 4.0"
 			"vision_radius"			"800 800 800"
-			"pull_rotate_speed"		"0.25"
+			"pull_rotate_speed"		"0.0"
 			"animation_rate"		"0.2"
+			//TODO center damage
+			"close_radius"			"200"
+			"close_damage_tooltip"	"50 100 150"
 			"scepter_pct_damage"
 			{
 				"value"					"0"
@@ -3878,17 +3881,17 @@
 			}
 			"scepter_radius"	
 			{
-				"value"					"420"
+				"value"					"400"
 				"RequiresScepter"			"1"
 			}
 			"scepter_drag_speed"			
 			{
-				"value"					"175"
+				"value"					"0"
 				"RequiresScepter"			"1"
 			}
 			"scepter_pull_rotate_speed"	
 			{
-				"value"					"0.1"
+				"value"					"0"
 				"RequiresScepter"			"1"
 			}
 		}

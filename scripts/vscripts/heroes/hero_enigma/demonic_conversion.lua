@@ -1,7 +1,27 @@
 enigma_demonic_conversion_datadriven = class({})
 
 function enigma_demonic_conversion_datadriven:CastFilterResultTarget(target)
+	if target:IsConsideredHero() then
+		return UF_FAIL_CONSIDERED_HERO 
+	end
+	if target:IsBuilding() then
+		return UF_FAIL_BUILDING
+	end
+	if target:IsCourier() then
+		return UF_FAIL_COURIER
+	end
+	if target:IsAncient() then
+		return UF_FAIL_ANCIENT
+	end
+	if not target:IsCreep() then
+		return UF_FAIL_CUSTOM
+	end
+
 	if target:GetLevel() > self:GetSpecialValueFor("creep_max_level") then
+		return UF_FAIL_CUSTOM
+	end
+	if target:GetName() == "npc_dota_beastmaster_boar"
+		or target:GetName() == "npc_dota_beastmaster_hawk" then
 		return UF_FAIL_CUSTOM
 	end
 	return UF_SUCCESS
@@ -10,6 +30,10 @@ end
 function enigma_demonic_conversion_datadriven:GetCustomCastErrorTarget(target)
 	if target:GetLevel() > self:GetSpecialValueFor("creep_max_level") then
 		return "#dota_hud_error_demonic_conversion_creep_level"
+	end
+	if target:GetName() == "npc_dota_beastmaster_boar"
+		or target:GetName() == "npc_dota_beastmaster_hawk" then
+		return "#dota_hud_error_demonic_conversion_beast_master"
 	end
 	return ""
 end

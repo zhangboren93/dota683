@@ -1668,5 +1668,11 @@
 		"npc_dota_neutral_frostbitten_golem"						"Ancient Drakken Armorers"
 		"npc_dota_roshan_datadriven"								"Roshan"
 		"witch_doctor_death_ward_datadriven"						"Death Ward"
+
+		//Hud error message
+		"dota_hud_error_no_units_to_grab"					"No target to grab"
+		"dota_hud_error_cant_cast_on_self"					"Cannot cast on self"
+		"dota_hud_error_demonic_conversion_creep_level"		"Creep level too high"
+		"dota_hud_error_demonic_conversion_beast_master"	"Cannot target boar or hawk"
 	}
 }
