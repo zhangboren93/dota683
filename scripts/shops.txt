@@ -224,6 +224,7 @@
 		"item"		"item_circlet"
 		"item"		"item_ring_of_protection"
 		"item"		"item_quelling_blade_lua"
+		"item"		"item_stout_shield"
 		"item"		"item_magic_stick"
 		"item"		"item_magic_wand"
 		"item"		"item_sobi_mask_datadriven"
