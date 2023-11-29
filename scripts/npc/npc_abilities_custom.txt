@@ -1891,7 +1891,7 @@
 				"value"				"80 115 150 185"
 				"special_bonus_unique_razor_4"	"+30"														
 			}
-			"radius"					"800"
+			"radius"					"700"
 			"speed"						"636"  // 1.2 second to reach radius
 			"slow_min"				"0"
 			"slow_max"				"0"
@@ -1922,12 +1922,11 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25"
+		"AbilityCooldown"				"32 30 28 26"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -1946,6 +1945,7 @@
 			"vision_radius"			"800 800 800 800"
 			"vision_duration"		"3.34 3.34 3.34 3.34"
 			"attack_speed_factor"	"0"
+			"AbilityCastRange"		"600"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -1997,7 +1997,7 @@
 				"Passive"	"1"
 
 				"Aura"					"modifier_unstable_current_reflect_check"
-				"Aura_Radius"			"1500"
+				"Aura_Radius"			"100000"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
 			}
@@ -2024,7 +2024,8 @@
 				"Duration"				"%duration"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-80"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-100"
 				}
 			}
 		}
@@ -2034,7 +2035,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
@@ -2051,7 +2052,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
 		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -2107,6 +2108,7 @@
 			{
 				"EffectName"		"particles/units/heroes/hero_razor/razor_rain_storm.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"Attributes"		"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Duration"			"%AbilityDuration"
 				"ThinkInterval"		"%strike_interval"
 				"OnIntervalThink"
@@ -3749,6 +3751,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"AbilityTextureName"			"enigma_demonic_conversion"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"CastFilterRejectCaster"		"1"
 		
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------

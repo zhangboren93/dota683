@@ -51,6 +51,8 @@
 			"radius"					"215"
 			"channel_time"				"2.5"
 		}
+		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_1"
+		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_1"
 
 		"precache"
 		{

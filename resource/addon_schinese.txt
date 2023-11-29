@@ -1059,7 +1059,6 @@
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_Note0"				"娜迦海妖的幻象也会施放激流，但是同时处于多个作用范围的敌人只会受到一次伤害效果。"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_armor_reduction"	"护甲降低："
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_armor_duration"	"持续时间："
-		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_armor_duration"	"持续时间："
 		"DOTA_Tooltip_modifier_rip_tide_datadriven"								"激流"
 		"DOTA_Tooltip_modifier_rip_tide_datadriven_Description"					"护甲降低%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%。"
 		//Nyx
@@ -1104,6 +1103,8 @@
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_damage"		"%幻象继承攻击力："
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_total_damage_in_pct"		"%幻象承受伤害："
 		// Razor
+		"DOTA_Tooltip_modifier_unstable_current_purge"								"不稳定电流"
+		"DOTA_Tooltip_modifier_unstable_current_purge_Description"					"移动速度改变%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度改变%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%%"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven"								"风暴之眼"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_Description"					"强大的闪电风暴，打击生命值最低的敌方单位，造成伤害并削弱护甲。"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_scepter_description"			"风暴之眼能对建筑造成伤害，并减少打击间隔。"
@@ -1112,6 +1113,10 @@
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_AbilityDuration"				"持续时间："
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_strike_interval"				"打击间隔："
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven_armor_reduction"				"护甲降低："
+		"DOTA_Tooltip_modifier_razor_eye_datadriven"								"风暴之眼"
+		"DOTA_Tooltip_modifier_razor_eye_datadriven_Description"					"每一次闪电的打击都将对目标造成伤害并削弱护甲。"
+		"DOTA_Tooltip_modifier_razor_eye_debuff_datadriven"							"风暴之眼减甲"
+		"DOTA_Tooltip_modifier_razor_eye_debuff_datadriven_Description"				"护甲被削弱%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。"
 		//Riki
 		"DOTA_Tooltip_ability_riki_smoke_screen_attack_speed_slow"								"攻速降低："
 		"DOTA_Tooltip_ability_riki_smoke_screen_move_speed_slow"								"%移速降低："
