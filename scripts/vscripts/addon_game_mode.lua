@@ -680,6 +680,9 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		elseif ability:GetName() == "batrider_flamebreak" then
 			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
 			ability:GetCaster().flamebreak_position = Vector(event.position_x, event.position_y, event.position_z)
+		elseif ability:GetName() == "enigma_black_hole" then
+			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
+			ability:GetCaster().black_hole_position = Vector(event.position_x, event.position_y, event.position_z)
 		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
@@ -1542,7 +1545,11 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			end
 		elseif inflictor:GetName() == "enigma_black_hole" then
 			-- black hole's damage is magical instead of pure
+			-- if further away from center (200), half damage 
 			event.damage = event.damage * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
+			if attacker.black_hole_position ~= nil and (victim:GetAbsOrigin() - attacker.black_hole_position):Length2D() > 200 then
+				event.damage = event.damage / 2
+			end
 			if attacker:HasScepter() then
 				local enigma_midnight_pulse = attacker:FindAbilityByName("enigma_midnight_pulse")
 				if enigma_midnight_pulse:GetLevel() > 0 then
