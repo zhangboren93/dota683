@@ -18515,7 +18515,7 @@
 			"reincarnate_time"		"3.0 3.0 3.0"
 			"slow_radius"			"900"
 			"movespeed"				"-75"
-			"attackslow"			"0"
+			"attackslow"			"-75"
 			"slow_duration"			"5.0"
 			"scepter_duration"		"0"
 			"scepter_aura_radius"	"0"
@@ -18524,6 +18524,7 @@
 			"shard_skeleton_count"		"0"
 			"scepter_respawn_pct"		"0"
 			"AbilityCooldown"		"260 160 60"
+			"AbilityManaCost"				"160"
 		}
 	}
 	//=================================================================================================================
