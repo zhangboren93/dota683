@@ -9475,17 +9475,8 @@
 			"min_stun"					"0.25"
 			"max_stun"					"1.75 2.5 3.25 4.0"
 			"min_damage"				"0"
-			"max_damage"				
-			{ 
-				"value"					"150 220 290 360"
-				"special_bonus_unique_alchemist_2"		"+400"
-			}
-
-			"radius"
-			{
-				"value"					"250"
-				"special_bonus_unique_alchemist"	"+125"
-			}
+			"max_damage"				"150 220 290 360"
+			"radius"					"175"
 			"move_speed"				"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -9646,7 +9637,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_movespeed"		"20 30 50"
+				"bonus_movespeed"		"30 40 60"
 			}
 		}
 
