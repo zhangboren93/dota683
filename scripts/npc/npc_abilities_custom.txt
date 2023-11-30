@@ -10932,6 +10932,7 @@
 			"tombstone_grab_radius"			"1"
 			"tombstone_bunker_cd"			"3000"
 			"zombie_damage_interval"		"0"
+			"AbilityCooldown"				"60"
 		}
 	}
 	"undying_tombstone_spawn_zombies_datadriven"
