@@ -6380,7 +6380,7 @@
 		
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"14 20 26 36"
+		"AbilityDamage"					"14 20 26 32"
 		"AbilityDuration"				"10"
 		
 		// Stats
@@ -6667,7 +6667,7 @@
 		"AbilityValues"
 		{
 				"bounce_radius"		"475"
-				"damage_radius"		"170"
+				"damage_radius"		"185"
 				"max_targets"		"3 4 5 6"
 				"tooltip_max_targets_inc_dazzle"		"4 5 6 7"
 				"damage"				"80 100 120 140"
@@ -6723,7 +6723,7 @@
 				"armor_per_second"			
 				{
 					"value"	"0.75 1 1.25"
-					"special_bonus_scepter"	"+0.25"
+					"special_bonus_scepter"	"+0.5"
 				}
 				"duration"					"24.0"
 		}
