@@ -793,6 +793,7 @@
 		// Tusk
 		"DOTA_Tooltip_Ability_tusk_frozen_sigil_Description"	"巨牙海民从严冬极寒中召唤出一个冰冻印迹。印迹会创造暴风雪降低600范围内敌军速度。"
 		// IO
+		"DOTA_Tooltip_Ability_wisp_tether_slow_duration"						"减速持续时间："
 		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven"						"过载"
 		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven_Description"			"艾欧获得攻击速度加成并降低受到的伤害，代价是每秒流失一定百分比的当前生命值和魔法值。如果艾欧和一个友军连接，该单位也会获得增益效果。"
 		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven_bonus_attack_speed"	"攻速加成："

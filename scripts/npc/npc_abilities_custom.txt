@@ -11948,20 +11948,12 @@
 		"AbilityValues"
 		{
 				"radius"					"1000"
-				"movespeed"					
-				{
-					"value"				"17"
-					"special_bonus_unique_wisp_3"	"+6"
-				}
+				"movespeed"					"17"
 				"latch_distance"			"900"
 				"latch_speed"				"1000 1000 1000 1000"
-				"tether_heal_amp"			"100"
+				"tether_heal_amp"			"150"
 				"self_bonus"				"0"
-				"slow"				
-				{
-					"value"			"45"
-					"special_bonus_unique_wisp_11"			"+15"
-				}
+				"slow"						"100"
 				"slow_duration"				"0.75 1.25 1.75 2.25"
 				"shard_bonus_spell_lifesteal"
 				{
@@ -12010,16 +12002,18 @@
 					"special_bonus_scepter"	"-25 -50 -75 -100"
 				}
 				"revolution_time"			"5.0 5.0 5.0 5.0"
-				"min_range"					"200"
-				"max_range"					"650"
+				"min_range"					"100"
+				"max_range"					"875"
 				"hero_hit_radius"			"110"
 				"explode_radius"			"360"
 				"hit_radius"				"150 150 150 150"
 				"spirit_movement_rate"		"250 250 250 250"
 				"spirit_duration"			"19.0 19.0 19.0 19.0"
-				"spirit_amount"			"5"
+				"spirit_amount"				"5"
 				"scepter_slow_pct"			"0"
-				"scepter_slow_duration"			"0"
+				"scepter_slow_duration"		"0"
+				"AbilityCooldown"				"20.0 18.0 16.0 14.0"
+				"AbilityManaCost"				"120 130 140 150"
 		}
 	}	
 	"wisp_overcharge_datadriven"

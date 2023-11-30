@@ -793,6 +793,7 @@
 		// Tusk
 		"DOTA_Tooltip_Ability_tusk_frozen_sigil_Description"	"Tusk summons a Frozen Sigil by calling upon the deepest cold of winter. The Sigil creates a snowstorm which slows all enemy units within 600 range."
 		// IO
+		"DOTA_Tooltip_Ability_wisp_tether_slow_duration"						"SLOW DURATION:"
 		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven"						"Overcharge"
 		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven_Description"			"Io gains bonus attack speed and damage reduction, at the cost of draining a percentage of its current health and mana per second. If Io is tethered to an ally, that unit also gains the bonuses."
 		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven_bonus_attack_speed"	"Attack Speed Bonus: "
