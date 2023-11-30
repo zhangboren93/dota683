@@ -2166,6 +2166,7 @@
 			"burrow_anim_time"	"0.52"
 			"cast_range_scepter"	"350 450 550 650"
 			"burrow_speed_scepter"	"2000"
+			"AbilityCastRange"		"350 450 550 650"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
