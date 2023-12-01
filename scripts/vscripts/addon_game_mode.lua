@@ -1281,10 +1281,17 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		caster:FindAbilityByName("hero_ability_executed_hook_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_arctic_burn_pure_datadriven", {})
+	elseif event.name_const == "modifier_techies_stasis_trap" then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(parent, nil, "modifier_kill", { duration = ability:GetSpecialValueFor("duration") })
 	elseif event.name_const == "modifier_techies_stasis_trap_stunned" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", { duration = ability:GetSpecialValueFor("stun_duration")})
+		return false
+	elseif event.name_const == "modifier_techies_minefield_sign_thinker" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		caster:FindAbilityByName("hero_ability_executed_hook_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_techies_minesign_datadriven", {})
 		return false
 	elseif event.name_const == "modifier_arc_warden_magnetic_field_thinker_attack_range" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)

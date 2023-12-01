@@ -16813,7 +16813,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"8"
+		"AbilityCooldown"				"10"
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -16833,7 +16833,7 @@
 				"value"					"300 450 600"
 				"special_bonus_scepter"	"+150"
 			}
-				"radius"					"400"
+				"radius"					"425"
 				"duration"					"600.0"
 				"activation_time"			"2.0"
 				"vision_radius"			"500"
@@ -16872,8 +16872,8 @@
 		{
 			"aura_radius"
 			{
-				"value"					"500"
-				"special_bonus_scepter"	"+500"
+				"value"					"0"
+				"special_bonus_scepter"	"+0"
 			}
 
 			"AbilityCooldown"
@@ -24084,7 +24084,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage"					"225 300 375 450"
+				"damage"					"300 375 450 525"
 			}
 			"02"
 			{
@@ -24130,7 +24130,7 @@
 			"10"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"damage_half"				"113 150 188 225"
+				"damage_half"				"150 188 225 263"
 			}
 		}
 	
@@ -24259,13 +24259,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{		
-				"activation_radius"			"200"
-				"explode_delay"			"0"
+				"activation_radius"			"450"
+				"explode_delay"				"0"
 				"stun_radius"				"450"
 				"stun_duration"				"2.5 3 3.5 4"
 				"activation_time"			"2.0"
 				"fade_time"					"2.0"
-				"duration"					"600.0"
+				"duration"					"360.0"
 				"cast_range_scepter_bonus"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
