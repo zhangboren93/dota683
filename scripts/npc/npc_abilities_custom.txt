@@ -22167,7 +22167,7 @@
 				"attack_count"					"5000"
 				"bonus_damage"					"0"				
 				"bonus_damage_buildings"		"75"
-				"attack_range"					"225"
+				"attack_range"					"235"
 				"splash_width"					"200"
 				"splash_range"					"400"
 				"splash_pct"					"0"

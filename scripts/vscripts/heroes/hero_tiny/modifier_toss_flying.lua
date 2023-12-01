@@ -32,10 +32,14 @@ function modifier_toss_flying_lua:OnDestroy()
 				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_BUILDING,
 				0, FIND_ANY_ORDER, false) 
 			for i=1,#units do
+				local damage_building = toss_damage
+				if units[i]:IsBuilding() then
+					damage_building = toss_damage / 3
+				end
 				ApplyDamage({
 					victim = units[i],
 					attacker = caster,
-					damage = toss_damage,
+					damage = damage_building,
 					damage_type = DAMAGE_TYPE_MAGICAL
 				})
 			end

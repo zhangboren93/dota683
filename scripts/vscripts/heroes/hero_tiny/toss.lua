@@ -9,6 +9,9 @@ function tiny_toss_datadriven:OnAbilityPhaseStart()
 	if ability:GetCursorTarget() == caster then
 		return false
 	end
+	if ability:GetCursorTarget():IsBuilding() then
+		return false
+	end
 	
 	local units = FindUnitsInRadius(
 		caster:GetTeamNumber(), 
@@ -60,6 +63,9 @@ function tiny_toss_datadriven:CastFilterResultTarget(target)
 
 	if target == caster then
 		return UF_FAIL_CUSTOM
+	end
+	if target:IsBuilding() then
+		return UF_FAIL_BUILDING
 	end
 	
 	if IsServer() then
