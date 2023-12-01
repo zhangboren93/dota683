@@ -12706,8 +12706,8 @@
 		{
 			"pull_radius"					"410"
 			"polarity_damage"				"50 125 200"
-			"hero_stun_duration"			"2.25 3 4"
-			"pull_duration"			"0.0 0.0 0.0"
+			"hero_stun_duration"			"2.25 3 3.75"
+			"pull_duration"					"0.0 0.0 0.0"
 			"strength_buff_duration"		"0"
 			"strength_per_stack"			"0"
 		}
@@ -20731,14 +20731,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"skewer_speed"					"900"
+				"skewer_speed"			"950"
 				"range"					"750 900 1050 1200"
 				"slow_pct"				"40"
 				"skewer_radius"				"145"
 				"slow_duration"				"2.5"
 				"skewer_damage"			"70 140 210 280"
 				"tree_radius"				"200"
-				"tool_attack_slow"				"10 20 30 40"
+				"tool_attack_slow"				"0"
 				"skewer_cooldown"				"30"
 				"skewer_manacost"				"80"
 		}
@@ -20770,7 +20770,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40"
+		"AbilityManaCost"		"30 40 50 60"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -20791,6 +20791,7 @@
 			"self_multiplier"		"0"
 			"cleave_radius_damage"	"20 30 40 50"
 			"cleave_radius"			"200"
+			"AbilityManaCost"		"30 40 50 60"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
