@@ -13761,25 +13761,13 @@
 		"AbilityValues"
 		{
 				"radius"				"180"	// NOTE: This radius must match the radius for geomagnetic grip
-				"rock_search_aoe"				"200"
-				"rock_damage"			
-				{
-					"value"			"125"
-					"special_bonus_unique_earth_spirit_6"	"+125"
-				}	
+				"rock_search_aoe"		"200"
+				"rock_damage"			"125"
 				"move_slow"				"0"
 				"duration"				"0.75 1.25 1.75 2.25"
-				"speed"					"900"
-				"unit_distance"			
-				{
-					"value"		"500.0 600.0 700.0 800.0"
-					"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
-				}
-				"rock_distance"			
-				{
-					"value"		"2000.0"
-					"LinkedSpecialBonus"	"special_bonus_unique_earth_spirit_7"
-				}			
+				"speed"					"1200"
+				"unit_distance"			"500.0 600.0 700.0 800.0"
+				"rock_distance"			"2000.0"
 				"remnant_smash_radius_tooltip"			"200"
 				"creep_multiplier"		"1"
 		}
@@ -13805,7 +13793,7 @@
 		"AbilityValues"
 		{
 				"radius"				"160"
-				"speed"					"1000"
+				"speed"					"800"
 				"rock_speed"			"1600"
 				"distance"				"800"
 				"rock_distance"			"1600"
@@ -13966,7 +13954,7 @@
 				"rock_damage"			"50 125 200 275"
 				"duration"			"2.5 3 3.5 4"
 				"pull_units_per_second_heroes"		"600"
-				"pull_units_per_second"		"900"
+				"pull_units_per_second"		"1000"
 				"speed"					"800"
 				"total_pull_distance"		"1400"
 		}
@@ -14023,7 +14011,7 @@
 				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
 			}
 			"rock_search_radius"			"300"
-			"rock_explosion_radius"			"600"
+			"rock_explosion_radius"			"400"
 			"damage_interval"			"1.0"
 			"rock_explosion_delay"			"8.0"
 			"silence_duration"			"5.0"
