@@ -2908,16 +2908,16 @@
 		"LevelsBetweenUpgrades" "5"
 		"HasScepterUpgrade"		"1"
 		"AbilityCooldown"				"90"
-		"AbilityManaCost"				"225 350 475"
+		"AbilityManaCost"				"225 325 450"
 		"AbilityValues"
 		{
-				"sight_radius_day"		"500"
-				"sight_radius_night"	"500"
+				"sight_radius_day"		"1000"
+				"sight_radius_night"	"1000"
 				"sight_duration"		"3.0 3.0 3.0"
 				"damage"
 				{
 					"value"						"225 350 475"
-					"special_bonus_scepter"		"+200"
+					"special_bonus_scepter"		"+215 +190 +165"
 				}
 				"damage_pct"			"0"
 				"second_strike_delay"				"0"
@@ -32563,6 +32563,7 @@
 				"value"				"0"
 				"special_bonus_unique_zeus_2"	"+4"
 			}
+			"AbilityCooldown"				"1.75"
 		}
 	}
 	//=================================================================================================================
@@ -32610,8 +32611,8 @@
 				"true_sight_radius"		"750"
 				"sight_radius_day"		"750"
 				"sight_radius_night"	"750"
-				"sight_duration"		"5"
-				"spread_aoe"	"325"
+				"sight_duration"		"4.5"
+				"spread_aoe"			"325"
 				"ministun_duration"		"0.01"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
