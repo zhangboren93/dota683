@@ -20422,7 +20422,7 @@
 		"AbilityValues"
 		{
 			"bonus_reset_time"				"15"
-			"bonus_reset_time_roshan"		"15"
+			"bonus_reset_time_roshan"		"6"
 			"damage_per_stack"				"15 20 25 30"
 			"stun_stack_count"				"0"
 			"stun_duration"					"0"
@@ -33615,6 +33615,21 @@
 					{
 						"ScriptFile"	"units/roshan.lua"
 						"function"		"handleDeath"
+					}
+				}
+			}
+			"modifier_roshan_fury_swipe_duration_datadriven"	
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"ThinkInterval"	"0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/roshan.lua"
+						"function"		"handleFurySwipeDuration"
 					}
 				}
 			}

@@ -38,3 +38,11 @@ function handleDeath(event)
 		caster:DropItemAtPositionImmediate(caster:GetItemInSlot(i), caster:GetAbsOrigin())
 	end
 end
+
+function handleFurySwipeDuration(event)
+	local caster = event.caster
+	local modifier = caster:FindModifierByName("modifier_ursa_fury_swipes_damage_increase")
+	if modifier ~= nil and modifier:GetRemainingTime() > 6 then
+		modifier:SetDuration(6, true)
+	end
+end
