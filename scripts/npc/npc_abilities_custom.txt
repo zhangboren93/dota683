@@ -14331,7 +14331,7 @@
 				"hp_cost_perc"		"20"
 				"spirit_duration"	"16"
 				"spirit_speed"		"900 900 900 900"
-				"radius"			"200"
+				"radius"			"175"
 				"duration"			"4.0"
 				"attackspeed_slow"	"-80 -100 -120 -140"
 				"damage_per_second"				"10 30 50 70"
