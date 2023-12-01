@@ -23372,12 +23372,12 @@
 		"AbilityValues"
 		{
 				"duration"				"8"
-				"slow_steps"			"-50 -50 -40 -30 -20 -10 -10 -10 -10"
+				"slow_steps"			"-70 -70 -60 -50 -30 -10 -10 -10 -10"
 				"heal_percent"			"15 20 25 30"
 				"max_health_as_damage_pct"	"0"
 				"damage_threshold"		"5000"
 				"spread_radius"			"0"
-				"slow_tooltip"			"50"
+				"slow_tooltip"			"70"
 		}
 	}
 	// Rewrite of the Lifestealer Feast ability
