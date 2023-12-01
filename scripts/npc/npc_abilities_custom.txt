@@ -3295,7 +3295,7 @@
 		"AbilityValues"
 		{
 			"ward_count"			"10"
-			"duration"				"40"
+			"duration"				"45"
 			"bonus_damage_scepter"	{
 				"value"						"0"
 				"special_bonus_scepter"		"45 50 55"
@@ -28951,12 +28951,14 @@
 		"HasShardUpgrade"				"0"
 		"AbilityChannelTime"			"2.75 3.5 4.25 5"
 		"AbilityCooldown"				"16"
-		"AbilityManaCost"				"110 130 155 185"
+		"AbilityManaCost"				"140 150 160 170"
 		"AbilityValues"
 		{
 				"tick_interval"		"0.1 0.1 0.1 0.1"
 				"total_damage"		"110 140 170 200"
 				"channel_time"		"2.75 3.5 4.25 5"
+				"AbilityCooldown"				"16"
+				"AbilityManaCost"				"140 150 160 170"
 		}
 	}
 
