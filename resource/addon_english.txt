@@ -1636,6 +1636,10 @@
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_damage_share_percentage"				"%SHARED DAMAGE:"
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_duration"								"DURATION:"
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_Note0"								"The shared damage type is the same as the type of damage inflicted."
+		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven"					"Flaming Fists"
+		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven_Description"		"Deals extra damage to nearby units when attacking."
+		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven_damage"			"BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven_chance"			"%CHANCE:"
 		//Wind Runner
 		"DOTA_Tooltip_ability_windrunner_powershot_2"									"Powershot"
 		"DOTA_Tooltip_ability_windrunner_powershot_2_Description"						"CHANNELED - Windranger charges her bow for up to %abilitychanneltime% second for a single powerful shot, which deals more damage the longer it is charged. The arrow damages enemies along its path. For each enemy that Powershot hits, its damage is reduced."

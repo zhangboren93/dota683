@@ -3783,7 +3783,7 @@
 	
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"warlock_golem_flaming_fists"			// Ability 1
+		"Ability1"					"warlock_golem_flaming_fists_datadriven"			// Ability 1
 		"Ability2"					"warlock_golem_permanent_immolation"	// Ability 2
 		"Ability3"					"generic_hidden"			// Ability 3
 		"Ability4"					""			// Ability 4

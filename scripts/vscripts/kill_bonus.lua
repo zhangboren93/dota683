@@ -176,14 +176,16 @@ function handleKillBonus(self, attacker, entity)
 		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
 	local exp_entity_ids = {}
 	for i=1,#units do
-		exp_entity_ids[units[i]:GetEntityIndex()] = true
+		if units[i]:IsRealHero() and units[i].AddExperience ~= nil then
+			print("Giving experience to " .. units[i]:GetName())
+			exp_entity_ids[units[i]:GetEntityIndex()] = true
+		end
 	end
 	-- add attacker the XP if out of range 
-	if attacker:IsAlive() and attacker:IsHero() then
-		exp_entity_ids[attacker:GetEntityIndex()] = true
-	end
 	if not attacker:IsBuilding() and attacker:IsOwnedByAnyPlayer() and attacker:GetPlayerOwner():GetAssignedHero():IsAlive() then
 		exp_entity_ids[attacker:GetPlayerOwner():GetAssignedHero():GetEntityIndex()] = true
+	elseif attacker:IsAlive() and attacker:IsRealHero() then
+		exp_entity_ids[attacker:GetEntityIndex()] = true
 	end
 
 	local tablen = 0

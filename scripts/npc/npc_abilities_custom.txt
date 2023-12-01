@@ -4,6 +4,7 @@
 #base "heroes/legion_commander.txt"
 #base "heroes/oracle.txt"
 #base "heroes/riki.txt"
+#base "heroes/warlock.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"
@@ -4225,7 +4226,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"aoe"					"675"
+			"aoe"					"650"
 			"slow_per_second"		"7 14 21 28"
 			"duration"				"3.0"
 			"max_slow"				"84"
@@ -4236,6 +4237,7 @@
 			"imps_interval"				"2000"
 			"minor_imp_duration"		"0"
 			"major_imp_duration"		"0"
+			"AbilityCooldown"				"50 46 42 38"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -4291,7 +4293,7 @@
 			"golem_dmg"					"75 100 125"
 			"golem_armor"				"6 9 12"
 			"golem_movement_speed"		"320 340 360"
-			"golem_health_regen"		"0.5"
+			"golem_health_regen"		"15 30 45"
 			"golem_gold_bounty"			"100 150 200"
 			"number_of_golems_scepter"
 			{
@@ -4300,12 +4302,12 @@
 			}
 			"golem_hp_scepter"
 			{
-				"value"			"900 1200 1500"
+				"value"			"675 900 1125"
 				"RequiresScepter"		"1"
 			}
 			"golem_dmg_scepter"
 			{
-				"value"				"75 100 125"
+				"value"				"56 75 94"
 				"RequiresScepter"		"1"
 			}
 			"golem_gold_bounty_scepter"
@@ -33413,29 +33415,6 @@
 				"aura_damage"			"30 40 50"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-	//=================================================================================================================
-	// Ability: Warlock's Golem Flaming Fists
-	//=================================================================================================================
-	"warlock_golem_flaming_fists"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5166"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"3"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"damage"				"40 60 80"
-				"radius"			"300 300 300"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Tornado: Tempest
