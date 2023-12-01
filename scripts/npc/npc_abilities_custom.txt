@@ -16923,7 +16923,7 @@
 		"AbilityValues"
 		{
 				"bonus_hp"				"100"
-				"bonus_move_speed"		"20 20 20 30"
+				"bonus_move_speed"		"10 20 30 40"
 				"bonus_armor"			"3"
 				"bonus_range"			"350"
 				"base_attack_time"		"1.55"
@@ -16973,7 +16973,7 @@
 			"movement_speed"			"30"
 			"axe_spread"				"25"
 			"axe_count"					"5"
-			"AbilityCooldown"			"12"
+			"AbilityCooldown"			"20 19 18 17"
 			"AbilityManacost"			"50"
 			"pierces_magic_immunity"	"0"
 		}
@@ -17014,7 +17014,7 @@
 			"blind_duration"			"4 5 6 7"
 			"blind_pct"					"60"
 			"whirl_duration"			"3.0"
-			"AbilityCooldown"			"20 19 18 17"
+			"AbilityCooldown"			"12"
 			"AbilityManacost"			"50"
 			"pierces_magic_immunity"	"0"
 		}
