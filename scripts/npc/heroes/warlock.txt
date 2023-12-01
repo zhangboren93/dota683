@@ -1,0 +1,75 @@
+"DOTAAbilities"
+{
+	"Version"		"1"
+	"warlock_golem_flaming_fists_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"3"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"warlock_golem_flaming_fists"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"80 115 150"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"chance"				"40"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300 300 300"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_warlock_golem_flaming_fists_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"OnAttackLanded"
+				{
+					"Random"
+					{
+						"Chance"		"%chance"
+						"OnSuccess"
+						{
+							"ActOnTargets"
+							{
+								"Target"
+								{
+									"Center"  	"TARGET"
+									"Radius" 	"%radius"
+									"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+									"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+								}
+							
+								"Action"    
+								{
+									"Damage"
+									{
+										"Target"		"TARGET"
+										"Type"			"DAMAGE_TYPE_PURE"
+										"Damage"		"%damage"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
