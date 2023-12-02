@@ -17,6 +17,6 @@ ethereal_modifiers["modifier_item_ethereal_blade_ethereal"] = true
 disarm_modifiers = {}
 disarm_modifiers["modifier_item_heavens_halberd_datadriven_disarm"] = true
 disarm_modifiers["modifier_oracle_fates_edict"] = true
-disarm_modifiers["modifier_oracle_fates_edict_allie_disarm"] = true
+disarm_modifiers["modifier_oracle_fates_edict_alter"] = true
 disarm_modifiers["modifier_elder_titan_earth_splitter_disarm"] = true
 

@@ -98,14 +98,10 @@ function oracle_fortunes_end_lua:ApplyFortunesEnd(target, target_sound, aoe_part
 		target:RemoveModifierByName("modifier_oracle_fates_edict")
 	end
 	
-	if target:HasModifier("modifier_oracle_fates_edict_allie_disarm") then
-		target:RemoveModifierByName("modifier_oracle_fates_edict_allie_disarm")
+	if target:HasModifier("modifier_oracle_fates_edict_alter") then
+		target:RemoveModifierByName("modifier_oracle_fates_edict_alter")
 	end
 
-	if target:HasModifier("modifier_oracle_fates_edict_enemy_resist") then
-		target:RemoveModifierByName("modifier_oracle_fates_edict_enemy_resist")
-	end
-	
 	for _, enemy in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
 		self.damage_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_fortune_dmg.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
 		ParticleManager:SetParticleControl(self.damage_particle, 1, target:GetAbsOrigin())

@@ -15,6 +15,10 @@ function item_black_king_bar_datadriven_on_spell_start(keys)
 	local RemoveExceptions = false
 	keys.caster:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
 
+	if keys.caster:HasModifier("modifier_oracle_fates_edict_alter") then
+		keys.caster:RemoveModifierByName("modifier_oracle_fates_edict_alter")
+	end
+
 	--Level up BKB so future casts will use an updated cooldown and duration.
 	local current_level = keys.ability:GetLevel()
 	if current_level + 1 <= keys.MaxLevel then

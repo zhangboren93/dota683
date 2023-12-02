@@ -1404,11 +1404,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		local duration = ability:GetSpecialValueFor("duration")
-		if caster:GetTeam() == parent:GetTeam() then
-			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_allie_disarm", { duration = duration })
-		else
-			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_enemy_resist", { duration = duration })
-		end
+		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_alter", { duration = duration })
+		return(false)
 	elseif event.name_const == "modifier_oracle_false_promise_timer" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
