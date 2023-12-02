@@ -26,6 +26,8 @@ function replicate(event)
 		end
 	end
 
+	illusion:StopThink("remove tpscroll")
+	illusion:RemoveItem(illusion:FindItemInInventory("item_tpscroll"))
 	for item_slot = 0, 5 do
 		local item = target:GetItemInSlot(item_slot) 
 		if item then
