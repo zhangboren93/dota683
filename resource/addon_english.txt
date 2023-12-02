@@ -1233,6 +1233,8 @@
 		"DOTA_Tooltip_modifier_command_aura_caster_datadriven"							"Vengeance Aura"
 		"DOTA_Tooltip_modifier_command_aura_caster_datadriven_Description"				"%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% bonus damage"
 		// Venomancer
+		"DOTA_Tooltip_modifier_venomancer_venomous_gale_lua"						"Venomous Gale"
+		"DOTA_Tooltip_modifier_venomancer_venomous_gale_lua_Description"			"Slowing and ticking damage."
 		"DOTA_Tooltip_ability_venomancer_poison_sting_datadriven"						"Poison Sting"
 		"DOTA_Tooltip_ability_venomancer_poison_sting_datadriven_Description"			"Adds poison damage to Venomancer's normal attacks and slowing movement speed."
 		"DOTA_Tooltip_ability_venomancer_poison_sting_datadriven_Lore"					"The paralytic sting of the creature which caused his transformation now belongs to the Venomancer."

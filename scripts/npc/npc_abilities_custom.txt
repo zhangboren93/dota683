@@ -4805,7 +4805,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Venomancer.VenomousGale"
 
@@ -4835,16 +4835,8 @@
 			"movement_slow"			"-50 -50 -50 -50"
 			"radius"				"125"
 			"speed"					"1200 1200 1200 1200"
-			"create_wards"
-			{
-				"value"					"0"
-				"special_bonus_unique_venomancer_gale_plagueward"		"+2"
-			}	
-			"AbilityCooldown"
-			{
-				"value"												"22"
-				"special_bonus_unique_venomancer_3"					"-5"
-			}
+			"create_wards"			"0"
+			"AbilityCooldown"		"22"
 		}
 	}
 
