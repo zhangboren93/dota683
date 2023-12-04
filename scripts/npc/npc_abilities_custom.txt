@@ -1106,6 +1106,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%damage_increase_pct"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%damage_increase_pct"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damage_increase_pct"
 				}
 			}
@@ -2611,7 +2612,7 @@
 
 		}
 	}
-	"tiny_grow_move_speed_checker_datadriven"
+	"tiny_grow_checker_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -2628,15 +2629,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/hero_tiny/passive.lua"
-						"Function"		"growMoveSpeed"
-					}
-				}
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_tiny/passive.lua"
-						"Function"		"handleAbilityExecuted"
+						"Function"		"growPassive"
 					}
 				}
 			}

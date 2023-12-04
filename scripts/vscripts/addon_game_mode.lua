@@ -792,15 +792,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end, "visage scepter", 1);
 			-- entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_tiny" then
-			entity:SetThink(function()
-				if entity:HasScepter() and not entity:HasAbility("tiny_tree_grab") then
-					local ability = entity:AddAbility("tiny_tree_grab")
-					ability:SetLevel(1)
-					print("added tiny ahgs ability")
-				end
-				return 2
-			end, "tiny scepter", 2);
-			entity:FindAbilityByName("tiny_grow_move_speed_checker_datadriven"):SetLevel(1)
+			entity:AddItemByName("item_aghanims_shard")
+			entity:FindAbilityByName("tiny_grow_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_enchantress" then
 			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
 		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then
@@ -1404,11 +1397,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		local duration = ability:GetSpecialValueFor("duration")
-		if caster:GetTeam() == parent:GetTeam() then
-			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_allie_disarm", { duration = duration })
-		else
-			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_enemy_resist", { duration = duration })
-		end
+		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_alter", { duration = duration })
+		return(false)
 	elseif event.name_const == "modifier_oracle_false_promise_timer" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
