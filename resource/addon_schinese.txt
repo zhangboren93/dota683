@@ -1642,6 +1642,12 @@
 		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven_Description"		"在攻击时对附近敌方单位造成额外伤害。"
 		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven_damage"			"额外伤害："
 		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven_chance"			"%触发几率："
+
+		//Weaver
+		"DOTA_Tooltip_ability_weaver_geminate_attack_datadriven"						"连击"
+		"DOTA_Tooltip_ability_weaver_geminate_attack_datadriven_Description"			"允许编织者立刻发动两次攻击。"
+		"DOTA_Tooltip_ability_weaver_geminate_attack_datadriven_Lore"					"斯吉茨格尔与时间有着多变的联系，使他的动作被看到和感受到，不止一次。"
+
 		//Wind Runner
 		"DOTA_Tooltip_ability_windrunner_powershot_2"						"强力击"
 		"DOTA_Tooltip_ability_windrunner_powershot_2_Description"			"持续施法 - 风行者为她的弓蓄力，射出一支强力的箭矢，最长可蓄力%abilitychanneltime%秒，其间可以打断蓄力，蓄力时间越长箭矢伤害越高。这支箭会对穿过的所有敌方单位造成伤害，并破坏树木。每伤害一个单位，箭矢的伤害都会降低。"

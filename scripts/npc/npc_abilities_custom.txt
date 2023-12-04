@@ -5,6 +5,7 @@
 #base "heroes/oracle.txt"
 #base "heroes/riki.txt"
 #base "heroes/warlock.txt"
+#base "heroes/weaver.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"
