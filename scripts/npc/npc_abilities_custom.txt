@@ -1106,6 +1106,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%damage_increase_pct"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%damage_increase_pct"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damage_increase_pct"
 				}
 			}
