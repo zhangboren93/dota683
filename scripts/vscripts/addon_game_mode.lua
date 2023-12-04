@@ -792,15 +792,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end, "visage scepter", 1);
 			-- entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_tiny" then
-			entity:SetThink(function()
-				if entity:HasScepter() and not entity:HasAbility("tiny_tree_grab") then
-					local ability = entity:AddAbility("tiny_tree_grab")
-					ability:SetLevel(1)
-					print("added tiny ahgs ability")
-				end
-				return 2
-			end, "tiny scepter", 2);
-			entity:FindAbilityByName("tiny_grow_move_speed_checker_datadriven"):SetLevel(1)
+			entity:AddItemByName("item_aghanims_shard")
+			entity:FindAbilityByName("tiny_grow_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_enchantress" then
 			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
 		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then

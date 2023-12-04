@@ -770,7 +770,7 @@
 		"DOTA_Tooltip_ability_tiny_grow_attack_speed_reduction_tooltip"			"ATTACK SPEED REDUCTION:"
 		"DOTA_Tooltip_ability_tiny_grow_bonus_move_speed_tooltip"				"MOVE SPEED:"
 		"DOTA_Tooltip_ability_tiny_grow_toss_bonus_damage_pct"					"%TOSS UNIT BONUS DAMAGE:"
-		"DOTA_Tooltip_ability_tiny_grow_Scepter_Description"					"Learn Tree Grab. Increase Toss unit damage."
+		"DOTA_Tooltip_ability_tiny_grow_Scepter_Description"					"Allows Tiny to equip a tree, increasing his attack range, damage versus buildings, and granting a cleave attack.  Improves Tossed unit damage."
 		"DOTA_Tooltip_ability_tiny_tree_grab_Description"						"Grabs a tree to whack enemies on the head. Grants bonus attack range. Attacks splash on units along the way."
 		"DOTA_Tooltip_ability_tiny_tree_grab_attack_count"						""
 		"DOTA_Tooltip_ability_tiny_tree_grab_bonus_damage"						""

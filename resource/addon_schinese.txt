@@ -770,7 +770,7 @@
 		"DOTA_Tooltip_ability_tiny_grow_attack_speed_reduction_tooltip"			"攻速降低:"
 		"DOTA_Tooltip_ability_tiny_grow_bonus_move_speed_tooltip"				"移速提升:"
 		"DOTA_Tooltip_ability_tiny_grow_toss_bonus_damage_pct"					"%投掷单位伤害提升："
-		"DOTA_Tooltip_ability_tiny_grow_Scepter_Description"					"学习拔树，投掷单位伤害提升。"
+		"DOTA_Tooltip_ability_tiny_grow_Scepter_Description"					"允许小小抓起一棵树，增加攻击距离，提高对建筑的伤害，并获得分裂攻击效果。提高对被投掷单位的伤害。"
 		"DOTA_Tooltip_ability_tiny_tree_grab_Description"						"抓起一棵树砸向敌人的头，攻击距离得到提升。攻击路径上的单位受到溅射伤害。"
 		"DOTA_Tooltip_ability_tiny_tree_grab_attack_count"						""
 		"DOTA_Tooltip_ability_tiny_tree_grab_bonus_damage"						""
