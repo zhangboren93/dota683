@@ -218,10 +218,12 @@ function modifier_creep_ai:selectTarget()
 	for i=1,#units do
 		local attackTarget = units[i]:GetAttackTarget()
 		if attackTarget ~= nil and attackTarget:GetTeam() == entity:GetTeam() then
-			--print("Find unit attacking allies")
-			return {
-				unit = units[i]
-			}
+			--don't attack hero who has just used orb cast on allies
+			if not units[i]:HasModifier("modifier_no_creep_aggro_on_cast_orb_lua") then
+				return {
+					unit = units[i]
+				}
+			end
 		end
 	end
 	if #units > 0 then
