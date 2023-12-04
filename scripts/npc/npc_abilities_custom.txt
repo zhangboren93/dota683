@@ -33450,6 +33450,14 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Duration"	"2.3"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_creep_aggro.lua"
+						"Function"		"handleDestroy"
+					}
+				}
 			}
 			"modifier_creep_aggro_checker"
 			{

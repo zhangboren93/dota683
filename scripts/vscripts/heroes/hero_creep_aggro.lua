@@ -46,3 +46,14 @@ function aggroCreeps(caster, ability)
 	end
 	ability:StartCooldown(3)
 end
+
+function handleDestroy(event)
+	local target = event.target
+	if target:IsAlive() then
+		local ai = target:FindModifierByName("modifier_creep_ai")
+		if ai ~= nil and ai.target ~= nil then
+			ai.target = nil
+			ai:OnIntervalThink()
+		end
+	end
+end
