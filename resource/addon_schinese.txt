@@ -1001,8 +1001,16 @@
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_bear_bonus_speed"		"熊灵移动速度加成："
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_rabid_duration_bonus"	"狂猛持续时间加成："
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_true_form_hp_bonus"		"真熊形态生命加成："
+
 		//Luna
-		"DOTA_Tooltip_ability_luna_eclipse_scepter_description"									"双击施放月食。增加月光数量，并且移除单体打击次数上限。"
+		"DOTA_Tooltip_ability_luna_eclipse_scepter_description"						"双击施放月食。增加月光数量，并且移除单体打击次数上限。"
+		"DOTA_Tooltip_ability_luna_moon_glaive_lua"									"月刃"
+		"DOTA_Tooltip_ability_luna_moon_glaive_lua_Description"						"强化露娜的月刃，使其攻击可以在敌方单位之间弹跳。每次弹跳造成的伤害都会减少。"
+		"DOTA_Tooltip_ability_luna_moon_glaive_lua_Lore"							"露娜精心打磨过的回旋镖型武器可以从大群敌人中杀出一条血路。"
+		"DOTA_Tooltip_ability_luna_moon_glaive_lua_range"							"弹跳范围："
+		"DOTA_Tooltip_ability_luna_moon_glaive_lua_bounces"							"弹射次数："
+		"DOTA_Tooltip_ability_luna_moon_glaive_lua_damage_reduction_percent"		"%弹跳伤害衰减："
+
 		// Medusa
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven"					"秘术异蛇"
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven_Description"		"放出一条秘术异蛇在敌人之间跳跃，造成伤害并偷取魔法值。抵达最后一个目标后，它会返回到美杜莎身上为其恢复魔法值。每次跳跃造成的伤害和魔法偷取量都会增加。对石化凝视作用下的石化单位将造成纯粹伤害。"

@@ -1,0 +1,26 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	//=================================================================================================================
+	// Luna: Moon Glaives
+	//=================================================================================================================
+	"luna_moon_glaive_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_luna/moon_glaive.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilitySound"					"Hero_Luna.MoonGlaive.Impact"
+		"AbilityTextureName"			"luna_moon_glaive"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"range"								"500"
+			"bounces"							"1 2 3 6"
+			"damage_reduction_percent"			"35"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+}

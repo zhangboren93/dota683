@@ -107,6 +107,7 @@ function Activate()
 	LinkLuaModifier( "modifier_torrent_slow_lua", 				"heroes/hero_kunkka/modifier_torrent_slow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_reset_visual_z", 				"heroes/hero_tiny/modifier_reset_visual_z.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_venomancer_venomous_gale_lua", 	"heroes/hero_venomancer/modifier_venomancer_venomous_gale.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_luna_moon_glaive_lua", 			"heroes/hero_luna/modifier_luna_moon_glaive.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)

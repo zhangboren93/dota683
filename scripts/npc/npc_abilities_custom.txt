@@ -6,6 +6,7 @@
 #base "heroes/riki.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
+#base "heroes/luna.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"
@@ -6203,28 +6204,6 @@
 			"damage_buff_per_beam"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
-	// Luna: Moon Glaives
-	//=================================================================================================================
-	"luna_moon_glaive"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5223"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilitySound"					"Hero_Luna.MoonGlaive.Impact"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"range"								"500"
-			"bounces"							"1 2 3 6"
-			"damage_reduction_percent"			"35"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	//=================================================================================================================
 	// Luna: Lunar Blessing
