@@ -2906,8 +2906,8 @@
 		"AbilityManaCost"				"225 325 450"
 		"AbilityValues"
 		{
-				"sight_radius_day"		"1000"
-				"sight_radius_night"	"1000"
+				"sight_radius_day"		"900"
+				"sight_radius_night"	"900"
 				"sight_duration"		"3.0 3.0 3.0"
 				"damage"
 				{

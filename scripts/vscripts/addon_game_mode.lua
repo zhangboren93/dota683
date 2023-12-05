@@ -744,6 +744,12 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddNewModifier(entity, nil, "modifier_drop_backpack_items", {})
 		end
 
+		-- remove useless abilities
+		entity:RemoveAbility("ability_pluck_famango")	-- 摘莲花
+		entity:RemoveAbility("ability_lamp_use")		-- 占领观察者
+		entity:RemoveAbility("ability_capture")			-- 占领前哨
+		entity:RemoveAbility("twin_gate_portal_warp")	-- 双生门传送
+
 		-- thinkers
 		entity:SetThink(function()
 			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
@@ -851,6 +857,16 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		if innate_ability ~= nil then
 			entity:FindAbilityByName(innate_ability):SetLevel(1)
 		end
+
+		-- debug abilities' name
+		--for i = 0, 34 do
+		--	local ability = entity:GetAbilityByIndex(i)
+		--	if ability ~= nil then
+		--		print(ability:GetAbilityName())
+		--	else
+		--		print("null ability")
+		--	end
+		--end
 	end
 
 	if not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
