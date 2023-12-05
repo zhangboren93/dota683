@@ -4799,7 +4799,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Venomancer.VenomousGale"
 
@@ -4849,6 +4849,7 @@
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 	"AbilityTextureName"			"venomancer_poison_sting"
 	"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	
@@ -4909,7 +4910,7 @@
 				"Damage"
 				{
 					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL"
+					"Type"		"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_HP_REMOVAL"
 					"Damage"	"%damage"
 				}
 			}
@@ -4919,7 +4920,7 @@
 				"Damage"
 				{
 					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL"
+					"Type"		"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_HP_REMOVAL"
 					"Damage"	"%damage"
 				}
 			}
@@ -5077,8 +5078,10 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"			"venomancer_poison_nova"
 		"MaxLevel"              "3"
@@ -5174,7 +5177,8 @@
 					"Center"	"CASTER"
 					"Radius"	"%radius"
 					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+					"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				}
 	
 				"Action"
@@ -5182,7 +5186,11 @@
 					"ApplyModifier"
 					{
 						"ModifierName"		"modifier_poison_nova_debuff_datadriven"
-						"Target"			"TARGET"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+						}
 						"Duration"			"%duration"
 					}
 				}

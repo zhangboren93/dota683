@@ -42,6 +42,10 @@ function modifier_venomancer_venomous_gale_lua:IsPurgable()
 	return false
 end
 
+function modifier_venomancer_venomous_gale_lua:IsPurgeException()
+	return true
+end
+
 function modifier_venomancer_venomous_gale_lua:GetEffectName()
 	return "particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
 end
