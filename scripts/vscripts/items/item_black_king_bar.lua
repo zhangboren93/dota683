@@ -76,6 +76,7 @@ end
 function modifier_black_king_bar_immune_lua:DeclareFunctions()
     local funcs =
     {
+		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
         MODIFIER_PROPERTY_MODEL_SCALE
     }
     return funcs
@@ -95,6 +96,10 @@ end
 
 function modifier_black_king_bar_immune_lua:GetModifierModelScale()
     return 30
+end
+
+function modifier_black_king_bar_immune_lua:GetModifierMagicalResistanceBonus()
+    return 100
 end
 
 function modifier_black_king_bar_immune_lua:GetEffectName()
