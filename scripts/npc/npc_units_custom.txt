@@ -3283,10 +3283,10 @@
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"10"			// Damage range min.
-		"AttackDamageMax"			"12"		// Damage range max.
+		"AttackDamageMin"			"9"			// Damage range min.
+		"AttackDamageMax"			"11"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.4"		// Speed of attack.
+		"AttackRate"				"1.5"		// Speed of attack.
 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
 		"AttackRange"				"600"		// Range within a target can be attacked.
@@ -3307,8 +3307,8 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"20"		// Experience earn.
-		"BountyGoldMin"				"15"		// Gold earned min.
-		"BountyGoldMax"				"15"		// Gold earned max.
+		"BountyGoldMin"				"14"		// Gold earned min.
+		"BountyGoldMax"				"17"		// Gold earned max.
 
 			// Status
 		//----------------------------------------------------------------
@@ -3339,13 +3339,13 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"20"		// Damage range min.
-		"AttackDamageMax"			"22"		// Damage range max.
+		"AttackDamageMin"			"17"		// Damage range min.
+		"AttackDamageMax"			"21"		// Damage range max.
 
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"25"		// Experience earn.
-		"BountyGoldMin"				"17"		// Gold earned min.
+		"BountyGoldMin"				"14"		// Gold earned min.
 		"BountyGoldMax"				"17"		// Gold earned max.
 
 		// Status
@@ -3359,14 +3359,14 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"31"		// Damage range min.
-		"AttackDamageMax"			"33"		// Damage range max.
+		"AttackDamageMin"			"26"		// Damage range min.
+		"AttackDamageMax"			"32"		// Damage range max.
 	
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"30"		// Experience earn.
-		"BountyGoldMin"				"19"		// Gold earned min.
-		"BountyGoldMax"				"19"		// Gold earned max.
+		"BountyGoldMin"				"14"		// Gold earned min.
+		"BountyGoldMax"				"17"		// Gold earned max.
 
 		// Status
 		//----------------------------------------------------------------
@@ -3379,14 +3379,14 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"41"		// Damage range min.
-		"AttackDamageMax"			"43"		// Damage range max.
+		"AttackDamageMin"			"34"		// Damage range min.
+		"AttackDamageMax"			"42"		// Damage range max.
 
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"35"		// Experience earn.
-		"BountyGoldMin"				"21"		// Gold earned min.
-		"BountyGoldMax"				"21"		// Gold earned max.
+		"BountyGoldMin"				"14"		// Gold earned min.
+		"BountyGoldMax"				"17"		// Gold earned max.
 
 		// Status
 		//----------------------------------------------------------------

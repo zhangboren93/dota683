@@ -5061,9 +5061,9 @@
 		{
 				"duration"				"40.0"
 				"ward_hp_tooltip"		"75 200 325 450"
-				"ward_damage_tooltip"	"11 21 32 42"
+				"ward_damage_tooltip"	"10 19 29 38"
 				"ward_hp"		"75 200 325 450"
-				"ward_damage"	"11 21 32 42"
+				"ward_damage"	"10 19 29 38"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
