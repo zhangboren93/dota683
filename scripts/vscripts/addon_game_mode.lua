@@ -34,6 +34,7 @@ function Precache( context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
 	PrecacheResource( "particle", "particles/items_fx/immunity_sphere.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/black_king_bar_avatar.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_warlock/warlock_fatal_bonds_icon.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_elder_titan/elder_titan_scepter_disarm.vpcf", context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
@@ -58,6 +59,7 @@ function Activate()
 	LinkLuaModifier( "modifier_item_ring_of_aquila_aura_lua", 	"items/modifier_item_ring_of_aquila_aura.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_ring_of_aquila_aura_active_lua",	"items/modifier_item_ring_of_aquila_aura_active.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_crimson_guard_effect", "modifiers/crimson_guard_effect.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_black_king_bar_immune_lua", "items/item_black_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_fountain_aura_buff_lua", "modifiers/modifier_fountain_aura_buff.lua", LUA_MODIFIER_MOTION_NONE)
@@ -744,6 +746,12 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddNewModifier(entity, nil, "modifier_drop_backpack_items", {})
 		end
 
+		-- remove useless abilities
+		entity:RemoveAbility("ability_pluck_famango")	-- 摘莲花
+		entity:RemoveAbility("ability_lamp_use")		-- 占领观察者
+		entity:RemoveAbility("ability_capture")			-- 占领前哨
+		entity:RemoveAbility("twin_gate_portal_warp")	-- 双生门传送
+
 		-- thinkers
 		entity:SetThink(function()
 			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
@@ -851,6 +859,16 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		if innate_ability ~= nil then
 			entity:FindAbilityByName(innate_ability):SetLevel(1)
 		end
+
+		-- debug abilities' name
+		--for i = 0, 34 do
+		--	local ability = entity:GetAbilityByIndex(i)
+		--	if ability ~= nil then
+		--		print(ability:GetAbilityName())
+		--	else
+		--		print("null ability")
+		--	end
+		--end
 	end
 
 	if not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then

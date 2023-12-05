@@ -5,7 +5,7 @@
 	Additional parameters: keys.MaxLevel, keys.PercentageOverModelScale, and keys.Duration
 ================================================================================================================= ]]
 function item_black_king_bar_datadriven_on_spell_start(keys)
-	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_item_black_king_bar_datadriven_active", nil)
+	keys.caster:AddNewModifier(keys.caster, keys.ability, "modifier_black_king_bar_immune_lua", {duration = keys.Duration})
 	keys.caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
 	
 	local RemovePositiveBuffs = true
@@ -59,4 +59,53 @@ function modifier_item_black_king_bar_datadriven_on_created(keys)
 	if keys.caster.BKBLevel ~= nil and keys.caster.BKBLevel ~= keys.ability:GetLevel() then
 		keys.ability:SetLevel(keys.caster.BKBLevel)
 	end
+end
+
+if modifier_black_king_bar_immune_lua == nil then
+    modifier_black_king_bar_immune_lua = class({})
+end
+
+function modifier_black_king_bar_immune_lua:OnCreated(kv)
+    self.kv = kv
+end
+
+function modifier_black_king_bar_immune_lua:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_black_king_bar_immune_lua:DeclareFunctions()
+    local funcs =
+    {
+		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+        MODIFIER_PROPERTY_MODEL_SCALE
+    }
+    return funcs
+end
+
+function modifier_black_king_bar_immune_lua:CheckState()
+	local state = 
+    {
+	    [MODIFIER_STATE_MAGIC_IMMUNE] = true,
+	}
+	return state
+end
+
+function modifier_black_king_bar_immune_lua:IsBuff()
+    return true
+end
+
+function modifier_black_king_bar_immune_lua:GetModifierModelScale()
+    return 30
+end
+
+function modifier_black_king_bar_immune_lua:GetModifierMagicalResistanceBonus()
+    return 100
+end
+
+function modifier_black_king_bar_immune_lua:GetEffectName()
+	return "particles/items_fx/black_king_bar_avatar.vpcf"
+end
+
+function modifier_black_king_bar_immune_lua:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
 end

@@ -4573,19 +4573,6 @@
 					}
 				}
 			}
-			"modifier_item_black_king_bar_datadriven_active"
-			{
-				"Duration"              	"%duration"
-				"Passive"					"0"
-				"IsHidden"					"0"
-				"EffectName"            	"particles/items_fx/black_king_bar_avatar.vpcf"
-				"EffectAttachType"      	"PATTACH_ABSORIGIN"
-				
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE" 			"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 		}
 	}
 	//=================================================================================================================
