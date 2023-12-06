@@ -138,7 +138,8 @@ function OnTeamBountyBuildingDestroyed(event) {
 			newChildPanel.AddClass("combat_event_friendly");
 			newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 		}
-		$.Schedule(10, function () {newChildPanel.DeleteAsync(0);});
+		let validUntil = Game.GetGameTime() + 10;
+		newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
 	}
 }
 
@@ -156,7 +157,8 @@ function OnBuyback(event) {
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
 	}
-	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
+	let validUntil = Game.GetGameTime() + 10;
+	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
 }
 
 function OnRoshanKilled(event) {
@@ -176,7 +178,8 @@ function OnRoshanKilled(event) {
 		newChildPanel.AddClass("combat_event_friendly");
 		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
-	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
+	let validUntil = Game.GetGameTime() + 10;
+	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
 }
 
 function OnAegisPickedUp(event) {
@@ -194,7 +197,8 @@ function OnAegisPickedUp(event) {
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
 	}
-	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
+	let validUntil = Game.GetGameTime() + 10;
+	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
 }
 
 function OnCourierKilled(event) {
@@ -224,20 +228,48 @@ function OnCourierKilled(event) {
 		newChildPanel.AddClass("combat_event_friendly");
 		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
-	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
+	let validUntil = Game.GetGameTime() + 10;
+	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
 }
 
 function combatEventCommon(parentPanel, newChildPanel, event) {
 	if (parentPanel.GetChildCount() > 1) {
 		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
 	}
+	let icon = newChildPanel.FindChildTraverse("killer_icon");
 	if (Players.GetTeam(event.vpid) == Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
-		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
+		if (icon) {
+			icon.AddClass("EnemyKillIcon");
+		}
 	} else {
 		newChildPanel.AddClass("combat_event_friendly");
-		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
+		if (icon) {
+			icon.AddClass("AllyKillIcon");
+		}
 	}
-	$.Schedule(10, function() { newChildPanel.DeleteAsync(0); });
+	let validUntil = Game.GetGameTime() + 10;
+	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
 }
 
+function cleanCombatEventsRegularly() {
+	cleanCombatEventsRegularlyInternal();
+	$.Schedule(1, function() {
+		cleanCombatEventsRegularly();
+	});
+}
+
+function cleanCombatEventsRegularlyInternal() {
+	let parentPanel = $.GetContextPanel();
+	let children = $.GetContextPanel().Children();
+	for (let i = 0; i < children.length; i++) {
+		let validUntil = children[i].GetAttributeInt("ValidUntil", 0)
+		if (validUntil < Game.GetGameTime()) {
+			children[i].DeleteAsync(0);
+		}
+	}
+}
+
+(function() {
+	cleanCombatEventsRegularly();
+})();
