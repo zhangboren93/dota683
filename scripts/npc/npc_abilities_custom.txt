@@ -15013,7 +15013,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"AbilitySound"					"Hero_AbyssalUnderlord.PitOfMalice"
 
 		"AbilityCastRange"				"750"
@@ -15036,9 +15036,10 @@
 		"AbilityValues"
 		{
 			"radius"				"275"
-			"pit_duration"					"7.0"
-			"pit_interval"					"3.6"
-			"ensnare_duration"		"1 1.5 2 2.5"
+			"pit_duration"			"7.0"
+			"pit_interval"			"1000"
+			"ensnare_duration"		"0"
+			"ensnare_duration_tooltip"		"1 1.5 2 2.5"
 			"speed_bonus"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"

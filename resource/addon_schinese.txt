@@ -335,7 +335,17 @@
 		"DOTA_Tooltip_ability_abaddon_borrowed_time_redirect_range_scepter"			""
 		"DOTA_Tooltip_ability_abaddon_borrowed_time_ally_threshold_scepter"			""
 		// Underlord
-		"DOTA_Tooltip_Ability_abyssal_underlord_firestorm_Lore"					"持续伤害5/10/15/20"
+		"DOTA_Tooltip_Ability_abyssal_underlord_firestorm_Lore"							"持续伤害5/10/15/20"
+		"DOTA_Tooltip_ability_abyssal_underlord_pit_of_malice_Description"				"在目标区域制造致命的深渊；踏入深渊的敌方单位将被缠绕。"
+		"DOTA_Tooltip_ability_abyssal_underlord_pit_of_malice_Lore"						"扭曲成现实本身的接缝，维洛格罗斯昭然的仇恨让蔑视他意志的人动弹不得。"
+		"DOTA_Tooltip_ability_abyssal_underlord_pit_of_malice_radius"					"作用范围："
+		"DOTA_Tooltip_ability_abyssal_underlord_pit_of_malice_pit_duration"				"深渊持续时间："
+		"DOTA_Tooltip_ability_abyssal_underlord_pit_of_malice_speed_bonus"				""
+		"DOTA_Tooltip_ability_abyssal_underlord_pit_of_malice_pit_interval"				""
+		"DOTA_Tooltip_ability_abyssal_underlord_pit_of_malice_ensnare_duration"			""
+		"DOTA_Tooltip_ability_abyssal_underlord_pit_of_malice_ensnare_duration_tooltip"	"控制持续时间："
+		"DOTA_Tooltip_modifier_abyssal_underlord_pit_of_malice_ensare_lua"				"怨念深渊"
+		"DOTA_Tooltip_modifier_abyssal_underlord_pit_of_malice_ensare_lua_Description"	"被怨念深渊束缚，无法移动。"
 		// Alchemist
 		"DOTA_Tooltip_ability_alchemist_acid_spray_datadriven"						"酸性喷雾"
 		"DOTA_Tooltip_ability_alchemist_acid_spray_datadriven_Description"			"向目标区域喷洒高压酸雾。穿过受污染地带的敌人每秒会受到物理伤害，同时护甲被削弱。"

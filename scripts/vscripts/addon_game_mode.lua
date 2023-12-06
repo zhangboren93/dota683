@@ -37,6 +37,7 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/items_fx/black_king_bar_avatar.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_warlock/warlock_fatal_bonds_icon.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_elder_titan/elder_titan_scepter_disarm.vpcf", context )
+	PrecacheResource( "particle", "particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf", context)
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/custom_sounds.vsndevts", context)
@@ -108,6 +109,8 @@ function Activate()
 	LinkLuaModifier( "modifier_reset_visual_z", 				"heroes/hero_tiny/modifier_reset_visual_z.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_venomancer_venomous_gale_lua", 	"heroes/hero_venomancer/modifier_venomancer_venomous_gale.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_luna_moon_glaive_lua", 			"heroes/hero_luna/modifier_luna_moon_glaive.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_abyssal_underlord_pit_of_malice_thinker_lua",	"heroes/hero_abyssal_underlord/modifier_abyssal_underlord_pit_of_malice_thinker.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_abyssal_underlord_pit_of_malice_ensare_lua",		"heroes/hero_abyssal_underlord/modifier_abyssal_underlord_pit_of_malice_ensare.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1267,10 +1270,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local burn_datadriven = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		burn_datadriven:ApplyDataDrivenModifier(caster, parent, "modifier_underlord_firestorm_burn_active_datadriven", {})
-	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		ApplyDamage({ victim = parent, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL })
 	elseif event.name_const == "modifier_earth_spirit_boulder_smash_debuff" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
@@ -1357,8 +1356,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		return false
 	elseif event.name_const == "modifier_lich_frostnova_slow" then 
 		local modifier = parent:FindModifierByName("modifier_lich_chainfrost_slow")
-		if (modifier ~= nil) then
-			if(modifier:GetDuration() < 4.0) then
+		if modifier ~= nil then
+			if modifier:GetDuration() < 4.0 then
 				modifier:SetDuration(4.0, true)
 			end
 			return false
@@ -1502,6 +1501,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_venomancer_venomous_gale_lua", { duration = ability:GetSpecialValueFor("duration") })
 		return false
+	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_thinker" then 
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_abyssal_underlord_pit_of_malice_thinker_lua", {})
+		parent:AddNewModifier(caster, ability, "modifier_kill", { duration = ability:GetSpecialValueFor("pit_duration") })
+		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
@@ -1519,6 +1524,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis_thinker" then return false
 	elseif event.name_const == "modifier_legion_commander_press_the_attack" then return false
+	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then return false
 	end
 	if root_modifiers[event.name_const] then
 		if parent:IsChanneling() then
