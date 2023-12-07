@@ -441,31 +441,6 @@
 					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_insatiable_hunger_damage_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_broodmother/insatiable_hunger.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
-			"modifier_insatiable_hunger_damage_datadriven"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"IsDebuff"	"0"
-				"Duration"	"14"
-				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"10"
-				}
-			}
 			"modifier_torrent_damage_datadriven"
 			{
 				"IsHidden"		"1"

@@ -878,14 +878,22 @@
 		"DOTA_Tooltip_Ability_bounty_hunter_track_bonus_move_speed_pct_aura"		"%BONUS MOVESPEED:"
 		"DOTA_Tooltip_modifier_bounty_hunter_track_effect_lua"				"Track"
 		"DOTA_Tooltip_modifier_bounty_hunter_track_effect_lua_Description"	"Increasing move speed by 20%%."
+
 		// Broodmother
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"Spin Web"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"Spins a large web that renders Broodmother invisible, grants a passive movement speed increase, gives free movement, and boosts regeneration while in its vicinity. If damage is taken, free movement is disabled and the movement speed increase is halved for %damage_time% seconds. Spin Web can be cast from anywhere as long as the new web touches an existing web.<br> Webs never expire, and can be manually destroyed. When the maximum limit of webs is exceeded, the oldest web disappears."
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_count"			"MAX WEBS:"
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_heath_regen"		"HEALTH REGEN:"
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_bonus_movespeed"	"%MOVE INCREASE:"
-		"DOTA_Tooltip_Ability_broodmother_insatiable_hunger_Description"			"A violent lust for vital fluids increases Broodmother's attack damage and gives her a vampiric attack."
-		"DOTA_Tooltip_Ability_broodmother_insatiable_hunger_bonus_damage_tooltip"	"BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven"						"Insatiable Hunger"
+		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven_Description"			"A violent lust for vital fluids increases Broodmother's attack damage and gives her a vampiric attack."
+		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven_Lore"				"While most of her prey is wrapped in silken cocoons and saved for her young, the Broodmother herself has a taste for wandering heroes."
+		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven_bonus_damage"		"ATTACK DAMAGE BONUS:"
+		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven_lifesteal_pct"		"%LIFESTEAL:"
+		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven_duration"			"DURATION:"
+		"DOTA_Tooltip_modifier_broodmother_insatiable_hunger_datadriven"					"Insatiable Hunger"
+		"DOTA_Tooltip_modifier_broodmother_insatiable_hunger_datadriven_Description"		"Damage increased and lifestealing."
+
 		// Clinkz
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven"							"Strafe"
 		"DOTA_Tooltip_Ability_clinkz_strafe_datadriven_Description"				"Clinkz attacks with a barrage of arrows.  Dramatically increases attack speed for a short time."
