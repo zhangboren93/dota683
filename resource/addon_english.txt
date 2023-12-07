@@ -1083,6 +1083,13 @@
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage"								""	
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage_physical"						"BONUS DAMAGE"	
 		//Phantom Assassin
+		"DOTA_Tooltip_ability_phantom_assassin_stifling_dagger_datadriven"						"Stifling Dagger"
+		"DOTA_Tooltip_ability_phantom_assassin_stifling_dagger_datadriven_Description"			"Throws a dagger slowing the enemy unit's movement speed. Half damage against heroes."
+		"DOTA_Tooltip_ability_phantom_assassin_stifling_dagger_datadriven_Lore"					"The first skill learned by the Sisters of the Veil often signals an incoming hit."
+		"DOTA_Tooltip_ability_phantom_assassin_stifling_dagger_datadriven_move_slow"			"%MOVE SLOW:"
+		"DOTA_Tooltip_ability_phantom_assassin_stifling_dagger_datadriven_AbilityDuration"		"SLOW DURATION:"
+		"DOTA_Tooltip_modifier_stifling_dagger_slow_datadriven"									"Stifling Dagger"
+		"DOTA_Tooltip_modifier_stifling_dagger_slow_datadriven_Description" 					"Movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven"							"Phantom Strike"
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_Description"				"Teleports to a unit, friendly or enemy, and grants bonus attack speed while attacking if it's an enemy unit."
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_Lore"						"Mortred's silken veil is the last thing her unfortunate target sees."

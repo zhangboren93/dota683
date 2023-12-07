@@ -2609,6 +2609,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability1"		"phantom_assassin_stifling_dagger_datadriven"
 		"Ability2"		"phantom_assassin_phantom_strike_datadriven"
 		"Ability3"		"phantom_assassin_blur_datadriven"
 		"Ability4"		"generic_hidden"

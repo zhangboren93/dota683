@@ -7,6 +7,7 @@
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
 #base "heroes/luna.txt"
+#base "heroes/phantom_assassin.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"
@@ -5236,59 +5237,6 @@
 				}
 			}
 		}
-	}
-	//=================================================================================================================
-	// Ability: Phantom Assassin's Stifling Dagger
-	//=================================================================================================================
-	"phantom_assassin_stifling_dagger"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5190"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"Hero_PhantomAssassin.Dagger.Cast"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"30 25 20 15"
-
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"move_slow"					"-50"
-				"dagger_speed"			"1200"
-				"duration"			"1 2 3 4"
-				"base_damage"			"60"
-				"attack_factor"
-				{
-					"value"				"-75 -60 -45 -30"
-					"special_bonus_unique_phantom_assassin_5"	"+20"
-				}
-				"attack_factor_tooltip"	
-				{
-					"value"				"25 40 55 70"
-					"special_bonus_unique_phantom_assassin_5"	"+20"
-					"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
-				}
-
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	// Rewrite of the Phantom Assassin Phantom Strike ability
 	// Author: Pizzalol

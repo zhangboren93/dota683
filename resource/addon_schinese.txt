@@ -1093,6 +1093,13 @@
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage"								""	
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage_physical"						"额外伤害："	
 		//Phantom Assassin
+		"DOTA_Tooltip_ability_phantom_assassin_stifling_dagger_datadriven"							"窒碍短匕"
+		"DOTA_Tooltip_ability_phantom_assassin_stifling_dagger_datadriven_Description"				"对敌方单位掷出一把匕首，减缓其移动速度。对英雄伤害减半。"
+		"DOTA_Tooltip_ability_phantom_assassin_stifling_dagger_datadriven_Lore"						"魅影之纱成员学习到的第一个技能，中招就意味着下一次攻击要来了。"
+		"DOTA_Tooltip_ability_phantom_assassin_stifling_dagger_datadriven_move_slow"				"%移动速度减缓："
+		"DOTA_Tooltip_ability_phantom_assassin_stifling_dagger_datadriven_AbilityDuration"			"减速持续时间："
+		"DOTA_Tooltip_modifier_stifling_dagger_slow_datadriven"										"窒碍短匕"
+		"DOTA_Tooltip_modifier_stifling_dagger_slow_datadriven_Description" 						"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven"							"幻影突袭"
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_Description"				"闪烁到一个友方或敌方单位身边，如果是敌方单位则在攻击该目标时获得攻击速度加成。"
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_Lore"						"茉崔蒂的真丝面纱是她倒霉的目标临终所见之物。"
