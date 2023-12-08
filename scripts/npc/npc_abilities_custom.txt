@@ -31563,7 +31563,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5567"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilitySound"					"Hero_Tusk.FrozenSigil"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"              "4"
@@ -31590,8 +31590,10 @@
 		{
 				"sigil_radius"				"600"
 				"sigil_duration"			"30.0"
-				"move_slow"					"10 15 20 25"
-				"attack_slow"				"30 40 50 60"
+				"move_slow"					"0"
+				"move_slow_tooltip"			"10 15 20 25"
+				"attack_slow"				"0"
+				"attack_slow_tooltip"		"30 40 50 60"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_6"
 	}
@@ -31606,6 +31608,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityTextureName"			"tusk_frozen_sigil"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -31613,23 +31616,11 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"speed_bonus"			"-10 -15 -20 -25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_bonus_tooltip"	"0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"600"
-			}
+				"attack_speed_slow"		"-30 -40 -50 -60"
 		}
 	
 		"Modifiers"
@@ -31644,6 +31635,7 @@
 				"Aura_Radius" 		"%radius"
 				"Aura_Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
 	
 			"modifier_sigil_aura_effect"
@@ -31652,6 +31644,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%speed_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_slow"
 				}
 			}
 	

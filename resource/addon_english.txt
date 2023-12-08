@@ -793,7 +793,13 @@
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_damage_block"	"Damage Block: "
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_duration"		"Duration: "
 		// Tusk
-		"DOTA_Tooltip_Ability_tusk_frozen_sigil_Description"	"Tusk summons a Frozen Sigil by calling upon the deepest cold of winter. The Sigil creates a snowstorm which slows all enemy units within 600 range."
+		"DOTA_Tooltip_Ability_tusk_frozen_sigil_Description"				"Tusk summons a Frozen Sigil by calling upon the deepest cold of winter. The Sigil creates a snowstorm which slows all enemy units within 600 range."
+		"DOTA_Tooltip_ability_tusk_frozen_sigil_move_slow"					""
+		"DOTA_Tooltip_ability_tusk_frozen_sigil_attack_slow"				""
+		"DOTA_Tooltip_ability_tusk_frozen_sigil_move_slow_tooltip"			"%MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_tusk_frozen_sigil_attack_slow_tooltip"		"ATTACK SLOW:"
+		"DOTA_Tooltip_modifier_sigil_aura_effect"							"Ice Shards"
+		"DOTA_Tooltip_modifier_sigil_aura_effect_Description"				"Movement & attack speed slowed."
 		// IO
 		"DOTA_Tooltip_Ability_wisp_tether_slow_duration"						"SLOW DURATION:"
 		"DOTA_Tooltip_Ability_wisp_overcharge_datadriven"						"Overcharge"
