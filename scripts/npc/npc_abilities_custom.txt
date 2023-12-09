@@ -27882,7 +27882,7 @@
 			"AbilityCooldown"	"12"
 			"damage"			"80 140 200 260"
 			"width"				"125"
-			"duration"			"1 1.5 2 2.5"
+			"duration"			"1.02 1.52 2.02 2.52"
 			"length_buffer"		"275"
 			"speed"				"1800"
 		}
@@ -27917,9 +27917,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"AbilityCooldown"	"30 24 16 12"
+			"AbilityCooldown"			"30 24 18 12"
 			"duration"					"2.5 3 3.5 4"
-			"movespeed"					"120"
+			"movespeed"					"140"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -27964,7 +27964,7 @@
 		{
 				"duration"					"5.0"
 				"mana_per_second"			"20 40 60 120"
-				"break_distance"			"1100"
+				"break_distance"			"1200"
 				"tick_interval"				"0.1"
 				"movespeed"				"0"
 				"shard_bonus_break_distance"			//OBSOLETE
