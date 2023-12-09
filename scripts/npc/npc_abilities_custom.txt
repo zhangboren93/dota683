@@ -30629,6 +30629,7 @@
 					"value"				"1000"
 					"special_bonus_unique_morphling_1"	"+250"
 				}			
+				"AbilityCooldown"				"11"
 		}
 	}
 	// Rewrite of the Ogre Magi Ignite ability
