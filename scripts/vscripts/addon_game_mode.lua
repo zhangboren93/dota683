@@ -1545,7 +1545,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	local victim = EntIndexToHScript(event.entindex_victim_const)
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
-		--print("DamageFilter " .. inflictor:GetName() .. "  " .. event.damage)
 		if inflictor:GetName() == "bounty_hunter_shuriken_toss" then
 			local victim = EntIndexToHScript(event.entindex_victim_const)
 			victim:AddNewModifier(attacker, attacker:FindAbilityByName("bounty_hunter_shuriken_toss"), "modifier_stunned", {duration = 0.03})
@@ -1605,6 +1604,13 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		elseif inflictor:GetName() == "axe_battle_hunger" then
 			-- apply magic damage instead of physical
 			event.damage = inflictor:GetSpecialValueFor("damage_per_second") * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
+		end
+		if victim:GetName() == "npc_dota_creep_siege" then
+			if inflictor:GetName() ~= "dragon_knight_breathe_fire_datadriven" 
+				and inflictor:GetName() ~= "keeper_of_the_light_illuminate"
+				and inflictor:GetName() ~= "keeper_of_the_light_spirit_form_illuminate" then
+				event.damage = 0
+			end
 		end
     else
 		--print(victim:GetName())

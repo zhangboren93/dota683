@@ -1691,32 +1691,32 @@
 	}
 	"npc_dota_goodguys_siege"
 	{
-		"MagicalResistance"			"100"		// Magical protection.
+		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_goodguys_siege_upgraded"
 	{
-		"MagicalResistance"			"100"		// Magical protection.
+		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_goodguys_siege_upgraded_mega"
 	{
-		"MagicalResistance"			"100"		// Magical protection.
+		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_badguys_siege"
 	{
-		"MagicalResistance"			"100"		// Magical protection.
+		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_badguys_siege_upgraded"
 	{
-		"MagicalResistance"			"100"		// Magical protection.
+		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_badguys_siege_upgraded_mega"
 	{
-		"MagicalResistance"			"100"		// Magical protection.
+		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_lone_druid_bear1"
