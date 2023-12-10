@@ -1237,8 +1237,34 @@ function CAddonTemplateGameMode:HealingFilter(event)
 	end
 	local ability = EntIndexToHScript(event.entindex_inflictor_const)
 	local target = EntIndexToHScript(event.entindex_target_const)
+	local caster = EntIndexToHScript(event.entindex_healer_const)
 	if ability:GetName() == "keeper_of_the_light_spirit_form_illuminate" and not GameRules:IsDaytime() then
 		return false
+	elseif ability:GetName() == "undying_soul_rip" and target:GetName() == "npc_dota_unit_undying_tombstone" then
+		local damage_per_unit = ability:GetSpecialValueFor("damage_per_unit")
+		local max_units = ability:GetSpecialValueFor("max_units")
+		local radius = ability:GetSpecialValueFor("radius")
+		local units = FindUnitsInRadius(
+			caster:GetTeam(),
+			caster:GetAbsOrigin(), 
+			nil,
+			radius, 
+			DOTA_UNIT_TARGET_TEAM_BOTH,
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			FIND_ANY_ORDER,
+			false)
+		local filtered_units = {}
+		for i=1,#units do
+			if units[i] ~= caster and units[i] ~= target then
+				table.insert(filtered_units, units[i])
+			end
+		end
+		local damage_count = #filtered_units
+		if damage_count > max_units then
+			damage_count = max_units
+		end
+		event.heal = damage_count * damage_per_unit
 	elseif ability:GetName() == "shadow_shaman_shackles" then return false
 	elseif ability:GetName() == "pudge_dismember" and not target:HasScepter() then return false
 	end
