@@ -1611,7 +1611,7 @@
 		//----------------------------------------------------------------
 		"VisionDaytimeRange"		"900"		// Range of vision during day light.
 		"VisionNighttimeRange"		"600"		// Range of vision at night time.
-	}	
+	}
 	"npc_dota_techies_remote_mine"
 	{
 		// General
@@ -4639,7 +4639,7 @@
 		"Model"						"models/heroes/beastmaster/beastmaster_bird.vmdl"	// Model.
 		"BaseClass"					"npc_dota_beastmaster_hawk"
 		"SoundSet"					"0"			// Name of sound set.
-		"Level"						"1"
+		"Level"						"6"
 		"ModelScale"				"1.2"
 		"IsSummoned"				"1"
 		"UnitLabel"					"hawk"
@@ -4648,13 +4648,13 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"beastmaster_hawk_invisibility_datadriven"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"creep_weak"			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"0"			// Physical protection.
+		"ArmorPhysical"				"5"			// Physical protection.
 
 		// Attack
 		//----------------------------------------------------------------
