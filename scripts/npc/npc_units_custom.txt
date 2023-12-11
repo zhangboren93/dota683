@@ -1707,31 +1707,37 @@
 	}
 	"npc_dota_goodguys_siege"
 	{
+		"Ability2"					"creep_siege_extra"			// Ability 2.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_goodguys_siege_upgraded"
 	{
+		"Ability2"					"creep_siege_extra"			// Ability 2.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_goodguys_siege_upgraded_mega"
 	{
+		"Ability2"					"creep_siege_extra"			// Ability 2.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_badguys_siege"
 	{
+		"Ability2"					"creep_siege_extra"			// Ability 2.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_badguys_siege_upgraded"
 	{
+		"Ability2"					"creep_siege_extra"			// Ability 2.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_badguys_siege_upgraded_mega"
 	{
+		"Ability2"					"creep_siege_extra"			// Ability 2.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
