@@ -576,4 +576,17 @@
 					}
 				}
 			}
+			"modifier_treant_overgrowth_damage_datadriven"
+			{
+				"IsHidden"		"1"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_treant/overgrowth.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
 		}}}

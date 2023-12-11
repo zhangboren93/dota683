@@ -1533,6 +1533,18 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		parent:AddNewModifier(caster, ability, "modifier_abyssal_underlord_pit_of_malice_thinker_lua", {})
 		parent:AddNewModifier(caster, ability, "modifier_kill", { duration = ability:GetSpecialValueFor("pit_duration") })
 		return false
+	elseif event.name_const == "modifier_treant_overgrowth" then
+		-- if target is in range of tree eyes, then apply damage modifier
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local eyes_in_the_forest = caster:FindAbilityByName("treant_eyes_in_the_forest")
+		local overgrowth_aoe = eyes_in_the_forest:GetSpecialValueFor("overgrowth_aoe")
+		local trees = Entities:FindAllByNameWithin("npc_dota_treant_eyes", parent:GetAbsOrigin(), overgrowth_aoe)
+		if #trees > 0 then
+			local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+			local duration = ability:GetSpecialValueFor("duration")
+			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_treant_overgrowth_damage_datadriven", { duration = duration });
+		end
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
