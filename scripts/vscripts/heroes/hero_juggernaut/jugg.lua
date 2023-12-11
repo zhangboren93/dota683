@@ -157,9 +157,18 @@ function juggernaut_blade_fury_datadriven:OnSpellStart()
 end
 modifier_juggernaut_blade_fury_datadriven = class({})
 function modifier_juggernaut_blade_fury_datadriven:IsPurgable() return false end
-function modifier_juggernaut_blade_fury_datadriven:DeclareFunctions() return {MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE, MODIFIER_PROPERTY_OVERRIDE_ANIMATION} end
+function modifier_juggernaut_blade_fury_datadriven:DeclareFunctions()
+    return {MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE, MODIFIER_PROPERTY_OVERRIDE_ANIMATION, MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS}
+end
 function modifier_juggernaut_blade_fury_datadriven:CheckState() return {[MODIFIER_STATE_MAGIC_IMMUNE] = true, [MODIFIER_STATE_SILENCED] = true} end
-function modifier_juggernaut_blade_fury_datadriven:GetModifierDamageOutgoing_Percentage(keys) if keys.target and not keys.target:IsMagicImmune() and not keys.target:IsBuilding() then return -100 end end
+function modifier_juggernaut_blade_fury_datadriven:GetModifierDamageOutgoing_Percentage(keys)
+    if keys.target and not keys.target:IsMagicImmune() and not keys.target.HasAbility("creep_siege") then
+        return -100
+    end
+end
+function modifier_juggernaut_blade_fury_datadriven:GetModifierMagicalResistanceBonus()
+    return 100
+end
 function modifier_juggernaut_blade_fury_datadriven:OnCreated()
     self.original_caster = self:GetCaster()
     self.radius = self:GetAbility():GetSpecialValueFor("blade_fury_radius")
