@@ -8573,6 +8573,11 @@
 						"Type"			"DAMAGE_TYPE_PURE"
 						"Damage"		"%damage"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_doom_bringer/doom.lua"
+						"Function"		"handleIntervalThink"
+					}
 				}
 	
 				"States"

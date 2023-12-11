@@ -58,3 +58,25 @@ function StopSound( keys )
 
 	StopSoundEvent(sound, target)
 end
+
+function handleIntervalThink(event)
+	local caster = event.caster
+	local target = event.target
+	if caster:HasScepter() then
+		-- if target is within caster's range, increase modifier's duration by 1s
+		if (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D() <= 900 then
+			local modifier = target:FindModifierByName("modifier_doom_datadriven")
+			if modifier ~= nil then
+				modifier:SetDuration(modifier:GetRemainingTime() + 1, true)
+			end
+			modifier = target:FindModifierByName("modifier_doom_deny_check_datadriven")
+			if modifier ~= nil then
+				modifier:SetDuration(modifier:GetRemainingTime() + 1, true)
+			end
+			modifier = target:FindModifierByName("modifier_doom_apply_break_active")
+			if modifier ~= nil then
+				modifier:SetDuration(modifier:GetRemainingTime() + 1, true)
+			end
+		end
+	end
+end
