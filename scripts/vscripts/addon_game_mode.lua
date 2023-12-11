@@ -882,8 +882,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:HasAbility("creep_siege_extra") then
 		entity:FindAbilityByName("creep_siege_extra"):SetLevel(1)
 	end
-	if entity:HasAbility("creep_piercing") then
-		entity:AddAbility("creep_piercing_extra"):SetLevel(1)
+	if entity:HasAbility("creep_piercing_extra") then
+		entity:FindAbilityByName("creep_piercing_extra"):SetLevel(1)
 	end
 	if entity:HasAbility("creep_weak") then
 		entity:FindAbilityByName("creep_weak"):SetLevel(1)

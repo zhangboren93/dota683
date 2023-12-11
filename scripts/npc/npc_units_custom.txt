@@ -656,6 +656,7 @@
 	"npc_dota_creep_badguys_ranged"
 	{
 		"Level"						"2"
+		"Ability2"					"creep_piercing_extra"	// Ability 2.
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"44"		// Gold earned min.
 		"BountyGoldMax"				"52"		// Gold earned max.
@@ -663,9 +664,18 @@
 	"npc_dota_creep_goodguys_ranged"
 	{
 		"Level"						"2"
+		"Ability2"					"creep_piercing_extra"	// Ability 2.
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"44"		// Gold earned min.
 		"BountyGoldMax"				"52"		// Gold earned max.
+	}
+	"npc_dota_creep_badguys_ranged_upgraded"
+	{
+		"Ability2"					"creep_piercing_extra"	// Ability 2.
+	}
+	"npc_dota_creep_goodguys_ranged_upgraded"
+	{
+		"Ability2"					"creep_piercing_extra"	// Ability 2.
 	}
 	"npc_dota_courier"
 	{
@@ -1695,12 +1705,14 @@
 	}
 	"npc_dota_creep_goodguys_ranged_upgraded_mega"
 	{
+		"Ability2"					"creep_piercing_extra"	// Ability 2.
 		"AttackDamageMin"			"131"		// Damage range min.
 		"AttackDamageMax"			"136"		// Damage range max.
 		"StatusHealth"				"1015"		// Base health.
 	}
 	"npc_dota_creep_badguys_ranged_upgraded_mega"
 	{
+		"Ability2"					"creep_piercing_extra"	// Ability 2.
 		"AttackDamageMin"			"131"		// Damage range min.
 		"AttackDamageMax"			"136"		// Damage range max.
 		"StatusHealth"				"1015"		// Base health.
