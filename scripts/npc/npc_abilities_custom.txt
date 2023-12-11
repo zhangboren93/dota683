@@ -35474,4 +35474,58 @@
 			}
 		}
 	}
+	"creep_siege"
+	{
+		"AbilityValues"
+		{
+			"incoming_basic_damage_penalty"		"-30"
+			"incoming_controlled_unit_penalty"	"-30"
+		}
+	}
+	"creep_siege_extra"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"creep_siege"
+		"AbilityValues"
+		{
+			"hero_damage_penalty"		"-25"
+		}
+		"Modifiers"
+		{
+			"modifier_creep_siege_extra"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/attack_types.lua"
+						"Function"		"handleSiegeExtra"
+					}
+				}
+			}
+		}
+	}
+	"creep_piercing_extra"
+	{
+		"BaseClass"						"ability_lua"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN" 
+		"AbilityTextureName"			"creep_piercing"
+		"ScriptFile"					"units/attack_types.lua"
+	}
+	"creep_weak"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"dawnbreaker_luminosity"
+		"AbilityValues"
+		{
+			"pierce_damage"				"200"
+		}
+	}
 }

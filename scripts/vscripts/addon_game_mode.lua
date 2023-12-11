@@ -120,6 +120,10 @@ function Activate()
 	LinkLuaModifier( "modifier_toss_flying_lua", 				"heroes/hero_tiny/modifier_toss_flying.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_elder_titan_echo_stomp_lua", 	"heroes/hero_elder_titan/modifier_elder_titan_echo_stomp.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_flamebreak_knockback_lua", 		"heroes/hero_batrider/modifier_flamebreak_knockback.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+
+	-- attack type & armor type
+	LinkLuaModifier( "modifier_creep_siege_extra_effect",		"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_piercing_extra",				"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -875,6 +879,16 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		--end
 	end
 
+	if entity:HasAbility("creep_siege") then
+		entity:AddAbility("creep_siege_extra"):SetLevel(1)
+	end
+	if entity:HasAbility("creep_piercing") then
+		entity:AddAbility("creep_piercing_extra"):SetLevel(1)
+	end
+	if entity:HasAbility("creep_weak") then
+		entity:FindAbilityByName("creep_weak"):SetLevel(1)
+	end
+	
 	if not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
 		entity:AddAbility("unit_intrinstic_mechanism_datadriven"):SetLevel(1)
 	end
