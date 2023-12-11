@@ -1091,7 +1091,14 @@
 		"DOTA_Tooltip_ability_morphling_replicate_datadriven_tooltip_cast_range"	"施法距离："
 		"DOTA_Tooltip_Ability_morphling_morph_replicate_datadriven"					"替换复制品"
 		"DOTA_Tooltip_Ability_morphling_morph_replicate_datadriven_Description"		"变体精灵替换它的复制品，瞬间移动到它的位置。"
+
 		// Naga Siren
+		"DOTA_Tooltip_ability_naga_siren_ensnare_datadriven"					"诱捕"
+		"DOTA_Tooltip_ability_naga_siren_ensnare_datadriven_Description"		"打断目标的动作并困住目标，使之无法移动或闪烁。"
+		"DOTA_Tooltip_ability_naga_siren_ensnare_datadriven_Lore"				"想要逃脱鱼人的追杀，唯一的办法就是一开始就不要与之作对。"
+		"DOTA_Tooltip_ability_naga_siren_ensnare_datadriven_duration"			"持续时间："
+		"DOTA_Tooltip_modifier_ensnare_datadriven"								"诱捕"
+		"DOTA_Tooltip_modifier_ensnare_datadriven_Description"					"被困在原地，不能移动或闪烁。"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven"					"激流"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_Description"		"娜迦海妖和她的镜像用具有破坏力的水波攻击周围所有敌方单位，并削弱他们的护甲，持续8秒。"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_Note0"				"娜迦海妖的幻象也会施放激流，但是同时处于多个作用范围的敌人只会受到一次伤害效果。"
@@ -1099,6 +1106,7 @@
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_armor_duration"	"持续时间："
 		"DOTA_Tooltip_modifier_rip_tide_datadriven"								"激流"
 		"DOTA_Tooltip_modifier_rip_tide_datadriven_Description"					"护甲降低%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%。"
+
 		//Nyx
 		"DOTA_Tooltip_ability_nyx_assassin_impale_Description"									"岩石尖刺在地上沿一条直线穿刺而出。敌方单位被抛向空中，落地时受到伤害和眩晕。"
 		"DOTA_Tooltip_ability_nyx_assassin_impale_impale_damage"								""

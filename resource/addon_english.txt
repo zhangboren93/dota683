@@ -1078,7 +1078,14 @@
 		"DOTA_Tooltip_Ability_morphling_replicate_datadriven_tooltip_cast_range"	"CAST RANGE:"
 		"DOTA_Tooltip_Ability_morphling_morph_replicate_datadriven"				"Morph replicate"
 		"DOTA_Tooltip_Ability_morphling_morph_replicate_datadriven_Description"	"Morphling switches into his replication, instantly taking its position."
+
 		// Naga Siren
+		"DOTA_Tooltip_ability_naga_siren_ensnare_datadriven"					"Ensnare"
+		"DOTA_Tooltip_ability_naga_siren_ensnare_datadriven_Description"		"Interrupts the target and traps them in place, preventing movement or blinking."
+		"DOTA_Tooltip_ability_naga_siren_ensnare_datadriven_Lore"				"The only way to escape the onslaught of a Slithereen is to never oppose one in the first place."
+		"DOTA_Tooltip_ability_naga_siren_ensnare_datadriven_duration"			"DURATION:"
+		"DOTA_Tooltip_modifier_ensnare_datadriven"								"Ensnare"
+		"DOTA_Tooltip_modifier_ensnare_datadriven_Description"					"Trapped in place, cannot move or blink."
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven"					"Rip tide"
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_Description"		"The Naga Siren and her images hit all nearby units with a damaging wave of water that lowers armor for 8 seconds."
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_Note0"				"Naga's illusions will also cast Rip Tide, but enemies in multiple areas of effect will only be hit once."
@@ -1086,6 +1093,7 @@
 		"DOTA_Tooltip_Ability_naga_siren_rip_tide_datadriven_armor_duration"	"DURATION:"
 		"DOTA_Tooltip_modifier_rip_tide_datadriven"								"Rip Tide"
 		"DOTA_Tooltip_modifier_rip_tide_datadriven_Description"					"Armor lowered by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
+		
 		//Nyx
 		"DOTA_Tooltip_ability_nyx_assassin_impale_Description"									"Rock spikes burst from the earth along a straight path. Enemy units are hurled into the air, take damage and stunned."
 		"DOTA_Tooltip_ability_nyx_assassin_impale_impale_damage"								""

@@ -3,7 +3,7 @@ root_modifiers["modifier_crystal_maiden_frostbite"] = true
 root_modifiers["modifier_ember_spirit_searing_chains"] = true
 root_modifiers["modifier_dark_troll_warlord_ensnare"] = true
 root_modifiers["modifier_meepo_earthbind"] = true
-root_modifiers["modifier_naga_siren_ensnare"] = true
+root_modifiers["modifier_ensnare_datadriven"] = true
 root_modifiers["modifier_oracle_fortunes_end_purge"] = true
 root_modifiers["modifier_lone_druid_spirit_bear_entangle_effect"] = true
 root_modifiers["modifier_treant_overgrowth"] = true
@@ -19,4 +19,3 @@ disarm_modifiers["modifier_item_heavens_halberd_datadriven_disarm"] = true
 disarm_modifiers["modifier_oracle_fates_edict"] = true
 disarm_modifiers["modifier_oracle_fates_edict_alter"] = true
 disarm_modifiers["modifier_elder_titan_earth_splitter_disarm"] = true
-
