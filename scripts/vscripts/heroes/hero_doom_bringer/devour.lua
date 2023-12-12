@@ -20,6 +20,20 @@ local devour_table = {
 	"npc_dota_neutral_forest_troll_high_priest"	
 }
 
+function CheckDevourable(ability_name)
+{
+	return ability_name ~= "neutral_upgrade"
+		and ability_name ~= "creep_siege_extra"
+		and ability_name ~= "creep_piercing"
+		and ability_name ~= "creep_piercing_extra"
+		and ability_name ~= "creep_irresolute"
+		and ability_name ~= "creep_irresolute_extra"
+		and ability_name ~= "creep_weak"
+		and ability_name ~= "creep_basic"
+		and ability_name ~= "creep_strong"
+		and ability_name ~= "generic_hidden"
+}
+
 function Devour( keys )
 	local caster = keys.caster
 	local target = keys.target
@@ -59,7 +73,7 @@ function Devour( keys )
 			end
 
 			-- Checks if the ability actually exist on the target
-			if ability1 then
+			if ability1 and CheckDevourable(ability1:GetAbilityName()) then
 				-- Get the name and add it to the caster
 				local ability1_name = ability1:GetAbilityName()
 				caster:AddAbility(ability1_name)
@@ -71,9 +85,7 @@ function Devour( keys )
 			end
 
 			-- Checks if the ability actually exist on the target
-			if ability2 and ability2:GetName() ~= "neutral_upgrade" 
-						and ability2:GetName() ~= "creep_piercing" 
-						and ability2:GetName() ~= "generic_hidden" then
+			if ability2 and CheckDevourable(ability2:GetAbilityName()) then
 				-- Get the name and add it to the caster
 				local ability2_name = ability2:GetAbilityName()
 				caster:AddAbility(ability2_name)

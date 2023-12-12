@@ -94,7 +94,7 @@
 	"npc_dota_neutral_mud_golem"
 	{
 		"Ability1"					"neutral_spell_immunity"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"creep_strong"			// Ability 2
 		"MagicalResistance"			"100"		// Magical protection.  
 		"ArmorPhysical"				"2"			// Physical protection.
 		"BountyXP"					"88"		// Experience earn.
@@ -643,12 +643,14 @@
 	}
 	"npc_dota_creep_badguys_melee"
 	{
+		"Ability2"					"creep_irresolute_extra"			// Ability 2
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"39"		// Gold earned min.
 		"BountyGoldMax"				"47"		// Gold earned max.
 	}
 	"npc_dota_creep_goodguys_melee"
 	{
+		"Ability2"					"creep_irresolute_extra"			// Ability 2
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"39"		// Gold earned min.
 		"BountyGoldMax"				"47"		// Gold earned max.
@@ -668,6 +670,14 @@
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"44"		// Gold earned min.
 		"BountyGoldMax"				"52"		// Gold earned max.
+	}
+	"npc_dota_creep_badguys_melee_upgraded"
+	{
+		"Ability2"					"creep_irresolute_extra"	// Ability 2.
+	}
+	"npc_dota_creep_goodguys_melee_upgraded"
+	{
+		"Ability2"					"creep_irresolute_extra"	// Ability 2.
 	}
 	"npc_dota_creep_badguys_ranged_upgraded"
 	{
@@ -1693,12 +1703,14 @@
 	}
 	"npc_dota_creep_goodguys_melee_upgraded_mega"
 	{
+		"Ability2"					"creep_irresolute_extra"			// Ability 2
 		"AttackDamageMin"			"96"		// Damage range min.
 		"AttackDamageMax"			"104"		// Damage range max.
 		"StatusHealth"				"1270"		// Base health.
 	}
 	"npc_dota_creep_badguys_melee_upgraded_mega"
 	{
+		"Ability2"					"creep_irresolute_extra"			// Ability 2
 		"AttackDamageMin"			"96"		// Damage range min.
 		"AttackDamageMax"			"104"		// Damage range max.
 		"StatusHealth"				"1270"		// Base health.
@@ -2694,7 +2706,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"beastmaster_boar_poison_datadriven"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"creep_basic"			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 

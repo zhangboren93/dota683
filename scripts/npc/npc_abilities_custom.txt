@@ -1339,7 +1339,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -1370,7 +1369,8 @@
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"AbilityCastRange"					"1000"
-			"AbilityCharges"					"0"		
+			"AbilityCharges"					"0"
+			"AbilityCooldown"				"60"
 		}
 	}
     "crystal_maiden_freezing_field"
@@ -2435,9 +2435,9 @@
 				"ball_lightning_initial_mana_base"				"15"		
 				"ball_lightning_move_speed"			"1250 1875 2500"		
 				"ball_lightning_aoe"				"125 200 275"		
-				"ball_lightning_travel_cost_base"	"10"		
-				"ball_lightning_travel_cost_percent"	"1"		
-				"ball_lightning_vision_radius"			"400"		
+				"ball_lightning_travel_cost_base"	"12"	
+				"ball_lightning_travel_cost_percent"	"0.7"
+				"ball_lightning_vision_radius"			"1000"		
 				"blocker_duration"			"5"		
 				"scepter_remnant_interval"			"300"		
 		}
@@ -28678,10 +28678,10 @@
 	"ogre_magi_fireblast"
 	{
 		"AbilityCastRange"				"600"
-		"AbilityCooldown"				"12"
 		"AbilityManaCost"				"75 85 95 105"
 		"AbilityValues"
 		{
+				"AbilityCooldown"				"12"
 				"stun_duration"		"1.5"
 				"multicast_delay"	"0.4"
 				"fireblast_damage"		"55 110 165 220"
@@ -31113,6 +31113,10 @@
 				"Duration"		"%duration"
 				"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
+				}
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -31193,6 +31197,10 @@
 				"Duration"		"%duration"
 				"EffectName"		"particles/units/heroes/hero_omniknight/omniknight_repel_buff.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
+				}
 				"States"
 				{
 					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -35442,7 +35450,9 @@
 		"AbilityTextureName"			"creep_siege"
 		"AbilityValues"
 		{
-			"hero_damage_penalty"		"-25"
+			"hero_damage_penalty"			"-25"
+			"basic_armor_damage_penalty"	"-50"
+			"strong_armor_damage_bonus"		"25"
 		}
 		"Modifiers"
 		{
@@ -35465,9 +35475,31 @@
 	{
 		"BaseClass"						"ability_lua"
 		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN" 
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
 		"AbilityTextureName"			"creep_piercing"
 		"ScriptFile"					"units/attack_types.lua"
+		"AbilityValues"
+		{
+			"weak_armor_damage_bonus"		"33.33"
+			"weak_armor_damage_tooltip"		"50"
+			"basic_armor_damage_penalty"	"-50"
+			"basic_armor_damage_tooltip"	"75"
+			"strong_armor_damage_penalty"	"-50"
+			"strong_armor_damage_tooltip"	"75"
+		}
+	}
+	"creep_irresolute_extra"
+	{
+		"BaseClass"						"ability_lua"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
+		"AbilityTextureName"			"pangolier_heartpiercer"
+		"ScriptFile"					"units/attack_types.lua"
+		"AbilityValues"
+		{
+			"basic_armor_damage_bonus"		"50"
+			"strong_armor_damage_bonus"		"25"
+		}
 	}
 	"creep_weak"
 	{
@@ -35475,9 +35507,19 @@
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"dawnbreaker_luminosity"
-		"AbilityValues"
-		{
-			"pierce_damage"				"200"
-		}
+	}
+	"creep_basic"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"pangolier_shield_crash"
+	}
+	"creep_strong"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"mars_bulwark"
 	}
 }

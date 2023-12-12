@@ -123,7 +123,8 @@ function Activate()
 
 	-- attack type & armor type
 	LinkLuaModifier( "modifier_creep_siege_extra_effect",		"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_creep_piercing_extra",				"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_piercing_extra",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_irresolute_extra",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -885,8 +886,17 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:HasAbility("creep_piercing_extra") then
 		entity:FindAbilityByName("creep_piercing_extra"):SetLevel(1)
 	end
+	if entity:HasAbility("creep_irresolute_extra") then
+		entity:FindAbilityByName("creep_irresolute_extra"):SetLevel(1)
+	end
 	if entity:HasAbility("creep_weak") then
 		entity:FindAbilityByName("creep_weak"):SetLevel(1)
+	end
+	if entity:HasAbility("creep_basic") then
+		entity:FindAbilityByName("creep_basic"):SetLevel(1)
+	end
+	if entity:HasAbility("creep_strong") then
+		entity:FindAbilityByName("creep_strong"):SetLevel(1)
 	end
 	
 	if not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
