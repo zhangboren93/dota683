@@ -94,7 +94,7 @@
 	"npc_dota_neutral_mud_golem"
 	{
 		"Ability1"					"neutral_spell_immunity"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"creep_strong"			// Ability 2
 		"MagicalResistance"			"100"		// Magical protection.  
 		"ArmorPhysical"				"2"			// Physical protection.
 		"BountyXP"					"88"		// Experience earn.
@@ -2706,7 +2706,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"beastmaster_boar_poison_datadriven"			// Ability 1
-		"Ability2"					""			// Ability 2
+		"Ability2"					"creep_basic"			// Ability 2
 		"Ability3"					""			// Ability 3
 		"Ability4"					""			// Ability 4
 

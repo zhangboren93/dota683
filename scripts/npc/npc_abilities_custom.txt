@@ -35520,9 +35520,12 @@
 		"ScriptFile"					"units/attack_types.lua"
 		"AbilityValues"
 		{
-			"weak_armor_damage_bonus"		"50"
+			"weak_armor_damage_bonus"		"33.33"
+			"weak_armor_damage_tooltip"		"50"
 			"basic_armor_damage_penalty"	"-50"
-			"strong_armor_damage_bonus"		"25"
+			"basic_armor_damage_tooltip"	"75"
+			"strong_armor_damage_penalty"	"-50"
+			"strong_armor_damage_tooltip"	"75"
 		}
 	}
 	"creep_irresolute_extra"
@@ -35544,10 +35547,6 @@
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"dawnbreaker_luminosity"
-		"AbilityValues"
-		{
-			"pierce_damage"				"200"
-		}
 	}
 	"creep_basic"
 	{

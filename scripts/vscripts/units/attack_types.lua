@@ -66,7 +66,7 @@ function modifier_creep_piercing_extra:GetModifierPreAttack_BonusDamage(event)
 	elseif target:HasAbility("creep_basic") then
 		damage_pct = ability:GetSpecialValueFor("basic_armor_damage_penalty")
 	elseif target:HasAbility("creep_strong") then
-		damage_pct = ability:GetSpecialValueFor("strong_armor_damage_bonus")
+		damage_pct = ability:GetSpecialValueFor("strong_armor_damage_penalty")
 		if target:IsHero() then
 			damage_pct = damage_pct + 25
 		end
