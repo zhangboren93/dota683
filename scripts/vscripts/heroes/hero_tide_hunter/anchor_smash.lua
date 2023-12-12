@@ -12,6 +12,8 @@ function handleSpellStart(event)
 		FIND_ANY_ORDER, false)
 	for i=1,#units do
 		ApplyDamage({victim = units[i], attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_PHYSICAL})
-		ability:ApplyDataDrivenModifier(caster, units[i], "modifier_tidehunter_anchor_smash_datadriven", {})
+		if not units[i]:HasModifier("roshan_inherent_buffs_checker_datadriven") then
+			ability:ApplyDataDrivenModifier(caster, units[i], "modifier_tidehunter_anchor_smash_datadriven", {})
+		end
 	end
 end
