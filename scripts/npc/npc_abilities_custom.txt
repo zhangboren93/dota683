@@ -35490,7 +35490,9 @@
 		"AbilityTextureName"			"creep_siege"
 		"AbilityValues"
 		{
-			"hero_damage_penalty"		"-25"
+			"hero_damage_penalty"			"-25"
+			"basic_armor_damage_penalty"	"-50"
+			"strong_armor_damage_bonus"		"25"
 		}
 		"Modifiers"
 		{
@@ -35513,9 +35515,28 @@
 	{
 		"BaseClass"						"ability_lua"
 		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN" 
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
 		"AbilityTextureName"			"creep_piercing"
 		"ScriptFile"					"units/attack_types.lua"
+		"AbilityValues"
+		{
+			"weak_armor_damage_bonus"		"50"
+			"basic_armor_damage_penalty"	"-50"
+			"strong_armor_damage_bonus"		"25"
+		}
+	}
+	"creep_irresolute_extra"
+	{
+		"BaseClass"						"ability_lua"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
+		"AbilityTextureName"			"pangolier_heartpiercer"
+		"ScriptFile"					"units/attack_types.lua"
+		"AbilityValues"
+		{
+			"basic_armor_damage_bonus"		"50"
+			"strong_armor_damage_bonus"		"25"
+		}
 	}
 	"creep_weak"
 	{
@@ -35527,5 +35548,19 @@
 		{
 			"pierce_damage"				"200"
 		}
+	}
+	"creep_basic"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"pangolier_shield_crash"
+	}
+	"creep_strong"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"mars_bulwark"
 	}
 }

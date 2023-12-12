@@ -21,9 +21,17 @@ function modifier_creep_siege_extra_effect:GetModifierPreAttack_BonusDamage(even
 	if not IsServer() then return end
 	local target = event.target
 	local attacker = event.attacker
-	if target and target:IsHero() then
-		return (0 - attacker:GetAverageTrueAttackDamage(nil) * 25 / 100.0)
+	local ability = self:GetAbility()
+	local damage_pct = 0
+	if target == nil then return end
+	if target:HasAbility("creep_basic") then
+		damage_pct = ability:GetSpecialValueFor("basic_armor_damage_penalty")
+	elseif target:HasAbility("creep_strong") then
+		damage_pct = ability:GetSpecialValueFor("strong_armor_damage_bonus")
+	elseif target:IsHero() then
+		damage_pct = ability:GetSpecialValueFor("hero_damage_penalty")
 	end
+	return attacker:GetAverageTrueAttackDamage(nil) * damage_pct / 100.0
 end
 
 if creep_piercing_extra == nil then
@@ -50,8 +58,56 @@ function modifier_creep_piercing_extra:GetModifierPreAttack_BonusDamage(event)
 	if not IsServer() then return end
 	local target = event.target
 	local attacker = event.attacker
-	if target and target:HasAbility("creep_weak") then
-		print(attacker:GetAverageTrueAttackDamage(nil) / 2.0)
-		return attacker:GetAverageTrueAttackDamage(nil) / 2.0
+	local ability = self:GetAbility()
+	local damage_pct = 0
+	if target == nil then return end
+	if target:HasAbility("creep_weak") then
+		damage_pct = ability:GetSpecialValueFor("weak_armor_damage_bonus")
+	elseif target:HasAbility("creep_basic") then
+		damage_pct = ability:GetSpecialValueFor("basic_armor_damage_penalty")
+	elseif target:HasAbility("creep_strong") then
+		damage_pct = ability:GetSpecialValueFor("strong_armor_damage_bonus")
+		if target:IsHero() then
+			damage_pct = damage_pct + 25
+		end
 	end
+	return attacker:GetAverageTrueAttackDamage(nil) * damage_pct / 100.0
+end
+
+if creep_irresolute_extra == nil then
+	creep_irresolute_extra = class({})
+end
+
+function creep_irresolute_extra:GetIntrinsicModifierName()
+	return "modifier_creep_irresolute_extra"
+end
+
+if modifier_creep_irresolute_extra == nil then
+	modifier_creep_irresolute_extra = class({})
+end
+
+function modifier_creep_irresolute_extra:IsPurgable() return false end
+function modifier_creep_irresolute_extra:IsHidden() return true end
+
+function modifier_creep_irresolute_extra:DeclareFunctions()
+	local funcs = { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE }
+	return funcs
+end
+
+function modifier_creep_irresolute_extra:GetModifierPreAttack_BonusDamage(event)
+	if not IsServer() then return end
+	local target = event.target
+	local attacker = event.attacker
+	local ability = self:GetAbility()
+	local damage_pct = 0
+	if target == nil then return end
+	if target:HasAbility("creep_basic") then
+		damage_pct = ability:GetSpecialValueFor("basic_armor_damage_bonus")
+	elseif target:HasAbility("creep_strong") then
+		damage_pct = ability:GetSpecialValueFor("strong_armor_damage_bonus")
+		if target:IsHero() then
+			damage_pct = damage_pct + 25
+		end
+	end
+	return attacker:GetAverageTrueAttackDamage(nil) * damage_pct / 100.0
 end
