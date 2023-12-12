@@ -589,4 +589,17 @@
 					}
 				}
 			}
+			"modifier_viper_viper_strike_damage_datadriven"
+			{
+				"IsHidden"		"1"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_viper/viper_strike.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
 		}}}

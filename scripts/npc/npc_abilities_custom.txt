@@ -6086,8 +6086,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"				"5"
-			"damage"				"60 100 145"
+			"duration"				"5.1"
+			"damage"				"0"
+			"damage_tooltip"		"60 100 145"
 			"bonus_movement_speed"	"-40 -60 -80"
 			"bonus_attack_speed"	"-40 -60 -80"
 			"AbilityCooldown"

@@ -1322,6 +1322,8 @@
 		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_max_range_tooltip"				"MAX RANGE RADIUS:"
 		"DOTA_Tooltip_modifier_corrosive_skin_debuff_datadriven"								"Corrosive Skin Slow"
 		"DOTA_Tooltip_modifier_corrosive_skin_debuff_datadriven_Description"					"Attack speed, move speed reduced and taking damage over time."
+		"DOTA_Tooltip_Ability_viper_viper_strike_damage"					""
+		"DOTA_Tooltip_Ability_viper_viper_strike_damage_tooltip"			"DAMAGE PER SECOND:"
 		"DOTA_Tooltip_Ability_viper_viper_strike_Scepter_Description"		"Decreases mana cost and cooldown, and increases cast range."
 
 		//Ancient Apparition
