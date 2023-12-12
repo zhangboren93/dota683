@@ -8,6 +8,7 @@
 #base "heroes/oracle.txt"
 #base "heroes/phantom_assassin.txt"
 #base "heroes/riki.txt"
+#base "heroes/viper.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
 "DOTAAbilities"
@@ -16108,47 +16109,6 @@
 				}
 			}
 		}
-	}
-	//=================================================================================================================
-	// Viper: Corrosive Skin
-	//=================================================================================================================
-	"viper_corrosive_skin"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5220"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"hero_viper.CorrosiveSkin"
-		"HasScepterUpgrade"				"0"
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"		"10"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"duration"					"4.0"
-			"bonus_attack_speed"		"10 15 20 25"
-			"bonus_magic_resistance"	"10 15 20 25"
-			"damage"					"10 15 20 25"
-			"max_range_tooltip"			"1400"
-			"effect_multiplier_distance"
-			{
-				"value"						"0"
-				"RequiresScepter"		"1"
-			}
-			"effect_multiplier"
-			{
-				"value"						"1"
-				"RequiresScepter"		"1"
-			}
-
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 "drow_ranger_trueshot_datadriven"
 {

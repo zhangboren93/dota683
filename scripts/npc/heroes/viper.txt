@@ -1,0 +1,95 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	// Rewrite of the Viper Corrosive Skin ability
+	// Author: Pizzalol
+	// Date: 17.12.2014.
+	// NOTE: Particle effect doesnt work, missing control points?
+	// NOTE2: Doesnt have the 1400 range limitation
+	// NOTE3: Missing the floating damage numbers. Can be implemented in lua by running a script on every damage tick
+	// and creating the particle there
+	"viper_corrosive_skin_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"viper_corrosive_skin"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
+			"particle"		"particles/units/heroes/hero_viper/viper_poison_debuff.vpcf"
+		}
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"		"10"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"					"4"
+			"bonus_movement_speed"		"-10 -15 -20 -25"
+			"bonus_attack_speed"		"-10 -15 -20 -25"
+			"bonus_magic_resistance"	"10 15 20 25"
+			"damage"					"10 15 20 25"
+			"max_range_tooltip"					"1400"
+		}
+	
+		"Modifiers"
+		{
+			"modifier_corrosive_skin_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+	
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_viper/corrosive_skin.lua"
+						"Function"		"handleTakeDamage"
+					}
+				}
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magic_resistance"
+				}
+			}
+	
+			"modifier_corrosive_skin_debuff_datadriven"
+			{
+				"Duration"	"%duration"
+				"IsDebuff"	"1"
+	
+				"EffectName"	"particles/units/heroes/hero_viper/viper_poison_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+	
+				"ThinkInterval"	"1.0"
+	
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%damage"
+					}
+				}
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
+				}
+			}
+		}
+	}
+}

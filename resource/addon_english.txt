@@ -1295,6 +1295,7 @@
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_Scepter_Description"	"Increases damage and duration, and decreases cooldown."
 		"DOTA_Tooltip_modifier_poison_nova_debuff_datadriven"	"Poison Nova"
 		"DOTA_Tooltip_modifier_poison_nova_debuff_datadriven_Description"	"Ticking for damage."
+
 		// Viper
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven"						"Poison Attack"
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_Description"			"Intensifies Viper's venom, adding an effect to his normal attack that slows attack and movement speed while dealing damage over time.\n\nPoison Attack is a Unique Attack Modifier, and does not stack with other Unique Attack Modifiers."
@@ -1310,6 +1311,17 @@
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven_bonus_damage"		"BASE BONUS DAMAGE:"
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven_max_damage_tooltip"	"MAX BONUS DAMAGE:"
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven_non_hero_damage_pct"	"%NON-HERO DAMAGE:"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven"									"Corrosive Skin"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_Description"						"Viper exudes an infectious toxin that damages and slows the attack speed of any enemy that damages it in a %max_range_tooltip% radius. The acid exudate also increases Viper's resistance to magic."
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_Lore"								"It is not unusual for sword and shield alike to corrode in the very hands of those who attack the Netherdrake."
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_duration"							"DURATION:"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_damage"							"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_bonus_attack_speed"				"ATTACK SLOW:"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_bonus_movement_speed"				"%MOVE SLOW:"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_bonus_magic_resistance"			"%MAGIC RESISTANCE:"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_max_range_tooltip"				"MAX RANGE RADIUS:"
+		"DOTA_Tooltip_modifier_corrosive_skin_debuff_datadriven"								"Corrosive Skin Slow"
+		"DOTA_Tooltip_modifier_corrosive_skin_debuff_datadriven_Description"					"Attack speed, move speed reduced and taking damage over time."
 		"DOTA_Tooltip_Ability_viper_viper_strike_Scepter_Description"		"Decreases mana cost and cooldown, and increases cast range."
 
 		//Ancient Apparition

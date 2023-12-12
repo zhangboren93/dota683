@@ -1308,6 +1308,7 @@
 		"DOTA_Tooltip_Ability_venomancer_poison_nova_datadriven_scepter_Description"	"提高伤害和持续时间，并减少冷却时间。"
 		"DOTA_Tooltip_modifier_poison_nova_debuff_datadriven"							"剧毒新星"
 		"DOTA_Tooltip_modifier_poison_nova_debuff_datadriven_Description"				"每秒受到伤害。"
+
 		// Viper
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven"						"毒性攻击"
 		"DOTA_Tooltip_Ability_viper_poison_attack_datadriven_Description"			"增强冥界亚龙的毒液，使它的普通攻击降低目标的攻击和移动速度，并造成持续伤害。\n<font color=\"#ff0000\">法球效果无法叠加。</font>"
@@ -1323,6 +1324,17 @@
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven_bonus_damage"		"基础额外伤害："
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven_max_damage_tooltip"	"最大额外伤害："
 		"DOTA_Tooltip_Ability_viper_nethertoxin_datadriven_non_hero_damage_pct"	"%非英雄伤害："
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven"							"腐蚀皮肤"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_Description"				"冥界亚龙分泌出感染性的毒素，%max_range_tooltip%范围内任何伤害它的敌人将受到伤害，同时攻击速度也被降低。这种酸性分泌物还能提高蝮蛇的魔法抗性。"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_Lore"						"对那些攻击冥界亚龙的人来说，刀刃一接触到它的皮肤就被腐蚀是再正常不过的。"
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_duration"					"持续时间："
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_damage"					"每秒伤害："
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_bonus_attack_speed"		"攻击速度降低："
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_bonus_movement_speed"		"%移动速度降低："
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_bonus_magic_resistance"	"%魔法抗性提升："
+		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_max_range_tooltip"		"作用范围上限："
+		"DOTA_Tooltip_modifier_corrosive_skin_debuff_datadriven"						"腐蚀皮肤减速"
+		"DOTA_Tooltip_modifier_corrosive_skin_debuff_datadriven_Description"			"攻击移动速度降低并持续受到伤害。"
 		"DOTA_Tooltip_Ability_viper_viper_strike_Scepter_Description"	"减少魔法消耗和冷却时间，提高施法距离。"
 
 		//Ancient Apparition
