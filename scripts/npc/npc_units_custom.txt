@@ -196,6 +196,7 @@
 	}
 	"npc_dota_neutral_gnoll_assassin"	
 	{
+		"Ability3"					"creep_piercing_extra"			// Ability 3
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"28"		// Damage range min.
 		"AttackDamageMax"			"36"		// Damage range max.	
@@ -216,7 +217,9 @@
 	}
 	"npc_dota_neutral_dark_troll"	
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"creep_piercing"			// Ability 1
+		"Ability2"					"creep_piercing_extra"			// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
@@ -227,7 +230,11 @@
 	}
 	"npc_dota_neutral_dark_troll_warlord"	
 	{
+		"AbilityLayout"				"5"
 		"Ability1"					"dark_troll_warlord_ensnare"			// Ability 1
+		"Ability3"					"creep_piercing"			// Ability 3
+		"Ability4"					"creep_piercing_extra"			// Ability 4
+		"Ability5"					"creep_strong"			// Ability 5
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"54"		// Damage range max.	
