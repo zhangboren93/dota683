@@ -1656,7 +1656,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			event.damage = inflictor:GetSpecialValueFor("damage_per_second") * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
 		end
 		if victim:GetName() == "npc_dota_creep_siege" then
-			if inflictor:GetName() ~= "dragon_knight_breathe_fire_datadriven" 
+			if bitand(event.damagetype_const, DAMAGE_TYPE_MAGICAL) ~= 0
+				and inflictor:GetName() ~= "dragon_knight_breathe_fire_datadriven" 
 				and inflictor:GetName() ~= "keeper_of_the_light_illuminate"
 				and inflictor:GetName() ~= "keeper_of_the_light_spirit_form_illuminate" then
 				event.damage = 0
