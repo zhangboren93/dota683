@@ -94,7 +94,9 @@
 	"npc_dota_neutral_mud_golem"
 	{
 		"Ability1"					"neutral_spell_immunity"			// Ability 1
-		"Ability2"					"creep_strong"			// Ability 2
+		"Ability2"					"creep_irresolute"			// Ability 2
+		"Ability3"					"creep_irresolute_extra"	// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"MagicalResistance"			"100"		// Magical protection.  
 		"ArmorPhysical"				"2"			// Physical protection.
 		"BountyXP"					"88"		// Experience earn.
@@ -194,6 +196,7 @@
 	}
 	"npc_dota_neutral_gnoll_assassin"	
 	{
+		"Ability3"					"creep_piercing_extra"			// Ability 3
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"28"		// Damage range min.
 		"AttackDamageMax"			"36"		// Damage range max.	
@@ -214,7 +217,9 @@
 	}
 	"npc_dota_neutral_dark_troll"	
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"creep_piercing"			// Ability 1
+		"Ability2"					"creep_piercing_extra"			// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
@@ -225,7 +230,11 @@
 	}
 	"npc_dota_neutral_dark_troll_warlord"	
 	{
+		"AbilityLayout"				"5"
 		"Ability1"					"dark_troll_warlord_ensnare"			// Ability 1
+		"Ability3"					"creep_piercing"			// Ability 3
+		"Ability4"					"creep_piercing_extra"			// Ability 4
+		"Ability5"					"creep_strong"			// Ability 5
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"54"		// Damage range max.	
@@ -288,7 +297,11 @@
 	}
 	"npc_dota_neutral_big_thunder_lizard"
 	{
+		"AbilityLayout"				"6"
 		"Ability3"					"neutral_spell_immunity"			// Ability 3
+		"Ability4"					"creep_irresolute"			// Ability 4
+		"Ability5"					"creep_irresolute_extra"	// Ability 5
+		"Ability6"					"creep_strong"			// Ability 6
 		"MagicalResistance"				"100"		// Magical protection.
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"71"		// Damage range min.
@@ -301,7 +314,9 @@
 	"npc_dota_neutral_small_thunder_lizard"
 	{
 		"Ability1"					"neutral_spell_immunity"
-		"Ability2"					"generic_hidden"
+		"Ability2"					"creep_irresolute"			// Ability 2
+		"Ability3"					"creep_irresolute_extra"	// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"41"		// Damage range min.
 		"AttackDamageMax"			"48"		// Damage range max.	
@@ -4142,17 +4157,17 @@
 		"IsAncient"					"1"
 		"IsSummoned"				"0"
 		"CanBeDominated"			"0"
-		"ConsideredHero"			"1"
 		"IsNeutralUnitType"			"1"
 		"ConsideredHero"			"0"
 				
 		// Abilities
 		//----------------------------------------------------------------
-		"AbilityLayout"				"4"
+		"AbilityLayout"				"5"
 		"Ability1"					"roshan_spell_block"	// Ability 1.
 		"Ability2"					"roshan_slam"			// Ability 3.
 		"Ability3"					"roshan_inherent_buffs_datadriven"	// Ability 4.
 		"Ability4"					"roshan_bash"		// Ability 6 - Extra.
+		"Ability5"					"creep_strong"		// Ability 5.
 
 		// Armor
 		//----------------------------------------------------------------
