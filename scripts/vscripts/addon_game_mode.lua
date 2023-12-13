@@ -695,6 +695,13 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		elseif ability:GetName() == "enigma_black_hole" then
 			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
 			ability:GetCaster().black_hole_position = Vector(event.position_x, event.position_y, event.position_z)
+		elseif ability:GetName() == "item_diffusal_blade_datadriven" or
+			ability:GetName() == "item_diffusal_blade_2_datadriven" then
+			-- Diffusal blade can purge omni's repel but cannot cast on other magic immune targets
+			local target = EntIndexToHScript(event.entindex_target)
+			if target:IsMagicImmune() and not target:HasModifier("modifier_repel_datadriven") then
+				return false
+			end
 		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
