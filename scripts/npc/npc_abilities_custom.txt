@@ -35466,6 +35466,19 @@
 			"strong_armor_damage_bonus"		"25"
 		}
 	}
+	"creep_light"
+	{
+		"BaseClass"						"ability_lua"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
+		"AbilityTextureName"			"snapfire_lil_shredder"
+		"ScriptFile"					"units/attack_types.lua"
+		"AbilityValues"
+		{
+			"building_damage_penalty"		"-42.8571"
+			"building_damage_tooltip"		"25"
+		}
+	}
 	"creep_weak"
 	{
 		"BaseClass"						"ability_datadriven"
