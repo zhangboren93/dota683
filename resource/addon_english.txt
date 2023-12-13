@@ -1775,5 +1775,7 @@
 		"dota_hud_error_cant_cast_on_self"					"Cannot cast on self"
 		"dota_hud_error_demonic_conversion_creep_level"		"Creep level too high"
 		"dota_hud_error_demonic_conversion_beast_master"	"Cannot target boar or hawk"
+
+		"DOTA_HUD_BackpackHint"			"Backpack has been disabled."
 	}
 }

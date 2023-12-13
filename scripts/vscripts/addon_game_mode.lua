@@ -76,7 +76,7 @@ function Activate()
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",	"modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",	"modifiers/bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			"modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
+	-- LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_familiar_attack_damage_lua",		"modifiers/familiar_attack_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_kill_tree_on_death", 			"modifiers/kill_tree_on_death.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_no_creep_aggro_on_cast_orb_lua", "modifiers/no_creep_aggro_on_cast_orb.lua", LUA_MODIFIER_MOTION_NONE)
@@ -751,8 +751,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "modifier_no_creep_aggro_on_cast_orb_lua", {})
 		if self.botEnabled and entity:GetTeam() == DOTA_TEAM_BADGUYS then
 			entity:AddNewModifier(entity, nil, "modifier_bot_item_purchase", {})
-		else
-			entity:AddNewModifier(entity, nil, "modifier_drop_backpack_items", {})
+		-- else
+			-- entity:AddNewModifier(entity, nil, "modifier_drop_backpack_items", {})
 		end
 
 		-- remove useless abilities

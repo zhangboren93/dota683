@@ -1,3 +1,5 @@
+-- Deprecated
+
 if modifier_drop_backpack_items == nil then
     modifier_drop_backpack_items = class({})
 end
