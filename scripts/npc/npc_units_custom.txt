@@ -9,7 +9,9 @@
 	}	
 	"npc_dota_neutral_kobold"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"creep_irresolute"			// Ability 1
+		"Ability2"					"creep_irresolute_extra"	// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"BountyXP"					"25"		// Experience earn.
 		"BountyGoldMin"				"7"			// Gold earned min.
 		"BountyGoldMax"				"9"			// Gold earned max.
@@ -20,7 +22,9 @@
 	}
 	"npc_dota_neutral_kobold_tunneler"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"creep_irresolute"			// Ability 1
+		"Ability2"					"creep_irresolute_extra"	// Ability 2
+		"Ability3"					"creep_basic"			// Ability 3
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"14"		// Damage range min.
 		"AttackDamageMax"			"15"		// Damage range max.	
@@ -31,6 +35,9 @@
 	}
 	"npc_dota_neutral_kobold_taskmaster"
 	{
+		"Ability2"					"creep_irresolute"			// Ability 2
+		"Ability3"					"creep_irresolute_extra"	// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
@@ -63,7 +70,9 @@
 	}
 	"npc_dota_neutral_fel_beast"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"creep_irresolute"			// Ability 1
+		"Ability2"					"creep_irresolute_extra"	// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"20"		// Gold earned min.
 		"BountyGoldMax"				"23"		// Gold earned max.
@@ -197,6 +206,7 @@
 	"npc_dota_neutral_gnoll_assassin"	
 	{
 		"Ability3"					"creep_piercing_extra"			// Ability 3
+		"Ability4"					"creep_basic"			// Ability 4
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"28"		// Damage range min.
 		"AttackDamageMax"			"36"		// Damage range max.	
@@ -207,6 +217,8 @@
 	}
 	"npc_dota_neutral_ghost"	
 	{
+		"Ability3"					"creep_piercing_extra"			// Ability 3
+		"Ability4"					"creep_basic"			// Ability 4
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"30"		// Damage range min.
 		"AttackDamageMax"			"35"		// Damage range max.	
@@ -245,13 +257,17 @@
 	}
 	"npc_dota_neutral_harpy_scout"	
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"creep_piercing"			// Ability 1
+		"Ability2"					"creep_piercing_extra"			// Ability 2
+		"Ability3"					"creep_basic"			// Ability 3
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"31"		// Gold earned min.
 		"BountyGoldMax"				"33"		// Gold earned max.
 	}
 	"npc_dota_neutral_harpy_storm"	
 	{
+		"Ability3"					"creep_piercing_extra"			// Ability 3
+		"Ability4"					"creep_basic"			// Ability 4
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"37"		// Gold earned min.
 		"BountyGoldMax"				"38"		// Gold earned max.
@@ -275,7 +291,9 @@
 	}
 	"npc_dota_neutral_forest_troll_berserker"	
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"creep_piercing"			// Ability 1
+		"Ability2"					"creep_piercing_extra"			// Ability 2
+		"Ability3"					"creep_basic"			// Ability 3
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"28"		// Damage range min.
 		"AttackDamageMax"			"37"		// Damage range max.	
@@ -286,7 +304,11 @@
 	}
 	"npc_dota_neutral_forest_troll_high_priest"	
 	{
+		"AbilityLayout"				"5"
 		"Ability2"					"forest_troll_high_priest_mana_aura"			// Ability 2
+		"Ability3"					"creep_piercing"			// Ability 3
+		"Ability4"					"creep_piercing_extra"			// Ability 4
+		"Ability5"					"creep_basic"			// Ability 5
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"25"		// Damage range min.
 		"AttackDamageMax"			"32"		// Damage range max.	
