@@ -415,6 +415,10 @@
 	{
 		"ItemPurchasable"	"0"
 	}
+	"item_orb_of_corrosion"
+	{
+		"ItemPurchasable"	"0"
+	}
 	
 	"item_mage_slayer"
 	{
