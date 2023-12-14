@@ -8,6 +8,7 @@
 #base "heroes/naga_siren.txt"
 #base "heroes/oracle.txt"
 #base "heroes/phantom_assassin.txt"
+#base "heroes/razor.txt"
 #base "heroes/riki.txt"
 #base "heroes/viper.txt"
 #base "heroes/warlock.txt"

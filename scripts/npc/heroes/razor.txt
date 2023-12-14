@@ -1,0 +1,110 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	//=================================================================================================================
+	// Razor: Static Link
+	//=================================================================================================================
+	"razor_static_link_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Ability.static.start"
+		"AbilityTextureName"			"razor_static_link"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"32 30 28 26"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+		"AbilityCastRange"		"600"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"drain_length"			"8"
+			"drain_duration"		"18"
+			"drain_rate"			"7 14 21 28"
+			"drain_range_buffer"	"100"
+			"radius"				"200"
+			"vision_radius"			"800"
+			"vision_duration"		"3.34"
+		}
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_razor/razor_static_link.vpcf"
+			"particle"				"particles/units/heroes/hero_razor/razor_static_link_buff.vpcf"
+			"particle"				"particles/units/heroes/hero_razor/razor_static_link_debuff.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_razor/static_link.lua"
+				"Function"			"handleSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_razor_static_link_datadriven"
+			{
+				"OverrideAnimation"		"ACT_DOTA_OVERRIDE_ABILITY_2"
+				"Duration"				"%drain_length"
+				"IsHidden"				"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_razor/static_link.lua"
+						"Function"		"handleDestory"
+					}
+				}
+				"ThinkInterval"			"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_razor/static_link.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			"modifier_razor_static_link_buff_datadriven"
+			{
+				"Duration"		"%drain_duration"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"EffectName"	"particles/units/heroes/hero_razor/razor_static_link_buff.vpcf"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "1"
+				}
+			}
+			"modifier_razor_static_link_debuff_datadriven"
+			{
+				"Duration"		"%drain_duration"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"EffectName"	"particles/units/heroes/hero_razor/razor_static_link_debuff.vpcf"
+				"IsDebuff"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "-1"
+				}
+			}
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+	}
+}

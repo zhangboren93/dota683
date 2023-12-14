@@ -1148,7 +1148,18 @@
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_abilitycastrange"				"CAST RANGE:"
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_damage"		"%ILLUSION DAMAGE:"
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_total_damage_in_pct"		"%ILLUSION DAMAGE TAKEN:"
+
 		// Razor
+		"DOTA_Tooltip_ability_razor_static_link_datadriven"									"Static Link"
+		"DOTA_Tooltip_ability_razor_static_link_datadriven_Description"						"Creates a charged link between Razor and an enemy Hero, stealing damage from the target and giving it to Razor."
+		"DOTA_Tooltip_ability_razor_static_link_datadriven_Lore"							"Razor's polarity channels electricity into his being, draining the power of his opposition."
+		"DOTA_Tooltip_ability_razor_static_link_datadriven_drain_rate"						"DAMAGE DRAIN RATE:"
+		"DOTA_Tooltip_ability_razor_static_link_datadriven_drain_length"					"LINK DURATION:"
+		"DOTA_Tooltip_ability_razor_static_link_datadriven_drain_duration"					"BUFF DURATION:"
+		"DOTA_Tooltip_modifier_razor_static_link_buff_datadriven"										"Static Link"
+		"DOTA_Tooltip_modifier_razor_static_link_buff_datadriven_Description"							"Stealing attack damage."
+		"DOTA_Tooltip_modifier_razor_static_link_debuff_datadriven"									"Static Link"
+		"DOTA_Tooltip_modifier_razor_static_link_debuff_datadriven_Description"						"Losing attack damage."
 		"DOTA_Tooltip_modifier_unstable_current_purge"								"Unstable Current"
 		"DOTA_Tooltip_modifier_unstable_current_purge_Description"					"Movement speed affected by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%%"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven"							"Eye of the Storm"
@@ -1163,6 +1174,7 @@
 		"DOTA_Tooltip_modifier_razor_eye_datadriven_Description"					"Taking damage and armor reduced with each lightning strike."
 		"DOTA_Tooltip_modifier_razor_eye_debuff_datadriven"							"Eye of the Storm Armor"
 		"DOTA_Tooltip_modifier_razor_eye_debuff_datadriven_Description"				"Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
+
 		//Riki
 		"DOTA_Tooltip_ability_riki_smoke_screen_attack_speed_slow"							"ATTACK SPEED SLOW:"
 		"DOTA_Tooltip_ability_riki_smoke_screen_move_speed_slow"							"%MOVE SPEED SLOW:"

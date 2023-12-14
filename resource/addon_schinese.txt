@@ -1156,7 +1156,18 @@
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_abilitycastrange"						"施法距离："
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_damage"		"%幻象继承攻击力："
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_total_damage_in_pct"		"%幻象承受伤害："
+
 		// Razor
+		"DOTA_Tooltip_ability_razor_static_link_datadriven"								"静电连接"
+		"DOTA_Tooltip_ability_razor_static_link_datadriven_Description"					"在雷泽和敌方英雄之间创造静电连接，偷取目标的攻击力并转移给雷泽。"
+		"DOTA_Tooltip_ability_razor_static_link_datadriven_Lore"						"雷泽的极性吸引电流通向自身，以汲取他对手的力量。"
+		"DOTA_Tooltip_ability_razor_static_link_datadriven_drain_rate"					"每秒攻击力吸取："
+		"DOTA_Tooltip_ability_razor_static_link_datadriven_drain_length"				"连接持续时间："
+		"DOTA_Tooltip_ability_razor_static_link_datadriven_drain_duration"				"攻击力加成持续时间："
+		"DOTA_Tooltip_modifier_razor_static_link_buff_datadriven"						"静电连接"
+		"DOTA_Tooltip_modifier_razor_static_link_buff_datadriven_Description"			"偷取攻击力。"
+		"DOTA_Tooltip_modifier_razor_static_link_debuff_datadriven"						"静电连接"
+		"DOTA_Tooltip_modifier_razor_static_link_debuff_datadriven_Description"			"损失攻击力。"
 		"DOTA_Tooltip_modifier_unstable_current_purge"								"不稳定电流"
 		"DOTA_Tooltip_modifier_unstable_current_purge_Description"					"移动速度改变%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度改变%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%%%"
 		"DOTA_Tooltip_ability_razor_eye_of_the_storm_datadriven"								"风暴之眼"
@@ -1171,6 +1182,7 @@
 		"DOTA_Tooltip_modifier_razor_eye_datadriven_Description"					"每一次闪电的打击都将对目标造成伤害并削弱护甲。"
 		"DOTA_Tooltip_modifier_razor_eye_debuff_datadriven"							"风暴之眼减甲"
 		"DOTA_Tooltip_modifier_razor_eye_debuff_datadriven_Description"				"护甲被削弱%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。"
+
 		//Riki
 		"DOTA_Tooltip_ability_riki_smoke_screen_attack_speed_slow"								"攻速降低："
 		"DOTA_Tooltip_ability_riki_smoke_screen_move_speed_slow"								"%移速降低："
