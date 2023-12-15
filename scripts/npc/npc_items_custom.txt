@@ -793,6 +793,7 @@
 		"ItemQuality"					"component"
 		"ItemAliases"					"quarterstaff"
 		"SideShop"						"1"
+		"IsObsolete"					"0"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1786,6 +1787,7 @@
 		"ItemAliases"					"roh;ring of health"
 		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
 		"SideShop"						"1"
+		"SecretShop"					"1"
 		
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -4635,6 +4637,9 @@
 		"AbilityValues"
 		{
 			"bonus_intellect"		"30"
+			"bonus_strength"		"0"
+			"bonus_agility"			"0"
+			"bonus_hp_regen"		"0"
 			"bonus_armor"			"15"
 			"aura_radius"			"900"
 			"aura_attack_speed"		"-40"
@@ -4645,6 +4650,8 @@
 			"blast_speed"			"350"
 			"hp_regen_degen_aura"	"0"
 			"illusion_multiplier_pct"	"100"
+			"spell_amp"					"0"				
+			"resist_debuff_duration"	"0"
 		}
 	}
 	//=================================================================================================================
@@ -7887,7 +7894,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"325"	
 		"ItemShopTags"					""
-		
+		"ItemPurchasable"				"1"
+		"IsObsolete"					"0"
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -7912,6 +7921,8 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"ItemPurchasable"				"1"
+		"IsObsolete"					"0"
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -8948,6 +8959,40 @@
 			"radius"				"1100"
 			"active_radius"			"300"
 			"duration"			"4"
+		}
+	}
+	//=================================================================================================================
+	// Rapier
+	//=================================================================================================================
+	"item_rapier"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/divine_rapier.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5600"
+		"ItemShopTags"					"damage"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"divine rapier"
+		"ItemShareability"				"ITEM_NOT_SHAREABLE"
+		"ItemSellable"					"0"
+		"ItemKillable"					"0"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
+		"ItemContributesToNetWorthWhenDropped"	"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+		"ItemDisassembleRule"				"DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ShouldBeSuggested"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_spell_amp"		"0"
+				"bonus_damage"			"350"
 		}
 	}
 }
