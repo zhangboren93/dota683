@@ -1386,7 +1386,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			local ability = EntIndexToHScript(event.entindex_ability_const)
 			hook:ApplyDataDrivenModifier(caster, caster, "modifier_bane_fiends_grip_scepter", {duration = ability:GetSpecialValueFor("AbilityChannelTime")})
 		end
-	elseif event.name_const == "modifier_naga_siren_ensnare" and parent:IsMagicImmune() then 
+	elseif event.name_const == "modifier_enchantress_untouchable_slow" and parent:IsMagicImmune() then 
 		return false
 	elseif event.name_const == "modifier_medusa_stone_gaze_stone" then
 		if parent:IsIllusion() then

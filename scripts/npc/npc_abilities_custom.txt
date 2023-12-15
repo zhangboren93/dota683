@@ -22170,7 +22170,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"heal_interval"			"0.5"
+			"heal_interval"			"1.0"
 			"heal"					
 			{
 				"value"				"10"
@@ -25390,7 +25390,6 @@
 		}
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"550"
 		"AbilityCastPoint"				"0.0 0.0 0.0"
 	
 		// Time		
@@ -25404,22 +25403,15 @@
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"distance_damage_pct"			"15.0 20.0 25.0"
+			"distance_damage_cap"			"375 500 625"
+			"bonus_attack_range_scepter"	"190 190 190"
+			"AbilityCastRange"
 			{
-				"var_type"				"FIELD_F3 5 7 9LOAT"
-				"distance_damage_pct"	"15.0 20.0 25.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance_damage_cap"	"375 500 625"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_attack_range_scepter"	"190 190 190"
+				"value"						"550"
+				"special_bonus_scepter"		"+190"
 			}
 		}
 		"Modifiers"
