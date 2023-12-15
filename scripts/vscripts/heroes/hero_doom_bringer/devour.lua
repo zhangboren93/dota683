@@ -28,6 +28,7 @@ function CheckDevourable(ability_name)
 		and ability_name ~= "creep_piercing_extra"
 		and ability_name ~= "creep_irresolute"
 		and ability_name ~= "creep_irresolute_extra"
+		and ability_name ~= "creep_light"
 		and ability_name ~= "creep_weak"
 		and ability_name ~= "creep_basic"
 		and ability_name ~= "creep_strong"
