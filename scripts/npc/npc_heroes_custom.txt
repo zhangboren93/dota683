@@ -3652,7 +3652,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"enchantress_untouchable"
-		"Ability2"		"enchantress_enchant"
+		"Ability2"		"enchantress_enchant_lua"
 		"Ability3"		"enchantress_natures_attendants"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"

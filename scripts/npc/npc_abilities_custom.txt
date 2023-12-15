@@ -2,6 +2,7 @@
 #base "npc_abilities_hero_ability_executed_hook.txt"
 #base "heroes/broodmother.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
+#base "heroes/enchantress.txt"
 #base "heroes/legion_commander.txt"
 #base "heroes/luna.txt"
 #base "heroes/naga_siren.txt"
@@ -15,6 +16,10 @@
 {
 	"Version"		"1"
 
+	"ability_base"
+	{
+		"AllowedInBackpack"				"0"
+	}
 	"glyph_datadriven"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -22134,50 +22139,6 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
-	// Enchantress: Enchant
-	//=================================================================================================================
-	"enchantress_enchant"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5268"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilitySound"					"Hero_Enchantress.EnchantCreep"
-		"HasScepterUpgrade"				"0"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30 25 20 15"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"65"
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"dominate_duration"			"80"
-			"enchant_health"			"0"
-			"enchant_armor"				"0"
-			"enchant_damage"			"0"
-			"slow_movement_speed"		"-20 -30 -40 -50"
-			"slow_duration"				"5.5"
-			"level_req"					"6"
-			"max_creeps"				"1"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-	//=================================================================================================================
 	// Enchantress: Nature's Attendants
 	//=================================================================================================================
 	"enchantress_natures_attendants"
@@ -22209,7 +22170,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"heal_interval"			"0.5"
+			"heal_interval"			"1.0"
 			"heal"					
 			{
 				"value"				"10"
@@ -25429,7 +25390,6 @@
 		}
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"550"
 		"AbilityCastPoint"				"0.0 0.0 0.0"
 	
 		// Time		
@@ -25443,22 +25403,15 @@
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"distance_damage_pct"			"15.0 20.0 25.0"
+			"distance_damage_cap"			"375 500 625"
+			"bonus_attack_range_scepter"	"190 190 190"
+			"AbilityCastRange"
 			{
-				"var_type"				"FIELD_F3 5 7 9LOAT"
-				"distance_damage_pct"	"15.0 20.0 25.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance_damage_cap"	"375 500 625"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_attack_range_scepter"	"190 190 190"
+				"value"						"550"
+				"special_bonus_scepter"		"+190"
 			}
 		}
 		"Modifiers"
@@ -35472,6 +35425,19 @@
 		{
 			"basic_armor_damage_bonus"		"50"
 			"strong_armor_damage_bonus"		"25"
+		}
+	}
+	"creep_light"
+	{
+		"BaseClass"						"ability_lua"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
+		"AbilityTextureName"			"snapfire_lil_shredder"
+		"ScriptFile"					"units/attack_types.lua"
+		"AbilityValues"
+		{
+			"building_damage_penalty"		"-42.8571"
+			"building_damage_tooltip"		"25"
 		}
 	}
 	"creep_weak"

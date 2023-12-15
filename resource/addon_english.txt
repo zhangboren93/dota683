@@ -1413,6 +1413,17 @@
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_interval"			"STRIKE INTERVAL:"
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_damage"			"STRIKE DAMAGE:"
 		// Enchantress
+		"DOTA_Tooltip_ability_enchantress_enchant_lua"										"Enchant"
+		"DOTA_Tooltip_ability_enchantress_enchant_lua_Description"							"Enchantress charms an enemy, bringing it under her control (if a creep) or slowing it (if a hero)."
+		"DOTA_Tooltip_Ability_enchantress_enchant_lua_Note0"								"Illusions can be converted."
+		"DOTA_Tooltip_ability_enchantress_enchant_lua_Lore"									"A true steward of the forest, Aiushtha befriends all within it - from lowly trolls to powerful centaurs."
+		"DOTA_Tooltip_ability_enchantress_enchant_lua_slow_movement_speed"					"%MOVE SLOW:"
+		"DOTA_Tooltip_ability_enchantress_enchant_lua_tooltip_duration"						"SLOW DURATION:"
+		"DOTA_Tooltip_ability_enchantress_enchant_lua_dominate_duration"					"ENCHANT DURATION:"
+		"DOTA_Tooltip_modifier_enchantress_enchant_lua"						"Enchant"
+		"DOTA_Tooltip_modifier_enchantress_enchant_lua_Description"			"Under control of Enchantress"
+		"DOTA_Tooltip_modifier_enchantress_enchant_slow_lua"				"Enchant"
+		"DOTA_Tooltip_modifier_enchantress_enchant_slow_lua_Description"	"Movement slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven"								"Impetus"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven_Description"					"Places an enchantment on each attack while activated, causing it to deal additional damage based on how far away the target is.  The farther the target, the greater the damage dealt./n<font color=\"#ff0000\">Orb effects don't stack.</font>"
 		"DOTA_Tooltip_ability_enchantress_impetus_datadriven_distance_damage_pct"			"%DISTANCE DAMAGE:"
@@ -1762,6 +1773,9 @@
 		"DOTA_Tooltip_Ability_creep_irresolute_extra_Description"				"Runty Units Deal Bonus damage to basic-armor and strong-armor units."
 		"DOTA_Tooltip_Ability_creep_irresolute_extra_basic_armor_damage_bonus"	"%BONUS DAMAGE TO BASIC-ARMOR UNITS:"
 		"DOTA_Tooltip_Ability_creep_irresolute_extra_strong_armor_damage_bonus"	"%BONUS DAMAGE TO STRONG-ARMOR UNITS:"
+		"DOTA_Tooltip_Ability_creep_light"										"Light Attack"
+		"DOTA_Tooltip_Ability_creep_light_Description"							"Light Attack Units Deal reduced damage to buildings."
+		"DOTA_Tooltip_Ability_creep_light_building_damage_tooltip"				"%FACTUAL DAMAGE TO BUILDINGS:"
 		
 		"DOTA_Tooltip_Ability_creep_weak"								"Weak"
 		"DOTA_Tooltip_Ability_creep_weak_Description"					"This unit has weak armor."
@@ -1775,5 +1789,7 @@
 		"dota_hud_error_cant_cast_on_self"					"Cannot cast on self"
 		"dota_hud_error_demonic_conversion_creep_level"		"Creep level too high"
 		"dota_hud_error_demonic_conversion_beast_master"	"Cannot target boar or hawk"
+
+		"DOTA_HUD_BackpackHint"			"Backpack has been disabled."
 	}
 }

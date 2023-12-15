@@ -1426,6 +1426,17 @@
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_interval"			"打击间隔："
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_damage"			"打击伤害："
 		// Enchantress
+		"DOTA_Tooltip_ability_enchantress_enchant_lua"										"魅惑"
+		"DOTA_Tooltip_ability_enchantress_enchant_lua_Description"							"魅惑魔女诱惑一个敌人，使其为己所用（非英雄单位）或者减速（英雄单位）。"
+		"DOTA_Tooltip_Ability_enchantress_enchant_lua_Note0"								"可以转化幻象。"
+		"DOTA_Tooltip_ability_enchantress_enchant_lua_Lore"									"作为森林真正的管家，无论是卑贱的巨魔还是强大的半人马，爱由莎都会和他们成为朋友。"
+		"DOTA_Tooltip_ability_enchantress_enchant_lua_slow_movement_speed"					"%移动速度减缓："
+		"DOTA_Tooltip_ability_enchantress_enchant_lua_tooltip_duration"						"减速持续时间："
+		"DOTA_Tooltip_ability_enchantress_enchant_lua_dominate_duration"					"魅惑持续时间："
+		"DOTA_Tooltip_modifier_enchantress_enchant_lua"						"魅惑"
+		"DOTA_Tooltip_modifier_enchantress_enchant_lua_Description"			"受到魅惑魔女控制"
+		"DOTA_Tooltip_modifier_enchantress_enchant_slow_lua"				"魅惑减速"
+		"DOTA_Tooltip_modifier_enchantress_enchant_slow_lua_Description"	"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven"								"推进"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven_Description"					"激活后每次攻击都有附魔效果，根据与目标的距离造成额外伤害。目标越远，伤害越高。\n<font color=\"#ff0000\">法球效果无法叠加。</font>"
 		"DOTA_Tooltip_Ability_enchantress_impetus_datadriven_distance_damage_pct"			"%距离伤害加成："
@@ -1777,6 +1788,9 @@
 		"DOTA_Tooltip_Ability_creep_irresolute_extra_Description"				"绵力单位对基础护甲和重甲单位造成额外伤害。"
 		"DOTA_Tooltip_Ability_creep_irresolute_extra_basic_armor_damage_bonus"	"%对基础护甲额外伤害："
 		"DOTA_Tooltip_Ability_creep_irresolute_extra_strong_armor_damage_bonus"	"%对重甲额外伤害："
+		"DOTA_Tooltip_Ability_creep_light"										"轻型"
+		"DOTA_Tooltip_Ability_creep_light_Description"							"轻型攻击的单位对建筑造成的伤害降低。"
+		"DOTA_Tooltip_Ability_creep_light_building_damage_tooltip"				"%对建筑实际伤害："
 		
 		"DOTA_Tooltip_Ability_creep_weak"								"脆弱"
 		"DOTA_Tooltip_Ability_creep_weak_Description"					"这个单位具有脆弱的护甲。"
@@ -1790,5 +1804,7 @@
 		"dota_hud_error_cant_cast_on_self"		"不能对自身释放"
 		"dota_hud_error_demonic_conversion_creep_level"		"单位等级太高"
 		"dota_hud_error_demonic_conversion_beast_master"	"不能吃猪和鹰"
+
+		"DOTA_HUD_BackpackHint"			"背包已被禁用。"
 	}
 }

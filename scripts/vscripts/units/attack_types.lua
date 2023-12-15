@@ -111,3 +111,36 @@ function modifier_creep_irresolute_extra:GetModifierPreAttack_BonusDamage(event)
 	end
 	return attacker:GetAverageTrueAttackDamage(nil) * damage_pct / 100.0
 end
+
+if creep_light == nil then
+	creep_light = class({})
+end
+
+function creep_light:GetIntrinsicModifierName()
+	return "modifier_creep_light"
+end
+
+if modifier_creep_light == nil then
+	modifier_creep_light = class({})
+end
+
+function modifier_creep_light:IsPurgable() return false end
+function modifier_creep_light:IsHidden() return true end
+
+function modifier_creep_light:DeclareFunctions()
+	local funcs = { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE }
+	return funcs
+end
+
+function modifier_creep_light:GetModifierPreAttack_BonusDamage(event)
+	if not IsServer() then return end
+	local target = event.target
+	local attacker = event.attacker
+	local ability = self:GetAbility()
+	if target == nil then return end
+	if target:IsBuilding() then
+		return attacker:GetAverageTrueAttackDamage(nil) * ability:GetSpecialValueFor("building_damage_penalty") / 100.0
+	else
+		return 0
+	end
+end

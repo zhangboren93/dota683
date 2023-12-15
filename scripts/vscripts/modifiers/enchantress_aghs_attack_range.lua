@@ -18,8 +18,8 @@ function modifier_enchantress_aghs_attack_range:IsHidden()
 end
 
 function modifier_enchantress_aghs_attack_range:GetModifierAttackRangeBonus()
-    if self:GetParent():HasScepter() then
-        return 165
+    if self:GetParent():HasScepter() and self:GetParent():FindAbilityByName("enchantress_impetus_datadriven"):GetLevel() > 0 then
+        return 190
     else
         return 0
     end
