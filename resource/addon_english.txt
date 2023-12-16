@@ -314,6 +314,9 @@
 		"DOTA_Tooltip_ability_item_mjollnir_datadriven_bonus_attack_speed"					"+$attack"		
 
 		"DOTA_Tooltip_ability_item_arcane_boots_bonus_mana"					"+$mana"
+		"DOTA_Tooltip_ability_item_ethereal_blade_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_ethereal_blade_bonus_strength"				"+$str"
+		"DOTA_Tooltip_ability_item_ethereal_blade_bonus_intellect"				"+$int"
 
 		"DOTA_Tooltip_Ability_courier_share"								"Share courier"
 		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"			"Go to secretshop"
