@@ -48,7 +48,9 @@
 	}
 	"npc_dota_neutral_centaur_outrunner"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"creep_irresolute"			// Ability 1
+		"Ability2"					"creep_irresolute_extra"	// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"18"		// Damage range min.
 		"AttackDamageMax"			"21"		// Damage range max.	
@@ -59,7 +61,8 @@
 	}
 	"npc_dota_neutral_centaur_khan"
 	{
-		"Ability3"					"generic_hidden"			// Ability 3
+		"Ability2"					"creep_light"			// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"ArmorPhysical"				"4"			// Physical protection.
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"55"		// Damage range max.	
@@ -79,8 +82,8 @@
 	}
 	"npc_dota_neutral_polar_furbolg_champion"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
-		"Ability2"					"generic_hidden"			// Ability 2
+		"Ability1"					"creep_light"			// Ability 1
+		"Ability2"					"creep_strong"			// Ability 2
 		"ArmorPhysical"				"3"			// Physical protection.
 		"AttackDamageMin"			"39"		// Damage range min.
 		"AttackDamageMax"			"44"		// Damage range max.	
@@ -92,6 +95,8 @@
 	"npc_dota_neutral_polar_furbolg_ursa_warrior"
 	{
 		"Ability2"					"centaur_khan_endurance_aura"			// Ability 2
+		"Ability3"					"creep_light"			// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"4"			// Physical protection.
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"55"		// Damage range max.	
@@ -160,7 +165,9 @@
 	}
 	"npc_dota_neutral_wildkin"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"creep_irresolute"			// Ability 1
+		"Ability2"					"creep_irresolute_extra"	// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"20"		// Damage range min.
 		"AttackDamageMax"			"25"		// Damage range max.	
@@ -172,6 +179,8 @@
 	"npc_dota_neutral_enraged_wildkin"
 	{
 		"Ability1"					"enraged_wildkin_tornado"			// Ability 1
+		"Ability3"					"creep_light"			// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"4"			// Physical protection.
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"56"		// Damage range max.	
@@ -183,7 +192,9 @@
 	"npc_dota_neutral_satyr_soulstealer"
 	{
 		"Ability1"					"satyr_soulstealer_mana_burn"			// Ability 1
-		"Ability2"					"generic_hidden"			// Ability 2
+		"Ability2"					"creep_irresolute"			// Ability 2
+		"Ability3"					"creep_irresolute_extra"	// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
@@ -194,7 +205,8 @@
 	}
 	"npc_dota_neutral_satyr_hellcaller"
 	{
-		"Ability4"					"generic_hidden"			// Ability 4
+		"Ability3"					"creep_light"			// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"55"		// Damage range max.	
@@ -281,6 +293,9 @@
 	}
 	"npc_dota_neutral_satyr_trickster"	
 	{
+		"Ability2"					"creep_piercing"			// Ability 2
+		"Ability3"					"creep_piercing_extra"			// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"7"		// Damage range min.
 		"AttackDamageMax"			"10"		// Damage range max.	
