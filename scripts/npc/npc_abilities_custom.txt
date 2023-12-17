@@ -6,6 +6,7 @@
 #base "heroes/legion_commander.txt"
 #base "heroes/luna.txt"
 #base "heroes/naga_siren.txt"
+#base "heroes/omniknight.txt"
 #base "heroes/oracle.txt"
 #base "heroes/phantom_assassin.txt"
 #base "heroes/razor.txt"
@@ -7197,51 +7198,6 @@
 					}
 				}
 			}
-		}
-	}
-    "omniknight_guardian_angel"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5266"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_Omniknight.GuardianAngel.Cast"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-
-		"HasScepterUpgrade"				"1"
-		
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"150"
-		"AbilityCastPoint"				"0.4"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 175 250"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"duration"					"6 7 8"
-				"radius"					"600"
-				"duration_scepter"
-				{
-					"value"		"8.0 9.0 10.0"
-					"RequiresScepter"		"1"
-				}
-				"scepter_status_resist"					
-				{
-					"value"			"0"
-					"RequiresScepter"		"1"
-				}
 		}
 	}
     "huskar_life_break"

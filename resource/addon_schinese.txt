@@ -633,6 +633,7 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_datadriven_blast_mana_cost"		"火焰爆轰加蓝耗："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_datadriven_blood_cooldown"		"嗜血术减CD："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_datadriven_ignite_range"			"引燃加施法和作用范围："
+
 		//Omniknight
 		"DOTA_Tooltip_ability_omniknight_purification_2"								"洗礼"
 		"DOTA_Tooltip_ability_omniknight_purification_2_Description"					"立即治疗一个友方单位，并对周围的敌军造成伤害。"
@@ -649,7 +650,16 @@
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven_Description"				"减缓附近敌人的移动速度和攻击速度。"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven_speed_bonus"				"%移动速度减缓："
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven_attack_bonus_tooltip"	"攻击速度降低："
-		"DOTA_Tooltip_Ability_omniknight_guardian_angel_Lore"							"+25回复"
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven"							"守护天使"
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_Description"				"全能骑士召唤出守护天使，使附近的友方单位对物理伤害免疫。"
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_Lore"					"全知之主对那些被普利斯特称为“朋友”的人降下保护结界。"
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_duration"				"持续时间："
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_radius"					"作用范围："
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_health_regen"			"回血："
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_scepter_description"		"提升持续时间，作用范围变为全地图，对建筑有效。"
+		"DOTA_Tooltip_modifier_guardian_angel"												"守护天使"
+		"DOTA_Tooltip_modifier_guardian_angel_Description"									"对物理攻击免疫。"
+
 		//Pudge
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"								"肉钩"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"					"向一个单位或方向射出血腥的肉钩。勾住第一个遭遇的单位，并将它拖到帕吉身边，敌方单位则会造成伤害。"

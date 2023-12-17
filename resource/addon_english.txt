@@ -628,6 +628,7 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_datadriven_blast_mana_cost"			"FIRE FLAST +MANA COST:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_datadriven_blood_cooldown"			"BLOODLUST -CD:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_datadriven_ignite_range"				"IGNITE +CAST&AOE RANGE:"
+
 		//Omniknight
 		"DOTA_Tooltip_ability_omniknight_purification_2"								"Purification"
 		"DOTA_Tooltip_ability_omniknight_purification_2_Description"					"Instantly heals a friendly unit and damages all nearby enemy units."
@@ -644,7 +645,16 @@
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven_Description"				"Degenerates the movement capabilities and attack speeds of enemy units that stray too near.%speed_bonus%%% move speed，%attack_bonus_tooltip% attack speed"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven_speed_bonus"				"%Move Speed Slow:"
 		"DOTA_Tooltip_Ability_omniknight_degen_aura_datadriven_attack_bonus_tooltip"	"%Attack Speed Slow:"
-		"DOTA_Tooltip_Ability_omniknight_guardian_angel_Lore"							"+25 health regen"
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven"							"Guardian Angel"
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_Description"				"Omniknight calls upon a Guardian Angel that grants allies immunity from physical damage."
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_Lore"						"The All Seeing One casts down his protection over those that Purist calls friend."
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_duration"					"DURATION:"
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_radius"					"RADIUS:"
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_health_regen"				"HEALTH REGEN:"
+		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_scepter_description"		"Increases duration, radius becomes global and affects buildings."
+		"DOTA_Tooltip_modifier_guardian_angel"												"Guardian Angel"
+		"DOTA_Tooltip_modifier_guardian_angel_Description"									"Immune to physical damage."
+
 		// Pudge
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"								"Meat Hook"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"					"Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge, dealing damage if it is an enemy."
