@@ -39,8 +39,6 @@ function enchantress_enchant_lua:OnSpellStart()
 		self.target:AddNewModifier(self.caster, self, "modifier_enchantress_enchant_lua", {duration = self.dominate_duration})
 		self.target:AddNewModifier(self.caster, self, "modifier_kill", {duration = self.dominate_duration})
 
-		self.target:Heal(self.target:GetMaxHealth(), self)
-
 		if self.caster:GetName() == "npc_dota_hero_enchantress" then
 			self.caster:EmitSound("enchantress_ench_ability_enchant_0"..math.random(1,3))
 		end
