@@ -24319,11 +24319,10 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900"
-		"AbilityCastPoint"				"0.25"
+		"AbilityCastPoint"				"0.4"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -24333,15 +24332,24 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"wave_speed"				"2000.0"
-				"wave_width"				"250"
-				"silence_duration"			"3 4 5 6"
-				"knockback_distance_max"	"450"
+				"wave_speed"		"2000.0"
+				"wave_width"		
+				{
+					"value"			"250"
+					"LinkedSpecialBonus"	"special_bonus_unique_drow_ranger_4"
+				}
+				"silence_duration"	"3 4 5 6"
+				"knockback_distance_max"	"350"
 				"knockback_duration"		"0.6 0.7 0.8 0.9"
-				"knockback_height"			"0"
-				"wave_length"				"900"
-				"bonus_movespeed"			"0"
-				"gust_reveals_invis"		"0"
+				"knockback_height"		"0"
+				"wave_length"		"900"
+				"bonus_movespeed"		
+				{
+					"value"					"0"
+					"special_bonus_unique_drow_ranger_gust_selfmovespeed"		"+15"
+				}
+				"AbilityCooldown"				"13"
+				"gust_reveals_invis"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -32276,7 +32284,7 @@
 			"radius"					"225"		
 			"max_distance"				"1800"
 			"orb_speed"					"600"
-			"orb_vision"				"450"
+			"orb_vision"				"800"
 			"vision_duration"			"3.34"
 			"damage"			
 			{		
