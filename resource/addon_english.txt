@@ -985,6 +985,7 @@
 		"DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_duration_creep"	"NON-HERO DURATION:"
 		"DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_bonus_damage"		"BONUS DAMAGE:"
 		"DOTA_Tooltip_Ability_faceless_void_chronosphere_scepter_Description"		"Increases duration and decreases cooldown to 60 seconds."
+
 		// Gyrocopter
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven"								"Homing Missle"
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_Description"					"Fires a homing missile to seek the targeted enemy unit. The missile gains speed over time, dealing damage and stunning when it impacts the target.  Homing Missile deals greater damage the further it has traveled.  Enemy units can destroy the missile before it reaches its target."
@@ -995,7 +996,20 @@
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_stun_duration"				"STUN DURATION:"
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_hits_to_kill_tooltip"		"HITS TO DESTROY:"
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_tower_hits_to_kill_tooltip"	"TOWER HITS TO DESTROY:"
-		"DOTA_Tooltip_Ability_gyrocopter_call_down_Scepter_Description"							"Increases the damage of the second missile, and gives global cast range."
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven"									"Call Down"
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_Description"						"Call down an aerial missile strike on enemy units in a target area. After %missile_delay_tooltip% seconds, two missiles arrive in succession, with %missile_delay_tooltip% seconds between them."
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_Lore"								"'Bombs Away!'"
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_damage_first"						"MISSILE ONE DAMAGE:"
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_damage_second"					"MISSILE TWO DAMAGE:"
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_slow_first"						"%MISSILE ONE SLOW:"
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_slow_second"						"%MISSILE TWO SLOW:"
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_radius"							"RADIUS:"
+		"DOTA_Tooltip_Ability_gyrocopter_call_down_datadriven_Scepter_Description"				"Increases the damage of the second missile, and gives global cast range."
+		"DOTA_Tooltip_modifier_missile_slow_first"												"Call Down"
+		"DOTA_Tooltip_modifier_missile_slow_first_Description"									"Slowed by Gyrocopter's rockets."
+		"DOTA_Tooltip_modifier_missile_slow_second"												"Call Down"
+		"DOTA_Tooltip_modifier_missile_slow_second_Description"									"Slowed by Gyrocopter's rockets."
+
 		// Juggernaut
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_datadriven"									"Blade Fury"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_datadriven_Description"						"Causes a bladestorm of destructive force around Juggernaut, rendering him magic immune, and dealing damage to nearby enemy units. \n\nDISPEL TYPE: Basic Dispel"

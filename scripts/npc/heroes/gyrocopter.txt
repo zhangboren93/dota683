@@ -1,0 +1,229 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+// Rewrite of Gyrocopter Call Down
+// Author: YOLOSPAGHETTI
+// Date: March 28, 2016
+// Version: 6.86
+// Type: Datadriven
+//
+// ----- FILE REQUIREMENTS -----
+// Script files:
+// scripts/vscripts/heroes/hero_gyrocopter/call_down.lua
+//
+// Notes: Missing some particles and for the marker particle, the targeting array moves out instead of in
+"gyrocopter_call_down_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"				"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+	"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"AoERadius"						"600"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+	"FightRecapLevel"				"2"
+	"AbilityTextureName"			"gyrocopter_call_down"
+	"MaxLevel"              		"3"
+	"RequiredLevel"         		"6"
+	"LevelsBetweenUpgrades" 		"5"
+	"HasScepterUpgrade"				"1"
+	
+	"precache"
+	{
+		"particle"		"particles/units/heroes/hero_gyrocopter/gyro_calldown_marker.vpcf"
+		"particle"		"particles/units/heroes/hero_gyrocopter/gyro_call_down_explosion_impact_b.vpcf"
+		"particle"		"particles/units/heroes/hero_gyrocopter/gyro_calldown_explosion_flash_c.vpcf"
+		"particle"		"particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_first.vpcf"
+		"particle"		"particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_second.vpcf"
+		"soundfile"		"sounds/weapons/hero/gyrocopter/call_down_cast.vsnd"
+		"soundfile"		"sounds/weapons/hero/gyrocopter/call_down_impact.vsnd"
+	}
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastPoint"				"0.3"
+
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"55 50 45"
+	
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"125 125 125"
+	
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityValues"
+	{
+		"slow_duration_first"		"2"
+		"slow_duration_second"		"3"
+		"damage_first"				"250 300 350"
+		"damage_second"				
+		{
+			"value"					"100 150 200"
+			"special_bonus_scepter"	"+75"
+		}
+		"slow_first"				"-30"
+		"slow_second"				"-60"
+		"radius"					"600"
+		"missile_delay"				"2.0"
+		"vision_radius"				"300"
+		"AbilityCastRange"
+		{
+			"value"					"1000"
+			"special_bonus_scepter"	"+20000"
+		}
+		"vision_duration"			"4.0"
+	}
+	
+	"OnSpellStart"
+	{
+		"FireSound"
+		{
+			"EffectName"	"Hero_Gyrocopter.CallDown.Fire"
+			"Target"		"CASTER"
+		}
+	
+		"CreateThinker"
+		{
+			"ModifierName"	"modifier_call_down_marker_first"
+			"Target"		"POINT"	
+		}
+		
+		"RunScript"
+		{
+			"ScriptFile"	"heroes/hero_gyrocopter/call_down.lua"
+			"Function"		"GiveVision"
+			"Target"		"POINT"
+		}
+	}
+	
+	"Modifiers"
+	{
+		"modifier_call_down_marker_first"
+		{
+			"Duration"	"%missile_delay"
+		
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_gyrocopter/gyro_calldown_marker.vpcf"
+					"EffectAttachType"	"attach_origin"
+					"Target"			"TARGET"
+					"ControlPoints"
+					{
+						"00" "0 0 0"
+						"01" "%radius %radius %radius"
+					}
+				}
+				
+				"TrackingProjectile"
+				{
+					"Target"           	"TARGET"
+					"EffectName"       	"particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_first.vpcf"
+					"Dodgeable"        	"1"
+					"ProvidesVision"   	"0"
+					"MoveSpeed"        	"100"
+					"SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+					"TargetTypes"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+				}
+						
+				"TrackingProjectile"
+				{
+					"Target"           	"TARGET"
+					"EffectName"       	"particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_second.vpcf"
+					"Dodgeable"        	"1"
+					"ProvidesVision"   	"0"
+					"MoveSpeed"        	"100"
+					"SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+					"TargetTypes"    "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_MECHANICAL"
+				}
+			}
+			
+			"OnDestroy"
+			{
+				"FireSound"
+				{
+					"EffectName"	"Hero_Gyrocopter.CallDown.Damage"
+					"Target"		"TARGET"
+				}
+			
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_gyrocopter/call_down.lua"
+					"Function"		"handleDestroyed"
+					"Modifier"		"modifier_missile_slow_first"
+					"Damage"		"%damage_first"
+				}
+
+				"CreateThinker"
+				{
+					"ModifierName"	"modifier_call_down_marker_second"
+					"Target"		"TARGET"	
+				}
+			}
+		}
+	
+		"modifier_call_down_marker_second"
+		{
+			"Duration"	"%missile_delay"
+		
+			"OnCreated"
+			{
+				"AttachEffect"
+				{
+					"EffectName"		"particles/units/heroes/hero_gyrocopter/gyro_calldown_marker.vpcf"
+					"EffectAttachType"	"attach_origin"
+					"Target"			"TARGET"
+					"ControlPoints"
+					{
+						"00" "0 0 0"
+						"01" "%radius %radius %radius"
+					}
+				}
+			}
+			
+			"OnDestroy"
+			{
+				"FireSound"
+				{
+					"EffectName"	"Hero_Gyrocopter.CallDown.Damage"
+					"Target"		"TARGET"
+				}
+			
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_gyrocopter/call_down.lua"
+					"Function"		"handleDestroyed"
+					"Modifier"		"modifier_missile_slow_second"
+					"Damage"		"%damage_second"
+				}
+			}
+		}
+	
+		"modifier_missile_slow_first"
+		{
+			"Duration"	"%slow_duration_first"
+			"IsDebuff" "1"
+			
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_first"
+			}
+		}
+		
+		"modifier_missile_slow_second"
+		{
+			"Duration"	"%slow_duration_second"
+			"IsDebuff" "1"
+			
+			"Properties"
+			{
+				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_second"
+			}
+		}
+	}
+}
+}

@@ -992,6 +992,7 @@
 		"DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_duration_creep"	"对非英雄持续时间："
 		"DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_bonus_damage"		"额外伤害："
 		"DOTA_Tooltip_Ability_faceless_void_chronosphere_scepter_Description"		"增加持续时间并减少冷却时间至60秒。"
+
 		// Gyrocopter
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven"								"导弹"
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_Description"					"发射一枚会自动搜索目标单位的追踪导弹。导弹发射后持续增加飞行速度，击中目标时造成伤害及眩晕。飞行距离越远，造成的伤害越大。敌方单位可在导弹接近前将其击落。"
@@ -1002,7 +1003,20 @@
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_stun_duration"				"眩晕时间："
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_hits_to_kill_tooltip"		"摧毁所需次数："
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_tower_hits_to_kill_tooltip"	"摧毁所需防御塔攻击次数："
-		"DOTA_Tooltip_Ability_gyrocopter_call_down_Scepter_Description"							"增加第二枚导弹的伤害，并获得全图打击能力。"
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven"						"召唤飞弹"
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_Description"			"在目标区域召唤防空导弹打击敌方单位。经过%missile_delay_tooltip%秒延迟后，两颗导弹将接连到达，期间相隔%missile_delay_tooltip%秒。"
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_Lore"					"“开始轰炸！”"
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_damage_first"			"第一发导弹伤害："
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_damage_second"		"第二发导弹伤害："
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_slow_first"			"%第一发导弹减速："
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_slow_second"			"%第二发导弹减速："
+		"DOTA_Tooltip_ability_gyrocopter_call_down_datadriven_radius"				"作用范围："
+		"DOTA_Tooltip_Ability_gyrocopter_call_down_datadriven_Scepter_Description"	"增加第二枚导弹的伤害，并获得全图打击能力。"
+		"DOTA_Tooltip_modifier_missile_slow_first"									"召唤飞弹"
+		"DOTA_Tooltip_modifier_missile_slow_first_Description"						"被矮人直升机的导弹减速。"
+		"DOTA_Tooltip_modifier_missile_slow_second"									"召唤飞弹"
+		"DOTA_Tooltip_modifier_missile_slow_second_Description"						"被矮人直升机的导弹减速。"
+
 		// Juggernaut
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_datadriven"							"剑刃风暴"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_datadriven_Description"				"舞起具有破坏性力量的剑刃风暴，使主宰获得魔法免疫状态，并且对主宰周围的敌方单位造成伤害。\n\n驱散类型：弱驱散"
