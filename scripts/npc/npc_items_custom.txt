@@ -24,6 +24,11 @@
 		"ItemPurchasable"	"0"
 	}
 
+	"item_angels_demise"
+	{
+		"ItemPurchasable"	"0"
+	}
+
 	"item_swift_blink"
 	{
 		"ItemPurchasable"	"0"
