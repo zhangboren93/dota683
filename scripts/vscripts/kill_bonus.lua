@@ -348,8 +348,13 @@ function GetTeamTotalXP(victim_team)
 	local victim_team_total_gold = 0
 	for i=1,PlayerResource:GetPlayerCountForTeam(victim_team) do
 		local playerId = PlayerResource:GetNthPlayerIDOnTeam(victim_team, i)
-		victim_team_total_gold = victim_team_total_gold + PlayerResource:GetPlayer(playerId):GetAssignedHero():GetCurrentXP()
-		--print(victim_team .. " " .. playerId .. " " .. victim_team_total_gold)
+		local hero = PlayerResource:GetPlayer(playerId):GetAssignedHero()
+		if hero == nil then
+			GameRules:SendCustomMessage("[WARN] no assigned hero for player " .. playerId, -1, -1)
+		else
+			victim_team_total_gold = victim_team_total_gold + PlayerResource:GetPlayer(playerId):GetAssignedHero():GetCurrentXP()
+			--print(victim_team .. " " .. playerId .. " " .. victim_team_total_gold)
+		end
 	end
 	return victim_team_total_gold
 end
