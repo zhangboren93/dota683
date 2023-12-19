@@ -24,7 +24,7 @@ function handleAbilityExecuted(keys)
 					if item ~= nil then item:EndCooldown() end
 					item = double:FindItemInInventory("item_tpscroll")
 					if item ~= nil then item:EndCooldown() end
-					if caster:HasItemInInventory("item_flask") then double:AddItemByName("item_flask") end
+					if caster:HasItemInInventory("item_flask_datadriven") then double:AddItemByName("item_flask_datadriven") end
 					if caster:HasItemInInventory("item_clarity") then double:AddItemByName("item_clarity") end
 					if caster:HasItemInInventory("item_dust") then double:AddItemByName("item_dust") end
 

@@ -3,7 +3,7 @@ local ItemsToBuyHeroes = {}
 ItemsToBuyHeroes["npc_dota_hero_axe"] = {
 	"item_tango",
 	"item_tango",
-	"item_flask",
+	"item_flask_datadriven",
 	"item_stout_shield",
 	"item_bracer",
 	"item_bracer",
@@ -47,7 +47,7 @@ ItemsToBuyHeroes["npc_dota_hero_lina"] = {
 ItemsToBuyHeroes["npc_dota_hero_bristleback"] = {
 	"item_tango",
 	"item_tango",
-	"item_flask",
+	"item_flask_datadriven",
 	"item_stout_shield",
 	"item_bracer",
     "item_ring_of_health",
@@ -82,7 +82,7 @@ ItemsToBuyHeroes["npc_dota_hero_zuus"] = {
 ItemsToBuyHeroes["npc_dota_hero_skeleton_king"] = {
 	"item_tango",
 	"item_tango",
-	"item_flask",
+	"item_flask_datadriven",
 	"item_stout_shield",
 	"item_power_treads",
 	"item_desolator_datadriven",

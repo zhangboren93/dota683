@@ -313,6 +313,12 @@
 		"DOTA_Tooltip_ability_item_mjollnir_datadriven_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_ability_item_mjollnir_datadriven_bonus_attack_speed"		"+$attack"		
 
+		"DOTA_Tooltip_Ability_item_flask_datadriven"							"治疗药膏"
+		"DOTA_Tooltip_ability_item_flask_datadriven_Description"				"<h1>使用：药膏</h1>向目标提供%health_per_second%点/秒生命恢复，持续%buff_duration%秒。<br><br>受到攻击时效果会被驱散。<br><br>对友军施放距离：%abilitycastrange%"
+		"DOTA_Tooltip_ability_item_flask_datadriven_Lore"						"即使最严重的伤口也能快速治愈的魔法药膏。"
+		"DOTA_Tooltip_modifier_item_flask_datadriven_active"					"治疗药膏"
+		"DOTA_Tooltip_modifier_item_flask_datadriven_active_Description"		"正在回复生命。"
+
 		"DOTA_Tooltip_Ability_courier_share"					"分享信使"
 		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"			"神秘商店"
 		"DOTA_Tooltip_ability_courier_burst_datadriven"								"加速"
