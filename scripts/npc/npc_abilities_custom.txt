@@ -17173,6 +17173,8 @@
 	{
 		"HasShardUpgrade"	"0"
 		"HasScepterUpgrade"	"1"
+		"LevelsBetweenUpgrades"	"7"
+		"RequiredLevel"			"3"
 		"AbilityValues"
 		{
 				"tooltip_clones"		

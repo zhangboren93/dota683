@@ -3773,6 +3773,7 @@
 		"MovementSpeed"				"315"
 		"MovementTurnRate"			"0.65"
 		"ArmorPhysical"				"0.39"
+		"MagicalResistance"			"35"
 		"AttackRate"				"1.7"
 		"AttackDamageMin"			"16"
 		"AttackDamageMax"			"22"
