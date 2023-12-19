@@ -122,7 +122,9 @@
 	}
 	"npc_dota_neutral_ogre_mauler"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
+		"Ability1"					"creep_irresolute"			// Ability 1
+		"Ability2"					"creep_irresolute_extra"	// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
@@ -133,6 +135,9 @@
 	}
 	"npc_dota_neutral_ogre_magi"
 	{
+		"Ability2"					"creep_irresolute"			// Ability 2
+		"Ability3"					"creep_irresolute_extra"	// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
@@ -144,6 +149,9 @@
 	"npc_dota_neutral_giant_wolf"
 	{
 		"Ability1"					"giant_wolf_critical_strike"			// Ability 1
+		"Ability2"					"creep_piercing"			// Ability 2
+		"Ability3"					"creep_piercing_extra"			// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"1"			// Physical protection.
 		"AttackDamageMin"			"21"		// Damage range min.
 		"AttackDamageMax"			"24"		// Damage range max.	
@@ -154,6 +162,10 @@
 	}
 	"npc_dota_neutral_alpha_wolf"
 	{
+		"AbilityLayout"				"5"
+		"Ability3"					"creep_irresolute"			// Ability 3
+		"Ability4"					"creep_irresolute_extra"	// Ability 4
+		"Ability5"					"creep_strong"			// Ability 5
 		"Level"						"4"
 		"ArmorPhysical"				"3"			// Physical protection.
 		"AttackDamageMin"			"30"		// Damage range min.
@@ -286,7 +298,9 @@
 	}
 	"npc_dota_dark_troll_warlord_skeleton_warrior"
 	{
-		"Ability1"					"generic_hidden"			// Ability 1.
+		"Ability1"					"creep_irresolute"			// Ability 1
+		"Ability2"					"creep_irresolute_extra"	// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"BountyXP"					"12"		// Experience earn.
 		"BountyGoldMin"				"6"			// Gold earned min.
 		"BountyGoldMax"				"12"		// Gold earned max.
