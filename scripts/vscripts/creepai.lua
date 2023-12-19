@@ -20,6 +20,15 @@ pathCornersMap["gb"] = {
 	"lane_bot_pathcorner_goodguys_5",
 	"lane_bot_pathcorner_goodguys_6",
 	"lane_bot_pathcorner_goodguys_7"}
+pathCornersMap["gbn"] = {
+	"lane_bot_pathcorner_goodguys_2",
+	"lane_bot_pathcorner_goodguys_11",
+	"lane_bot_pathcorner_goodguys_5",
+	"lane_bot_pathcorner_goodguys_12",
+	"lane_bot_pathcorner_goodguys_7",
+	"lane_bot_pathcorner_goodguys_3",
+	"lane_bot_pathcorner_goodguys_4",
+}
 pathCornersMap["gm"] = {
 	"lane_mid_pathcorner_goodguys_1",
 	"lane_mid_pathcorner_goodguys_2",
@@ -61,7 +70,8 @@ pathCornersMap["bt"] = {
 	"lane_top_pathcorner_badguys_3",
 	"lane_top_pathcorner_badguys_4",
 	"lane_top_pathcorner_badguys_5",
-	"lane_top_pathcorner_badguys_6"}
+	"lane_top_pathcorner_badguys_6",
+	"lane_top_pathcorner_badguys_7"}
 
 function modifier_creep_ai:OnCreated(kv)
 	if IsServer() then

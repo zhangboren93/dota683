@@ -8,7 +8,6 @@ require("building_bounty")
 require("root_modifiers")
 require("hero_types")
 require("ladder_game_mode")
-require("rank_trees")
 require("end_game")
 
 if CAddonTemplateGameMode == nil then
@@ -261,10 +260,6 @@ function CAddonTemplateGameMode:InitGameMode()
 				end, "validate rank game after 5 minutes", 300)
 			end
 		elseif event.new_state == 4 then
-			if isMapRanked() then
-				spawnBaseTrees()
-			end
-
 			CustomGameEventManager:Send_ServerToAllClients("player_ladder_scores", playerId2LadderScore)
 		elseif event.new_state == DOTA_GAMERULES_STATE_SCENARIO_SETUP then
 			if isMapRanked() then
@@ -539,8 +534,6 @@ function CAddonTemplateGameMode:OnThink()
 
 		-- respawn base trees in rank map
 		if isMapRanked() then
-			spawnBaseTrees()
-
 			-- if all players from one team has disconnected from the game, call other team the winner.
 			if not notValidRankedGame and not hasGameEnded then
 				sendEndGameStats(player2BuildingDamage)
