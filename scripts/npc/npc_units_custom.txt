@@ -378,7 +378,8 @@
 	"npc_dota_neutral_black_dragon"	
 	{
 		"Ability1"					"neutral_spell_immunity"			// Ability 1
-		"Ability3"					""			// Ability 3
+		"Ability3"					"creep_light"			// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"6"			// Physical protection.
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"70"		// Damage range min.
@@ -389,8 +390,9 @@
 	}
 	"npc_dota_neutral_black_drake"	
 	{
-		"Ability1"					"generic_hidden"			// Ability 1
-		"Ability2"					"generic_hidden"			// Ability 2
+		"Ability1"					"creep_piercing"			// Ability 1.
+		"Ability2"					"creep_piercing_extra"			// Ability 2.
+		"Ability3"					"creep_strong"			// Ability 3.
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"56"		// Damage range max.
 		"BountyXP"					"62"		// Experience earn.
@@ -400,7 +402,9 @@
 	"npc_dota_neutral_rock_golem"
 	{
 		"Ability1"					"neutral_spell_immunity"			// Ability 1
-		"Ability2"					"generic_hidden"					// Ability 2
+		"Ability2"					"creep_irresolute"			// Ability 2
+		"Ability3"					"creep_irresolute_extra"	// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"29"		// Damage range min.
 		"AttackDamageMax"			"33"		// Damage range max.	
@@ -412,6 +416,8 @@
 	"npc_dota_neutral_granite_golem"
 	{
 		"Ability2"					"neutral_spell_immunity"			// Ability 2
+		"Ability3"					"creep_light"			// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 		"MagicalResistance"			"100"		// Magical protection.
 		"AttackDamageMin"			"77"		// Damage range min.
 		"AttackDamageMax"			"87"		// Damage range max.	
@@ -434,9 +440,9 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"blue_dragonspawn_sorcerer_evasion"			// Ability 1
-		"Ability2"					""	// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
+		"Ability2"					"creep_irresolute"			// Ability 2
+		"Ability3"					"creep_irresolute_extra"	// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 
 		// Armor
 		//----------------------------------------------------------------
@@ -507,8 +513,8 @@
 		//----------------------------------------------------------------
 		"Ability1"					"blue_dragonspawn_overseer_evasion"			// Ability 1
 		"Ability2"					"blue_dragonspawn_overseer_devotion_aura"			// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
+		"Ability3"					"creep_light"			// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 
 		// Armor
 		//----------------------------------------------------------------
@@ -577,9 +583,9 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					""			// Ability 1
-		"Ability2"					""			// Ability 2
-		"Ability3"					""			// Ability 3
+		"Ability1"					"creep_irresolute"			// Ability 1
+		"Ability2"					"creep_irresolute_extra"	// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"Ability4"					""			// Ability 4
 
 		// Armor
@@ -652,8 +658,8 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"neutral_spell_immunity"			// Ability 1
-		"Ability2"					""			// Ability 2
-		"Ability3"					""			// Ability 3
+		"Ability2"					"creep_light"			// Ability 2
+		"Ability3"					"creep_strong"			// Ability 3
 		"Ability4"					""			// Ability 4
 
 		// Armor

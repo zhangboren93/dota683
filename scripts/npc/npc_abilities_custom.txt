@@ -35383,7 +35383,7 @@
 		"AbilityValues"
 		{
 			"building_damage_penalty"		"-42.8571"
-			"building_damage_tooltip"		"75"
+			"building_damage_tooltip"		"40"
 		}
 	}
 	"creep_weak"
