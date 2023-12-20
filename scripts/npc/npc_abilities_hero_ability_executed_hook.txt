@@ -623,4 +623,14 @@
 					}
 				}
 			}
+			"modifier_rune_haste_datadriven"
+			{
+				"TextureName"	"rune_haste"
+				"EffectName"	"particles/generic_gameplay/rune_haste_owner.vpcf"
+				"Duration"		"30"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"522"
+				}
+			}
 		}}}
