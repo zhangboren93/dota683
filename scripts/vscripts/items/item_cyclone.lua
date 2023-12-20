@@ -17,3 +17,17 @@ function handleAbilityExecuted(keys)
 		ability2:ApplyDataDrivenModifier(unit, target, "modifier_eul_cyclone_datadriven", {}):SetDuration(2.5, true)
 	end
 end
+
+function handleDestroy(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	if target:GetTeam() ~= caster:GetTeam() then
+		ApplyDamage({
+			victim = target,
+			attacker = caster,
+			damage = 50,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			ability = ability })
+	end
+end
