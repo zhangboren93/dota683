@@ -3382,8 +3382,8 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"creep_piercing"			// Ability 1.
-		"Ability2"					""			// Ability 2.
-		"Ability3"					""			// Ability 3.
+		"Ability2"					"creep_piercing_extra"			// Ability 2.
+		"Ability3"					"creep_strong"			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 

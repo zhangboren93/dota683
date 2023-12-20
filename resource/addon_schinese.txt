@@ -1379,9 +1379,12 @@
 		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_max_range_tooltip"		"作用范围上限："
 		"DOTA_Tooltip_modifier_corrosive_skin_debuff_datadriven"						"腐蚀皮肤减速"
 		"DOTA_Tooltip_modifier_corrosive_skin_debuff_datadriven_Description"			"攻击移动速度降低并持续受到伤害。"
+		"DOTA_Tooltip_Ability_viper_viper_strike_Description"           "蝮蛇降低目标敌方单位的移动和攻击速度，并造成持续毒性伤害。移动速度会在毒性的持续时间内逐渐恢复。"
 		"DOTA_Tooltip_Ability_viper_viper_strike_damage"				""
 		"DOTA_Tooltip_Ability_viper_viper_strike_damage_tooltip"		"每秒伤害："
 		"DOTA_Tooltip_Ability_viper_viper_strike_Scepter_Description"	"减少魔法消耗和冷却时间，提高施法距离。"
+		"DOTA_Tooltip_modifier_viper_viper_strike_slow_lua"					"蝮蛇突袭减速"
+		"DOTA_Tooltip_modifier_viper_viper_strike_slow_lua_Description"		"移动速度减缓%fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度被降低%fMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
 
 		//Ancient Apparition
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven"						"极寒之触"
@@ -1850,5 +1853,6 @@
 		"dota_hud_error_demonic_conversion_beast_master"	"不能吃猪和鹰"
 
 		"DOTA_HUD_BackpackHint"			"背包已被禁用。"
+		"DOTA_Hud_Pregame_Random_Tooltip"	"从经常使用的英雄中随机选择一个。在部分游戏模式中会获得 200 额外初始金钱。"
 	}
 }
