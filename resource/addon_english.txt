@@ -1339,9 +1339,12 @@
 		"DOTA_Tooltip_ability_viper_corrosive_skin_datadriven_max_range_tooltip"				"MAX RANGE RADIUS:"
 		"DOTA_Tooltip_modifier_corrosive_skin_debuff_datadriven"								"Corrosive Skin Slow"
 		"DOTA_Tooltip_modifier_corrosive_skin_debuff_datadriven_Description"					"Attack speed, move speed reduced and taking damage over time."
+		"DOTA_Tooltip_Ability_viper_viper_strike_damage"					"Viper slows the targeted enemy unit's movement and attack speed while also dealing poison damage over time.  The slowing effect reduces over the duration of the poison."
 		"DOTA_Tooltip_Ability_viper_viper_strike_damage"					""
 		"DOTA_Tooltip_Ability_viper_viper_strike_damage_tooltip"			"DAMAGE PER SECOND:"
 		"DOTA_Tooltip_Ability_viper_viper_strike_Scepter_Description"		"Decreases mana cost and cooldown, and increases cast range."
+		"DOTA_Tooltip_modifier_viper_viper_strike_slow_lua"					"Viper Strike Slow"
+		"DOTA_Tooltip_modifier_viper_viper_strike_slow_lua_Description"		"Movement speed reduced by %fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %fMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 		//Ancient Apparition
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven"					"Chilling Touch"

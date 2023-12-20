@@ -113,6 +113,7 @@ function Activate()
 	LinkLuaModifier( "modifier_abyssal_underlord_pit_of_malice_ensare_lua",		"heroes/hero_abyssal_underlord/modifier_abyssal_underlord_pit_of_malice_ensare.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_enchant_lua",		"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_enchant_slow_lua",	"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_viper_viper_strike_slow_lua",	"heroes/hero_viper/viper_strike.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1584,8 +1585,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		end
 	elseif event.name_const == "modifier_viper_viper_strike_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_viper_viper_strike_damage_datadriven", {})
+		parent:AddNewModifier(caster, ability, "modifier_viper_viper_strike_slow_lua", {duration = ability:GetSpecialValueFor("duration")})
+		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
