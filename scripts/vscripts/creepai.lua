@@ -13,7 +13,7 @@ local PRIORITY_HERO = 1
 local PRIORITY_NOT_CREEP = 0 -- building etc
 local pathCornersMap = { }
 pathCornersMap["gb"] = {
-	--"lane_bot_pathcorner_goodguys_1",
+	"lane_bot_pathcorner_goodguys_1",
 	"lane_bot_pathcorner_goodguys_2",
 	"lane_bot_pathcorner_goodguys_3",
 	"lane_bot_pathcorner_goodguys_4",
@@ -46,15 +46,20 @@ pathCornersMap["gt"] = {
 	"lane_top_pathcorner_goodguys_4",
 	"lane_top_pathcorner_goodguys_5",
 	"lane_top_pathcorner_goodguys_6",
-	"lane_top_pathcorner_goodguys_7"}
+	"lane_top_pathcorner_goodguys_7",
+	"lane_top_pathcorner_goodguys_8",
+	"lane_top_pathcorner_goodguys_9"}
 pathCornersMap["bb"] = {
 	"lane_bot_pathcorner_badguys_1",
 	"lane_bot_pathcorner_badguys_2",
-	"lane_bot_pathcorner_badguys_7",
+	"lane_bot_pathcorner_badguys_3",
+	"lane_bot_pathcorner_badguys_4",
 	"lane_bot_pathcorner_badguys_5",
 	"lane_bot_pathcorner_badguys_6",
-	"lane_bot_pathcorner_badguys_3",
-	"lane_bot_pathcorner_badguys_4"}
+	"lane_bot_pathcorner_badguys_7",
+	"lane_bot_pathcorner_badguys_8",
+	"lane_bot_pathcorner_badguys_9",
+	"lane_bot_pathcorner_badguys_10"}
 pathCornersMap["bm"] = {
 	"lane_mid_pathcorner_badguys_1",
 	"lane_mid_pathcorner_badguys_2",
@@ -71,7 +76,8 @@ pathCornersMap["bt"] = {
 	"lane_top_pathcorner_badguys_4",
 	"lane_top_pathcorner_badguys_5",
 	"lane_top_pathcorner_badguys_6",
-	"lane_top_pathcorner_badguys_7"}
+	"lane_top_pathcorner_badguys_7",
+	"lane_top_pathcorner_badguys_8"}
 
 function modifier_creep_ai:OnCreated(kv)
 	if IsServer() then
