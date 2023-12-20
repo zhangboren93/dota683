@@ -602,4 +602,25 @@
 					}
 				}
 			}
+			"modifier_rune_doubledamage_datadriven"
+			{
+				"TextureName"	"rune_doubledamage"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"ThinkInterval"	"0.1"
+				"EffectName"	"particles/generic_gameplay/rune_doubledamage_owner.vpcf"
+				"Duration"		"45"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"1"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"runes.lua"
+						"Function"		"handleDoubleDamage"
+					}
+				}
+			}
 		}}}

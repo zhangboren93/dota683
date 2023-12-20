@@ -1836,6 +1836,10 @@
 		"DOTA_Tooltip_Ability_creep_strong"								"Strong Armor"
 		"DOTA_Tooltip_Ability_creep_strong_Description"					"This unit has strong armor."
 
+		// Runes
+		"DOTA_Tooltip_modifier_rune_doubledamage_datadriven"				"Double Damage"
+		"DOTA_Tooltip_modifier_rune_doubledamage_datadriven_description"	"Increases base damage by 100%."
+
 		//Hud error message
 		"dota_hud_error_no_units_to_grab"					"No target to grab"
 		"dota_hud_error_cant_cast_on_self"					"Cannot cast on self"

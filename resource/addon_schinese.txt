@@ -1846,6 +1846,10 @@
 		"DOTA_Tooltip_Ability_creep_strong"								"重甲"
 		"DOTA_Tooltip_Ability_creep_strong_Description"					"这个单位拥有重型护甲。"
 
+		//Runes
+		"DOTA_Tooltip_modifier_rune_doubledamage_datadriven"				"双倍伤害"
+		"DOTA_Tooltip_modifier_rune_doubledamage_datadriven_description"	"提高100%的基础攻击力。"
+
 		//Hud error message
 		"dota_hud_error_no_units_to_grab"		"没有抓取的目标"
 		"dota_hud_error_cant_cast_on_self"		"不能对自身释放"

@@ -358,6 +358,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		--local fort = Entities:FindByName(nil, "dota_badguys_fort")
 		--fort:Kill(nil, PlayerResource:GetPlayer(playerid):GetAssignedHero())
 		--GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+		--local hero = PlayerResource:GetPlayer(0):GetAssignedHero()
+		--local ability = hero:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		--ability:ApplyDataDrivenModifier(hero, hero, "modifier_rune_doubledamage_datadriven", {})
 	end
 	--if text == "-win" then
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
@@ -1582,6 +1585,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_viper_viper_strike_damage_datadriven", {})
 		parent:AddNewModifier(caster, ability, "modifier_viper_viper_strike_slow_lua", {duration = ability:GetSpecialValueFor("duration")})
+		return false
+	elseif event.name_const == "modifier_rune_doubledamage" then
+		local passive_ability = parent:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_rune_doubledamage_datadriven", {})
 		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
