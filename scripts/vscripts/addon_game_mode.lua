@@ -1598,6 +1598,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local passive_ability = parent:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_rune_regen_datadriven", {})
 		return false
+	elseif event.name_const == "modifier_rune_invis" then
+		parent:SetThink(function() 
+			parent:AddNewModifier(parent, nil, "modifier_invisible", { duration = 45 })
+		end, "invis fade", 2)
+		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
