@@ -628,9 +628,40 @@
 				"TextureName"	"rune_haste"
 				"EffectName"	"particles/generic_gameplay/rune_haste_owner.vpcf"
 				"Duration"		"30"
+				"IsPurgable"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"522"
+				}
+			}
+			"modifier_rune_regen_datadriven"
+			{
+				"TextureName"	"rune_regen"
+				"EffectName"	"particles/generic_gameplay/rune_regen_owner.vpcf"
+				"Duration"		"30"
+				"IsPurgable"	"1"
+				"ThinkInterval"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"100"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"67"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"runes.lua"
+						"Function"		"handleRuneRegenThink"
+					}
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"runes.lua"
+						"Function"		"handleRuneRegenTakeDamage"
+						"Damage"		"%attack_damage"
+					}
 				}
 			}
 		}}}

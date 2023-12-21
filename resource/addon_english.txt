@@ -1841,6 +1841,8 @@
 		"DOTA_Tooltip_modifier_rune_doubledamage_datadriven_description"	"Increases base damage by 100%."
 		"DOTA_Tooltip_modifier_rune_haste_datadriven"						"Haste"
 		"DOTA_Tooltip_modifier_rune_haste_datadriven_description"			"Increases movement speed to maximum"
+		"DOTA_Tooltip_modifier_rune_regen_datadriven"						"Regeneration"
+		"DOTA_Tooltip_modifier_rune_regen_datadriven_description"			"Regenerates health and mana to maximum."
 
 		//Hud error message
 		"dota_hud_error_no_units_to_grab"					"No target to grab"

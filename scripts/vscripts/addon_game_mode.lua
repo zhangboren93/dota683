@@ -360,7 +360,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		--GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 		--local hero = PlayerResource:GetPlayer(0):GetAssignedHero()
 		--local ability = hero:FindAbilityByName("hero_ability_executed_hook_datadriven")
-		--ability:ApplyDataDrivenModifier(hero, hero, "modifier_rune_haste_datadriven", {})
+		--ability:ApplyDataDrivenModifier(hero, hero, "modifier_rune_regen_datadriven", {})
 	end
 	--if text == "-win" then
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
@@ -1593,6 +1593,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_rune_haste" then
 		local passive_ability = parent:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_rune_haste_datadriven", {})
+		return false
+	elseif event.name_const == "modifier_rune_regen" then
+		local passive_ability = parent:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_rune_regen_datadriven", {})
 		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
