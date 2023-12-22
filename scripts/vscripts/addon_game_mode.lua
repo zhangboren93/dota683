@@ -1163,8 +1163,8 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 end
 
 function HandleRuneActivated(playerid, rune)
+	local player = PlayerResource:GetPlayer(playerid)
 	if rune == DOTA_RUNE_BOUNTY then
-			local player = PlayerResource:GetPlayer(playerid)
 		local hero = player:GetAssignedHero()
 		local time = GameRules:GetDOTATime(false, false)
 		local bounty = 100
@@ -1181,6 +1181,8 @@ function HandleRuneActivated(playerid, rune)
 			bottle:SetCurrentCharges(3)
 		end
 	end
+	CustomGameEventManager:Send_ServerToTeam(player:GetTeam(), "player_rune_activated", {
+		pid = playerid, rune_type = rune })
 end
 
 function HandleEntityHurt(entindex_killed, entindex_attacker, damage)
