@@ -24011,6 +24011,7 @@
 		"MaxLevel"              		"3"
 		"RequiredLevel"         		"6"
 		"LevelsBetweenUpgrades" 		"5"
+		"CastFilterRejectCaster"		"1"
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
