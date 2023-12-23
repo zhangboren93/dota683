@@ -360,7 +360,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		--GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 		--local hero = PlayerResource:GetPlayer(0):GetAssignedHero()
 		--local ability = hero:FindAbilityByName("hero_ability_executed_hook_datadriven")
-		--ability:ApplyDataDrivenModifier(hero, hero, "modifier_rune_doubledamage_datadriven", {})
+		--ability:ApplyDataDrivenModifier(hero, hero, "modifier_rune_regen_datadriven", {})
 	end
 	--if text == "-win" then
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
@@ -1157,8 +1157,8 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 end
 
 function HandleRuneActivated(playerid, rune)
+	local player = PlayerResource:GetPlayer(playerid)
 	if rune == DOTA_RUNE_BOUNTY then
-			local player = PlayerResource:GetPlayer(playerid)
 		local hero = player:GetAssignedHero()
 		local time = GameRules:GetDOTATime(false, false)
 		local bounty = 100
@@ -1175,6 +1175,8 @@ function HandleRuneActivated(playerid, rune)
 			bottle:SetCurrentCharges(3)
 		end
 	end
+	CustomGameEventManager:Send_ServerToTeam(player:GetTeam(), "player_rune_activated", {
+		pid = playerid, rune_type = rune })
 end
 
 function HandleEntityHurt(entindex_killed, entindex_attacker, damage)
@@ -1583,6 +1585,19 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_rune_doubledamage" then
 		local passive_ability = parent:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_rune_doubledamage_datadriven", {})
+		return false
+	elseif event.name_const == "modifier_rune_haste" then
+		local passive_ability = parent:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_rune_haste_datadriven", {})
+		return false
+	elseif event.name_const == "modifier_rune_regen" then
+		local passive_ability = parent:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_rune_regen_datadriven", {})
+		return false
+	elseif event.name_const == "modifier_rune_invis" then
+		parent:SetThink(function() 
+			parent:AddNewModifier(parent, nil, "modifier_invisible", { duration = 45 })
+		end, "invis fade", 2)
 		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false

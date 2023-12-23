@@ -1849,6 +1849,10 @@
 		//Runes
 		"DOTA_Tooltip_modifier_rune_doubledamage_datadriven"				"双倍伤害"
 		"DOTA_Tooltip_modifier_rune_doubledamage_datadriven_description"	"提高100%的基础攻击力。"
+		"DOTA_Tooltip_modifier_rune_haste_datadriven"						"极速"
+		"DOTA_Tooltip_modifier_rune_haste_datadriven_description"			"将移动速度提高到最大"
+		"DOTA_Tooltip_modifier_rune_regen_datadriven"						"恢复"
+		"DOTA_Tooltip_modifier_rune_regen_datadriven_Description"			"恢复生命值和魔法值。"
 
 		//Hud error message
 		"dota_hud_error_no_units_to_grab"		"没有抓取的目标"
