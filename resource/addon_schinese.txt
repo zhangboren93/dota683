@@ -668,6 +668,10 @@
 		"DOTA_Tooltip_modifier_guardian_angel"												"守护天使"
 		"DOTA_Tooltip_modifier_guardian_angel_Description"									"对物理攻击免疫。"
 
+		// Phoenix
+		"DOTA_Tooltip_ability_phoenix_fire_spirits"							"烈火精灵（6.84）"
+		"DOTA_Tooltip_ability_phoenix_launch_fire_spirit"					"发动烈火精灵（6.84）"
+
 		//Pudge
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"								"肉钩"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"					"向一个单位或方向射出血腥的肉钩。勾住第一个遭遇的单位，并将它拖到帕吉身边，敌方单位则会造成伤害。"

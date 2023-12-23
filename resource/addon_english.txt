@@ -663,6 +663,10 @@
 		"DOTA_Tooltip_modifier_guardian_angel"												"Guardian Angel"
 		"DOTA_Tooltip_modifier_guardian_angel_Description"									"Immune to physical damage."
 
+		// Phoenix
+		"DOTA_Tooltip_ability_phoenix_fire_spirits"							"Fire Spirits ( 6.84 )"
+		"DOTA_Tooltip_ability_phoenix_launch_fire_spirit"					"Launch Fire Spirit ( 6.84 )"
+
 		// Pudge
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"								"Meat Hook"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"					"Launches a bloody hook toward a unit or location. The hook will snag the first unit it encounters, dragging the unit back to Pudge, dealing damage if it is an enemy."
