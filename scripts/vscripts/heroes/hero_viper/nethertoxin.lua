@@ -7,8 +7,8 @@ function Nethertoxin( keys )
 	local ability = keys.ability
 	local HPPercentage = (target:GetHealth()/target:GetMaxHealth())*100 -- Calculate the target HP percentage
 
-	print("Hello !")
-	print(HPPercentage)
+	--print("Hello !")
+	--print(HPPercentage)
 
 
 	-- Apply a modifier depending on the HP percentage and unit type
@@ -37,12 +37,12 @@ function Nethertoxin( keys )
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_40_creep_datadriven", {})
 		end
 	else
-		print("Hello Im testing")
+		--print("Hello Im testing")
 		if target:IsRealHero() then
-			print("Im a hero!")
+			--print("Im a hero!")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_20_hero_datadriven", {})
 		else
-			print("Im not a hero :(")
+			--print("Im not a hero :(")
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_20_creep_datadriven", {})
 		end
 	end
