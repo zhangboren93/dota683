@@ -1837,6 +1837,16 @@
 		"DOTA_Tooltip_Ability_creep_strong_Description"					"This unit has strong armor."
 
 		// Runes
+		"DOTA_Tooltip_rune_doubledamage"				"Double Damage"
+		"DOTA_Tooltip_rune_doubledamage_description"	"Increases base damage by 100%"
+		"DOTA_Tooltip_rune_haste"						"Haste"
+		"DOTA_Tooltip_rune_haste_description"			"Increases movement speed to maximum"
+		"DOTA_Tooltip_rune_invisibility"				"Invisibility"
+		"DOTA_Tooltip_rune_invisibility_description"	"Become invisible for 45 seconds.  This invisibility is broken by attacking or by using an ability or item."
+		"DOTA_Tooltip_rune_regeneration"				"Regeneration"
+		"DOTA_Tooltip_rune_regeneration_description"	"Regenerates health and mana to maximum."
+		"DOTA_Tooltip_rune_bounty"						"Bounty"
+		"DOTA_Tooltip_rune_bounty_description"			"Grants bonus Gold and XP."
 		"DOTA_Tooltip_modifier_rune_doubledamage_datadriven"				"Double Damage"
 		"DOTA_Tooltip_modifier_rune_doubledamage_datadriven_description"	"Increases base damage by 100%."
 		"DOTA_Tooltip_modifier_rune_haste_datadriven"						"Haste"
