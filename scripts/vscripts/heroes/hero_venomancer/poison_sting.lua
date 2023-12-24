@@ -18,3 +18,16 @@ function handleWardAttackLanded(event)
 			ability:GetSpecialValueFor("duration"), true)
 	end
 end
+
+function handleDamage(event)
+	local damageTable =
+	{
+		victim 		 = event.target,
+		attacker 	 = event.caster,
+		damage 		 = event.Damage,
+		damage_type	 = DAMAGE_TYPE_MAGICAL,
+		damage_flags = DOTA_DAMAGE_FLAG_HPLOSS,
+		ability 	 = event.ability
+	}
+	ApplyDamage(damageTable)
+end

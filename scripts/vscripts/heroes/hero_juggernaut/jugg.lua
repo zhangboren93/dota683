@@ -33,6 +33,7 @@ modifier_jugg_omni_slash_rebuild = class({
     end,
     OnCreated               = function(self,param)
         if IsServer() then
+            self:GetParent():FindAbilityByName("juggernaut_blade_fury_datadriven"):SetActivated(false)
             self:SetStackCount(param.slash_count)
             self.slash_count = param.slash_count
             self.interval = param.interval
@@ -46,6 +47,11 @@ modifier_jugg_omni_slash_rebuild = class({
             self.think_interval = 0.03
             self:PerformSlash()
             self:StartIntervalThink(self.think_interval)
+        end
+    end,
+    OnRemoved               = function(self,param)
+        if IsServer() then
+            self:GetParent():FindAbilityByName("juggernaut_blade_fury_datadriven"):SetActivated(true)
         end
     end,
     OnIntervalThink         = function(self)

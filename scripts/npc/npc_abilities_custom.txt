@@ -4925,21 +4925,21 @@
 
 			"OnIntervalThink"
 			{
-				"Damage"
+				"RunScript"
 				{
-					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_HP_REMOVAL"
-					"Damage"	"%damage"
+					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
+					"Function"		"handleDamage"
+					"Damage"		"%damage"
 				}
 			}
 
 			"OnCreated"
 			{
-				"Damage"
+				"RunScript"
 				{
-					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_HP_REMOVAL"
-					"Damage"	"%damage"
+					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
+					"Function"		"handleDamage"
+					"Damage"		"%damage"
 				}
 			}
 			
@@ -5021,21 +5021,21 @@
 					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
 					"Function"		"handleWardIntervalThink"
 				}
-				"Damage"
+				"RunScript"
 				{
-					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_HP_REMOVAL"
-					"Damage"	"%damage"
+					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
+					"Function"		"handleDamage"
+					"Damage"		"%damage"
 				}
 			}
 
 			"OnCreated"
 			{
-				"Damage"
+				"RunScript"
 				{
-					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_HP_REMOVAL"
-					"Damage"	"%damage"
+					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
+					"Function"		"handleDamage"
+					"Damage"		"%damage"
 				}
 			}
 			
@@ -8108,13 +8108,13 @@
 				"damage"				"50 100 150 200"
 				"bonus_movespeed"		"8 12 16 20"
 				"dagger_path_duration"	"12.0 12.0 12.0 12.0"
-				"hero_path_duration"	"12.0"
+				"hero_path_duration"	"7.0"
 				"buff_persistence"		"4.0 4.0 4.0 4.0"
 				"dagger_radius"			"125 125 125 125"
 				"path_radius"			"175 175 175 175"
 				"vision_radius"			"200"
 				"speed"					"800"
-				"dagger_grace_period"	"1.0"
+				"dagger_grace_period"	"2.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -24011,6 +24011,7 @@
 		"MaxLevel"              		"3"
 		"RequiredLevel"         		"6"
 		"LevelsBetweenUpgrades" 		"5"
+		"CastFilterRejectCaster"		"1"
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -24282,7 +24283,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.33"
+		"AbilityCastPoint"				"0.0"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------

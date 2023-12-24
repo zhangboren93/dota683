@@ -674,12 +674,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				GameRules:SendCustomMessage("#dota_hud_error_doom_already_devouring", -1, -1) -- 消化期间无法吞噬
 				return false
 			end
-		elseif ability:GetName() == "morphling_replicate_datadriven" then
-			local target = EntIndexToHScript(event.entindex_target)
-			if target:IsRealHero() and target:GetName() == "npc_dota_hero_morphling" then
-				GameRules:SendCustomMessage("水人无法大自己", -1, -1)
-				return false
-			end
 		elseif ability:GetName() == "kunkka_ghostship" then
 			-- Always land ghost ship at 1000 range
 			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
