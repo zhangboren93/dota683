@@ -4925,21 +4925,21 @@
 
 			"OnIntervalThink"
 			{
-				"Damage"
+				"RunScript"
 				{
-					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_HP_REMOVAL"
-					"Damage"	"%damage"
+					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
+					"Function"		"handleDamage"
+					"Damage"		"%damage"
 				}
 			}
 
 			"OnCreated"
 			{
-				"Damage"
+				"RunScript"
 				{
-					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_HP_REMOVAL"
-					"Damage"	"%damage"
+					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
+					"Function"		"handleDamage"
+					"Damage"		"%damage"
 				}
 			}
 			
@@ -5021,21 +5021,21 @@
 					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
 					"Function"		"handleWardIntervalThink"
 				}
-				"Damage"
+				"RunScript"
 				{
-					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_HP_REMOVAL"
-					"Damage"	"%damage"
+					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
+					"Function"		"handleDamage"
+					"Damage"		"%damage"
 				}
 			}
 
 			"OnCreated"
 			{
-				"Damage"
+				"RunScript"
 				{
-					"Target"	"TARGET"
-					"Type"		"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_HP_REMOVAL"
-					"Damage"	"%damage"
+					"ScriptFile"	"heroes/hero_venomancer/poison_sting.lua"
+					"Function"		"handleDamage"
+					"Damage"		"%damage"
 				}
 			}
 			
