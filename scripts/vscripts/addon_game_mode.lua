@@ -1696,6 +1696,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		elseif inflictor:GetName() == "axe_battle_hunger" then
 			-- apply magic damage instead of physical
 			event.damage = inflictor:GetSpecialValueFor("damage_per_second") * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
+		elseif inflictor:GetName() == "vengefulspirit_wave_of_terror" then
+			event.damage = inflictor:GetSpecialValueFor("damage")
 		end
 		if victim:GetName() == "npc_dota_creep_siege" then
 			if inflictor:GetName() ~= "dragon_knight_breathe_fire_datadriven" 
