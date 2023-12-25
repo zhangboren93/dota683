@@ -24,7 +24,7 @@ function modifier_primal_beast_attack_animation_lua:GetOverrideAnimationWeight()
 end
 
 function modifier_primal_beast_attack_animation_lua:GetOverrideAnimationRate()
-	return 1.66 * self:GetParent():GetAttackSpeed()
+	return 1.66 * self:GetParent():GetAttackSpeed(false)
 end
 
 function HandleAttackStart(event)

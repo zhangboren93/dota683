@@ -6,7 +6,7 @@ end
 function setCDAndDisarm(event)
 	local ability = event.ability
 	local caster = event.caster
-	local duration = caster:GetSecondsPerAttack() - caster:GetAttackAnimationPoint()
+	local duration = caster:GetSecondsPerAttack(false) - caster:GetAttackAnimationPoint()
 	if duration > 0 then
 		ability:StartCooldown(duration)
 		caster:AddNewModifier(caster, ability, "modifier_disarmed", {duration = duration})

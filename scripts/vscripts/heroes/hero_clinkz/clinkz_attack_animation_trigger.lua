@@ -24,7 +24,7 @@ function modifier_clinkz_attack_animation:GetOverrideAnimationWeight()
 end
 
 function modifier_clinkz_attack_animation:GetOverrideAnimationRate()
-	return self:GetParent():GetAttackSpeed()
+	return self:GetParent():GetAttackSpeed(false)
 end
 
 function HandleClinkzAttackStart(event)
