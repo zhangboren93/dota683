@@ -18556,6 +18556,7 @@
 // Rewrite of the Lifestealer Infest ability
 // Author: jacklarnes, RcColes
 // Date: 08.07.2015.
+// TODO: Check it.
 	"life_stealer_infest_datadriven"
 	{
 		// General
@@ -23098,10 +23099,10 @@
 		"AbilityValues"
 		{
 				"duration"				"8"
-				"slow_steps"			"-70 -70 -60 -50 -30 -10 -10 -10 -10"
+				"slow_steps"			"-70 -70 -60 -50 -30 -10 -10 -10"
 				"heal_percent"			"15 20 25 30"
 				"max_health_as_damage_pct"	"0"
-				"damage_threshold"		"5000"
+				"damage_threshold"		"50000"
 				"spread_radius"			"0"
 				"slow_tooltip"			"70"
 		}
@@ -23213,6 +23214,7 @@
 	    //-------------------------------------------------------------------------------------------------------------
 	    "AbilityCastPoint"              "0"
 	    "AbilityCastRange"              "0"
+		"AbilityCastAnimation"			"ACT_DOTA_LIFESTEALER_RAGE"
 	    
 	    // Time     
 	    //-------------------------------------------------------------------------------------------------------------
@@ -23293,6 +23295,7 @@
 	            "Properties"
 	            {
 	                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
 	            }
 	
 	            "States"

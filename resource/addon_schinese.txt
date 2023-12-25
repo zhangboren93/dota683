@@ -560,9 +560,11 @@
 		"DOTA_Tooltip_modifier_legion_commander_duel_datadriven_Description"				"决斗中，直到双方有人死亡或效果结束。"
 		// Lifestealer
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven"						"狂暴" 
-		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_Description"			"进入狂暴状态，对技能免疫并提升攻击速度。"
+		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_Description"			"进入狂暴状态，对技能免疫，获得100%%魔法抗性并提升攻击速度。"
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_attack_speed_bonus"	"攻速加成："
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_duration"			"持续时间："
+		"DOTA_Tooltip_modifier_rage_ability"					"狂暴"
+		"DOTA_Tooltip_modifier_rage_ability_Description"		"获得攻速提升，技能免疫和100%%的魔法抗性。"
 		"DOTA_Tooltip_Ability_life_stealer_feast_datadriven"					"盛宴" 
 		"DOTA_Tooltip_Ability_life_stealer_feast_datadriven_Description"		"噬魂鬼每次攻击时还会根据目标当前生命值造成额外伤害，同时自身回复等量生命。" 
 		"DOTA_Tooltip_Ability_life_stealer_feast_datadriven_hp_leech_percent"	"%敌方生命值伤害/吸血量：" 

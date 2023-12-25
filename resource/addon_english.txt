@@ -555,9 +555,11 @@
 		"DOTA_Tooltip_modifier_legion_commander_duel_datadriven_Description"				"Dueling until opponent dies or the effect ends."
 		//Lifestealer
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven"						"Rage"
-		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_Description"			"Launch into a maddened rage, becoming magic immune and gaining increased attack speed."
+		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_Description"			"Launch into a maddened rage, becoming Spell Immune, 100% resistant magic damage and gaining increased attack speed."
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_attack_speed_bonus"	"Attack Speed Bonus: "
 		"DOTA_Tooltip_Ability_life_stealer_rage_datadriven_duration"			"Duration: "
+		"DOTA_Tooltip_modifier_rage_ability"					"Rage"
+		"DOTA_Tooltip_modifier_rage_ability_Description"		"Gained attack speed, spell immunity, and 100% resistant to magic damage type."
 		"DOTA_Tooltip_Ability_life_stealer_feast_datadriven"					"Feast" 
 		"DOTA_Tooltip_Ability_life_stealer_feast_datadriven_Description"		"Lifestealer's attacks damage enemies and heal himself for a percentage of his target's current health." 
 		"DOTA_Tooltip_Ability_life_stealer_feast_datadriven_hp_leech_percent"	"%Enemy Health as Damage/Lifesteal: " 
