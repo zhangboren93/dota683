@@ -441,6 +441,7 @@
 					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			// Deprecated
 			"modifier_torrent_damage_datadriven"
 			{
 				"IsHidden"		"1"

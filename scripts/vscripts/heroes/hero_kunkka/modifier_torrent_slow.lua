@@ -1,3 +1,5 @@
+-- Deprecated
+
 modifier_torrent_slow_lua = class({})
 function modifier_torrent_slow_lua:DeclareFunctions()
 	return {
