@@ -24,7 +24,7 @@ end
 
 function modifier_drop_backpack_items:OnIntervalThink()
     local parent = self:GetParent()
-    if parent.GetItemInSlot == nil then
+    if parent.GetItemInSlot == nil or parent:IsClone() then
         return
     end
     local item = nil
@@ -33,6 +33,10 @@ function modifier_drop_backpack_items:OnIntervalThink()
         if item ~= nil and item:GetName() ~= "item_dummy_backpackblock_datadriven" then
             parent:DropItemAtPosition(parent:GetAbsOrigin(), item)
         end
+    end
+
+    if true then
+        return -- only drop items in backpack now
     end
 
     while not isBackpackFull(parent) do
