@@ -158,7 +158,7 @@
 							"ApplyModifier"
 							{
 								"Target"			"TARGET"
-								"ModifierName"		"modifier_torrent_slow_lua"
+								"ModifierName"		"modifier_torrent_slow_debuff_datadriven"
 								"Duration"			"total_duration"
 							}						
 						}
