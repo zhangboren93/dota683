@@ -39,7 +39,7 @@ function torrent_bubble_allies( keys )
 			-- Destroy particle after delay
 			v:SetThink(function()
 				ParticleManager:DestroyParticle( fxIndex, false )
-			end, "invis fade", delay)
+			end, "torrent invis fade", delay)
 
 --[[		Timers:CreateTimer( delay, function()
 				ParticleManager:DestroyParticle( fxIndex, false )
@@ -56,9 +56,7 @@ end
 	Emit sound at location
 ]]
 function torrent_emit_sound( keys )
-	local dummy = CreateUnitByName( "npc_dummy_unit", keys.target_points[1], false, keys.caster, keys.caster, keys.caster:GetTeamNumber() )
-	EmitSoundOn( "Ability.Torrent", dummy )
-	dummy:ForceKill( true )
+	EmitSoundOnLocationWithCaster(keys.target_points[1], "Ability.Torrent", keys.caster )
 end
 
 --[[
