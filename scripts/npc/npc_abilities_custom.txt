@@ -4,6 +4,7 @@
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/enchantress.txt"
 #base "heroes/gyrocopter.txt"
+#base "heroes/kunkka.txt"
 #base "heroes/legion_commander.txt"
 #base "heroes/luna.txt"
 #base "heroes/naga_siren.txt"
@@ -18556,6 +18557,7 @@
 // Rewrite of the Lifestealer Infest ability
 // Author: jacklarnes, RcColes
 // Date: 08.07.2015.
+// TODO: Check it.
 	"life_stealer_infest_datadriven"
 	{
 		// General
@@ -19138,7 +19140,7 @@
 				"RequiresScepter"			"1"
 			}
 		}	
-		"AbilityCastAnimation"		"ACT_DOTA_MK_FUR_ARMY"
+		"AbilityCastAnimation"		"ACT_DOTA_MK_STRIKE_END"
 	}
 	//=================================================================================================================
 	// Ability: Phantom Lancer's Doppelwalk
@@ -23098,10 +23100,10 @@
 		"AbilityValues"
 		{
 				"duration"				"8"
-				"slow_steps"			"-70 -70 -60 -50 -30 -10 -10 -10 -10"
+				"slow_steps"			"-70 -70 -60 -50 -30 -10 -10 -10"
 				"heal_percent"			"15 20 25 30"
 				"max_health_as_damage_pct"	"0"
-				"damage_threshold"		"5000"
+				"damage_threshold"		"50000"
 				"spread_radius"			"0"
 				"slow_tooltip"			"70"
 		}
@@ -23213,6 +23215,7 @@
 	    //-------------------------------------------------------------------------------------------------------------
 	    "AbilityCastPoint"              "0"
 	    "AbilityCastRange"              "0"
+		"AbilityCastAnimation"			"ACT_DOTA_LIFESTEALER_RAGE"
 	    
 	    // Time     
 	    //-------------------------------------------------------------------------------------------------------------
@@ -23293,6 +23296,7 @@
 	            "Properties"
 	            {
 	                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_bonus"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
 	            }
 	
 	            "States"
@@ -32300,25 +32304,6 @@
 				"creep_damage_bonus_pct"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-	"kunkka_torrent"
-	{
-		"AbilityCastRange"				"1500"
-		"AbilityCooldown"				"12"
-		"AbilityManaCost"				"120"
-		"AbilityValues"
-		{
-			"radius"					"225"
-			"movespeed_bonus"			"-35"
-			"slow_duration"				"1 2 3 4"
-			"stun_duration"				"1.53"
-			"delay"						"1.6 1.6 1.6 1.6"
-			"torrent_damage"			"0"
-			"torrent_damage_tooltip"	"120 180 240 300"
-			"damage_tick_interval"		"0.15"
-			"damage_initial"	"60 90 120 150"
-			"damage_per_tick"	"6 9 12 15"
-		}		
 	}
 	//=================================================================================================================
 	// Kunkka: Tidebringer

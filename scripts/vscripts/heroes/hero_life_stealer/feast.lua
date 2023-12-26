@@ -6,7 +6,7 @@
 function feast_attack( keys )
     local attacker = keys.attacker
     local target = keys.target
-    if target:IsBuilding() or target:GetModelName() == "models/creeps/roshan/roshan.vmdl" or attacker:PassivesDisabled() then
+    if target:IsBuilding() or target:GetModelName() == "models/creeps/roshan/roshan.vmdl" or attacker:PassivesDisabled() or target:IsWard() then
         return
     end 
     local ability = keys.ability
@@ -26,7 +26,7 @@ function feast_heal( keys )
   local target = keys.target
   local ability = keys.ability
 
-  if target:IsBuilding() or target:GetModelName() == "models/creeps/roshan/roshan.vmdl" or attacker:PassivesDisabled() or attacker:GetTeam() == target:GetTeam() then
+  if target:IsBuilding() or target:GetModelName() == "models/creeps/roshan/roshan.vmdl" or attacker:PassivesDisabled() or attacker:GetTeam() == target:GetTeam() or target:IsWard() then
       return
   end 
   ability.hp_leech_percent = ability:GetLevelSpecialValueFor("hp_leech_percent", ability:GetLevel() - 1)

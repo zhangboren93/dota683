@@ -3721,6 +3721,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability1"		"kunkka_torrent_datadriven"
 		"Ability4"		"kunkka_tidebringer_deny_damage_datadriven"
 		"Ability5"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
