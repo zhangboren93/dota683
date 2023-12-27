@@ -104,7 +104,7 @@ function X.GetNearbyAlliedTowers(bot, range)
 end
 
 function X.GetNearbyEnemyCreep(bot, range)
-    local endList = bot:GetNearbyCreeps(range, true)
+    local endList = GetNearbyCreeps(bot, range, true)
     -- local startList = X[bot:GetPlayerID()].NearbyEnemyCreep
     -- local endList = {}
     -- for _, val in pairs(startList) do
@@ -116,7 +116,7 @@ function X.GetNearbyEnemyCreep(bot, range)
 end
 
 function X.GetNearbyAlliedCreep(bot, range)
-    local endList = bot:GetNearbyCreeps(range, false)
+    local endList = GetNearbyCreeps(bot, range, false)
     -- local startList = X[bot:GetPlayerID()].NearbyEnemyCreep
     -- local endList = {}
     -- for _, val in pairs(startList) do

@@ -103,7 +103,7 @@ function DetectEnemyPushTop(bot)
     if hBuilding == nil then return 0, building end
 
     if hBuilding and TimeSinceDamagedByAnyHero(hBuilding) < 1.5 then
-        local num = numEnemiesNearBuilding(building)
+        local num = numEnemiesNearBuilding(bot, building)
         return num, building
     end
     return 0, building
@@ -117,7 +117,7 @@ function DetectEnemyPushBot(bot)
     if hBuilding == nil then return 0, building end
 
     if hBuilding and TimeSinceDamagedByAnyHero(hBuilding) < 1.5 then
-        local num = numEnemiesNearBuilding(building)
+        local num = numEnemiesNearBuilding(bot, building)
         return num, building
     end
     return 0, building

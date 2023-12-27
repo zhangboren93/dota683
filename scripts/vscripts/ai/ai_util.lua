@@ -242,12 +242,17 @@ function SetBot(bot)
     bot.IsCastingAbility = function(self)
 		local ret = false
 		if self.lastActionAbility ~= nil 
+			and IsValidEntity(self.lastActionAbility)
 			and self.lastActionAbility:GetName() == "viper_poison_attack_datadriven"
 			and GameTime() - self.lastActionAbilityTime < 1 then
 			ret = self:IsAttacking()
 		end
 		if self.lastActionAbilityTime ~= nil then
-			ret = self.lastActionAbilityTime < self.lastAbilityCastTime
+			if self.lastAbilityCastTime == nil then
+				ret = true
+			else
+				ret = self.lastActionAbilityTime < self.lastAbilityCastTime
+			end
 		end
 	--	if self:GetName() == "npc_dota_hero_viper" then
 	--		print("IsCastingAbility " .. self:GetName())
@@ -321,23 +326,6 @@ function SetBot(bot)
 			end
 		end
 		return towers
-	end
-	bot.GetNearbyCreeps = function(self, range, is_enemy)
-		local target_team
-		if is_enemy then
-			target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
-		else
-			target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
-		end
-		return FindUnitsInRadius(self:GetTeam(),
-			self:GetAbsOrigin(),
-			nil, 
-			range, 
-			target_team,
-			DOTA_UNIT_TARGET_CREEP,
-			DOTA_UNIT_TARGET_FLAG_NONE,
-			FIND_CLOSEST,
-			false)
 	end
 	--TODO GetNearbyBarracks
 	bot.WasRecentlyDamagedByCreep = function(self, time)
@@ -989,6 +977,24 @@ function GetNearbyHeroes(target, range, is_enemy, mode)
 		range, 
 		target_team,
 		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_NONE,
+		FIND_CLOSEST,
+		false)
+end
+
+function GetNearbyCreeps(bot, range, is_enemy)
+	local target_team
+	if is_enemy then
+		target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
+	else
+		target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
+	end
+	return FindUnitsInRadius(bot:GetTeam(),
+		bot:GetAbsOrigin(),
+		nil, 
+		range, 
+		target_team,
+		DOTA_UNIT_TARGET_CREEP,
 		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_CLOSEST,
 		false)

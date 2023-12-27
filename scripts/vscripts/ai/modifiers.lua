@@ -39,12 +39,12 @@ local DoTModifiers={
 }
 
 function HasActiveDOTDebuff(bot)
-    local botModifierCount = bot:NumModifiers()
+    local botModifierCount = bot:GetModifierCount()
     if botModifierCount == 0 then return false end
 
     --NOTE: I don't know why, but this one is 0 indexed
     for i = 0, botModifierCount-1, 1 do
-        local modName = bot:GetModifierName(i)
+        local modName = bot:GetModifierNameByIndex(i)
         if utils.InTable(DoTModifiers, modName) then
             return true
         end
@@ -124,12 +124,12 @@ function IsBuildingGlyphed(hBuilding)
 end
 
 function printAllMods(hUnit)
-    local botModifierCount = hUnit:NumModifiers()
+    local botModifierCount = hUnit:GetModifierCount()
     if botModifierCount == 0 then return false end
 
     --NOTE: I don't know why, but this one is 0 indexed
     for i = 0, botModifierCount-1, 1 do
-        local modName = hUnit:GetModifierName(i)
+        local modName = hUnit:GetModifierNameByIndex(i)
         utils.myPrint(utils.GetHeroName(hUnit), " mod ["..i.."]: ", modName)
    end
 end
