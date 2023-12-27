@@ -932,7 +932,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
 			entity:SetBaseMagicalResistanceValue(0)
 			if (entity:GetAbsOrigin()[2] < -5460 or entity:GetAbsOrigin()[2] > 4745) 
-				and not entity:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
+				and not entity:HasModifier("modifier_creep_safe_lane_move_speed_bonus") and entity:IsAlive() then
 				entity:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", {}):SetDuration(25, true)
 			end
 		end, "remove flag bearer bonus", 1)
