@@ -6,11 +6,11 @@
 		<DOTAHeroImage id="killer_hero" class="hero" heroimagestyle="icon" />
 		<Label id="killer_player_name" class="player_name" />
 		<Label class="player_name" text="获得了"/>
-		<Image id="icon_rune_type_0" src="file://{images}/custom_game/rune_doubledamage.png"/>
-		<Image id="icon_rune_type_1" src="file://{images}/custom_game/rune_haste.png"/>
-		<Image id="icon_rune_type_2" src="file://{images}/custom_game/rune_illusion.png"/>
-		<Image id="icon_rune_type_3" src="file://{images}/custom_game/rune_invis.png"/>
-		<Image id="icon_rune_type_4" src="file://{images}/custom_game/rune_regen.png"/>
-		<Image id="icon_rune_type_5" src="file://{images}/custom_game/rune_bounty.png"/>
+		<DOTAEmoticon id="icon_rune_type_0" src="s2r://panorama/images/emoticons/doubledamage_png.vtex"/>
+		<DOTAEmoticon id="icon_rune_type_1" src="s2r://panorama/images/emoticons/haste_png.vtex"/>
+		<DOTAEmoticon id="icon_rune_type_2" src="s2r://panorama/images/emoticons/illusion_png.vtex"/>
+		<DOTAEmoticon id="icon_rune_type_3" src="s2r://panorama/images/emoticons/invisibility_png.vtex"/>
+		<DOTAEmoticon id="icon_rune_type_4" src="s2r://panorama/images/emoticons/regeneration_png.vtex"/>
+		<DOTAEmoticon id="icon_rune_type_5" src="s2r://panorama/images/emoticons/bountyrune_png.vtex"/>
 	</Panel>
 </root>

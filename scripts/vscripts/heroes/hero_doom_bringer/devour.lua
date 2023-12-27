@@ -21,7 +21,6 @@ local devour_table = {
 }
 
 function CheckDevourable(ability_name)
-{
 	return ability_name ~= "neutral_upgrade"
 		and ability_name ~= "creep_siege_extra"
 		and ability_name ~= "creep_piercing"
@@ -33,7 +32,7 @@ function CheckDevourable(ability_name)
 		and ability_name ~= "creep_basic"
 		and ability_name ~= "creep_strong"
 		and ability_name ~= "generic_hidden"
-}
+end
 
 function Devour( keys )
 	local caster = keys.caster
