@@ -34,3 +34,4 @@ mod开源：https://gitee.com/bobo1993324/dota6.83
 Bug报告：https://gitee.com/bobo1993324/dota6.83/issues
 SpellLibrary提供的部分自定义物品和技能的实现：https://github.com/Pizzalol/SpellLibrary
 dota2ai提供了AI购买物品的代码: https://github.com/adamqqqplay/dota2ai
+bot重写的代码基于Dota2-FullOverwrite修改: https://github.com/Nostrademous/Dota2-FullOverwrite
