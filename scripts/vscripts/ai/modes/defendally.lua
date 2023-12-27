@@ -24,8 +24,7 @@ end
 function X:OnStart(myBot)
 end
 
-function X:OnEnd()
-    local bot = GetBot()
+function X:OnEnd(bot)
     bot.defendAllyTarget = nil
 end
 

@@ -234,6 +234,11 @@ function SetBot(bot)
 		self.lastActionAbility = ability
 		self.lastActionAbilityTime = GameTime()
 	end
+	bot.ActionQueue_AttackUnit = function(self, target, bOnce)
+		self:SetThink(function()
+			self:MoveToTargetToAttack(target)
+		end, "ActionQueue_AttackUnit", 0.5)
+	end
 	-- ACTION END --
 
     bot.NumQueuedActions = function(self)
@@ -251,7 +256,7 @@ function SetBot(bot)
 			if self.lastAbilityCastTime == nil then
 				ret = true
 			else
-				ret = self.lastActionAbilityTime < self.lastAbilityCastTime
+				ret = self.lastActionAbilityTime > self.lastAbilityCastTime
 			end
 		end
 	--	if self:GetName() == "npc_dota_hero_viper" then
@@ -327,7 +332,30 @@ function SetBot(bot)
 		end
 		return towers
 	end
-	--TODO GetNearbyBarracks
+	bot.GetNearbyBarracks = function(self, range, is_enemy)
+		local target_team
+		if is_enemy then
+			target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
+		else
+			target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
+		end
+		local buildings = FindUnitsInRadius(self:GetTeam(),
+			self:GetAbsOrigin(),
+			nil, 
+			range, 
+			target_team,
+			DOTA_UNIT_TARGET_BUILDING,
+			DOTA_UNIT_TARGET_FLAG_NONE,
+			FIND_CLOSEST,
+			false)
+		local towers = {}
+		for i=1,#buildings do
+			if buildings[i]:IsBarracks() then
+				table.insert(towers, buildings[i])
+			end
+		end
+		return towers
+	end
 	bot.WasRecentlyDamagedByCreep = function(self, time)
 		if bot.damagedByCreepTime == nil then
 			return false

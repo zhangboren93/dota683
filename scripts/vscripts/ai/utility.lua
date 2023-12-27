@@ -742,7 +742,7 @@ function U.AllChat(msg)
 end
 
 function U.ValidTarget(target)
-    if target and not target:IsNull() and target:IsAlive() then
+    if target and IsValidEntity(target) and target:IsAlive() then
         return true
     end
     return false
