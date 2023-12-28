@@ -34,7 +34,7 @@ local pushLaneMode  = dofile( GetScriptDirectory().."/modes/pushlane" )
 local defendLaneMode= dofile( GetScriptDirectory().."/modes/defendlane" )
 local defendAllyMode= dofile( GetScriptDirectory().."/modes/defendally" )
 
-local freqTeamThink = 0.25
+local freqTeamThink = 1 -- 0.25
 local lastTeamThink = {-1000.0, -1000.0}
 
 local playerAssignment = {{},{}}

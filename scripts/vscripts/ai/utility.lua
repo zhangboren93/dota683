@@ -1691,16 +1691,21 @@ function U.GetNearestTree(bot)
     local trees = bot:GetNearbyTrees(700)
     local eTowers = gHeroVar.GetNearbyEnemyTowers(bot, 1600)
 
+    if #trees == 0 then return nil end
+    local nearestTree = trees[1]
     for _, tree in pairs(trees) do
         local treeLoc = GetTreeLocation(tree)
         --U.myPrint("Tree Loc: <", treeLoc[1], ", ", treeLoc[2], ", ", treeLoc[3], ">")
         if #eTowers == 0 or U.GetDistance(treeLoc, eTowers[1]:GetAbsOrigin()) > 900 then
             if U.GetHeightDiff(bot, treeLoc[3]) == 0 then
-                return tree
+                if (tree:GetAbsOrigin() - bot:GetAbsOrigin()):Length2D()
+                    < (nearestTree:GetAbsOrigin() - bot:GetAbsOrigin()):Length2D() then
+                    nearestTree = tree
+                end
             end
         end
     end
-    return nil
+    return nearestTree
 end
 
 -------------------------------------------------------------------------------
