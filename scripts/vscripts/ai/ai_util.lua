@@ -117,6 +117,8 @@ ITEM_SLOT_TYPE_MAIN = 1
 ITEM_SLOT_TYPE_BACKPACK = 2
 ITEM_SLOT_TYPE_STASH = 3
 
+ACTION_DEBUG_HERO = "phantom_assassin"
+
 function GetScriptDirectory()
 	return "ai"
 end
@@ -189,12 +191,21 @@ function SetBot(bot)
 		end
 	end
 	bot.Action_MoveToLocation = function(self, loc)
+		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+			print(self:GetName() .. " Action_MoveToLocation ")
+		end
 		self:MoveToPosition(loc)
 	end
 	bot.Action_MoveToUnit = function(self, unit)
+		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+			print(self:GetName() .. " Action_MoveToUnit " .. unit:GetName())
+		end
 		self:MoveToNPC(unit)
 	end
 	bot.Action_UseAbilityOnTree = function(self, ability, tree)
+		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+			print(self:GetName() .. " Action_UseAbilityOnTree " .. ability:GetName())
+		end
 		self:CastAbilityOnTarget(tree, ability, self:GetPlayerID())
 	end
 	bot.Action_ClearActions = function(self, stop)
@@ -209,6 +220,9 @@ function SetBot(bot)
 	bot.ActionPush_Delay = function(self, time)
 	end
 	bot.ActionPush_UseAbilityOnEntity = function(self, ability, unit)
+		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+			print(self:GetName() .. " Action_UseAbilityOnEntity " .. ability:GetName() .. " " .. unit:GetName())
+		end
 		self:CastAbilityOnTarget(unit, ability, self:GetPlayerID())
 		self.lastActionAbility = ability
 		self.lastActionAbilityTime = GameTime()
@@ -224,17 +238,29 @@ function SetBot(bot)
 		self:AddItemByName(item)
 	end
 	bot.Action_AttackUnit = function(self, target, once)
+		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+			print(self:GetName() .. " Action_AttackUnit " .. target:GetName())
+		end
 		self:MoveToTargetToAttack(target)
 	end
 	bot.Action_UseAbilityOnLocation = function(self, ability, loc)
+		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+			print(self:GetName() .. " Action_UseAbilityOnLocation " .. ability:GetName())
+		end
 		self:CastAbilityOnPosition(loc, ability, self:GetPlayerID())
 	end
 	bot.Action_UseAbilityOnEntity = function(self, ability, unit)
+		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+			print(self:GetName() .. " Action_UseAbilityOnEntity " .. ability:GetName() .. " " .. unit:GetName())
+		end
 		self:CastAbilityOnTarget(unit, ability, self:GetPlayerID())
 		self.lastActionAbility = ability
 		self.lastActionAbilityTime = GameTime()
 	end
 	bot.ActionQueue_AttackUnit = function(self, target, bOnce)
+		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+			print(self:GetName() .. " ActionQueue_AttackUnit " .. target:GetName())
+		end
 		self:SetThink(function()
 			self:MoveToTargetToAttack(target)
 		end, "ActionQueue_AttackUnit", 0.5)

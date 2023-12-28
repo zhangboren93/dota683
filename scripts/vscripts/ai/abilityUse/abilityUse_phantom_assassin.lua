@@ -44,15 +44,14 @@ function ConsiderQ(bot)
     end
 
     local daggerCastRange = abilityQ:GetCastRange()
-    local daggerDamage = abilityQ:GetSpecialValueFor("base_damage") + abilityQ:GetSpecialValueFor("attack_factor_tooltip") / 100 * bot:GetAttackDamage()
-    daggerDamage = daggerDamage * AvgCritMult
+    local daggerDamage = abilityQ:GetAbilityDamage()
     
     -- Try to kill enemy hero
     local WeakestEnemy, HeroHealth = utils.GetWeakestHero(bot, daggerCastRange)
 	if modeName ~= "retreat" or (modeName == "retreat" and bot.SelfRef:getCurrentModeValue() < BOT_MODE_DESIRE_VERYHIGH) then
 		if utils.ValidTarget(WeakestEnemy) then
 			if not modifiers.IsPhysicalImmune(WeakestEnemy) then
-				if HeroHealth <= GetActualIncomingDamage(WeakestEnemy, daggerDamage, DAMAGE_TYPE_PHYSICAL) then
+				if HeroHealth <= GetActualIncomingDamage(WeakestEnemy, daggerDamage / 2, DAMAGE_TYPE_PHYSICAL) then
 					return BOT_ACTION_DESIRE_HIGH, WeakestEnemy
 				end
 			end
