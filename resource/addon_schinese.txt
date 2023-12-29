@@ -326,6 +326,9 @@
 		"DOTA_Tooltip_ability_courier_burst_datadriven"								"加速"
 		"DOTA_Tooltip_ability_courier_burst_datadriven_Description"					"信使的速度得到极大提升，持续%AbilityDuration%秒"
 		"DOTA_Tooltip_ability_courier_burst_datadriven_movement_speed"					"移速爆发："
+		"DOTA_Tooltip_ability_courier_transfer_items_lua"							"运送物品"
+		"DOTA_Tooltip_ability_courier_transfer_items_lua_Description"				"将物品运送给英雄"
+		"DOTA_Tooltip_modifier_courier_transfer_items_active_lua"					"将物品送达英雄处"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"

@@ -16,6 +16,7 @@
 #base "heroes/viper.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
+#base "units/courier.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"
@@ -15145,19 +15146,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"				"0"
-				}
-			}
-			"modifier_courier_transfer_stop_checker"
-			{
-				"IsHidden"			"1"
-				"ThinkInterval"		"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_courier.lua"
-						"Function"		"transforStopChecker"
-					}
 				}
 			}
 			"modifier_courier_not_full_bottle_datadriven"

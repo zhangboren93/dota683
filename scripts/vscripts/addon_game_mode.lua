@@ -114,6 +114,9 @@ function Activate()
 	LinkLuaModifier( "modifier_enchantress_enchant_slow_lua",	"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_viper_viper_strike_slow_lua",	"heroes/hero_viper/viper_strike.lua", LUA_MODIFIER_MOTION_NONE)
 
+	LinkLuaModifier( "modifier_courier_transfer_items_lua", "units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", "units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
+
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_primal_beast_attack_animation_lua",	"heroes/hero_primal_beast/modifier_primal_beast_attack_animation.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1452,10 +1455,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_ember_spirit_fire_remnant_thinker" then
 		parent:SetDayTimeVisionRange(400)
 		parent:SetNightTimeVisionRange(400)
-	elseif event.name_const == "modifier_courier_transfer_items" then
-		CustomGameEventManager:Send_ServerToTeam(parent:GetTeam(), "courier_start_transfer", { id = tostring(parent:GetEntityIndex()) })
-		parent:FindAbilityByName("courier_flying_upgrade_datadriven"):ApplyDataDrivenModifier(parent, parent,
-			"modifier_courier_transfer_stop_checker", {})
 	elseif event.name_const == "modifier_slark_pounce_leash" then 
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		caster:FindAbilityByName("slark_shadow_dance_heal_datadriven"):ApplyDataDrivenModifier(

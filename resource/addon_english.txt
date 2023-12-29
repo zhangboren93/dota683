@@ -329,6 +329,9 @@
 		"DOTA_Tooltip_ability_courier_burst_datadriven"								"Speed Burst"
 		"DOTA_Tooltip_ability_courier_burst_datadriven_Description"					"The courier gains a burst of speed for %AbilityDuration% seconds"
 		"DOTA_Tooltip_ability_courier_burst_datadriven_movement_speed"					"BURST MOVE SPEED:"
+		"DOTA_Tooltip_ability_courier_transfer_items_lua"							"Transfer Items"
+		"DOTA_Tooltip_ability_courier_transfer_items_lua_Description"				"Transfer items to hero"
+		"DOTA_Tooltip_modifier_courier_transfer_items_active_lua"					"Transferring items"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"Death Coil"
