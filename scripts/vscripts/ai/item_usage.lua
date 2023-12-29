@@ -227,21 +227,21 @@ function UseRegenItemsOnAlly(bot)
             end
         end
 
-        local tango = utils.IsItemAvailable(bot, "item_tango");
-        if tango then 
-            local allyTango, _ = utils.HaveItem(lowestHealthAlly, "item_tango")
-            if allyTango == nil then allyTango, _ = utils.HaveItem(lowestHealthAlly, "item_tango_single") end
-            
-            -- check if they have their own
-            if allyTango then return false end
-            
-            -- TODO: check if they have space
-            
-            if (lowestHealthAlly:GetMaxHealth()-lowestHealthAlly:GetHealth()) > 200 and not lowestHealthAlly:HasModifier("modifier_tango_heal") then
-                gHeroVar.HeroUseAbilityOnEntity(bot, tango, lowestHealthAlly)
-                return true
-            end
-        end
+        --local tango = utils.IsItemAvailable(bot, "item_tango");
+        --if tango then 
+        --    local allyTango, _ = utils.HaveItem(lowestHealthAlly, "item_tango")
+        --    if allyTango == nil then allyTango, _ = utils.HaveItem(lowestHealthAlly, "item_tango_single") end
+        --    
+        --    -- check if they have their own
+        --    if allyTango then return false end
+        --    
+        --    -- TODO: check if they have space
+        --    
+        --    if (lowestHealthAlly:GetMaxHealth()-lowestHealthAlly:GetHealth()) > 200 and not lowestHealthAlly:HasModifier("modifier_tango_heal") then
+        --        gHeroVar.HeroUseAbilityOnEntity(bot, tango, lowestHealthAlly)
+        --        return true
+        --    end
+        --end
 
         local urn = utils.IsItemAvailable(bot, "item_urn_of_shadows_datadriven")
         if urn and urn:GetCurrentCharges() > 0 then

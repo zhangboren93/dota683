@@ -119,6 +119,17 @@ ITEM_SLOT_TYPE_STASH = 3
 
 ACTION_DEBUG_HERO = "phantom_assassin"
 
+ListenToGameEvent('player_chat', function(event)
+	updateDebugHero(event.text)
+end, nil)
+
+function updateDebugHero(text) 
+	if string.find(text, "debug") then
+		ACTION_DEBUG_HERO = string.sub(text, 7)
+		print("ACTION_DEBUG_HERO " .. ACTION_DEBUG_HERO)
+	end
+end
+
 function GetScriptDirectory()
 	return "ai"
 end
@@ -284,13 +295,13 @@ function SetBot(bot)
 				ret = self.lastActionAbilityTime > self.lastAbilityCastTime
 			end
 		end
-	--	if self:GetName() == "npc_dota_hero_viper" then
-	--		print("IsCastingAbility " .. self:GetName())
-	--		print(ret)
-	--		print(self.lastActionAbility)
-	--		print(self.lastActionAbilityTime)
-	--		print(self:IsAttacking())
-	--	end
+		--if self:GetName() == "npc_dota_hero_phantom_assassin" then
+		--	print("IsCastingAbility " .. self:GetName())
+		--	print(ret)
+		--	print(self.lastActionAbility)
+		--	print(self.lastActionAbilityTime)
+		--	print(self:IsAttacking())
+		--end
         return ret 
     end
 	bot.GetNextItemPurchaseValue = function(self)

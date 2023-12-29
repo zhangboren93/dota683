@@ -306,6 +306,7 @@ function X.HeroThink(bot)
         highestDesireMode = wardMode
     end
     
+    utils.myPrint(bot:GetName(), " HeroThink() " .. highestDesireMode:GetName() .. " " ..  highestDesireValue)
     return highestDesireMode, highestDesireValue
 end
 

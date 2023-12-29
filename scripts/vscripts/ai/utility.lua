@@ -1723,9 +1723,9 @@ function U.myPrint(...)
         msg = msg .. tostring(v)
     end
     --uncomment to only see messages by bots mentioned underneath
-    if string.find(botname, "phantom_assassin") then --or botname == "viper" then
-      print(msg)
-    end
+    --if string.find(botname, "phantom_assassin") then --or botname == "viper" then
+    --  print(msg)
+    --end
 end
 
 return U;

@@ -50,8 +50,9 @@ function X:Think(bot)
     local rLane = getHeroVar(bot, "RetreatLane")
     local rPos = getHeroVar(bot, "RetreatPos")
 
-    nextmove = bot:GetLocationAlongLane(rLane, 0.0)
-    if getHeroVar(bot, "IsInLane") and rPos < 0.75 then
+    --nextmove = bot:GetLocationAlongLane(rLane, 0.0)
+    nextmove = utils.Fountain(bot:GetTeam())
+    if getHeroVar(bot, "IsInLane") and rPos > 0.25 then
         nextmove = bot:GetLocationAlongLane(rLane, Max(rPos-0.03, 0.0))
     end
 
