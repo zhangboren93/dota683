@@ -356,12 +356,16 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 	if text == "-test" then
-		--local fort = Entities:FindByName(nil, "dota_badguys_fort")
-		--fort:Kill(nil, PlayerResource:GetPlayer(playerid):GetAssignedHero())
-		--GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-		--local hero = PlayerResource:GetPlayer(0):GetAssignedHero()
-		--local ability = hero:FindAbilityByName("hero_ability_executed_hook_datadriven")
-		--ability:ApplyDataDrivenModifier(hero, hero, "modifier_rune_regen_datadriven", {})
+		--local direPlayerCount = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
+		--for i=1,direPlayerCount do
+		--	local hero = PlayerResource:GetPlayer(PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)):GetAssignedHero()
+		--	hero:SetHealth(hero:GetMaxHealth() / 6)
+		--end
+		--local radiantPlayerCount = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+		--for i=1,radiantPlayerCount do
+		--	local hero = PlayerResource:GetPlayer(PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)):GetAssignedHero()
+		--	hero:SetHealth(hero:GetMaxHealth() / 6)
+		--end
 	end
 	--if text == "-win" then
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)

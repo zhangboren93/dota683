@@ -112,7 +112,7 @@ DIRE_BUILDING_TYPE_2_NAME = {
 	"bad_rax_range_bot"
 }
 
-ITEM_SLOT_TYPE_INVALID = 0
+ITEM_SLOT_TYPE_INVALID = -1 
 ITEM_SLOT_TYPE_MAIN = 1
 ITEM_SLOT_TYPE_BACKPACK = 2
 ITEM_SLOT_TYPE_STASH = 3
@@ -134,18 +134,17 @@ function SetBot(bot)
 
     bot.FindItemSlot = function(self, item_name)
         local item = self:FindItemInInventory(item_name)
-        if item == nil then
-            return ITEM_SLOT_TYPE_INVALID
-        elseif item:GetItemSlot() <= DOTA_ITEM_SLOT_6 then
+		if item == nil then return ITEM_SLOT_TYPE_INVALID end
+		return item:GetItemSlot()
+    end
+    bot.GetItemSlotType = function(self, slot)
+        if slot <= DOTA_ITEM_SLOT_6 then
             return ITEM_SLOT_TYPE_MAIN
-        elseif item:GetItemSlot() <= DOTA_ITEM_SLOT_9 then
+        elseif slot <= DOTA_ITEM_SLOT_9 then
             return ITEM_SLOT_TYPE_BACKPACK
         else
             return ITEM_SLOT_TYPE_STASH
         end
-    end
-    bot.GetItemSlotType = function(self, slot)
-		return slot
     end
     bot.GetUnitList = function(self, list_type)
 	    if list_type == UNIT_LIST_ALLIED_HEROES then
