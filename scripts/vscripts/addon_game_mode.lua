@@ -60,6 +60,10 @@ function Activate()
 	LinkLuaModifier( "modifier_item_ring_of_aquila_aura_active_lua",	"items/modifier_item_ring_of_aquila_aura_active.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_crimson_guard_effect", "modifiers/crimson_guard_effect.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_black_king_bar_immune_lua", "items/item_black_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_aegis_lua", 		   "items/item_aegis.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_aegis_regen_lua", 	   "items/item_aegis.lua", LUA_MODIFIER_MOTION_NONE)
+
+	modifier_item_aegis_regen_lua = class({})
 
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_fountain_aura_buff_lua", "modifiers/modifier_fountain_aura_buff.lua", LUA_MODIFIER_MOTION_NONE)
@@ -2044,7 +2048,7 @@ function HandlePlayerPickHero(hero)
 end
 
 function HandleItemPickedUp(itemname, playerid)
-	if itemname == "item_aegis" then
+	if itemname == "item_aegis_lua" then
 		CustomGameEventManager:Send_ServerToAllClients("aegis_picked_up", { kpid = playerid })
 	end
 end

@@ -4299,7 +4299,7 @@
 			"DisableResistance"		"80.0"
 			"EquippedItems"
 			{
-				"Aegis" { "Item"  "item_aegis" }
+				"Aegis" { "Item"  "item_aegis_lua" }
 			}
 		}
 	}	

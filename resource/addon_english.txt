@@ -323,6 +323,11 @@
 		"DOTA_Tooltip_ability_item_flask_datadriven_Lore"					"A magical salve that can quickly mend even the deepest of wounds."
 		"DOTA_Tooltip_modifier_item_flask_datadriven_active"				"Healing Salve"
 		"DOTA_Tooltip_modifier_item_flask_datadriven_active_Description"	"Restoring health."
+		"DOTA_Tooltip_Ability_item_aegis_lua"						"Aegis of the Immortal"
+		"DOTA_Tooltip_ability_item_aegis_lua_Description"			"<h1>Passive: Reincarnation</h1> Brings you to life with full health and mana %reincarnate_time% seconds after you die, at the location where you died. <br><br>Reincarnation must be used within %disappear_time_minutes_tooltip% minutes or Aegis of the Immortal disappears. If it expires, it will heal you over 5 seconds (dispels on damage)."
+		"DOTA_Tooltip_ability_item_aegis_lua_Lore"					"The Immortal was said to own a shield that protected him from death itself."
+		"DOTA_Tooltip_modifier_item_aegis_regen_lua"				"Aegis Regeneration"
+		"DOTA_Tooltip_modifier_item_aegis_regen_lua_description"	"The Aegis of the Immortal has expired. Quickly restoring health and mana."
 
 		"DOTA_Tooltip_Ability_courier_share"								"Share courier"
 		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"			"Go to secretshop"

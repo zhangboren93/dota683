@@ -9098,4 +9098,37 @@
 				"bonus_damage"			"350"
 		}
 	}
+	"item_aegis_lua"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_aegis.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Model"							"models/props_gameplay/aegis.vmdl"		
+		"Effect"						"particles/generic_gameplay/dropped_aegis.vpcf"
+		"AbilityTextureName" 			"item_aegis"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+		"ItemQuality"					"artifact"
+
+		// Items		
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemPurchasable"				"0"
+		"ItemDroppable"					"0"
+		"ItemSellable"					"0"
+		"ItemKillable"					"1"
+		"ItemContributesToNetWorthWhenDropped"	"0"
+		"AllowedInBackpack"				"0"
+		"IsTempestDoubleClonable"		"0"
+
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"reincarnate_time"						"5"
+			"disappear_time"						"300"
+			"disappear_time_minutes_tooltip"		"5"
+		}
+	}
 }
