@@ -470,8 +470,8 @@ function CAddonTemplateGameMode:OnThink()
 					{nt = captain_normal_time, et = captain_dire_extra_time });
 			end
 		end
-	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and (self.botEnabled or GetMapName() == "bot") and self.botInitialized == nil then
-		if GetMapName() == "bot" then
+	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and (self.botEnabled or GetMapName() == "vsbot") and self.botInitialized == nil then
+		if GetMapName() == "vsbot" then
 			local botHeroPool = {
 				"npc_dota_hero_antimage",
 				"npc_dota_hero_lina",

@@ -117,7 +117,7 @@ ITEM_SLOT_TYPE_MAIN = 1
 ITEM_SLOT_TYPE_BACKPACK = 2
 ITEM_SLOT_TYPE_STASH = 3
 
-ACTION_DEBUG_HERO = "phantom_assassin"
+ACTION_DEBUG_HERO = "phantom_assassin_invalid"
 
 ListenToGameEvent('player_chat', function(event)
 	updateDebugHero(event.text)
