@@ -45,9 +45,7 @@ generic.ItemsToBuyAsHardCarry = {
 ----------------------------------------------------------------------------------------------------
 
 function thisBot:Init(bot)
-	print("Antimage init purchase table")
     generic:InitTable(bot)
-	DeepPrintTable(generic.StartingItems)
 end
 
 function thisBot:GetPurchaseOrder()
