@@ -395,12 +395,22 @@ local function fillRoles(bot)
 		else
 			local bot_best_roles = findRole(slot:GetName())
 			local find_best_roles = false
-			for j=1,#bot_best_roles do
-				if #bot_best_roles[j] > 0 and not contains(team_roles, j) then
-					team_roles[i] = j
-					print(slot:GetName() .. " to role " .. j)
-					find_best_roles = true
-					break
+			if #bot_best_roles[2] > 0 and not contains(team_roles, 2) then
+				team_roles[i] = 2
+				print(slot:GetName() .. " to role " .. 2)
+				find_best_roles = true
+			elseif #bot_best_roles[1] > 0 and not contains(team_roles, 1) then
+				team_roles[i] = 1
+				print(slot:GetName() .. " to role " .. 1)
+				find_best_roles = true
+			else
+				for j=3,#bot_best_roles do
+					if #bot_best_roles[j] > 0 and not contains(team_roles, j) then
+						team_roles[i] = j
+						print(slot:GetName() .. " to role " .. j)
+						find_best_roles = true
+						break
+					end
 				end
 			end
 			if not find_best_roles then

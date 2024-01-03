@@ -486,13 +486,14 @@ function CAddonTemplateGameMode:OnThink()
 			Tutorial:StartTutorialMode()	
 			GameRules:SetSameHeroSelectionEnabled(true)
 			-- pick 5 random hero to play
-			local player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 
-    	    --local botHero = GameRules:AddBotPlayerWithEntityScript(
-			--	"npc_dota_hero_phantom_assassin", "Rad Bot 0", DOTA_TEAM_GOODGUYS, 
-			--	"ai/bot_phantom_assassin.lua", true)
-			--botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
-    	    --FindClearSpaceForUnit(botHero, Vector(-7111, -6618, 520), true)
+    	   -- local botHero = GameRules:AddBotPlayerWithEntityScript(
+		   -- 	"npc_dota_hero_viper", "Rad Bot 0", DOTA_TEAM_GOODGUYS, 
+		   -- 	"ai/bot_viper.lua", true)
+		   -- botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
+    	   -- FindClearSpaceForUnit(botHero, Vector(-7111, -6618, 520), true)
+
+			local player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 
 			for i=1, 5 - player_count do
 				local heroNumber = RandomInt(1, #botHeroPool)	

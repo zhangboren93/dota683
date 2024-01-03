@@ -676,5 +676,13 @@
 						"Function"		"handleAbilityExecuted"
 					}
 				}
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ai/ability_execute_tracker.lua"
+						"Function"		"handleAttack"
+					}
+				}
 			}
 		}}}
