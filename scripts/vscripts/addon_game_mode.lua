@@ -801,7 +801,17 @@ end
 
 function HandleNpcSpawned(self, entityIndex, is_respawn)
 	local entity = EntIndexToHScript(entityIndex)
-	--print(entity:GetName())
+	if entity:IsHero() and is_respawn == 0 then
+		if not entity:HasAbility("hero_creep_aggro_datadriven") then
+			entity:AddAbility("hero_creep_aggro_datadriven"):SetLevel(1)
+		end
+		if not entity:HasAbility("hero_intrinstic_mechanism_datadriven") then
+			entity:AddAbility("hero_intrinstic_mechanism_datadriven"):SetLevel(1)
+		end
+		if not entity:HasAbility("hero_ability_executed_hook_datadriven") then
+			entity:AddAbility("hero_ability_executed_hook_datadriven"):SetLevel(1)
+		end
+	end
 	if entity:IsRealHero() and is_respawn == 0 then
 		-- modifiers
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
@@ -826,10 +836,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
 		end, "remove tpscroll", 0.5)
 
-		-- abilities
-		entity:AddAbility("hero_creep_aggro_datadriven"):SetLevel(1)
-		entity:AddAbility("hero_intrinstic_mechanism_datadriven"):SetLevel(1)
-		entity:AddAbility("hero_ability_executed_hook_datadriven"):SetLevel(1)
 
 		local player = entity:GetPlayerOwner()
 		if player ~= nil then
