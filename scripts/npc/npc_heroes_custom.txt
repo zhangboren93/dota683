@@ -3885,6 +3885,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"spectre_spectral_dagger_2"
+		"Ability2"		"spectre_desolate_datadriven"
 		"Ability5"		"spectre_reality_levelup_with_haunt_datadriven"
 		"Ability6"		"spectre_haunt"
 		"Ability10"		"special_bonus_all_stats_4"

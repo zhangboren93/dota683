@@ -1278,6 +1278,7 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Note1"									"Invisibility doesn't disjoint the projectile."
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastrange"						"CAST RANGE:"
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastpoint"						"AIM DURATION:"
+
 		//Spectre
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2"						"Spectral Dagger"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Description"			"Spectre flings a dagger to draw a Shadow Path, dealing damage and slowing the movement speed of any enemies along the trail. Units hit by the dagger also trail a Shadow Path. While treading the path, Spectre phases through otherwise impassable terrain. Spectral Dagger applies an instance of Desolate to targets with no allied units within 400 radius of them."
@@ -1286,6 +1287,14 @@
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_damage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_bonus_movespeed"		"%MOVEMENT SPEED CHANGE:"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_hero_path_duration"	"DURATION:"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven"							"Desolate"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Description"				"Deals bonus damage whenever Spectre attacks an enemy that does not have any allied units within a %radius% radius around them."
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Lore"						"Often times, warriors find themselves alone with a vision of Mercurial - the fated question is if it is the true Spectre."
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Note0"					"Damage is dealt before Spectre's attack."
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Note1"					"Spectre's illusions also have Desolate."
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_bonus_damage"				"BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_radius"					"RADIUS:"
+		
 		// Templar Assassin
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"Refraction"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_Description"	"Templar Assassin becomes highly elusive, avoiding damage and gaining a bonus to her damage.  The damage and avoidance effects are separate, and have a limited number of instances."

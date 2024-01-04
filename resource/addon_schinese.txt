@@ -1288,6 +1288,7 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Note1"									"隐身不能躲避该技能弹道。"
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastrange"						"施法距离："
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastpoint"						"瞄准持续时间："
+
 		//Spectre
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2"						"幽鬼之刃"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Description"			"幽鬼掷出一把匕首，留下一条暗影之径，对路径上的敌人造成伤害并减缓其移动速度。被匕首击中的单位移动时也会留下暗影之径。幽鬼在暗影之径上可以无视地形移动。幽鬼之刃对400范围内没有友军的目标施加一次荒芜伤害。"
@@ -1296,6 +1297,14 @@
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_damage"				"伤害："
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_bonus_movespeed"		"%移动速度加成："
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_hero_path_duration"	"持续时间："
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven"							"荒芜"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Description"				"当敌人附近%radius%范围内没有他们的友军时，幽鬼的攻击对他们造成额外伤害。"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Lore"						"战士们常常发现自己落单后身边还有墨丘利的幻象——不得不去质疑，这是不是真正的幽鬼。"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Note0"					"伤害在幽鬼攻击前产生。"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Note1"					"幽鬼的幻象继承荒芜。"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_bonus_damage"				"额外伤害："
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_radius"					"范围："
+		
 		// Templar Assassin
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"折光"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_Description"	"巧妙地使用她的灵能面纱，圣堂刺客变得十分难以捉摸，闪避攻击的同时获得一定次数的攻击力加成。攻击力加成和伤害闪避效果相互独立，都是只有一定次数的效果。"

@@ -13,6 +13,7 @@
 #base "heroes/phantom_assassin.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
+#base "heroes/spectre.txt"
 #base "heroes/viper.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
@@ -8119,29 +8120,6 @@
 				"dagger_grace_period"	"2.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-
-	//=================================================================================================================
-	// Spectre: Desolate
-	//=================================================================================================================
-	"spectre_desolate"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5335"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilitySound"					"Hero_Spectre.Desolate"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"bonus_damage"			"20 35 50 65"
-				"radius"				"325"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 
 	//=================================================================================================================
