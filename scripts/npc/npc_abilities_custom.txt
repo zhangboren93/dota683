@@ -33636,6 +33636,15 @@
 				"IsHidden"			"1"
 				"EffectName"		"particles/items2_fx/true_sight_debuff.vpcf"
 				"EffectAttachType"	"follow_overhead"
+				"ThinkInterval"		"0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_gem.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
 			}
 		}
 	}
