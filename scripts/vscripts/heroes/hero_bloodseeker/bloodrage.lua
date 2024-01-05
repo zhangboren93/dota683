@@ -24,12 +24,11 @@ function ApplyModifier(keys)
 end
 
 if modifier_blood_rage_lua == nil then
-    modifier_blood_rage_lua = class({ 
+	modifier_blood_rage_lua = class({ 
 		RemoveOnDeath           = function(self) return true end,
 		DeclareFunctions        = function(self) return 
 			{
-				MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
-				MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+				MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
 				MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 				MODIFIER_EVENT_ON_KILL,
 				MODIFIER_EVENT_ON_DEATH
@@ -41,36 +40,23 @@ if modifier_blood_rage_lua == nil then
 end
 
 function modifier_blood_rage_lua:OnCreated(kv)
-	local ability = self:GetAbility()
 	self.kv = kv
-	self.caster = self:GetCaster()
-	self.parent = self:GetParent()
-	self.physical_damage = ability:GetSpecialValueFor("damage_increase_pct")
-	self.spell_amplify = ability:GetSpecialValueFor("damage_increase_pct")
-	self.incoming_damage = ability:GetSpecialValueFor("damage_increase_pct")
+	self.damage_amplify = self:GetAbility():GetSpecialValueFor("damage_increase_pct")
 end
 
-function modifier_blood_rage_lua:GetModifierDamageOutgoing_Percentage(keys)
-	if (self.caster:GetAbsOrigin() - self.parent:GetAbsOrigin()):Length2D() > 2200 then
-		return self.physical_damage / 2
+function modifier_blood_rage_lua:GetModifierTotalDamageOutgoing_Percentage(keys)
+	if (keys.target:GetAbsOrigin() - keys.attacker:GetAbsOrigin()):Length2D() > 2200 then
+		return(self.damage_amplify / 2.0)
 	else
-		return self.physical_damage
-	end
-end
-
-function modifier_blood_rage_lua:GetModifierSpellAmplify_Percentage(keys)
-	if (self.caster:GetAbsOrigin() - self.parent:GetAbsOrigin()):Length2D() > 2200 then
-		return self.spell_amplify / 2
-	else
-		return self.spell_amplify
+		return(self.damage_amplify)
 	end
 end
 
 function modifier_blood_rage_lua:GetModifierIncomingDamage_Percentage(keys)
-	if (self.caster:GetAbsOrigin() - self.parent:GetAbsOrigin()):Length2D() > 2200 then
-		return self.incoming_damage / 2
+	if (keys.target:GetAbsOrigin() - keys.attacker:GetAbsOrigin()):Length2D() > 2200 then
+		return(self.damage_amplify / 2.0)
 	else
-		return self.incoming_damage
+		return(self.damage_amplify)
 	end
 end
 

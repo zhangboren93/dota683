@@ -884,6 +884,7 @@
 		// Bloodseeker
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"						"Bloodrage"
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"			"Drives a unit into a bloodthirsty rage during which a unit deals, and takes, increased damage.<br>Units affected by Bloodrage will be healed for a percentage of the max health of any units they kill. Units affected by Bloodrage when killed will heal a percentage of their max health to their killer."
+		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Note0"			"Only amplifies for half values when the damage dealer and the receiver are over 2200 range apart."
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_damage_increase_pct"	"%Damage Amplification: "
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_health_bonus_pct"	"%Max Health as Heal: "
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_duration"			"Duration: "

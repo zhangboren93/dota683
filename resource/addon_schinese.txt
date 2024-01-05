@@ -893,6 +893,7 @@
 		// Bloodseeker
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"						"血怒"
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Description"			"让一个单位陷入渴望鲜血的狂怒中，使其在持续时间内造成和承受的伤害都会被加深。<br>血怒状态下的单位杀死任一单位后将回复阵亡单位最大生命值的一定百分比；血怒状态下的单位被击杀则击杀者将回复阵亡英雄最大生命值的一定百分比。"
+		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_Note0"			"伤害的制造者和承受者双方距离若超过2200范围则伤害加深效果减半。"
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_damage_increase_pct"	"%伤害增加："
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_health_bonus_pct"	"%击杀后回复百分比："
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven_duration"			"持续时间："
