@@ -1974,6 +1974,8 @@
 	}	
 	"npc_dota_brewmaster_earth_1"
 	{
+		"Ability2"					"neutral_spell_immunity"
+		"Ability3"					"brewmaster_earth_pulverize_datadriven"
 		"Ability4"					"brewmaster_thunder_clap"
 		"ArmorPhysical"				"5"			// Physical protection.
 		"AttackDamageMin"			"37"		// Damage range min.
@@ -1983,6 +1985,8 @@
 	}
 	"npc_dota_brewmaster_earth_2"
 	{
+		"Ability2"					"neutral_spell_immunity"
+		"Ability3"					"brewmaster_earth_pulverize_datadriven"
 		"Ability4"					"brewmaster_thunder_clap"
 		"ArmorPhysical"				"5"			// Physical protection.
 		"AttackDamageMin"			"75"		// Damage range min.
@@ -1992,6 +1996,8 @@
 	}
 	"npc_dota_brewmaster_earth_3"
 	{
+		"Ability2"					"neutral_spell_immunity"
+		"Ability3"					"brewmaster_earth_pulverize_datadriven"
 		"Ability4"					"brewmaster_thunder_clap"
 		"ArmorPhysical"				"5"			// Physical protection.
 		"AttackDamageMin"			"159"		// Damage range min.
@@ -2028,7 +2034,7 @@
 	}
 	"npc_dota_brewmaster_fire_1"
 	{
-		"Ability4"					"brewmaster_drunken_brawler_datadriven"
+		"Ability2"					"brewmaster_drunken_brawler_datadriven"
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"72"		// Damage range min.
 		"AttackDamageMax"			"82"		// Damage range max.	
@@ -2036,7 +2042,7 @@
 	}
 	"npc_dota_brewmaster_fire_2"
 	{
-		"Ability4"					"brewmaster_drunken_brawler_datadriven"
+		"Ability2"					"brewmaster_drunken_brawler_datadriven"
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"115"		// Damage range min.
 		"AttackDamageMax"			"130"		// Damage range max.	
@@ -2044,7 +2050,7 @@
 	}
 	"npc_dota_brewmaster_fire_3"
 	{
-		"Ability4"					"brewmaster_drunken_brawler_datadriven"
+		"Ability2"					"brewmaster_drunken_brawler_datadriven"
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"144"		// Damage range min.
 		"AttackDamageMax"			"164"		// Damage range max.	

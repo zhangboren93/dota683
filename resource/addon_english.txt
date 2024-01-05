@@ -421,6 +421,8 @@
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"Splits Brewmaster into elements, forming 3 specialized warriors, adept at survival, each with their own abilities. If any of them survive until the end of their summoned timer, the Brewmaster is reborn."
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_duration"				"Duration: "
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_scepter_description"	"Grants Earth warrior Thunder Clap.<br>Grants Storm warrior Drunken Haze.<br>Grants Brewmaster Fire warrior Drunken Brawler."
+		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven"							"Pulverize"
+		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven_Description"				"20%% chance to do 40 damage in 150 radius, 20 damage in 250 radius."
 		//Bristleback
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven"							"Bristleback"
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Description"				"Bristleback takes less damage if hit on the sides or rear.  If Bristleback takes %quill_release_threshold% damage from the rear, he releases a Quill Spray of the current level."
