@@ -8158,12 +8158,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"					"4.0 5.0 6.0"
-				"illusion_damage_outgoing"	"-60"
-				"tooltip_outgoing"	"40"
+				"duration"					"5 6 7"
+				"illusion_damage_outgoing"	"-70"
+				"tooltip_outgoing"			"30"
 				"illusion_damage_incoming"	"100 100 100"
 				"tooltip_illusion_total_damage_incoming"	"200 200 200"
-				"attack_delay"				"0"
+				"attack_delay"				"1"
 		}
 	}
 	//=================================================================================================================
