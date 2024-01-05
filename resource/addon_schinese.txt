@@ -1304,6 +1304,14 @@
 		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Note1"					"幽鬼的幻象继承荒芜。"
 		"DOTA_Tooltip_ability_spectre_desolate_datadriven_bonus_damage"				"额外伤害："
 		"DOTA_Tooltip_ability_spectre_desolate_datadriven_radius"					"范围："
+		"DOTA_Tooltip_ability_spectre_dispersion_lua"							"折射"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Description"				"幽鬼将受到的伤害折射给敌人，降低她受到的伤害。距离越远，效果越小。"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Lore"						"一个令人却步的任务出现在墨丘利的敌人面前——用刀剑和魔法消灭一个影子。"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Note0"						"幽鬼本身不承受被折射的伤害。"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Note1"						"幻象并不继承此技能。"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_damage_reflection_pct"		"%伤害反弹："
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_min_radius"				"最小范围："
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_max_radius"				"最大范围："
 		
 		// Templar Assassin
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"折光"

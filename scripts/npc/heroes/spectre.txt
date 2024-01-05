@@ -55,4 +55,33 @@
     		}
     	}
     }
+	//Author: Nightborn
+	//Rewrite of Spectre Dispersion
+	//Date: September 1, 2016
+	"spectre_dispersion_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"heroes/hero_spectre/dispersion.lua"
+		"AbilityTextureName"		"spectre_dispersion"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"min_radius"				"300"
+			"max_radius"				"1000"
+			"damage_reflection_pct"		"10 14 18 22"
+		}
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_spectre/spectre_dispersion.vpcf"
+			"particle"	"particles/units/heroes/hero_spectre/spectre_dispersion_fallback_mid.vpcf"
+			"particle"	"particles/units/heroes/hero_spectre/spectre_dispersion_b_fallback_low.vpcf"
+		}
+	}
 }

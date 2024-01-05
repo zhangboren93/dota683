@@ -117,6 +117,8 @@ function Activate()
 	LinkLuaModifier( "modifier_enchantress_enchant_lua",		"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_enchant_slow_lua",	"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_viper_viper_strike_slow_lua",	"heroes/hero_viper/viper_strike.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_spectre_dispersion_lua", 		"heroes/hero_spectre/modifier_spectre_dispersion_lua", LUA_MODIFIER_MOTION_NONE )
+
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", "units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", "units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
