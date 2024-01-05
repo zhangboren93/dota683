@@ -668,6 +668,7 @@
 			"modifier_bot_ability_execute_tracker_datadriven"
 			{
 				"IsHidden"	"1"
+				"Passive"	"1"
 				"OnAbilityExecuted"
 				{
 					"RunScript"
@@ -682,6 +683,19 @@
 					{
 						"ScriptFile"	"ai/ability_execute_tracker.lua"
 						"Function"		"handleAttack"
+					}
+				}
+			}
+			"modifier_brewmaster_haze_sound_effect"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_brewmaster/drunken_haze.lua"
+						"Function"		"handleAbilityExecuted"
 					}
 				}
 			}
