@@ -62,8 +62,7 @@ function Activate()
 	LinkLuaModifier( "modifier_black_king_bar_immune_lua", "items/item_black_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_aegis_lua", 		   "items/item_aegis.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_aegis_regen_lua", 	   "items/item_aegis.lua", LUA_MODIFIER_MOTION_NONE)
-
-	modifier_item_aegis_regen_lua = class({})
+	LinkLuaModifier( "modifier_sentry_ward_reveal_invis_aura_lua", "modifiers/modifier_sentry_ward_reveal_invis_aura.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_fountain_aura_buff_lua", "modifiers/modifier_fountain_aura_buff.lua", LUA_MODIFIER_MOTION_NONE)
@@ -971,7 +970,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:FindAbilityByName("creep_strong"):SetLevel(1)
 	end
 	
-	if not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
+	if not entity:IsWard() and not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
 		entity:AddAbility("unit_intrinstic_mechanism_datadriven"):SetLevel(1)
 	end
 
@@ -1662,6 +1661,27 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		parent:SetThink(function() 
 			parent:AddNewModifier(parent, nil, "modifier_invisible", { duration = 45 })
 		end, "invis fade", 2)
+		return false
+	elseif event.name_const == "modifier_item_buff_ward" then
+		-- creates a dummy ward on location
+		local new_unit_name = "npc_dota_observer_wards"
+		local lifetime = 420
+		local is_sentry = parent:GetName() == "npc_dota_ward_base_truesight"
+		if is_sentry then
+			new_unit_name = "npc_dota_sentry_wards"
+			lifetime = 240
+		end
+		local fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
+		if parent:GetTeam() == DOTA_TEAM_GOODGUYS then
+			fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
+		end
+		local new_ward = CreateUnitByName(new_unit_name, parent:GetAbsOrigin(), false, nil, nil, parent:GetTeam())
+		new_ward:AddNewModifier(fountain, nil, "modifier_kill", { duration = lifetime })
+		new_ward:AddNewModifier(fountain, nil, "modifier_invisible", {})
+		if is_sentry then
+			new_ward:AddNewModifier(fountain, nil, "modifier_sentry_ward_reveal_invis_aura_lua", {})
+		end
+		parent:Destroy()
 		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false

@@ -27,7 +27,13 @@ function item_quelling_blade_lua:OnSpellStart()
     end
 	--TODO require 2 count to cut down ward
     if target:GetName() == "npc_dota_ward_base" or target:GetName() == "npc_dota_ward_base_truesight" then
-        target:Kill(self, self:GetCaster())
+		ApplyDamage({
+			victim = target,
+			attacker = self:GetCaster(),
+			damage = 100,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			ability = self 
+		})
     end
 end
 
