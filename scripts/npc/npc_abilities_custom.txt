@@ -1081,10 +1081,17 @@
 		
 		"OnSpellStart"
 		{
-			"ApplyModifier"
+			// Deprecated
+			//"ApplyModifier"
+			//{
+			//	"ModifierName"	"modifier_blood_rage_datadriven"
+			//	"Target"		"TARGET"
+			//}
+
+			"RunScript"
 			{
-				"ModifierName"	"modifier_blood_rage_datadriven"
-				"Target"		"TARGET"
+				"ScriptFile"	"heroes/hero_bloodseeker/bloodrage.lua"
+				"Function"		"ApplyModifier"
 			}
 			
 			"FireSound"
@@ -1096,6 +1103,7 @@
 		
 		"Modifiers"
 		{
+			// Deprecated
 			"modifier_blood_rage_datadriven"
 			{
 				"Duration"	"%duration"
