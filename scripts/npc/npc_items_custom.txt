@@ -1230,9 +1230,9 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"Model"							"models/props_gameplay/salve.mdl"
-		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		//"Model"							"models/props_gameplay/salve.mdl"
 		"AbilityTextureName"			"item_flask"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
@@ -1453,6 +1453,7 @@
 		"ItemStockMax"					"0"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
