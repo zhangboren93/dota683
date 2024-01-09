@@ -20,6 +20,10 @@ function StaticField(keys)
 	    	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, 
 				DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 0, 0, false)
 			print(#units)
+			if #units > 0 then
+				-- Plays the sound on the caster
+	    		EmitSoundOn(keys.sound, caster)
+			end
 	    	for i,unit in ipairs(units) do
 	    		-- Attaches the particle
 	    		local particle = ParticleManager:CreateParticle(keys.particle, PATTACH_ABSORIGIN_FOLLOW, unit)
