@@ -25,7 +25,7 @@ function StaticField(keys)
 	    		local particle = ParticleManager:CreateParticle(keys.particle, PATTACH_ABSORIGIN_FOLLOW, unit)
 	    		ParticleManager:SetParticleControl(particle,0,unit:GetAbsOrigin())
 	    		-- Plays the sound on the target
-	    		EmitSoundOn(keys.sound, unit)
+	    		--EmitSoundOn(keys.sound, unit)
 	    		-- Deals the damage based on the unit's current health
 	    		ApplyDamage({victim = unit, attacker = caster, damage = unit:GetHealth() * damage_health_pct, damage_type = ability:GetAbilityDamageType()})
 	    	end
