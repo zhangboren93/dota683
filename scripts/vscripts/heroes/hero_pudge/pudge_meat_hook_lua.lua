@@ -58,7 +58,7 @@ function pudge_meat_hook_lua:OnSpellStart()
 	local vHookTarget = self.vTargetPosition + self.vHookOffset
 	local vKillswitch = Vector( ( ( self.hook_distance / self.hook_speed ) * 2 ), 0, 0 )
 
-	self.nChainParticleFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_pudge/pudge_meathook.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster() )
+	self.nChainParticleFXIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_pudge/pudge_meathook.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleAlwaysSimulate( self.nChainParticleFXIndex )
 	ParticleManager:SetParticleControlEnt( self.nChainParticleFXIndex, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_weapon_chain_rt", self:GetCaster():GetOrigin() + self.vHookOffset, true )
 	ParticleManager:SetParticleControl( self.nChainParticleFXIndex, 1, vHookTarget )
