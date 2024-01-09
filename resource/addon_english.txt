@@ -1717,6 +1717,7 @@
 		// Queen of Pain
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_Scepter_Description"				"Increases damage and decreases cooldown."
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_AbilityCooldown"					"COOLDOWN:"
+
 		//Rubick
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven"								"Null Field"
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven_Description"					"Rubick's mastery of the arcane protects allied heroes against weaker magics, granting them magic resistance."
@@ -1724,6 +1725,12 @@
 		"DOTA_Tooltip_modifier_null_field_datadriven"				"Null Field"
 		"DOTA_Tooltip_modifier_null_field_datadriven_Description"	"Magic Damage Resistance increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 		"DOTA_Tooltip_ability_rubick_spell_steal_scepter_description"		    "Increases cast range, and upgrades spells to their Scepter version."
+		"DOTA_Tooltip_ability_rubick_fade_bolt_attack_damage_reduction"			""
+		"DOTA_Tooltip_ability_rubick_fade_bolt_attack_damage_reduction_tooltip"	"DAMAGE REDUCTION(HERO):"
+		"DOTA_Tooltip_ability_rubick_fade_bolt_attack_damage_reduction_creep"	"DAMAGE REDUCTION(CREEP):"
+		"DOTA_Tooltip_modifier_rubick_fade_bolt_debuff_lua"						"Fade Bolt"
+		"DOTA_Tooltip_modifier_rubick_fade_bolt_debuff_lua_Description"			"Attack Damage reduced."
+
 		// Shadow Demon
 		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven"							"Soul Catcher"
 		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_Description"				"Captures the soul of a random enemy in an area, amplifies all damage they take. Units under the effect of Disruption can still be affected by Soul Catcher."

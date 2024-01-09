@@ -11060,6 +11060,7 @@
 				"radius"					"325 325 325 325"
 				"max_land_distance"			"375 375 375 375"
 				"fall_duration"				"0.3 0.3 0.3 0.3"  // the portion of the lift that is falling
+				"AbilityCooldown"				"22"
 				"shard_max_land_distance_bonus_pct"			"0"
 				"shard_cooldown_reduction_pct"			"0"
 				"shard_teammate_throw_delay"			"0"
@@ -11108,12 +11109,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"damage"					"70 140 210 280"
-				"jump_damage_reduction_pct"	"4"
-				"attack_damage_reduction"	"12 20 26 32"
-				"duration"					"10.0 10.0 10.0 10.0"
-				"radius"					"440"
-				"jump_delay"				"0.25 0.25 0.25 0.25"
+				"damage"							"70 140 210 280"
+				"jump_damage_reduction_pct"			"4"
+				"attack_damage_reduction"			"0"
+				"attack_damage_reduction_tooltip"	"14 20 26 32"
+				"attack_damage_reduction_creep"		"7 10 13 16"
+				"duration"							"10.0 10.0 10.0 10.0"
+				"radius"							"440"
+				"jump_delay"						"0.25 0.25 0.25 0.25"
 		}
 	}	
 // Rewrite of Rubick Null Field

@@ -1728,6 +1728,7 @@
 		// Queen of Pain
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_Scepter_Description"				"提高伤害并减少冷却时间。"
 		"DOTA_Tooltip_Ability_queenofpain_sonic_wave_AbilityCooldown"					"冷却时间："
+
 		//Rubick
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven"								"失效力场"
 		"DOTA_Tooltip_Ability_rubick_null_field_datadriven_Description"					"拉比克对奥术的精通能够保护友方英雄免受弱小魔法的伤害，给他们带来魔法抗性。"
@@ -1735,6 +1736,12 @@
 		"DOTA_Tooltip_modifier_null_field_datadriven"				"失效力场"
 		"DOTA_Tooltip_modifier_null_field_datadriven_Description"	"魔法抗性提高%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。"
 		"DOTA_Tooltip_ability_rubick_spell_steal_scepter_description"		    "提升施法距离，并且施放的技能会升级成神杖版本。"
+		"DOTA_Tooltip_ability_rubick_fade_bolt_attack_damage_reduction"			""
+		"DOTA_Tooltip_ability_rubick_fade_bolt_attack_damage_reduction_tooltip"	"攻击力降低（英雄）："
+		"DOTA_Tooltip_ability_rubick_fade_bolt_attack_damage_reduction_creep"	"攻击力降低（小兵）："
+		"DOTA_Tooltip_modifier_rubick_fade_bolt_debuff_lua"						"弱化能流"
+		"DOTA_Tooltip_modifier_rubick_fade_bolt_debuff_lua_Description"			"攻击力降低。"
+
 		//Shadow Demon
 		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven"					"灵魂猎手"
 		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_Description"		"俘获区域内的随机一个敌人的灵魂，使其受到的所有伤害均有所增加。处于崩裂禁锢中的单位仍然可以被灵魂猎手影响。"
