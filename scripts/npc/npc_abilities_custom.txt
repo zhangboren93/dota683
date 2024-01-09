@@ -19579,6 +19579,7 @@
 	
 	    		"Properties"
 		    	{
+					"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS"	"sprint"
 		    		"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%bonus_damage"
 		    		"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_speed"
 		    	}
