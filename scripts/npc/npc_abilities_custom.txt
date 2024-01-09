@@ -20920,7 +20920,7 @@
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120"
+		"AbilityManaCost"				"90"
 	
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -21085,28 +21085,11 @@
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_creep"		"2.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"chance_pct"			"10 15 20 25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"40 50 60 70"
-			}
 		}
 	
 		"Modifiers"
@@ -21133,48 +21116,10 @@
 	
 				"OnAttackLanded"
 				{
-					"Random"
+					"RunScript"
 					{
-						"Chance"	"%chance_pct"
-						"PseudoRandom"	"DOTA_PSEUDO_RANDOM_FACELESS_BASH"
-	
-						"OnSuccess"
-						{
-							"FireSound"
-							{
-								"EffectName"	"Hero_FacelessVoid.TimeLockImpact"
-								"Target"		"TARGET"
-							}
-	
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_time_lock_stun_datadriven"
-								"Duration"		"%duration"
-								"Target"
-								{
-									"Center"	"TARGET"
-									"Types"		"DOTA_UNIT_TARGET_HERO"
-								}
-							}
-	
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_time_lock_stun_datadriven"
-								"Duration"		"%duration_creep"
-								"Target"
-								{
-									"Center"	"TARGET"
-									"Types"		"DOTA_UNIT_TARGET_BASIC"
-								}
-							}
-	
-							"Damage"
-							{
-								"Target"	"TARGET"
-								"Type"		"DAMAGE_TYPE_MAGICAL"
-								"Damage"	"%bonus_damage"
-							}
-						}
+						"ScriptFile"	"heroes/hero_faceless_void/time_lock.lua"
+						"Function"		"handleAttackLanded"
 					}
 				}
 			}
@@ -21224,7 +21169,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 175 200"
+		"AbilityManaCost"				"150 225 300"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -21234,7 +21179,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"radius"				"450"
+			"radius"				"425"
 			"duration"
 			{
 				"value"			"4.0 4.5 5.0"
