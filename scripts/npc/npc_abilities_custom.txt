@@ -1,6 +1,7 @@
 // Dota Heroes File
 #base "npc_abilities_hero_ability_executed_hook.txt"
 #base "heroes/broodmother.txt"
+#base "heroes/brewmaster.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/enchantress.txt"
 #base "heroes/gyrocopter.txt"
@@ -13,9 +14,11 @@
 #base "heroes/phantom_assassin.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
+#base "heroes/spectre.txt"
 #base "heroes/viper.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
+#base "units/courier.txt"
 "DOTAAbilities"
 {
 	"Version"		"1"
@@ -2498,7 +2501,7 @@
 		"AbilityValues"
 		{
 			"gods_strength_damage"		"100 150 200"	
-			"scepter_aura_damage_pct"	"40 60 80"
+			"scepter_aura_damage_pct"	"50 75 100"
 			"bonus_slow_resistance"		"0"	
 		}	
 	}
@@ -2510,7 +2513,7 @@
 		"AbilityTextureName"	"sven_gods_strength"
 		"AbilityValues"
 		{
-			"aura_damage_pct"	"40 60 80"
+			"aura_damage_pct"	"50 75 100"
 		}
 		"Modifiers"
 		{
@@ -6180,36 +6183,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
-	//=================================================================================================================
-	// Luna: Lunar Blessing
-	//=================================================================================================================
-	"luna_lunar_blessing"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5224"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"radius"			"900"
-				"bonus_damage"			
-				{
-					"value"			"14 22 30 38"
-					"special_bonus_unique_luna_3"	"+35"
-				}
-				"bonus_night_vision"		
-				{
-					"value"			"1000"
-				}
-				"self_increase_pct"	"100"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
     "luna_eclipse"
 	{
 		"MaxLevel"              "3"
@@ -8128,78 +8101,6 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 
-	//=================================================================================================================
-	// Spectre: Desolate
-	//=================================================================================================================
-	"spectre_desolate"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5335"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilitySound"					"Hero_Spectre.Desolate"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"bonus_damage"			"20 35 50 65"
-				"radius"				"325"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-
-	//=================================================================================================================
-	// Spectre: Dispersion
-	//=================================================================================================================
-	"spectre_dispersion"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5336"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-        "HasShardUpgrade"               "0"
-
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"damage_reflection_pct"
-			{
-				"value"		"10 14 18 22"
-				"special_bonus_unique_spectre_5"		"+5"
-			}
-			"min_radius"			"400"
-			"max_radius"			"1000"
-			"activation_cooldown"
-			{
-				"value"				"0"
-				"special_bonus_shard"				"+25"
-			}
-			"activation_manacost"
-			{
-				"value"				"0"
-				"special_bonus_shard"				"+50"
-			}
-			"activation_bonus_pct"
-			{
-				"value"				"0"
-				"special_bonus_shard"				"+100"
-			}
-			"activation_duration"
-			{
-				"value"				"0"
-				"special_bonus_shard"				"+5"
-			}
-			"shard_dagger_damage"			"0"
-			"shard_dagger_cooldown"			"100000"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
     "spectre_haunt"
 	{
 		"MaxLevel"              "3"
@@ -8236,12 +8137,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"					"4.0 5.0 6.0"
-				"illusion_damage_outgoing"	"-60"
-				"tooltip_outgoing"	"40"
+				"duration"					"5 6 7"
+				"illusion_damage_outgoing"	"-70"
+				"tooltip_outgoing"			"30"
 				"illusion_damage_incoming"	"100 100 100"
 				"tooltip_illusion_total_damage_incoming"	"200 200 200"
-				"attack_delay"				"0"
+				"attack_delay"				"1"
 		}
 	}
 	//=================================================================================================================
@@ -15155,19 +15056,6 @@
 					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"				"0"
 				}
 			}
-			"modifier_courier_transfer_stop_checker"
-			{
-				"IsHidden"			"1"
-				"ThinkInterval"		"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_courier.lua"
-						"Function"		"transforStopChecker"
-					}
-				}
-			}
 			"modifier_courier_not_full_bottle_datadriven"
 			{
 				"Passive"		"0"
@@ -19750,7 +19638,7 @@
 				"cleave_distance"			"700"
 				"great_cleave_damage"		"0"
 				"strength_bonus"			"0"
-				"cleave_radius_damage"		"25 35 50 65"
+				"cleave_radius_damage"		"20 35 50 65"
 				"cleave_radius"				"300"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -21033,7 +20921,7 @@
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120"
+		"AbilityManaCost"				"90"
 	
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -21198,28 +21086,11 @@
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"duration"				"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration_creep"		"2.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"chance_pct"			"10 15 20 25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"40 50 60 70"
-			}
 		}
 	
 		"Modifiers"
@@ -21246,48 +21117,10 @@
 	
 				"OnAttackLanded"
 				{
-					"Random"
+					"RunScript"
 					{
-						"Chance"	"%chance_pct"
-						"PseudoRandom"	"DOTA_PSEUDO_RANDOM_FACELESS_BASH"
-	
-						"OnSuccess"
-						{
-							"FireSound"
-							{
-								"EffectName"	"Hero_FacelessVoid.TimeLockImpact"
-								"Target"		"TARGET"
-							}
-	
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_time_lock_stun_datadriven"
-								"Duration"		"%duration"
-								"Target"
-								{
-									"Center"	"TARGET"
-									"Types"		"DOTA_UNIT_TARGET_HERO"
-								}
-							}
-	
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_time_lock_stun_datadriven"
-								"Duration"		"%duration_creep"
-								"Target"
-								{
-									"Center"	"TARGET"
-									"Types"		"DOTA_UNIT_TARGET_BASIC"
-								}
-							}
-	
-							"Damage"
-							{
-								"Target"	"TARGET"
-								"Type"		"DAMAGE_TYPE_MAGICAL"
-								"Damage"	"%bonus_damage"
-							}
-						}
+						"ScriptFile"	"heroes/hero_faceless_void/time_lock.lua"
+						"Function"		"handleAttackLanded"
 					}
 				}
 			}
@@ -21337,7 +21170,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 175 200"
+		"AbilityManaCost"				"150 225 300"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -21347,7 +21180,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"radius"				"450"
+			"radius"				"425"
 			"duration"
 			{
 				"value"			"4.0 4.5 5.0"
@@ -33657,6 +33490,15 @@
 				"IsHidden"			"1"
 				"EffectName"		"particles/items2_fx/true_sight_debuff.vpcf"
 				"EffectAttachType"	"follow_overhead"
+				"ThinkInterval"		"0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_gem.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
 			}
 		}
 	}

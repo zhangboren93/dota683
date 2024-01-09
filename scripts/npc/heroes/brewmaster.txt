@@ -1,0 +1,39 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	"brewmaster_earth_pulverize_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"brewmaster_earth_pulverize"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"damage_inner"				"40"
+				"radius_inner"				"150"
+				"damage_outer"				"20"
+				"radius_outer"				"250"
+				"chance"					"20"
+		}
+		"Modifiers"
+		{
+			"modifier_brewmaster_earth_pulverize_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_brewmaster/earth_pulverize.lua"
+						"Function"		"handleAttack"
+					}
+				}
+			}
+		}
+	}
+}

@@ -323,12 +323,20 @@
 		"DOTA_Tooltip_ability_item_flask_datadriven_Lore"					"A magical salve that can quickly mend even the deepest of wounds."
 		"DOTA_Tooltip_modifier_item_flask_datadriven_active"				"Healing Salve"
 		"DOTA_Tooltip_modifier_item_flask_datadriven_active_Description"	"Restoring health."
+		"DOTA_Tooltip_Ability_item_aegis_lua"						"Aegis of the Immortal"
+		"DOTA_Tooltip_ability_item_aegis_lua_Description"			"<h1>Passive: Reincarnation</h1> Brings you to life with full health and mana %reincarnate_time% seconds after you die, at the location where you died. <br><br>Reincarnation must be used within %disappear_time_minutes_tooltip% minutes or Aegis of the Immortal disappears. If it expires, it will heal you over 5 seconds (dispels on damage)."
+		"DOTA_Tooltip_ability_item_aegis_lua_Lore"					"The Immortal was said to own a shield that protected him from death itself."
+		"DOTA_Tooltip_modifier_item_aegis_regen_lua"				"Aegis Regeneration"
+		"DOTA_Tooltip_modifier_item_aegis_regen_lua_description"	"The Aegis of the Immortal has expired. Quickly restoring health and mana."
 
 		"DOTA_Tooltip_Ability_courier_share"								"Share courier"
 		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"			"Go to secretshop"
 		"DOTA_Tooltip_ability_courier_burst_datadriven"								"Speed Burst"
 		"DOTA_Tooltip_ability_courier_burst_datadriven_Description"					"The courier gains a burst of speed for %AbilityDuration% seconds"
 		"DOTA_Tooltip_ability_courier_burst_datadriven_movement_speed"					"BURST MOVE SPEED:"
+		"DOTA_Tooltip_ability_courier_transfer_items_lua"							"Transfer Items"
+		"DOTA_Tooltip_ability_courier_transfer_items_lua_Description"				"Transfer items to hero"
+		"DOTA_Tooltip_modifier_courier_transfer_items_active_lua"					"Transferring items"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"Death Coil"
@@ -413,6 +421,8 @@
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"Splits Brewmaster into elements, forming 3 specialized warriors, adept at survival, each with their own abilities. If any of them survive until the end of their summoned timer, the Brewmaster is reborn."
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_duration"				"Duration: "
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_scepter_description"	"Grants Earth warrior Thunder Clap.<br>Grants Storm warrior Drunken Haze.<br>Grants Brewmaster Fire warrior Drunken Brawler."
+		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven"							"Pulverize"
+		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven_Description"				"20%% chance to do 40 damage in 150 radius, 20 damage in 250 radius."
 		//Bristleback
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven"							"Bristleback"
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Description"				"Bristleback takes less damage if hit on the sides or rear.  If Bristleback takes %quill_release_threshold% damage from the rear, he releases a Quill Spray of the current level."
@@ -785,6 +795,8 @@
 		"DOTA_Tooltip_ability_sven_great_cleave_cleave_radius_damage"			"%CLEAVE DAMAGE:"
 		"DOTA_Tooltip_ability_sven_great_cleave_cleave_radius"					"CLEAVE RADIUS:"
 		"DOTA_Tooltip_Ability_sven_gods_strength_Scepter_Description"			"God's Strength adds a 900-radius aura that grants %scepter_aura_damage_pct%%% attack damage bonus to allies while active."
+		"DOTA_Tooltip_modifier_sven_gods_strength_ally_buff"					"God's Strength Aura"
+		
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven"						"Anchor Smash"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_Description"			"Tidehunter swings his mighty anchor to deal damage to nearby enemies and reduce their attack damage."
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_damage_reduction_pct"	"%Attack Damage Reduction: "
@@ -1080,6 +1092,14 @@
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_range"									"BOUNCE RADIUS:"
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_bounces"									"BOUNCES:"
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_damage_reduction_percent"				"%DAMAGE REDUCTION PER BOUNCE:"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven"								"Lunar Blessing"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_Lore"							"The Goddess of the Moon smiles upon her kin."
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_Description"					"Increases the attack damage for Luna and nearby allied heroes. At night Luna is blessed with increased vision range."
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_radius"						"BLESSING RADIUS:"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_bonus_damage"					"ATTACK DAMAGE BONUS:"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_bonus_night_vision"			"NIGHT VISION:"
+		"DOTA_Tooltip_modifier_lunar_blessing_damage_effect"							"Lunar Blessing"
+		"DOTA_Tooltip_modifier_lunar_blessing_damage_effect_Description"				"Increasing damage by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%"
 		"DOTA_Tooltip_ability_luna_eclipse_scepter_description"								"Double click to cast eclipse. Increases total beams and removes the limit on beams per unit."
 
 		//Medusa
@@ -1275,6 +1295,7 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Note1"									"Invisibility doesn't disjoint the projectile."
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastrange"						"CAST RANGE:"
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastpoint"						"AIM DURATION:"
+
 		//Spectre
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2"						"Spectral Dagger"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Description"			"Spectre flings a dagger to draw a Shadow Path, dealing damage and slowing the movement speed of any enemies along the trail. Units hit by the dagger also trail a Shadow Path. While treading the path, Spectre phases through otherwise impassable terrain. Spectral Dagger applies an instance of Desolate to targets with no allied units within 400 radius of them."
@@ -1283,6 +1304,22 @@
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_damage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_bonus_movespeed"		"%MOVEMENT SPEED CHANGE:"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_hero_path_duration"	"DURATION:"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven"							"Desolate"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Description"				"Deals bonus damage whenever Spectre attacks an enemy that does not have any allied units within a %radius% radius around them."
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Lore"						"Often times, warriors find themselves alone with a vision of Mercurial - the fated question is if it is the true Spectre."
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Note0"					"Damage is dealt before Spectre's attack."
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Note1"					"Spectre's illusions also have Desolate."
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_bonus_damage"				"BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_radius"					"RADIUS:"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua"							"Dispersion"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Description"				"Damage done to Spectre is reflected on her enemies, leaving her unharmed. The effect lessens with distance."
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Lore"						"A daunting task lies before enemies of Mercurial - killing a shadow with blade and magic."
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Note0"						"The reflected damage is not dealt to Spectre."
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Note1"						"Illusions don't get this ability."
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_damage_reflection_pct"		"%DAMAGE REFLECTED:"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_min_radius"				"MIN RADIUS:"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_max_radius"				"MAX RADIUS:"
+		
 		// Templar Assassin
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"Refraction"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_Description"	"Templar Assassin becomes highly elusive, avoiding damage and gaining a bonus to her damage.  The damage and avoidance effects are separate, and have a limited number of instances."

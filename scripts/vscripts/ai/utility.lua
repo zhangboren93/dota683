@@ -295,13 +295,11 @@ U.DireSafeSpots[#U.DireSafeSpots+1] = U.Locations.DTT3
 -- Properties
 -------------------------------------------------------------------------------
 
-function setHeroVar(var, value)
-    local bot = GetBot()
+function setHeroVar(bot, value)
     gHeroVar.SetVar(bot:GetPlayerID(), var, value)
 end
 
-function getHeroVar(var)
-    local bot = GetBot()
+function getHeroVar(bot, var)
     return gHeroVar.GetVar(bot:GetPlayerID(), var)
 end
 
@@ -1332,13 +1330,13 @@ function U.EnemyHasBreakableBuff(enemy)
 end
 
 function U.UseOrbEffect(bot)
-    local orb = getHeroVar("HasOrbAbility")
+    local orb = getHeroVar(bot, "HasOrbAbility")
     if orb then
         local ability = bot:GetAbilityByName(orb)
         if ability ~= nil and ability:IsFullyCastable() then
             local target = nil
-            if U.ValidTarget(getHeroVar("Target")) then
-                target = getHeroVar("Target")
+            if U.ValidTarget(getHeroVar(bot, "Target")) then
+                target = getHeroVar(bot, "Target")
             else
                 target, _ = U.GetWeakestHero(bot, bot:Script_GetAttackRange()+bot:BoundingRadius2D())
             end
@@ -1647,9 +1645,9 @@ function U.CourierThink(bot)
 
     if state == COURIER_STATE_DEAD or courier:GetHealth() < 1 then return end
 
-    local checkLevel, newTime = U.TimePassed(getHeroVar("LastCourierThink"), 1.0)
+    local checkLevel, newTime = U.TimePassed(getHeroVar(bot, "LastCourierThink"), 1.0)
     if not checkLevel then return end
-    setHeroVar("LastCourierThink", newTime)
+    setHeroVar(bot, "LastCourierThink", newTime)
 
     if courier:WasRecentlyDamagedByAnyHero(2) or courier:WasRecentlyDamagedByTower(2) then
         if IsFlyingCourier(courier) and (GameTime() - gHeroVar.GetGlobalVar("LastCourierBurst")) > 90.0 then

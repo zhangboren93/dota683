@@ -126,12 +126,12 @@ function X:DoInit(bot)
     end
 
     role.GetRoles(bot)
-    if role.RolesFilled() then
+    if role.RolesFilled(bot:GetTeam()) then
         self.Init = true
         for i = 1,5,1 do
             local hero = bot:GetTeamMember( i )
             if hero:GetPlayerID() == self.pID then
-                cLane, cRole = role.GetLaneAndRole(bot:GetTeam(), i)
+                cLane, cRole = role.GetLaneAndRole(bot, i)
                 self:setHeroVar(bot, "CurLane", cLane)
                 self:setHeroVar(bot, "Role", cRole)
                 break

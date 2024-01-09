@@ -320,12 +320,20 @@
 		"DOTA_Tooltip_ability_item_flask_datadriven_Lore"						"即使最严重的伤口也能快速治愈的魔法药膏。"
 		"DOTA_Tooltip_modifier_item_flask_datadriven_active"					"治疗药膏"
 		"DOTA_Tooltip_modifier_item_flask_datadriven_active_Description"		"正在回复生命。"
+		"DOTA_Tooltip_Ability_item_aegis_lua"									"不朽之守护"
+		"DOTA_Tooltip_ability_item_aegis_lua_Description"						"<h1>被动：重生</h1>死亡%reincarnate_time%秒后在原地满血满魔复活。<br><br>重生必须在%disappear_time_minutes_tooltip%分钟内使用，否则不朽之守护将消失。消失时将在5秒内回复英雄的生命值。（受到攻击将会停止回复）"
+		"DOTA_Tooltip_ability_item_aegis_lua_Lore"								"据说不朽者拥有一面能帮他躲过死亡的盾牌。"
+		"DOTA_Tooltip_modifier_item_aegis_regen_lua"							"不朽之守护恢复效果"
+		"DOTA_Tooltip_modifier_item_aegis_regen_lua_description"				"不朽之守护已经被收回。英雄将快速恢复生命和魔法。"
 
 		"DOTA_Tooltip_Ability_courier_share"					"分享信使"
 		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"			"神秘商店"
 		"DOTA_Tooltip_ability_courier_burst_datadriven"								"加速"
 		"DOTA_Tooltip_ability_courier_burst_datadriven_Description"					"信使的速度得到极大提升，持续%AbilityDuration%秒"
 		"DOTA_Tooltip_ability_courier_burst_datadriven_movement_speed"					"移速爆发："
+		"DOTA_Tooltip_ability_courier_transfer_items_lua"							"运送物品"
+		"DOTA_Tooltip_ability_courier_transfer_items_lua_Description"				"将物品运送给英雄"
+		"DOTA_Tooltip_modifier_courier_transfer_items_active_lua"					"将物品送达英雄处"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"
@@ -420,6 +428,8 @@
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"酒仙分裂成元素，产生3个各有所长的战士，生存能力极强。只要其中任何一个在召唤时间结束后存活下来，酒仙就能重生。"
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_duration"				"持续时间："
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_scepter_description"	"大地战士获得当前等级雷霆一击，狂风战士获得当前等级醉酒云雾，烈火战士获得当前等级醉拳。"
+		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven"					"粉碎击"
+		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven_Description"		"20%%几率攻击150范围造成40伤害，250范围造成20伤害。"
 		//Bristleback
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven"						"钢毛后背"
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Description"			"如果伤害来自钢背兽的侧面或者背后，他将会受到较少的伤害。钢毛后背每吸收%quill_release_threshold%点伤害会自动释放一次当前等级的刺针扫射。"
@@ -793,6 +803,8 @@
 		"DOTA_Tooltip_ability_sven_great_cleave_cleave_radius_damage"			"%分裂伤害："
 		"DOTA_Tooltip_ability_sven_great_cleave_cleave_radius"					"分裂半径："
 		"DOTA_Tooltip_Ability_sven_gods_strength_Scepter_Description"			"神之力量增加一个900范围的友军光环，增加友方英雄%scepter_aura_damage_pct%%%攻击力。"
+		"DOTA_Tooltip_modifier_sven_gods_strength_ally_buff"					"神之力量光环"
+
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven"						"锚击"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_Description"			"潮汐猎人挥动他巨大的锚，对附近敌人造成伤害，同时降低他们的攻击力。"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_damage_reduction_pct"	"%攻击力降低："
@@ -1091,6 +1103,14 @@
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_range"							"弹跳范围："
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_bounces"							"弹射次数："
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_damage_reduction_percent"		"%弹跳伤害衰减："
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven"						"月之祝福"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_Lore"					"月之女神对她的族人微笑。"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_Description"			"提升露娜和附近友方英雄的攻击力。夜晚期间露娜受到福佑后夜间视野得到提升。"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_radius"				"福佑作用范围："
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_bonus_damage"			"攻击力加成："
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_bonus_night_vision"	"夜晚视野："
+		"DOTA_Tooltip_modifier_lunar_blessing_damage_effect"						"月之祝福"
+		"DOTA_Tooltip_modifier_lunar_blessing_damage_effect_Description"			"提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点攻击力。"
 
 		// Medusa
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven"					"秘术异蛇"
@@ -1286,6 +1306,7 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_Note1"									"隐身不能躲避该技能弹道。"
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastrange"						"施法距离："
 		"DOTA_Tooltip_ability_sniper_assassinate_datadriven_abilitycastpoint"						"瞄准持续时间："
+
 		//Spectre
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2"						"幽鬼之刃"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Description"			"幽鬼掷出一把匕首，留下一条暗影之径，对路径上的敌人造成伤害并减缓其移动速度。被匕首击中的单位移动时也会留下暗影之径。幽鬼在暗影之径上可以无视地形移动。幽鬼之刃对400范围内没有友军的目标施加一次荒芜伤害。"
@@ -1294,6 +1315,22 @@
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_damage"				"伤害："
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_bonus_movespeed"		"%移动速度加成："
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_hero_path_duration"	"持续时间："
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven"							"荒芜"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Description"				"当敌人附近%radius%范围内没有他们的友军时，幽鬼的攻击对他们造成额外伤害。"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Lore"						"战士们常常发现自己落单后身边还有墨丘利的幻象——不得不去质疑，这是不是真正的幽鬼。"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Note0"					"伤害在幽鬼攻击前产生。"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_Note1"					"幽鬼的幻象继承荒芜。"
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_bonus_damage"				"额外伤害："
+		"DOTA_Tooltip_ability_spectre_desolate_datadriven_radius"					"范围："
+		"DOTA_Tooltip_ability_spectre_dispersion_lua"							"折射"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Description"				"幽鬼将受到的伤害折射给敌人，降低她受到的伤害。距离越远，效果越小。"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Lore"						"一个令人却步的任务出现在墨丘利的敌人面前——用刀剑和魔法消灭一个影子。"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Note0"						"幽鬼本身不承受被折射的伤害。"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_Note1"						"幻象并不继承此技能。"
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_damage_reflection_pct"		"%伤害反弹："
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_min_radius"				"最小范围："
+		"DOTA_Tooltip_ability_spectre_dispersion_lua_max_radius"				"最大范围："
+		
 		// Templar Assassin
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"折光"
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_Description"	"巧妙地使用她的灵能面纱，圣堂刺客变得十分难以捉摸，闪避攻击的同时获得一定次数的攻击力加成。攻击力加成和伤害闪避效果相互独立，都是只有一定次数的效果。"

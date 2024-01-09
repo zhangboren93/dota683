@@ -117,7 +117,14 @@ ITEM_SLOT_TYPE_MAIN = 1
 ITEM_SLOT_TYPE_BACKPACK = 2
 ITEM_SLOT_TYPE_STASH = 3
 
-ACTION_DEBUG_HERO = "phantom_assassin"
+ACTION_DEBUG_HERO = "invalid"
+local function debugprint(ret)
+	if ret then 
+		return "true"
+	else
+		return "false"
+	end
+end
 
 ListenToGameEvent('player_chat', function(event)
 	updateDebugHero(event.text)
@@ -237,6 +244,14 @@ function SetBot(bot)
 		self.lastActionAbility = ability
 		self.lastActionAbilityTime = GameTime()
 	end
+	bot.Action_UseAbilityOnEntity = function(self, ability, unit)
+		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+			print(self:GetName() .. " Action_UseAbilityOnEntity " .. ability:GetName() .. " " .. unit:GetName())
+		end
+		self:CastAbilityOnTarget(unit, ability, self:GetPlayerID())
+		self.lastActionAbility = ability
+		self.lastActionAbilityTime = GameTime()
+	end
 	bot.ActionImmediate_PurchaseItem = function(self, item)
 		print(self:GetName() .. " purchase ".. item)
 		local cost = GetItemCost(item)
@@ -259,14 +274,6 @@ function SetBot(bot)
 		end
 		self:CastAbilityOnPosition(loc, ability, self:GetPlayerID())
 	end
-	bot.Action_UseAbilityOnEntity = function(self, ability, unit)
-		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
-			print(self:GetName() .. " Action_UseAbilityOnEntity " .. ability:GetName() .. " " .. unit:GetName())
-		end
-		self:CastAbilityOnTarget(unit, ability, self:GetPlayerID())
-		self.lastActionAbility = ability
-		self.lastActionAbilityTime = GameTime()
-	end
 	bot.ActionQueue_AttackUnit = function(self, target, bOnce)
 		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
 			print(self:GetName() .. " ActionQueue_AttackUnit " .. target:GetName())
@@ -282,26 +289,24 @@ function SetBot(bot)
     end
     bot.IsCastingAbility = function(self)
 		local ret = false
-		if self.lastActionAbility ~= nil 
-			and IsValidEntity(self.lastActionAbility)
-			and self.lastActionAbility:GetName() == "viper_poison_attack_datadriven"
-			and GameTime() - self.lastActionAbilityTime < 1 then
-			ret = self:IsAttacking()
-		end
 		if self.lastActionAbilityTime ~= nil then
-			if self.lastAbilityCastTime == nil then
-				ret = true
+			if bit.band(self.lastActionAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_ATTACK) ~= 0 then
+				if self.lastAttackTime == nil then
+					ret = true
+				else
+					ret = self.lastActionAbilityTime >= self.lastAttackTime
+				end
 			else
-				ret = self.lastActionAbilityTime > self.lastAbilityCastTime
+				if self.lastAbilityCastTime == nil then
+					ret = true
+				else
+					ret = self.lastActionAbilityTime >= self.lastAbilityCastTime
+				end
 			end
 		end
-		--if self:GetName() == "npc_dota_hero_phantom_assassin" then
-		--	print("IsCastingAbility " .. self:GetName())
-		--	print(ret)
-		--	print(self.lastActionAbility)
-		--	print(self.lastActionAbilityTime)
-		--	print(self:IsAttacking())
-		--end
+		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+			print("IsCastingAbility " .. self:GetName() .. " " .. debugprint(ret))
+		end
         return ret 
     end
 	bot.GetNextItemPurchaseValue = function(self)

@@ -58,22 +58,21 @@ function PrimalSplit( event )
 
 	-- Ultimate Scepter rule: 
 	-- If the caster has it, summoned units get all their abilities
-	if caster:HasScepter() then
-		LearnAllAbilities(caster.Earth, 1)
-		LearnAllAbilities(caster.Storm, 1)
-		LearnAllAbilities(caster.Fire, 1)
-	else	
 	-- If the item is not found, do not skill these abilities:
-		local earth_scepter_ability = "brewmaster_thunder_clap"
-		LearnAllAbilitiesExcluding(caster.Earth, 1, earth_scepter_ability)
+	local earth_scepter_ability = "brewmaster_thunder_clap"
+	LearnAllAbilitiesExcluding(caster.Earth, ability:GetLevel(), earth_scepter_ability)
 
-		local storm_scepter_ability = "brewmaster_drunken_haze"
-		LearnAllAbilitiesExcluding(caster.Storm, 1, storm_scepter_ability)
+	local storm_scepter_ability = "brewmaster_drunken_haze"
+	LearnAllAbilitiesExcluding(caster.Storm, ability:GetLevel(), storm_scepter_ability)
 
-		local fire_scepter_ability = "brewmaster_drunken_brawler_datadriven"
-		LearnAllAbilitiesExcluding(caster.Fire, 1, fire_scepter_ability)
+	local fire_scepter_ability = "brewmaster_drunken_brawler_datadriven"
+	LearnAllAbilitiesExcluding(caster.Fire, ability:GetLevel(), fire_scepter_ability)
+
+	if caster:HasScepter() then
+		caster.Earth:FindAbilityByName(earth_scepter_ability):SetLevel(caster:FindAbilityByName(earth_scepter_ability):GetLevel())
+		caster.Storm:FindAbilityByName(storm_scepter_ability):SetLevel(caster:FindAbilityByName(storm_scepter_ability):GetLevel())
+		caster.Fire:FindAbilityByName(fire_scepter_ability):SetLevel(caster:FindAbilityByName(fire_scepter_ability):GetLevel())
 	end	
-
 	-- Apply modifiers to detect units dying
 	ability:ApplyDataDrivenModifier(caster, caster.Earth, "modifier_split_unit", {})
 	ability:ApplyDataDrivenModifier(caster, caster.Storm, "modifier_split_unit", {})

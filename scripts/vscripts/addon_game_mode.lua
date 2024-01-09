@@ -60,6 +60,9 @@ function Activate()
 	LinkLuaModifier( "modifier_item_ring_of_aquila_aura_active_lua",	"items/modifier_item_ring_of_aquila_aura_active.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_crimson_guard_effect", "modifiers/crimson_guard_effect.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_black_king_bar_immune_lua", "items/item_black_king_bar.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_aegis_lua", 		   "items/item_aegis.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_aegis_regen_lua", 	   "items/item_aegis.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_sentry_ward_reveal_invis_aura_lua", "modifiers/modifier_sentry_ward_reveal_invis_aura.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_fountain_aura_buff_lua", "modifiers/modifier_fountain_aura_buff.lua", LUA_MODIFIER_MOTION_NONE)
@@ -114,6 +117,11 @@ function Activate()
 	LinkLuaModifier( "modifier_enchantress_enchant_lua",		"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_enchant_slow_lua",	"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_viper_viper_strike_slow_lua",	"heroes/hero_viper/viper_strike.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_spectre_dispersion_lua", 		"heroes/hero_spectre/modifier_spectre_dispersion_lua", LUA_MODIFIER_MOTION_NONE )
+
+
+	LinkLuaModifier( "modifier_courier_transfer_items_lua", "units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", "units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -464,8 +472,8 @@ function CAddonTemplateGameMode:OnThink()
 					{nt = captain_normal_time, et = captain_dire_extra_time });
 			end
 		end
-	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and (self.botEnabled or GetMapName() == "bot") and self.botInitialized == nil then
-		if GetMapName() == "bot" then
+	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and (self.botEnabled or GetMapName() == "vsbot") and self.botInitialized == nil then
+		if GetMapName() == "vsbot" then
 			local botHeroPool = {
 				"npc_dota_hero_antimage",
 				"npc_dota_hero_lina",
@@ -480,13 +488,14 @@ function CAddonTemplateGameMode:OnThink()
 			Tutorial:StartTutorialMode()	
 			GameRules:SetSameHeroSelectionEnabled(true)
 			-- pick 5 random hero to play
-			local player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 
-    	    --local botHero = GameRules:AddBotPlayerWithEntityScript(
-			--	"npc_dota_hero_phantom_assassin", "Rad Bot 0", DOTA_TEAM_GOODGUYS, 
-			--	"ai/bot_phantom_assassin.lua", true)
-			--botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
-    	    --FindClearSpaceForUnit(botHero, Vector(-7111, -6618, 520), true)
+    	   -- local botHero = GameRules:AddBotPlayerWithEntityScript(
+		   -- 	"npc_dota_hero_viper", "Rad Bot 0", DOTA_TEAM_GOODGUYS, 
+		   -- 	"ai/bot_viper.lua", true)
+		   -- botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
+    	   -- FindClearSpaceForUnit(botHero, Vector(-7111, -6618, 520), true)
+
+			local player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 
 			for i=1, 5 - player_count do
 				local heroNumber = RandomInt(1, #botHeroPool)	
@@ -794,7 +803,17 @@ end
 
 function HandleNpcSpawned(self, entityIndex, is_respawn)
 	local entity = EntIndexToHScript(entityIndex)
-	--print(entity:GetName())
+	if entity:IsHero() and is_respawn == 0 then
+		if not entity:HasAbility("hero_creep_aggro_datadriven") then
+			entity:AddAbility("hero_creep_aggro_datadriven"):SetLevel(1)
+		end
+		if not entity:HasAbility("hero_intrinstic_mechanism_datadriven") then
+			entity:AddAbility("hero_intrinstic_mechanism_datadriven"):SetLevel(1)
+		end
+		if not entity:HasAbility("hero_ability_executed_hook_datadriven") then
+			entity:AddAbility("hero_ability_executed_hook_datadriven"):SetLevel(1)
+		end
+	end
 	if entity:IsRealHero() and is_respawn == 0 then
 		-- modifiers
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
@@ -819,10 +838,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
 		end, "remove tpscroll", 0.5)
 
-		-- abilities
-		entity:AddAbility("hero_creep_aggro_datadriven"):SetLevel(1)
-		entity:AddAbility("hero_intrinstic_mechanism_datadriven"):SetLevel(1)
-		entity:AddAbility("hero_ability_executed_hook_datadriven"):SetLevel(1)
 
 		local player = entity:GetPlayerOwner()
 		if player ~= nil then
@@ -955,7 +970,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:FindAbilityByName("creep_strong"):SetLevel(1)
 	end
 	
-	if not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
+	if not entity:IsWard() and not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
 		entity:AddAbility("unit_intrinstic_mechanism_datadriven"):SetLevel(1)
 	end
 
@@ -1453,10 +1468,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_ember_spirit_fire_remnant_thinker" then
 		parent:SetDayTimeVisionRange(400)
 		parent:SetNightTimeVisionRange(400)
-	elseif event.name_const == "modifier_courier_transfer_items" then
-		CustomGameEventManager:Send_ServerToTeam(parent:GetTeam(), "courier_start_transfer", { id = tostring(parent:GetEntityIndex()) })
-		parent:FindAbilityByName("courier_flying_upgrade_datadriven"):ApplyDataDrivenModifier(parent, parent,
-			"modifier_courier_transfer_stop_checker", {})
 	elseif event.name_const == "modifier_slark_pounce_leash" then 
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		caster:FindAbilityByName("slark_shadow_dance_heal_datadriven"):ApplyDataDrivenModifier(
@@ -1650,6 +1661,27 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		parent:SetThink(function() 
 			parent:AddNewModifier(parent, nil, "modifier_invisible", { duration = 45 })
 		end, "invis fade", 2)
+		return false
+	elseif event.name_const == "modifier_item_buff_ward" then
+		-- creates a dummy ward on location
+		local new_unit_name = "npc_dota_observer_wards"
+		local lifetime = 420
+		local is_sentry = parent:GetName() == "npc_dota_ward_base_truesight"
+		if is_sentry then
+			new_unit_name = "npc_dota_sentry_wards"
+			lifetime = 240
+		end
+		local fountain = Entities:FindByName(nil, "ent_dota_fountain_bad")
+		if parent:GetTeam() == DOTA_TEAM_GOODGUYS then
+			fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
+		end
+		local new_ward = CreateUnitByName(new_unit_name, parent:GetAbsOrigin(), false, nil, nil, parent:GetTeam())
+		new_ward:AddNewModifier(fountain, nil, "modifier_kill", { duration = lifetime })
+		new_ward:AddNewModifier(fountain, nil, "modifier_invisible", {})
+		if is_sentry then
+			new_ward:AddNewModifier(fountain, nil, "modifier_sentry_ward_reveal_invis_aura_lua", {})
+		end
+		parent:Destroy()
 		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
@@ -2046,7 +2078,7 @@ function HandlePlayerPickHero(hero)
 end
 
 function HandleItemPickedUp(itemname, playerid)
-	if itemname == "item_aegis" then
+	if itemname == "item_aegis_lua" then
 		CustomGameEventManager:Send_ServerToAllClients("aegis_picked_up", { kpid = playerid })
 	end
 end

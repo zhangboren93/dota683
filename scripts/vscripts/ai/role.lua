@@ -18,13 +18,20 @@ local ROLE_HARDSUPPORT 	= constants.ROLE_HARDSUPPORT
 local ROLE_ROAMER 		= constants.ROLE_ROAMER
 local ROLE_JUNGLER 		= constants.ROLE_JUNGLER
 
-roles = {
+dire_roles = {
 	[1] = ROLE_UNKNOWN,
 	[2] = ROLE_UNKNOWN,
 	[3] = ROLE_UNKNOWN,
 	[4] = ROLE_UNKNOWN,
 	[5] = ROLE_UNKNOWN
 };
+radiant_roles = {
+	[1] = ROLE_UNKNOWN,
+	[2] = ROLE_UNKNOWN,
+	[3] = ROLE_UNKNOWN,
+	[4] = ROLE_UNKNOWN,
+	[5] = ROLE_UNKNOWN
+}
 
 local listHC = {
 --comments by "ByBurton":	I define Hardcarries as heroes that need a lot of money - position 1; usually in safelane and with 1 or 2 supports that help him
@@ -374,102 +381,88 @@ local function findRole(name)
 	return tMatrix
 end
 
-local function existsInMatrix(matrix, value)
-	for k,v in pairs( matrix ) do
-		for k2,v2 in pairs (v) do
-			if v2 == value then
-				return true
-			end
-		end
+HUMAN_PLAYER_POSITION_PREFERENCE = {2, 1, 3, 4, 5}
+local function fillRoles(bot)
+	local team_roles = dire_roles
+	if bot:GetTeam() == DOTA_TEAM_GOODGUYS then
+		team_roles = radiant_roles
 	end
-	return false
-end
-
-local function countOverlap(matrix)
-	return math.max(0, #matrix[1]-1) + math.max(0, #matrix[2]-1) + math.max(0, #matrix[3]-1) + math.max(0, #matrix[4]-1) + math.max(0, #matrix[5]-1) + math.max(0, #matrix[6]-1) + math.max(0, #matrix[7]-1)
-end
-
-local function everyObjectAssigned(bot, matrix)
 	for i = 1, 5, 1 do
 		local slot = bot:GetTeamMember( i )
-		if not existsInMatrix(matrix, slot:GetUnitName()) then
-			return i
-		end
-	end
-	return 0
-end
-
-local rMatrix = { [1] = {}, [2] = {}, [3] = {}, [4] = {}, [5] = {}, [6] = {}, [7] = {} }
-local best = nil
-local function fillRoles(bot, rMatrix)
-	obj = everyObjectAssigned(bot, rMatrix)
-
-	if obj ~= 0 then
-		local slot = bot:GetTeamMember( obj )
-		validRoles = findRole(slot:GetUnitName())
-		for k,v in pairs (validRoles) do
-			if #v > 0 then
-				new = utils.deepcopy(rMatrix)
-				table.insert(new[k], slot:GetUnitName())
-
-				new = fillRoles(bot, new)
-				if everyObjectAssigned(bot, new) == 0 and best == nil then
-					best = utils.deepcopy(new)
+		if slot:IsControllableByAnyPlayer() then
+			team_roles[i] = HUMAN_PLAYER_POSITION_PREFERENCE[i]
+			print(slot:GetName() .. " to role " .. HUMAN_PLAYER_POSITION_PREFERENCE[i])
+		else
+			local bot_best_roles = findRole(slot:GetName())
+			local find_best_roles = false
+			if #bot_best_roles[2] > 0 and not contains(team_roles, 2) then
+				team_roles[i] = 2
+				print(slot:GetName() .. " to role " .. 2)
+				find_best_roles = true
+			elseif #bot_best_roles[1] > 0 and not contains(team_roles, 1) then
+				team_roles[i] = 1
+				print(slot:GetName() .. " to role " .. 1)
+				find_best_roles = true
+			else
+				for j=3,#bot_best_roles do
+					if #bot_best_roles[j] > 0 and not contains(team_roles, j) then
+						team_roles[i] = j
+						print(slot:GetName() .. " to role " .. j)
+						find_best_roles = true
+						break
+					end
 				end
-
-				if everyObjectAssigned(bot, new) == 0 and everyObjectAssigned(bot, best) == 0 and countOverlap(new) < countOverlap(best) then
-					best = utils.deepcopy(new)
-					if countOverlap(best) == 0 and everyObjectAssigned(bot, best) == 0 then
+			end
+			if not find_best_roles then
+				for j=1,5 do
+					if not contains(team_roles, j) then
+						team_roles[i] = j
+						print(slot:GetName() .. " fallback role " .. j)
 						break
 					end
 				end
 			end
 		end
-
 	end
-	return rMatrix
 end
 
 -------------------------------------------------------------------------------
 
-function RolesFilled()
-	return not contains(roles, ROLE_UNKNOWN);
+function RolesFilled(team)
+	if team == DOTA_TEAM_GOODGUYS then
+		return not contains(radiant_roles, ROLE_UNKNOWN);
+	else
+		return not contains(dire_roles, ROLE_UNKNOWN);
+	end
 end
 
 function SetRoles(bot)
 	print( "SetRoles()" );
-	rMatrix = fillRoles(bot, rMatrix)
+	local best = fillRoles(bot)
+	DeepPrintTable(best)
+end
 
-	for k, v in pairs( best ) do
-		for k2, v2 in pairs (v) do
-			for i = 1, 5, 1 do
-				local slot = bot:GetTeamMember( i )
-				if v2 == slot:GetUnitName() then
-					roles[i] = k
-                    print("Role: "..k.." - "..v2)
-				end
-			end
-		end
+function GetRoles(bot)
+	print ( "GetRoles() " .. bot:GetName() );
+	if ( not RolesFilled(bot:GetTeam()) ) then
+		SetRoles(bot)
+	end
+
+	if bot:GetTeam() == DOTA_TEAM_GOODGUYS then
+		return radiant_roles
+	else
+		return dire_roles
 	end
 end
 
-function GetRoles(team)
-	--print ( "GetRoles()" );
-	if ( not RolesFilled() ) then
-		SetRoles(team)
-	end
-
-	return roles
-end
-
-function GetLaneAndRole(team, role_indx)
-	local r = GetRoles()
-	local rl = roles[role_indx]
+function GetLaneAndRole(bot, role_indx)
+	local r = GetRoles(bot)
+	local rl = r[role_indx]
 
 	if rl == ROLE_MID then
 		return LANE_MID, rl
 	elseif rl == ROLE_OFFLANE then
-		if team == TEAM_RADIANT then
+		if bot:GetTeam() == TEAM_RADIANT then
 			return LANE_TOP, rl
 		else
 			return LANE_BOT, rl
@@ -477,7 +470,7 @@ function GetLaneAndRole(team, role_indx)
 	elseif rl == ROLE_JUNGLER then
 		return LANE_NONE, rl
 	else
-		if team == TEAM_RADIANT then
+		if bot:GetTeam() == TEAM_RADIANT then
 			return LANE_BOT, rl
 		else
 			return LANE_TOP, rl
