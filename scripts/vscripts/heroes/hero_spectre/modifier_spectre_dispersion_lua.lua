@@ -13,7 +13,10 @@ end
 
 function modifier_spectre_dispersion_lua:OnTakeDamage (event)
 
-	if self:GetParent():IsIllusion() then return end 
+	if self:GetParent():IsIllusion()
+		or self:GetParent():PassivesDisabled() then
+		return
+	end 
 	if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= 0 then return end
 
 	if event.unit == self:GetParent() then

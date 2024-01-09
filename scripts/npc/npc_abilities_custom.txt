@@ -6183,36 +6183,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
-	//=================================================================================================================
-	// Luna: Lunar Blessing
-	//=================================================================================================================
-	"luna_lunar_blessing"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5224"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"radius"			"900"
-				"bonus_damage"			
-				{
-					"value"			"14 22 30 38"
-					"special_bonus_unique_luna_3"	"+35"
-				}
-				"bonus_night_vision"		
-				{
-					"value"			"1000"
-				}
-				"self_increase_pct"	"100"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
     "luna_eclipse"
 	{
 		"MaxLevel"              "3"

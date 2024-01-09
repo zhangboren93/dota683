@@ -1096,6 +1096,14 @@
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_range"							"弹跳范围："
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_bounces"							"弹射次数："
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_damage_reduction_percent"		"%弹跳伤害衰减："
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven"						"月之祝福"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_Lore"					"月之女神对她的族人微笑。"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_Description"			"提升露娜和附近友方英雄的攻击力。夜晚期间露娜受到福佑后夜间视野得到提升。"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_radius"				"福佑作用范围："
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_bonus_damage"			"攻击力加成："
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_bonus_night_vision"	"夜晚视野："
+		"DOTA_Tooltip_modifier_lunar_blessing_damage_effect"						"月之祝福"
+		"DOTA_Tooltip_modifier_lunar_blessing_damage_effect_Description"			"提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点攻击力。"
 
 		// Medusa
 		"DOTA_Tooltip_Ability_medusa_mystic_snake_datadriven"					"秘术异蛇"

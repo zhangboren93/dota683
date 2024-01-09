@@ -1086,6 +1086,14 @@
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_range"									"BOUNCE RADIUS:"
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_bounces"									"BOUNCES:"
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_damage_reduction_percent"				"%DAMAGE REDUCTION PER BOUNCE:"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven"								"Lunar Blessing"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_Lore"							"The Goddess of the Moon smiles upon her kin."
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_Description"					"Increases the attack damage for Luna and nearby allied heroes. At night Luna is blessed with increased vision range."
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_radius"						"BLESSING RADIUS:"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_bonus_damage"					"ATTACK DAMAGE BONUS:"
+		"DOTA_Tooltip_ability_luna_lunar_blessing_datadriven_bonus_night_vision"			"NIGHT VISION:"
+		"DOTA_Tooltip_modifier_lunar_blessing_damage_effect"							"Lunar Blessing"
+		"DOTA_Tooltip_modifier_lunar_blessing_damage_effect_Description"				"Increasing damage by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%"
 		"DOTA_Tooltip_ability_luna_eclipse_scepter_description"								"Double click to cast eclipse. Increases total beams and removes the limit on beams per unit."
 
 		//Medusa
