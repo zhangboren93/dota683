@@ -52,7 +52,7 @@ function arc_warden_spark_wraith_thinker_lua:OnIntervalThink()
 		if GameRules:GetGameTime() > self.expire then
 			self:Destroy()
 		else
-			local enemies = FindUnitsInRadius(thinker:GetOpposingTeamNumber(), thinker_pos, nil, self.search_radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES, FIND_CLOSEST, false)
+			local enemies = FindUnitsInRadius(thinker:GetTeam(), thinker_pos, nil, self.search_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_CREEP + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES, FIND_CLOSEST, false)
 			if enemies[1] then
 				self.target = enemies[1]
 				self.duration = nil

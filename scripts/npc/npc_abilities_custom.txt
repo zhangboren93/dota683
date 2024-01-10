@@ -1,5 +1,6 @@
 // Dota Heroes File
 #base "npc_abilities_hero_ability_executed_hook.txt"
+#base "heroes/arc_warden.txt"
 #base "heroes/broodmother.txt"
 #base "heroes/brewmaster.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
