@@ -15269,12 +15269,6 @@
 				"ModifierName"			"modifier_assassinate_caster_datadriven"
 			}
 		
-			"ApplyModifier"
-			{
-				"Target"				"TARGET"
-				"ModifierName"			"modifier_assassinate_target_datadriven"
-			}
-			
 			"RunScript"
 			{
 				"ScriptFile"			"heroes/hero_sniper/assassinate.lua"
@@ -15292,7 +15286,12 @@
 		
 			"TrackingProjectile"
 			{
-				"Target"				"TARGET"
+				"Target"				{
+					"Center"	"TARGET"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+					"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
 				"EffectName"			"particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
 				"Dodgeable"				"1"
 				"ProvidesVision"		"0"

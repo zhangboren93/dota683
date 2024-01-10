@@ -5,6 +5,11 @@
 ]]
 function assassinate_register_target( keys )
 	keys.caster.assassinate_target = keys.target
+	local target = keys.target
+	local ability = keys.ability
+	local caster = keys.caster
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_assassinate_target_datadriven", { duration = 4 })
+	target:AddNewModifier(caster, ability, "modifier_truesight", { duration = 4 })
 end
 
 --[[
