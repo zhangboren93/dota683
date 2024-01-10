@@ -887,6 +887,15 @@
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"	"Mana Burned per Hit: "
 
 		//Arc Warden
+		"DOTA_Tooltip_ability_arc_warden_flux_lua"								"Flux"
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_Description"					"Infuses a lone enemy unit with swirling, volatile energy, dealing damage over time. Inactive if another enemy unit is near the target."
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_Lore"							"An infinitesimal fraction of the power which imprisoned the Ancients."
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_flux_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_flux_damage_per_second"		"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_flux_mute_radius"				"ALLY SEARCH RADIUS:"
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_slow"							"%MOVEMENT SPEED SLOW:"
+		"DOTA_Tooltip_arc_warden_flux_modifier"									"Flux"
+		"DOTA_Tooltip_arc_warden_flux_modifier_Description"						"Taking damage and slowed when not near a friendly unit."	
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua"						"Spark Wraith"
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_Description"			"Summons a Spark Wraith that slowly materializes and patrols a targeted area until an enemy comes within its range. Once a target has been found the wraith fuses with them, dealing magical damage."
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_Lore"					"Lesser fragments of Zet's original self."

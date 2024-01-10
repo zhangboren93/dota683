@@ -897,6 +897,15 @@
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"	"每次攻击损毁魔法："
 
 		//Arc Warden
+		"DOTA_Tooltip_ability_arc_warden_flux_lua"							"乱流"
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_Description"				"将不稳定的涡流能量灌注到落单敌人体内，减缓其移动速度并造成持续伤害。如目标周围有其他敌方单位 ，则没有效果。"
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_Lore"						"囚禁遗迹之力的无穷小碎片。"
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_flux_duration"			"持续时间："
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_flux_damage_per_second"	"每秒伤害："
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_flux_mute_radius"			"友军搜寻范围："
+		"DOTA_Tooltip_ability_arc_warden_flux_lua_slow"						"%移动速度减缓："
+		"DOTA_Tooltip_arc_warden_flux_modifier"								"乱流"
+		"DOTA_Tooltip_arc_warden_flux_modifier_Description"					"附近没有友方单位时会受到伤害，被减速。"	
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua"			"闪光幽魂"
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_Description"	"召唤一个缓慢实体化的闪光怨灵萦绕在目标区域。一旦有敌方单位进入范围，怨灵将贴近敌人自我熔化并造成魔法伤害。"
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_Lore"		"泽特原始自我的低级碎片。"

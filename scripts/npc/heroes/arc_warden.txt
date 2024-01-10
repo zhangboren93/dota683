@@ -4,12 +4,12 @@
 	"arc_warden_flux_lua"
 	{
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					 "heroes/hero_arc_warden/arc_warden_flux_lua.lua"
+		"ScriptFile"					"heroes/hero_arc_warden/arc_warden_flux_lua.lua"
 		"AbilityBehavior"		        "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-        "AbilityTextureName"            "arc_warden_flux_lua"
+        "AbilityTextureName"            "arc_warden_flux"
 
 
 		"AbilityCastPoint"				"0.3"
@@ -28,8 +28,7 @@
 
 		"precache"
 		{
-			"particle" "particles/units/heroes/hero_zuus/zuus_static_field_b.vpcf"
-			"particle" "particles/status_fx/status_effect_disruptor_kinetic_fieldslow.vpcf"
+			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf"
 		}
    	}
 }
