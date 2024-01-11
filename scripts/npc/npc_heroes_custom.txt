@@ -157,6 +157,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"arc_warden_flux_lua"
+		"Ability2"		"arc_warden_magnetic_field_lua"
 		"Ability3"		"arc_warden_spark_wraith_lua"
 		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"

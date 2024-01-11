@@ -31,4 +31,31 @@
 			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf"
 		}
    	}
+
+	"arc_warden_magnetic_field_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"				 	"heroes/hero_arc_warden/arc_warden_magnetic_field_lua.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityRadius"					"275"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"900"
+		"AbilityManaCost"				"75"
+		"AbilityCooldown"				"50"
+		"AbilityTextureName"			"arc_warden_magnetic_field"
+		"AbilityCastAnimation"			"ACT_DOTA_AW_MAGNETIC_FIELD"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		
+		"AbilityValues"
+		{
+			"field_duration" 		"3.5 4 4.5 5"
+			"evasion"				"100"
+			"bonus_attack_speed"	"50 60 70 80"
+			"radius"				"275"
+		}
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_magnetic.vpcf"
+		}
+	}
 }
