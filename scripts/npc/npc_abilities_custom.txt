@@ -14601,55 +14601,6 @@
 				"early_out_timer"	"2.5 2.75 3"
 		}
 	}
-	//=================================================================================================================
-	// Arc Warden: Magnetic Field
-	//=================================================================================================================
-	"arc_warden_magnetic_field"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5678"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_ArcWarden.MagneticField.Cast"
-
-        "HasShardUpgrade"               "0"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastAnimation"			"ACT_DOTA_AW_MAGNETIC_FIELD"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastPoint"				"0.3"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
-		
-		// Cast Range
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"radius"					"275"
-			"duration"					"3.5 4.5 5.5 6.5"
-			"tempest_duration"			"3.5 4.5 5.5 6.5"
-			"attack_speed_bonus"		"50 60 70 80"
-			"evasion_chance"			"100"
-			"shard_magic_resist"		"0"
-			"shard_slow_pct"			"0"
-			"attack_range_bonus"		"0"
-			"attack_magic_damage"		"0"
-			"attack_damage_bonus"		"0"
-		}
-	}
 	"arc_warden_spark_wraith_lua"
 	{
 		"BaseClass"						"ability_lua"
@@ -14698,45 +14649,6 @@
 			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_wraith.vpcf"
 			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_wraith_prj.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
-		}
-	}
-    "arc_warden_tempest_double"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5683"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_ArcWarden.TempestDouble"
-		"HasScepterUpgrade"				"0"
-		"MaxLevel"              		"3"
-		"RequiredLevel"         		"6"
-		"LevelsBetweenUpgrades" 		"5"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.15"
-		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastRange"				"150"
-		
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"65 60 55"
-
-
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"duration"							"20"
-			"bounty"							"180 240 300"
-			"penalty_distance"					"2000"
-			"attack_damage_penalty"				"0"
-			"tempest_double_cooldown_reduction"	"0"
-			"health_cost_pct"					"30 15 0"
 		}
 	}
 	//=================================================================================================================

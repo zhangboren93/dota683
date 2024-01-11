@@ -923,7 +923,11 @@
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_startup_time"	"启动延迟："
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_duration"		"持续时间："
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_speed"	"幽魂速度："
-		"DOTA_Tooltip_Ability_arc_warden_tempest_double_health_cost_pct"		"%生命和魔法消耗："
+		"DOTA_Tooltip_ability_arc_warden_tempest_double_lua"				"风暴双雄"
+		"DOTA_Tooltip_ability_arc_warden_tempest_double_lua_Description"	"天穹守望者将破碎的自我汇聚到一起，创造出自身的完美电子复制体。复制体可以使用天穹守望者的当前所有物品和技能。"
+		"DOTA_Tooltip_ability_arc_warden_tempest_double_lua_Lore"			"被同类的力量扭曲后，天穹守望者变成了自己最为不齿的：大分裂。"
+		"DOTA_Tooltip_ability_arc_warden_tempest_double_lua_duration"		"持续时间："
+		"DOTA_Tooltip_Ability_arc_warden_tempest_double_lua_health_cost"	"%生命和魔法消耗："
 
 		// Bloodseeker
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"						"血怒"

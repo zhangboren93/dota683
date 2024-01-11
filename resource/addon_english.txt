@@ -913,7 +913,11 @@
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_startup_time"			"ACTIVATION DELAY:"
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_duration"				"DURATION:"
 		"DOTA_Tooltip_ability_arc_warden_spark_wraith_lua_speed"				"WRAITH SPEED:"
-		"DOTA_Tooltip_Ability_arc_warden_tempest_double_health_cost_pct"		"%HEALTH AND MANA COST:"
+		"DOTA_Tooltip_ability_arc_warden_tempest_double_lua"					"Tempest Double"
+		"DOTA_Tooltip_ability_arc_warden_tempest_double_lua_Description"		"Briefly refocusing its fractured elements into a single form, the Arc Warden is able to create a perfect electrical duplication of itself. The duplicate can use all of Arc Warden's current items."
+		"DOTA_Tooltip_ability_arc_warden_tempest_double_lua_Lore"				"Warped by the power of its peers, Arc Warden becomes what it despises most: disharmony."
+		"DOTA_Tooltip_ability_arc_warden_tempest_double_lua_duration"			"DURATION:"
+		"DOTA_Tooltip_Ability_arc_warden_tempest_double_lua_health_cost"		"%HEALTH AND MANA COST:"
 
 		// Bloodseeker
 		"DOTA_Tooltip_Ability_bloodseeker_bloodrage_datadriven"						"Bloodrage"

@@ -58,4 +58,32 @@
 			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_magnetic.vpcf"
 		}
 	}
+
+	"arc_warden_tempest_double_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"				 	"heroes/hero_arc_warden/arc_warden_tempest_double_lua.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		"AbilityTextureName"			"arc_warden_tempest_double"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"65 60 55"
+
+		"AbilityValues"
+		{
+			"duration"		"20"
+			"health_cost"	"30 15 0"
+			"mana_cost"		"30 15 0"
+		}
+		"precache"
+		{
+			"particle"	"particles/status_fx/status_effect_arc_warden_tempest.vpcf"
+		}
+	}
 }

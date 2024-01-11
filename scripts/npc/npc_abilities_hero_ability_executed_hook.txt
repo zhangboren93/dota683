@@ -11,19 +11,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_arc_warden_tempest_double_cost"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_arc_warden/tempest_double_cost.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
 			"modifier_battle_hunger_slow_checker"
 			{
 				"Passive"	"1"
