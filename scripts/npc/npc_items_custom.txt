@@ -168,18 +168,51 @@
 	        }
 	    }
 	}
-	"item_flying_courier_datadriven"
+	"item_recipe_flying_courier_datadriven"
 	{
 		"BaseClass"						"item_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"item_flying_courier"
 		"ItemCost"						"220"	
 		"ItemPurchasable"				"1"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_flying_courier_datadriven"
+		"AbilityTextureName"			"item_recipe_flying_courier"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemStockMax" 					"1"
 		"ItemStockTime" 				"180"
 		"ItemStockInitial"				"0"
+		"ItemRequirements"
+		{
+			"01"	"item_courier_2"
+		}
+	}
+	"item_flying_courier_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"item_flying_courier"
+		"ItemCost"						"340"	
+		"ItemPurchasable"				"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
+		"ItemPermanent" 				"0"
+		"ItemInitialCharges"			"1"
+		"ItemShopTags"					"consumable"
+		"ItemQuality"					"consumable"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"items/item_courier.lua"
+				"Function"				"enableFlyingCourier"
+             	"Target"        		"CASTER"
+	        }
+	        "SpendCharge"
+	        {
+
+	        }
+	    }
 	}
 
 	"item_recipe_travel_boots_2"

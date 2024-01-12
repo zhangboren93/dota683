@@ -14,7 +14,7 @@
 		"DOTA_Tooltip_Ability_item_courier_2_Description"				"<h1>使用：配置信使</h1>配置可以运载物品往返于基地的生物。<br><br>信使创建后，所有玩家能分享使用。"
 		"DOTA_Tooltip_Ability_item_courier_2_Lore"						"弄丢信使可是死罪。"
 		"DOTA_Tooltip_Ability_item_flying_courier_datadriven"				"飞行信使"
-		"DOTA_Tooltip_Ability_item_flying_courier_datadriven_Description"	"<h1>使用：升级信使</h1>给信使，让它飞"
+		"DOTA_Tooltip_Ability_item_flying_courier_datadriven_Description"	"<h1>使用：配置飞行信使</h1><br><br>把卷轴给信使升级。"
 		"DOTA_Tooltip_Ability_item_flying_courier_datadriven_Lore"			"可靠的坐骑，战争的财富在它背上一飞冲天。 "
 		"DOTA_Tooltip_Ability_item_javelin_datadriven"				"标枪"
 		"DOTA_Tooltip_Ability_item_javelin_datadriven_Description"	"<h1>被动：穿刺</h1> 每次攻击有%bonus_chance%%%几率造成额外%bonus_chance_damage%点魔法伤害。"

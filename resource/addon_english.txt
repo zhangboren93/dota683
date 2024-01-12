@@ -14,7 +14,7 @@
 		"DOTA_Tooltip_Ability_item_courier_2_Description"	"<h1>Use: Deploy Courier</h1>Deploys a creature to carry items to and from your team's base.<br><br>Team share available."
 		"DOTA_Tooltip_Ability_item_courier_2_Lore"			"Losing the courier is punishable by death."
 		"DOTA_Tooltip_Ability_item_flying_courier_datadriven"				"Flying courier"
-		"DOTA_Tooltip_Ability_item_flying_courier_datadriven_Description"	"<h1>Use: Upgrade Courier</h1>Give this to a courier and it will fly."
+		"DOTA_Tooltip_Ability_item_flying_courier_datadriven_Description"	"<h1>Use: Deploy Flying Courier</h1>.<br><br>Give the recipe to a courier to upgrade it."
 		"DOTA_Tooltip_Ability_item_flying_courier_datadriven_Lore"			"The faithful mount upon which soar the fortunes of battle."
 		"DOTA_Tooltip_Ability_item_javelin_datadriven"					"Javelin"
 		"DOTA_Tooltip_Ability_item_javelin_datadriven_Description"		"<h1>Passive: Pierce</h1> Grants each attack a %bonus_chance%%% chance to pierce through evasion and deal %bonus_chance_damage% bonus magical damage."

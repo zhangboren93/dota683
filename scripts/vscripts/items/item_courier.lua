@@ -8,6 +8,17 @@ function enableCourier(event)
 	})
 end
 
+function enableFlyingCourier(event)
+    local caster = event.caster
+   -- TODO create courier at base
+    local courier = caster:GetPlayerOwner():SpawnCourierAtPosition(caster:GetAbsOrigin())
+	CustomGameEventManager:Send_ServerToTeam(caster:GetTeam(), "courier_spawned", { 
+		id = tostring(courier:GetEntityIndex()) ,
+		owner_name = caster:GetName()
+	})
+	courier:AddItemByName("item_recipe_flying_courier_datadriven")
+end
+
 function go_to_secret(event)
     if event.caster:GetTeam() == DOTA_TEAM_GOODGUYS then
         event.caster:MoveToPosition(Vector(-4487, 1253, 384))
@@ -43,10 +54,10 @@ function flyingUpgradeChecker(event)
     if entity:GetLevel() ~= 10 then
         entity:UpgradeCourier(10)
     end
-    if entity:HasItemInInventory("item_flying_courier_datadriven") then
+    if entity:HasItemInInventory("item_recipe_flying_courier_datadriven") then
         ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_flying_upgrade_active", {})
         entity:SetBaseMaxHealth(150)
-        entity:RemoveItem(entity:FindItemInInventory("item_flying_courier_datadriven"))
+        entity:RemoveItem(entity:FindItemInInventory("item_recipe_flying_courier_datadriven"))
         entity:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
         entity:RemoveModifierByName("modifier_courier_ground_visual")
         entity:AddNewModifier(entity, entity, "modifier_courier_flying", {})
