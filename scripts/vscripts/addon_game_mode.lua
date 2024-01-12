@@ -242,7 +242,8 @@ function CAddonTemplateGameMode:InitGameMode()
 		HandleEntityHurt(event.entindex_killed, event.entindex_attacker, event.damage)
 	end, nil)
 	ListenToGameEvent("dota_hero_swap", function(event)
-		print("dota_hero_swap")
+		print("dota_hero_swap " .. event.playerid1 .. " " .. event.playerid2)
+		HandleHeroSwap(event.playerid1, event.playerid2)
 	end, nil)
 	ListenToGameEvent("dota_buyback", function(event)
 		HandleBuyback(event.entindex, event.player_id)
@@ -2088,6 +2089,18 @@ function HandleItemPickedUp(itemname, playerid)
 		CustomGameEventManager:Send_ServerToAllClients("aegis_picked_up", { kpid = playerid })
 	end
 end
+
+function HandleHeroSwap(player1, player2)
+	if GetMapName() ~= "rank" then
+		if PlayerResource:HasRandomed(player1) then
+			PlayerResource:ModifyGold(player1, -100, false, DOTA_ModifyGold_SelectionPenalty)
+		end
+		if PlayerResource:HasRandomed(player2) then
+			PlayerResource:ModifyGold(player2, -100, false, DOTA_ModifyGold_SelectionPenalty)
+		end
+	end
+end
+
 function bitand(a, b)
     local result = 0
     local bitval = 1
