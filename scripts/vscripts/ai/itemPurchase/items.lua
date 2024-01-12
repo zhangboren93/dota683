@@ -169,7 +169,7 @@ X["item_skadi"] = { "item_point_booster", "item_orb_of_venom", "item_ultimate_or
 
 X["item_force_staff"] = { "item_ring_of_health", "item_staff_of_wizardry", "item_recipe_force_staff" }
 
-X["item_hand_of_midas"] = { "item_gloves", "item_recipe_hand_of_midas" }
+X["item_hand_of_midas_datadriven"] = { "item_gloves", "item_recipe_hand_of_midas_datadriven" }
 
 X["item_headdress_datadriven"] = { "item_branches", "item_ring_of_regen", "item_recipe_headdress_datadriven" }
 

@@ -314,6 +314,12 @@
 		"DOTA_Tooltip_ability_item_mjollnir_datadriven_Note2"					"静电冲击不会弹跳至处于隐身状态下或战争迷雾内的英雄。"
 		"DOTA_Tooltip_ability_item_mjollnir_datadriven_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_ability_item_mjollnir_datadriven_bonus_attack_speed"		"+$attack"
+		"DOTA_Tooltip_Ability_item_hand_of_midas_datadriven"						"迈达斯之手"
+		"DOTA_Tooltip_ability_item_hand_of_midas_datadriven_Description"			"<h1>主动：炼金</h1> 立刻炼化一个普通单位，获得%bonus_gold%金钱和%xp_multiplier%倍经验值。<br><br>无法用于远古单位。<br><br>施法距离：%abilitycastrange%"
+		"DOTA_Tooltip_ability_item_hand_of_midas_datadriven_Lore"					"以未知的魔法手段维持着的迈达斯之手，是件贪婪的武器，通过炼化生灵来装满持有者的腰包。"
+		"DOTA_Tooltip_ability_item_hand_of_midas_datadriven_Note0"					"获得的金钱属于可靠金钱（不会得到击杀该单位的正常金钱）。"
+		"DOTA_Tooltip_ability_item_hand_of_midas_datadriven_Note1"					"使用炼化获得的经验不会与他人共享。"
+		"DOTA_Tooltip_ability_item_hand_of_midas_datadriven_bonus_attack_speed"		"+$attack"
 
 		"DOTA_Tooltip_Ability_item_flask_datadriven"							"治疗药膏"
 		"DOTA_Tooltip_ability_item_flask_datadriven_Description"				"<h1>使用：药膏</h1>向目标提供%health_per_second%点/秒生命恢复，持续%buff_duration%秒。<br><br>受到攻击时效果会被驱散。<br><br>对友军施放距离：%abilitycastrange%"

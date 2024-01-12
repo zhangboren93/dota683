@@ -8,7 +8,7 @@ ITEM_RECIPE_RULES = {
     {"item_magic_wand", "item_recipe_magic_wand", "item_branches", "item_branches", "item_branches", "item_magic_stick"},
     {"item_travel_boots_datadriven", "item_recipe_travel_boots_datadriven", "item_boots"},
     {"item_phase_boots", "item_boots", "item_blades_of_attack", "item_blades_of_attack"},
-    {"item_hand_of_midas", "item_recipe_hand_of_midas", "item_gloves"},
+    {"item_hand_of_midas_datadriven", "item_recipe_hand_of_midas_datadriven", "item_gloves"},
     {"item_oblivion_staff_datadriven", "item_quarterstaff", "item_sobi_mask_datadriven", "item_robe"},
     {"item_pers_datadriven", "item_ring_of_health", "item_void_stone_datadriven"},
     {"item_wraith_band_datadriven", "item_recipe_wraith_band_datadriven", "item_circlet", "item_slippers"},

@@ -317,6 +317,12 @@
 		"DOTA_Tooltip_ability_item_ethereal_blade_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_ethereal_blade_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_ethereal_blade_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_Ability_item_hand_of_midas_datadriven"						"Hand of Midas"
+		"DOTA_Tooltip_ability_item_hand_of_midas_datadriven_Description"			"<h1>Active: Transmute</h1> Kills a non-hero target for %bonus_gold% gold and %xp_multiplier%x experience. <br><br> Cannot be used on Ancient creeps.<br><br>Range: %abilitycastrange%"
+		"DOTA_Tooltip_ability_item_hand_of_midas_datadriven_Lore"					"Preserved through unknown magical means, the Hand of Midas is a weapon of greed, sacrificing animals to line the owner's pockets."
+		"DOTA_Tooltip_ability_item_hand_of_midas_datadriven_Note0"					"The gold given is reliable gold (you do not get the normal creep bounty)."
+		"DOTA_Tooltip_ability_item_hand_of_midas_datadriven_Note1"					"Experience gained by using Transmute is not shared."
+		"DOTA_Tooltip_ability_item_hand_of_midas_datadriven_bonus_attack_speed"		"+$attack"
 
 		"DOTA_Tooltip_Ability_item_flask_datadriven"						"Healing Salve"
 		"DOTA_Tooltip_ability_item_flask_datadriven_Description"			"<h1>Use: Salve</h1> Grants %health_per_second% health regeneration to the target for %buff_duration% seconds.<br><br>If the unit is attacked, the effect is lost.<br><br>Range: %abilitycastrange%"

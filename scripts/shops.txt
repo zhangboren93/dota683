@@ -76,7 +76,7 @@
 		"item"		"item_power_treads"
 		"item"		"item_oblivion_staff_datadriven"
 		"item"		"item_pers_datadriven"
-		"item"		"item_hand_of_midas"
+		"item"		"item_hand_of_midas_datadriven"
 		"item"		"item_travel_boots_datadriven"		
 	}
 

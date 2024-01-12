@@ -693,7 +693,7 @@ function UseGhostScepter(bot)
 end
 
 function UseMidas(bot)
-    local midas = utils.IsItemAvailable(bot, "item_hand_of_midas")
+    local midas = utils.IsItemAvailable(bot, "item_hand_of_midas_datadriven")
     if midas then
         local creeps = gHeroVar.GetNearbyEnemyCreep(bot, 600)
         if #creeps > 1 then

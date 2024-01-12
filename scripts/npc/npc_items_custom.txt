@@ -2063,10 +2063,13 @@
 	//=================================================================================================================
 	"item_recipe_hand_of_midas"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"64"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_hand_of_midas_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -2077,56 +2080,83 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_hand_of_midas"
+		"ItemResult"					"item_hand_of_midas_datadriven"
 		"ItemRequirements"
 		{
 			"01"						"item_gloves*"		
 		}
 	}
-	
 	//=================================================================================================================
 	// Hand of Midas
 	//=================================================================================================================
 	"item_hand_of_midas"
 	{
+		"ItemPurchasable"				"0"
+	}
+
+	// Rewrite of Hand of Midas
+	// Author: Rook
+	// Date: January 25, 2015
+	"item_hand_of_midas_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"65"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"ID"							"1065"  //Valve's version of this item uses the ID "65".
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"Model"							"models/props_gameplay/red_box.vmdl" 
+		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
+		"AbilityTextureName"			"item_hand_of_midas"
 
-		// Stats
+		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0"
+		"AbilityCooldown"				"100.0"
+		"AbilityManaCost"				"0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
 		"ItemCost"						"2050"
 		"ItemShopTags"					"attack_speed;hard_to_tag"
 		"ItemQuality"					"common"
 		"ItemAliases"					"hand of midas"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"AbilityCharges"				"1"
-		"AbilityChargeRestoreTime"		"100"
-		"ItemInitialCharges"			"1"
-		"ItemRequiresCharges"			"1"
-		"ItemDisplayCharges"			"1"
-		"ItemStackable"					"0"
-		"ItemPermanent"					"1"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
+
 		"AbilityValues"
 		{
-				"bonus_attack_speed"	"30"
-				"xp_multiplier"			"2.5"
-				"bonus_gold"			"190"
+			"bonus_attack_speed"	"30"
+			"xp_multiplier"			"2.5"
+			"bonus_gold"			"190"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"items/item_hand_of_midas.lua"
+				"Function"				"item_hand_of_midas_datadriven_on_spell_start"
+				"BonusGold"				"%bonus_gold"
+				"XPMultiplier"			"%xp_multiplier"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_hand_of_midas_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
+				}
+			}
 		}
 	}
 
