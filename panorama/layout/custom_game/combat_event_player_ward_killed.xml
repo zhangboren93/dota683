@@ -1,0 +1,14 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/combat_events.css" />
+	</styles>
+	<Panel class="combat_event_line combat_event_ward_kill">
+		<DOTAHeroImage id="killer_hero" class="hero" heroimagestyle="icon" />
+		<Label id="killer_player_name" class="player_name" />
+		<Image id="killer_icon" />
+		<Image id="observer" class="hero" src="file://{images}/custom_game/Observer_Ward_model.png"/>
+		<Image id="sentry" class="hero" src="file://{images}/custom_game/Sentry_Ward_model.png"/>
+		<Image id="gold_icon" src="file://{images}/custom_game/gold_symbol.png"/>
+		<Label id="label_gold_amount" text="50"/>
+	</Panel>
+</root>

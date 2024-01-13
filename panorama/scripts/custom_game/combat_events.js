@@ -8,6 +8,7 @@ GameEvents.Subscribe("combat_event_roshan_killed", OnRoshanKilled);
 GameEvents.Subscribe("aegis_picked_up", OnAegisPickedUp);
 GameEvents.Subscribe("courier_killed", OnCourierKilled);
 GameEvents.Subscribe("player_rune_activated", OnPlayerRuneActivated);
+GameEvents.Subscribe("player_ward_killed", OnPlayerWardKilled);
 
 function OnPlayerKillCustomBonus(event) {
 	$.Msg("OnPlayerKillCustomBonus " + event.kpid + " " + event.vpid + " " + event.gold);
@@ -129,15 +130,10 @@ function OnTeamBountyBuildingDestroyed(event) {
 		}
 		newChildPanel.FindChildTraverse("label_gold_amount").text = event.gold
 		newChildPanel.FindChildTraverse("victim_tower").text = BUILDING_NAME_2_TYPE_ID[event.bname];
+
+		victeamAndKillerIcon(buildingTeam, newChildPanel)
 		if (parentPanel.GetChildCount() > 1) {
 			parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
-		}
-		if (buildingTeam == Players.GetTeam(Players.GetLocalPlayer())) {
-			newChildPanel.AddClass("combat_event_hostile");
-			newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
-		} else {
-			newChildPanel.AddClass("combat_event_friendly");
-			newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 		}
 		let validUntil = Game.GetGameTime() + 10;
 		newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
@@ -169,15 +165,9 @@ function OnRoshanKilled(event) {
 	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_roshan_killed.xml", false, false);
 	newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(kpid);
 	newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(kpid);
+	killteamAndKillerIcon(Players.GetTeam(kpid), newChildPanel)
 	if (parentPanel.GetChildCount() > 1) {
 		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
-	}
-	if (Players.GetTeam(kpid) != Players.GetTeam(Players.GetLocalPlayer())) {
-		newChildPanel.AddClass("combat_event_hostile");
-		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
-	} else {
-		newChildPanel.AddClass("combat_event_friendly");
-		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
 	let validUntil = Game.GetGameTime() + 10;
 	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
@@ -219,15 +209,11 @@ function OnCourierKilled(event) {
 		newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(kpid);
 		newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(kpid);
 	}
+	
+	victeamAndKillerIcon(courier_team, newChildPanel)
+
 	if (parentPanel.GetChildCount() > 1) {
 		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
-	}
-	if (courier_team == Players.GetTeam(Players.GetLocalPlayer())) {
-		newChildPanel.AddClass("combat_event_hostile");
-		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
-	} else {
-		newChildPanel.AddClass("combat_event_friendly");
-		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
 	}
 	let validUntil = Game.GetGameTime() + 10;
 	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
@@ -256,6 +242,51 @@ function OnPlayerRuneActivated(event) {
 	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
 }
 
+function OnPlayerWardKilled(event) {
+	let kpid = event.kpid;
+	let ward = event.ward;
+	let parentPanel = $.GetContextPanel()
+	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "pwk_" + kpid + "x" + ward);
+	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_player_ward_killed.xml", false, false);
+	newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(kpid);
+	newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(kpid);
+	if (ward == "npc_dota_ward_base") {
+		newChildPanel.FindChildTraverse("sentry").visible = false;
+	} else {
+		newChildPanel.FindChildTraverse("observer").visible = false;
+		newChildPanel.FindChildTraverse("gold_icon").visible = false;
+		newChildPanel.FindChildTraverse("label_gold_amount").visible = false;
+	}
+
+	killteamAndKillerIcon(Players.GetTeam(kpid), newChildPanel)
+
+	if (parentPanel.GetChildCount() > 1) {
+		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
+	}
+	let validUntil = Game.GetGameTime() + 10;
+	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
+}
+
+function victeamAndKillerIcon(team, newChildPanel) {
+	if (team == Players.GetTeam(Players.GetLocalPlayer())) {
+		newChildPanel.AddClass("combat_event_hostile");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
+	} else {
+		newChildPanel.AddClass("combat_event_friendly");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
+	}
+}
+
+function killteamAndKillerIcon(team, newChildPanel) {
+	if (team == Players.GetTeam(Players.GetLocalPlayer())) {
+		newChildPanel.AddClass("combat_event_friendly");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("AllyKillIcon");
+	} else {
+		newChildPanel.AddClass("combat_event_hostile");
+		newChildPanel.FindChildTraverse("killer_icon").AddClass("EnemyKillIcon");
+	}
+}
+
 function combatEventCommon(parentPanel, newChildPanel, event) {
 	if (parentPanel.GetChildCount() > 1) {
 		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
@@ -272,6 +303,7 @@ function combatEventCommon(parentPanel, newChildPanel, event) {
 			icon.AddClass("AllyKillIcon");
 		}
 	}
+
 	let validUntil = Game.GetGameTime() + 10;
 	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
 }

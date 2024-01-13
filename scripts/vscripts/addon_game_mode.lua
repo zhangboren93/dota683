@@ -1223,6 +1223,13 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			end
 		end
 	end
+	if (entity:GetName() == "npc_dota_ward_base" or entity:GetName() == "npc_dota_ward_base_truesight")
+		and attacker:IsControllableByAnyPlayer()
+		and attacker:GetTeam() ~= entity:GetTeam() then
+		local kpid = attacker:GetPlayerOwnerID()
+		CustomGameEventManager:Send_ServerToAllClients("player_ward_killed", {
+			kpid = kpid, ward = entity:GetName() })
+	end
 end
 
 function HandleRuneActivated(playerid, rune)
