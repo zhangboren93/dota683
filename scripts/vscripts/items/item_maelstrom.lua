@@ -19,7 +19,7 @@ function modifier_item_maelstrom_datadriven_on_orb_impact(event)
 	caster:RemoveModifierByName("modifier_maelstrom_trigger_no_miss")
 	
 	caster:SetThink(function()
-		local particle = ParticleManager:CreateParticle( "particles/item_fx/chain_lightning.xpcf", PATTACH_POINT_FOLLOW, target )
+		local particle = ParticleManager:CreateParticle( "particles/items_fx/chain_lightning.vpcf", PATTACH_POINT_FOLLOW, target )
 		ParticleManager:SetParticleControl(particle,0,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))   
 		ParticleManager:SetParticleControl(particle,1,Vector(new_target:GetAbsOrigin().x,new_target:GetAbsOrigin().y,new_target:GetAbsOrigin().z + new_target:GetBoundingMaxs().z ))
     	new_target:EmitSound("Item.Maelstrom.Chain_Lightning")
@@ -40,7 +40,7 @@ function modifier_item_maelstrom_datadriven_on_orb_impact(event)
     	        return
     	    end
     	    victims[new_target:GetEntityIndex()] = true
-    		local particle = ParticleManager:CreateParticle( "particles/item_fx/chain_lightning.xpcf", PATTACH_POINT_FOLLOW, target )
+    		local particle = ParticleManager:CreateParticle( "particles/items_fx/chain_lightning.vpcf", PATTACH_POINT_FOLLOW, target )
     		ParticleManager:SetParticleControl(particle,0,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))   
     		ParticleManager:SetParticleControl(particle,1,Vector(new_target:GetAbsOrigin().x,new_target:GetAbsOrigin().y,new_target:GetAbsOrigin().z + new_target:GetBoundingMaxs().z ))
     	    new_target:EmitSound("Item.Maelstrom.Chain_Lightning.Jump")

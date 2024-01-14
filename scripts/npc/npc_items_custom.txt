@@ -6631,7 +6631,7 @@
 		
 		"precache"
 		{
-			"particle"					"particles/item_fx/chain_lightning.xpcf"
+			"particle"					"particles/items_fx/chain_lightning.vpcf"
 		}
 
 		"Modifiers"
@@ -7161,7 +7161,7 @@
 		
 		"precache"
 		{
-			"particle"					"particles/item_fx/chain_lightning.xpcf"
+			"particle"					"particles/items_fx/chain_lightning.vpcf"
 		}
 
 		"Modifiers"
