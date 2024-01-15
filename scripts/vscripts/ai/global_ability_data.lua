@@ -110,7 +110,7 @@ HERO_ABILITY_POWER["spirit_breaker_greater_bash"] = {
 	stunpl = {0.17, 0.20, 0.23, 0.27},
 	attackpl = {19, 24, 29, 34}
 }
-HERO_ABILITY_POWER["spirit_breaker_nether_strike"] = {
+HERO_ABILITY_POWER["spirit_breaker_nether_strike_datadriven"] = {
 	mdamage = "damage",
 	stunpl = {1, 1.3, 1.6}
 }

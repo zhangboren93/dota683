@@ -132,6 +132,7 @@ function Activate()
 	LinkLuaModifier( "modifier_toss_flying_lua", 				"heroes/hero_tiny/modifier_toss_flying.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_elder_titan_echo_stomp_lua", 	"heroes/hero_elder_titan/modifier_elder_titan_echo_stomp.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_flamebreak_knockback_lua", 		"heroes/hero_batrider/modifier_flamebreak_knockback.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+	LinkLuaModifier( "modifier_nether_bash_motion_lua", 		"heroes/hero_spirit_breaker/modifier_nether_bash_motion.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 	-- attack type & armor type
 	LinkLuaModifier( "modifier_creep_siege_extra_effect",		"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)

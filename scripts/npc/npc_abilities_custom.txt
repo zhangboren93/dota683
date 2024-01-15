@@ -16,6 +16,7 @@
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
 #base "heroes/spectre.txt"
+#base "heroes/spirit_breaker.txt"
 #base "heroes/viper.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
@@ -9051,64 +9052,6 @@
 				"movespeed_duration"	"3.0 3.0 3.0 3.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
-    "spirit_breaker_nether_strike"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5356"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_Spirit_Breaker.NetherStrike.Begin"
-
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"1.0"
-		"AbilityCastRange"				"700"
-		"AbilityCastRangeBuffer"		"500"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-
-		// Time			
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"80 70 60"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 150 175"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"damage"				"150 250 350"
-			"fade_time"				"1.0 1.0 1.0"
-			"shard_bonus_damage"	
-			{
-				"value"				"0"
-				"RequiresShard"		"1"
-			}
-			"shard_break_duration"
-			{
-				"value"				"0.0"
-				"RequiresShard"		"1"
-			}
-			"shard_spell_immune_duration"
-			{
-				"value"				"0.0"
-				"RequiresShard"		"1"
-			}
-		}
 	}
 // Rewrite of Alchemist Acid Spray
 // Author: Noya
