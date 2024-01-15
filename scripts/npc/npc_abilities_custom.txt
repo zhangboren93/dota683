@@ -17462,54 +17462,61 @@
 	
 				"OnAttackLanded"
 				{
-					"Random"
+					"ActOnTargets"
 					{
-						"Chance"	"%chance"
-						"PseudoRandom"		"DOTA_PSEUDO_RANDOM_SLARDAR_BASH"
-	
-						"OnSuccess"
+						"Target"
 						{
-							"FireSound"
-							{
-								"EffectName"	"Hero_Slardar.Bash"
-								"Target"		"TARGET"
-							}
+							"Center"		"TARGET"
+							"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+						}
 	
-							"ApplyModifier"
+						"Action"
+						{
+							"Random"
 							{
-								"Target"
-								{
-									"Center"	"TARGET"
-									"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-									"Types"		"DOTA_UNIT_TARGET_HERO"
-								}
-								"ModifierName"	"modifier_bash_stun_datadriven"
-								"Duration"		"%duration"
-							}
+								"Chance"	"%chance"
+								"PseudoRandom"		"DOTA_PSEUDO_RANDOM_SLARDAR_BASH"
 	
-							"ApplyModifier"
-							{
-								"Target"
+								"OnSuccess"
 								{
-									"Center"	"TARGET"
-									"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-									"Types"		"DOTA_UNIT_TARGET_BASIC"
-								}
-								"ModifierName"	"modifier_bash_stun_datadriven"
-								"Duration"		"%duration_creep"
-							}
+									"FireSound"
+									{
+										"EffectName"	"Hero_Slardar.Bash"
+										"Target"		"TARGET"
+									}
 	
-							"Damage"
-							{
-								"Target"
-								{
-									"Center"	"TARGET"
-									"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-									"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+									"ApplyModifier"
+									{
+										"Target"
+										{
+											"Center"	"TARGET"
+											"Types"		"DOTA_UNIT_TARGET_HERO"
+										}
+										"ModifierName"	"modifier_bash_stun_datadriven"
+										"Duration"		"%duration"
+									}
+
+									"ApplyModifier"
+									{
+										"Target"
+										{
+											"Center"	"TARGET"
+											"Types"		"DOTA_UNIT_TARGET_BASIC"
+										}
+										"ModifierName"	"modifier_bash_stun_datadriven"
+										"Duration"		"%duration_creep"
+									}
+	
+									"Damage"
+									{
+										"Target"	"TARGET"
+										"Type"		"DAMAGE_TYPE_PHYSICAL"
+										"Damage"	"%bonus_damage"
+									}			
 								}
-								"Type"		"DAMAGE_TYPE_PHYSICAL"
-								"Damage"	"%bonus_damage"
-							}						
+							}
 						}
 					}
 				} 
