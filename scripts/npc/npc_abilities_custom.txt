@@ -3420,7 +3420,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.35"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 		
 		// Time		
@@ -17462,47 +17462,63 @@
 	
 				"OnAttackLanded"
 				{
-					"Random"
+					"ActOnTargets"
 					{
-						"Chance"	"%chance"
-						"PseudoRandom"		"DOTA_PSEUDO_RANDOM_SLARDAR_BASH"
-	
-						"OnSuccess"
+						"Target"
 						{
-							"FireSound"
-							{
-								"EffectName"	"Hero_Slardar.Bash"
-								"Target"		"TARGET"
-							}
+							"Center"		"TARGET"
+							"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+						}
 	
-							"ApplyModifier"
+						"Action"
+						{
+							"Random"
 							{
-								"Target"
+								"Chance"	"%chance"
+								"PseudoRandom"		"DOTA_PSEUDO_RANDOM_SLARDAR_BASH"
+	
+								"OnSuccess"
 								{
-									"Center"	"TARGET"
-									"Types"		"DOTA_UNIT_TARGET_HERO"
-								}
-								"ModifierName"	"modifier_bash_stun_datadriven"
-								"Duration"		"%duration"
-							}
+									"FireSound"
+									{
+										"EffectName"	"Hero_Slardar.Bash"
+										"Target"		"TARGET"
+									}
 	
-							"ApplyModifier"
-							{
-								"Target"
-								{
-									"Center"	"TARGET"
-									"Types"		"DOTA_UNIT_TARGET_BASIC"
-								}
-								"ModifierName"	"modifier_bash_stun_datadriven"
-								"Duration"		"%duration_creep"
-							}
+									"ApplyModifier"
+									{
+										"Target"
+										{
+											"Center"	"TARGET"
+											"Types"		"DOTA_UNIT_TARGET_HERO"
+											"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+										}
+										"ModifierName"	"modifier_bash_stun_datadriven"
+										"Duration"		"%duration"
+									}
+
+									"ApplyModifier"
+									{
+										"Target"
+										{
+											"Center"	"TARGET"
+											"Types"		"DOTA_UNIT_TARGET_BASIC"
+											"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+										}
+										"ModifierName"	"modifier_bash_stun_datadriven"
+										"Duration"		"%duration_creep"
+									}
 	
-							"Damage"
-							{
-								"Target"	"TARGET"
-								"Type"		"DAMAGE_TYPE_PHYSICAL"
-								"Damage"	"%bonus_damage"
-							}						
+									"Damage"
+									{
+										"Target"	"TARGET"
+										"Type"		"DAMAGE_TYPE_PHYSICAL"
+										"Damage"	"%bonus_damage"
+									}			
+								}
+							}
 						}
 					}
 				} 
@@ -19157,7 +19173,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"85 100 115 130"
+		"AbilityManaCost"				"80 95 105 115"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -19168,7 +19184,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"crush_radius"				"315"
+				"crush_radius"				"350"
 				"crush_extra_slow"			"-20"
 				"crush_attack_slow_tooltip"		"-20"
 				"crush_extra_slow_duration"		"2"
@@ -19178,12 +19194,12 @@
 				"crush_damage"				"50 100 150 200"
 				"shard_amp_duration"			
 				{
-					"value"				"5.0"
+					"value"				"0.0"
 					"RequiresShard"					"1"
 				}
 				"shard_bonus_radius"			
 				{
-					"value"				"75"
+					"value"				"0"
 					"RequiresShard"					"1"
 				}
 		}
@@ -19217,7 +19233,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"85 100 115 130"
+		"AbilityManaCost"				"80 95 105 115"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -19228,7 +19244,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"crush_radius"				"315"
+				"crush_radius"				"350"
 				"crush_extra_slow"			"-20"
 				"crush_attack_slow_tooltip"		"-20"
 				"crush_extra_slow_duration"		"2"
@@ -19238,12 +19254,12 @@
 				"crush_damage"				"50 100 150 200"
 				"shard_amp_duration"			
 				{
-					"value"				"5.0"
+					"value"				"0"
 					"RequiresShard"					"1"
 				}
 				"shard_bonus_radius"			
 				{
-					"value"				"75"
+					"value"				"0"
 					"RequiresShard"					"1"
 				}
 		}
