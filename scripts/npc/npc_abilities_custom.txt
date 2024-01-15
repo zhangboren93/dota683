@@ -17493,6 +17493,7 @@
 										{
 											"Center"	"TARGET"
 											"Types"		"DOTA_UNIT_TARGET_HERO"
+											"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 										}
 										"ModifierName"	"modifier_bash_stun_datadriven"
 										"Duration"		"%duration"
@@ -17504,6 +17505,7 @@
 										{
 											"Center"	"TARGET"
 											"Types"		"DOTA_UNIT_TARGET_BASIC"
+											"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 										}
 										"ModifierName"	"modifier_bash_stun_datadriven"
 										"Duration"		"%duration_creep"
