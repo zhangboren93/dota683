@@ -9414,6 +9414,7 @@
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"		"ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START"
 		"AbilitySpecial"
 		{
 			"01"
@@ -9519,6 +9520,18 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%bonus_mana_regen"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_movespeed"
+					"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS"	"chemical_rage"
+				}
+		
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/units/animation.lua"
+						"Function"		"Animate"
+						"OriNPC"		"npc_dota_hero_alchemist"
+						"animation"		"1580" //ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END
+					}
 				}
 			}
 		}
@@ -13361,6 +13374,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_speed_creeps"
+					"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS"	"press_the_attack"
 				}
 			}
 		}
@@ -21231,6 +21245,7 @@
 			"Properties"
 			{
 				"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%totem_damage_percentage"
+				"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS"	"enchant_totem"
 			}
 		}
 	}
