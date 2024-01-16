@@ -9522,6 +9522,15 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_movespeed"
 					"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS"	"chemical_rage"
 				}
+							
+				"OnAttackLanded"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Alchemist.ChemicalRage.Attack"
+						"Target"		"CASTER"
+					}
+				}
 		
 				"OnDestroy"
 				{
