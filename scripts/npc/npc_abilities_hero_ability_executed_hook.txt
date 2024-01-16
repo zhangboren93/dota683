@@ -620,6 +620,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"522"
+					"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS"	"haste"
 				}
 			}
 			"modifier_rune_regen_datadriven"
