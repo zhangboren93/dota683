@@ -9050,6 +9050,7 @@
 				"knockback_height"		"50 50 50 50"
 				"bonus_movespeed_pct"	"15"
 				"movespeed_duration"	"3.0 3.0 3.0 3.0"
+				"creep_multiplier"		"1"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}

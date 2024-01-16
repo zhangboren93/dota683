@@ -120,6 +120,7 @@ local function transferItem(courier, hero)
             break
         end
         for i=1,#ITEM_RECIPE_RULES do
+            ingrediants = findCombinedItemIngrediants(courier, hero)
             local target_item = ITEM_RECIPE_RULES[i][1]
             local can_combine = false
             local ingrediants_cache = {}
@@ -135,7 +136,7 @@ local function transferItem(courier, hero)
                 if matchingIngrediantIndex > 0 then
                     table.remove(ingrediants, matchingIngrediantIndex)
                     if j == #ITEM_RECIPE_RULES[i] then
-                       -- print("transferItem can combine item " .. target_item)
+                        --print("transferItem can combine item " .. target_item)
                         can_combine = true
                     end
                 else
