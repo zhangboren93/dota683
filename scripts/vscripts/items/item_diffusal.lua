@@ -17,7 +17,7 @@ function manaBurn(event)
 	ApplyDamage({
 		victim = target,
 		attacker = event.attacker,
-		damage = feedback_mana_burn,
+		damage = mana_burn_avail,
 		damage_type = DAMAGE_TYPE_PHYSICAL,
 		ability = event.ability
 	})
