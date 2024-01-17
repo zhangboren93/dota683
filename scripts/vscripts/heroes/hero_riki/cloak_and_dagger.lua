@@ -26,7 +26,8 @@ function CheckBackstab(params)
 	result_angle = math.abs(result_angle)
 	
 	-- Check for the backstab angle.
-	if result_angle >= (180 - (ability:GetSpecialValueFor("backstab_angle") / 2)) and result_angle <= (180 + (ability:GetSpecialValueFor("backstab_angle") / 2)) then 
+	if (result_angle >= (180 - (ability:GetSpecialValueFor("backstab_angle") / 2)) and result_angle <= (180 + (ability:GetSpecialValueFor("backstab_angle") / 2)))
+		or params.attacker:HasModifier("modifier_riki_blink_strike_guarentee_backstab_datadriven") then 
 		-- Play the sound on the victim.
 		EmitSoundOn(params.sound, params.target)
 		-- Create the back particle effect.
@@ -35,6 +36,7 @@ function CheckBackstab(params)
 		ParticleManager:SetParticleControlEnt(particle, 1, params.target, PATTACH_POINT_FOLLOW, "attach_hitloc", params.target:GetAbsOrigin(), true) 
 		-- Apply extra backstab damage based on Riki's agility
 		ApplyDamage({victim = params.target, attacker = params.attacker, damage = params.attacker:GetAgility() * agility_damage_multiplier, damage_type = ability:GetAbilityDamageType()})
+		params.attacker:RemoveModifierByName("modifier_riki_blink_strike_guarentee_backstab_datadriven")
 	else
 		--EmitSoundOn(params.sound2, params.target)
 		-- uncomment this if regular (non-backstab) attack has no sound

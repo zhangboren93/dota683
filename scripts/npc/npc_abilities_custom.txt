@@ -18073,17 +18073,18 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_damage"			"40 70 100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"tooltip_range"			"800 800 800"
+		}
+
+		"Modifiers"
+		{
+			"modifier_riki_blink_strike_guarentee_backstab_datadriven"
+			{
+				"IsHidden"	"1"
+				"Duration"	"1"
 			}
 		}
 	

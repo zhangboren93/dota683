@@ -9,7 +9,7 @@ function BlinkStrike( keys )
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
-	if is_spell_blocked_by_linkens_sphere_a(target, caster) then return end
+	if target:TriggerSpellAbsorb(ability) then return end
 	-- Ability variables
 	local bonus_damage = ability:GetLevelSpecialValueFor("bonus_damage", ability_level)
 	local victim_angle = target:GetAnglesAsVector()
@@ -30,6 +30,7 @@ function BlinkStrike( keys )
 	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
 	
 		ApplyDamage({victim = target, attacker = caster, damage = bonus_damage, damage_type = ability:GetAbilityDamageType()})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_riki_blink_strike_guarentee_backstab_datadriven", {})
 	end
 	
 	-- Order the caster to attack the target
@@ -39,7 +40,7 @@ function BlinkStrike( keys )
 		UnitIndex = caster:entindex(),
 		OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
 		TargetIndex = target:entindex(),
-		AbilityIndex = ability,
+		AbilityIndex = ability:entindex(),
 		Queue = true
 	}
 
