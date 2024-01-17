@@ -16,6 +16,42 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
 	if IsServer() then
 		local parent = self:GetParent()
         local ability = self:GetAbility()
+		if not IsValidEntity(self.target) then
+            if self.particle then
+                ParticleManager:DestroyParticle(self.particle, false)
+                ParticleManager:ReleaseParticleIndex(self.particle)
+                self.particle = nil
+            end
+			self:Destroy()
+			return true
+		end
+        if not self.target:IsAlive() then
+            -- choose another target
+            if self.particle then
+                ParticleManager:DestroyParticle(self.particle, false)
+                ParticleManager:ReleaseParticleIndex(self.particle)
+                self.particle = nil
+            end
+            local units = FindUnitsInRadius(
+                parent:GetTeam(),
+                self.target:GetAbsOrigin(),
+                nil,
+                10000,
+                DOTA_UNIT_TARGET_TEAM_ENEMY,
+                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+                DOTA_UNIT_TARGET_FLAG_NONE,
+                FIND_CLOSEST,
+                false)
+            if #units == 0 then
+		        parent:RemoveHorizontalMotionController(self)
+                self:Destroy()
+                return
+            end
+            self.target = units[1]
+            self.particle = ParticleManager:CreateParticleForTeam("particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_target.vpcf",
+                PATTACH_OVERHEAD_FOLLOW, self.target, parent:GetTeam())
+            return
+        end
         if (self.target:GetAbsOrigin() - me:GetAbsOrigin()):Length2D() <= 150 then
             parent:EmitSound("Hero_Spirit_Breaker.Charge.Impact")
             local bash = parent:FindAbilityByName("spirit_breaker_greater_bash")
@@ -92,7 +128,8 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:DeclareFunctions()
     return {
-        MODIFIER_EVENT_ON_ORDER
+        MODIFIER_EVENT_ON_ORDER,
+		MODIFIER_PROPERTY_OVERRIDE_ANIMATION 
     }
 end
 
@@ -112,4 +149,8 @@ function modifier_spirit_breaker_charge_of_darkness_lua:CheckState(event)
         [MODIFIER_STATE_DISARMED] = true,
         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     }
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua:GetOverrideAnimation()
+	return ACT_DOTA_SPIRIT_BREAKER_ULT_RUN
 end
