@@ -13,7 +13,7 @@ function handleSpellStart(event)
         return
     end
 
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_breaker_greater_bash_speed_datadriven", {})
+ --   ability:ApplyDataDrivenModifier(caster, caster, "modifier_spirit_breaker_greater_bash_speed_datadriven", {})
 
 	local radius = ability:GetSpecialValueFor("bash_radius")
 	local targets = {}
