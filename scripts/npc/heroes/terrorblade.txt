@@ -1,0 +1,159 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	// Rewrite of Terrorblade Metamorphosis
+	// Author: Noya
+	// Date: 10.1.2015.
+	// Notes: Might have some issues on particular heroes, the Hide and ShowWearables were only tested in Abaddon and Windrunner so far
+	//		  transform_time is not used, as it looks and feels better that way
+	"terrorblade_metamorphosis_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"terrorblade_metamorphosis"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0."
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"140.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+	
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"				"40 44 48 52"
+			"transformation_time"	"0.35"
+			"base_attack_time"		"1.6"
+			"bonus_range"			"422"
+			"tooltip_attack_range"	"550"
+			"bonus_damage"			"20 40 60 80"
+			"speed_loss"			"-25"
+		}
+	
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_terrorblade.vsndevts"
+			"particle"  "particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis.vpcf"
+			"particle"	"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_transform.vpcf"
+			"particle"	"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf"
+			"particle"	"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_ambient.vpcf"
+			"model"		"models/heroes/terrorblade/demon.vmdl"
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_Terrorblade.Metamorphosis"
+				"Target"			"CASTER"
+			}
+			"FireEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_transform.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"			"CASTER"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"		"modifier_metamorphosis_datadriven"
+				"Target"			"CASTER"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_metamorphosis_datadriven"
+			{
+				"Duration"	"%duration"
+				
+				"EffectName" 		"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis.vpcf"
+				"EffectAttachType"  "follow_origin"
+	
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"heroes/hero_terrorblade/metamorphosis.lua"
+						"Function"				"ModelSwapStart"
+						"model"					"models/heroes/terrorblade/demon.vmdl"
+						"projectile_model"		"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf"
+					}
+	
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_terrorblade/metamorphosis.lua"
+						"Function"			"HideWearables"
+					}
+	
+					"AttachEffect"
+					{
+						"EffectName" 		"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_ambient.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+					}
+				}
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"%bonus_range"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" 	"%speed_loss"
+					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" 		"%bonus_damage"		
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT" 	"%base_attack_time"				
+				}
+	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_terrorblade/metamorphosis.lua"
+						"Function"		"ModelSwapEnd"
+					}
+	
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_terrorblade/metamorphosis.lua"
+						"Function"		"ShowWearables"
+					}
+				}
+
+				"ThinkInterval"			"0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_terrorblade/metamorphosis.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+
+				"OnAttackStart"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Terrorblade_Morphed.preAttack"
+						"Target"		"ATTACKER"
+					}
+				}
+
+				"OnAttackLanded"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Terrorblade_Morphed.projectileImpact"
+						"Target"		"TARGET"
+					}
+				}
+			}
+		}
+	}
+}

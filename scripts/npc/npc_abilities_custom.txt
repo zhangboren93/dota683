@@ -17,6 +17,7 @@
 #base "heroes/riki.txt"
 #base "heroes/spectre.txt"
 #base "heroes/spirit_breaker.txt"
+#base "heroes/terrorblade.txt"
 #base "heroes/viper.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
@@ -13943,47 +13944,6 @@
 			"illusion_incoming_damage_total_tooltip"			"300.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-	//=================================================================================================================
-	// Terrorblade: Metamorphosis
-	//=================================================================================================================
-	"terrorblade_metamorphosis"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5621"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilitySound"					"Hero_Terrorblade.Metamorphosis"
-        "HasScepterUpgrade"			"0"
-		"AbilityDraftScepterAbility"    "terrorblade_terror_wave"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0."
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"140.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"duration"				"40 44 48 52"
-				"transformation_time"	"0.35"
-				"base_attack_time"		"1.5"
-				"bonus_range"			"340 360 380 400"
-				"tooltip_attack_range"			"490 510 530 550"
-				"bonus_damage"			"20 40 60 80"
-				"speed_loss"				"0"
-				"metamorph_aura_tooltip"				"1200"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
     "terrorblade_sunder"
 	{

@@ -821,6 +821,21 @@
 		"DOTA_Tooltip_Ability_sven_gods_strength_Scepter_Description"			"God's Strength adds a 900-radius aura that grants %scepter_aura_damage_pct%%% attack damage bonus to allies while active."
 		"DOTA_Tooltip_modifier_sven_gods_strength_ally_buff"					"God's Strength Aura"
 		
+		//Terrorblade
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven"								"Metamorphosis"
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_Description"					"Terrorblade transforms into a powerful demon with a ranged attack."
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_Lore"						"Temper, temper. The rage rises up and takes control.  Meet Terrorblade's own worst self."
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_duration"					"DURATION:"
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_transformation_time"			"TRANSFORMATION TIME:"
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_base_attack_time"			"BASE ATTACK TIME:"
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_tooltip_attack_range"		"ATTACK RANGE:"
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_bonus_damage"				"BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_speed_loss"					"%SPEED LOSS:"
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_Note0"						"Cooldowns of items that are different for ranged and melee units will be based on which form Terrorblade was in when the item was used."
+		"DOTA_Tooltip_modifier_metamorphosis_datadriven"							"Metamorphosis"
+		"DOTA_Tooltip_modifier_metamorphosis_datadriven_Description"				"Powerful demon form with a ranged attack."
+
+		//Tidehunter
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven"						"Anchor Smash"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_Description"			"Tidehunter swings his mighty anchor to deal damage to nearby enemies and reduce their attack damage."
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_damage_reduction_pct"	"%Attack Damage Reduction: "

@@ -828,7 +828,22 @@
 		"DOTA_Tooltip_ability_sven_great_cleave_cleave_radius"					"分裂半径："
 		"DOTA_Tooltip_Ability_sven_gods_strength_Scepter_Description"			"神之力量增加一个900范围的友军光环，增加友方英雄%scepter_aura_damage_pct%%%攻击力。"
 		"DOTA_Tooltip_modifier_sven_gods_strength_ally_buff"					"神之力量光环"
+		
+		//Terrorblade
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven"								"魔化"
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_Description"					"恐怖利刃变换形态，化身成可怕的恶魔并具备远程攻击能力。"
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_Lore"						"暴躁生气，渐起怒意，激变形体。见识一下恐怖利刃最为恐怖的一面吧。"
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_duration"					"持续时间："
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_transformation_time"			"魔化所需时间："
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_base_attack_time"			"基础攻击间隔："
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_tooltip_attack_range"		"攻击距离："
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_bonus_damage"				"攻击力加成："
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_speed_loss"					"%移速减少："
+		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_Note0"						"近战或远程物品的冷却时间不同时将根据恐怖利刃在使用物品时处于远程或近战形态而定。"
+		"DOTA_Tooltip_modifier_metamorphosis_datadriven"										"魔化"
+		"DOTA_Tooltip_modifier_metamorphosis_datadriven_Description"							"可怕的恶魔形态，具备远程攻击能力。"
 
+		//Tidehunter
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven"						"锚击"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_Description"			"潮汐猎人挥动他巨大的锚，对附近敌人造成伤害，同时降低他们的攻击力。"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_damage_reduction_pct"	"%攻击力降低："
