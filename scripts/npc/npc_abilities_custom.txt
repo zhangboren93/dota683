@@ -10688,6 +10688,7 @@
 			"radius"						"0"
 			"radius_tooltip"				"600 800 1000 1200"
 			"health_threshold_pct_tooltip"	"20 25 30 35"
+			"health_threshold_fixed_tooltip"	"100 200 300 400"
 			"zombie_interval"				"3"
 			"zombie_damage_tooltip"			"34"
 			"bunker_units"					"0"
@@ -10720,6 +10721,7 @@
 			}
 			"modifier_undying_tombstone_spawn_zombies_datadriven"
 			{
+				"IsHidden"					"1"
 				"ThinkInterval"				"%zombie_interval"
 				"OnIntervalThink"
 				{
@@ -10761,6 +10763,7 @@
 		{
 				"slow"					"-7"
 				"health_threshold_pct"	"20 25 30 35"
+				"health_threshold_fixed"	"100 200 300 400"
 				"duration"				"2.5"
 				"bonus_move_speed"			"50"
 				"bonus_attack_speed"			"50"
@@ -10772,6 +10775,7 @@
 			"modifier_undying_zombie_deathstrike_datadriven"
 			{
 				"Passive"			"1"
+				"IsHidden"			"1"
 				"OnAttackLanded"
 				{
 					"ApplyModifier"
@@ -10780,7 +10784,15 @@
 						"Target"		"TARGET"
 					}
 				}
-				"ThinkInterval"		"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_undying/tombstone.lua"
+						"Function"		"deathstrikeHandleIntervalThink"
+					}
+				}
+				"ThinkInterval"		"0.5"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -10803,6 +10815,7 @@
 			"modifier_undying_zombie_deathstrike_active"
 			{
 				"IsBuff"		"1"
+				"Duration"		"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%bonus_move_speed"

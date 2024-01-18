@@ -29,13 +29,14 @@ function deathstrikeHandleIntervalThink(event)
 	local attack_target = target.zombie_attack_target
 	local ability = event.ability
 	local threshold = ability:GetSpecialValueFor("health_threshold_pct")
+	local fixed_threshold = ability:GetSpecialValueFor("health_threshold_fixed")
 	if not target.tombstone:IsAlive() or not attack_target:IsAlive() or not target:CanEntityBeSeenByMyTeam(attack_target) then
 		target:ForceKill(false)
 		return
 	end
 	target:MoveToTargetToAttack(attack_target)
-	if attack_target:GetHealth() * 100 < attack_target:GetMaxHealth() * threshold 
-		and not target:HasModifier("modifier_undying_zombie_deathstrike_active") then
+	if attack_target:GetHealth() * 100 < attack_target:GetMaxHealth() * threshold
+		or attack_target:GetHealth() < fixed_threshold then
 		ability:ApplyDataDrivenModifier(target, target, "modifier_undying_zombie_deathstrike_active", {})
 	else
 		target:RemoveModifierByName("modifier_undying_zombie_deathstrike_active")
