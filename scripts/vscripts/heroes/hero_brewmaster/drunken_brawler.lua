@@ -17,6 +17,8 @@ function DrunkenBrawlerCritReset( event )
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_drunken_brawler_guaranteed_crit", nil)
 		end
 	end, "Resume gaurentee crit", last_proc)
+	
+	caster:RemoveModifierByName("modifier_drunken_brawler_guaranteed_crit")
 end
 
 -- Resets the Drunken Brawler Evasion timer
@@ -34,4 +36,16 @@ function DrunkenBrawlerDodgeReset( event )
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_drunken_brawler_guaranteed_dodge", nil)
 		end
 	end, "Resume garuentee dodge", last_proc)
+end
+
+function handleAttackStart(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	if target:IsBuilding() then return end
+	if target:GetTeam() == caster:GetTeam() then return end
+	if target:GetName() == "npc_dota_unit_undying_tombstone" then return end
+	if caster:HasModifier("modifier_drunken_brawler_guaranteed_crit") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_drunken_brawler_crit", {})
+	end
 end

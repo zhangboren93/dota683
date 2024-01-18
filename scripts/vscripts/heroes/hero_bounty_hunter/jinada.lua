@@ -26,7 +26,11 @@ function handleAttackStart(event)
 	local ability = event.ability
 	local attacker = event.attacker
 	local target = event.target
-	if attacker:IsRealHero() and not target:IsBuilding() and ability:IsCooldownReady() and target:GetTeam() ~= attacker:GetTeam() then
+	if attacker:IsRealHero() 
+		and not target:IsBuilding() 
+		and ability:IsCooldownReady() 
+		and target:GetTeam() ~= attacker:GetTeam()
+		and target:GetName() ~= "npc_dota_unit_undying_tombstone" then
 		if attacker:PassivesDisabled() then
 			ability:ApplyDataDrivenModifier(attacker, attacker, "modifier_jinada_breaked_datadriven", {})
 		else

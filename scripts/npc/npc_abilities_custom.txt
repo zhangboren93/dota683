@@ -5413,18 +5413,10 @@
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"crit_bonus"				"230 340 450"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"crit_chance"				"15"
-			}
 		}
 	
 		
@@ -5438,25 +5430,11 @@
 	
 				"OnAttackStart"
 				{
-					"RemoveModifier"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_coup_de_grace_crit_datadriven"
-						"Target"		"CASTER"
-					}
-	
-					"Random"
-					{
-						"Chance"		"%crit_chance"
-						"PseudoRandom"	"DOTA_PSEUDO_RANDOM_PHANTOMASSASSIN_CRIT"
-	
-						"OnSuccess"
-						{
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_coup_de_grace_crit_datadriven"
-								"Target"		"CASTER"
-							}
-						}
+						"ScriptFile"	"heroes/hero_skeleton_king/mortal_strike.lua"
+						"Function"		"handleAttackStart"
+						"CritModifier"	"modifier_coup_de_grace_crit_datadriven"
 					}
 				}
 			}
@@ -17299,24 +17277,12 @@
 			    "IsHidden"  "1"
 			    "OnAttackStart"
 			    {
-			        "RemoveModifier"
-			        {
-			            "ModifierName" 	"modifier_mortal_strike_crit"
-			            "Target" 		"CASTER"
-			        }
-	
-			        "Random"
-			        {
-			            "Chance" "%crit_chance"
-			            "OnSuccess"
-			            {
-			                "ApplyModifier"
-			                {
-			                    "ModifierName" 	"modifier_mortal_strike_crit"
-			                    "Target"    	"CASTER"    
-			                }        
-			            }
-			        }
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_skeleton_king/mortal_strike.lua"
+						"Function"		"handleAttackStart"
+						"CritModifier"	"modifier_mortal_strike_crit"
+					}
 			    }
 			}
 	
@@ -17342,6 +17308,7 @@
 			            "EffectAttachType"  "follow_origin"
 			            "Target"    		"CASTER"
 			        }
+
 			        "RemoveModifier"
 			        {
 			            "ModifierName"  "modifier_mortal_strike_crit"
@@ -28592,7 +28559,7 @@
 			"modifier_jinada_checker_datadriven"
 			{
 				"Passive"	"1"
-				"IsHiddden"	"1"
+				"IsHidden"	"1"
 				"OnAttackStart"
 				{
 					"RunScript"
@@ -29344,23 +29311,18 @@
 			    // Normal Crit
 			    "OnAttackStart"
 			    {
-			    	"RemoveModifier"
-			        {
-			            "ModifierName"  "modifier_drunken_brawler_crit"
-			            "Target"   		"CASTER"    
-			        }  	
-			        "Random"
-			        {
-			            "Chance" "%crit_chance"
-			            "OnSuccess"
-			            {
-			                "ApplyModifier"
-			                {
-			                    "ModifierName" 	"modifier_drunken_brawler_crit"
-			                    "Target"    	"CASTER"    
-			                }        
-			            }
-			        }
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_skeleton_king/mortal_strike.lua"
+						"Function"		"handleAttackStart"
+						"CritModifier"	"modifier_drunken_brawler_crit"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_brewmaster/drunken_brawler.lua"
+						"Function"		"handleAttackStart"
+						"CritModifier"	"modifier_drunken_brawler_crit"
+					}
 			    }
 
 			    // Guaranteed Crit Tracking
@@ -29371,12 +29333,6 @@
 			    		"ScriptFile"	"heroes/hero_brewmaster/drunken_brawler.lua"
 			    		"Function"		"DrunkenBrawlerCritReset"
 			    	}
-	
-			    	"RemoveModifier"
-			        {
-			            "ModifierName"  "modifier_drunken_brawler_guaranteed_crit"
-			            "Target"   		"CASTER"    
-			        }  	
 			    }
 
 			    // Guaranteed Dodge Tracking. Also needs an aura to check for OnAttackFailed and remove the guaranteed dodge
@@ -29418,34 +29374,17 @@
 			            "EffectAttachType"  "attach_attack1"
 			            "Target"    		"CASTER"
 			        }
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_drunken_brawler_crit"
+						"Target"		"CASTER"
+					}
 				}
 			}
 
 			"modifier_drunken_brawler_guaranteed_crit"
 			{
 				"TextureName"		"brewmaster_drunken_brawler_crit"
-	
-				"OnAttackLanded"
-				{
-					"FireSound"
-			        {
-			        	"EffectName"	"Hero_Brewmaster.Brawler.Crit"
-			        	"Target"		"CASTER"
-			        }
-	
-			        "FireEffect"
-			        {
-			       		"EffectName" 		"particles/units/heroes/hero_brewmaster/brewmaster_drunken_brawler_crit.vpcf"
-			            "EffectAttachType"  "attach_attack1"
-			            "Target"    		"CASTER"
-			        }
-				}
-	
-			    "Properties"
-			    {
-			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_multiplier"
-			    }
-	
 			    "OnCreated"
 			    {
 			    	"AttachEffect"
@@ -32524,24 +32463,12 @@
 			    "IsHidden"  "1"
 			    "OnAttackStart"
 			    {
-			        "RemoveModifier"
-			        {
-			            "ModifierName" 	"modifier_wolf_critical_strike_crit"
-			            "Target" 		"CASTER"
-			        }
-	
-			        "Random"
-			        {
-			            "Chance" "%crit_chance"
-			            "OnSuccess"
-			            {
-			                "ApplyModifier"
-			                {
-			                    "ModifierName" 	"modifier_wolf_critical_strike_crit"
-			                    "Target"    	"CASTER"    
-			                }        
-			            }
-			        }
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_skeleton_king/mortal_strike.lua"
+						"Function"		"handleAttackStart"
+						"CritModifier"	"modifier_wolf_critical_strike_crit"
+					}
 			    }
 			}
 	
