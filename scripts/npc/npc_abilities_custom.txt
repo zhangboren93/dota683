@@ -6154,7 +6154,7 @@
 		{
 			"AbilityCooldown"	"6.0"
 			"AbilityManaCost"	"90 100 110 120"
-			"beam_damage"		"75 160 225 300"
+			"beam_damage"		"75 150 225 300"
 			"glaives_fired"		"0"
 			"search_radius"		"0"
 			"attack_radius"		"0"
