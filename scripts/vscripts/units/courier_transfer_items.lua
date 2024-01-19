@@ -162,6 +162,7 @@ local function transferItem(courier, hero)
             hero:AddItem(item)
         end
     end
+	hero:EmitSound("General.CourierGivesItem")
 end
 
 local function needTransferItem(courier, hero)
