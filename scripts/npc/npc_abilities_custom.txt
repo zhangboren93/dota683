@@ -28868,7 +28868,7 @@
 		{
 				"target_crit_multiplier"	"100"
 				"bonus_gold_radius"		"1200"
-				"bonus_gold_self"		"200 275 300"
+				"bonus_gold_self"		"200 275 350"
 				"bonus_gold"			"50 100 150"
 				"duration"				"30.0 30.0 30.0"
 				"gold_steal"			"0"
