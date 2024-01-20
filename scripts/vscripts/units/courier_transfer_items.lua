@@ -262,18 +262,24 @@ function modifier_courier_transfer_items_active_lua:OnCreated(data)
     end
 end
 
+local function go_back_to_fountain(courier)
+    local fountainLocation = getFountain(courier:GetTeam())
+    courier:MoveToPosition(fountainLocation)
+	CustomGameEventManager:Send_ServerToTeam(
+        courier:GetTeam(), "courier_end_transfer", { id = tostring(courier:GetEntityIndex()) })
+    courier:RemoveModifierByName("modifier_courier_transfer_items_active_lua")
+end
+
 function modifier_courier_transfer_items_active_lua:OnIntervalThink()
     local hero = EntIndexToHScript(self.data.target_hero)
     local courier = self:GetParent()
     if (hero:GetAbsOrigin() - courier:GetAbsOrigin()):Length2D() <= 400 then
         transferItem(courier, hero)
-        local fountainLocation = getFountain(courier:GetTeam())
-        courier:MoveToPosition(fountainLocation)
-		CustomGameEventManager:Send_ServerToTeam(
-            courier:GetTeam(), "courier_end_transfer", { id = tostring(courier:GetEntityIndex()) })
-        courier:RemoveModifierByName("modifier_courier_transfer_items_active_lua")
-    else
+        go_back_to_fountain(courier)
+    elseif hero:IsAlive() then
         courier:MoveToPosition(hero:GetAbsOrigin())
+    else
+        go_back_to_fountain(courier)
     end
 end
 
