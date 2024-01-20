@@ -16,7 +16,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
 	if IsServer() then
 		local parent = self:GetParent()
         local ability = self:GetAbility()
-		if not IsValidEntity(self.target) then
+		if not IsValidEntity(self.target) or parent:IsStunned() or parent:IsRooted() or parent:IsHexed() then
             if self.particle then
                 ParticleManager:DestroyParticle(self.particle, false)
                 ParticleManager:ReleaseParticleIndex(self.particle)
@@ -120,6 +120,15 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
             end
         end
 	end
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua:OnDestroy()
+    if self.particle then
+        ParticleManager:DestroyParticle(self.particle, false)
+        ParticleManager:ReleaseParticleIndex(self.particle)
+        self.particle = nil
+    end
+	self:Destroy()
 end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:GetEffectName()
