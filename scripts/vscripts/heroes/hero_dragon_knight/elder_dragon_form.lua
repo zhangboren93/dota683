@@ -31,7 +31,7 @@ modifier_ability_elder_dragon_form = class({
 modifier_ability_elder_dragon_form.effect_data = {
 	[1] = {
 		["projectile"] = "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_corrosive.vpcf",
-		["attack_sound"] = "Hero_DragonKnight.	.Attack",
+		["attack_sound"] = "Hero_DragonKnight.ElderDragonShoot1.Attack",
 		["transform"] = "particles/units/heroes/hero_dragon_knight/dragon_knight_transform_green.vpcf",
 	},
 	[2] = {
