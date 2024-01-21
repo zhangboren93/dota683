@@ -93,19 +93,7 @@
 					}
 				}
 			}
-			"modifier_dragon_knight_corrosive_breath_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_dragon_knight/elder_dragon_form.lua"
-						"Function"		"handleAttackLanded"
-					}
-				}
-			}
+			// Deprecated
 			"modifier_dragon_knight_corrosive_breath_dot_datadriven"
 			{
 				"IsDebuff"			"1"

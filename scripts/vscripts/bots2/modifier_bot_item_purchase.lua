@@ -150,7 +150,7 @@ function modifier_bot_item_purchase:IsHidden()
 end
 
 function modifier_bot_item_purchase:OnIntervalThink()
-	if GameRules:State_Get() == 5 then
+	if GameRules:State_Get() == 5 or IsClient() then
 		return
 	end
 	if not self:GetParent():HasItemInInventory("item_tpscroll") then
