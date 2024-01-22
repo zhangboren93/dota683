@@ -369,16 +369,10 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 	if text == "-test" then
-		--local direPlayerCount = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
-		--for i=1,direPlayerCount do
-		--	local hero = PlayerResource:GetPlayer(PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)):GetAssignedHero()
-		--	hero:SetHealth(hero:GetMaxHealth() / 6)
-		--end
-		--local radiantPlayerCount = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-		--for i=1,radiantPlayerCount do
-		--	local hero = PlayerResource:GetPlayer(PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)):GetAssignedHero()
-		--	hero:SetHealth(hero:GetMaxHealth() / 6)
-		--end
+-- 	   	CustomGameEventManager:Send_ServerToAllClients("player_streak_shutdown", {
+--			pid = 0,
+--			streak = 3
+--		})
 	end
 	--if text == "-win" then
 	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
