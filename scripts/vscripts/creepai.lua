@@ -82,7 +82,10 @@ pathCornersMap["bt"] = {
 function modifier_creep_ai:OnCreated(kv)
 	if IsServer() then
 		self.kv = kv
-		self:StartIntervalThink(1) 
+		self:StartIntervalThink(1)
+		self:GetParent():SetThink(function()
+			self:OnIntervalThink()
+		end, "creep ai think immediate", 0.1)
 	end
 end
 
@@ -115,6 +118,10 @@ function modifier_creep_ai:OnIntervalThink()
 end
 
 function modifier_creep_ai:OnIntervalThinkInternal()
+	if not IsServer() then
+		return
+	end
+	--print("OnIntervalThinkInternal " .. GameRules:GetDOTATime(false, false) .. " " ..self:GetParent():GetEntityIndex())
 	local entity = self:GetParent()
 	if entity:IsDominated() then
 		self:Destroy()
@@ -135,7 +142,7 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 		and not self.target.unit:IsBuilding() then
 		local distance = (self.target.unit:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length()
 		if distance <= self.kv.attackrange then
-			--print("attack unit within range")
+		--	print("attack unit within range")
 			--entity:MoveToTargetToAttack(self.target.unit)
 			return
 		end
@@ -156,16 +163,22 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 		self.target = target
 		self.target_loc = target.unit:GetAbsOrigin()
 		self.target_loc_time = GameRules:GetDOTATime(false, false)
+	--	print("move to target attack")
 		entity:MoveToTargetToAttack(self.target.unit)
 	else
 		if not entity:IsAttacking() then
 			self:takePath()
+--		else
+--			print("Not taking path")
 		end
 	end
 end
 
 function modifier_creep_ai:takePath() 
-	--print("takePath")
+	if self.kv.pathName == nil then
+		return
+	end
+	--print("takePath " .. self.kv.pathName .. " pathCorners ")
 	local entity = self:GetParent()
 	local position = entity:GetAbsOrigin()
 	local direction_right = entity:GetTeam() == DOTA_TEAM_GOODGUYS
