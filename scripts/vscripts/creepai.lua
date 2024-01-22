@@ -13,7 +13,7 @@ local PRIORITY_HERO = 1
 local PRIORITY_NOT_CREEP = 0 -- building etc
 local pathCornersMap = { }
 pathCornersMap["gb"] = {
-	"lane_bot_pathcorner_goodguys_1",
+	--"lane_bot_pathcorner_goodguys_1",
 	"lane_bot_pathcorner_goodguys_2",
 	"lane_bot_pathcorner_goodguys_3",
 	"lane_bot_pathcorner_goodguys_4",
