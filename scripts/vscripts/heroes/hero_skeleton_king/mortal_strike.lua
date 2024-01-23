@@ -5,7 +5,9 @@ function handleAttackStart(event)
     local crit_modifier = event.CritModifier
     if not IsServer() then return end
     if attacker ~= caster then return end
-    if target:IsBuilding()
+    if target:GetClassname() == "dota_item_drop"
+        or target:GetClassname() == "dota_item_rune"
+        or target:IsBuilding()
         or target:GetTeam() == attacker:GetTeam()
         or target:GetName() == "npc_dota_unit_undying_tombstone"
         then return end
