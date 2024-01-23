@@ -207,6 +207,34 @@ function courier_transfer_items_lua:GetIntrinsicModifierName()
     return "modifier_courier_transfer_items_lua"
 end
 
+function courier_transfer_items_lua:OnSpellStart()
+    if not IsServer() then return end
+	local courier = self:GetCaster()
+	local hero = EntIndexToHScript(courier.target_hero)
+    if needTransferItem(courier, hero) then
+        --if courier in base, move items from heroes stash to courier
+        if courier:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
+            for i=DOTA_STASH_SLOT_1,DOTA_STASH_SLOT_6 do
+                local item  = hero:GetItemInSlot(i)
+                if item ~= nil and not item:IsCombineLocked() and hasEmptyItemSlotForItem(courier, item) then
+                    courier:AddItem(hero:TakeItem(item))
+                end
+            end
+        end
+
+        courier:MoveToPosition(hero:GetAbsOrigin())
+        local modifier = courier:FindModifierByName("modifier_courier_transfer_items_active_lua")
+        if modifier ~= nil then
+            courier:RemoveModifierByName("modifier_courier_transfer_items_active_lua")
+        end
+        courier:AddNewModifier(courier, self, "modifier_courier_transfer_items_active_lua", {
+            target_hero = hero:GetEntityIndex()
+        })
+
+		CustomGameEventManager:Send_ServerToTeam(courier:GetTeam(), "courier_start_transfer", { id = tostring(courier:GetEntityIndex()) })
+    end
+end
+
 modifier_courier_transfer_items_lua = class({})
 
 function modifier_courier_transfer_items_lua:DeclareFunctions()
@@ -230,29 +258,9 @@ function modifier_courier_transfer_items_lua:OnOrder(event)
     end
     local issuer_player_id = event.issuer_player_index
     local hero = PlayerResource:GetPlayer(issuer_player_id):GetAssignedHero()
+	--TODO handle abilit trigger on spell start
     -- if item need transfer, issue move to player hero command & add transfering to hero modifier to the courier
-    if needTransferItem(courier, hero) then
-        --if courier in base, move items from heroes stash to courier
-        if courier:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
-            for i=DOTA_STASH_SLOT_1,DOTA_STASH_SLOT_6 do
-                local item  = hero:GetItemInSlot(i)
-                if item ~= nil and not item:IsCombineLocked() and hasEmptyItemSlotForItem(courier, item) then
-                    courier:AddItem(hero:TakeItem(item))
-                end
-            end
-        end
-
-        courier:MoveToPosition(hero:GetAbsOrigin())
-        local modifier = courier:FindModifierByName("modifier_courier_transfer_items_active_lua")
-        if modifier ~= nil then
-            courier:RemoveModifierByName("modifier_courier_transfer_items_active_lua")
-        end
-        courier:AddNewModifier(courier, ability, "modifier_courier_transfer_items_active_lua", {
-            target_hero = hero:GetEntityIndex()
-        })
-
-		CustomGameEventManager:Send_ServerToTeam(courier:GetTeam(), "courier_start_transfer", { id = tostring(courier:GetEntityIndex()) })
-    end
+	courier.target_hero = hero:GetEntityIndex()
 end
 
 function modifier_courier_transfer_items_lua:IsHidden()

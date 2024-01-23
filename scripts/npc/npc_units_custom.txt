@@ -762,6 +762,7 @@
 	"npc_dota_courier"
 	{
 		"MovementSpeed"				"350"		// Speed
+		"Ability1"					"courier_take_stash_items_lua"
 		"Ability2"					"courier_go_to_secretshop_datadriven"		
 		"Ability4"					"courier_burst_datadriven"
 		"Ability5"					"courier_transfer_items_lua"

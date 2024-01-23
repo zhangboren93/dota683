@@ -335,14 +335,16 @@
 		"DOTA_Tooltip_modifier_item_aegis_regen_lua"				"Aegis Regeneration"
 		"DOTA_Tooltip_modifier_item_aegis_regen_lua_description"	"The Aegis of the Immortal has expired. Quickly restoring health and mana."
 
-		"DOTA_Tooltip_Ability_courier_share"								"Share courier"
-		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"			"Go to secretshop"
+		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"					"Go to secretshop"
 		"DOTA_Tooltip_ability_courier_burst_datadriven"								"Speed Burst"
 		"DOTA_Tooltip_ability_courier_burst_datadriven_Description"					"The courier gains a burst of speed for %AbilityDuration% seconds"
-		"DOTA_Tooltip_ability_courier_burst_datadriven_movement_speed"					"BURST MOVE SPEED:"
+		"DOTA_Tooltip_ability_courier_burst_datadriven_movement_speed"				"BURST MOVE SPEED:"
 		"DOTA_Tooltip_ability_courier_transfer_items_lua"							"Transfer Items"
 		"DOTA_Tooltip_ability_courier_transfer_items_lua_Description"				"Transfer items to hero"
 		"DOTA_Tooltip_modifier_courier_transfer_items_active_lua"					"Transferring items"
+		"DOTA_Tooltip_ability_courier_take_stash_items_lua"							"Retrieve Items"
+		"DOTA_Tooltip_ability_courier_take_stash_items_lua_Description"				"Retrieve items from stash"
+		"DOTA_Tooltip_modifier_courier_take_stash_return_to_base"					"Retrieving items"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"Death Coil"

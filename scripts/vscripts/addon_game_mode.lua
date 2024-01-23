@@ -121,8 +121,10 @@ function Activate()
 	LinkLuaModifier( "modifier_rubick_fade_bolt_debuff_lua", 	"heroes/hero_rubick/modifier_rubick_fade_bolt_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 
 
-	LinkLuaModifier( "modifier_courier_transfer_items_lua", "units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", "units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_courier_take_stash_items_lua", 		"units/courier_take_stash_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_courier_take_stash_return_to_base", 	"units/courier_take_stash_items.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
