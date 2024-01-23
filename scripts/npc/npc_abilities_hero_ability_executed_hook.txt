@@ -108,6 +108,7 @@
 					}
 				}
 			}
+			// Deprecated
 			"modifier_jugg_bfury_magic_immune_checker"
 			{
 				"Passive"	"1"
@@ -123,6 +124,7 @@
 					}
 				}
 			}
+			// Deprecated
 			"modifier_jugg_bfury_magic_immune_active"
 			{
 				"Passive"		"0"
@@ -274,7 +276,7 @@
 					}
 				}
 			}
-			"modifier_fire_remnant_clear_tree_checker"
+			"modifier_whirling_axes_ranged_vision_checker"
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
@@ -672,6 +674,19 @@
 					{
 						"ScriptFile"	"heroes/hero_brewmaster/drunken_haze.lua"
 						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"modifier_aegis_attacked_checker"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/aegis_attacked.lua"
+						"Function"		"handleAttack"
 					}
 				}
 			}
