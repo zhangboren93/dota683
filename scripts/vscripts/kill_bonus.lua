@@ -1,3 +1,21 @@
+local function sendPlayerStreakShutdownEvent(entity_player_id)
+	if (PlayerResource:GetStreak(entity_player_id) > 2) then
+		CustomGameEventManager:Send_ServerToAllClients("player_streak_shutdown", {
+			pid = entity_player_id,
+			streak = PlayerResource:GetStreak(entity_player_id)
+		})
+	end
+end
+
+local function sendPlayerKillStreakEvent(entity_player_id)
+	if (PlayerResource:GetStreak(entity_player_id) > 2) then
+		CustomGameEventManager:Send_ServerToAllClients("player_kill_streak", {
+			pid = entity_player_id,
+			streak = PlayerResource:GetStreak(entity_player_id)
+		})
+	end
+end
+
 function handleKillBonus(self, attacker, entity)
 	local entity_player_id = entity:GetPlayerOwnerID()
 	if attacker:GetTeam() == entity:GetTeam() then
@@ -77,6 +95,7 @@ function handleKillBonus(self, attacker, entity)
 				vpid = entity_player_id,
 				gold = math.floor(goldPerPlayer)
 			})
+			sendPlayerStreakShutdownEvent(entity_player_id)
 		elseif #assist_players == 1 then
 			-- credit kill
 			print("credit to only 1 assist")
@@ -154,6 +173,7 @@ function handleKillBonus(self, attacker, entity)
 			vpid = entity_player_id,
 			gold = math.floor(goldRecord[3])
 		})
+		sendPlayerStreakShutdownEvent(entity_player_id)
 	end
 
 	print("player2gold")
@@ -167,6 +187,8 @@ function handleKillBonus(self, attacker, entity)
 				vpid = entity_player_id,
 				gold = math.floor(gold)
 			})
+			sendPlayerKillStreakEvent(credit_killer_pid)
+			sendPlayerStreakShutdownEvent(entity_player_id)
 		end
 	end
 	-- TODO update gold if hero killed by tower or creep

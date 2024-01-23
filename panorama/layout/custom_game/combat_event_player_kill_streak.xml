@@ -1,0 +1,12 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/combat_events.css" />
+	</styles>
+	<Panel class="combat_event_line combat_event_hero_kill">
+		<DOTAHeroImage id="killer_hero" class="hero" heroimagestyle="icon" />
+		<Label id="killer_player_name" class="player_name" />
+		<Label id="streak_pre" class="player_name" text="已经"/>
+		<Label id="streak" class="player_name"/>
+		<Label id="streak_post" class="player_name" text="杀"/>
+	</Panel>
+</root>

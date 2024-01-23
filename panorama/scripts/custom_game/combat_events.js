@@ -9,6 +9,8 @@ GameEvents.Subscribe("aegis_picked_up", OnAegisPickedUp);
 GameEvents.Subscribe("courier_killed", OnCourierKilled);
 GameEvents.Subscribe("player_rune_activated", OnPlayerRuneActivated);
 GameEvents.Subscribe("player_ward_killed", OnPlayerWardKilled);
+GameEvents.Subscribe("player_kill_streak", OnPlayerKillStreak);
+GameEvents.Subscribe("player_streak_shutdown", OnPlayerStreakShutdown);
 
 function OnPlayerKillCustomBonus(event) {
 	$.Msg("OnPlayerKillCustomBonus " + event.kpid + " " + event.vpid + " " + event.gold);
@@ -259,6 +261,56 @@ function OnPlayerWardKilled(event) {
 	}
 
 	killteamAndKillerIcon(Players.GetTeam(kpid), newChildPanel)
+
+	if (parentPanel.GetChildCount() > 1) {
+		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
+	}
+	let validUntil = Game.GetGameTime() + 10;
+	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
+}
+
+function OnPlayerKillStreak(event) {
+	$.Msg("OnPlayerKillStreak " + event.pid + " " + event.streak)
+	let pid = event.pid;
+	let streak = event.streak;
+	let parentPanel = $.GetContextPanel()
+	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "pks_" + pid + "x" + streak);
+	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_player_kill_streak.xml", false, false);
+	newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(pid);
+	newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(pid);
+	newChildPanel.FindChildTraverse("streak").text = streak;
+
+	let team = Players.GetTeam(pid);
+	if (team == Players.GetTeam(Players.GetLocalPlayer())) {
+		newChildPanel.AddClass("combat_event_friendly");
+	} else {
+		newChildPanel.AddClass("combat_event_hostile");
+	}
+
+	if (parentPanel.GetChildCount() > 1) {
+		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
+	}
+	let validUntil = Game.GetGameTime() + 10;
+	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
+}
+
+function OnPlayerStreakShutdown(event) {
+	$.Msg("OnPlayerStreakShutdown " + event.pid + " " + event.streak)
+	let pid = event.pid;
+	let streak = event.streak;
+	let parentPanel = $.GetContextPanel()
+	let newChildPanel = $.CreatePanel( "Panel", parentPanel, "pss_" + pid + "x" + streak);
+	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_player_streak_shutdown.xml", false, false);
+	newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(pid);
+	newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(pid);
+	newChildPanel.FindChildTraverse("streak").text = streak;
+
+	let team = Players.GetTeam(pid);
+	if (team == Players.GetTeam(Players.GetLocalPlayer())) {
+		newChildPanel.AddClass("combat_event_hostile");
+	} else {
+		newChildPanel.AddClass("combat_event_friendly");
+	}
 
 	if (parentPanel.GetChildCount() > 1) {
 		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
