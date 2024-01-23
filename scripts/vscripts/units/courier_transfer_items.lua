@@ -82,12 +82,19 @@ ITEM_RECIPE_RULES = {
     {"item_bracer", "item_recipe_bracer", "item_circlet", "item_gauntlets"}
 }
 
-local function hasEmptyItemSlot(hero)
+local function isWardItem(item)
+	return item:GetName() == "item_ward_sentry" or item:GetName() == "item_ward_observer" or item:GetName() == "item_ward_dispenser"
+end
+
+local function hasEmptyItemSlotForItem(hero, item_to_add)
     for i=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_6 do
         local item = hero:GetItemInSlot(i)
         if item == nil then
             return true
-        end
+		else
+			if item:GetName() == item_to_add:GetName() and item:IsStackable() then return true end
+			if isWardItem(item) and isWardItem(item_to_add) then return true end
+		end
     end
     return false
 end
@@ -157,7 +164,7 @@ local function transferItem(courier, hero)
     -- for each item in courier, move to hero if there is empty space
     for i=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_9 do
         local item = courier:GetItemInSlot(i)
-        if item ~= nil and item:GetPurchaser() == hero and not item:IsCombineLocked() and hasEmptyItemSlot(hero) then
+        if item ~= nil and item:GetPurchaser() == hero and not item:IsCombineLocked() and hasEmptyItemSlotForItem(hero, item) then
             item = courier:TakeItem(item)
             hero:AddItem(item)
         end
@@ -229,7 +236,7 @@ function modifier_courier_transfer_items_lua:OnOrder(event)
         if courier:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
             for i=DOTA_STASH_SLOT_1,DOTA_STASH_SLOT_6 do
                 local item  = hero:GetItemInSlot(i)
-                if item ~= nil and not item:IsCombineLocked() and hasEmptyItemSlot(courier) then
+                if item ~= nil and not item:IsCombineLocked() and hasEmptyItemSlotForItem(courier, item) then
                     courier:AddItem(hero:TakeItem(item))
                 end
             end
