@@ -108,6 +108,7 @@
 					}
 				}
 			}
+			// Deprecated
 			"modifier_jugg_bfury_magic_immune_checker"
 			{
 				"Passive"	"1"
@@ -123,6 +124,7 @@
 					}
 				}
 			}
+			// Deprecated
 			"modifier_jugg_bfury_magic_immune_active"
 			{
 				"Passive"		"0"
@@ -274,7 +276,7 @@
 					}
 				}
 			}
-			"modifier_fire_remnant_clear_tree_checker"
+			"modifier_whirling_axes_ranged_vision_checker"
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
@@ -675,6 +677,7 @@
 					}
 				}
 			}
+			// Deprecated
 			"modifier_pheonix_sun_ray_show_toggle_button"
 			{
 				"IsHidden"		"1"
