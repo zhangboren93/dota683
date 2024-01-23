@@ -688,4 +688,17 @@
 					}
 				}
 			}
+			"modifier_aegis_attacked_checker"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"units/aegis_attacked.lua"
+						"Function"		"handleAttack"
+					}
+				}
+			}
 		}}}
