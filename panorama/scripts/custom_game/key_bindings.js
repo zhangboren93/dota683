@@ -25,6 +25,16 @@ function OnCustomeGameSelectCourier()
 	last_select_courier_time = Game.GetGameTime()
 }
 
+function heroHasItemInStash() {
+	for (let i = 9; i <= 14; i++) {
+		let item = Entities.GetItemInSlot(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), i);
+		if (item !== 0) {
+			return true;
+		}
+	}
+	return false;
+}
+
 function OnCustomGameCourierSend()
 {
 	if (current_courier_id == -1) {
@@ -32,13 +42,20 @@ function OnCustomGameCourierSend()
 	}
 	let courier = parseInt(current_courier_id)
     GameUI.SelectUnit(courier, false);
-    let sendItemAbility = Entities.GetAbilityByName(courier, "courier_take_stash_items")
-    Abilities.ExecuteAbility(sendItemAbility, courier, false)
-	$.Schedule(0.03, function() { 
-    	let sendItemAbility2 = Entities.GetAbilityByName(courier, "courier_transfer_items")
+	// if hero has item from inventory, trigger take stash, else transferitem
+	if (heroHasItemInStash()) {
+    	let sendItemAbility = Entities.GetAbilityByName(courier, "courier_take_stash_items_lua")
+    	Abilities.ExecuteAbility(sendItemAbility, courier, false)
+		$.Schedule(0.03, function() { 
+    		GameUI.SelectUnit(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), false);
+		});
+	} else {
+    	let sendItemAbility2 = Entities.GetAbilityByName(courier, "courier_transfer_items_lua")
     	Abilities.ExecuteAbility(sendItemAbility2, courier, false)
-    	GameUI.SelectUnit(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), false);
-	});
+		$.Schedule(0.03, function() { 
+ 	   		GameUI.SelectUnit(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), false);
+		});
+	}
 }
 
 function OnCourierStartTransfer(event) {
