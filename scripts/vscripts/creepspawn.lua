@@ -416,14 +416,14 @@ function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
 				end)
 			end
 		end
-        local all_units = Entities:FindAllInSphere(camp_location, 100)
+        local all_units = Entities:FindAllInSphere(camp_location, 129)
         local has_radiant_camp = false
         local has_dire_camp = false
         for j=1,#all_units do
             if all_units[j].HasModifier ~= nil and all_units[j]:HasModifier("modifier_minimap_camp_icon_datadriven") then
                 if all_units[j]:GetTeam() == DOTA_TEAM_GOODGUYS then
                     has_radiant_camp = true
-                else
+                elseif all_units[j]:GetTeam() == DOTA_TEAM_BADGUYS then
                     has_dire_camp = true
                 end
             end
