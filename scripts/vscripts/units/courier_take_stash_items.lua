@@ -60,6 +60,12 @@ function courier_take_stash_items_lua:OnSpellStart()
 		courier:AddNewModifier(courier, self, "modifier_courier_take_stash_return_to_base", 
 			{ issuer_hero = hero:GetEntityIndex() })
 		courier:MoveToPosition(getFountain(courier:GetTeam()))
+		CustomGameEventManager:Send_ServerToTeam(courier:GetTeam(),
+												 "courier_start_transfer",
+												 {
+													id = tostring(courier:GetEntityIndex()), 
+                                                    player_id = hero:GetPlayerID()
+												 })
 	elseif courier:IsInRangeOfShop(DOTA_SHOP_HOME, true) and hasStashItem(hero) then
 		courier.target_hero = courier.issuer_hero:GetEntityIndex()
 		courier:CastAbilityNoTarget(
@@ -87,6 +93,8 @@ function modifier_courier_take_stash_items_lua:OnOrder(event)
     local ability = event.ability
     if ability == nil or ability:GetName() ~= "courier_take_stash_items_lua" then
 		courier:RemoveModifierByName("modifier_courier_take_stash_return_to_base")
+		CustomGameEventManager:Send_ServerToTeam(
+	        courier:GetTeam(), "courier_end_transfer", { id = tostring(courier:GetEntityIndex()) })
         return
     end
     local issuer_player_id = event.issuer_player_index

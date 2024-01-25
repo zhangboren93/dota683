@@ -101,3 +101,10 @@ Button .disabled {
 	margin-right: 5px;
 /*	border: 2px solid #111111FF;*/
 }
+
+#courier-target-hero {
+    height: 24px;
+    width: 24px;
+    vertical-align: center;
+    horizontal-align: center;
+}

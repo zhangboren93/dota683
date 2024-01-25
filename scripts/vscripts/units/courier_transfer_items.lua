@@ -231,7 +231,12 @@ function courier_transfer_items_lua:OnSpellStart()
             target_hero = hero:GetEntityIndex()
         })
 
-		CustomGameEventManager:Send_ServerToTeam(courier:GetTeam(), "courier_start_transfer", { id = tostring(courier:GetEntityIndex()) })
+		CustomGameEventManager:Send_ServerToTeam(courier:GetTeam(),
+                                                 "courier_start_transfer",
+                                                 {
+                                                    id = tostring(courier:GetEntityIndex()),
+                                                    player_id = hero:GetPlayerID()
+                                                 })
     end
 end
 

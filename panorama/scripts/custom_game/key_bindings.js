@@ -28,7 +28,7 @@ function OnCustomeGameSelectCourier()
 function heroHasItemInStash() {
 	for (let i = 9; i <= 14; i++) {
 		let item = Entities.GetItemInSlot(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), i);
-		if (item !== 0) {
+		if (item !== -1) {
 			return true;
 		}
 	}
@@ -60,6 +60,7 @@ function OnCustomGameCourierSend()
 
 function OnCourierStartTransfer(event) {
 	let courier_id = event.id 
+	let player_id = event.player_id
 	if (!(courier_id in my_team_couriers)) {
 		$.Msg("[WARNING] courier " + courier_id + " not found.");
 		return;
@@ -67,6 +68,9 @@ function OnCourierStartTransfer(event) {
 	my_team_couriers[courier_id].is_transfering = true;
 	if (courier_id == current_courier_id) {
 		$("#courier-ip").RemoveClass("image-hidden")
+		$("#courier-target-hero").visible = true
+		$("#courier-target-hero").heroname = Players.GetPlayerSelectedHero(player_id)
+		$("#courier-send-image").visible = false
 	}
 }
 
@@ -79,6 +83,8 @@ function OnCourierEndTransfer(event) {
 	my_team_couriers[courier_id].is_transfering = false;
 	if (courier_id == current_courier_id) {
 		$("#courier-ip").AddClass("image-hidden")
+		$("#courier-target-hero").visible = false
+		$("#courier-send-image").visible = true
 	}
 }
 

@@ -16,7 +16,8 @@
 			<DOTAHeroImage id="current-courier-owner-image" heroname="npc_dota_hero_antimage" heroimagestyle="icon"/>
 		</Button>
 		<Button id="courier-send-button" class="send-button-no-send button-hidden" onactivate="OnCustomGameCourierSend()">
-			<Image src="file://{images}/custom_game/courier_transfer_item.png" />
+			<Image id="courier-send-image" src="file://{images}/custom_game/courier_transfer_item.png" />
+			<DOTAHeroImage id="courier-target-hero" class="image-hidden" heroname="npc_dota_hero_antimage" heroimagestyle="icon"/>
 		</Button>
 		<Image id="courier-ip" class="image-hidden" src="file://{images}/custom_game/turn_rate_icon.png" />
     </Panel>

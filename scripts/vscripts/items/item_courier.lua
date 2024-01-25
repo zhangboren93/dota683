@@ -73,14 +73,6 @@ function flyingUpgradeChecker(event)
     end
 end
 
-function transforStopChecker(event)
-    local entity = event.caster
-	if not entity:HasModifier("modifier_courier_transfer_items") then
-		CustomGameEventManager:Send_ServerToTeam(entity:GetTeam(), "courier_end_transfer", { id = tostring(entity:GetEntityIndex()) })
-		entity:RemoveModifierByName("modifier_courier_transfer_stop_checker")
-	end
-end
-
 function handleBurstSpellStart(event)
 	event.ability:ApplyDataDrivenModifier(event.caster, event.caster, "modifier_courier_burst_datadriven", {})
 end
