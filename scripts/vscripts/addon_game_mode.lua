@@ -757,6 +757,9 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			if target:IsMagicImmune() and not target:HasModifier("modifier_repel_datadriven") then
 				return false
 			end
+		elseif ability:GetName() == "item_ultimate_scepter" then
+			-- alchemist cannot give aghs to friendly
+			return false
 		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
