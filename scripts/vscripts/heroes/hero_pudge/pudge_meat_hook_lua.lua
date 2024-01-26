@@ -102,6 +102,9 @@ function pudge_meat_hook_lua:OnProjectileHit( hTarget, vLocation )
 			Msg( "Target was invalid")
 			return false
 		end
+		if hTarget ~= nil and hTarget:GetName() == "npc_dota_creep_siege" then
+			return false
+		end
 
 		local bTargetPulled = false
 		if hTarget ~= nil then
