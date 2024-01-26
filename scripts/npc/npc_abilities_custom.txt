@@ -33074,10 +33074,6 @@
 					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"				"400"
-				}
 				"OnCreated"
 				{
 					"FireSound"
@@ -33085,7 +33081,21 @@
 						"Target"		"TARGET"
 						"EffectName"	"DOTA_Item.Cyclone.Activate"
 					}
+                    "RunScript"
+                    {
+                        "ScriptFile"                "items/item_cyclone.lua"
+                        "Function"                  "modifier_invoker_tornado_datadriven_cyclone_on_created"
+                    }
 				}
+                "ThinkInterval"     "0.03"
+                "OnIntervalThink"
+                {
+                    "RunScript"
+                    {
+                        "ScriptFile"    "items/item_cyclone.lua"
+                        "Function"      "modifier_invoker_tornado_datadriven_cyclone_on_interval_think"
+                    }
+                }
 				"OnDestroy"
 				{
 					"ApplyModifier"
