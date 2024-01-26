@@ -1,5 +1,6 @@
 // Dota Heroes File
 #base "npc_abilities_hero_ability_executed_hook.txt"
+#base "heroes/alchemist.txt"
 #base "heroes/arc_warden.txt"
 #base "heroes/broodmother.txt"
 #base "heroes/brewmaster.txt"
@@ -9174,49 +9175,6 @@
 		}
 	}
 }
-	//=================================================================================================================
-	// Alchemist: Unstable Concoction
-	//=================================================================================================================
-	"alchemist_unstable_concoction"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5366"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Alchemist.UnstableConcoction.Fuse"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"775" // for visualization on hover
-		"AbilityCastPoint"				"0.0"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"brew_time"					"5.0"
-			"brew_explosion"			"5.5"
-			"min_stun"					"0.25"
-			"max_stun"					"1.75 2.5 3.25 4.0"
-			"min_damage"				"0"
-			"max_damage"				"150 220 290 360"
-			"radius"					"175"
-			"move_speed"				"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
 	// Rewrite of Alchemist Greevils Greed
 	// Author: Noya
 	// Date: October 13, 2015
