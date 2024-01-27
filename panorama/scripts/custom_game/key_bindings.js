@@ -191,3 +191,16 @@ function showCourierSpawned() {
 	$("#courier-respawn-remaining").AddClass("label-hidden");
 	$("#courier-select-button").RemoveClass("button-hidden");
 }
+
+(function() {
+	let courier_select = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT);
+	let courier_deliver = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_DELIVER);
+
+	let new_courier_select_command = "CustomGameCourierSelect" + Math.floor(Math.random() * 100000);
+	Game.AddCommand(new_courier_select_command, OnCustomeGameSelectCourier, "", 0);
+	Game.CreateCustomKeyBind(courier_select, new_courier_select_command );
+
+	let new_courier_deliver_command = "CustomGameCourierDeliver" + Math.floor(Math.random() * 100000);
+	Game.AddCommand(new_courier_deliver_command, OnCustomGameCourierSend, "", 0);
+	Game.CreateCustomKeyBind(courier_deliver, new_courier_deliver_command );
+})()
