@@ -461,7 +461,7 @@ function GetLaneAndRole(bot, role_indx)
 
 	if rl == ROLE_MID then
 		return LANE_MID, rl
-	elseif rl == ROLE_OFFLANE then
+	elseif rl == ROLE_OFFLANE or rl == ROLE_SEMISUPPORT then
 		if bot:GetTeam() == TEAM_RADIANT then
 			return LANE_TOP, rl
 		else

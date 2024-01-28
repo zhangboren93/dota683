@@ -2251,7 +2251,7 @@ X.lich.LaneInfo.RequiresFarm = 0
 
 X.spirit_breaker = {}
 X.spirit_breaker.Type = "DOTA_BOT_GANKER | DOTA_BOT_SEMI_CARRY"
-X.spirit_breaker.SKILL_0 = "spirit_breaker_charge_of_darkness"
+X.spirit_breaker.SKILL_0 = "spirit_breaker_charge_of_darkness_datadriven"
 X.spirit_breaker.SKILL_1 = "spirit_breaker_empowering_haste"
 X.spirit_breaker.SKILL_2 = "spirit_breaker_greater_bash"
 X.spirit_breaker.SKILL_3 = "spirit_breaker_nether_strike_datadriven"
