@@ -4,6 +4,7 @@
 #base "heroes/arc_warden.txt"
 #base "heroes/broodmother.txt"
 #base "heroes/brewmaster.txt"
+#base "heroes/death_prophet.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
 #base "heroes/enchantress.txt"
@@ -19517,45 +19518,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
-	
-	//=================================================================================================================
-	// Death Prophet: Silence
-	//=================================================================================================================
-	"death_prophet_silence"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5091"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"Hero_DeathProphet.Silence"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
-		"AbilityCastPoint"				"0.2"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
-		"AbilityDuration"				"3 4 5 6"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"radius"					"425"
-			"duration"					"3.0 4.0 5.0 6.0"
-			"projectile_speed"			"3000"
-			"movement_slow"				"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}	
 	//=================================================================================================================
 	// Death Prophet: Exorcism
 	//=================================================================================================================

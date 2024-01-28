@@ -88,6 +88,7 @@ function Activate()
 	LinkLuaModifier( "modifier_thunder_strike_after_death_lua", "heroes/hero_disruptor/modifier_thunder_strike_after_death.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_blood_rage_lua",					"heroes/hero_bloodseeker/bloodrage.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_cloak_bonus",					"heroes/hero_visage/cloak_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_death_prophet_silence_lua",					"heroes/hero_death_prophet/silence.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_doom_bringer_scorched_earth_buff_lua",		"heroes/hero_doom_bringer/scorched_earth.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_doom_bringer_scorched_earth_buff_aura_lua",	"heroes/hero_doom_bringer/scorched_earth.lua", LUA_MODIFIER_MOTION_NONE)
 

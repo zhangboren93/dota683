@@ -1612,6 +1612,13 @@
 		"DOTA_Tooltip_modifier_poison_touch_debuff_datadriven_Description"		"受到间断伤害"
 		"DOTA_Tooltip_Ability_dazzle_weave_Scepter_Description"					"提升作用范围和每秒护甲变化值。"
 		// Death Prophet
+		"DOTA_Tooltip_ability_death_prophet_silence_lua"								"沉默魔法"
+		"DOTA_Tooltip_ability_death_prophet_silence_lua_Description"					"阻止目标区域内的敌人施放魔法。"
+		"DOTA_Tooltip_ability_death_prophet_silence_lua_Note0"							"不能阻止使用物品。"
+		"DOTA_Tooltip_ability_death_prophet_silence_lua_Lore"							"#DOTA_Tooltip_ability_death_prophet_silence_Lore"
+		"DOTA_Tooltip_ability_death_prophet_silence_lua_radius"							"作用范围："
+		"DOTA_Tooltip_ability_death_prophet_silence_lua_duration"						"持续时间："
+		"DOTA_Tooltip_modifier_death_prophet_silence_lua"							"沉默"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft"									"巫术专精"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft_Description"						"提升死亡先知魔法的效果，被动提升移动速度。降低地穴虫群和沉默魔法的魔法消耗以及冷却时间，增加驱使恶灵的恶灵数。"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft_carrion_swarm_cooldown_adjust"	"冷却时间减少："
