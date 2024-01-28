@@ -1588,6 +1588,13 @@
 		"DOTA_Tooltip_modifier_poison_touch_debuff_datadriven_Description"		"Taking periodic damage"
 		"DOTA_Tooltip_Ability_dazzle_weave_Scepter_Description"					"Increases radius and armor per second."
 		// Death Prophet
+		"DOTA_Tooltip_ability_death_prophet_silence_lua"								"Silence"
+		"DOTA_Tooltip_ability_death_prophet_silence_lua_Description"					"Prevents enemy units in a target area from casting spells."
+		"DOTA_Tooltip_ability_death_prophet_silence_lua_Note0"							"Doesn't prevent usage of items."
+		"DOTA_Tooltip_ability_death_prophet_silence_lua_Lore"							"#DOTA_Tooltip_ability_death_prophet_silence_Lore"
+		"DOTA_Tooltip_ability_death_prophet_silence_lua_radius"							"RADIUS:"
+		"DOTA_Tooltip_ability_death_prophet_silence_lua_duration"						"DURATION:"
+		"DOTA_Tooltip_modifier_death_prophet_silence_lua"							"Silenced"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft"									"Witchcraft"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft_Description"						"Increases the potency of Death Prophet's spells, while providing a passive movement speed boost.  Reduces mana costs and cooldowns of Crypt Swarm and Silence, and adds additional spirits to Exorcism."
 		"DOTA_Tooltip_ability_death_prophet_witchcraft_carrion_swarm_cooldown_adjust"	"COOLDOWN DECREASE:"
