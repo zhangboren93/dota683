@@ -11,14 +11,8 @@ local dt = require( GetScriptDirectory().."/decision" )
 local gHeroVar = require( GetScriptDirectory().."/global_hero_data" )
 local ability = require( GetScriptDirectory().."/abilityUse/abilityUse_antimage" )
 
-function setHeroVar(var, value)
-    local bot = GetBot()
+function setHeroVar(bot, var, value)
     gHeroVar.SetVar(bot:GetPlayerID(), var, value)
-end
-
-function getHeroVar(var)
-    local bot = GetBot()
-    return gHeroVar.GetVar(bot:GetPlayerID(), var)
 end
 
 local SKILL_Q = heroData.antimage.SKILL_0
@@ -53,8 +47,8 @@ end
 
 local amBot = botAM:new{abilityPriority = AntimageAbilityPriority}
 
-function amBot:ConsiderAbilityUse()
-    return ability.AbilityUsageThink(GetBot())
+function amBot:ConsiderAbilityUse(bot)
+    return ability.AbilityUsageThink(bot)
 end
 
 function amBot:GetNukeDamage(bot, target)

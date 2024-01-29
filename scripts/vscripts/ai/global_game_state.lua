@@ -176,6 +176,9 @@ function GlobalFightDetermination(bot)
                         local distance = GetUnitToUnitDistance(ally, enemy)
                         local theirTimeToReachMe = distance/enemy:GetBaseMoveSpeed()
                         local timeToReach = distance/ally:GetBaseMoveSpeed()
+                        if ally.SelfRef == nil then
+                            print("[WARNING] " .. ally:GetName() .. " SelfRef nil.")
+                        end
                         local myNukeDmg, myActionQueue, myCastTime, myStun, mySlow, myEngageDist = ally.SelfRef:GetNukeDamage( ally, enemy )
 
                         -- update our total nuke damage

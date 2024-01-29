@@ -476,10 +476,11 @@ function CAddonTemplateGameMode:OnThink()
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and (self.botEnabled or GetMapName() == "vsbot") and self.botInitialized == nil then
 		if GetMapName() == "vsbot" then
 			local botHeroPool = {
+				--"npc_dota_hero_abaddon",
 				"npc_dota_hero_antimage",
 				"npc_dota_hero_lina",
 				"npc_dota_hero_viper",
-				"npc_dota_hero_venomancer",
+				--"npc_dota_hero_venomancer",
 				"npc_dota_hero_crystal_maiden",
 				"npc_dota_hero_drow_ranger",
 				"npc_dota_hero_phantom_assassin",
@@ -490,11 +491,11 @@ function CAddonTemplateGameMode:OnThink()
 			GameRules:SetSameHeroSelectionEnabled(true)
 			-- pick 5 random hero to play
 
-    	   -- local botHero = GameRules:AddBotPlayerWithEntityScript(
-		   -- 	"npc_dota_hero_viper", "Rad Bot 0", DOTA_TEAM_GOODGUYS, 
-		   -- 	"ai/bot_viper.lua", true)
-		   -- botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
-    	   -- FindClearSpaceForUnit(botHero, Vector(-7111, -6618, 520), true)
+    	    local botHero = GameRules:AddBotPlayerWithEntityScript(
+		    	"npc_dota_hero_abaddon", "Dire Bot 0", DOTA_TEAM_BADGUYS, 
+		    	"ai/bot_abaddon.lua", true)
+		    botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
+    	    FindClearSpaceForUnit(botHero, Vector(7022, 6346, 512), true)
 
 			local player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 
