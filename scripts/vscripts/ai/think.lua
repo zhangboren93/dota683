@@ -123,7 +123,7 @@ function X.TeamThink(bot)
     -- Intent is to smartly determine which heroes should purchases
     -- Team items like Tome of Knowledge, Wards, Dust/Sentry, and
     -- even stuff like picking up Gem, Aegis, Cheese, etc.
-    team_think.ConsiderTeamWideItemAcquisition(X.getPlayerAssignment(bot))
+    --team_think.ConsiderTeamWideItemAcquisition(X.getPlayerAssignment(bot))
 
     -- This is at top as all courier actions are Immediate actions,
     -- and therefore won't affect any other decision making.
@@ -154,14 +154,14 @@ function X.TeamThink(bot)
     -- default it is best to probably leave their default lane assignment,
     -- but if they are getting killed repeatedly we could rotate them. This
     -- also considers jungling assignments and lane rotations.
-    team_think.ConsiderTeamFarmDesignation()
+    --team_think.ConsiderTeamFarmDesignation()
     
     -- Determine if we should Roshan and which Heroes should be part of it.
     --team_think.ConsiderTeamRoshan()
     
     -- Determine if we should seek out a specific enemy for a kill attempt
     -- and which Heroes should be part of the kill.
-    team_think.ConsiderTeamRoam()
+    --team_think.ConsiderTeamRoam()
     
     -- If we see a rune, determine if any specific Heroes should get it 
     -- (to fill a bottle for example). If not, the hero that saw it will 
@@ -222,11 +222,11 @@ function X.HeroThink(bot)
     -- Courier usage is done at Team wide level. We can do our own 
     -- shopping at secret/side shop if we are informed that the courier
     -- will be unavailable to use for a certain period of time.
-    evaluatedDesireValue = hero_think.ConsiderSecretAndSideShop(bot)
-    if evaluatedDesireValue > highestDesireValue then
-        highestDesireValue = evaluatedDesireValue
-        highestDesireMode = shopMode
-    end
+    --evaluatedDesireValue = hero_think.ConsiderSecretAndSideShop(bot)
+    --if evaluatedDesireValue > highestDesireValue then
+    --    highestDesireValue = evaluatedDesireValue
+    --    highestDesireMode = shopMode
+    --end
     
     -- The decision is made at Team level. 
     -- This just checks if the Hero is part of the push, and if so, 
@@ -256,38 +256,38 @@ function X.HeroThink(bot)
         highestDesireMode = defendAllyMode
     end
     
-    -- Roaming decision are made at the Team level to keep all relevant
-    -- heroes informed of the upcoming kill opportunity. 
-    -- This just checks if this Hero is part of the Gank.
-    evaluatedDesireValue = hero_think.ConsiderRoam(bot)
-    if evaluatedDesireValue > highestDesireValue then
-        highestDesireValue = evaluatedDesireValue
-        highestDesireMode = roamMode
-    end
+    ---- Roaming decision are made at the Team level to keep all relevant
+    ---- heroes informed of the upcoming kill opportunity. 
+    ---- This just checks if this Hero is part of the Gank.
+    --evaluatedDesireValue = hero_think.ConsiderRoam(bot)
+    --if evaluatedDesireValue > highestDesireValue then
+    --    highestDesireValue = evaluatedDesireValue
+    --    highestDesireMode = roamMode
+    --end
     
-    -- The decision if and who should get Rune is made Team wide.
-    -- This just checks if this Hero should get it.
-    evaluatedDesireValue = hero_think.ConsiderRune(bot, X.getPlayerAssignment(bot))
-    if evaluatedDesireValue > highestDesireValue then
-        highestDesireValue = evaluatedDesireValue
-        highestDesireMode = runeMode
-    end
+    ---- The decision if and who should get Rune is made Team wide.
+    ---- This just checks if this Hero should get it.
+    --evaluatedDesireValue = hero_think.ConsiderRune(bot, X.getPlayerAssignment(bot))
+    --if evaluatedDesireValue > highestDesireValue then
+    --    highestDesireValue = evaluatedDesireValue
+    --    highestDesireMode = runeMode
+    --end
     
-    -- The decision to Roshan is done in TeamThink().
-    -- This just checks if this Hero should be part of the effort.
-    evaluatedDesireValue = hero_think.ConsiderRoshan(bot)
-    if evaluatedDesireValue > highestDesireValue then
-        highestDesireValue = evaluatedDesireValue
-        highestDesireMode = roshanMode
-    end
+    ---- The decision to Roshan is done in TeamThink().
+    ---- This just checks if this Hero should be part of the effort.
+    --evaluatedDesireValue = hero_think.ConsiderRoshan(bot)
+    --if evaluatedDesireValue > highestDesireValue then
+    --    highestDesireValue = evaluatedDesireValue
+    --    highestDesireMode = roshanMode
+    --end
     
-    -- Farming assignments are made Team Wide.
-    -- This just tells the Hero where he should go to Jungle.
-    evaluatedDesireValue = hero_think.ConsiderJungle(bot, X.getPlayerAssignment(bot))
-    if evaluatedDesireValue > highestDesireValue then
-        highestDesireValue = evaluatedDesireValue
-        highestDesireMode = jungleMode
-    end
+    ---- Farming assignments are made Team Wide.
+    ---- This just tells the Hero where he should go to Jungle.
+    --evaluatedDesireValue = hero_think.ConsiderJungle(bot, X.getPlayerAssignment(bot))
+    --if evaluatedDesireValue > highestDesireValue then
+    --    highestDesireValue = evaluatedDesireValue
+    --    highestDesireMode = jungleMode
+    --end
     
     -- Laning assignments are made Team Wide for Pushing & Defending.
     -- Laning assignments are initially determined at start of game/hero-selection.
@@ -298,13 +298,13 @@ function X.HeroThink(bot)
         highestDesireMode = laningMode
     end
     
-    -- Warding is done on a per-lane basis. This evaluates if this Hero
-    -- should ward, and where. (might be a team wide thing later)
-    evaluatedDesireValue = hero_think.ConsiderWarding(bot, X.getPlayerAssignment(bot))
-    if evaluatedDesireValue > highestDesireValue then
-        highestDesireValue = evaluatedDesireValue
-        highestDesireMode = wardMode
-    end
+    ---- Warding is done on a per-lane basis. This evaluates if this Hero
+    ---- should ward, and where. (might be a team wide thing later)
+    --evaluatedDesireValue = hero_think.ConsiderWarding(bot, X.getPlayerAssignment(bot))
+    --if evaluatedDesireValue > highestDesireValue then
+    --    highestDesireValue = evaluatedDesireValue
+    --    highestDesireMode = wardMode
+    --end
     
     utils.myPrint(bot:GetName(), " HeroThink() " .. highestDesireMode:GetName() .. " " ..  highestDesireValue)
     return highestDesireMode, highestDesireValue

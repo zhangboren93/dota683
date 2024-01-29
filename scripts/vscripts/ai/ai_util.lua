@@ -117,6 +117,9 @@ ITEM_SLOT_TYPE_MAIN = 1
 ITEM_SLOT_TYPE_BACKPACK = 2
 ITEM_SLOT_TYPE_STASH = 3
 
+BOT_MODE_ATTACK = "fight"
+BOT_MODE_DEFEND_ALLY = "defendally"
+
 ACTION_DEBUG_HERO = "invalid"
 local function debugprint(ret)
 	if ret then 
@@ -530,6 +533,9 @@ function SetBot(bot)
 	end
 	bot.GetNearbyTrees = function(self, distance)
 		return GridNav:GetAllTreesAroundPoint(self:GetAbsOrigin(), distance, false)
+	end
+	bot.GetActiveMode = function(self)
+		return self.currentModeName
 	end
 end
 
@@ -1067,4 +1073,73 @@ function GetNearbyCreeps(bot, range, is_enemy)
 		DOTA_UNIT_TARGET_FLAG_NONE,
 		FIND_CLOSEST,
 		false)
+end
+
+function GetNearbyNonIllusionHeroes(bot, range, isEnemy)
+	local team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY 
+	if isEnemy then
+		team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY
+	end
+	return FindUnitsInRadius(
+		bot:GetTeam(),
+		bot:GetAbsOrigin(), nil,
+		range,
+		team_filter,
+		DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS, FIND_ANY_ORDER, false)
+end
+
+function WasRecentlyDamagedByAnyHero(unit, time)
+	if unit.damagedByHeroTime == nil then
+		return false
+	end
+	return (GameRules:GetGameTime() - unit.damagedByHeroTime) < time
+end
+
+function WasRecentlyDamagedByTower(unit, time)
+	if unit.damagedByTowerTime == nil then
+		return false
+	end
+	return (GameRules:GetGameTime() - unit.damagedByTowerTime) < time
+end
+
+function GetWeakestUnit(EnermyUnits)
+	if EnemyUnits == nil or #EnemyUnits == 0 then
+		return nil, 10000;
+	end
+
+	local WeakestUnit = nil;
+	local LowestHealth = 10000;
+	for _, unit in pairs(EnemyUnits) do
+		if unit ~= nil and unit:IsAlive()
+		then
+			if unit:GetHealth() < LowestHealth
+			then
+				LowestHealth = unit:GetHealth();
+				WeakestUnit = unit;
+			end
+		end
+	end
+
+	return WeakestUnit, LowestHealth
+end
+
+function IsSeverelyDisabled(npc)
+    return npc:IsStunned() or 
+		   npc:IsHexed() or 
+		   npc:IsRooted() or 
+		   npc:IsFeared() or 
+           npc:HasModifier("modifier_bane_nightmare") or 
+		   npc:HasModifier("modifier_legion_commander_duel_datadriven") or
+           npc:HasModifier("modifier_axe_berserkers_call") or 
+		   npc:HasModifier("modifier_shadow_demon_purge_slow") or
+           npc:HasModifier("modifier_doom_datadriven")
+end
+
+function GetMovementSpeedPercent(npc)
+    return npc:GetMoveSpeedModifier(npc:GetBaseMoveSpeed(), false) / npc:GetBaseMoveSpeed()
+end
+
+function IsAttackingEnemies(bot)
+	local mode = bot:GetActiveMode()
+    return mode == BOT_MODE_ATTACK or mode ==  BOT_MODE_DEFEND_ALLY
 end

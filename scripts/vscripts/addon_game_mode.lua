@@ -1839,6 +1839,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 	elseif attacker:IsConsideredHero() and event.damage > 0 then
 		victim.damagedByHeroTime = GameRules:GetGameTime()
 		victim.damagedByHero = attacker
+	elseif attacker:IsBuilding() then
+		victim.damagedByTowerTime = GameRules:GetGameTime()
 	end
 
 	return true

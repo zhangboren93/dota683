@@ -252,6 +252,7 @@ function X:Think(bot)
     -- do out Thinking and set our Mode
     if GameTime() - bot.lastModeThink >= 0.1 then
         local highestDesiredMode, highestDesiredValue = think.MainThink(bot)
+        bot.currentModeName = highestDesiredMode:GetName()
         self:BeginMode(highestDesiredMode, highestDesiredValue)
         self:ExecuteMode(bot)
         
