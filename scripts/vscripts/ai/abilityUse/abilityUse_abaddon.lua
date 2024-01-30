@@ -73,13 +73,74 @@ function abaddonAbility:AbilityUsageThink(bot)
 end
 
 function ConsiderQ(bot)
-    if not abilityQ:IsFullyCastable() then
-		return BOT_ACTION_DESIRE_NONE, nil
+	local ability = abilityQ
+	local npcBot = bot
+	if not ability:IsFullyCastable() then
+		return BOT_ACTION_DESIRE_NONE, 0
 	end
-    
-    -- WRITE CODE HERE --
-    
-    return BOT_ACTION_DESIRE_NONE, nil
+	local CastRange = ability:GetCastRange()
+	local Damage = ability:GetSpecialValueFor("target_damage")
+	local SelfDamage = ability:GetSpecialValueFor("self_damage")
+	local ManaPercentage = npcBot:GetManaPercent()
+	local allys = GetNearbyNonIllusionHeroes(npcBot, CastRange + 150, false)
+	local allys_filtered = {}
+	for i=1,#allys do
+		if allys[i] ~= npcBot and allys[i]:IsRealHero() then
+			table.insert(allys_filtered, allys[i])
+		end
+	end
+	allys = allys_filtered
+	local WeakestAlly, AllyHealth = GetWeakestUnit(allys)
+	local enemys = GetNearbyHeroes(npcBot, CastRange + 150, true, BOT_MODE_NONE)
+	local WeakestEnemy, HeroHealth = GetWeakestUnit(enemys)
+	local creeps = GetNearbyCreeps(npcBot, CastRange + 300, true)
+	local WeakestCreep, CreepHealth = GetWeakestUnit(creeps)
+	if npcBot:GetActiveMode() ~= "retreat" then
+		if WeakestEnemy ~= nil then
+			if HeroHealth <= GetActualIncomingDamage(WeakestEnemy, Damage, DAMAGE_TYPE_MAGICAL) then
+				return BOT_ACTION_DESIRE_HIGH, WeakestEnemy
+			end
+		end
+	end
+	if npcBot:GetHealth() / npcBot:GetMaxHealth() > (0.4 - #enemys * 0.05) or
+		npcBot:HasModifier("modifier_abaddon_aphotic_shield") or npcBot:HasModifier("modifier_abaddon_borrowed_time") then
+		if WeakestAlly ~= nil then
+			if AllyHealth / WeakestAlly:GetMaxHealth() < 0.5 then
+				return BOT_ACTION_DESIRE_MODERATE, WeakestAlly
+			end
+		end
+		for _, npcTarget in pairs(allys) do
+			if npcTarget:GetHealth() / npcTarget:GetMaxHealth() < (0.5 + #enemys * 0.05) then
+				return BOT_ACTION_DESIRE_MODERATE, npcTarget
+			end
+		end
+	end
+	if npcBot:HasModifier("modifier_abaddon_borrowed_time") then
+		if WeakestEnemy ~= nil then
+			return BOT_ACTION_DESIRE_MODERATE, WeakestEnemy
+		end
+	end
+	if npcBot:GetActiveMode() == "defendally" or npcBot:GetActiveMode() == "fight" then
+		if npcBot:GetHealth() / npcBot:GetMaxHealth() > (0.5 - #enemys * 0.05) or
+			npcBot:HasModifier("modifier_abaddon_aphotic_shield") or npcBot:HasModifier("modifier_abaddon_borrowed_time") then
+			local npcEnemy = npcBot:GetTarget()
+			if npcEnemy ~= nil then
+				if GetUnitToUnitDistance(npcBot, npcEnemy) < CastRange + 75 * #allys then
+					return BOT_ACTION_DESIRE_MODERATE, npcEnemy
+				end
+			end
+		end
+	end
+	if npcBot:GetActiveMode() == "laning" then
+		if ManaPercentage > 40 and
+			(npcBot:GetHealth() / npcBot:GetMaxHealth() > 0.75 or npcBot:HasModifier("modifier_abaddon_aphotic_shield"))
+			and ability:GetLevel() >= 2 then
+			if WeakestEnemy ~= nil then
+				return BOT_ACTION_DESIRE_LOW, WeakestEnemy
+			end
+		end
+	end
+	return BOT_ACTION_DESIRE_NONE, 0
 end
 
 local function CanCast2(npcEnemy)
@@ -221,18 +282,6 @@ function abaddonAbility:nukeDamage( bot, enemy )
             --stunTime = stunTime + XYZ
             --engageDist = Min(engageDist, abilityQ:GetCastRange())
             table.insert(comboQueue, abilityQ)
-        end
-    end
-    
-    if abilityW:IsFullyCastable() then
-        local manaCostW = abilityW:GetManaCost(-1)
-        if manaCostW <= manaAvailable then
-            manaAvailable = manaAvailable - manaCostW
-            --dmgTotal = dmgTotal + XYZ
-            --castTime = castTime + abilityW:GetCastPoint()
-            --stunTime = stunTime + XYZ
-            --engageDist = Min(engageDist, abilityW:GetCastRange())
-            table.insert(comboQueue, abilityW)
         end
     end
     

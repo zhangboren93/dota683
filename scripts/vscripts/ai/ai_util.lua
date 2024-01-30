@@ -1,4 +1,13 @@
 require( "ai/global_ability_data" )
+local gHeroVar = require( "ai/global_hero_data" )
+
+local function setHeroVar(bot, var, value)
+    gHeroVar.SetVar(bot:GetPlayerID(), var, value)
+end
+
+local function getHeroVar(bot, var)
+    return gHeroVar.GetVar(bot:GetPlayerID(), var)
+end
 
 LANE_NONE = 0
 LANE_TOP  = 1
@@ -536,6 +545,9 @@ function SetBot(bot)
 	end
 	bot.GetActiveMode = function(self)
 		return self.currentModeName
+	end
+	bot.GetTarget = function(self)
+		return getHeroVar(self, "Target")
 	end
 end
 
@@ -1103,13 +1115,14 @@ function WasRecentlyDamagedByTower(unit, time)
 end
 
 function GetWeakestUnit(EnermyUnits)
-	if EnemyUnits == nil or #EnemyUnits == 0 then
+	if EnermyUnits == nil or #EnermyUnits == 0 then
 		return nil, 10000;
 	end
 
 	local WeakestUnit = nil;
 	local LowestHealth = 10000;
-	for _, unit in pairs(EnemyUnits) do
+	for i=1,#EnermyUnits do
+		local unit = EnermyUnits[i]
 		if unit ~= nil and unit:IsAlive()
 		then
 			if unit:GetHealth() < LowestHealth

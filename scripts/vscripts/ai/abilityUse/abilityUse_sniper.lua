@@ -179,8 +179,8 @@ function ConsiderQ(bot)
     
 	-- If we're going after someone
 	if modeName == "roam" or modeName == "defendally" or modeName == "fight" then
-		local npcEnemy = getHeroVar("RoamTarget")
-        if npcEnemy == nil then npcEnemy = getHeroVar("Target") end
+		local npcEnemy = getHeroVar(bot, "RoamTarget")
+        if npcEnemy == nil then npcEnemy = getHeroVar(bot, "Target") end
 
 		if utils.ValidTarget(npcEnemy) then           
 			if not utils.IsTargetMagicImmune(npcEnemy) and GetUnitToUnitDistance(bot, npcEnemy) < CastRange then
