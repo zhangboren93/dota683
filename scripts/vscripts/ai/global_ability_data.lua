@@ -146,3 +146,10 @@ HERO_ABILITY_POWER["skeleton_king_hellfire_blast"] = {
 HERO_ABILITY_POWER["skeleton_king_mortal_strike_datadriven"] = {
 	attackppl = {7.5, 15, 22.5, 30}
 }
+
+HERO_ABILITY_POWER["bristleback_viscous_nasal_goo"] = {
+	slow = "base_move_slow"
+}
+HERO_ABILITY_POWER["bristleback_quill_spray"] = {
+	pdamagepl = {80, 105, 130, 150}
+}
