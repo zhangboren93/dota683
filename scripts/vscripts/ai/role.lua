@@ -61,7 +61,7 @@ local listHC = {
 	"npc_dota_hero_phantom_assassin",
 	"npc_dota_hero_phantom_lancer",
 	--"npc_dota_hero_queen_of_pain",
-	--"npc_dota_hero_skeleton_king",
+	"npc_dota_hero_skeleton_king",
 	--"npc_dota_hero_silencer",
 	"npc_dota_hero_slark",
 	"npc_dota_hero_sniper",
@@ -77,7 +77,6 @@ local listHC = {
 local listMID = {
 --comments by "ByBurton":	I define Mid as Semicarries. Heroes that need exp and some gold early on, that can easily win lanes 1 vs 1 through skill spamming or harrassing - position 2; always in mid.
 --Have skills that allow them to gank efficiently, so they need early levels (mid). Scale well into mid to lategame.
-	"npc_dota_hero_abyssal_underlord",
 	"npc_dota_hero_alchemist",
 	"npc_dota_hero_arc_warden",
 	"npc_dota_hero_brewmaster",

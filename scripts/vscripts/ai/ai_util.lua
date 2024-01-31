@@ -1156,3 +1156,10 @@ function IsAttackingEnemies(bot)
 	local mode = bot:GetActiveMode()
     return mode == BOT_MODE_ATTACK or mode ==  BOT_MODE_DEFEND_ALLY
 end
+
+function enemyDisabled(npcEnemy)
+	if npcEnemy:IsRooted() or npcEnemy:IsStunned() or npcEnemy:IsHexed() then
+		return true;
+	end
+	return false;
+end

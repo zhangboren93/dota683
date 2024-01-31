@@ -100,7 +100,7 @@ HERO_ABILITY_POWER["phantom_assassin_phantom_strike_datadriven"] = {
 	as = "bonus_attack_speed"
 }
 HERO_ABILITY_POWER["phantom_assassin_coup_de_grace_datadriven"] = {
-	attackppl = {35, 51, 67}
+	attackppl = {19.5, 36, 52.5}
 }
 
 HERO_ABILITY_POWER["spirit_breaker_charge_of_darkness"] = {
@@ -134,4 +134,15 @@ HERO_ABILITY_POWER["abaddon_death_coil_datadriven"] = {
 HERO_ABILITY_POWER["abaddon_frostmourne_datadriven"] = {
 	slow = "debuff_duration",
 	as = "attack_speed"
+}
+
+HERO_ABILITY_POWER["skeleton_king_hellfire_blast"] = { 
+	mdamage = "AbilityDamage",
+	stun = "blast_stun_duration",
+	mdps = "blast_dot_damage",
+	duration = "blast_dot_duration",
+	slow = "blast_dot_duration"
+}
+HERO_ABILITY_POWER["skeleton_king_mortal_strike_datadriven"] = {
+	attackppl = {7.5, 15, 22.5, 30}
 }
