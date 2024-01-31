@@ -127,3 +127,11 @@ HERO_ABILITY_POWER["sniper_headshot_datadriven"] = {
 HERO_ABILITY_POWER["sniper_assassinate_datadriven"] = {
 	mdamage = "AbilityDamage"
 }
+
+HERO_ABILITY_POWER["abaddon_death_coil_datadriven"] = {
+	mdamage = "target_damage"
+}
+HERO_ABILITY_POWER["abaddon_frostmourne_datadriven"] = {
+	slow = "debuff_duration",
+	as = "attack_speed"
+}
