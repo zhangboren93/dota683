@@ -128,6 +128,8 @@ ITEM_SLOT_TYPE_STASH = 3
 
 BOT_MODE_ATTACK = "fight"
 BOT_MODE_DEFEND_ALLY = "defendally"
+BOT_MODE_ROAM = "roam"
+BOT_MODE_LANING = "laning"
 
 ACTION_DEBUG_HERO = "invalid"
 local function debugprint(ret)
@@ -253,16 +255,27 @@ function SetBot(bot)
 			print(self:GetName() .. " Action_UseAbilityOnEntity " .. ability:GetName() .. " " .. unit:GetName())
 		end
 		self:CastAbilityOnTarget(unit, ability, self:GetPlayerID())
-		self.lastActionAbility = ability
-		self.lastActionAbilityTime = GameTime()
+		if ability:GetCastPoint() > 0.2 then
+			self.lastActionAbility = ability
+			self.lastActionAbilityTime = GameTime()
+		end
+	end
+	bot.Action_UseAbility = function(self, ability)
+		self:CastAbilityNoTarget(ability, self:GetPlayerID())
+		if ability:GetCastPoint() > 0.2 then
+			self.lastActionAbility = ability
+			self.lastActionAbilityTime = GameTime()
+		end
 	end
 	bot.Action_UseAbilityOnEntity = function(self, ability, unit)
 		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
 			print(self:GetName() .. " Action_UseAbilityOnEntity " .. ability:GetName() .. " " .. unit:GetName())
 		end
 		self:CastAbilityOnTarget(unit, ability, self:GetPlayerID())
-		self.lastActionAbility = ability
-		self.lastActionAbilityTime = GameTime()
+		if ability:GetCastPoint() > 0.2 then
+			self.lastActionAbility = ability
+			self.lastActionAbilityTime = GameTime()
+		end
 	end
 	bot.ActionImmediate_PurchaseItem = function(self, item)
 		print(self:GetName() .. " purchase ".. item)
@@ -306,13 +319,15 @@ function SetBot(bot)
 				if self.lastAttackTime == nil then
 					ret = true
 				else
-					ret = self.lastActionAbilityTime >= self.lastAttackTime
+					ret = (self.lastActionAbilityTime >= self.lastAttackTime
+						or self.lastActionAbilityTime < GameRules:GetGameTime() - 3)
 				end
 			else
 				if self.lastAbilityCastTime == nil then
 					ret = true
 				else
-					ret = self.lastActionAbilityTime >= self.lastAbilityCastTime
+					ret = (self.lastActionAbilityTime >= self.lastAbilityCastTime
+						or self.lastActionAbilityTime < GameRules:GetGameTime() - 3)
 				end
 			end
 		end
@@ -1152,9 +1167,13 @@ function GetMovementSpeedPercent(npc)
     return npc:GetMoveSpeedModifier(npc:GetBaseMoveSpeed(), false) / npc:GetBaseMoveSpeed()
 end
 
+function IsServerlyDisabledOrSlowed(npc)
+	return IsSeverelyDisabled(npc) or GetMovementSpeedPercent(npc) < 0.35
+end
+
 function IsAttackingEnemies(bot)
 	local mode = bot:GetActiveMode()
-    return mode == BOT_MODE_ATTACK or mode ==  BOT_MODE_DEFEND_ALLY
+    return mode == BOT_MODE_ATTACK or mode ==  BOT_MODE_DEFEND_ALLY or mode == BOT_MODE_ROAM
 end
 
 function enemyDisabled(npcEnemy)
@@ -1162,4 +1181,48 @@ function enemyDisabled(npcEnemy)
 		return true;
 	end
 	return false;
+end
+
+function NormalCanCastFunction(target)
+	if target:IsInvulnerable() then
+		return false
+	end
+	if target:HasModifier("modifier_slark_shadow_dance") then
+		return false
+	end
+	if target:IsMagicImmune() then
+		return false
+	end
+	return true
+end
+
+function PhysicalCanCastFunction(target)
+	if target:IsAttackImmune() then return false end
+	if target:IsInvulnerable() then return false end
+	if target:HasModifier("modifier_slark_shadow_dance") then
+		return false
+	end
+	return true
+end
+
+function CanBeEngaged(npc)
+	if npc:IsOwnedByAnyPlayer() then
+		return true
+	end
+	if npc.GetActiveMode ~= nil and npc:GetActiveMode() ~= "retreat" then
+		return true
+	end
+	return false
+end
+
+function GetComboMana(AbilitiesReal)
+	local tempComboMana = 0
+	for i, ability in pairs(AbilitiesReal) do
+		if ability and ability:GetLevel() >= 1 and not ability:IsPassive() and not ability:IsHidden() then
+			if ability:GetAbilityType() ~= ABILITY_TYPE_ULTIMATE or ability:GetCooldownTimeRemaining() <= 30 then
+				tempComboMana = tempComboMana + ability:GetManaCost(-1)
+			end
+		end
+	end
+	return math.max(tempComboMana, 300)
 end

@@ -15,6 +15,7 @@ generic.ItemsToBuyAsMid = {
 		"item_quelling_blade_lua"
 	},
 	CoreItems = {
+		"item_soul_ring",
 		"item_phase_boots",
 		"item_vanguard",
 		"item_hood_of_defiance_datadriven",

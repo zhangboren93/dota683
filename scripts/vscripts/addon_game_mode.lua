@@ -478,7 +478,7 @@ function CAddonTemplateGameMode:OnThink()
 			local botHeroPool = {
 				"npc_dota_hero_abaddon",
 				"npc_dota_hero_antimage",
-				--"npc_dota_hero_bristleback",
+				"npc_dota_hero_bristleback",
 				"npc_dota_hero_viper",
 				"npc_dota_hero_crystal_maiden",
 				"npc_dota_hero_drow_ranger",
@@ -490,11 +490,11 @@ function CAddonTemplateGameMode:OnThink()
 			GameRules:SetSameHeroSelectionEnabled(true)
 			-- pick 5 random hero to play
 
-    	    local botHero = GameRules:AddBotPlayerWithEntityScript(
-		    	"npc_dota_hero_bristleback", "Dire Bot 0", DOTA_TEAM_BADGUYS, 
-		    	"ai/bot_bristleback.lua", true)
-		    botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
-    	    FindClearSpaceForUnit(botHero, Vector(7022, 6346, 512), true)
+    	--    local botHero = GameRules:AddBotPlayerWithEntityScript(
+		   -- 	"npc_dota_hero_bristleback", "Dire Bot 0", DOTA_TEAM_BADGUYS, 
+		   -- 	"ai/bot_bristleback.lua", true)
+		   -- botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
+    	--    FindClearSpaceForUnit(botHero, Vector(7022, 6346, 512), true)
 
 			local player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 
