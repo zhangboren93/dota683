@@ -1087,12 +1087,6 @@
 		
 		"OnSpellStart"
 		{
-			// Deprecated
-			//"ApplyModifier"
-			//{
-			//	"ModifierName"	"modifier_blood_rage_datadriven"
-			//	"Target"		"TARGET"
-			//}
 
 			"RunScript"
 			{
@@ -1104,43 +1098,6 @@
 			{
 				"Target"					"TARGET"
 				"EffectName"				"hero_bloodseeker.bloodRage"
-			}
-		}
-		
-		"Modifiers"
-		{
-			// Deprecated
-			"modifier_blood_rage_datadriven"
-			{
-				"Duration"	"%duration"
-				
-				"EffectName"	"particles/units/heroes/hero_bloodseeker/bloodseeker_bloodrage.vpcf"
-				"EffectAttachType"	"attach_origin"
-				
-				"OnKill"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_bloodseeker/bloodrage.lua"
-						"Function"		"HealKiller"
-					}
-				}
-				
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_bloodseeker/bloodrage.lua"
-						"Function"		"HealKiller"
-					}
-				}
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%damage_increase_pct"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%damage_increase_pct"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damage_increase_pct"
-				}
 			}
 		}
 	}
@@ -12098,32 +12055,6 @@
 				"bonus_resist"						"3 6 12 16"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
-	//=================================================================================================================
-	// Deprecated
-	//=================================================================================================================
-	"visage_gravekeepers_cloak_bonus_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"Modifiers"
-		{
-			"modifier_clock_bonus_thinker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"ThinkInterval"	"0.3"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_visage/cloak_bonus.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-			}
-		}
 	}
 	"visage_gravekeepers_cloak_bonus_active_datadriven"
 	{
@@ -32223,26 +32154,6 @@
 			}
 		}
 	}
-	// Deprecated
-	"prowler_evasion"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType" 	"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"	"spawnlord_aura"
-		"Modifiers"
-		{
-			"modifier_prowler_evasiopn"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"15"
-				}
-			}
-		}
-	}
 	"lycan_summon_wolves_critical_strike_datadriven"
 	{
 		// General
@@ -33020,7 +32931,7 @@
                         "ScriptFile"    "items/item_cyclone.lua"
                         "Function"      "modifier_invoker_tornado_datadriven_cyclone_on_interval_think"
                     }
-                }
+				}
 				"OnDestroy"
 				{
 					"ApplyModifier"
@@ -33495,45 +33406,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-	//=================================================================================================================
-	// Black Dragon: Fireball
-	//=================================================================================================================
-	"black_dragon_fireball"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5689"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"MaxLevel"						"1"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"1"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"radius"			"300"
-				"damage"			"85"
-				"duration"			"10"
-				"burn_interval"			"0.5"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}	
 	//=================================================================================================================
 	// Brewmaster Fire: Permanent Immolation
 	//=================================================================================================================
@@ -34524,22 +34396,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"3"
-				}
-			}
-		}
-	}
-	"npc_dota_thinker_phase_datadriven"
-	{
-		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Modifiers"
-		{
-			"modifier_npc_dota_thinker_phase_datadriven"
-			{
-				"Passive"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
