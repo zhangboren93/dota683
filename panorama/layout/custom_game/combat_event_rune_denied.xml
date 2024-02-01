@@ -1,0 +1,16 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/combat_events.css" />
+	</styles>
+	<Panel class="combat_event_line combat_event_friendly">
+		<DOTAHeroImage id="killer_hero" class="hero" heroimagestyle="icon" />
+		<Label id="killer_player_name" class="player_name" />
+		<Label class="player_name" text="反补了"/>
+		<DOTAEmoticon id="icon_rune_type_0" src="s2r://panorama/images/emoticons/doubledamage_png.vtex"/>
+		<DOTAEmoticon id="icon_rune_type_1" src="s2r://panorama/images/emoticons/haste_png.vtex"/>
+		<DOTAEmoticon id="icon_rune_type_2" src="s2r://panorama/images/emoticons/illusion_png.vtex"/>
+		<DOTAEmoticon id="icon_rune_type_3" src="s2r://panorama/images/emoticons/invisibility_png.vtex"/>
+		<DOTAEmoticon id="icon_rune_type_4" src="s2r://panorama/images/emoticons/regeneration_png.vtex"/>
+		<DOTAEmoticon id="icon_rune_type_5" src="s2r://panorama/images/emoticons/bountyrune_png.vtex"/>
+	</Panel>
+</root>
