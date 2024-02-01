@@ -8,6 +8,7 @@ GameEvents.Subscribe("combat_event_roshan_killed", OnRoshanKilled);
 GameEvents.Subscribe("aegis_picked_up", OnAegisPickedUp);
 GameEvents.Subscribe("courier_killed", OnCourierKilled);
 GameEvents.Subscribe("player_rune_activated", OnPlayerRuneActivated);
+GameEvents.Subscribe("player_rune_denied", OnPlayerRuneDenied);
 GameEvents.Subscribe("player_ward_killed", OnPlayerWardKilled);
 GameEvents.Subscribe("player_kill_streak", OnPlayerKillStreak);
 GameEvents.Subscribe("player_streak_shutdown", OnPlayerStreakShutdown);
@@ -238,6 +239,32 @@ function OnPlayerRuneActivated(event) {
 	}
 
 	if (parentPanel.GetChildCount() > 1) {
+		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
+	}
+	let validUntil = Game.GetGameTime() + 10;
+	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
+}
+function OnPlayerRuneDenied(event)
+{
+	let pid = event.pid;
+	let rune_type = event.rune_type;
+	$.Msg("Rune " + rune_type + " picked up by " + pid);
+	let parentPanel = $.GetContextPanel()
+	let newChildPanel = $.CreatePanel("Panel", parentPanel, "pra_" + pid + "x" + rune_type);
+	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_rune_denied.xml", false, false);
+	newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(pid);
+	newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(pid);
+
+	for(let i = 0; i < 6; i++)
+	{
+		if(i != rune_type)
+		{
+			newChildPanel.FindChildTraverse("icon_rune_type_" + i).visible = false;
+		}
+	}
+
+	if(parentPanel.GetChildCount() > 1)
+	{
 		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
 	}
 	let validUntil = Game.GetGameTime() + 10;
