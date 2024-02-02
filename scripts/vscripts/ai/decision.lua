@@ -165,7 +165,9 @@ function X:Think(bot)
     end
 
     if GetGameState() ~= GAME_STATE_GAME_IN_PROGRESS and GetGameState() ~= GAME_STATE_PRE_GAME then return end
-    
+
+    if bot.nextBotThinkTime ~= nil and bot.nextBotThinkTime > GameRules:GetGameTime() then return end
+
     local tt = getHeroVar(bot, "Target")
     local rt = getHeroVar(bot, "RoamTarget")
     if tt ~= nil and (tt:IsNull() or not tt:IsAlive()) then

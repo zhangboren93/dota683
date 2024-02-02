@@ -298,6 +298,7 @@ function SetBot(bot)
 			print(self:GetName() .. " Action_UseAbilityOnLocation " .. ability:GetName())
 		end
 		self:CastAbilityOnPosition(loc, ability, self:GetPlayerID())
+		self.nextBotThinkTime = GameRules:GetGameTime() + ability:GetCastPoint() + 0.1
 	end
 	bot.ActionQueue_AttackUnit = function(self, target, bOnce)
 		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
@@ -331,9 +332,9 @@ function SetBot(bot)
 				end
 			end
 		end
-		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
-			print("IsCastingAbility " .. self:GetName() .. " " .. debugprint(ret))
-		end
+		--if string.find(self:GetName(), ACTION_DEBUG_HERO) then
+		--	print("IsCastingAbility " .. self:GetName() .. " " .. debugprint(ret))
+		--end
         return ret 
     end
 	bot.GetNextItemPurchaseValue = function(self)

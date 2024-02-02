@@ -204,30 +204,16 @@ function ConsiderR(bot)
     local CastRange = abilityR:GetCastRange()
     local Damage = abilityR:GetAbilityDamage()
      
-    --try to kill enemy hero
-    if not bot:HasScepter() then
-        if modeName ~= "retreat" or #gHeroVar.GetNearbyEnemies( bot, 1500 ) == 0 then
-            local enemies = GetUnitList(UNIT_LIST_ENEMY_HEROES)
-            local WeakestEnemy, HeroHealth = utils.GetWeakestHero(bot, CastRange, enemies)
-            
-            if utils.ValidTarget(WeakestEnemy) then
-                if not utils.IsTargetMagicImmune(WeakestEnemy) then
-                    if HeroHealth < GetActualIncomingDamage(WeakestEnemy, Damage, DAMAGE_TYPE_MAGICAL) then
-                        return BOT_ACTION_DESIRE_VERYHIGH+0.01, WeakestEnemy
-                    end
+    if modeName ~= "retreat" or #gHeroVar.GetNearbyEnemies( bot, 1500 ) == 0 then
+        local enemies = bot:GetUnitList(UNIT_LIST_ENEMY_HEROES)
+        local WeakestEnemy, HeroHealth = utils.GetWeakestHero(bot, CastRange, enemies)
+        
+        if utils.ValidTarget(WeakestEnemy) then
+            if not utils.IsTargetMagicImmune(WeakestEnemy) then
+                if HeroHealth < GetActualIncomingDamage(WeakestEnemy, Damage, DAMAGE_TYPE_MAGICAL) then
+                    return BOT_ACTION_DESIRE_VERYHIGH+0.01, WeakestEnemy
                 end
             end
-        end
-    else
-        if modeName ~= "retreat" or #gHeroVar.GetNearbyEnemies( bot, 1500 ) == 0 then
-            local Radius = abilityR:GetSpecialValueFor( "scepter_radius" )
-            local CritMultiplier = abilityR:GetSpecialValueFor( "scepter_crit_bonus" )/100.0
-            -- TODO: Technically the kills are not guaranteed as I don't think FindAoELocation takes armor/magic-resistance into consideration
-            -- NOTE: Aghs Assassinate is PHYSICAL DAMAGE
-            local locationAoE = bot:FindAoELocation( true, true, bot:GetLocation(), CastRange, Radius, abilityR:GetCastPoint(), CritMultiplier*Damage )
-            if locationAoE.count >= 1 then
-				return BOT_ACTION_DESIRE_VERYHIGH+0.01, locationAoE.targetloc
-			end
         end
     end
     

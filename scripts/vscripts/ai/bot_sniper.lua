@@ -27,10 +27,10 @@ local TALENT7 = heroData.sniper.TALENT_6
 local TALENT8 = heroData.sniper.TALENT_7
 
 local AbilityPriority = {
-    SKILL_W,    SKILL_E,    SKILL_Q,    SKILL_Q,    SKILL_Q,
-    SKILL_R,    SKILL_Q,    SKILL_E,    SKILL_E,    TALENT2,
-    SKILL_E,    SKILL_R,    SKILL_W,    SKILL_W,    TALENT3,
-    SKILL_W,    SKILL_R,    TALENT6,    TALENT8
+    SKILL_W,    SKILL_Q,    SKILL_Q,    SKILL_E,    SKILL_E,
+    SKILL_R,    SKILL_W,    SKILL_W,    SKILL_W,    SKILL_E,
+    SKILL_R,    SKILL_E,    SKILL_Q,    SKILL_Q,    TALENT2,
+    SKILL_R,    TALENT3,    TALENT6,    TALENT8
 }
 
 local botSniper = dt:new()
