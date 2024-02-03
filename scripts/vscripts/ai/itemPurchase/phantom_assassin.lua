@@ -17,28 +17,25 @@ generic.ItemsToBuyAsHardCarry = {
 	UtilityItems = {
 	},
 	CoreItems = {
-        "item_boots",
-		"item_bfury_datadriven",
-		"item_power_treads_agi",
-		"item_lifesteal_datadriven",
+        "item_phase_boots",
+		"item_vladmir_2",
 		"item_basher",
         "item_black_king_bar_datadriven",
         "item_abyssal_blade",
-		"item_satanic_datadriven"
 	},
 	ExtensionItems = {
 		OffensiveItems = {
 			"item_assault",
-            "item_boots_of_travel",
             "item_monkey_king_bar_datadriven"
 		},
 		DefensiveItems = {
             "item_skadi_datadriven",
-			"item_ultimate_scepter",
 			"item_heart_datadriven"
 		}
 	},
     SellItems = {
+        "item_stout_shield",
+		"item_quelling_blade_lua"
     }
 }
 

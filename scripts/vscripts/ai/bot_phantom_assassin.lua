@@ -34,9 +34,9 @@ local TALENT8 = heroData.phantom_assassin.TALENT_7
 
 local AbilityPriority = {
     SKILL_Q,    SKILL_W,    SKILL_Q,    SKILL_E,    SKILL_Q,
-    SKILL_R,    SKILL_Q,    SKILL_E,    SKILL_E,    TALENT2,
-    SKILL_E,    SKILL_R,    SKILL_W,    SKILL_W,    TALENT3,
-    SKILL_W,    SKILL_R,    TALENT6,    TALENT7
+    SKILL_R,    SKILL_Q,    SKILL_W,    SKILL_W,    SKILL_W,
+    SKILL_R,    SKILL_E,    SKILL_E,    SKILL_E,    TALENT1,
+    SKILL_R,    SKILL_3,    TALENT6,    TALENT7
 }
 
 local botPA = dt:new()
@@ -69,6 +69,10 @@ function paBot:DoHeroSpecificInit(bot)
 end
 
 function Think(bot)
+    if bot:HasModifier("modifier_phantom_strike_datadriven") and IsValidEntity(bot:GetTarget()) then
+        bot:Action_AttackUnit(bot:GetTarget(), false)
+        return
+    end
     paBot:Think(bot)
 end
 

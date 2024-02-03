@@ -51,7 +51,7 @@ function ConsiderQ(bot)
 	if modeName ~= "retreat" or (modeName == "retreat" and bot.SelfRef:getCurrentModeValue() < BOT_MODE_DESIRE_VERYHIGH) then
 		if utils.ValidTarget(WeakestEnemy) then
 			if not modifiers.IsPhysicalImmune(WeakestEnemy) then
-				if HeroHealth <= GetActualIncomingDamage(WeakestEnemy, daggerDamage / 2, DAMAGE_TYPE_PHYSICAL) then
+				if HeroHealth <= GetActualIncomingDamage(WeakestEnemy, daggerDamage / 2, DAMAGE_TYPE_PURE) then
 					return BOT_ACTION_DESIRE_HIGH, WeakestEnemy
 				end
 			end
@@ -123,42 +123,13 @@ function ConsiderW(bot)
 		if utils.ValidTarget(WeakestEnemy) then
 			if not modifiers.IsPhysicalImmune(WeakestEnemy) then
 				if HeroHealth <= GetActualIncomingDamage(WeakestEnemy, totalAttackDamage, DAMAGE_TYPE_PHYSICAL) then
+                    setHeroVar(bot, "Target", WeakestEnemy)
 					return BOT_ACTION_DESIRE_HIGH, WeakestEnemy
 				end
 			end
 		end
 	end
 
-    --phantom_assassin_phantom_strike to roshan
-    if modeName == "roshan" then
-        if GetUnitToLocationDistance(bot, utils.ROSHAN) < 600 then
-            local eCreep = gHeroVar.GetNearbyEnemyCreep(bot, 600)
-            local roshan = nil
-            for _, creep in pairs(eCreep) do
-                if utils.ValidTarget(creep) and creep:GetUnitName() == "npc_dota_roshan" then
-                    roshan = creep
-                    break
-                end
-            end
-            if utils.ValidTarget(roshan) then
-                return BOT_ACTION_DESIRE_LOW, roshan
-            end
-        end
-    end
-
-    --[[
-    --phantom_assassin_phantom_strike to farm, pushlane, defendlane
-    if (modeName == "jungling" and ManaPerc > 0.5) or
-       (modeName == "defendlane" and ManaPerc > 0.3) or
-       (modeName == "pushlane" and ManaPerc > 0.25) then
-        local eCreep = gHeroVar.GetNearbyEnemyCreep(bot, phantomStrikeCastRange)
-        table.sort(eCreep, function(n1,n2) return n1:GetHealth() > n2:GetHealth() end)
-        if utils.ValidTarget(eCreep[1]) then
-            return BOT_ACTION_DESIRE_LOW, eCreep[1]
-        end
-    end
-    --]]
-    
     -- If we're going after someone
 	if modeName == "roam" or modeName == "defendally" or modeName == "fight" then
 		local npcEnemy = getHeroVar(bot, "RoamTarget")
@@ -170,7 +141,7 @@ function ConsiderW(bot)
 	end
     
     --phantom_assassin_phantom_strike to escape
-    if modeName == "retreat" or modeName == "shrine" then
+    if modeName == "retreat" then
         local nearAllies = gHeroVar.GetNearbyAllies(bot, phantomStrikeCastRange + 100)
         local nearAlliedCreep = gHeroVar.GetNearbyAlliedCreep(bot, phantomStrikeCastRange + 100)
         local combinedList = { unpack(nearAllies), unpack(nearAlliedCreep) }
@@ -230,7 +201,7 @@ function genericAbility:AbilityUsageThink(bot)
         if utils.ValidTarget(enemy) and dmg > enemy:GetHealth() then
             local bKill = self:queueNuke(bot, enemy, castQueue, engageDist)
             if bKill then
-                setHeroVar("Target", enemy)
+                setHeroVar(bot, "Target", enemy)
                 return true
             end
         end
