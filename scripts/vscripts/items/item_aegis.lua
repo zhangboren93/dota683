@@ -33,6 +33,7 @@ function modifier_item_aegis_lua:OnDeath(event)
 	if not IsServer() then return end
 	local parent = self:GetParent()
 	if event.unit ~= parent then return end
+	if event.unit:GetModelName() == "models/creeps/roshan/roshan.vmdl" then return end
 	local aegis = parent:FindItemInInventory("item_aegis_lua")
 	if aegis ~= nil then
 		parent:RemoveItem(aegis)

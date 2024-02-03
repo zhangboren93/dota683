@@ -64,6 +64,7 @@ function Activate()
 	LinkLuaModifier( "modifier_item_aegis_regen_lua", 	   "items/item_aegis.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sentry_ward_reveal_invis_aura_lua", "modifiers/modifier_sentry_ward_reveal_invis_aura.lua", LUA_MODIFIER_MOTION_NONE)
 
+	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_fountain_aura_buff_lua", "modifiers/modifier_fountain_aura_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -1016,6 +1017,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:GetName() == "npc_dota_tusk_frozen_sigil" then
 		entity:FindAbilityByName("tusk_frozen_sigil_aura_datadriven"):SetLevel(
 			entity:GetOwner():FindAbilityByName("tusk_frozen_sigil"):GetLevel())
+		entity:AddNewModifier(entity, entity, "modifier_counter_healthbar", {})
 	end
 	if entity:HasAbility("pugna_nether_ward_aura_datadriven") then
 		entity:FindAbilityByName("pugna_nether_ward_aura_datadriven"):SetLevel(
@@ -1762,6 +1764,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				event.damage = (attacker:GetIntellect() * 2 + 75) * (1 - victim:Script_GetMagicalArmorValue(false, attacker))
 			end
 			--print("Etheral damage " .. event.damage)
+		elseif inflictor:GetName() == "death_prophet_exorcism" and victim:IsBuilding() then
+			event.damage = event.damage * 2
 		elseif inflictor:GetName() == "phoenix_sun_ray" then
 			event.damage = event.damage / (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
 		elseif inflictor:GetName() == "earth_spirit_rolling_boulder" and event.damage > 0 then

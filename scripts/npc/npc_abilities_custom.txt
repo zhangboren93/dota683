@@ -19428,7 +19428,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.2"
+		"AbilityCastPoint"				"0.5"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -19436,11 +19436,11 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"100 175 250 300"
+		"AbilityDamage"					"75 150 225 300"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"105 125 140 165"		
+		"AbilityManaCost"				"105 120 140 165"		
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -19480,7 +19480,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"135.0"
+		"AbilityCooldown"				"145.0"
 		"AbilityDuration"				"30"
 
 		// Cost
@@ -19497,14 +19497,14 @@
 					"value"					"4 12 21"
 					"LinkedSpecialBonus"	"special_bonus_unique_death_prophet"
 				}
-				"spirit_speed"			"525"
+				"spirit_speed"			"500"
 				"max_distance"			"2000 2000 2000"
 				"give_up_distance"		"1200 1200 1200"
 				"min_damage"			"53"
 				"max_damage"			"58"
 				"heal_percent"			"25 25 25"
-				"average_damage"		"56"
-				"ghost_spawn_rate"	"0.35"
+				"average_damage"		"55"
+				"ghost_spawn_rate"		"0.1"
 				"scepter_movespeed_slow"
 				{
 					"value"				"0"
@@ -19544,7 +19544,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_movement_speed"	"4 8 12 16"
+				"bonus_movement_speed"	"5 10 15 20"
 				"carrion_swarm_mana_cost_adjust"	"-10 -15 -20 -25"
 				"carrion_swarm_cooldown_adjust"		"-1.0 -2.0 -3.0 -4.0"
 				"silence_mana_cost_adjust"			"-10 -15 -20 -25"
@@ -28558,7 +28558,8 @@
 
 				"States"
 				{
-					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED" 
+					"MODIFIER_STATE_INVISIBLE"			"MODIFIER_STATE_VALUE_ENABLED" 
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED" 
 				}
 	
 				"OnDestroy"
