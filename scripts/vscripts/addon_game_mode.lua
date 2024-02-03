@@ -1766,7 +1766,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			--print("Etheral damage " .. event.damage)
 		elseif inflictor:GetName() == "death_prophet_exorcism" and victim:IsBuilding() then
 			event.damage = event.damage * 2
-			print("damage increased")
 		elseif inflictor:GetName() == "phoenix_sun_ray" then
 			event.damage = event.damage / (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
 		elseif inflictor:GetName() == "earth_spirit_rolling_boulder" and event.damage > 0 then
