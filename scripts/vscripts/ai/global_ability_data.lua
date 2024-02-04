@@ -161,3 +161,14 @@ HERO_ABILITY_POWER["luna_lucent_beam"] = {
 HERO_ABILITY_POWER["luna_eclipse"] = {
 	mdamagepl = {520, 600, 600}
 }
+
+HERO_ABILITY_POWER["necrolyte_death_pulse"] = {
+	mdamage = "AbilityDamage"
+}
+HERO_ABILITY_POWER["necrolyte_heartstopper_aura_datadriven"] = {
+	mdpspl = {6, 9, 12, 15}
+}
+HERO_ABILITY_POWER["necrolyte_reapers_scythe"] = {
+	stun = "stun_duration",
+	mdamagepl = {200, 300, 450}
+}

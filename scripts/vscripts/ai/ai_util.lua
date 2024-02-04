@@ -130,6 +130,9 @@ BOT_MODE_ATTACK = "fight"
 BOT_MODE_DEFEND_ALLY = "defendally"
 BOT_MODE_ROAM = "roam"
 BOT_MODE_LANING = "laning"
+BOT_MODE_PUSH_LANE = "pushlane"
+BOT_MODE_DEFEND_LANE = "defendlane"
+BOT_MODE_RETREAT = "retreat"
 
 ACTION_DEBUG_HERO = "invalid"
 local function debugprint(ret)
