@@ -153,3 +153,11 @@ HERO_ABILITY_POWER["bristleback_viscous_nasal_goo"] = {
 HERO_ABILITY_POWER["bristleback_quill_spray"] = {
 	pdamagepl = {80, 105, 130, 150}
 }
+
+HERO_ABILITY_POWER["luna_lucent_beam"] = {
+	mdamage = "beam_damage",
+	stun = "stun_duration"
+}
+HERO_ABILITY_POWER["luna_eclipse"] = {
+	mdamagepl = {520, 600, 600}
+}

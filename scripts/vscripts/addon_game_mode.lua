@@ -482,7 +482,7 @@ function CAddonTemplateGameMode:OnThink()
 				"npc_dota_hero_bristleback",
 				"npc_dota_hero_viper",
 				"npc_dota_hero_crystal_maiden",
-				"npc_dota_hero_drow_ranger",
+				"npc_dota_hero_luna",
 				"npc_dota_hero_phantom_assassin",
 				"npc_dota_hero_skeleton_king",
 				"npc_dota_hero_sniper"
@@ -492,8 +492,8 @@ function CAddonTemplateGameMode:OnThink()
 			-- pick 5 random hero to play
 
 		--	local botHero = GameRules:AddBotPlayerWithEntityScript(
-		--		"npc_dota_hero_sniper", "Dire Bot 0", DOTA_TEAM_BADGUYS, 
-		--		"ai/bot_sniper.lua", true)
+		--		"npc_dota_hero_luna", "Dire Bot 0", DOTA_TEAM_BADGUYS, 
+		--		"ai/bot_luna.lua", true)
 		--	botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
 		--	FindClearSpaceForUnit(botHero, Vector(7022, 6346, 512), true)
 
