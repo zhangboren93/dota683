@@ -34,10 +34,10 @@ local TALENT7 = heroData.crystal_maiden.TALENT_6
 local TALENT8 = heroData.crystal_maiden.TALENT_7
 
 local AbilityPriority = {
-    SKILL_W,    SKILL_E,    SKILL_E,    SKILL_Q,    SKILL_Q,
-    SKILL_R,    SKILL_Q,    SKILL_Q,    SKILL_E,    TALENT2,
-    SKILL_E,    SKILL_R,    SKILL_W,    SKILL_W,    TALENT4,
-    SKILL_W,    SKILL_R,    TALENT6,    TALENT7
+    SKILL_Q,    SKILL_W,    SKILL_E,    SKILL_Q,    SKILL_E,
+    SKILL_R,    SKILL_Q,    SKILL_Q,    SKILL_E,    SKILL_E,
+    SKILL_R,    SKILL_W,    SKILL_W,    SKILL_W, 	TALENT2,
+    SKILL_R,    TALENT4,    TALENT6,    TALENT7
 }
 
 local botCM = dt:new()

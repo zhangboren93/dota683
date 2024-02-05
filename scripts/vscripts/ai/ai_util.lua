@@ -318,20 +318,24 @@ function SetBot(bot)
     end
     bot.IsCastingAbility = function(self)
 		local ret = false
+		if bot:IsChanneling() then
+			return true
+		end
 		if self.lastActionAbilityTime ~= nil then
+			if self.lastActionAbilityTime < GameRules:GetGameTime() - 3 then
+				return false
+			end
 			if bit.band(self.lastActionAbility:GetBehavior(), DOTA_ABILITY_BEHAVIOR_ATTACK) ~= 0 then
 				if self.lastAttackTime == nil then
 					ret = true
 				else
-					ret = (self.lastActionAbilityTime >= self.lastAttackTime
-						or self.lastActionAbilityTime < GameRules:GetGameTime() - 3)
+					ret = self.lastActionAbilityTime >= self.lastAttackTime
 				end
 			else
 				if self.lastAbilityCastTime == nil then
 					ret = true
 				else
-					ret = (self.lastActionAbilityTime >= self.lastAbilityCastTime
-						or self.lastActionAbilityTime < GameRules:GetGameTime() - 3)
+					ret = self.lastActionAbilityTime >= self.lastAbilityCastTime
 				end
 			end
 		end

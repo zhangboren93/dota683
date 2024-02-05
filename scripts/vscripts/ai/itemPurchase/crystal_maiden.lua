@@ -11,33 +11,28 @@ local generic = dofile( GetScriptDirectory().."/itemPurchase/generic" )
 generic.ItemsToBuyAsSupport = {
 	StartingItems = {
 		"item_tango",
-		"item_flask",
-		"item_clarity",
-		"item_clarity",
-		"item_branches",
-		"item_branches"
+		"item_null_talisman_datadriven",
 	},
 	UtilityItems = {
-        "item_ward_sentry",
-        "item_dust"
 	},
 	CoreItems = {
 		"item_tranquil_boots_datadriven",
 		"item_magic_wand",
 		"item_force_staff",
 		"item_ultimate_scepter",
-		"item_blink"
+		"item_black_king_bar_datadriven"
 	},
 	ExtensionItems = {
 		OffensiveItems = {
-            "item_black_king_bar"
+			"item_sheepstick"
 		},
 		DefensiveItems = {
+			"item_heart"
 		}
 	},
     SellItems = {
-        "item_branches",
-        "item_branches",
+		"item_null_talisman_datadriven",
+		"item_magic_wand"
     }
 }
 

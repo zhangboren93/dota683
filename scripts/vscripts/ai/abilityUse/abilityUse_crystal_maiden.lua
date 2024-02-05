@@ -37,103 +37,10 @@ local ManaPerc      = 0.0
 local modeName      = nil
 
 function cmAbility:nukeDamage( bot, enemy )
-    if not utils.ValidTarget(enemy) then return 0, {}, 0, 0, 0 end
-
-    local comboQueue = {}
-    local manaAvailable = bot:GetMana()
-    local dmgTotal = 0
-    local castTime = 0
-    local stunTime = 0
-    local slowTime = 0
-    local engageDist = 10000
-
-    local magicImmune = utils.IsTargetMagicImmune(enemy)
-
-    -- Check Crystal Nova
-    if abilityQ:IsFullyCastable() then
-        local manaCostQ = abilityQ:GetManaCost(-1)
-        if manaCostQ <= manaAvailable then
-            if not magicImmune then
-                manaAvailable = manaAvailable - manaCostQ
-                dmgTotal = dmgTotal + GetActualIncomingDamage(enemy, abilityQ:GetSpecialValueFor("nova_damage"), DAMAGE_TYPE_MAGICAL)
-                castTime = castTime + abilityQ:GetCastPoint()
-                slowTime = slowTime + abilityQ:GetSpecialValueFor("duration")
-                engageDist = Min(engageDist, abilityQ:GetCastRange())
-                table.insert(comboQueue, 1, abilityQ)
-            end
-        end
-    end
-
-    -- Check Frostbite
-    if abilityW:IsFullyCastable() then
-        local manaCostW = abilityW:GetManaCost(-1)
-        if manaCostW <= manaAvailable then
-            if not magicImmune then
-                manaAvailable = manaAvailable - manaCostW
-                dmgTotal = dmgTotal + GetActualIncomingDamage(enemy, abilityW:GetSpecialValueFor("hero_damage_tooltip"), DAMAGE_TYPE_MAGICAL)
-                castTime = castTime + abilityW:GetCastPoint()
-                stunTime = stunTime + abilityW:GetSpecialValueFor("duration")
-                engageDist = Min(engageDist, abilityW:GetCastRange())
-                table.insert(comboQueue, 1, abilityW)
-            end
-        end
-    end
-
-    -- Check Freezing Field
-    if abilityR:IsFullyCastable() then
-        local manaCostR = abilityR:GetManaCost(-1)
-        if manaCostR <= manaAvailable then
-            if not magicImmune then
-                manaAvailable = manaAvailable - manaCostR
-
-                local distToEdgeOfField = 835 - GetUnitToUnitDistance(bot, enemy)
-                -- "movespeed_slow"	"-30"
-                local timeInField = 0
-                if distToEdgeOfField > 0 then timeInField = math.min(distToEdgeOfField/(GetCurrentMovementSpeed(enemy)-30), 10) end
-                if timeInField < 0 then timeInField = 0 end
-
-                dmgTotal = dmgTotal + GetActualIncomingDamage(enemy, abilityR:GetSpecialValueFor("damage")*timeInField, DAMAGE_TYPE_MAGICAL)
-                castTime = castTime + abilityR:GetCastPoint()
-                slowTime = slowTime + abilityR:GetSpecialValueFor("slow_duration")
-                engageDist = Min(engageDist, 835)
-                table.insert(comboQueue, abilityR)
-            end
-        end
-    end
-
-    return dmgTotal, comboQueue, castTime, stunTime, slowTime, engageDist
+    return 0, {}, 0, 0, 0
 end
 
 function cmAbility:queueNuke(bot, enemy, castQueue, engageDist)
-    if not utils.ValidTarget(enemy) then return false end
-    
-    local dist = GetUnitToUnitDistance(bot, enemy)
-
-    -- if out of range, attack move for one hit to get in range
-    if dist < engageDist then
-        bot:Action_ClearActions(false)
-        utils.AllChat("Killing "..utils.GetHeroName(enemy).." softly with my song")
-        utils.myPrint("Queue Nuke Damage: ", utils.GetHeroName(enemy))
-        for i = #castQueue, 1, -2 do
-            local skill = castQueue[i]
-            local behaviorFlag = skill:GetBehavior()
-
-            --utils.myPrint(" - skill '", skill:GetName(), "' has BehaviorFlag: ", behaviorFlag)
-
-            if skill:GetName() == Abilities[1] then
-                if utils.IsCrowdControlled(enemy) then
-                    gHeroVar.HeroPushUseAbilityOnLocation(bot, skill, enemy:GetLocation())
-                else
-                    gHeroVar.HeroPushUseAbilityOnLocation(bot, skill, GetExtrapolatedLocation(enemy, 0.3))
-                end
-            elseif skill:GetName() == Abilities[2] then
-                gHeroVar.HeroPushUseAbilityOnEntity(bot, skill, enemy)
-            elseif skill:GetName() == Abilities[4] then
-                gHeroVar.HeroPushUseAbility(bot, skill)
-            end
-        end
-        return true
-    end
     return false
 end
 
@@ -237,7 +144,7 @@ function ConsiderQ(bot)
     local nearbyAlliedHeroes = gHeroVar.GetNearbyAllies(bot, 1000)
     local coreNear = false
     for _, ally in pairs(nearbyAlliedHeroes) do
-        if not ally:IsIllusion() and utils.IsCore(ally) then
+        if not ally:IsIllusion() and utils.IsCore(ally) and ally ~= bot then
             coreNear = true
             break
         end
@@ -245,16 +152,16 @@ function ConsiderQ(bot)
     
 	-- farming/laning
 	if modeName == "jungling" or modeName == "laning" then
-		if ManaPerc > 0.4 and not coreNear then
+		if ManaPerc > 0.5 and not coreNear then
 			local locationAoE = bot:FindAoELocation( true, false, bot:GetLocation(), CastRange, Radius, 0, Damage )
 
-			if locationAoE.count >= 2 and GetUnitToLocationDistance(bot, locationAoE.targetloc) <= CastRange then
+			if locationAoE.count >= 1 and GetUnitToLocationDistance(bot, locationAoE.targetloc) <= CastRange then
 				return BOT_ACTION_DESIRE_LOW, locationAoE.targetloc
 			end
 		end
 		
         -- if we can hit 2+ enemies do it
-		if ManaPerc > 0.4 and abilityQ:GetLevel() >= 2 then
+		if ManaPerc > 0.5 and abilityQ:GetLevel() >= 2 then
 			local locationAoE = bot:FindAoELocation( true, true, bot:GetLocation(), CastRange, Radius, 0, 0 )
 			if locationAoE.count >= 2 and GetUnitToLocationDistance(bot, locationAoE.targetloc) <= CastRange then
 				return BOT_ACTION_DESIRE_LOW, locationAoE.targetloc
@@ -305,7 +212,7 @@ function ConsiderW(bot)
     end
     
     local CastRange = abilityW:GetCastRange()
-    local Damage    = abilityW:GetSpecialValueFor("hero_damage_tooltip")
+    local Damage    = abilityW:GetSpecialValueFor("damage_per_second") * abilityW:GetSpecialValueFor("duration")
 
     --------------------------------------
 	-- Global high-priorty usage
@@ -425,7 +332,7 @@ function ConsiderR(bot)
         return BOT_ACTION_DESIRE_NONE
     end
 
-	local Radius    = abilityR:GetAOERadius()
+	local Radius    = abilityR:GetSpecialValueFor("radius")
 
 	--------------------------------------
 	-- Global high-priorty usage
