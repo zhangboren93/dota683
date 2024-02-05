@@ -1700,6 +1700,7 @@
 		"DOTA_Tooltip_modifier_mana_leak_datadriven"				"法力流失"
 		"DOTA_Tooltip_modifier_mana_leak_datadriven_Description"	"移动时流失魔法值。"
 		// Leshrac
+		"DOTA_Tooltip_Ability_leshrac_diabolic_edict_Description"	"使拉席克周围的区域充满魔法爆炸，对敌方单位和建筑造成物理伤害。范围内的敌人越少，他们受到的伤害就越大。对防御塔额外造成%tower_bonus%%%的伤害。持续%abilityduration%秒。"
 		"DOTA_Tooltip_Ability_leshrac_pulse_nova_Scepter_Description"			"提高每秒伤害。"
 		//Lich
 		"DOTA_Tooltip_ability_lich_frost_armor_2"								"霜冻护甲"
