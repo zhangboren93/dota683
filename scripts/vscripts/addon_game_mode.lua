@@ -40,6 +40,18 @@ function Precache( context )
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/custom_sounds.vsndevts", context)
+	if GetMapName() == "vsbot" then
+		-- cache sound for all bot heroes
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts", context)
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_bristleback.vsndevts", context)
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_crystal_maiden.vsndevts", context)
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts", context)
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts", context)
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts", context)
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_skeleton_king.vsndevts", context)
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts", context)
+	end
 end
 
 -- Create the game mode when we activate
@@ -479,7 +491,7 @@ function CAddonTemplateGameMode:OnThink()
 			local botHeroPool = {
 				"npc_dota_hero_abaddon",
 				"npc_dota_hero_bristleback",
-				"npc_dota_hero_viper",
+				"npc_dota_hero_ogre_magi",
 				"npc_dota_hero_crystal_maiden",
 				"npc_dota_hero_luna",
 				"npc_dota_hero_necrolyte",
@@ -492,8 +504,8 @@ function CAddonTemplateGameMode:OnThink()
 			-- pick 5 random hero to play
 
 		--	local botHero = GameRules:AddBotPlayerWithEntityScript(
-		--		"npc_dota_hero_necrolyte", "Dire Bot 0", DOTA_TEAM_BADGUYS, 
-		--		"ai/bot_necrolyte.lua", true)
+		--		"npc_dota_hero_ogre_magi", "Dire Bot 0", DOTA_TEAM_BADGUYS, 
+		--		"ai/bot_ogre_magi.lua", true)
 		--	botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
 		--	FindClearSpaceForUnit(botHero, Vector(7022, 6346, 512), true)
 

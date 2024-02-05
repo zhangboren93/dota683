@@ -172,3 +172,17 @@ HERO_ABILITY_POWER["necrolyte_reapers_scythe"] = {
 	stun = "stun_duration",
 	mdamagepl = {200, 300, 450}
 }
+
+HERO_ABILITY_POWER["ogre_magi_fireblast"] = {
+	stun = "stun_duration",
+	mdamage = "fireblast_damage"
+}
+HERO_ABILITY_POWER["ogre_magi_unrefined_fireblast"] = {
+	stun = "stun_duration",
+	mdamage = "fireblast_damage"
+}
+HERO_ABILITY_POWER["ogre_magi_ignite_datadriven"] = {
+	slow = "duration",
+	mdps = "burn_damage",
+	duration = "duration"
+}

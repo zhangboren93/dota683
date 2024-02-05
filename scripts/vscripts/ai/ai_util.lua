@@ -568,6 +568,9 @@ function SetBot(bot)
 	bot.GetTarget = function(self)
 		return getHeroVar(self, "Target")
 	end
+	bot.GetNearbyHeroes = function(self, range, enemy, mode) return GetNearbyHeroes(self, range, enemy, mode) end
+	bot.GetNearbyCreeps = function(self, range, enemy) return GetNearbyCreeps(self, range, enemy) end
+	bot.WasRecentlyDamagedByHero = function(self, hero, time) return WasRecentlyDamagedByHero(self, hero, time) end
 end
 
 function GetGameState()
