@@ -197,10 +197,10 @@ function X:Think(bot)
     end
 
     -- check if jungle respawn timer was hit to repopulate our table
-    jungle_status.checkSpawnTimer(bot)
+    --jungle_status.checkSpawnTimer(bot)
     
     -- use courier if needed (TO BE REPLACED BY TEAM LEVEL COURIER CONTROLS)
-    utils.CourierThink(bot)
+    --utils.CourierThink(bot)
 
     -- update our global enemy info cache
     enemyInfo.BuildEnemyList(bot)

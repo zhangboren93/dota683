@@ -140,15 +140,15 @@ function X.TeamThink(bot)
     -- their only responsibility will be to do those actions. Note,
     -- heroes with Global skills (Invoker Sun Strike, Zeus Ult, etc.)
     -- can be part of this without actually being present in the area.
-    team_think.ConsiderTeamFightAssignment(playerActionQueues)
+    --team_think.ConsiderTeamFightAssignment(playerActionQueues)
     
     -- Determine which lanes should be pushed and which Heroes should
     -- be part of the push.
-    team_think.ConsiderTeamLanePush()
+    --team_think.ConsiderTeamLanePush()
     
     -- Determine which lanes should be defended and which Heroes should
     -- be part of the defense.
-    team_think.ConsiderTeamLaneDefense(bot)
+    --team_think.ConsiderTeamLaneDefense(bot)
     
     -- Determine which hero (based on their role) should farm where. By
     -- default it is best to probably leave their default lane assignment,
@@ -180,17 +180,17 @@ function X.HeroThink(bot)
     -- Consider incoming projectiles or nearby AOE and if we can evade.
     -- This is of highest importance b/c if we are stunned/disabled we 
     -- cannot do any of the other actions we might be asked to perform.
-    evaluatedDesireValue = hero_think.ConsiderEvading(bot)
-    if evaluatedDesireValue > highestDesireValue then
-        highestDesireValue = evaluatedDesireValue
-        highestDesireMode = evasionMode
-    end
+    --evaluatedDesireValue = hero_think.ConsiderEvading(bot)
+    --if evaluatedDesireValue > highestDesireValue then
+    --    highestDesireValue = evaluatedDesireValue
+    --    highestDesireMode = evasionMode
+    --end
     
     -- If we really want to evade ( >= 0.9 ); short-circuit 
     -- consideration of other modes for better performance.
-    if evaluatedDesireValue >= BOT_MODE_DESIRE_VERYHIGH then
-        return highestDesireMode, highestDesireValue
-    end
+    --if evaluatedDesireValue >= BOT_MODE_DESIRE_VERYHIGH then
+    --    return highestDesireMode, highestDesireValue
+    --end
     
     -- Fight orchestration is done at a global Team level.
     -- This just checks if we are given a fight target and a specific
@@ -256,15 +256,15 @@ function X.HeroThink(bot)
         highestDesireMode = defendAllyMode
     end
     
-    ---- Roaming decision are made at the Team level to keep all relevant
-    ---- heroes informed of the upcoming kill opportunity. 
-    ---- This just checks if this Hero is part of the Gank.
+    -- Roaming decision are made at the Team level to keep all relevant
+    -- heroes informed of the upcoming kill opportunity. 
+    -- This just checks if this Hero is part of the Gank.
     --evaluatedDesireValue = hero_think.ConsiderRoam(bot)
     --if evaluatedDesireValue > highestDesireValue then
     --    highestDesireValue = evaluatedDesireValue
     --    highestDesireMode = roamMode
     --end
-    
+    --
     ---- The decision if and who should get Rune is made Team wide.
     ---- This just checks if this Hero should get it.
     --evaluatedDesireValue = hero_think.ConsiderRune(bot, X.getPlayerAssignment(bot))

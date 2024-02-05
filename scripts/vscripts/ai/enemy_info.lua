@@ -87,8 +87,7 @@ function EnemyInfo.BuildEnemyList(bot)
                                 
                                 -- can enemy go invis
                                 -- TODO: account for abilities
-                                if sItemName == "item_invis_sword" or sItemName == "item_silver_edge" or
-                                    sItemName == "item_glimmer_cape" or sItemName == "item_shadow_amulet" then
+                                if sItemName == "item_invis_sword" or sItemName == "item_shadow_amulet" then
                                 else
                                     EnemyInfo[pid].CanGoInvis = false
                                 end

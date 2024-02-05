@@ -129,7 +129,7 @@ function UseRegenItems(bot)
         if tango then
             if (bot:GetMaxHealth()-bot:GetHealth()) > 200 and not bot:HasModifier("modifier_tango_heal") then
                 local tree = utils.GetNearestTree(bot)
-                if tree ~= nil then
+                if tree ~= nil and bot:GetActiveMode() == 'laning' then
                     gHeroVar.HeroUseAbilityOnTree(bot, tango, tree)
                     return true
                 end

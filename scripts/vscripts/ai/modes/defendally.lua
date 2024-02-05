@@ -43,8 +43,7 @@ local function GetDefendeesTarget(bot, range)
     for _, ally in pairs(nearAllies) do
         if not ally:IsIllusion() and not ally:IsControllableByAnyPlayer() and gHeroVar.HasID(ally:GetPlayerID()) then
             if GetUnitToUnitDistance(bot, ally) <= range and
-            (ally.SelfRef:getCurrentMode():GetName() == "retreat" or 
-             ally.SelfRef:getCurrentMode():GetName() == "shrine") then
+            (ally.SelfRef:getCurrentMode():GetName() == "retreat") then
                 table.insert(alliesNeedingHelp, ally)
             end
         end
