@@ -1690,6 +1690,7 @@
 		"DOTA_Tooltip_modifier_mana_leak_datadriven"				"Mana Leak"
 		"DOTA_Tooltip_modifier_mana_leak_datadriven_Description"	"Losing mana as you move."
 		// Leshrac
+		"DOTA_Tooltip_Ability_leshrac_diabolic_edict_Description"	"Saturates the area around Leshrac with magical explosions that deal physical damage to enemy units and structures.  The fewer units available to attack, the more damage those units will take.  Deals %tower_bonus%%% more damage to towers. Lasts %abilityduration% seconds."
 		"DOTA_Tooltip_Ability_leshrac_pulse_nova_Scepter_Description"			"Increases damage per second."
 		//Lich
 		"DOTA_Tooltip_ability_lich_frost_armor_2"							"Ice Armor"

@@ -2,7 +2,6 @@
 <root>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/combat_events.css" />
-		<include src="s2r://panorama/styles/hud/dota_hud_combat_event_row.css" />
 	</styles>
 	<Panel class="combat_event_line">
 		<DOTAHeroImage id="killer_hero" class="hero" heroimagestyle="icon" />

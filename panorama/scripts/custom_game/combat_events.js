@@ -6,6 +6,7 @@ GameEvents.Subscribe("team_bounty_building_destroyed", OnTeamBountyBuildingDestr
 GameEvents.Subscribe("dota_buyback", OnBuyback);
 GameEvents.Subscribe("combat_event_roshan_killed", OnRoshanKilled);
 GameEvents.Subscribe("aegis_picked_up", OnAegisPickedUp);
+GameEvents.Subscribe("aegis_destroyed", OnAegisDestroyed);
 GameEvents.Subscribe("courier_killed", OnCourierKilled);
 GameEvents.Subscribe("player_rune_activated", OnPlayerRuneActivated);
 GameEvents.Subscribe("player_rune_denied", OnPlayerRuneDenied);
@@ -189,6 +190,29 @@ function OnAegisPickedUp(event) {
 	if (Players.GetTeam(kpid) != Players.GetTeam(Players.GetLocalPlayer())) {
 		newChildPanel.AddClass("combat_event_hostile");
 	} else {
+		newChildPanel.AddClass("combat_event_friendly");
+	}
+	let validUntil = Game.GetGameTime() + 10;
+	newChildPanel.SetAttributeInt("ValidUntil", Math.floor(validUntil));
+}
+
+function OnAegisDestroyed(event)
+{
+	let kpid = event.kpid
+	let parentPanel = $.GetContextPanel()
+	let newChildPanel = $.CreatePanel("Panel", parentPanel, "ap_" + kpid);
+	newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/combat_event_aegis_destroyed.xml", false, false);
+	newChildPanel.FindChildTraverse("killer_hero").heroname = Players.GetPlayerSelectedHero(kpid);
+	newChildPanel.FindChildTraverse("killer_player_name").text = Players.GetPlayerName(kpid);
+	if(parentPanel.GetChildCount() > 1)
+	{
+		parentPanel.MoveChildBefore(newChildPanel, parentPanel.GetChild(0));
+	}
+	if(Players.GetTeam(kpid) != Players.GetTeam(Players.GetLocalPlayer()))
+	{
+		newChildPanel.AddClass("combat_event_hostile");
+	} else
+	{
 		newChildPanel.AddClass("combat_event_friendly");
 	}
 	let validUntil = Game.GetGameTime() + 10;

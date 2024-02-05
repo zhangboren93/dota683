@@ -314,6 +314,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		end
 	end, nil)
 	ListenToGameEvent("dota_item_picked_up", function(event) HandleItemPickedUp(event.itemname, event.PlayerID)	end, nil)
+	ListenToGameEvent("dota_item_physical_destroyed", function(event) HandleItemDestroyed(event.itemname, event.HeroEntityIndex)	end, nil)
 	ListenToGameEvent("dota_ability_channel_finished", Dynamic_Wrap(CAddonTemplateGameMode, 'HandleChannelFinish'), self)
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
@@ -1710,7 +1711,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		if parent:GetTeam() == DOTA_TEAM_GOODGUYS then
 			fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		end
-		local new_ward = CreateUnitByName(new_unit_name, parent:GetAbsOrigin(), false, nil, nil, parent:GetTeam())
+		local new_ward = CreateUnitByName(new_unit_name, parent:GetAbsOrigin(), false, parent:GetOwner(), parent:GetOwner(), parent:GetTeam())
 		new_ward:AddNewModifier(fountain, nil, "modifier_kill", { duration = lifetime })
 		new_ward:AddNewModifier(fountain, nil, "modifier_invisible", {})
 		if is_sentry then
@@ -1778,6 +1779,10 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			--print("Etheral damage " .. event.damage)
 		elseif inflictor:GetName() == "death_prophet_exorcism" and victim:IsBuilding() then
 			event.damage = event.damage * 2
+		elseif inflictor:GetName() == "leshrac_diabolic_edict" then
+			local armor = victim:GetPhysicalArmorValue(false) * 0.06
+			event.damage = event.damage * (1 - armor / (1 + math.abs(armor)))
+			--event.damagetype_const = DAMAGE_TYPE_PHYSICAL
 		elseif inflictor:GetName() == "phoenix_sun_ray" then
 			event.damage = event.damage / (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
 		elseif inflictor:GetName() == "earth_spirit_rolling_boulder" and event.damage > 0 then
@@ -2124,6 +2129,13 @@ end
 function HandleItemPickedUp(itemname, playerid)
 	if itemname == "item_aegis_lua" then
 		CustomGameEventManager:Send_ServerToAllClients("aegis_picked_up", { kpid = playerid })
+	end
+end
+
+function HandleItemDestroyed(itemname, heroindex)
+	if itemname == "item_aegis_lua" then
+		local attacker = EntIndexToHScript(heroindex)
+		CustomGameEventManager:Send_ServerToAllClients("aegis_destroyed", { kpid = attacker:GetPlayerOwnerID() })
 	end
 end
 
