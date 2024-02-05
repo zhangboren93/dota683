@@ -107,3 +107,10 @@
 #streak {
 	font-weight: bold;
 }
+
+.AegisIcon {
+	width: 34px;
+	height: 25px;
+	background-image: url( "s2r://panorama/images/items/aegis_png.vtex");
+	background-size: 100%;
+}

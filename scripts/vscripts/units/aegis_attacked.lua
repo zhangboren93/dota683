@@ -1,9 +1,6 @@
 function handleAttack(event)
 	local target = event.target
 	local attacker = event.attacker
-	if target:GetClassname() == "dota_item_drop" and target:GetModelName() == "models/props_gameplay/aegis.vmdl" then
-		CustomGameEventManager:Send_ServerToAllClients("aegis_destroyed", {kpid = attacker:GetPlayerOwnerID()})
-	end
 	if target:GetClassname() == "dota_item_rune" then
 		local rune = DOTA_RUNE_INVALID
 		if target:GetModelName() == "models/props_gameplay/rune_doubledamage01.vmdl" then

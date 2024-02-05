@@ -302,6 +302,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		end
 	end, nil)
 	ListenToGameEvent("dota_item_picked_up", function(event) HandleItemPickedUp(event.itemname, event.PlayerID)	end, nil)
+	ListenToGameEvent("dota_item_physical_destroyed", function(event) HandleItemDestroyed(event.itemname, event.HeroEntityIndex)	end, nil)
 	ListenToGameEvent("dota_ability_channel_finished", Dynamic_Wrap(CAddonTemplateGameMode, 'HandleChannelFinish'), self)
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
@@ -2112,6 +2113,13 @@ end
 function HandleItemPickedUp(itemname, playerid)
 	if itemname == "item_aegis_lua" then
 		CustomGameEventManager:Send_ServerToAllClients("aegis_picked_up", { kpid = playerid })
+	end
+end
+
+function HandleItemDestroyed(itemname, heroindex)
+	if itemname == "item_aegis_lua" then
+		local attacker = EntIndexToHScript(heroindex)
+		CustomGameEventManager:Send_ServerToAllClients("aegis_destroyed", { kpid = attacker:GetPlayerOwnerID() })
 	end
 end
 
