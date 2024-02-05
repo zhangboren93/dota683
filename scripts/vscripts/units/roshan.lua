@@ -3,9 +3,6 @@ function handleIntervalThink(event)
 	caster:RemoveItem(caster:FindItemInInventory("item_aghanims_shard_roshan"))
 	caster:RemoveItem(caster:FindItemInInventory("item_ultimate_scepter_roshan"))
 	caster:RemoveItem(caster:FindItemInInventory("item_refresher_shard"))
-	if not caster:HasItemInInventory("item_aegis_lua") then
-		caster:AddItemByName("item_aegis_lua")
-	end
 	--print("roshanNo " .. caster.roshanNo)
 	if caster.roshanNo > 3 and not caster:HasItemInInventory("item_cheese") then
 		caster:AddItemByName("item_cheese")
@@ -37,6 +34,9 @@ function handleDeath(event)
 	for i=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_2 do
 		caster:DropItemAtPositionImmediate(caster:GetItemInSlot(i), caster:GetAbsOrigin())
 	end
+	-- Drop aegis on death since roshan doesn't carry it anymore
+	local aegis = CreateItem("item_aegis_lua", nil, nil)
+	CreateItemOnPositionSync(caster:GetAbsOrigin(), aegis)
 end
 
 function handleFurySwipeDuration(event)

@@ -4351,10 +4351,6 @@
 			"BountyGain"			"0"
 			"XPGain"				"15"
 			"DisableResistance"		"80.0"
-			"EquippedItems"
-			{
-				"Aegis" { "Item"  "item_aegis_lua" }
-			}
 		}
 	}	
 	"npc_dota_unit_tombstone1"
