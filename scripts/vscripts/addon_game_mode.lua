@@ -1699,7 +1699,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		if parent:GetTeam() == DOTA_TEAM_GOODGUYS then
 			fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		end
-		local new_ward = CreateUnitByName(new_unit_name, parent:GetAbsOrigin(), false, nil, nil, parent:GetTeam())
+		local new_ward = CreateUnitByName(new_unit_name, parent:GetAbsOrigin(), false, parent:GetOwner(), parent:GetOwner(), parent:GetTeam())
 		new_ward:AddNewModifier(fountain, nil, "modifier_kill", { duration = lifetime })
 		new_ward:AddNewModifier(fountain, nil, "modifier_invisible", {})
 		if is_sentry then
