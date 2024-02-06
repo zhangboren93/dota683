@@ -168,7 +168,7 @@ function modifier_juggernaut_blade_fury_datadriven:DeclareFunctions()
 end
 function modifier_juggernaut_blade_fury_datadriven:CheckState() return {[MODIFIER_STATE_MAGIC_IMMUNE] = true, [MODIFIER_STATE_SILENCED] = true} end
 function modifier_juggernaut_blade_fury_datadriven:GetModifierDamageOutgoing_Percentage(keys)
-    if keys.target and not keys.target:IsMagicImmune() and not keys.target.HasAbility("creep_siege") then
+    if keys.target and not keys.target:IsMagicImmune() and not keys.target:HasAbility("creep_siege") then
         return -100
     end
 end
