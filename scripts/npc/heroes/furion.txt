@@ -1,0 +1,43 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	"furion_force_of_nature"
+	{
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"160"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"area_of_effect"		
+			{
+				"value"		"150 225 300 375"
+				"affected_by_aoe_increase"	"1"
+			}
+			"max_treants"
+			{
+				"value"							"2 3 4 5"
+				"special_bonus_unique_furion_2"	"+5"
+			}
+			"treant_duration"				"60"
+			"treant_health"
+			{
+				"value"								"550"
+				"special_bonus_unique_furion"			"x2.5"
+			}
+			"treant_damage_min"
+			{
+				"value"					"21"
+				"special_bonus_unique_furion"			"x2.5"
+			}
+			"treant_damage_max"
+			{
+				"value"					"23"
+				"special_bonus_unique_furion"			"x2.5"
+			}
+			"AbilityCooldown"			"37"
+		}
+	}
+}

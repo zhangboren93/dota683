@@ -7,6 +7,7 @@
 #base "heroes/death_prophet.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
+#base "heroes/furion.txt"
 #base "heroes/enchantress.txt"
 #base "heroes/gyrocopter.txt"
 #base "heroes/kunkka.txt"
