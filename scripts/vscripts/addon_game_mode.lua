@@ -44,12 +44,12 @@ function Precache( context )
 		-- cache sound for all bot heroes
 		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts", context)
 		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_bristleback.vsndevts", context)
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_crystal_maiden.vsndevts", context)
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts", context)
 		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts", context)
 		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts", context)
 		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts", context)
 		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_skeleton_king.vsndevts", context)
+		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts", context)
 		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts", context)
 	end
 end
@@ -492,10 +492,10 @@ function CAddonTemplateGameMode:OnThink()
 			local botHeroPool = {
 				"npc_dota_hero_abaddon",
 				"npc_dota_hero_bristleback",
-				"npc_dota_hero_ogre_magi",
 				"npc_dota_hero_crystal_maiden",
 				"npc_dota_hero_luna",
 				"npc_dota_hero_necrolyte",
+				"npc_dota_hero_ogre_magi",
 				"npc_dota_hero_phantom_assassin",
 				"npc_dota_hero_skeleton_king",
 				"npc_dota_hero_sniper"

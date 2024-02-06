@@ -133,8 +133,7 @@ function ConsiderQ(bot)
             end
         end
     end
-    if ManaPerc > 40 or npcBot:GetMana() > ComboMana or
-        (npcBot:GetActiveMode() == BOT_MODE_RETREAT and npcBot:GetActiveModeDesire() >= BOT_MODE_DESIRE_HIGH) then
+    if ManaPerc > 40 or npcBot:GetMana() > ComboMana or npcBot:GetActiveMode() == BOT_MODE_RETREAT then
         if (WasRecentlyDamagedByAnyHero(npcBot, 2) and #enemys >= 1) or #enemys >= 2 or HealthPerc <= 40 then
             for _, npcEnemy in pairs(enemys) do
                 if CanCast[abilityNumber](npcEnemy) then

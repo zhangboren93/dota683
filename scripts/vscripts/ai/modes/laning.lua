@@ -109,21 +109,9 @@ local function MovingToPos(bot)
         end
     end
 
-    local bNeedToGoHigher = false
-    local higherDest = nil
-    local listEnemyCreep = gHeroVar.GetNearbyEnemyCreep(bot, 1200)
-    for _, eCreep in pairs(listEnemyCreep) do
-        if utils.ValidTarget(eCreep) and eCreep:GetHealth()/eCreep:GetMaxHealth() <= 0.5 and utils.GetHeightDiff(bot, eCreep) < 0 then
-            bNeedToGoHigher = true
-            higherDest = eCreep:GetAbsOrigin()
-            break
-        end
-    end
-
     local cpos = LanePos
     if #listEnemyTowers == 0 then
         cpos = bot:GetLocationAlongLane(CurLane, bot:GetLaneFrontAmount(utils.GetOtherTeam(bot), CurLane, false))
-    	utils.myPrint(bot:GetName(), "MovingToPos ", "No towers nearby")
     else
         cpos = bot:GetLocationAlongLane(CurLane, bot:GetLaneFrontAmount(utils.GetOtherTeam(bot), CurLane, false) - 0.05)
     end
@@ -132,12 +120,6 @@ local function MovingToPos(bot)
 
     local dest = utils.VectorTowards(cpos, bpos, 500) + RandomVector(100)
     
-    local listEnemies = gHeroVar.GetNearbyEnemies(bot, 1200)
-    if bNeedToGoHigher and #listAlliedCreep > 0 and #listEnemies == 0 then
-    	utils.myPrint(bot:GetName(), "MovingToPos ", "Need to go higher")
-        dest = higherDest
-    end
-
     gHeroVar.HeroMoveToLocation(bot, dest)
 
     LaningState = LaningStates.CSing
@@ -478,15 +460,32 @@ function X:Desire(bot)
         return BOT_MODE_DESIRE_NONE
     end
     
-    local botRole = getHeroVar(bot, "Role")
-    if botRole == constants.ROLE_HARDCARRY then
-        if bot:GetLevel() < 6 then
-            return BOT_MODE_DESIRE_MODERATE
-        else
-            return BOT_MODE_DESIRE_LOW
-        end
-    end
-    return BOT_MODE_DESIRE_VERYLOW
+	local currentTime = DotaTime()
+	local botLV = bot:GetLevel()
+
+	if currentTime <= 5
+	then
+		return 0.268
+	end
+
+	if currentTime <= 9 * 60
+		and botLV <= 7
+	then
+		return 0.446
+	end
+
+	if currentTime <= 12 * 60
+		and botLV <= 11
+	then
+		return 0.369
+	end
+
+	if botLV <= 17
+	then
+		return 0.228
+	end
+
+	return 0
 end
 
 return X
