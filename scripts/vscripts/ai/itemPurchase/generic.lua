@@ -152,6 +152,16 @@ function X:Think(bot)
             end
         end
         
+		-- If at base, gives free tp and tango
+		if DotaTime() > 60 and bot:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
+ 			if not bot:HasItemInInventory("item_tpscroll") and not bot:IsChanneling() and bot:HasEmptyItemSlot() then
+				bot:AddItemByName("item_tpscroll")
+			end
+			if not bot:HasItemInInventory("item_tango") then
+				bot:AddItemByName("item_tango")
+			end
+		end
+
         -- If there's an item to be purchased already bail
         if ( (bot:GetNextItemPurchaseValue() > 0) and (bot:GetGold() < bot:GetNextItemPurchaseValue()) ) then return end
 

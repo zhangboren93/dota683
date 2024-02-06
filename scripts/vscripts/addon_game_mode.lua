@@ -504,11 +504,11 @@ function CAddonTemplateGameMode:OnThink()
 			GameRules:SetSameHeroSelectionEnabled(true)
 			-- pick 5 random hero to play
 
-		--	local botHero = GameRules:AddBotPlayerWithEntityScript(
-		--		"npc_dota_hero_crystal_maiden", "Dire Bot 0", DOTA_TEAM_BADGUYS, 
-		--		"ai/bot_crystal_maiden.lua", true)
-		--	botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
-		--	FindClearSpaceForUnit(botHero, Vector(7022, 6346, 512), true)
+			--local botHero = GameRules:AddBotPlayerWithEntityScript(
+			--	"npc_dota_hero_necrolyte", "Dire Bot 0", DOTA_TEAM_BADGUYS, 
+			--	"ai/bot_necrolyte.lua", true)
+			--botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
+			--FindClearSpaceForUnit(botHero, Vector(7022, 6346, 512), true)
 
 			local player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 

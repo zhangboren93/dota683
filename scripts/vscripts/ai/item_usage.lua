@@ -314,6 +314,7 @@ function UseBuffItems(bot)
 end
 
 function UseTP(hero, arg1, arg2)
+	--utils.myPrint(hero:GetName(), "UseTP")
     if hero:IsIllusion() then return false end
     
     local loc = nil
@@ -330,52 +331,54 @@ function UseTP(hero, arg1, arg2)
     if hero:IsMuted() then return false end
 
     -- if we are in fountain, don't TP out until we have full health & mana
-    if hero:DistanceFromFountain() < 200 and
+    if hero:DistanceFromFountain() < 1000 and
         not (hero:GetHealth() == hero:GetMaxHealth() and hero:GetMana() == hero:GetMaxMana()) then
         return false
     end
 
     local tp, bMainInv = utils.HaveItem(hero, "item_tpscroll")
-    if tp ~= nil and (utils.HaveItem(hero, "item_travel_boots_datadriven"))
-        and (hero:DistanceFromFountain() < 200 or hero:DistanceFromSideShop() < 200 or hero:DistanceFromSecretShop() < 200) then
-        utils.myPrint("Selling TP, don't need it")
-        hero:ActionImmediate_SellItem(tp)
-        tp = nil
-    end
+    --if tp ~= nil and (utils.HaveItem(hero, "item_travel_boots_datadriven"))
+    --    and (hero:DistanceFromFountain() < 200 or hero:DistanceFromSideShop() < 200 or hero:DistanceFromSecretShop() < 200) then
+    --    utils.myPrint("Selling TP, don't need it")
+    --    hero:ActionImmediate_SellItem(tp)
+    --    tp = nil
+    --end
 
-    if tp == nil and utils.HaveTeleportation(hero) then
-        if utils.GetHeroName(hero) == "furion" then
-            tp = hero:GetAbilityInSlot(1)
-            bMainInv = true
-        end
-        
-        tp, bMainInv = utils.HaveItem(hero, "item_travel_boots_datadriven")
-    end
+    --if tp == nil and utils.HaveTeleportation(hero) then
+    --    if utils.GetHeroName(hero) == "furion" then
+    --        tp = hero:GetAbilityInSlot(1)
+    --        bMainInv = true
+    --    end
+    --    
+    --    tp, bMainInv = utils.HaveItem(hero, "item_travel_boots_datadriven")
+    --end
 
     local dest = loc
     if dest == nil then
         dest = hero:GetLocationAlongLane(lane, hero:GetLaneFrontAmount(hero:GetTeam(), lane, false))
     end
 
-    if tp == nil and GetUnitToLocationDistance(hero, dest) > 3000
-        and hero:DistanceFromFountain() < 200
-        and hero:GetGold() > 50 then
+    --if tp == nil and GetUnitToLocationDistance(hero, dest) > 3000
+    --    and hero:DistanceFromFountain() < 200
+    --    and hero:GetGold() > 50 then
 
-        -- if our inventory and backpack is full, don't bother buying TPs
-        if utils.NumberOfItemsInBackpack(hero) == 3 and utils.NumberOfItems(hero) == 6 then
-            return false
-        end
+    --    -- if our inventory and backpack is full, don't bother buying TPs
+    --    if utils.NumberOfItemsInBackpack(hero) == 3 and utils.NumberOfItems(hero) == 6 then
+    --        return false
+    --    end
 
-        local savedValue = hero:GetNextItemPurchaseValue()
-        hero:ActionImmediate_PurchaseItem( "item_tpscroll" )
-        tp, bMainInv = utils.HaveItem(hero, "item_tpscroll")
-        hero:SetNextItemPurchaseValue(savedValue)
-    end
+    --    local savedValue = hero:GetNextItemPurchaseValue()
+    --    hero:ActionImmediate_PurchaseItem( "item_tpscroll" )
+    --    tp, bMainInv = utils.HaveItem(hero, "item_tpscroll")
+    --    hero:SetNextItemPurchaseValue(savedValue)
+    --end
 
     if tp ~= nil and bMainInv and tp:IsFullyCastable() then
         -- dest (below) should find farthest away tower to TP to in our assigned lane, even if tower is dead it will
         -- just default to closest location we can TP to in that direction
-        if GetUnitToLocationDistance(hero, dest) > 3000 and hero:DistanceFromFountain() < 200 then
+		--utils.myPrint(hero:GetName(), "GetUnitToLocationDistance " .. GetUnitToLocationDistance(hero, dest))
+		--utils.myPrint(hero:GetName(), "DistanceFromFountain " .. hero:DistanceFromFountain())
+        if GetUnitToLocationDistance(hero, dest) > 3000 and hero:DistanceFromFountain() < 1000 then
             --utils.myPrint("Using TP")
             gHeroVar.HeroUseAbilityOnLocation(hero, tp, dest)
             return true

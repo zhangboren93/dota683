@@ -566,12 +566,16 @@ function SetBot(bot)
 	bot.GetNearbyTrees = function(self, distance)
 		return GridNav:GetAllTreesAroundPoint(self:GetAbsOrigin(), distance, false)
 	end
-	bot.GetActiveMode = function(self)
-		return self.currentModeName
+	bot.HasEmptyItemSlot = function(self) 
+		for i=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_6 do
+			if self:GetItemInSlot(i) == nil then
+				return true
+			end
+		end
+		return false
 	end
-	bot.GetTarget = function(self)
-		return getHeroVar(self, "Target")
-	end
+	bot.GetActiveMode = function(self) return self.currentModeName end
+	bot.GetTarget = function(self) return getHeroVar(self, "Target") end
 	bot.GetNearbyHeroes = function(self, range, enemy, mode) return GetNearbyHeroes(self, range, enemy, mode) end
 	bot.GetNearbyCreeps = function(self, range, enemy) return GetNearbyCreeps(self, range, enemy) end
 	bot.WasRecentlyDamagedByHero = function(self, hero, time) return WasRecentlyDamagedByHero(self, hero, time) end
