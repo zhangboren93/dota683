@@ -1995,8 +1995,8 @@
 		"DOTA_Tooltip_Ability_creep_irresolute_extra_basic_armor_damage_bonus"	"%BONUS DAMAGE TO BASIC-ARMOR UNITS:"
 		"DOTA_Tooltip_Ability_creep_irresolute_extra_strong_armor_damage_bonus"	"%BONUS DAMAGE TO STRONG-ARMOR UNITS:"
 		"DOTA_Tooltip_Ability_creep_light"										"Light Attack"
-		"DOTA_Tooltip_Ability_creep_light_Description"							"Light Attack Units Deal reduced damage to buildings."
-		"DOTA_Tooltip_Ability_creep_light_building_damage_tooltip"				"%FACTUAL DAMAGE TO BUILDINGS:"
+		"DOTA_Tooltip_Ability_creep_light_Description"							"Light Attack Units Deal reduced damage to Reinforced units and buildings."
+		"DOTA_Tooltip_Ability_creep_light_building_damage_tooltip"				"%FACTUAL DAMAGE TO REINFORCED:"
 		
 		"DOTA_Tooltip_Ability_creep_weak"								"Weak"
 		"DOTA_Tooltip_Ability_creep_weak_Description"					"This unit has weak armor."
