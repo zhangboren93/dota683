@@ -7182,11 +7182,7 @@
 					"value"		"35"
 					"special_bonus_scepter"	"+30"
 				}
-				"tooltip_health_cost_percent"
-				{
-					"value"		"35"
-					"special_bonus_scepter"	"+30"
-				}
+				"tooltip_health_cost_percent"	"35"
 				"movespeed"					"-40 -50 -60"
 				"attack_speed"				"0"
 				"slow_durtion_tooltip"		"4 5 6"
