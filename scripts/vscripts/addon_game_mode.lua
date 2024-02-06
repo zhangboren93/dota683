@@ -839,9 +839,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
 		entity:AddNewModifier(entity, nil, "item_tpscroll_clear_tree_modifier", {})
 		entity:AddNewModifier(entity, nil, "modifier_no_creep_aggro_on_cast_orb_lua", {})
-		if self.botEnabled and entity:GetTeam() == DOTA_TEAM_BADGUYS then
+		if self.botEnabled and entity:GetTeam() == DOTA_TEAM_BADGUYS and GetMapName() == 'dota' then
 			entity:AddNewModifier(entity, nil, "modifier_bot_item_purchase", {})
-		else
+		elseif GetMapName() ~= 'vsbot' then
 			entity:AddNewModifier(entity, nil, "modifier_drop_backpack_items", {})
 		end
 

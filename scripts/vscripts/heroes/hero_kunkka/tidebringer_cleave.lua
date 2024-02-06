@@ -26,7 +26,7 @@ function modifier_tidebringer_cleave:OnProcessCleave(event)
 	local target = event.target
 	if attacker == self:GetParent() and not target:IsBuilding() and attacker:GetTeam() ~= target:GetTeam() then
 		local ability = attacker:FindAbilityByName("kunkka_tidebringer")
-		if ability:IsCooldownReady() or ability:GetCooldown(ability:GetLevel() - 1) ~= ability:GetCooldownTimeRemaining() then
+		if ability:GetCooldownTimeRemaining() > 0 and ability:GetCooldownTimeRemaining() < ability:GetCooldown(-1) - 0.1 then
 			return
 		end
 		local pct = ability:GetSpecialValueFor("cleave_damage")
