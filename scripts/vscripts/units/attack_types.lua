@@ -120,26 +120,24 @@ function creep_light:GetIntrinsicModifierName()
 	return "modifier_creep_light"
 end
 
-if modifier_creep_light == nil then
-	modifier_creep_light = class({})
-end
+modifier_creep_light = class({})
 
 function modifier_creep_light:IsPurgable() return false end
 function modifier_creep_light:IsHidden() return true end
 
 function modifier_creep_light:DeclareFunctions()
-	local funcs = { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE }
+	local funcs = { MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE }
 	return funcs
 end
 
-function modifier_creep_light:GetModifierPreAttack_BonusDamage(event)
+function modifier_creep_light:GetModifierDamageOutgoing_Percentage(event)
 	if not IsServer() then return end
 	local target = event.target
 	local attacker = event.attacker
 	local ability = self:GetAbility()
 	if target == nil then return end
-	if target:IsBuilding() then
-		return attacker:GetAverageTrueAttackDamage(nil) * ability:GetSpecialValueFor("building_damage_penalty") / 100.0
+	if target:HasAbility("creep_siege") then
+		return ability:GetSpecialValueFor("building_damage_penalty")
 	else
 		return 0
 	end
