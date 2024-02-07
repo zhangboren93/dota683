@@ -17,6 +17,7 @@
 #base "heroes/omniknight.txt"
 #base "heroes/oracle.txt"
 #base "heroes/phantom_assassin.txt"
+#base "heroes/phoenix.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
 #base "heroes/spectre.txt"
@@ -13915,50 +13916,6 @@
 				"dive_duration"			"2.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
-	// Phoenix: Fire Spirits
-	//=================================================================================================================
-	"phoenix_fire_spirits"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5625"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Phoenix.FireSpirits.Cast"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastRange"				"1400"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"45 40 35 30"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 90 100 110"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"hp_cost_perc"		"20"
-				"spirit_duration"	"16"
-				"spirit_speed"		"900 900 900 900"
-				"radius"			"175"
-				"duration"			"4.0"
-				"attackspeed_slow"	"-80 -100 -120 -140"
-				"damage_per_second"				"10 30 50 70"
-				"spirit_count"		"5"
-				"tick_interval"		"1.0"
-		}
 	}
 	//=================================================================================================================
 	// Phoenix: Sun Ray
