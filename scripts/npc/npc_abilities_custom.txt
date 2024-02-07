@@ -7,6 +7,7 @@
 #base "heroes/death_prophet.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
+#base "heroes/furion.txt"
 #base "heroes/enchantress.txt"
 #base "heroes/gyrocopter.txt"
 #base "heroes/kunkka.txt"
@@ -6659,7 +6660,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.35"
+		"AbilityCastPoint"				"0.5"
 		"AbilityCooldown"				"11 10 9 8"
 		"AbilityManaCost"				"100 120 140 160"
 		
@@ -6667,7 +6668,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"vision_range"					"250"
+			"vision_range"					"1000"
 			"duration"						"3 3.75 4.5 5.25"
 			"blind_pct"						"0"
 			"leash"							"0"
@@ -21249,7 +21250,7 @@
         "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
         "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
         "SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
         "AbilityUnitDamageType"         "DAMAGE_TYPE_PHYSICAL"  
         "SpellDispellableType"          "SPELL_DISPELLABLE_NO"
@@ -29551,7 +29552,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"110"		
+		"AbilityManaCost"				"120 110 100 90"
 		"AbilityCooldown"				"30 26 22 18"
 
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
