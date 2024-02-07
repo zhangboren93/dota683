@@ -30,6 +30,9 @@ function handleDestroy(event)
 			damage_type = DAMAGE_TYPE_MAGICAL,
 			ability = ability })
 	end
+    target:SetThink(function()
+	    FindClearSpaceForUnit(target, target:GetAbsOrigin(), true)
+    end, "cyclone find space", 0.1)
 end
 
 --[[ ============================================================================================================
