@@ -17969,6 +17969,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastPoint"				"0.452 0.452 0.452"
 		"AbilityCastGestureSlot"		"ABSOLUTE"
 
 		"HasScepterUpgrade"			"1"
@@ -17996,13 +17997,14 @@
 				"value"								"10000"
 				"RequiresScepter"					"1"
 			}
-			redirect_range_scepter
+			"redirect_range_scepter"
 			{
 				"value"								"0"
 				"RequiresScepter"					"1"
 			}
 		}
 	}
+	// TODO: check rubick scepter
 	"abaddon_borrowed_time_aghs_datadriven"
 	{
 		"BaseClass"				"ability_datadriven"
@@ -25707,7 +25709,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"abaddon_death_coil"
@@ -25738,6 +25740,7 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"self_damage"			"75 100 125 150"
+				"DamageTypeTooltip"     "DAMAGE_TYPE_PURE"
 			}
 			"03"
 			{
@@ -25787,7 +25790,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.452 0.452 0.452 0.452"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
