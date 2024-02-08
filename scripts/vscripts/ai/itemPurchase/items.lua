@@ -181,7 +181,7 @@ X["item_maelstrom_datadriven"] = { "item_gloves", "item_mithril_hammer", "item_r
 
 X["item_magic_wand"] = { "item_branches", "item_branches", "item_branches", "item_magic_stick", "item_recipe_magic_wand" }
 
-X["item_mask_of_madness_datadriven"] = { "item_lifesteal", "item_recipe_mask_of_madness_datadriven" }
+X["item_mask_of_madness_datadriven"] = { "item_lifesteal_datadriven", "item_recipe_mask_of_madness_datadriven" }
 
 X["item_medallion_of_courage"] = { "item_chainmail", "item_sobi_mask_datadriven", "item_recipe_medallion_of_courage" }
 
