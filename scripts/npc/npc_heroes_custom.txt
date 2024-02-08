@@ -2661,6 +2661,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability2"		"phoenix_fire_spirits_datadriven"
+		"Ability6"		"phoenix_supernova_datadriven"
 		"Ability7"		"phoenix_launch_fire_spirit_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
