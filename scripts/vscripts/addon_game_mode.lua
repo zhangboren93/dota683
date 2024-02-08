@@ -1833,7 +1833,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		if victim:GetName() == "npc_dota_creep_siege" then
 			if inflictor:GetName() ~= "dragon_knight_breathe_fire_datadriven" 
 				and inflictor:GetName() ~= "keeper_of_the_light_illuminate"
-				and inflictor:GetName() ~= "keeper_of_the_light_spirit_form_illuminate" then
+				and inflictor:GetName() ~= "keeper_of_the_light_spirit_form_illuminate"
+				and inflictor:GetName() ~= "abaddon_death_coil_datadriven" then
 				event.damage = 0
 			end
 		end
