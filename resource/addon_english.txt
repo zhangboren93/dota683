@@ -358,7 +358,11 @@
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_attack_slow_tooltip"	"Attack Speed Slow: "
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_move_speed_pct"		"%Move Speed Bonus: "
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_attack_speed"			"Attack Speed Bonus: "
-		"DOTA_Tooltip_ability_abaddon_borrowed_time_scepter_description"			"When Borrowed Time is active, redirects 35%% of all damage dealt to ally heroes within 900 radius to Abaddon"
+		"DOTA_Tooltip_modifier_frostmourne_debuff"							"Frostmourne"
+		"DOTA_Tooltip_modifier_frostmourne_debuff_Description"				"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. All attacking units gain bonus attack and movement speed."
+		"DOTA_Tooltip_modifier_frostmourne_buff"							"Mark of the Abyss"
+		"DOTA_Tooltip_modifier_frostmourne_buff_Description"				"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed, and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
+		"DOTA_Tooltip_ability_abaddon_borrowed_time_scepter_description"			"Increases duration. When Borrowed Time is active, redirects 35%% of all damage dealt to ally heroes within 900 radius to Abaddon"
 		"DOTA_Tooltip_ability_abaddon_borrowed_time_redirect_range_scepter"			""
 		"DOTA_Tooltip_ability_abaddon_borrowed_time_ally_threshold_scepter"			""
 		// Underlord
