@@ -35,12 +35,11 @@ function X:Think(bot)
     if utils.IsCrowdControlled(bot) then return end
 
     local Towers = gHeroVar.GetNearbyEnemyTowers(bot, 750)
-    local Shrines = bot:GetNearbyShrines(1200, true)
     local Barracks = gHeroVar.GetNearbyEnemyBarracks(bot, 1200)
     local Ancient = GetAncient(utils.GetOtherTeam(bot))
 
     -- if there are no structures near by
-    if #Towers == 0 and #Shrines == 0 and #Barracks == 0 then
+    if #Towers == 0 and #Barracks == 0 then
         -- are we near the enemy Ancient
         if GetUnitToLocationDistance(bot, Ancient:GetLocation()) < 500 then
             if utils.ValidTarget(Ancient) and not modifiers.IsBuildingGlyphed(Ancient) then
@@ -81,7 +80,7 @@ function X:Think(bot)
         -- if more than one tower, sort by lowest health
         local hTower = Towers[1]
 
-        if utils.IsTowerAttackingMe() then
+        if utils.IsTowerAttackingMe(bot) then
             local nearbyAlliedCreep = gHeroVar.GetNearbyAlliedCreep(bot, 900)
             local nearbyEnemyCreep = gHeroVar.GetNearbyEnemyCreep(bot, 1200)
 
@@ -199,16 +198,6 @@ function X:Think(bot)
         end
     end
 
-    if #Shrines > 0 then
-        -- if more than one, sort by lowest health
-        hShrine = Shrines[1]
-
-        if utils.ValidTarget(hShrine) and not modifiers.IsBuildingGlyphed(hShrine) then
-            gHeroVar.HeroAttackUnit(bot, hShrine, true)
-            return
-        end
-    end
-
     -- the only way to get here means we are near a tower which does not have a target
     -- and is not close to dying and we have no friendly creep near us
     --bot.SelfRef:ClearMode()
@@ -258,7 +247,7 @@ function X:Desire(bot)
             return BOT_MODE_DESIRE_HIGH - 0.01
         end
 
-        if utils.IsTowerAttackingMe() and #gHeroVar.GetNearbyAlliedCreep(bot, 1000) == 0 then
+        if utils.IsTowerAttackingMe(bot) and #gHeroVar.GetNearbyAlliedCreep(bot, 1000) == 0 then
             return BOT_MODE_DESIRE_NONE
         end
     end
