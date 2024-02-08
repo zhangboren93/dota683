@@ -23,13 +23,13 @@ function DeathCoil( event )
 
 	-- If the target and caster are on a different team, do Damage. Heal otherwise
 	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
-		ApplyDamage({ victim = target, attacker = caster, damage = damage,	damage_type = DAMAGE_TYPE_MAGICAL })
+		ApplyDamage({ victim = target, attacker = caster, damage = damage,	damage_type = DAMAGE_TYPE_MAGICAL, ability = ability })
 	else
 		target:Heal( heal, caster)
 	end
 
 	-- Self Damage
-	ApplyDamage({ victim = caster, attacker = caster, damage = self_damage,	damage_type = DAMAGE_TYPE_PURE })
+	ApplyDamage({ victim = caster, attacker = caster, damage = self_damage,	damage_type = DAMAGE_TYPE_PURE, ability = ability })
 
 	-- Create the projectile
 	local info = {

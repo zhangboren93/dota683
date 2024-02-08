@@ -355,7 +355,12 @@
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_attack_slow_tooltip"	"攻击速度降低："
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_move_speed_pct"		"%移动速度加成："
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_attack_speed"			"攻击速度加成："
-		"DOTA_Tooltip_ability_abaddon_borrowed_time_scepter_description"			"启动回光返照后，亚巴顿附近900范围内友方英雄受到的35%%伤害会转移到亚巴顿。"
+		"DOTA_Tooltip_modifier_frostmourne_debuff"							"霜之哀伤"
+		"DOTA_Tooltip_modifier_frostmourne_debuff_Description"				"移动速度减少%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。所有攻击目标的单位获得攻击速度和移动速度加成。"
+		"DOTA_Tooltip_modifier_frostmourne_buff"							"深渊印记"
+		"DOTA_Tooltip_modifier_frostmourne_buff_Description"				"获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度加成，%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度加成。"
+
+		"DOTA_Tooltip_ability_abaddon_borrowed_time_scepter_description"			"增加持续时间。启动回光返照后，亚巴顿附近900范围内友方英雄受到的35%%伤害会转移到亚巴顿。"
 		"DOTA_Tooltip_ability_abaddon_borrowed_time_redirect_range_scepter"			""
 		"DOTA_Tooltip_ability_abaddon_borrowed_time_ally_threshold_scepter"			""
 		// Underlord

@@ -1194,7 +1194,7 @@ function U.IsTowerAttackingMe(bot)
     -- if there are no towers then the answer is no
     if #nearEnemyTowers == 0 then return false end
 
-    local lane = U.NearestLane(bot)
+    local lane = U.NearestLane(bot:GetTeam(), bot)
     if lane == 0 then return false end
 
     for i = 1, 5, 1 do
