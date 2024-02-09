@@ -2876,7 +2876,7 @@
 					"value"						"-50 -40 -30"
 					"special_bonus_scepter"		"+20 +25 +30"
 				}
-				"focusfire_fire_on_the_move"	"1"
+				"focusfire_fire_on_the_move"	"0"
 				"AbilityCooldown"
 				{
 					"value"						"60"
