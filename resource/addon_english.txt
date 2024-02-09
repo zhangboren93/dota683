@@ -1982,6 +1982,12 @@
 		"DOTA_Tooltip_ability_weaver_geminate_attack_datadriven_Lore"					"Skitskurr's relationship with time is somewhat variable, causing his actions to be witnessed - and felt - more than once."
 
 		//Wind Runner
+		"DOTA_Tooltip_ability_windrunner_shackleshot_datadriven"						"Shackleshot"
+		"DOTA_Tooltip_ability_windrunner_shackleshot_datadriven_Description"			"Shackles the target to an enemy unit or tree in a line directly behind it.  If no unit or tree is present, the stun duration is reduced to %fail_stun_duration%."
+		"DOTA_Tooltip_ability_windrunner_shackleshot_datadriven_Lore"					"Windranger's variety of bow skills includes an arrow with thick ropes attached to encumber any escaping target."
+		"DOTA_Tooltip_ability_windrunner_shackleshot_datadriven_Note0"					"This spell can shackle two enemies together, stunning them both."
+		"DOTA_Tooltip_ability_windrunner_shackleshot_datadriven_Note1"					"Can shackle the target to an enemy unit or tree at most %shackle_distance% behind the target."
+		"DOTA_Tooltip_ability_windrunner_shackleshot_datadriven_stun_duration"			"SHACKLE DURATION:"
 		"DOTA_Tooltip_ability_windrunner_powershot_2"									"Powershot"
 		"DOTA_Tooltip_ability_windrunner_powershot_2_Description"						"CHANNELED - Windranger charges her bow for up to %abilitychanneltime% second for a single powerful shot, which deals more damage the longer it is charged. The arrow damages enemies along its path. For each enemy that Powershot hits, its damage is reduced."
 		"DOTA_Tooltip_ability_windrunner_powershot_2_Lore"								"During her early years of training, Lyralei learned to fire powerful arrows that cleaved even trees to reach their targets."
