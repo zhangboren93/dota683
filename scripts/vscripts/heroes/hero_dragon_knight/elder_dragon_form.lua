@@ -1,8 +1,5 @@
 dragon_knight_elder_dragon_form_lua = {}
 
-LinkLuaModifier( "modifier_ability_elder_dragon_form", "heroes/hero_dragon_knight/elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ability_elder_dragon_form_corrosive", "heroes/hero_dragon_knight/elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
-
 function dragon_knight_elder_dragon_form_lua:OnSpellStart()
 	local caster = self:GetCaster()
 	local duration = self:GetSpecialValueFor("duration")
