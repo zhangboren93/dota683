@@ -2,10 +2,9 @@
 	<styles>
 		<include src="file://{resources}/styles/custom_game/hero_bar_block.css" />
 	</styles>
-
-	<script>
-		<include src="file://{resources}/styles/custom_game/hero_bar_block.js" />
-	</script>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/hero_bar_block.js" />
+	</scripts>
 	<Panel class="hero-bar-block">
 		<Panel id="hero-bar-block-buttons">
 			<Button id="hero-bar-block-button-0" onactivate="pingMiss(0)"/>
