@@ -1,0 +1,38 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/hero_bar_block.css" />
+	</styles>
+
+	<script>
+	(function() {
+		if (Players.GetTeam(Players.GetLocalPlayer()) === DOTATeam_t.DOTA_TEAM_GOODGUYS) {
+			$("#hero-bar-block-buttons").AddClass("dire-block");
+		}
+	})();
+
+	function pingMiss(player_idx) 
+	{
+		//	$.Msg("Player " + player_idx + " mis.");
+		//	$.Mvar player_id = 0;
+		//	$.Mif (Players.GetTeam(Players.GetLocalPlayer()) === DOTATeam_t.DOTA_TEAM_GOODGUYS) {
+		//	$.M	player_id = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS)[player_idx];
+		//	$.M} else {
+		//	$.M	player_id = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)[player_idx];
+		//	$.M}	
+		//	$.Mif (!player_id) {
+		//	$.M	return;
+		//	$.M}
+		//	$.M$.Msg("Player id " + player_id + " mis.");
+		//	$.MGameEvents.SendCustomGameEventToServer("hero_bar_ping_miss", {mpid: player_id, pid: Players.GetLocalPlayer()});
+	}
+	</script>
+	<Panel class="hero-bar-block">
+		<Panel id="hero-bar-block-buttons">
+			<Button id="hero-bar-block-button-0" onactivate="pingMiss(0)"/>
+			<Button id="hero-bar-block-button-1" onactivate="pingMiss(1)"/>
+			<Button id="hero-bar-block-button-2" onactivate="pingMiss(2)"/>
+			<Button id="hero-bar-block-button-3" onactivate="pingMiss(3)"/>
+			<Button id="hero-bar-block-button-4" onactivate="pingMiss(4)"/>
+		</Panel>
+    </Panel>
+</root>
