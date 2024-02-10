@@ -104,7 +104,8 @@ function isAttackable(target, attacker)
 		and not target:IsInvisible() 
 		and not target:IsAttackImmune() 
 		and not target:HasModifier("modifier_bane_nightmare") 
-		and not target:IsInvulnerable())
+		and not target:IsInvulnerable()
+		and target:GetTeam() ~= attacker:GetTeam())
 end
 
 function modifier_creep_ai:OnIntervalThink()
