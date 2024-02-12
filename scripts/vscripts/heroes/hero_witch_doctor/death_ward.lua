@@ -28,7 +28,8 @@ end
 function DestroyWard(keys)
 	local caster = keys.caster
 	StopSoundEvent(keys.sound, caster)
-	caster.death_ward:Destroy()
+	caster.death_ward:AddNewModifier(caster, keys.ability, "modifier_disarmed", {})
+	caster.death_ward:AddNewModifier(caster, keys.ability, "modifier_kill", { duration = 2 })
 end
 
 function handleAttackStart(event)

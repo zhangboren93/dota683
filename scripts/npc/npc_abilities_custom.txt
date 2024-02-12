@@ -26,6 +26,7 @@
 #base "heroes/viper.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
+#base "heroes/windrunner.txt"
 #base "units/courier.txt"
 "DOTAAbilities"
 {
@@ -2875,7 +2876,7 @@
 					"value"						"-50 -40 -30"
 					"special_bonus_scepter"		"+20 +25 +30"
 				}
-				"focusfire_fire_on_the_move"	"1"
+				"focusfire_fire_on_the_move"	"0"
 				"AbilityCooldown"
 				{
 					"value"						"60"
@@ -30809,23 +30810,6 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%mana_regen"
 				}
 			}
-		}
-	}
-	//=================================================================================================================
-	// Windrunner: Shackleshot
-	//=================================================================================================================
-	"windrunner_shackleshot"
-	{
-		"AbilityCooldown"				"12"
-		"AbilityManaCost"				"90 100 110 120"
-		"AbilityValues"
-		{
-				"fail_stun_duration"	"0.75 0.75 0.75 0.75"
-				"stun_duration"			"1.5 2.25 3 3.75"
-				"shackle_distance"		"575"
-				"arrow_speed"			"1650"
-				"shackle_count"			"1"
-				"shackle_angle"			"23"
 		}
 	}
 	//=================================================================================================================
