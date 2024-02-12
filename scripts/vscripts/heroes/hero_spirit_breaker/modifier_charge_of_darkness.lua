@@ -57,7 +57,6 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
             local bash = parent:FindAbilityByName("spirit_breaker_greater_bash")
             if bash:GetLevel() > 0 then
                 local damage = bash:GetSpecialValueFor("damage") * parent:GetMoveSpeedModifier(parent:GetBaseMoveSpeed(), false) / 100 + ability:GetSpecialValueFor("damage")
-                local bash_duration = ability:GetSpecialValueFor("stun_duration")
     	        ApplyDamage({
     	            victim = self.target,
     	            attacker = parent,
@@ -65,10 +64,12 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
     	            damage_type = DAMAGE_TYPE_MAGICAL,
     	            ability = ability
     	        })
-		        self.target:AddNewModifier(parent, ability, "modifier_stunned", { duration = bash_duration })
                 local direction = (self.target:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized()
 		        self.target:AddNewModifier(caster, bash, "modifier_nether_bash_motion_lua", { duration = 0.5, directx = direction.x, directy = direction.y })
             end
+            local bash_duration = ability:GetSpecialValueFor("stun_duration")
+		    self.target:AddNewModifier(parent, ability, "modifier_stunned", { duration = bash_duration })
+
             GridNav:DestroyTreesAroundPoint(parent:GetAbsOrigin(), 150, false)
 		    parent:RemoveHorizontalMotionController(self)
             ParticleManager:DestroyParticle(self.particle, false)
@@ -144,6 +145,12 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:OnOrder(event)
     if event.unit == self:GetParent() then
+		-- ability no target won't cancel.
+		local ability = event.ability
+		if ability ~= nil and bit.band(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
+			return
+		end
+
         if self.particle then
             ParticleManager:DestroyParticle(self.particle, false)
             ParticleManager:ReleaseParticleIndex(self.particle)
