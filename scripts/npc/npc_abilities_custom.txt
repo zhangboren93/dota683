@@ -3166,7 +3166,7 @@
 			"projectile_speed"		"675"
 			"vision_radius"			"1000"
 			"bonus_jump_damage"		"0"
-			"initial_projectile_speed"		"1050"
+			"initial_projectile_speed"		"675"
 			"has_unlimited_jumps"
 			{
 				"special_bonus_scepter"	"+1"
@@ -3203,7 +3203,7 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.4"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -3211,7 +3211,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 425 500"
+		"AbilityManaCost"				"200 325 500"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -3227,14 +3227,14 @@
 				"special_bonus_scepter" "+90"
 			}
 			"jumps"		 			"10 10 10"
-			"jump_range"			"600"
-			"slow_movement_speed"	"-65"
-			"slow_attack_speed"		"-65"
-			"slow_duration"			"2.5"
-			"projectile_speed"		"850"
-			"vision_radius"			"800"
+			"jump_range"			"575"
+			"slow_movement_speed"	"-30"
+			"slow_attack_speed"		"-20"
+			"slow_duration"			"4.0"
+			"projectile_speed"		"675"
+			"vision_radius"			"1000"
 			"bonus_jump_damage"		"0"
-			"initial_projectile_speed"		"1050"
+			"initial_projectile_speed"		"675"
 			"has_unlimited_jumps"
 			{
 				"special_bonus_scepter"	"+1"
@@ -10221,7 +10221,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5417"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_TYPE_ULTIMATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"MaxLevel"						"3"
@@ -29541,6 +29541,8 @@
 	}
 	"lich_frost_nova"
 	{
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
 		"AbilityDamage"					"50 100 150 200"
 		"AbilityManaCost"				"125 150 170 190"
 		"AbilityValues"
@@ -29574,8 +29576,7 @@
 		"ID"					"5135"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"		
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_Lich.FrostArmor"
@@ -29619,8 +29620,7 @@
 		"BaseClass"						"lich_frost_armor"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"		
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_Lich.FrostArmor"

@@ -104,6 +104,8 @@ function Activate()
 	LinkLuaModifier( "modifier_death_prophet_silence_lua",					"heroes/hero_death_prophet/silence.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_doom_bringer_scorched_earth_buff_lua",		"heroes/hero_doom_bringer/scorched_earth.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_doom_bringer_scorched_earth_buff_aura_lua",	"heroes/hero_doom_bringer/scorched_earth.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_ability_elder_dragon_form",			"heroes/hero_dragon_knight/elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_ability_elder_dragon_form_corrosive", "heroes/hero_dragon_knight/elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
