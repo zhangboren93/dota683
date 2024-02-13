@@ -1783,8 +1783,8 @@
 		//Lion
 		"DOTA_Tooltip_ability_lion_finger_of_death_Description"							"Rips at an enemy unit, trying to turn it inside-out. Deals massive damage."
 		"DOTA_Tooltip_ability_lion_finger_of_death_damage_per_kill"						""
+
 		// Necrolyte
-		"DOTA_Tooltip_Ability_necrolyte_reapers_scythe_Scepter_Description"				"Increases damage per HP missing, decreases mana cost for Level 1, and  decreases cooldown for levels 1 and 2.  Units killed by Reaper's Scythe cannot buyback."
 		"DOTA_Tooltip_Ability_necrolyte_heartstopper_aura_datadriven"					"Heartstopper Aura" 
 		"DOTA_Tooltip_Ability_necrolyte_heartstopper_aura_datadriven_Description"		"Necrophos stills the hearts of his opponents, causing nearby enemy units to lose a percentage of their max health over time."
 		"DOTA_Tooltip_Ability_necrolyte_heartstopper_aura_datadriven_aura_radius"		"RADIUS:"
@@ -1799,6 +1799,17 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_mana_regen"					"MANA REGEN PER KILL:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_hero_multiplier"				"HERO KILL REGEN MULTIPLIER:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_regen_duration"				"REGEN DURATION:"
+		"DOTA_Tooltip_ability_necrolyte_reapers_scythe_datadriven"						"Reaper's Scythe"
+		"DOTA_Tooltip_ability_necrolyte_reapers_scythe_datadriven_Description"			"Stuns the target enemy hero, then deals damage based on how much life it is missing. Any kill under this effect is credited to Necrophos."
+		"DOTA_Tooltip_ability_necrolyte_reapers_scythe_datadriven_Lore"					"The amount of death and suffering in the air increases the power of Necrophos's plague magic."
+		"DOTA_Tooltip_ability_necrolyte_reapers_scythe_datadriven_Note0"				"Damage is dealt at the end of the stun."
+		"DOTA_Tooltip_ability_necrolyte_reapers_scythe_datadriven_damage_per_health"	"DAMAGE PER MISSING HP:"
+		"DOTA_Tooltip_ability_necrolyte_reapers_scythe_datadriven_stun_duration"		"STUN DURATION:"
+		"DOTA_Tooltip_ability_necrolyte_reapers_scythe_datadriven_respawn_constant"		"ADDITIONAL RESPAWN TIME:"
+		"DOTA_Tooltip_Ability_necrolyte_reapers_scythe_datadriven_Scepter_Description"	"Increases damage per HP missing, decreases mana cost for Level 1, and  decreases cooldown for levels 1 and 2.  Units killed by Reaper's Scythe cannot buyback."
+		"DOTA_Tooltip_modifier_reapers_scythe_datadriven"								"Reaper's Scythe"
+		"DOTA_Tooltip_modifier_reapers_scythe_datadriven_Description"					"Frozen in the face of the Reaper."
+
 		// Oracle
 		"DOTA_Tooltip_Ability_oracle_fortunes_end_lua"									"Fortune's End"
 		"DOTA_Tooltip_Ability_oracle_fortunes_end_lua_Description"						"CHANNELED - Gathers Oracle's power into a bolt of scouring energy that, when released, damages, stops movement, and purges enemies of buffs in an area around the target. Can be channeled for up to %max_channel_time_tooltip% seconds. The stop duration is equal to the time spent channeling.\n\nDISPEL TYPE: Basic Dispel"

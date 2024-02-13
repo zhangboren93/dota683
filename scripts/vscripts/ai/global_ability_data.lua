@@ -168,7 +168,7 @@ HERO_ABILITY_POWER["necrolyte_death_pulse"] = {
 HERO_ABILITY_POWER["necrolyte_heartstopper_aura_datadriven"] = {
 	mdpspl = {6, 9, 12, 15}
 }
-HERO_ABILITY_POWER["necrolyte_reapers_scythe"] = {
+HERO_ABILITY_POWER["necrolyte_reapers_scythe_datadriven"] = {
 	stun = "stun_duration",
 	mdamagepl = {200, 300, 450}
 }

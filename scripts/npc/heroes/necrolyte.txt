@@ -1,0 +1,171 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	// Rewrite of the Necrophos Reapers Scythe ability
+	// Author: Pizzalol
+	// Date: 06.01.2015.
+	// Game version: 6.88
+	"necrolyte_reapers_scythe_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"		
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"2"
+		"AbilityTextureName"			"necrolyte_reapers_scythe"
+		"HasScepterUpgrade"				"1"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_scythe.vpcf"
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_scythe_model.vpcf"
+			"particle"			"particles/units/heroes/hero_necrolyte/necrolyte_scythe_orig.vpcf"
+			"particle"			"particles/generic_gameplay/generic_stunned.vpcf"
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.5"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		
+		// Cast Range
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.1"	// Primarily about the damage
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage_per_health"			
+			{
+				"value"					"0.4 0.6 0.9"
+				"special_bonus_scepter"	"+0.3"
+			}
+			"stun_duration"				"1.5" 
+			"AbilityManaCost"			
+			{
+				"value"					"175 340 500"		
+				"special_bonus_scepter"	"-25 +0 +0"
+			}
+			"AbilityCooldown"				
+			{
+				"value"					"100 85 70"
+				"special_bonus_scepter"	"-30 -15 -0"
+			}
+			"respawn_constant"			"30"
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_necrolyte/reapers_scythe.lua"
+				"Function"		"handleSpellStart"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_reapers_scythe_datadriven"
+			{
+				"IsDebuff"	"1"
+				"Duration"	"%stun_duration"
+	
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+	
+				"EffectName" "particles/generic_gameplay/generic_stunned.vpcf"
+	        	"EffectAttachType" "follow_overhead"
+	
+				"OnCreated"
+				{
+					"DelayedAction"
+					{
+						// Scythe animation has a 0.7 sec travel time
+						"Delay"		"0.8"
+	
+						"Action"
+						{
+							"FireEffect"
+							{
+								"EffectName"	"particles/units/heroes/hero_necrolyte/necrolyte_scythe_model.vpcf"
+								"EffectAttachType"	"follow_origin"
+	
+								"ControlPointEntities"
+								{
+									"CASTER"	"follow_origin"
+									"TARGET"	"follow_origin"
+								}
+							}
+						}
+					}
+	
+					"AttachEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_necrolyte/necrolyte_scythe.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"		"TARGET"
+					}
+				}
+	
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/reapers_scythe.lua"
+						"Function"		"handleDamageTaken"
+						"Damage"		"%attack_damage"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_necrolyte/necrolyte_scythe_orig.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						
+						"ControlPointEntities"
+						{
+							"TARGET"	"follow_origin"
+							"TARGET"	"follow_origin"
+						}
+					}
+	
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/reapers_scythe.lua"
+						"Function"		"ReapersScythe"
+					}
+				}
+				//TODO OnDeath delay death till reapers
+			}
+		}
+	}
+
+}

@@ -1137,7 +1137,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			})
 		end
 	end
-	if ability ~= nil and ability:GetName() == "necrolyte_reapers_scythe" and entity:IsRealHero() and not entity:IsReincarnating() then
+	if ability ~= nil and ability:GetName() == "necrolyte_reapers_scythe_datadriven" and entity:IsRealHero() and not entity:IsReincarnating() then
 		entity.necrospawnminus = 30
 		if attacker:HasScepter() then
 			entity:SetBuyBackDisabledByReapersScythe(true)
