@@ -1289,6 +1289,9 @@
 		//Mirana
 		"DOTA_Tooltip_ability_mirana_starfall_Description"						"召唤一波流星砸向附近的敌方单位。%starfall_secondary_radius_tooltip%范围内随机一个的敌方单位将会再受到一次%secondary_starfall_damage_percent%%%伤害的冲击。"
 		"DOTA_Tooltip_ability_mirana_arrow_Description"											"射出一支绝对精准的箭矢，对第一个击中的敌人造成伤害并眩晕目标。目标距离越远，眩晕时间越长，最短%arrow_min_stun%秒，最长可达%arrow_max_stun%秒。根据箭矢飞行的距离还将对目标额外造成最多%arrow_bonus_damage%点伤害。"
+		"DOTA_Tooltip_ability_mirana_leap_Description"							"米拉娜的坐骑向前跳跃加入战斗，着地时发出一声凶狠的咆哮鼓舞友方单位，提升攻击和移动速度。速度加成持续%leap_bonus_duration%秒。"
+		"DOTA_Tooltip_modifier_mirana_leap_lua"									"跳跃"
+		"DOTA_Tooltip_modifier_mirana_leap_lua_Description"						"移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度提高%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%"
 		// Morphling
 		"DOTA_Tooltip_Ability_morphling_adaptive_strike_str"					"变体打击（6.84）"
 		"DOTA_Tooltip_Ability_morphling_adaptive_strike_str_Description"		"用猛烈的水波打击一个敌方单位，对其造成眩晕和伤害，伤害由基础伤害和基于变体精灵的敏捷计算的额外伤害这两部分组成。若变体精灵的敏捷比力量高50%%，将造成最大伤害和最短眩晕。若力量远比敏捷高50%%，则造成最长眩晕和最小伤害。"
