@@ -132,6 +132,7 @@ function Activate()
 	LinkLuaModifier( "modifier_abyssal_underlord_pit_of_malice_ensare_lua",		"heroes/hero_abyssal_underlord/modifier_abyssal_underlord_pit_of_malice_ensare.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_enchant_lua",		"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_enchant_slow_lua",	"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_mirana_leap_lua",				"heroes/hero_mirana/arrow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_viper_viper_strike_slow_lua",	"heroes/hero_viper/viper_strike.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_spectre_dispersion_lua", 		"heroes/hero_spectre/modifier_spectre_dispersion_lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_rubick_fade_bolt_debuff_lua", 	"heroes/hero_rubick/modifier_rubick_fade_bolt_debuff.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1740,6 +1741,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_lone_druid_spirit_bear_attack_check" then return false
 	elseif event.name_const == "modifier_kunkka_torrent_slow" then return false
 	elseif event.name_const == "modifier_lion_finger_of_death_kill_counter" then return false
+	elseif event.name_const == "modifier_mirana_leap_buff" then return false
 	elseif event.name_const == "modifier_nevermore_requiem_slow" then return false
 	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
