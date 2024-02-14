@@ -17263,7 +17263,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5050"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Ability.Leap"
 		// Time		
@@ -17287,6 +17286,7 @@
 			"leap_speedbonus"		"4 8 12 16"
 			"leap_speedbonus_as"	"8 16 24 32"
 			"leap_bonus_duration"	"10"
+			"leap_radius"			"775"
 			"shard_radius"					
 			{
 				"value"				"300"
@@ -31405,6 +31405,7 @@
 	//=================================================================================================================
 	"mirana_starfall"
 	{
+		"AbilityCastPoint"				"0.5"
 		"AbilityCooldown"				"12"
 		"AbilityManaCost"				"100 120 140 160"
 		"AbilityValues"
@@ -31440,7 +31441,7 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"17"
-		"AbilityDuration"				"3.5"
+		"AbilityDuration"				"3.11"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
