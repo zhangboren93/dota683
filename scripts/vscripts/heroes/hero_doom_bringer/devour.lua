@@ -48,7 +48,7 @@ function Devour( keys )
 
 	-- Apply the modifier and kill the target
 	ability:ApplyDataDrivenModifier(caster, caster, modifier, {duration = modifier_duration})
-	target:Kill(ability, caster)
+	target:ForceKill(true)
 
 	-- Setting up the table for allowed devour targets
 	local doom_empty1 = keys.doom_empty1
