@@ -70,7 +70,7 @@ function Spawn()
     thisEntity:SetThink(function()
         if not thisEntity:IsAlive() then return 1 end
         if GameRules:IsGamePaused() then return 0.5 end
-        local ret,error = xpcall(function() Think(thisEntity) end, function() print(debug.traceback) end)
+        local ret,error = xpcall(function() Think(thisEntity) end, function() print(debug.traceback()) end)
 		if not ret then print(error); GameRules:SendCustomMessage(error, -1, -1); return 3; end
         return 0.1
     end, "WrapThink", 0.1)

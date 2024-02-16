@@ -14,8 +14,8 @@ local function setHeroVar(var, value)
     gHeroVar.SetVar(GetBot():GetPlayerID(), var, value)
 end
 
-local function getHeroVar(var)
-    return gHeroVar.GetVar(GetBot():GetPlayerID(), var)
+local function getHeroVar(bot, var)
+    return gHeroVar.GetVar(bot:GetPlayerID(), var)
 end
 
 local noneMode      = dofile( GetScriptDirectory().."/modes/none" )
@@ -80,6 +80,9 @@ function X.MainThink(bot)
     return X.HeroThink(bot)
 end
 
+local lastLaneAssignmentThink = {-100, -100,-100}
+local function getLastLaneAssignmentThink(bot) return lastLaneAssignmentThink[bot:GetTeam()] end
+local function setLastLaneAssignmentThink(bot, curTime) lastLaneAssignmentThink[bot:GetTeam()] = curTime end
 function X.TeamThink(bot)
     --utils.myPrint("TeamThink()")
     local listAllies = bot:GetUnitList(UNIT_LIST_ALLIED_HEROES)
@@ -90,6 +93,51 @@ function X.TeamThink(bot)
         end
     end
     
+	-- In laning stage ( < 10 minutes ), reassign bot lanes based on player positions
+	-- Lane assignment think every 10 seconds
+	local currentTime = GameRules:GetDOTATime(false, false)
+	if currentTime < 600 and currentTime > getLastLaneAssignmentThink(bot) + 10 then
+		print(bot:GetName() .. " Team thinks " .. bot:GetTeam())
+		-- If a lane has 3 heroes, assign bot to another lane
+		--             top, mid, bot
+		lanesToHero = {{},  {},  {}}
+		for _, ally in pairs(listAllies) do
+			if not ally:IsControllableByAnyPlayer() then
+				-- bot player, get lane based on CurLane Value
+				local curLane = getHeroVar(ally, "CurLane")
+				if curLane <= 3 and curLane > 0 then
+					table.insert(lanesToHero[curLane], ally)
+				end
+			else
+				-- not bot player, iterate lane front, assign lane if hero is arround
+				for lane=LANE_TOP, LANE_BOT do
+					-- if creep is behind lane, skip
+					local creepLocationAmount = bot:GetLaneFrontAmount(bot:GetTeam(), lane, true)
+					local towerLocation = bot:GetLaneFrontAmount(bot:GetTeam(), lane, false)
+					if towerLocation < creepLocationAmount + 0.01 then
+						local creepLocation = bot:GetLocationAlongLane(lane, creepLocationAmount)
+						if (creepLocation - ally:GetAbsOrigin()):Length2D() < 2000 then
+							lanesToHero[curLane] = ally
+						end
+					end
+				end
+			end
+		end
+		print("--------")
+		for i=1,3 do
+			print("Lane " .. i)
+			for j=1,#lanesToHero[i] do
+				print(lanesToHero[i][j]:GetName())
+			end
+		end
+
+		-- If hero count >= 3, then find one bot that has higher farm priority to assign another lane.
+		-- Find bots assignment in other lane, find one lane that has no bot assigned, and assign new bot that lane.
+		-- If a lane has no hero, assign a support bot to the lane
+		-- if a sidelane has human player, assign the other core bot player to the empty lane.
+		-- Else, for a lane that has 2 players in lane, assign a support to the other lane.
+		setLastLaneAssignmentThink(bot, currentTime)
+	end
     -- Record all global information used by individual heroes
     -- Example: AOE zones 
     local badAOEZones = {}
