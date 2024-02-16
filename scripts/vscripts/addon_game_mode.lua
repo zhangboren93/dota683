@@ -1840,7 +1840,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			if inflictor:GetName() ~= "dragon_knight_breathe_fire_datadriven" 
 				and inflictor:GetName() ~= "keeper_of_the_light_illuminate"
 				and inflictor:GetName() ~= "keeper_of_the_light_spirit_form_illuminate"
-				and inflictor:GetName() ~= "abaddon_death_coil_datadriven" then
+				and inflictor:GetName() ~= "abaddon_death_coil_datadriven"
+				and inflictor:GetName() ~= "doom_bringer_devour_datadriven" then
 				event.damage = 0
 			end
 		end

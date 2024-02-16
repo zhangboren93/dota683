@@ -108,40 +108,6 @@
 					}
 				}
 			}
-			// Deprecated
-			"modifier_jugg_bfury_magic_immune_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/units/ability_execute_buff.lua"
-						"Function"		"handleAbilityExecuted"
-						"Modifier"		"modifier_jugg_bfury_magic_immune_active"
-						"TargetAbility"	"juggernaut_blade_fury"
-					}
-				}
-			}
-			// Deprecated
-			"modifier_jugg_bfury_magic_immune_active"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsDebuff"		"0"
-				"IsPurgable"	"0"
-				"Duration"		"5"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-400"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 			"lich_chain_frost_ministun_checker" 
 			{
 				"Passive"		"1"
