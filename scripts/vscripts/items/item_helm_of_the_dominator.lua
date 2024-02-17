@@ -1,3 +1,5 @@
+require("scripts/vscripts/items/item_lifesteal")
+
 function dominateCreep(event)
 	local item = event.ability
 	local caster = event.caster
@@ -15,4 +17,23 @@ function dominateCreep(event)
 	double:SetBaseMaxHealth(double:GetBaseMaxHealth() + 500)
 	double:Heal(500, caster)
 	item.dominatedCreep = double
+end
+
+item_helm_of_the_dominator_datadriven = class({})
+
+function item_helm_of_the_dominator_datadriven:OnSpellStart()
+	local event = {}
+	event.ability = self
+	event.caster = self:GetCaster()
+	event.target = self:GetCursorTarget()
+	dominateCreep(event)
+end
+
+function item_helm_of_the_dominator_datadriven:GetIntrinsicModifierName()
+	return "modifier_item_helm_of_the_dominator_lua"
+end
+
+function item_helm_of_the_dominator_datadriven:OnOrbImpact(event)
+	event.caster = self:GetCaster()
+	attack_landed(event)
 end

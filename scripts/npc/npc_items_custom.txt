@@ -6962,7 +6962,8 @@
 	//=================================================================================================================
 	"item_helm_of_the_dominator_datadriven"
 	{
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_helm_of_the_dominator.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
@@ -6984,57 +6985,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 		"ItemCost"						"1850"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"items/item_helm_of_the_dominator.lua"
-				"Function"				"dominateCreep"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_item_helm_of_the_dominator_datadriven"
-			{
-				"Passive" "1"
-				"IsHidden" "1"
-				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_regen"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
-				}
 
-				"Orb"
-				{
-					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
-				}
-	
-				"OnOrbImpact"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_lifesteal.lua"
-						"Function"		"attack_landed"
-					}
-				}
-			}
-			"modifier_item_lifesteal_datadriven"
-			{
-				"Passive" "0"
-				"IsHidden" "1"
-				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
-				"OnDealDamage"
-				{
-					"Lifesteal"
-					{
-						"Target"			"ATTACKER"
-						"LifestealPercent"	"%lifesteal_percent"
-					}
-				}
-			}
-		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
