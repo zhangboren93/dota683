@@ -4,6 +4,7 @@
 #base "heroes/arc_warden.txt"
 #base "heroes/broodmother.txt"
 #base "heroes/brewmaster.txt"
+#base "heroes/clinkz.txt"
 #base "heroes/death_prophet.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
@@ -23892,124 +23893,6 @@
 		}
 	}
 }
-	// Rewrite of Clinkz Searing Arrows
-	// Author: Noya
-	// Date: December 31, 2015
-	// Version: 6.81
-	// Type: Datadriven
-	// NOTE: This uses the old Orb mechanic. Orb Labels seem to be malfunctioning, need to warn Valve about this issue.
-	// A non-orb rewrite might be impossible because OnAttackStart triggers earlier than OnOrbFire (i.e. there's no OnAttackLaunched)
-	"clinkz_searing_arrows_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityTextureName"			"clinkz_searing_arrows"
-	
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-	
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.0 0.0 0.0 0.0"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"10"
-		"AbilityDamage"					"30 40 50 60"
-	
-		"precache"
-		{
-			"particle"  "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
-			"soundfile" "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
-		}
-	
-		"Modifiers"
-		{
-			"modifier_searing_arrow"
-			{
-				"Passive"               "1"
-				"IsHidden"				"1"
-	
-				"Orb"
-				{
-					"Priority"			"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"    "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
-					"CastAttack"		"1"
-				}
-	
-				"OnOrbFire"
-				{
-					"SpendMana"
-					{
-						"Mana"    		"%AbilityManaCost"
-					}
-	
-					"FireSound"
-					{
-						"EffectName"	"Hero_Clinkz.SearingArrows"
-						"Target"		"CASTER"
-					}
-				}
-				
-				"OnOrbImpact"
-				{
-					"Damage"
-					{
-						"Type"          "DAMAGE_TYPE_PHYSICAL"
-						"Damage"        "%AbilityDamage"
-						"Target"		"TARGET"
-					}
-	
-					"FireSound"
-					{
-						"EffectName"	"Hero_Clinkz.SearingArrows.Impact"
-						"Target"		"CASTER"
-					}
-				}
-
-				"ThinkInterval"		"2"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_clinkz/searing_arrows.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-			}
-			"modifier_building_immune_to_deso"
-			{
-				"IsHidden"	"1"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"Damage"
-			{
-				"Type"          "DAMAGE_TYPE_PHYSICAL"
-				"Damage"        "%AbilityDamage"
-				"Target"
-				{
-					"Center"	"TARGET"
-					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				}
-			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_Clinkz.SearingArrows.Impact"
-				"Target"		"TARGET"
-			}
-		}
-	}
 	//=================================================================================================================
 	// Clinkz: Wind Walk
 	//=================================================================================================================
