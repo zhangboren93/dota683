@@ -32885,6 +32885,34 @@
 					}
 				}
 			}
+			"modifier_item_satanic_datadriven_lifesteal"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				
+				"OnDealDamage"
+				{
+					"Lifesteal"
+					{
+						"Target"			"ATTACKER"
+						"LifestealPercent"	"25"
+					}
+				}
+			}
+			"modifier_item_satanic_datadriven_unholy_rage_lifesteal"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				
+				"OnDealDamage"
+				{
+					"Lifesteal"
+					{
+						"Target"			"ATTACKER"
+						"LifestealPercent"	"175"
+					}
+				}
+			}
 		}
 	}
 	//=================================================================================================================
