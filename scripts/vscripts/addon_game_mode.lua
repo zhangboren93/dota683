@@ -78,6 +78,7 @@ function Activate()
 	LinkLuaModifier( "modifier_item_aegis_regen_lua", 	   "items/item_aegis.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sentry_ward_reveal_invis_aura_lua", "modifiers/modifier_sentry_ward_reveal_invis_aura.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_helm_of_the_dominator_lua", 	"items/modifier_item_helm_of_the_dominator.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_mask_of_madness_datadriven_berserk", "items/modifier_item_mask_of_madness_datadriven_berserk.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)

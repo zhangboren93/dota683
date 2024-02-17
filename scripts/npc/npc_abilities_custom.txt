@@ -32871,6 +32871,20 @@
 					}
 				}
 			}
+			"modifier_item_mask_of_madness_datadriven_lifesteal"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				
+				"OnDealDamage"
+				{
+					"Lifesteal"
+					{
+						"Target"			"ATTACKER"
+						"LifestealPercent"	"20"
+					}
+				}
+			}
 		}
 	}
 	//=================================================================================================================

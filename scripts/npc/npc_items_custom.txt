@@ -7321,8 +7321,8 @@
 {
 	// General
 	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"						"item_datadriven"
-	"ID"							"1372"  //Valve's version of this item uses the ID "172".
+	"BaseClass"						"item_lua"
+	"ScriptFile"					"scripts/vscripts/items/item_mask_of_madness.lua"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 	"Model"							"models/props_gameplay/red_box.vmdl" 
 	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
@@ -7349,75 +7349,6 @@
 		"berserk_bonus_movement_speed_percentage"		"30"
 		"berserk_extra_incoming_damage_percentage"		"30"
 		"berserk_duration"								"12.0"
-	}
-	
-	"OnSpellStart"
-	{
-		"ApplyModifier"
-		{
-			"Target"			"CASTER"
-			"ModifierName"		"modifier_item_mask_of_madness_datadriven_berserk"
-		}
-		
-		"FireSound"
-		{
-			"EffectName"		"DOTA_Item.MaskOfMadness.Activate"
-			"Target"			"CASTER"
-		}
-	}
-	
-	"Modifiers"
-	{
-		"modifier_item_mask_of_madness_datadriven"
-		{
-			"Passive"			"1"
-			"IsHidden"			"1"
-			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-			
-			"Orb"
-			{
-				"Priority"		"DOTA_ORB_PRIORITY_ITEM"
-			}
-
-			"OnOrbImpact"
-			{
-				"RunScript"
-				{
-					"ScriptFile"			"items/item_mask_of_madness.lua"
-					"Function"				"modifier_item_mask_of_madness_datadriven_on_orb_impact"
-				}
-			}
-		}
-		"modifier_item_mask_of_madness_datadriven_berserk"
-		{
-			"Duration"			"%berserk_duration"
-			"Passive"			"0"
-			"IsHidden"			"0"
-			
-			"EffectName"			"particles/items2_fx/mask_of_madness.vpcf"
-			"EffectAttachType"		"follow_origin"
-				
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%berserk_bonus_movement_speed_percentage"
-				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%berserk_bonus_attack_speed"
-				"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"		"%berserk_extra_incoming_damage_percentage"
-			}
-		}
-		"modifier_item_mask_of_madness_datadriven_lifesteal"
-		{
-			"Passive"			"0"
-			"IsHidden"			"1"
-			
-			"OnDealDamage"
-			{
-				"Lifesteal"
-				{
-					"Target"			"ATTACKER"
-					"LifestealPercent"	"%lifesteal_percent"
-				}
-			}
-		}
 	}
 }
 
