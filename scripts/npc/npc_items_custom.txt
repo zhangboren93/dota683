@@ -1022,8 +1022,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1226"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass" 					"item_datadriven"
+		"BaseClass" 					"item_lua"
+		"ScriptFile"					"items/item_lifesteal.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName" 			"item_lifesteal"
 		
@@ -1039,41 +1039,7 @@
 		"ItemQuality"					"component"
 		"ItemAliases"					"morbid mask"
 		"SideShop"						"1"
-		
-		"Modifiers"
-		{
-			"modifier_item_lifesteal_datadriven_on_attack"
-			{
-				"Passive" "1"
-				"IsHidden" "1"
-				"Orb"
-				{
-					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
-				}
-	
-				"OnOrbImpact"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_lifesteal.lua"
-						"Function"		"attack_landed"
-					}
-				}
-			}
-			"modifier_item_lifesteal_datadriven"
-			{
-				"Passive" "0"
-				"IsHidden" "1"
-				"OnDealDamage"
-				{
-					"Lifesteal"
-					{
-						"Target"			"ATTACKER"
-						"LifestealPercent"	"%lifesteal_percent"
-					}
-				}
-			}
-		}
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"

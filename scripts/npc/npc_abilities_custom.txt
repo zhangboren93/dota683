@@ -32858,6 +32858,19 @@
 					}
 				}
 			}
+			"modifier_item_lifesteal_datadriven"
+			{
+				"Passive" "0"
+				"IsHidden" "1"
+				"OnDealDamage"
+				{
+					"Lifesteal"
+					{
+						"Target"			"ATTACKER"
+						"LifestealPercent"	"15"
+					}
+				}
+			}
 		}
 	}
 	//=================================================================================================================
