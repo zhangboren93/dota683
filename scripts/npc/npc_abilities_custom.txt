@@ -24527,6 +24527,7 @@
 			}
 		}
 	}
+	// Deprecated
 	"enchantress_impetus_datadriven"
 	{
 		// General
