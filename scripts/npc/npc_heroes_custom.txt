@@ -1896,7 +1896,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
-		"Ability1"		"viper_poison_attack_datadriven"
+		"Ability1"		"viper_poison_attack_lua"
 		"Ability2"		"viper_nethertoxin_datadriven"
 		"Ability3"		"viper_corrosive_skin_datadriven"
 		"Ability4"		"generic_hidden"
