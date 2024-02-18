@@ -27,7 +27,7 @@ function modifier_item_maelstrom_datadriven:GetModifierPreAttack_BonusDamage()
 end
 
 function modifier_item_maelstrom_datadriven:GetModifierAttackSpeedBonus_Constant()
-	return 25
+	return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
 end
 
 function modifier_item_maelstrom_datadriven:IsHidden()

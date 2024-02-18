@@ -37,3 +37,16 @@ function shield_triggered(event)
         target:EmitSound("Item.Maelstrom.Chain_Lightning.Jump")
     end
 end
+
+item_mjollnir_datadriven = class({})
+
+function item_mjollnir_datadriven:GetIntrinsicModifierName()
+	return "modifier_item_maelstrom_datadriven"
+end
+
+function item_mjollnir_datadriven:OnSpellStart()
+	local caster = self:GetCaster()
+	local target = self:GetCursorTarget()
+	caster:EmitSound("DOTA_Item.Mjollnir.Activate")
+	target:AddNewModifier(caster, self, "modifier_item_mjollnir_shield_datadriven", { duration = self:GetSpecialValueFor("static_duration") })
+end

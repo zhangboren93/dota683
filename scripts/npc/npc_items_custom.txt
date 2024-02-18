@@ -6503,7 +6503,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"scripts/vscripts/items/item_mjollnir.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -6529,89 +6530,6 @@
 		"precache"
 		{
 			"particle"					"particles/items_fx/chain_lightning.vpcf"
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_maelstrom_datadriven"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"						"%bonus_damage"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"					"%bonus_attack_speed"
-				}
-
-				"Orb"
-				{
-					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
-				}
-
-				"OnOrbFire"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_maelstrom.lua"
-						"Function"		"handleOrbFire"
-					}
-				}
-
-				"OnOrbImpact"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"items/item_maelstrom.lua"
-						"Function"				"modifier_item_maelstrom_datadriven_on_orb_impact"
-					}
-				}
-			}
-			"modifier_maelstrom_trigger_no_miss"
-			{
-				"IsHidden"	"1"
-				"Duration"	"1"
-    			"States"
-    			{
-    				"MODIFIER_STATE_CANNOT_MISS"			"MODIFIER_STATE_VALUE_ENABLED"  //When attacking uphill, cannot miss units but can still miss buildings.
-    			}
-			}
-			"modifier_item_mjollnir_shield_datadriven"
-			{
-				"EffectName"		"particles/items2_fx/mjollnir_shield.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"OnAttacked"
-				{
-					"Random"
-					{
-						"Chance"		"%static_chance"
-						"OnSuccess"
-						{
-							"RunScript"
-							{
-								"ScriptFile"			"items/item_mjollnir.lua"
-								"Function"				"shield_triggered"
-							}
-						}
-					}
-				}
-			}
-		}
-
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"EffectName"	"DOTA_Item.Mjollnir.Activate"
-				"Target" 		"CASTER"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_item_mjollnir_shield_datadriven"
-				"Duration"		"%static_duration"
-				"Target"	"TARGET"
-			}
 		}
 
 		"AbilityValues"
