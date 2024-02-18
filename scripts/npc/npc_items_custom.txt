@@ -7117,7 +7117,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_desolator.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
@@ -7130,7 +7131,7 @@
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"desolator"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-			
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -7139,48 +7140,10 @@
 			"corruption_armor"		"-7"
 			"corruption_duration"	"15.0"
 		}
-		
-		"Modifiers"
+
+		"precache"
 		{
-			"modifier_item_desolator_datadriven"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"						"%bonus_damage"
-				}
-				
-				"Orb"
-				{
-					"Priority"				"DOTA_ORB_PRIORITY_ITEM"
-					"ProjectileName"		"particles/items_fx/desolator_projectile.vpcf"
-					"CastAttack"			"0"
-				}
-	
-				"OnOrbImpact"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"items/item_desolator.lua"
-						"Function"			"handleOrbFire"
-					}
-				}
-			}
-			"modifier_item_desolator_datadriven_corruption"
-			{
-				"Duration"				"%corruption_duration"
-				"Passive"				"0"
-				"IsHidden"				"0"
-				"IsDebuff"				"1"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%corruption_armor"
-				}
-			}
+			"particle"	"particles/items_fx/desolator_projectile.vpcf"
 		}
 	}
 	//=================================================================================================================

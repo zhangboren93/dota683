@@ -40,6 +40,7 @@ end
 function modifier_generic_orb_effect_item_lua:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_ATTACK,
+		MODIFIER_PROPERTY_PROJECTILE_NAME,
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK
 	}
 end
@@ -64,4 +65,16 @@ function modifier_generic_orb_effect_item_lua:GetModifierProcAttack_Feedback( pa
 		-- apply the effect
 		if self.ability.OnOrbImpact then self.ability:OnOrbImpact( params ) end
 	end
+end
+
+function modifier_generic_orb_effect_item_lua:GetModifierProjectileName( params )
+	local hero_orb_modifier = self:GetParent():FindModifierByName("modifier_generic_orb_effect_lua")
+	if self.ability.GetProjectileName then
+		local projectileName = self.ability:GetProjectileName()
+		return projectileName
+	end
+end
+
+function modifier_generic_orb_effect_item_lua:GetPriority()
+	return MODIFIER_PRIORITY_LOW 
 end

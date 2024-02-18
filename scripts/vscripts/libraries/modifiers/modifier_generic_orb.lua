@@ -197,6 +197,14 @@ function modifier_generic_orb_effect_lua:GetModifierProjectileName( params )
 			 end
 		end
 	end
+	local orb_item_modifier = self:GetParent():FindModifierByName("modifier_generic_orb_effect_item_lua")
+	if orb_item_modifier then
+		return orb_item_modifier:GetModifierProjectileName( params )
+	end
+end
+
+function modifier_generic_orb_effect_lua:GetPriority()
+	return MODIFIER_PRIORITY_NORMAL 
 end
 
 --------------------------------------------------------------------------------
