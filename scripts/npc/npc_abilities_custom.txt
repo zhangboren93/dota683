@@ -27584,6 +27584,7 @@
 	"shadow_shaman_shackles"
 	{
 		"HasShardUpgrade"				"0"
+		"AbilityCastRange"				"400"
 		"AbilityChannelTime"			"2.75 3.5 4.25 5"
 		"AbilityCooldown"				"16"
 		"AbilityManaCost"				"140 150 160 170"
