@@ -7292,12 +7292,7 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
     			}
     			
-				"Orb"
-				{
-					"Priority"		"DOTA_ORB_PRIORITY_ITEM"
-				}
-	
-				"OnOrbImpact"
+				"OnAttackLanded"
 				{
 					"RunScript"
 					{
