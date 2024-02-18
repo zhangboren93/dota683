@@ -1,7 +1,6 @@
 modifier_item_desolator_datadriven = class({})
 function modifier_item_desolator_datadriven:OnCreated()
 	if not IsServer() then return end
-	self:OnIntervalThink()
 	self:StartIntervalThink(1)
 end
 

@@ -299,7 +299,7 @@
 		"DOTA_Tooltip_modifier_item_satanic_datadriven_unholy_rage_Description"	"Lifesteal increased by 175%%."
 
 		"DOTA_Tooltip_Ability_item_maelstrom_datadriven"						"Maelstrom"
-		"DOTA_Tooltip_ability_item_maelstrom_datadriven_Description"			"<h1>Passive: Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion./n/n<font color=\"#ff0000\">Orb effects don't stack.</font>"
+		"DOTA_Tooltip_ability_item_maelstrom_datadriven_Description"			"<h1>Passive: Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion./n/n<font color=\"#ff0000\">Don't stack with Orb Ability.</font>"
 		"DOTA_Tooltip_ability_item_maelstrom_datadriven_Lore"					"A hammer forged for the gods themselves, Maelstrom allows its user to harness the power of lightning."
 		"DOTA_Tooltip_ability_item_maelstrom_datadriven_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_ability_item_maelstrom_datadriven_bonus_attack_speed"		"+$attack"

@@ -204,7 +204,7 @@ function modifier_generic_orb_effect_lua:GetModifierProjectileName( params )
 end
 
 function modifier_generic_orb_effect_lua:GetPriority()
-	return MODIFIER_PRIORITY_NORMAL 
+	return MODIFIER_PRIORITY_HIGH 
 end
 
 --------------------------------------------------------------------------------

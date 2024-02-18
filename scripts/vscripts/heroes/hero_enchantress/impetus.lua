@@ -25,7 +25,7 @@ function enchantress_impetus_lua:OnOrbImpact( params )
 	local target = params.target
 
 	-- load data
-	local distance_cap = self:GetSpecialValueFor("distance_cap")
+	local distance_cap = self:GetSpecialValueFor("distance_damage_cap")
 	local distance_dmg = self:GetSpecialValueFor("distance_damage_pct")
 	
 	-- calculate distance & damage

@@ -48,6 +48,9 @@ end
 function modifier_generic_orb_effect_item_lua:OnAttack( params )
 	if params.attacker~=self:GetParent() then return end
 
+	-- if maelstrom triggers, don't trigger other item orbs
+	if self:GetParent():HasModifier("modifier_maelstrom_trigger_no_miss") then return end
+
 	-- record the attack
 	self.records[params.record] = true
 

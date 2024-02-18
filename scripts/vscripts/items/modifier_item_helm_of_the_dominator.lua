@@ -2,7 +2,6 @@ modifier_item_helm_of_the_dominator_lua = class({})
 
 function modifier_item_helm_of_the_dominator_lua:OnCreated()
 	if not IsServer() then return end
-	self:OnIntervalThink()
 	self:StartIntervalThink(1)
 end
 

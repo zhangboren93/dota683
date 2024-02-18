@@ -83,6 +83,8 @@ function Activate()
 	LinkLuaModifier( "modifier_item_satanic_datadriven_unholy_rage","items/modifier_item_satanic_datadriven_unholy_rage.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_desolator_datadriven", 				"items/modifier_item_desolator_datadriven.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_desolator_datadriven_corruption",	"items/modifier_item_desolator_datadriven_corruption.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_maelstrom_datadriven", 				"items/modifier_item_maelstrom_datadriven.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_maelstrom_trigger_no_miss", 				"items/modifier_maelstrom_trigger_no_miss.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)

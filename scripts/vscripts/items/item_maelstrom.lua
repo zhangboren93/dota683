@@ -61,7 +61,12 @@ function handleOrbFire(event)
 	if target:IsBuilding() or target:IsMagicImmune() or caster:IsIllusion() then
 		return
 	end
-	if RandomInt(1, 100) <= chain_chance then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_maelstrom_trigger_no_miss", {})
+	if RandomInt(1, 100) <= chain_chance and not caster:HasModifier("modifier_maelstrom_trigger_no_miss") then
+		caster:AddNewModifier(caster, ability, "modifier_maelstrom_trigger_no_miss", { duration = 1 })
 	end
+end
+
+item_maelstrom_datadriven = class({})
+function item_maelstrom_datadriven:GetIntrinsicModifierName()
+	return "modifier_item_maelstrom_datadriven"
 end
