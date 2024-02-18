@@ -45,13 +45,35 @@ function modifier_generic_orb_effect_item_lua:DeclareFunctions()
 	}
 end
 
+ORB_PRIORITY_ITEMS = {
+	"item_satanic_datadriven",
+	"item_helm_of_the_dominator_datadriven",
+	"item_mask_of_madness_datadriven",
+	"item_lifesteal_datadriven",
+	"item_desolator_datadriven"
+}
 function modifier_generic_orb_effect_item_lua:OnAttack( params )
 	if params.attacker~=self:GetParent() then return end
 
 	-- if maelstrom triggers, don't trigger other item orbs
 	if self:GetParent():HasModifier("modifier_maelstrom_trigger_no_miss") then return end
 
+	-- lifesteal orb has highest priority, then is desolator
+	local parent = self:GetParent()
+	local activeOrbItem = nil
+	for i=1,#ORB_PRIORITY_ITEMS do
+		local item = parent:FindItemInInventory(ORB_PRIORITY_ITEMS[i])
+		if item ~= nil and item:GetItemState() == 1 then
+			activeOrbItem = item
+			break
+		end
+	end
+	if activeOrbItem == nil then
+		self:Destroy()
+		return
+	end
 	-- record the attack
+	self.ability = activeOrbItem
 	self.records[params.record] = true
 
 	self.cast = false
