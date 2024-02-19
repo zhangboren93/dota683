@@ -40,7 +40,7 @@ function IncreaseStackCount( event )
     -- if the unit does not already have the counter modifier we apply it with a stackcount of 1
     -- else we increase the stack and refresh the counters duration
     if not modifier then
-        ability:ApplyDataDrivenModifier(caster, target, modifier_name, {duration=dur})
+        target:AddNewModifier(caster, ability, modifier_name, {duration=dur})
         target:SetModifierStackCount(modifier_name, caster, 1) 
     else
         target:SetModifierStackCount(modifier_name, caster, count+1)
@@ -74,4 +74,28 @@ function DecreaseStackCount(event)
             target:RemoveModifierByName(modifier_name)
         end
     end
+end
+
+huskar_burning_spear_datadriven = class({})
+function huskar_burning_spear_datadriven:GetIntrinsicModifierName()
+	return "modifier_huskar_burning_spear_lua"
+end
+function huskar_burning_spear_datadriven:OnOrbFire(event)
+	local caster = self:GetCaster()
+	caster:EmitSound("Hero_Huskar.Burning_Spear.Cast")
+	event.ability = self
+	event.caster = self:GetCaster()
+	DoHealthCost(event)
+end
+function huskar_burning_spear_datadriven:OnOrbImpact(event)
+	local target = event.target
+	target:EmitSound("Hero_Huskar.Burning_Spear")
+	target:AddNewModifier(self:GetCaster(), self, "modifier_burning_spear_datadriven_debuff", { duration = 8 })
+	event.modifier_counter_name = "modifier_burning_spear_datadriven_debuff_counter"
+	event.ability = self
+	event.caster = self:GetCaster()
+	IncreaseStackCount(event)
+end
+function huskar_burning_spear_datadriven:GetProjectileName()
+	return "particles/units/heroes/hero_huskar/huskar_burning_spear.vpcf"
 end

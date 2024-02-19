@@ -586,6 +586,8 @@
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_Description"		"哈斯卡牺牲哈斯卡生命值将其长矛点燃，在普通攻击的同时对敌方单位造成持续伤害。多次攻击会造成持续伤害叠加。"
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_health_cost"		"生命值消耗："
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_duration"			"持续时间："
+		"DOTA_Tooltip_modifier_burning_spear_datadriven_debuff_counter"					"沸血之矛"
+		"DOTA_Tooltip_modifier_burning_spear_datadriven_debuff_counter_Description"		"你着火了！受到持续伤害。"
 		//Kunkka
 		"DOTA_Tooltip_ability_kunkka_torrent_datadriven"							"洪流"
 		"DOTA_Tooltip_ability_kunkka_torrent_datadriven_Description"				"召唤喷涌的洪流，短暂延迟后，将敌人冲上天，造成伤害、眩晕和减速。"

@@ -578,6 +578,8 @@
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_Description"		"Huskar drains some of his health, setting his spears aflame, dealing damage over time with his regular attack. Multiple attacks will stack additional damage."
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_health_cost"		"Health Cost: "
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_duration"			"Duration: "
+		"DOTA_Tooltip_modifier_burning_spear_datadriven_debuff_counter"					"Burning Spear"
+		"DOTA_Tooltip_modifier_burning_spear_datadriven_debuff_counter_Description"		"YOU ARE ON FIRE! Taking periodic damage."
 		//Kunkka
 		"DOTA_Tooltip_ability_kunkka_torrent_datadriven"							"Torrent"
 		"DOTA_Tooltip_ability_kunkka_torrent_datadriven_Description"				"Summons a rising torrent that, after a short delay, hurls enemy units into the sky, stunning, dealing damage and slowing movement speed."

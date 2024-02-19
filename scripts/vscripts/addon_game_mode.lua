@@ -119,6 +119,9 @@ function Activate()
 	LinkLuaModifier( "modifier_ability_elder_dragon_form",			"heroes/hero_dragon_knight/elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_ability_elder_dragon_form_corrosive", "heroes/hero_dragon_knight/elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_viper_poison_attack_debuff_datadriven", "heroes/hero_viper/poison_attack.lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_burning_spear_datadriven_debuff", 	"heroes/hero_huskar/modifier_burning_spear_datadriven_debuff.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_burning_spear_datadriven_debuff_counter",	"heroes/hero_huskar/modifier_burning_spear_datadriven_debuff_counter", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_huskar_burning_spear_lua", 			"heroes/hero_huskar/modifier_huskar_burning_spear.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
