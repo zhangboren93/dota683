@@ -17,6 +17,10 @@ function modifier_item_maelstrom_datadriven:OnAttack(event)
 	if modifier_orb ~= nil and modifier_orb.records[event.record] then
 		return
 	end
+	if self:GetParent():HasModifier("modifier_mana_break_orb_datadriven")
+		or self:GetParent():HasModifier("modifier_broodmother_orb_checker") then
+		return
+	end
 	event.ability = self:GetAbility()
 	event.caster = self:GetCaster()
 	handleOrbFire(event)

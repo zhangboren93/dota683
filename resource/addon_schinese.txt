@@ -1017,7 +1017,7 @@
 
 		// Antimage
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"				"法力损毁"
-		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"每次攻击损毁目标一定量的魔法值，并额外造成相当于损毁魔法值60%%的伤害。"
+		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"每次攻击损毁目标一定量的魔法值，并额外造成相当于损毁魔法值60%%的伤害。\n<font color=\"#ff0000\">法球效果无法叠加。</font>"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"	"每次攻击损毁魔法："
 
 		//Arc Warden

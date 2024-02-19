@@ -56,7 +56,8 @@ function modifier_generic_orb_effect_item_lua:OnAttack( params )
 	if params.attacker~=self:GetParent() then return end
 
 	-- if maelstrom triggers, don't trigger other item orbs
-	if self:GetParent():HasModifier("modifier_maelstrom_trigger_no_miss") then return end
+	if self:GetParent():HasModifier("modifier_maelstrom_trigger_no_miss") 
+		or self:GetParent():HasModifier("modifier_mana_break_orb_datadriven") then return end
 
 	-- lifesteal orb has highest priority, then is desolator
 	local parent = self:GetParent()

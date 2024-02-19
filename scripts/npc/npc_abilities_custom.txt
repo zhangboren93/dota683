@@ -24060,18 +24060,10 @@
 	
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_burn"		"0.6"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_per_hit"			"28 40 52 64"
-			}
+			"damage_per_burn"		"0.6"
+			"mana_per_hit"			"28 40 52 64"
 		}
 	
 		"Modifiers"
@@ -24081,12 +24073,7 @@
 				"Passive"	"1"
 				"IsHidden"	"1"
 	
-				"Orb"
-				{
-					"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
-				}
-	
-				"OnOrbImpact"
+				"OnAttackLanded"
 				{
 					"RunScript"
 					{

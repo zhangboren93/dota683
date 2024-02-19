@@ -1005,9 +1005,9 @@
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Scepter_Description"			"aura increase incoming damage by 5~25%/10~30%/15~35%, creep death heal 4%, hero death heal 10%"
 		
 		// Antimage
-		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"				"Mana Break"
-		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"Burns an opponent's mana on each attack. Mana Break deals 60%% of the mana burned as damage to the target."
-		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"	"Mana Burned per Hit: "
+		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"					"Mana Break"
+		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"		"Burns an opponent's mana on each attack. Mana Break deals 60%% of the mana burned as damage to the target.\n<font color=\"#ff0000\">Orb effects don't stack.</font>"
+		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"		"Mana Burned per Hit: "
 
 		//Arc Warden
 		"DOTA_Tooltip_ability_arc_warden_flux_lua"								"Flux"
