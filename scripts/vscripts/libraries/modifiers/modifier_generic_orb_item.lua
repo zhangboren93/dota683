@@ -81,6 +81,7 @@ end
 
 function modifier_generic_orb_effect_item_lua:GetModifierProcAttack_Feedback( params )
 	if params.attacker ~= self:GetParent() then return end
+	if params.attacker:HasModifier("modifier_disable_item_orb") then return end
 
 	-- don't proc if attacker has hero orb
 	local hero_orb_modifier = params.attacker:FindModifierByName("modifier_generic_orb_effect_lua")
