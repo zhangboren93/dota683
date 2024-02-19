@@ -1124,6 +1124,7 @@
 		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven_frost_arrows_movement_speed"			"%MOVEMENT SLOW:"
 		"DOTA_Tooltip_modifier_frost_arrows_slow_datadriven"											"Frost Arrow Slow"
 		"DOTA_Tooltip_modifier_frost_arrows_slow_datadriven_Description"								"Movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+		"DOTA_Tooltip_ability_drow_ranger_wave_of_silence_Description"	"Releases a wave that silences and knocks back enemy units. Knockback distance is relative to how close they are to you."
 		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven"									"Precision Aura"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven_Description"						"Adds bonus damage to the physical attack of allied, ranged Hero units based on a percentage of Drow's agility.  Affects creeps for 30 seconds when cast."
 		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven_Lore"								"Traxex' time spent alone in the forests of her Drow home has allowed her to teach other archers how to improve their bow skills."
@@ -1904,6 +1905,8 @@
 		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_duration"				"DURATION:"
 		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_incoming_damage_pct"		"%DAMAGE AMPLIFICATION:"
 		//Shadow Shaman
+		"DOTA_Tooltip_ability_shadow_shaman_shackles_Description"								"CHANNELED - Magically binds an enemy unit so that it cannot move or attack, while dealing damage over time."
+		"DOTA_Tooltip_ability_shadow_shaman_shackles_total_damage"								"TOTAL DAMAGE："
 		"DOTA_Tooltip_Ability_shadow_shaman_mass_serpent_ward_datadriven"							"Mass Serpent Ward"
 		"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_datadriven_Description"				"Summons %ward_count% Serpent Wards to attack enemy units and structures. The Wards are immune to magic."
 		"DOTA_Tooltip_Ability_shadow_shaman_mass_serpent_ward_datadriven_Scepter_Description"		"Increase attack damage."

@@ -8,6 +8,7 @@
 #base "heroes/death_prophet.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
+#base "heroes/drow_ranger.txt"
 #base "heroes/furion.txt"
 #base "heroes/enchantress.txt"
 #base "heroes/gyrocopter.txt"
@@ -23344,116 +23345,6 @@
 			}
 		}
 	}
-	"drow_ranger_frost_arrows_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityTextureName"			"drow_ranger_frost_arrows"
-	
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"625"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-	
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0.0 0.0 0.0 0.0"
-		"AbilityDuration"				"1.5 1.5 1.5 1.5"
-	
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0 0 0 0"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"12 12 12 12"
-	
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"frost_arrows_movement_speed"	"-15 -30 -45 -60"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"frost_arrows_hero_duration_tooltip"	"1.5"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"frost_arrows_creep_duration"	"7.0"
-			}
-		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
-		"precache"
-		{
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
-			"particle"				"particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
-			"particle"				"particles/generic_gameplay/generic_slowed_cold.vpcf"
-		}
-		
-		"Modifiers"
-		{
-			"modifier_frost_arrows_caster_datadriven"
-			{
-				"Passive"               		"1"
-				"IsHidden"						"1"
-				"IsPurgable"					"0"
-				
-				"Orb"
-				{
-					"Priority"					"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"			"particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
-					"CastAttack"				"1"
-				}
-	
-				"OnOrbFire"
-				{
-					"SpendMana"
-					{
-						"Mana"					"%AbilityManaCost"
-					}
-					"FireSound"
-					{
-						"EffectName"			"Hero_DrowRanger.FrostArrows"
-						"Target"				"CASTER"
-					}
-				}
-	
-				"OnOrbImpact"
-				{
-					"RunScript"
-					{
-						"ScriptFile"			"heroes/hero_drow_ranger/frost_arrow.lua"
-						"Function"				"handleOrbImpact"
-					}
-				}
-			}
-			
-			"modifier_frost_arrows_slow_datadriven"
-			{
-				"IsHidden"						"0"
-			
-				"EffectName"					"particles/generic_gameplay/generic_slowed_cold.vpcf"
-			
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%frost_arrows_movement_speed"
-				}
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: Drow Ranger Wave of Silence
 	//=================================================================================================================
@@ -27410,7 +27301,8 @@
 }
 	"ogre_magi_fireblast"
 	{
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"475"
+		"AbilityCastPoint"				"0.45"
 		"AbilityManaCost"				"75 85 95 105"
 		"AbilityValues"
 		{
@@ -27445,7 +27337,6 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -27455,6 +27346,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+				"AbilityCooldown"	"6"
 				"stun_duration"		"1.5"
 				"multicast_delay"	"0.4"
 				"scepter_mana"		"60"
@@ -27520,6 +27412,7 @@
 	"shadow_shaman_shackles"
 	{
 		"HasShardUpgrade"				"0"
+		"AbilityCastRange"				"400"
 		"AbilityChannelTime"			"2.75 3.5 4.25 5"
 		"AbilityCooldown"				"16"
 		"AbilityManaCost"				"140 150 160 170"
@@ -29335,7 +29228,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		//Dynamic Cast Range
-		"AbilityCastRange"				"700 800 900 1000"
+		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0"
 		
 		// Time		
@@ -29490,7 +29383,7 @@
 		"ID"							"5440"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
@@ -29518,7 +29411,7 @@
 				"bonus_attack_speed"		"20 30 40 50"
 				"self_bonus"				"20 30 40 50"
 				"duration"					"30"
-				"multicast_bloodlust_aoe"	"700"
+				"multicast_bloodlust_aoe"	"575"
 			
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"

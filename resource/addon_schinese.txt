@@ -1135,6 +1135,7 @@
 		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven_frost_arrows_movement_speed"			"%移速减缓："	
 		"DOTA_Tooltip_modifier_frost_arrows_slow_datadriven"											"冰箭减速"
 		"DOTA_Tooltip_modifier_frost_arrows_slow_datadriven_Description"								"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+		"DOTA_Tooltip_ability_drow_ranger_wave_of_silence_Description"	"释放一阵狂风，沉默敌方单位并将其击退。击退距离与敌人和卓尔游侠的距离成反比。"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven"								"精准光环"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven_Description"					"提高所有友方远程英雄的攻击力，提升数值是卓尔游侠敏捷值的一定百分比。施放后对所有普通单位生效，持续30秒。"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot_datadriven_Lore"						"崔希丝在卓尔族森林中独处的时光让她有时间教导其他弓箭手如何提高弓技。"
@@ -1913,6 +1914,8 @@
 		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_duration"		"持续时间："
 		"DOTA_Tooltip_ability_shadow_demon_soul_catcher_datadriven_incoming_damage_pct"		"%伤害加深："
 		//Shadow Shaman
+		"DOTA_Tooltip_ability_shadow_shaman_shackles_Description"						"持续施法 - 使用魔法绑住一个敌方单位，使其无法攻击和移动，同时持续造成伤害。"
+		"DOTA_Tooltip_ability_shadow_shaman_shackles_total_damage"						"总伤害："
 		"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_datadriven"							"群蛇守卫"
 		"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_datadriven_Description"				"召唤%ward_count%支毒蛇守卫来攻击敌方单位和建筑。守卫对魔法免疫。"
 		"DOTA_Tooltip_Ability_shadow_shaman_mass_serpent_ward_datadriven_Scepter_Description"		"增加攻击力。"
