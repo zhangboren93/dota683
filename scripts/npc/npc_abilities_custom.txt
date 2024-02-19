@@ -23743,7 +23743,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"scripts/vscripts/heroes/hero_silencer/glaives_of_wisdom.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -23770,64 +23771,10 @@
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"intellect_damage_pct"	"30 50 70 90"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"steal_range"		"925"
-			}
-		}
-	
-		"Modifiers"
-		{
-			"modifier_glaives_of_wisdom_datadriven"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-	
-				"Orb"
-				{
-					"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"	"particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf"
-					"CastAttack"	"1"
-				}
-	
-				"OnOrbFire"
-				{
-					"SpendMana"
-					{
-						"Mana"	"%AbilityManaCost"
-					}
-	
-					"FireSound"
-					{
-						"EffectName"	"Hero_Silencer.GlaivesOfWisdom"
-						"Target"		"CASTER"
-					}
-				}
-	
-				"OnOrbImpact"
-				{
-					"FireSound"
-					{
-						"EffectName"	"Hero_Silencer.GlaivesOfWisdom.Damage"
-						"Target"		"TARGET"
-					}
-	
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_silencer/glaives_of_wisdom.lua"
-						"Function"		"IntToDamage"
-						"Target"		"TARGET"
-					}
-				}	
-			}
+			"intellect_damage_pct"	"30 50 70 90"
+			"steal_range"		"925"
 		}
 	}
 	// Rewrite of the Silencer Last Word

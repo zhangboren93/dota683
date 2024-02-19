@@ -47,3 +47,21 @@ function stealIntBuffCount(event)
 	local modifier = unit:FindModifierByName("modifier_int_steal_bonus_stacks_datadriven")
 	modifier:IncrementStackCount()
 end
+
+silencer_glaives_of_wisdom_datadriven = class({})
+function silencer_glaives_of_wisdom_datadriven:GetIntrinsicModifierName()
+	return "modifier_generic_orb_effect_lua"
+end
+function silencer_glaives_of_wisdom_datadriven:GetProjectileName()
+	return "particles/units/heroes/hero_silencer/silencer_glaives_of_wisdom.vpcf"
+end
+function silencer_glaives_of_wisdom_datadriven:OnOrbFire(event)
+	self:GetCaster():EmitSound("Hero_Silencer.GlaivesOfWisdom")
+end
+function silencer_glaives_of_wisdom_datadriven:OnOrbImpact(event)
+	local target = event.target
+	target:EmitSound("Hero_Silencer.GlaivesOfWisdom.Damage")
+	event.ability = self
+	event.caster = self:GetCaster()
+	IntToDamage(event)
+end
