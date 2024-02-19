@@ -430,7 +430,7 @@ function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
         end
         CreateUnitByNameAsync("npc_dummy_unit_minimap_camp",
             camp_location,
-            true,
+            false,
             nil, 
             nil,
             DOTA_TEAM_GOODGUYS,
@@ -442,7 +442,7 @@ function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
             end)
         CreateUnitByNameAsync("npc_dummy_unit_minimap_camp",
             camp_location,
-            true,
+            false,
             nil, 
             nil,
             DOTA_TEAM_BADGUYS,
