@@ -2263,6 +2263,17 @@
 						}
 					}
 				}
+
+				"ThinkInterval"		"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/disable_orb.lua"
+						"Function"		"CheckOrb"
+						"CheckAbility"	"sandking_caustic_finale_datadriven"
+					}
+				}
 			}
 			
 			"modifier_caustic_finale_debuff_datadriven"

@@ -116,8 +116,9 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_broodmother/incapacitating_bite.lua"
+						"ScriptFile"	"scripts/vscripts/disable_orb.lua"
 						"Function"		"CheckOrb"
+						"CheckAbility"	"broodmother_incapacitating_bite"
 					}
 				}
 			}
