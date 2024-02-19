@@ -35,3 +35,22 @@ function HiddenAbility(keys)
 	ability:SetLevel(1)
 	ability:CastAbility()
 end
+
+obsidian_destroyer_arcane_orb_datadriven = class({})
+function obsidian_destroyer_arcane_orb_datadriven:GetIntrinsicModifierName()
+	return "modifier_generic_orb_effect_lua"
+end
+function obsidian_destroyer_arcane_orb_datadriven:GetProjectileName()
+	return "particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
+end
+function obsidian_destroyer_arcane_orb_datadriven:OnOrbFire(event)
+	local caster = self:GetCaster()
+	caster:EmitSound("Hero_ObsidianDestroyer.ArcaneOrb")
+	event.caster = caster
+	HiddenAbility(event)
+end
+function obsidian_destroyer_arcane_orb_datadriven:OnOrbImpact(event)
+	event.ability = self
+	event.caster = self:GetCaster()
+	ArcaneOrb(event)
+end

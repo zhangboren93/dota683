@@ -23498,7 +23498,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"scripts/vscripts/heroes/hero_obsidian_destroyer/arcane_orb.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -23517,83 +23518,14 @@
 		}	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 100 100 100"
+		"AbilityManaCost"				"100"
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_pool_damage_pct"	"6 7 8 9"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"illusion_damage"		"100 200 300 400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"int_gain"				"0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"int_steal"				"0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"steal_duration"		"0"
-			}
-			
-		}
-		
-		"Modifiers"
-		{
-			"modifier_arcane_orb_datadriven"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-	
-				"Orb"
-				{
-					"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"	"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
-					"CastAttack"	"1"
-				}
-	
-				"OnOrbFire"
-				{
-					"SpendMana"
-					{
-						"Mana"	"%AbilityManaCost"
-					}
-					"FireSound"
-					{
-						"EffectName"	"Hero_ObsidianDestroyer.ArcaneOrb"
-						"Target"	"TARGET"	
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_obsidian_destroyer/arcane_orb.lua"
-						"Function"	"HiddenAbility"
-						"Target"	"TARGET"
-					}
-				}
-	
-				"OnOrbImpact"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_obsidian_destroyer/arcane_orb.lua"
-						"Function"	"ArcaneOrb"
-						"Target"	"TARGET"
-					}
-				}
-			}
+			"mana_pool_damage_pct"	"6 7 8 9"
+			"illusion_damage"		"100 200 300 400"
 		}
 	}	
 	"obsidian_destroyer_dummy_skill"
