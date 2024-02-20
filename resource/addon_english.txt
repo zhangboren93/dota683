@@ -1717,6 +1717,15 @@
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_max_targets"				"MAX TARGETS:"
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage_percent_add"			"%ADDED DAMAGE PER BOUNCE:"
+		// Jakiro
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua"						"Liquid Fire"
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_Description"			"Jakiro burns his enemies in an area of effect with fire added to his attack, while slowing their attacks.\n<font color=\"#ff0000\">Orb effects don't stack.</font>"
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_Note0"					"Works on both units and buildings."
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_slow_attack_speed_pct"	"ATTACK SLOW:"
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_damage"				"BURN DAMAGE:"
+		"DOTA_Tooltip_ability_Jakiro_liquid_fire_lua_AbilityDuration"		"DURATION:"
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_radius"				"RADIUS:"
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_abilitycastrange"		"CAST RANGE："
 		// Invoker
 		"DOTA_Tooltip_ability_invoker_quas_health_regen_per_instance"				"HP REGEN PER INSTANCE:"
 		"DOTA_Tooltip_ability_invoker_wex_attack_speed_per_instance"				"ATTACK SPEED PER INSTANCE:"

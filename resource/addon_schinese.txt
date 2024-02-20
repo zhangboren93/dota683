@@ -1728,6 +1728,16 @@
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_max_targets"					"最大目标数："
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage"							"伤害："
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_damage_percent_add"				"%每次弹跳增加伤害："
+		// Jakiro
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua"						"液态火"
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_Description"			"杰奇洛的火焰燃烧效果范围内的敌人，并降低他们的攻击速度。\n<font color=\"#ff0000\">法球效果无法叠加。</font>"
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_Lore"					"#DOTA_Tooltip_ability_jakiro_liquid_fire_Lore"
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_Note0"					"对单位和建筑都有效。"
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_slow_attack_speed_pct"	"攻击速度降低："
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_damage"				"每秒燃烧伤害："
+		"DOTA_Tooltip_ability_Jakiro_liquid_fire_lua_AbilityDuration"		"持续时间："
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_radius"				"作用范围："
+		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_abilitycastrange"		"施法距离："
 		//Invoker
 		"DOTA_Tooltip_ability_invoker_forge_spirit_spirit_mana"									"魔法值(<font color='#cabe68'>火</font>):\n"
 		"DOTA_Tooltip_ability_invoker_quas_health_regen_per_instance"				"单个元素恢复加成："
