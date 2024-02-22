@@ -1,0 +1,140 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	"tusk_snowball_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"tusk_snowball"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1250"
+		"AbilityCastPoint"				"0.1"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"21 20 19 18"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"snowball_damage"			"80 120 160 200"
+			"snowball_speed_pct"		"150"
+			"snowball_damage_bonus"		"20 30 40 50"
+			"snowball_speed_bonus"		"100"
+			"stun_duration"				"0.5 0.75 1.0 1.25"
+			"snowball_windup_radius"	"100"
+			"snowball_duration"			"3.0"
+			"snowball_radius"			"200"
+			"snowball_grow_rate"		"40"
+			"snowball_windup"			"4.0"
+		}
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_tusk/tusk_snowball_target.vpcf"
+			"particle"	"particles/units/heroes/hero_tusk/tusk_snowball_destroy.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_tusk/snowball.lua"
+				"Function"		"handleSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_tusk_snowball_start_datadriven"
+			{
+				"IsHidden"				"1"
+				"Duration"				"%snowball_windup"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_tusk/snowball.lua"
+						"Function"		"handleModifierStartDestroy"
+					}
+				}
+
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_tusk/snowball.lua"
+						"Function"		"handleStartIntervalThink"
+					}
+				}
+			}
+			"modifier_tusk_snowball_follow_datadriven"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_OUT_OF_GAME"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_VISUAL_Z_DELTA"	"-400"
+				}
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_tusk/snowball.lua"
+						"Function"		"handleFollowIntervalThink"
+					}
+				}
+			}
+			"modifier_tusk_snowball_ally_datadriven"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	"tusk_launch_snowball_datadriven"
+	{
+		"BaseClass"					"ability_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"AbilityTextureName"		"tusk_snowball"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+		"AbilityCastAnimation"			"ACT_INVALID"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_tusk/snowball.lua"
+				"Function"		"handleLaunch"
+			}
+		}
+	}
+}

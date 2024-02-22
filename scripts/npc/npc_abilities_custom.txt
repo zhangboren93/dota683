@@ -28,6 +28,7 @@
 #base "heroes/spectre.txt"
 #base "heroes/spirit_breaker.txt"
 #base "heroes/terrorblade.txt"
+#base "heroes/tusk.txt"
 #base "heroes/viper.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
@@ -29758,55 +29759,6 @@
 					"RequiresShard"				"1"
 				}
 		}
-	}
-	//=================================================================================================================
-	// Tusk: Snowball
-	//=================================================================================================================
-	"tusk_snowball"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5566"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Tusk.Snowball.Cast"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1300"
-		"AbilityCastPoint"				"0.1 0.1 0.1 0.1"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"21 20 19 18"
-
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75 75 75 75"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"snowball_damage"			"80 120 160 200"
-				"snowball_speed"			"625 650 675 700"
-				"snowball_damage_bonus"		"20 30 40 50"
-				"stun_duration"				"0.5 0.75 1.0 1.25"
-				"snowball_windup_radius"	"100"
-				"snowball_duration"			"3.0"
-				"snowball_radius"			"200"
-				"snowball_grow_rate"		"40"
-				"snowball_windup"			"3.0"
-				"snowball_grab_radius"		"350"
-				"snowball_speed_bonus"		"75"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	//=================================================================================================================
 	// Tusk: Frozen Sigil
