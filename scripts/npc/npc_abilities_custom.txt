@@ -12,6 +12,7 @@
 #base "heroes/furion.txt"
 #base "heroes/enchantress.txt"
 #base "heroes/gyrocopter.txt"
+#base "heroes/invoker.txt"
 #base "heroes/jakiro.txt"
 #base "heroes/kunkka.txt"
 #base "heroes/legion_commander.txt"
@@ -32852,7 +32853,6 @@
 	//=================================================================================================================
 	// Invoker: Cold Snap
 	//=================================================================================================================
-	// TODO Non dispellable
 	"invoker_cold_snap"
 	{
 		// General
@@ -32860,7 +32860,7 @@
 		"ID"							"5376"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"1"
 		"HotKeyOverride"				"Y"
 		"FightRecapLevel"				"1"
@@ -32893,7 +32893,7 @@
 				"value"					"3.0 3.5 4 4.5 5.0 5.5 6"
 				"levelkey"				"quaslevel"	
 			}
-			"freeze_duration"			"0.3"
+			"freeze_duration"			"0.4"
 			"freeze_cooldown"
 			{
 				"value"					"0.77 0.74 0.71 0.69 0.66 0.63 0.6"

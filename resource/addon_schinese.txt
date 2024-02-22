@@ -1750,6 +1750,8 @@
 		"DOTA_Tooltip_ability_forged_spirit_melting_strike_datadriven_duration"					"持续时间："
 		"DOTA_Tooltip_Ability_invoker_invoke_Scepter_Description"								"减少冷却时间，并移除魔法消耗。"
 		"DOTA_Tooltip_Ability_invoker_invoke_AbilityCooldown"									"冷却时间："
+		"DOTA_Tooltip_modifier_cold_snap_datadriven"								"急速冷却"
+		"DOTA_Tooltip_modifier_cold_snap_datadriven_Description"					"被攻击时会受到额外伤害并且被短暂冻结。"
 		//Keeper of the Light
 		"DOTA_Tooltip_Ability_keeper_of_the_light_spirit_form_Scepter_Description"			"永久灵魂形态。在白昼期间视野无视地形，而且冲击波将会治疗行进路径上的友方单位，治疗量为冲击波伤害的75%。"
 		"DOTA_Tooltip_Ability_keeper_of_the_light_mana_leak_datadriven"						"法力流失"

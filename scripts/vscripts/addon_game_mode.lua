@@ -1751,6 +1751,14 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local creep_stun_duration = ability:GetSpecialValueFor("creep_stun_duration")
 		parent:AddNewModifier(caster, ability, "modifier_stunned", { duration = creep_stun_duration })
+	elseif event.name_const == "modifier_invoker_cold_snap" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = caster:FindAbilityByName("invoker_cold_snap_datadriven")
+		ability:SetLevel(1)
+		local quas_level = caster:FindAbilityByName("invoker_quas"):GetLevel() - 1
+		local duration = ability:GetLevelSpecialValueFor("duration", quas_level) 
+		ability:ApplyDataDrivenModifier(caster, parent, "modifier_cold_snap_datadriven", { duration = duration })
+		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

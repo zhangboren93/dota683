@@ -2535,7 +2535,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability17"		"invoker_orb_bonus_datadriven" 
-		"Ability18"		"generic_hidden" 
+		"Ability18"		"invoker_cold_snap_datadriven"
 		"Ability19"		"generic_hidden" 
 		"Ability20"		"generic_hidden" 
 		"Ability21"		"generic_hidden" 
