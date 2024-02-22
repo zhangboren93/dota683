@@ -12380,6 +12380,7 @@
 			"pull_radius"					"410"
 			"polarity_damage"				"50 125 200"
 			"hero_stun_duration"			"2.25 3 3.75"
+			"creep_stun_duration"			"3 4 5"
 			"pull_duration"					"0.0 0.0 0.0"
 			"strength_buff_duration"		"0"
 			"strength_per_stack"			"0"

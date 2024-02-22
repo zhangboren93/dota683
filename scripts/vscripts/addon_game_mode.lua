@@ -1746,6 +1746,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_rubick_fade_bolt_debuff_lua", { duration = 10 })
 		return false
+	elseif event.name_const == "modifier_magnataur_reverse_polarity" and parent:IsCreep() then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local creep_stun_duration = ability:GetSpecialValueFor("creep_stun_duration")
+		parent:AddNewModifier(caster, ability, "modifier_stunned", { duration = creep_stun_duration })
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
