@@ -9556,6 +9556,9 @@
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"			"obsidian_destroyer_sanity_eclipse"
 		"AOERadius"						"%radius"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 		"HasScepterUpgrade"				"1"
 	
 		// Precache
@@ -9622,9 +9625,8 @@
 				"ControlPoints"
 				{
 					"00" "POINT"
-					"01" "%radius 0 0"
-					"02" "%radius 0 0"
-					"03" "%radius 0 0"				
+					"01" "%radius %radius 1"
+					"02" "1 1 %radius"
 				}
 			}		
 	
