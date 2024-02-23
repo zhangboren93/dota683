@@ -682,11 +682,12 @@
 		"DOTA_Tooltip_Ability_night_stalker_crippling_fear_datadriven_duration_day"		"Day Duration: "
 		"DOTA_Tooltip_Ability_night_stalker_crippling_fear_datadriven_duration_night"	"Night Duration: "
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven"						"Darkness"
-		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Description"			"Night Stalker smothers the sun and summons instant darkness, so that he might use his powers at their fullest. While Darkness is in effect, enemy heroes, units and wards have their vision range reduced."
+		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Description"			"Night Stalker smothers the sun and summons instant darkness, so that he might use his powers at their fullest. While Darkness is in effect, enemy heroes, units, wards and buildings have their vision range reduced to %fixed_vision%."
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_duration"				"Duration: "
-		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_blind_percentage"		"%Enemy Vision Reduction: "
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Scepter_Description"	"Grants unobstructed vision in the night. The improved vision does not depend on using Darkness."
-        //Ogre Magi
+        "DOTA_Tooltip_modifier_darkness_aura_datadriven"				"Darkness"
+		"DOTA_Tooltip_modifier_darkness_aura_datadriven_Description"	"Temporarily turns day into night."
+		//Ogre Magi
 		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven"								"Ignite"
 		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven_Description"					"Drenches the target in volatile chemicals, causing it to burst into flames. The target is in immense pain, taking damage and moving more slowly."
 		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven_Lore"							"Batter up!"

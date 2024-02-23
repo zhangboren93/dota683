@@ -690,9 +690,10 @@
 		"DOTA_Tooltip_Ability_night_stalker_crippling_fear_datadriven_duration_day"		"白天持续时间："
 		"DOTA_Tooltip_Ability_night_stalker_crippling_fear_datadriven_duration_night"	"夜间持续时间："
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven"						"夜幕降临"
-		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Description"			"暗夜魔王遮住太阳，让夜晚立刻降临，使他的力量可以得到最大程度的发挥。黑暗时间施放后敌方英雄，非英雄单位和守卫的视野范围均有所下降。"
+		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Description"			"暗夜魔王遮住太阳，让夜晚立刻降临，使他的力量可以得到最大程度的发挥。黑暗时间施放后敌方英雄，非英雄单位，守卫和建筑物的视野范围均下降至%fixed_vision%。"
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_duration"				"持续时间："
-		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_blind_percentage"		"%敌方视野降低："
+		"DOTA_Tooltip_modifier_darkness_aura_datadriven"				"黑暗时间"
+		"DOTA_Tooltip_modifier_darkness_aura_datadriven_Description"	"暂时将白天变为黑夜。"
 		"DOTA_Tooltip_Ability_night_stalker_darkness_datadriven_Scepter_Description"	"夜间获得高空视野。这项能力为被动获得，不需要使用夜幕降临。"
 		//Ogre Magi
 		"DOTA_Tooltip_ability_ogre_magi_ignite_datadriven"							"引燃"

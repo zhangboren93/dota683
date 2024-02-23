@@ -26605,7 +26605,7 @@
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 		"AbilityCooldown"				"12 12 12 12"
-		"AbilityManaCost"				"90 90 90 90"
+		"AbilityManaCost"				"50"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -26722,16 +26722,16 @@
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"50"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blind_percentage"				"-25"
-			}
 			// Using a value now, need to change it to GLOBAL once its fixed
-			"03"
+			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"radius"				"12000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fixed_vision"			"675"
 			}
 		}
 	
@@ -26771,32 +26771,18 @@
 	
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 	
-				"Aura" 			"modifier_darkness_datadriven"
+				"Aura" 			"modifier_nightstalker_darkness_blind"
 				"Aura_Radius" 	"%radius"
 				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types" 	"DOTA_UNIT_TARGET_ALL"
 			}
 	
-			"modifier_darkness_datadriven"
+			"modifier_nightstalker_darkness_blind"
 			{
 				"IsDebuff"	"1"
-	
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_night_stalker/darkness.lua"
-						"Function"		"ReduceVision"
-					}
-				}
-	
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_night_stalker/darkness.lua"
-						"Function"		"RevertVision"
-					}
+					"MODIFIER_PROPERTY_FIXED_NIGHT_VISION"		"%fixed_vision"
 				}
 			}
 
