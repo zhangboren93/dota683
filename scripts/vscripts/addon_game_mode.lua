@@ -1570,14 +1570,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", { duration = ability:GetSpecialValueFor("knockback_duration") })
---[[	elseif event.name_const == "modifier_kunkka_torrent" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
-		local slow_duration = ability:GetSpecialValueFor("slow_duration")
-		local stun_duration = ability:GetSpecialValueFor("stun_duration")
-		parent:AddNewModifier(caster, ability, "modifier_torrent_slow_lua", { duration = slow_duration + stun_duration })
-		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_torrent_damage_datadriven", {}) ]]
 	elseif event.name_const == "modifier_obsidian_destroyer_astral_imprisonment_prison" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
@@ -1587,6 +1579,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_od_imprison_int_steal", {})
 			passive_ability:ApplyDataDrivenModifier(caster, caster, "modifier_od_imprison_int_gain", {})
 	    end
+		return false
 	elseif event.name_const == "modifier_oracle_fates_edict" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
