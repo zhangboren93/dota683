@@ -592,6 +592,10 @@ function CAddonTemplateGameMode:OnThink()
 			randomUnpickedPlayers()
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
+		if self.timeofdayset == nil then
+			GameRules:SetTimeOfDay(0.250005)
+			self.timeofdayset = true
+		end
 		local roshan = Entities:FindAllByClassname("npc_dota_roshan")
 		if #roshan > 0 and self.first_roshan_spawned == nil then
 			roshan[1]:ForceKill(false)
@@ -608,10 +612,6 @@ function CAddonTemplateGameMode:OnThink()
 			and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
 			spawnCreepsLua()
 			self.creepSpawnTime = time
-		end
-		if time >= 0 and (self.timeofdayset == nil) then
-			GameRules:SetTimeOfDay(0.25)
-			self.timeofdayset = true
 		end
 
 		-- give each player passive gold
