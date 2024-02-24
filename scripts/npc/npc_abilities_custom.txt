@@ -9425,7 +9425,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250 350 450"
+		"AbilityManaCost"				"250 375 500"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -9556,6 +9556,9 @@
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"			"obsidian_destroyer_sanity_eclipse"
 		"AOERadius"						"%radius"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 		"HasScepterUpgrade"				"1"
 	
 		// Precache
@@ -9622,9 +9625,8 @@
 				"ControlPoints"
 				{
 					"00" "POINT"
-					"01" "%radius 0 0"
-					"02" "%radius 0 0"
-					"03" "%radius 0 0"				
+					"01" "%radius %radius 1"
+					"02" "1 1 %radius"
 				}
 			}		
 	
@@ -9649,51 +9651,6 @@
 					}			
 				}
 			}
-		}
-	}
-    "obsidian_destroyer_sanity_eclipse"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5394"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.25 0.25 0.25"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_ObsidianDestroyer.SanityEclipse"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"160"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"175 250 325"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"base_damage"				"0"
-				"radius"					"375 475 575"
-				"cast_range"				
-				{
-					"value" "600 650 700"
-					"special_bonus_scepter"	"+100"
-				}
-				"damage_multiplier"	
-				{
-					"value"	"0.61 0.69 0.77"
-					"special_bonus_scepter"	"+0.08"
-				}
 		}
 	}
     "lycan_shapeshift"
@@ -23529,11 +23486,11 @@
 		{
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
 			"particle"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_arcane_orb.vpcf"
-		}	
+		}
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
-	
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -23541,7 +23498,7 @@
 			"mana_pool_damage_pct"	"6 7 8 9"
 			"illusion_damage"		"100 200 300 400"
 		}
-	}	
+	}
 	"obsidian_destroyer_dummy_skill"
 	{
 		"BaseClass"	"ability_datadriven"
@@ -23557,7 +23514,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5392"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
@@ -23609,7 +23566,7 @@
 			}				
 			"AbilityCastRange"
 			{
-				"value"						"550"
+				"value"						"500"
 				"special_bonus_unique_outworld_devourer_astral_castrange"	"+100"
 			}
 			"int_steal"				"-4 -7 -10 -13"
@@ -23626,11 +23583,12 @@
 			"modifier_od_imprison_int_steal"
 			{
 				"Passive"		"0"
-				"IsHidden"		"1"
+				"IsHidden"		"0"
 				"IsDebuff"		"1"
 				"Duration"		"50"
 				"IsPurgable"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"	"obsidian_destroyer_astral_imprisonment"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%int_steal"
@@ -23639,10 +23597,11 @@
 			"modifier_od_imprison_int_gain"
 			{
 				"Passive"	"0"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"IsDebuff"	"0"
 				"Duration"	"50"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"TextureName"	"obsidian_destroyer_astral_imprisonment"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%int_gain"
@@ -23755,7 +23714,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.3"
 		"AbilityCastRange"				"900"
-		"AbilityDamage"					"150 200 250 300"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -26647,7 +26605,7 @@
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 		"AbilityCooldown"				"12 12 12 12"
-		"AbilityManaCost"				"90 90 90 90"
+		"AbilityManaCost"				"50"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -26764,16 +26722,16 @@
 				"var_type"				"FIELD_FLOAT"
 				"duration"				"50"
 			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blind_percentage"				"-25"
-			}
 			// Using a value now, need to change it to GLOBAL once its fixed
-			"03"
+			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"radius"				"12000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fixed_vision"			"675"
 			}
 		}
 	
@@ -26813,32 +26771,18 @@
 	
 				"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"
 	
-				"Aura" 			"modifier_darkness_datadriven"
+				"Aura" 			"modifier_nightstalker_darkness_blind"
 				"Aura_Radius" 	"%radius"
 				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types" 	"DOTA_UNIT_TARGET_ALL"
 			}
 	
-			"modifier_darkness_datadriven"
+			"modifier_nightstalker_darkness_blind"
 			{
 				"IsDebuff"	"1"
-	
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_night_stalker/darkness.lua"
-						"Function"		"ReduceVision"
-					}
-				}
-	
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_night_stalker/darkness.lua"
-						"Function"		"RevertVision"
-					}
+					"MODIFIER_PROPERTY_FIXED_NIGHT_VISION"		"%fixed_vision"
 				}
 			}
 

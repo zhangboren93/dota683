@@ -37,6 +37,8 @@ function Darkness( keys )
 
 end
 
+-- deprecated
+
 --[[Author: Pizzalol
 	Date: 11.01.2015.
 	Saves the original vision of the target and then reduces it]]
@@ -58,6 +60,8 @@ function RevertVision( keys )
 
 	target:SetNightTimeVisionRange(target.original_vision)
 end
+
+-- undeprecated
 
 function handleIntervalThink(event)
 	local caster = event.caster
