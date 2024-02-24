@@ -9461,9 +9461,10 @@
 					}
 				}
 			}
+			// Deprecated
 			"modifier_silencer_int_steal_aura_datadriven"
 			{
-				"Passive"	"1"
+				"Passive"	"0"
 				"IsHidden"	"1"
 				"Aura" 			"modifier_int_steal_aura_datadriven"
 				"Aura_Radius" 	"%steal_range"
@@ -9533,6 +9534,7 @@
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
+		// Undeprecated
 		"AbilitySpecial"
 		{
 			"01"
@@ -9540,6 +9542,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"steal_range"		"925"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"permanent_int_steal_range"		"925"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+                "permanent_int_steal_amount"       "2"
+            }  
 		}
 	}
 	// Rewrite of the Obsidian Destroyer Sanity Eclipse
@@ -23497,8 +23509,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"mana_pool_damage_pct"	"6 7 8 9"
-			"illusion_damage"		"100 200 300 400"
+				"mana_pool_damage_pct"	"6 7 8 9"
+				"illusion_damage"		"100 200 300 400"
 		}
 	}
 	"obsidian_destroyer_dummy_skill"
@@ -23680,10 +23692,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"intellect_damage_pct"	"30 50 70 90"
-			"steal_range"		"925"
-		}
-	}
+				"intellect_damage_pct"	"30 50 70 90"
+				"steal_range"		"925"
+			}
+					}
 	// Rewrite of the Silencer Last Word
 	// Author: chrislotix
 	// Date: 11.01.2015.
@@ -23914,10 +23926,10 @@
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
-		{
-			"damage_per_burn"		"0.6"
-			"mana_per_hit"			"28 40 52 64"
-		}
+			{
+				"damage_per_burn"		"0.6"
+				"mana_per_hit"			"28 40 52 64"
+			}
 	
 		"Modifiers"
 		{
@@ -30957,7 +30969,7 @@
 					"Center"	"POINT"
 					"Radius"	"%radius"
 					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Type"		"DOTA_UNIT_TARGET_HERO"
+					"Types"		"DOTA_UNIT_TARGET_HERO"
 				}
 				
 				"Action"

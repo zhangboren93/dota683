@@ -1,7 +1,7 @@
 hero_innate_abilities = {}
 hero_innate_abilities["npc_dota_hero_broodmother"] = "broodmother_incapacitating_bite_orb"
 hero_innate_abilities["npc_dota_hero_clinkz"] = "clinkz_attack_animation_datadriven"
-hero_innate_abilities["npc_dota_hero_silencer"] = "silencer_global_silence_aghs_datadriven"
+--hero_innate_abilities["npc_dota_hero_silencer"] = "silencer_global_silence_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_spirit_breaker"] = "spirit_breaker_empowering_haste_activate_debuff_datadriven"
 hero_innate_abilities["npc_dota_hero_pudge"] = "pudge_rot_suicide_datadriven"
 hero_innate_abilities["npc_dota_hero_abaddon"] = "abaddon_borrowed_time_aghs_datadriven"
