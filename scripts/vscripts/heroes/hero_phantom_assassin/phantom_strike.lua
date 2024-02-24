@@ -18,7 +18,7 @@ function PhantomStrike( keys )
 	local duration = ability:GetDuration()
 	ability.phantom_strike_attacks = ability:GetLevelSpecialValueFor("bonus_max_attack_count", ability_level)
 
-	caster:SetAbsOrigin(target:GetAbsOrigin() + 128 * (caster:GetAbsOrigin() - target:GetAbsOrigin()):Normalized())
+	FindClearSpaceForUnit(caster, target:GetAbsOrigin() + 128 * (caster:GetAbsOrigin() - target:GetAbsOrigin()):Normalized(), true)
 
 	-- If the target is an enemy then do enemy team logic
 	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
