@@ -10,6 +10,9 @@ function luna_moon_glaive_lua:OnProjectileHit_ExtraData(target, location, extraD
 	local caster = self:GetCaster()
 	local bounceIndex = self:GetSpecialValueFor("bounces") - bounces
 	local damage = caster:GetAverageTrueAttackDamage(nil) * 0.65
+	if caster:IsIllusion() then
+		damage = (caster:GetBaseDamageMax() + caster:GetBaseDamageMin()) * 0.65 / 2.0
+	end
 	for i=1,bounceIndex do
 		damage = damage * 0.65
 	end
@@ -32,8 +35,8 @@ function luna_moon_glaive_lua:OnProjectileHit_ExtraData(target, location, extraD
 			nil,
 			range,
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BUILDING,
+			DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 			FIND_ANY_ORDER,
 			false)
 		local units_not_target = {}
