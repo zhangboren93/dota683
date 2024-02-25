@@ -871,7 +871,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:RemoveAbility("ability_pluck_famango")	-- 摘莲花
 		entity:RemoveAbility("ability_lamp_use")		-- 占领观察者
 		entity:RemoveAbility("ability_capture")			-- 占领前哨
-		entity:RemoveAbility("twin_gate_portal_warp")	-- 双生门传送
 
 		-- thinkers
 		entity:SetThink(function()
@@ -1013,11 +1012,15 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:HasAbility("creep_strong") then
 		entity:FindAbilityByName("creep_strong"):SetLevel(1)
 	end
+	if entity:HasAbility("twin_gate_portal_warp") then -- 移除双生门传送
+		entity:RemoveAbility("twin_gate_portal_warp")	
+	end
 	
 	if not entity:IsWard() and not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
 		entity:AddAbility("unit_intrinstic_mechanism_datadriven"):SetLevel(1)
 	end
 
+	-- deprecated
 	if entity:IsRealHero() and is_respawn == 1 and entity.loseIntOnRespawn then
 		print("Losing int at respawn")
 		entity.silencerAbility:ApplyDataDrivenModifier(entity, entity, "modifier_int_steal_debuf_datadriven", {})
@@ -1578,12 +1581,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local passive_ability = caster:FindAbilityByName("obsidian_destroyer_imprison_int_steal_datadriven")
-	    if parent:IsRealHero() and passive_ability ~= nil then
+	    if parent:IsRealHero() and passive_ability ~= nil and caster:GetTeam() ~= parent:GetTeam() then
 			passive_ability:SetLevel(ability:GetLevel())
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_od_imprison_int_steal", {})
 			passive_ability:ApplyDataDrivenModifier(caster, caster, "modifier_od_imprison_int_gain", {})
 	    end
-		return false
 	elseif event.name_const == "modifier_oracle_fates_edict" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
