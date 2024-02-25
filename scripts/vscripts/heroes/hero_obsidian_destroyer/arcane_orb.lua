@@ -10,7 +10,7 @@ function ArcaneOrb( keys )
 	local summon_damage = ability:GetLevelSpecialValueFor("illusion_damage", (ability:GetLevel() -1))
 	local extra_damage = ability:GetLevelSpecialValueFor("mana_pool_damage_pct", (ability:GetLevel() -1)) / 100
 
-	
+	target:EmitSound("Hero_ObsidianDestroyer.ArcaneOrb.Impact")
 
 	local damage_table = {}
 

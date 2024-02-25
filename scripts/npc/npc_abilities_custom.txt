@@ -563,6 +563,7 @@
 				"Aura_Radius" 	"%trigger_radius"
 				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
 	
 			"modifier_counter_helix_enemy_datadriven"
@@ -612,6 +613,7 @@
 							"Radius" 	"%radius"
 							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 						}
 					
 						"Action"    
@@ -6123,7 +6125,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.6"
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -6165,7 +6167,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.6"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
 		// Cost
@@ -6176,7 +6178,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			
 			"beams"
 			{
 				"value"					"5 8 11"
@@ -9459,9 +9460,10 @@
 					}
 				}
 			}
+			// Deprecated
 			"modifier_silencer_int_steal_aura_datadriven"
 			{
-				"Passive"	"1"
+				"Passive"	"0"
 				"IsHidden"	"1"
 				"Aura" 			"modifier_int_steal_aura_datadriven"
 				"Aura_Radius" 	"%steal_range"
@@ -9531,6 +9533,7 @@
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_PERMANENT"
 			}
 		}
+		// Undeprecated
 		"AbilitySpecial"
 		{
 			"01"
@@ -9538,6 +9541,16 @@
 				"var_type"			"FIELD_INTEGER"
 				"steal_range"		"925"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"permanent_int_steal_range"		"925"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+                "permanent_int_steal_amount"       "2"
+            }  
 		}
 	}
 	// Rewrite of the Obsidian Destroyer Sanity Eclipse
@@ -30955,7 +30968,7 @@
 					"Center"	"POINT"
 					"Radius"	"%radius"
 					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Type"		"DOTA_UNIT_TARGET_HERO"
+					"Types"		"DOTA_UNIT_TARGET_HERO"
 				}
 				
 				"Action"
