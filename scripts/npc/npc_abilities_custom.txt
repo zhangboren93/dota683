@@ -23509,8 +23509,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"mana_pool_damage_pct"	"6 7 8 9"
-				"illusion_damage"		"100 200 300 400"
+			"mana_pool_damage_pct"	"6 7 8 9"
+			"illusion_damage"		"100 200 300 400"
 		}
 	}
 	"obsidian_destroyer_dummy_skill"
@@ -23692,10 +23692,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"intellect_damage_pct"	"30 50 70 90"
-				"steal_range"		"925"
-			}
-					}
+			"intellect_damage_pct"	"30 50 70 90"
+			"steal_range"		"925"
+		}
+	}
 	// Rewrite of the Silencer Last Word
 	// Author: chrislotix
 	// Date: 11.01.2015.
@@ -23926,10 +23926,10 @@
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
-			{
-				"damage_per_burn"		"0.6"
-				"mana_per_hit"			"28 40 52 64"
-			}
+		{
+			"damage_per_burn"		"0.6"
+			"mana_per_hit"			"28 40 52 64"
+		}
 	
 		"Modifiers"
 		{
