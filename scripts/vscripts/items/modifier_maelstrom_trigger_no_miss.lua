@@ -11,6 +11,7 @@ function modifier_maelstrom_trigger_no_miss:DeclareFunctions()
 	}
 end
 function modifier_maelstrom_trigger_no_miss:OnAttackFinished(event)
+	if event.attacker ~= self:GetParent() then return end
 	event.ability = self:GetAbility()
 	event.caster = self:GetCaster()
 	modifier_item_maelstrom_datadriven_on_orb_impact(event)
