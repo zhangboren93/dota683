@@ -30,3 +30,15 @@ function handleTakeDamage(event)
 		ability:StartCooldown(ability:GetCooldown(1))
 	end
 end
+
+function analyse_modifier(unit, name)
+	local modifier = unit:FindModifierByName(name)
+	if modifier ~= nil then
+		for i = 0,291 do
+			if modifier:HasFunction(i) then
+				print(i)
+			end
+		end
+		print("found modifier")
+	end
+end
