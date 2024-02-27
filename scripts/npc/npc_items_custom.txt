@@ -5,6 +5,11 @@
 {
 	"Version"		"1"
 
+	"item_dust"
+	{
+		"ItemPurchasable"	"0"
+	}
+
 	"item_aghanims_shard"
 	{
 		"ItemPurchasable"	"0"
