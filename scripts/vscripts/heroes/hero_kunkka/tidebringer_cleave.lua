@@ -2,17 +2,26 @@ if modifier_tidebringer_cleave == nil then
 	modifier_tidebringer_cleave = class({})
 end
 
-function modifier_tidebringer_cleave:OnCreated(kv)
-	self.kv = kv
+function modifier_tidebringer_cleave:OnCreated()
+	local parent = self:GetParent()
+	if parent == nil then return end
+	self.particle = ParticleManager:CreateParticle(
+		"particles/units/heroes/hero_kunkka/kunkka_weapon_tidebringer.vpcf", 
+		PATTACH_POINT_FOLLOW, parent)
+	ParticleManager:SetParticleControlEnt(
+		self.particle, 2, parent, PATTACH_POINT_FOLLOW, 
+		"attach_sword", Vector(0, 0, 0), false)
 end
 
 function modifier_tidebringer_cleave:GetAttributes()
-	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 function modifier_tidebringer_cleave:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_PROCESS_CLEAVE,
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+		MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
 	}
 	return funcs
 end
@@ -24,11 +33,8 @@ end
 function modifier_tidebringer_cleave:OnProcessCleave(event)
 	local attacker = event.attacker
 	local target = event.target
+	local ability = self:GetAbility()
 	if attacker == self:GetParent() and not target:IsBuilding() and attacker:GetTeam() ~= target:GetTeam() then
-		local ability = attacker:FindAbilityByName("kunkka_tidebringer")
-		if ability:GetCooldownTimeRemaining() > 0 and ability:GetCooldownTimeRemaining() < ability:GetCooldown(-1) - 0.1 then
-			return
-		end
 		local pct = ability:GetSpecialValueFor("cleave_damage")
 		local radius = ability:GetSpecialValueFor("cleave_radius")
 		local damage = event.damage * pct /100
@@ -61,9 +67,28 @@ function modifier_tidebringer_cleave:OnProcessCleave(event)
 			ParticleManager:SetParticleControl(effect,i,Vector(0,0,-2000))
 		end
 		ParticleManager:ReleaseParticleIndex(effect)
+		ability:StartCooldown(-1)
+		attacker:EmitSound("Hero_Kunkka.Tidebringer.Attack")
+		self:Destroy()
 	end
 end
 
 function modifier_tidebringer_cleave:IsDebuff()
 	return false
+end
+
+function modifier_tidebringer_cleave:GetModifierPreAttack_BonusDamage()
+	return self:GetAbility():GetSpecialValueFor("damage_bonus")
+end
+
+function modifier_tidebringer_cleave:GetActivityTranslationModifiers()
+	return "tidebringer"
+end
+
+function modifier_tidebringer_cleave:OnDestroy()
+	if self.particle then
+		ParticleManager:DestroyParticle(self.particle, false)
+		ParticleManager:ReleaseParticleIndex(self.particle)
+		self.particle = nil
+	end
 end

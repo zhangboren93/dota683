@@ -601,7 +601,12 @@
 		"DOTA_Tooltip_ability_kunkka_torrent_datadriven_radius"						"作用范围："
 		"DOTA_Tooltip_modifier_torrent_slow_debuff_datadriven"					"洪流减速"
 		"DOTA_Tooltip_modifier_torrent_slow_debuff_datadriven_Description"		"移动速度减缓 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
-		"DOTA_Tooltip_Ability_kunkka_tidebringer_Lore"								"溅射范围500/500/500/600"
+		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven"						"潮汐使者"
+		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_Description"			"昆卡的传奇之剑使他的下一次攻击附加额外的攻击力并在前方造成大范围的分裂攻击伤害。"
+		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_Lore"					"迷失的铁帆海军灵魂依附在昆卡信赖的宝剑——潮汐使者之中，助它消灭洪流恶魔。"
+		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_damage_bonus"			"攻击力加成："
+		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_cleave_damage"			"%分裂伤害："
+		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_cleave_distance"		"分裂距离："
 		"DOTA_Tooltip_modifier_torrent_slow_lua"									"洪流减速"
 		"DOTA_Tooltip_modifier_torrent_slow_lua_Description"						"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 		// Legion Commander

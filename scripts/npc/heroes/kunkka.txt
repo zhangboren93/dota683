@@ -206,4 +206,58 @@
 			}
 		}
 	}
+
+	"kunkka_tidebringer_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilitySound"					"Hero_Kunkka.Tidebringer.Attack"
+		"AbilityTextureName"			"kunkka_tidebringer"
+
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityCastRange"				"150"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"13.0 10.0 7.0 4.0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{		
+			"damage_bonus"				"15 30 45 60"
+			"cleave_damage"				"100"				
+			"cleave_radius"				"500 500 500 600"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_kunkka/kunkka_spell_tidebringer.vpcf"
+			"particle"	"particles/units/heroes/hero_kunkka/kunkka_weapon_tidebringer.vpcf"
+		}
+
+		"Modifiers"
+		{
+			"modifier_kunkka_tidebringer_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_kunkka/tidebringer.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+		}
+	}
 }

@@ -956,8 +956,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			local ability = entity:FindAbilityByName("silencer_global_silence_aghs_datadriven")
 			ability:SetLevel(1)
 			entity:AddNewModifier(entity, ability, "modifier_silencer_glaives_of_wisdom", {})
-		elseif entity:GetName() == "npc_dota_hero_kunkka" then
-			entity:AddNewModifier(entity, nil, "modifier_tidebringer_cleave", {})
 		elseif entity:GetName() == "npc_dota_hero_invoker" then
 			entity:SetThink(function()
 				entity:FindAbilityByName("invoker_invoke"):SetLevel(0)
