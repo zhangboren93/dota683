@@ -1355,7 +1355,7 @@
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_duration"					"持续时间："
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_bonus_attack_speed"		"攻速提升："
 		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_abilitycastrange"			"施法距离："
-		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_bonus_max_attack_count"	"攻击次数:"
+		"DOTA_Tooltip_ability_phantom_assassin_phantom_strike_datadriven_bonus_max_attack_count"	"攻击次数："
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven"						"魅影无形"
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven_Description"			"幻影刺客集中注意力，提升自己闪避敌方攻击的技艺。当附近没有敌方英雄时身形变得模糊，从敌方小地图上消失。\n与其他闪避效果为乘法叠加。"
 		"DOTA_Tooltip_Ability_phantom_assassin_blur_datadriven_bonus_evasion"		"%闪避几率："
