@@ -106,8 +106,8 @@
 			"fade_time"				"1.0 1.0 1.0"
 		    "AbilityCastRange"		
             {
-                "value"                 "550 700 850"
-                "special_bonus_scepter" "+300 +150 +0"
+                "value"                 "700"
+                "special_bonus_scepter" "+150"
             }		
 		    "AbilityCooldown"				
             {
