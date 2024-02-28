@@ -620,7 +620,11 @@
 						{
 							"Damage"
 							{
-								"Target"		"TARGET"
+								"Target"
+								{
+									"Center"	"TARGET"
+									"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+								}
 								"Type"			"DAMAGE_TYPE_PHYSICAL"
 								"Damage"		"%AbilityDamage"
 							}
