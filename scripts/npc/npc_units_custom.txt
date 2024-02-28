@@ -715,14 +715,14 @@
 	}
 	"npc_dota_creep_badguys_melee"
 	{
-		"Ability2"					"creep_irresolute_extra"			// Ability 2
+		"Ability1"					"creep_irresolute_alter"			// Ability 2
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"39"		// Gold earned min.
 		"BountyGoldMax"				"47"		// Gold earned max.
 	}
 	"npc_dota_creep_goodguys_melee"
 	{
-		"Ability2"					"creep_irresolute_extra"			// Ability 2
+		"Ability1"					"creep_irresolute_alter"			// Ability 2
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"39"		// Gold earned min.
 		"BountyGoldMax"				"47"		// Gold earned max.
@@ -745,11 +745,11 @@
 	}
 	"npc_dota_creep_badguys_melee_upgraded"
 	{
-		"Ability2"					"creep_irresolute_extra"	// Ability 2.
+		"Ability1"					"creep_irresolute_alter"	// Ability 1.
 	}
 	"npc_dota_creep_goodguys_melee_upgraded"
 	{
-		"Ability2"					"creep_irresolute_extra"	// Ability 2.
+		"Ability1"					"creep_irresolute_alter"	// Ability 1.
 	}
 	"npc_dota_creep_badguys_ranged_upgraded"
 	{
@@ -1777,14 +1777,14 @@
 	}
 	"npc_dota_creep_goodguys_melee_upgraded_mega"
 	{
-		"Ability2"					"creep_irresolute_extra"			// Ability 2
+		"Ability1"					"creep_irresolute_alter"			// Ability 1
 		"AttackDamageMin"			"96"		// Damage range min.
 		"AttackDamageMax"			"104"		// Damage range max.
 		"StatusHealth"				"1270"		// Base health.
 	}
 	"npc_dota_creep_badguys_melee_upgraded_mega"
 	{
-		"Ability2"					"creep_irresolute_extra"			// Ability 2
+		"Ability1"					"creep_irresolute_alter"			// Ability 1
 		"AttackDamageMin"			"96"		// Damage range min.
 		"AttackDamageMax"			"104"		// Damage range max.
 		"StatusHealth"				"1270"		// Base health.

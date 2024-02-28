@@ -620,7 +620,11 @@
 						{
 							"Damage"
 							{
-								"Target"		"TARGET"
+								"Target"
+								{
+									"Center"	"TARGET"
+									"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+								}
 								"Type"			"DAMAGE_TYPE_PHYSICAL"
 								"Damage"		"%AbilityDamage"
 							}
@@ -15939,7 +15943,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.53"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -15969,6 +15973,7 @@
 					"value"		"550"
 					"special_bonus_scepter"	"+550"
 				}
+				"scepter_bonus_cast_range"	"0"
 				"scepter_reduction_pct"		"0"
 				"scepter_bounce_radius"		"0"
 		}
@@ -16015,7 +16020,7 @@
 					"value"	"2"
 					"special_bonus_scepter"	"+2"
 				}
-				"speed"				"700"
+				"speed"				"900"
 				"radius_explosion"				"0"
 				"splash_pct"		"0"
 		}
@@ -16085,7 +16090,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"		
+		"AbilityCastPoint"				"0.53"		
 		"AbilityChannelTime"				"3 2 1"		
 		"AbilityCastAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 		
@@ -33710,5 +33715,19 @@
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"mars_bulwark"
+	}
+	"creep_irresolute_alter"
+	{
+		"BaseClass"						"ability_lua"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
+		"AbilityTextureName"			"creep_irresolute"
+		"ScriptFile"					"units/attack_types.lua"
+		"AbilityValues"
+		{
+			"hero_damage_penalty"			"-25"
+			"basic_armor_damage_bonus"		"50"
+			"strong_armor_damage_bonus"		"25"
+		}
 	}
 }

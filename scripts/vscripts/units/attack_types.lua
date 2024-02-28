@@ -142,3 +142,40 @@ function modifier_creep_light:GetModifierDamageOutgoing_Percentage(event)
 		return 0
 	end
 end
+
+creep_irresolute_alter = class({})
+
+function creep_irresolute_alter:GetIntrinsicModifierName()
+	return "modifier_creep_irresolute_alter"
+end
+
+modifier_creep_irresolute_alter = class({ 
+	IsPurgable			= function(self) return false end,
+	IsHidden			= function(self) return true end,
+	DeclareFunctions	= function(self) return 
+		{
+			MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
+		}
+	end,
+})
+
+function modifier_creep_irresolute_alter:OnCreated()
+	local ability = self:GetAbility()
+	self.hero_penalty = ability:GetSpecialValueFor("hero_damage_penalty")
+	self.basic_bonus = ability:GetSpecialValueFor("basic_armor_damage_bonus")
+	self.strong_bonus = ability:GetSpecialValueFor("strong_armor_damage_bonus")
+end
+
+function modifier_creep_irresolute_alter:GetModifierDamageOutgoing_Percentage(event)
+	local target = event.target
+	if target == nil then return 0 end
+	if target:IsHero() then
+		return self.hero_penalty
+	elseif target:HasAbility("creep_basic") then
+		return self.basic_bonus
+	elseif target:HasAbility("creep_strong") then
+		return self.strong_bonus
+	else
+		return 0
+	end
+end
