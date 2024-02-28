@@ -33802,4 +33802,18 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"mars_bulwark"
 	}
+	"creep_irresolute_alter"
+	{
+		"BaseClass"						"ability_lua"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
+		"AbilityTextureName"			"creep_irresolute"
+		"ScriptFile"					"units/attack_types.lua"
+		"AbilityValues"
+		{
+			"hero_damage_penalty"			"-25"
+			"basic_armor_damage_bonus"		"50"
+			"strong_armor_damage_bonus"		"25"
+		}
+	}
 }

@@ -178,6 +178,7 @@ function Activate()
 	LinkLuaModifier( "modifier_creep_piercing_extra",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_irresolute_extra",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_light",					"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_irresolute_alter",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -1011,6 +1012,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	end
 	if entity:HasAbility("creep_strong") then
 		entity:FindAbilityByName("creep_strong"):SetLevel(1)
+	end
+	if entity:HasAbility("creep_irresolute_alter") then
+		entity:FindAbilityByName("creep_irresolute_alter"):SetLevel(1)
 	end
 	if entity:HasAbility("twin_gate_portal_warp") then -- 移除双生门传送
 		entity:RemoveAbility("twin_gate_portal_warp")	

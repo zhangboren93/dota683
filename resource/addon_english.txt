@@ -2086,6 +2086,12 @@
 		"DOTA_Tooltip_Ability_creep_light"										"Light Attack"
 		"DOTA_Tooltip_Ability_creep_light_Description"							"Light Attack Units Deal reduced damage to Reinforced units and buildings."
 		"DOTA_Tooltip_Ability_creep_light_building_damage_tooltip"				"%FACTUAL DAMAGE TO REINFORCED:"
+
+		"DOTA_Tooltip_Ability_creep_irresolute_extra"							"Runty"
+		"DOTA_Tooltip_Ability_creep_irresolute_extra_Description"				"Runty Units Deal reduced damage to hero units, but Deal bonus damage to basic-armor and strong-armor units."
+        "DOTA_Tooltip_ability_creep_irresolute_extra_hero_damage_penalty"		"%DAMAGE PENALTY TO HEROES:"
+		"DOTA_Tooltip_Ability_creep_irresolute_extra_basic_armor_damage_bonus"	"%BONUS DAMAGE TO BASIC-ARMOR UNITS:"
+		"DOTA_Tooltip_Ability_creep_irresolute_extra_strong_armor_damage_bonus"	"%BONUS DAMAGE TO STRONG-ARMOR UNITS:"
 		
 		"DOTA_Tooltip_Ability_creep_weak"								"Weak"
 		"DOTA_Tooltip_Ability_creep_weak_Description"					"This unit has weak armor."

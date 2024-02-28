@@ -2097,6 +2097,12 @@
 		"DOTA_Tooltip_Ability_creep_light"										"轻型"
 		"DOTA_Tooltip_Ability_creep_light_Description"							"轻型攻击的单位对坚锐单位和建筑造成的伤害降低。"
 		"DOTA_Tooltip_Ability_creep_light_building_damage_tooltip"				"%对坚锐实际伤害："
+
+		"DOTA_Tooltip_Ability_creep_irresolute_alter"							"绵力"
+		"DOTA_Tooltip_Ability_creep_irresolute_alter_Description"				"绵力单位对英雄单位造成的伤害会减少，但对基础护甲和重甲单位造成额外伤害。"
+		"DOTA_Tooltip_Ability_creep_irresolute_alter_hero_damage_penalty"		"%对英雄伤害减少："
+		"DOTA_Tooltip_Ability_creep_irresolute_alter_basic_armor_damage_bonus"	"%对基础护甲额外伤害："
+		"DOTA_Tooltip_Ability_creep_irresolute_alter_strong_armor_damage_bonus"	"%对重甲额外伤害："
 		
 		"DOTA_Tooltip_Ability_creep_weak"								"脆弱"
 		"DOTA_Tooltip_Ability_creep_weak_Description"					"这个单位具有脆弱的护甲。"
