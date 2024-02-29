@@ -7,6 +7,7 @@ function replicate(event)
 	if is_spell_blocked_by_linkens_sphere(target) then return end
 
 	local illusion = CreateUnitByName(target:GetUnitName(), target:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
+	illusion:SetOwner(caster)
 	illusion:SetPlayerID(caster:GetPlayerID())
 	illusion:SetControllableByPlayer(caster:GetPlayerID(), true)
 
@@ -53,12 +54,12 @@ end
 function morph_replicate(event)
 	local caster = event.caster
 	local replica = caster.replica
-	if replica ~= nill and replica:IsAlive() then
+	if replica ~= nil and replica:IsAlive() then
 		caster:SetAbsOrigin(replica:GetAbsOrigin())
 		replica:ForceKill(false)
 		caster.replica = nil
-		event.ability:SetActivated(false)
 	else
 		caster:GiveMana(150)
 	end
+	event.ability:SetActivated(false)
 end
