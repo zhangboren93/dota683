@@ -47,6 +47,7 @@ function replicate(event)
     caster.replica = illusion
 
 	caster:FindAbilityByName("morphling_morph_replicate_datadriven"):SetLevel(1)
+	caster:FindAbilityByName("morphling_morph_replicate_datadriven"):SetActivated(true)
 end
 
 function morph_replicate(event)
@@ -56,6 +57,7 @@ function morph_replicate(event)
 		caster:SetAbsOrigin(replica:GetAbsOrigin())
 		replica:ForceKill(false)
 		caster.replica = nil
+		event.ability:SetActivated(false)
 	else
 		caster:GiveMana(150)
 	end
