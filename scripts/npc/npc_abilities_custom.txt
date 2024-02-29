@@ -28846,7 +28846,6 @@
 	"morphling_waveform"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityCooldown"				"11"
 		"AbilityDamage"					"100 175 250 325"
 
 		// Cost
@@ -29150,7 +29149,7 @@
 				}
 				"knockback_min"					"100"
 				"knockback_max"					"300"
-				"projectile_speed"					"1150"
+				"projectile_speed"					"23000"
 				"shared_cooldown"					"3"
 				"damage_base"					"20 40 60 80"
 				"damage_min"					
@@ -29177,6 +29176,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"LinkedAbility"					"morphling_morph_str"
 		"AbilityCastAnimation"			"ACT_INVALID"
+		"HasShardUpgrade"				"0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -29186,8 +29186,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"points_per_tick"		"1"
-			"morph_cooldown"		"0.5 0.25 0.17 0.1"
+			"points_per_tick"		"2"
+			"morph_cooldown"		"1.0 0.5 0.33 0.2"
 			"bonus_attributes"		
 			{
 				"value"					"3 4 5 6"
@@ -29195,11 +29195,7 @@
 			}
 			"morph_rate_tooltip"	"2 4 6 10"
 			"mana_cost"				"30"
-			"castable_while_stunned"
-			{
-				"value"	"0"
-				"special_bonus_shard"	"+1"
-			}
+			"castable_while_stunned"	"1"
 		}
 	}
 
@@ -29214,6 +29210,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"LinkedAbility"					"morphling_morph_agi"
  		"AbilityCastAnimation"			"ACT_INVALID"
+		"HasShardUpgrade"				"0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -29223,8 +29220,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"points_per_tick"		"1"
-			"morph_cooldown"		"0.5 0.25 0.17 0.1"
+			"points_per_tick"		"2"
+			"morph_cooldown"		"1.0 0.5 0.33 0.2"
 			"bonus_attributes"		
 			{
 				"value"					"3 4 5 6"
@@ -29232,11 +29229,7 @@
 			}
 			"morph_rate_tooltip"	"2 4 6 10"
 			"mana_cost"				"30"
-			"castable_while_stunned"
-			{
-				"value"	"0"
-				"special_bonus_shard"	"+1"
-			}
+			"castable_while_stunned"	"1"
 		}
 	}
 	"morphling_morph_attribute_datadriven"
