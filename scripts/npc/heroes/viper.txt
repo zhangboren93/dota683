@@ -76,11 +76,11 @@
 	
 				"OnIntervalThink"
 				{
-					"Damage"
+					"RunScript"
 					{
-						"Target"	"TARGET"
-						"Type"		"DAMAGE_TYPE_MAGICAL"
-						"Damage"	"%damage"
+						"ScriptFile"	"heroes/hero_viper/corrosive_skin.lua"
+						"Function"		"handleDamage"
+						"Damage"		"%damage"
 					}
 				}
 	
