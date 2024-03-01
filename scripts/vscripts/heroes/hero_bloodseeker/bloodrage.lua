@@ -16,7 +16,6 @@ function HealKiller(keys)
 end
 
 function ApplyModifier(keys)
-	print(keys.target)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
@@ -45,6 +44,9 @@ function modifier_blood_rage_lua:OnCreated(kv)
 end
 
 function modifier_blood_rage_lua:GetModifierTotalDamageOutgoing_Percentage(keys)
+	if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= 0 then
+		return 0
+	end
 	if (keys.target:GetAbsOrigin() - keys.attacker:GetAbsOrigin()):Length2D() > 2200 then
 		return(self.damage_amplify / 2.0)
 	else
@@ -53,6 +55,9 @@ function modifier_blood_rage_lua:GetModifierTotalDamageOutgoing_Percentage(keys)
 end
 
 function modifier_blood_rage_lua:GetModifierIncomingDamage_Percentage(keys)
+	if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= 0 then
+		return 0
+	end
 	if (keys.target:GetAbsOrigin() - keys.attacker:GetAbsOrigin()):Length2D() > 2200 then
 		return(self.damage_amplify / 2.0)
 	else

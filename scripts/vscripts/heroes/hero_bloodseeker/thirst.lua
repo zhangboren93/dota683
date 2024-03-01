@@ -33,13 +33,11 @@ function AddThirst(keys)
 	end
 	
 	-- Target below 75% hp and alive
-	if target:IsAlive() and healthPercentage <= buff_threshold then
+	if target:IsAlive() and healthPercentage < buff_threshold then
 		-- Target below 25% hp
 		if healthPercentage < visibility_threshold then
 			-- Apply visibility modifier (true sight)
 			ability:ApplyDataDrivenModifier(caster, target, sight_modifier, {})
-			-- Ensure the buff does not get stacks for missing hp below 25%
-			healthPercentage = visibility_threshold
 		end
 		-- Apply the buff to the caster
 		if caster:HasModifier(buff_modifier) == false then
@@ -97,7 +95,7 @@ function RemoveThirst(keys)
 	end
 	
 	-- Target is above 75% hp
-	if healthPercentage > buff_threshold then
+	if healthPercentage >= buff_threshold then
 		if caster:HasModifier(buff_modifier) then
 			-- Remove all stacks the target provided to the thirst buff
 			caster:SetModifierStackCount(buff_modifier, ability, previous_stacks - target.stacks)
@@ -109,10 +107,6 @@ function RemoveThirst(keys)
 			end
 		end
 	else
-		-- Ensure the buff does not get stacks for missing hp below 25%
-		if healthPercentage < visibility_threshold then
-			healthPercentage = visibility_threshold
-		end
 		-- Adds the new stacks to the thirst buff
 		local new_stacks =	math.floor((buff_threshold - healthPercentage)*100)
 		caster:SetModifierStackCount(buff_modifier, ability, new_stacks + previous_stacks - target.stacks)
