@@ -1125,6 +1125,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5016"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
@@ -1133,11 +1134,10 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1500"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.4"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"29 26 23 20"
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -1153,7 +1153,7 @@
 				"silence_duration"			"3 4 5 6"
 				"damage"					"120 160 200 240"
 				"delay"						"2.6"
-				"delay_plus_castpoint_tooltip"						"2.9"
+				"delay_plus_castpoint_tooltip"						"3.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -1198,7 +1198,7 @@
 		"02"
 		{
 			"var_type" "FIELD_INTEGER"
-			"buff_threshold_pct" "75"
+			"buff_threshold_pct" "100"
 		}
 		"03"
 		{
@@ -1213,12 +1213,12 @@
 		"05"
 		{
 			"var_type" "FIELD_FLOAT"
-			"bonus_movement_speed_per_stack" "0.2 0.4 0.6 0.8"
+			"bonus_movement_speed_per_stack" "0.1 0.2 0.3 0.4"
 		} 
 		"06"
 		{
 			"var_type" "FIELD_FLOAT"
-			"bonus_damage_per_stack" "0.2 0.4 0.6 0.8"
+			"bonus_damage_per_stack" "0.1 0.2 0.3 0.4"
 		}
 		"07"
 		{
@@ -1333,7 +1333,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.6"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_6"
 
 		// Time		

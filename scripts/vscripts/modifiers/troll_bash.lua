@@ -1,3 +1,5 @@
+-- Deprecated
+
 if modifier_troll_warlord_bash == nil then
     modifier_troll_warlord_bash = class({})
 end
