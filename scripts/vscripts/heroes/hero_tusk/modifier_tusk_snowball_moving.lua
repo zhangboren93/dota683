@@ -62,6 +62,7 @@ function modifier_tusk_snowball_moving_lua:UpdateHorizontalMotion(me, dt)
 				end
 			end
 		end
+		GridNav:DestroyTreesAroundPoint(me:GetAbsOrigin(), 100, false)
 	end
 end
 
