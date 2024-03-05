@@ -127,6 +127,9 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 	if entity:IsDominated() then
 		self:Destroy()
 	end
+	if entity:HasModifier("modifier_creep_preparing_lua") then
+		return
+	end
 	if entity:HasModifier("modifier_creep_aggroed_datadriven") then
 		if self.target ~= nil and isAttackable(self.target.unit, entity) then
 			return

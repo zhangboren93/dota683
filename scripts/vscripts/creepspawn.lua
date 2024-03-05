@@ -83,16 +83,29 @@ function shouldSpawnMegas(racks)
 end
 
 function calculateNumMeleeCreep()
-	return 3 + math.floor(GameRules:GetDOTATime(false, false) / (15 * 60))
+	return math.min(3 + math.floor(GameRules:GetDOTATime(false, false) / (15 * 60)), 6)
 end
 
 function calculateNumRangedCreep()
-	return 1 + math.floor(GameRules:GetDOTATime(false, false) / (45 * 60))
+	if GameRules:GetDOTATime(false, false) >= 40 * 60 - 10 then
+		return 2
+	else
+		return 1
+	end
+end
+
+function calculateNumSiegeCreep()
+	if GameRules:GetDOTATime(false, false) >= 45 * 60 - 10 then
+		return 2
+	else
+		return 1
+	end
 end
 
 function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 	local numMeleeCreep = calculateNumMeleeCreep()
 	local numRangedCreep = calculateNumRangedCreep()
+	local numSiegeCreep = calculateNumSiegeCreep()
 	local shouldSpawnSeige = GameRules:GetDOTATime(false, false) > 60 and GameRules:GetDOTATime(false, false) % 300 < 10
 	for i=1,#spawners do
 		local spawner = Entities:FindByName(nil, spawners[i])
@@ -156,15 +169,17 @@ function spawnCreepsFromSide(spawners, pathNames, melee, ranged, seige, team)
 			end)
 		end
 		if shouldSpawnSeige then
-			CreateUnitByNameAsync(seige[i], spawnVecter, true, nil, nil, team, function(spawnedUnit)
-				spawnedUnit:SetIdleAcquire(false)
-				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", {
-					alertRadius = CREEP_ALERT_RADIUS_SEIGE, 
-					pathName = pathNames[i], 
-					seige = true,
-					attackrange = CREEP_ATTACK_RANGE_SEIGE })
-				spawnedUnit:AddAbility("creep_alert_aura_datadriven"):SetLevel(1)
-			end)
+			for i=1,#numSiegeCreep do
+				CreateUnitByNameAsync(seige[i], spawnVecter, true, nil, nil, team, function(spawnedUnit)
+					spawnedUnit:SetIdleAcquire(false)
+					spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", {
+						alertRadius = CREEP_ALERT_RADIUS_SEIGE, 
+						pathName = pathNames[i], 
+						seige = true,
+						attackrange = CREEP_ATTACK_RANGE_SEIGE })
+					spawnedUnit:AddAbility("creep_alert_aura_datadriven"):SetLevel(1)
+				end)
+			end
 		end
 	end
 end
@@ -428,6 +443,7 @@ function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
                 end
             end
         end
+        if not has_radiant_camp then
         CreateUnitByNameAsync("npc_dummy_unit_minimap_camp",
             camp_location,
             false,
@@ -436,10 +452,9 @@ function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
             DOTA_TEAM_GOODGUYS,
             function(entity)
                 entity:FindAbilityByName("minimap_camp_icon_datadriven"):SetLevel(1)
-                if has_radiant_camp then
-                    entity:AddNewModifier(entity, nil, "modifier_kill", { duration = 1 })
-                end
             end)
+		end
+		if not has_dire_camp then
         CreateUnitByNameAsync("npc_dummy_unit_minimap_camp",
             camp_location,
             false,
@@ -448,9 +463,284 @@ function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
             DOTA_TEAM_BADGUYS,
             function(entity)
                 entity:FindAbilityByName("minimap_camp_icon_datadriven"):SetLevel(1)
-                if has_dire_camp then
-                    entity:AddNewModifier(entity, nil, "modifier_kill", { duration = 1 })
-                end
             end)
+		end
+	end
+end
+-- Improvement lane spawn creeps every second & show creeps at 30 seconds mark
+-- game 1.5 hours max, rangecreep count 2, meleecreep count 6, siege creep count 2
+-- 10 * 6 = 60 every 30 seconds, prepare in 20s, each 2 second cache create 6 units
+function calculateNumMeleeCreepNextBatch()
+	return 0 + math.min(3 + math.floor(
+		(GameRules:GetDOTATime(false, false) + 30) / (15 * 60)), 6)
+end
+
+function calculateNumRangedCreepNextBatch()
+	if GameRules:GetDOTATime(false, false) >= 40 * 60 - 40 then
+		return 2
+	else
+		return 1
+	end
+end
+
+function calculateNumSiegeCreepNextBatch()
+	local nextTime = GameRules:GetDOTATime(false, false) + 30
+	if nextTime % 300 > 10 then
+		return 0
+	end
+
+	if GameRules:GetDOTATime(false, false) >= 45 * 60 - 40 then
+		return 2
+	else
+		return 1
+	end
+end
+function prepareCreepSpawnQueue()
+	local result = {}
+	local numMeleeCreep = calculateNumMeleeCreepNextBatch()
+	local numRangedCreep = calculateNumRangedCreepNextBatch()
+	local numSiegeCreep = calculateNumSiegeCreepNextBatch()
+	for i=1,numMeleeCreep do
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_goodguys_melee", "bad_rax_melee_bot", direracks),
+			path = "gb",
+			team = DOTA_TEAM_GOODGUYS,
+			alertRadius = CREEP_ALERT_RADIUS,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_goodguys_melee", "bad_rax_melee_mid", direracks),
+			path = "gm",
+			team = DOTA_TEAM_GOODGUYS,
+			alertRadius = CREEP_ALERT_RADIUS,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_goodguys_melee", "bad_rax_melee_top", direracks),
+			path = "gt",
+			team = DOTA_TEAM_GOODGUYS,
+			alertRadius = CREEP_ALERT_RADIUS,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_badguys_melee", "good_rax_melee_bot", direracks),
+			path = "bb",
+			team = DOTA_TEAM_BADGUYS,
+			alertRadius = CREEP_ALERT_RADIUS,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_badguys_melee", "good_rax_melee_mid", direracks),
+			path = "bm",
+			team = DOTA_TEAM_BADGUYS,
+			alertRadius = CREEP_ALERT_RADIUS,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_badguys_melee", "good_rax_melee_top", direracks),
+			path = "bt",
+			team = DOTA_TEAM_BADGUYS,
+			alertRadius = CREEP_ALERT_RADIUS,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE
+		})
+	end
+	for i=1,numRangedCreep do
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_goodguys_ranged", "bad_rax_range_bot", direracks),
+			path = "gb",
+			team = DOTA_TEAM_GOODGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_RANGED,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE_RANGED
+
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_goodguys_ranged", "bad_rax_range_mid", direracks),
+			path = "gm",
+			team = DOTA_TEAM_GOODGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_RANGED,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE_RANGED
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_goodguys_ranged", "bad_rax_range_top", direracks),
+			path = "gt",
+			team = DOTA_TEAM_GOODGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_RANGED,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE_RANGED
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_badguys_ranged", "good_rax_range_bot", direracks),
+			path = "bb",
+			team = DOTA_TEAM_BADGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_RANGED,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE_RANGED
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_badguys_ranged", "good_rax_range_mid", direracks),
+			path = "bm",
+			team = DOTA_TEAM_BADGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_RANGED,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE_RANGED
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_creep_badguys_ranged", "good_rax_range_top", direracks),
+			path = "bt",
+			team = DOTA_TEAM_BADGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_RANGED,
+			siege = 0,
+			attackRange = CREEP_ATTACK_RANGE_RANGED
+		})
+	end
+	for i=1,numSiegeCreep do
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_goodguys_siege", "bad_rax_range_bot", direracks),
+			path = "gb",
+			team = DOTA_TEAM_GOODGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_SEIGE,
+			siege = 1,
+			attackRange = CREEP_ATTACK_RANGE_SEIGE
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_goodguys_siege", "bad_rax_range_mid", direracks),
+			path = "gm",
+			team = DOTA_TEAM_GOODGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_SEIGE,
+			siege = 1,
+			attackRange = CREEP_ATTACK_RANGE_SEIGE
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_goodguys_siege", "bad_rax_range_top", direracks),
+			path = "gt",
+			team = DOTA_TEAM_GOODGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_SEIGE,
+			siege = 1,
+			attackRange = CREEP_ATTACK_RANGE_SEIGE
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_badguys_siege", "good_rax_range_bot", direracks),
+			path = "bb",
+			team = DOTA_TEAM_BADGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_SEIGE,
+			siege = 1,
+			attackRange = CREEP_ATTACK_RANGE_SEIGE
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_badguys_siege", "good_rax_range_mid", direracks),
+			path = "bm",
+			team = DOTA_TEAM_BADGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_SEIGE,
+			siege = 1,
+			attackRange = CREEP_ATTACK_RANGE_SEIGE
+		})
+		table.insert(result, 
+		{
+			name = creepUpgradedName("npc_dota_badguys_siege", "good_rax_range_top", direracks),
+			path = "bt",
+			team = DOTA_TEAM_BADGUYS,
+			alertRadius = CREEP_ALERT_RADIUS_SEIGE,
+			siege = 1,
+			attackRange = CREEP_ATTACK_RANGE_SEIGE
+		})
+	end
+	--DeepPrintTable(result)
+	return result
+end
+
+function processCreepSpawnQueue(queue, max)
+	--print("processCreepSpawnQueue called " .. #queue)
+	local creepLevel = math.floor(GameRules:GetDOTATime(false, false) + 30 / 450)
+	for i=1,max do
+		if #queue == 0 then
+			break
+		end
+		local creep = queue[1]
+		table.remove(queue, 1)
+		
+		-- find spawner
+		local spawner = nil
+		if creep.team == DOTA_TEAM_GOODGUYS then
+			if creep.path == "gb" then
+				spawner = radiantSpawners[1]
+			elseif creep.path == "gm" then
+				spawner = radiantSpawners[2]
+			else
+				spawner = radiantSpawners[3]
+			end
+		else
+			if creep.path == "bb" then
+				spawner = direSpawners[1]
+			elseif creep.path == "bm" then
+				spawner = direSpawners[2]
+			else
+				spawner = direSpawners[3]
+			end
+		end
+		spawner = Entities:FindByName(nil, spawner)
+		local spawnVecter = spawner:GetAbsOrigin()
+		if string.find(creep.name, "ranged") ~= nil or string.find(creep.name, "siege") ~= nil then
+			if creep.team == DOTA_TEAM_GOODGUYS then
+				spawnVecter[1] = spawnVecter[1] - 300
+				spawnVecter[2] = spawnVecter[2] - 300
+			else
+				spawnVecter[1] = spawnVecter[1] + 300
+				spawnVecter[2] = spawnVecter[2] + 300
+			end
+		end
+
+		CreateUnitByNameAsync(creep.name, spawnVecter, true, nil, nil, creep.team, function(spawnedUnit)
+			spawnedUnit:SetIdleAcquire(false)
+			local duration = 30 - GameRules:GetDOTATime(false, false) % 30
+			if duration > 0 then
+				spawnedUnit:AddNoDraw()
+				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_preparing_lua", { duration = duration })
+			end
+			spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { 
+				alertRadius = creep.alertRadius, 
+				pathName = creep.path, 
+				seige = creep.siege,
+				attackrange = creep.attackRange })
+			if creep.path == "gb" or creep.path == "bt" then
+				if not spawnedUnit:HasModifier("modifier_creep_safe_lane_move_speed_bonus") then
+					spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", { }):SetDuration(25, true)
+				end
+			end
+			if string.find(creep.name, "upgraded") == nil then
+				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_health_bonus", { health = 10 * creepLevel, damage = 1 * creepLevel  })
+				spawnedUnit:SetMaximumGoldBounty(spawnedUnit:GetMaximumGoldBounty() + creepLevel)
+				spawnedUnit:SetMinimumGoldBounty(spawnedUnit:GetMinimumGoldBounty() + creepLevel)
+			elseif string.find(creep.name, "mega") == nil then											  
+				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_health_bonus", { health = 17 * creepLevel, damage = 2 * creepLevel  })
+				spawnedUnit:SetMaximumGoldBounty(spawnedUnit:GetMaximumGoldBounty() + creepLevel * 2)
+				spawnedUnit:SetMinimumGoldBounty(spawnedUnit:GetMinimumGoldBounty() + creepLevel * 2)
+			end
+			spawnedUnit:AddAbility("creep_alert_aura_datadriven"):SetLevel(1)
+		end)
 	end
 end

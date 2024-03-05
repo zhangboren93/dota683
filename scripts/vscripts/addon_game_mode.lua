@@ -98,6 +98,7 @@ function Activate()
 	LinkLuaModifier( "modifier_cancels_item_on_hit", "modifiers/item_cancel_on_hit.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_ai", "creepai.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_health_bonus", "modifiers/creep_health.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_preparing_lua", "modifiers/modifier_creep_preparing.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_oracle_fortunes_end_purge_lua",	"heroes/hero_oracle/fortunes_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_pudge_flesh_magic_resist",		"modifiers/pudge_flesh_magic_resist.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",	"modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
@@ -612,8 +613,22 @@ function CAddonTemplateGameMode:OnThink()
 			and time > 0 
 			and (math.floor(time) % 30) < 3 
 			and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
-			spawnCreepsLua()
-			self.creepSpawnTime = time
+			if self.creepSpawnPrepareStart == nil then
+				--TODO first spawn prepare creeps as well
+				spawnCreepsLua()
+				self.creepSpawnTime = time
+				self.creepSpawnPrepareStart = true
+			else
+				-- TODO flush creepSpawnPrepareQueue
+			end
+			-- prepare next creep spawn queue
+			self.creepSpawnPrepareQueue = prepareCreepSpawnQueue()
+		end
+
+		if self.creepSpawnPrepareStart 
+			and math.ceil(#self.creepSpawnPrepareQueue / 6) + 1 >= (30 - math.floor(time) % 30) / 2 then
+			-- spawn 6 creeps at a time and hide them
+			processCreepSpawnQueue(self.creepSpawnPrepareQueue, 6)
 		end
 
 		-- give each player passive gold
