@@ -675,7 +675,7 @@ end
 
 function processCreepSpawnQueue(queue, max)
 	--print("processCreepSpawnQueue called " .. #queue)
-	local creepLevel = math.floor(GameRules:GetDOTATime(false, false) + 30 / 450)
+	local creepLevel = math.floor((GameRules:GetDOTATime(false, false) + 30) / 450)
 	for i=1,max do
 		if #queue == 0 then
 			break
