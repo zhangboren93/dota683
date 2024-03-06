@@ -392,28 +392,113 @@ neutralcamp_size_2_creeps = {
 	}
 }
 
+local neutralCampCache = {
+	{}, {}, {}, {}, {}, {}, -- radiant camps
+	{}, {}, {}, {}, {}, {}  -- dire camps
+}
+local function isCampEmpty(campIdx)
+	local trigger_name = "neutralcamp_good_" .. campIdx
+	if campIdx >= 7 then
+		trigger_name = "neutralcamp_evil_" .. (campIdx - 6)
+	end
+	local spawn_trigger = Entities:FindByName(nil, trigger_name)
+	local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, spawn_trigger:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+	for j=1,#units do
+		if spawn_trigger:IsTouching(units[j]) 
+			and units[j]:GetName() ~= "npc_dota_templar_assassin_psionic_trap" 
+			and units[j]:GetName() ~= "npc_dota_techies_mines" then
+			return false
+		end
+	end
+	return true
+end
+
+local function getCampLocation(campIdx)
+	local trigger_name = "neutralcamp_good_" .. campIdx
+	if campIdx >= 7 then
+		trigger_name = "neutralcamp_evil_" .. (campIdx - 6)
+	end
+	local spawn_trigger = Entities:FindByName(nil, trigger_name)
+	return spawn_trigger:GetAbsOrigin()
+end
+
+local function spawnMinimapCampIcon(camp_location)
+    local all_units = Entities:FindAllInSphere(camp_location, 129)
+    local has_radiant_camp = false
+    local has_dire_camp = false
+    for j=1,#all_units do
+        if all_units[j].HasModifier ~= nil and all_units[j]:HasModifier("modifier_minimap_camp_icon_datadriven") then
+            if all_units[j]:GetTeam() == DOTA_TEAM_GOODGUYS then
+                has_radiant_camp = true
+            elseif all_units[j]:GetTeam() == DOTA_TEAM_BADGUYS then
+                has_dire_camp = true
+            end
+        end
+    end
+    if not has_radiant_camp then
+    CreateUnitByNameAsync("npc_dummy_unit_minimap_camp",
+        camp_location,
+        false,
+        nil, 
+        nil,
+        DOTA_TEAM_GOODGUYS,
+        function(entity)
+            entity:FindAbilityByName("minimap_camp_icon_datadriven"):SetLevel(1)
+        end)
+	end
+	if not has_dire_camp then
+    CreateUnitByNameAsync("npc_dummy_unit_minimap_camp",
+        camp_location,
+        false,
+        nil, 
+        nil,
+        DOTA_TEAM_BADGUYS,
+        function(entity)
+            entity:FindAbilityByName("minimap_camp_icon_datadriven"):SetLevel(1)
+        end)
+	end
+end
+
 function SpawnNeutralCreepsCustom()
     if not IsServer() then return end
-	SpawnNeutralCreepsCustomOfSide("neutralcamp_good_")
-	SpawnNeutralCreepsCustomOfSide("neutralcamp_evil_")
+	-- if all neutralCampCache are filled, spawn from cache instead 
+	for i=1,12 do
+		if #neutralCampCache[i] == 0 then
+			SpawnNeutralCreepsCustomOfSide("neutralcamp_good_")
+			SpawnNeutralCreepsCustomOfSide("neutralcamp_evil_")
+			return
+		end
+	end
+	for i=1,12 do
+		if isCampEmpty(i) then
+			print("camp " .. i .. " is empty, spawning from cache")
+			for j=1,#neutralCampCache[i] do
+				local newCampCreep = EntIndexToHScript(neutralCampCache[i][j])
+				newCampCreep:RemoveModifierByName("modifier_creep_preparing_lua")
+			end
+			neutralCampCache[i] = {}
+			-- spawn camp indicator
+			local camp_location = getCampLocation(i)
+
+			spawnMinimapCampIcon(camp_location)
+		end
+	end
 end
 
 function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
 	for i=1,6 do
 		local trigger_name = trigger_name_prefix .. i
 		local spawn_trigger = Entities:FindByName(nil, trigger_name)
-		local spawner_empty = true
-		local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, spawn_trigger:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
-		for j=1,#units do
-			if spawn_trigger:IsTouching(units[j]) 
-				and units[j]:GetName() ~= "npc_dota_templar_assassin_psionic_trap" 
-				and units[j]:GetName() ~= "npc_dota_techies_mines" then
-				spawner_empty = false
-				break
-			end
-		end
 		local camp_location = neutralcamp_name_2_location[trigger_name]
+
+		local spawner_empty
+		if string.find(trigger_name_prefix, "good") ~= nil then
+			spawner_empty = isCampEmpty(i)
+		else
+			spawner_empty = isCampEmpty(i + 6)
+		end
+
 		if spawner_empty then
 			local camp_size = neutralcamp_name_2_size[trigger_name]
 			local camp_types = neutralcamp_size_2_creeps[camp_size]
@@ -431,40 +516,7 @@ function SpawnNeutralCreepsCustomOfSide(trigger_name_prefix)
 				end)
 			end
 		end
-        local all_units = Entities:FindAllInSphere(camp_location, 129)
-        local has_radiant_camp = false
-        local has_dire_camp = false
-        for j=1,#all_units do
-            if all_units[j].HasModifier ~= nil and all_units[j]:HasModifier("modifier_minimap_camp_icon_datadriven") then
-                if all_units[j]:GetTeam() == DOTA_TEAM_GOODGUYS then
-                    has_radiant_camp = true
-                elseif all_units[j]:GetTeam() == DOTA_TEAM_BADGUYS then
-                    has_dire_camp = true
-                end
-            end
-        end
-        if not has_radiant_camp then
-        CreateUnitByNameAsync("npc_dummy_unit_minimap_camp",
-            camp_location,
-            false,
-            nil, 
-            nil,
-            DOTA_TEAM_GOODGUYS,
-            function(entity)
-                entity:FindAbilityByName("minimap_camp_icon_datadriven"):SetLevel(1)
-            end)
-		end
-		if not has_dire_camp then
-        CreateUnitByNameAsync("npc_dummy_unit_minimap_camp",
-            camp_location,
-            false,
-            nil, 
-            nil,
-            DOTA_TEAM_BADGUYS,
-            function(entity)
-                entity:FindAbilityByName("minimap_camp_icon_datadriven"):SetLevel(1)
-            end)
-		end
+		spawnMinimapCampIcon(camp_location)
 	end
 end
 -- Improvement lane spawn creeps every second & show creeps at 30 seconds mark
@@ -742,5 +794,38 @@ function processCreepSpawnQueue(queue, max)
 			end
 			spawnedUnit:AddAbility("creep_alert_aura_datadriven"):SetLevel(1)
 		end)
+	end
+end
+
+function SpawnNeutralCreepCampCache()
+	for i=1,12 do
+		if #neutralCampCache[i] == 0 then
+			print("Spawning neutral camp cache idx: " .. i)
+			local trigger_name = "neutralcamp_good_".. i
+			if i >= 7 then
+				trigger_name = "neutralcamp_evil_" .. (i - 6)
+			end
+			local spawn_trigger = Entities:FindByName(nil, trigger_name)
+			local camp_location = neutralcamp_name_2_location[trigger_name]
+			local camp_size = neutralcamp_name_2_size[trigger_name]
+			local camp_types = neutralcamp_size_2_creeps[camp_size]
+			local camp_type = camp_types[RandomInt(1, #camp_types)]
+			for j=1,#camp_type do
+				CreateUnitByNameAsync(camp_type[j], camp_location, true, nil, nil, DOTA_TEAM_NEUTRALS, function(entity)
+					for k=1,entity:GetAbilityCount() do
+						local ability = entity:GetAbilityByIndex(k)
+						if ability ~= nil then
+							ability:SetLevel(1)
+						else
+							break
+						end
+					end
+					entity:AddNoDraw()
+					entity:AddNewModifier(nil, nil, "modifier_creep_preparing_lua", {})
+					table.insert(neutralCampCache[i], entity:GetEntityIndex())
+				end)
+			end
+			break
+		end
 	end
 end

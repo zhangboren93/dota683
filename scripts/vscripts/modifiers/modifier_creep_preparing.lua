@@ -22,6 +22,8 @@ function modifier_creep_preparing_lua:CheckState()
 		[MODIFIER_STATE_NOT_ON_MINIMAP] = true,
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 		[MODIFIER_STATE_OUT_OF_GAME] = true,
+		[MODIFIER_STATE_SILENCED] = true,
+		[MODIFIER_STATE_ROOTED] = true
 	}
 end
 

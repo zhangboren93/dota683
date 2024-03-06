@@ -631,6 +631,11 @@ function CAddonTemplateGameMode:OnThink()
 			processCreepSpawnQueue(self.creepSpawnPrepareQueue, 6)
 		end
 
+		-- cache neutral creep spawn 
+		if math.floor(time % 4) > 1.9 then
+			SpawnNeutralCreepCampCache()
+		end
+
 		-- give each player passive gold
 		if time > 0 and IsServer() then
 			local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
