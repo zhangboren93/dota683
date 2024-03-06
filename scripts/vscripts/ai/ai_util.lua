@@ -1182,7 +1182,7 @@ function GetMovementSpeedPercent(npc)
     return npc:GetMoveSpeedModifier(npc:GetBaseMoveSpeed(), false) / npc:GetBaseMoveSpeed()
 end
 
-function IsServerlyDisabledOrSlowed(npc)
+function IsSeverelyDisabledOrSlowed(npc)
 	return IsSeverelyDisabled(npc) or GetMovementSpeedPercent(npc) < 0.35
 end
 
