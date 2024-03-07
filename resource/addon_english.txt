@@ -2160,5 +2160,15 @@
 
 		"DOTA_HUD_BackpackHint"			"Backpack has been disabled."
 		"DOTA_Hud_Pregame_Random_Tooltip"   "Randomly picks from a pool of heroes you frequently play. In some game modes, grants extra 200 golds."
+
+		"hero_spawn_buttons_add_ally"		"+ Ally"
+		"hero_spawn_buttons_add_enemy"		"+ Enemy"
+		"item_give_button_label"			"+ Item"
+		"selected_target"					"Selected Target:"
+		"selected_target_level_up"			"+ Lv"
+		"selected_target_level_max"			"Max Lv"
+		"global_settings"					"Global Settings:"
+		"fwd_disable_cooldown_toggle"		"No cooldown"
+		"fwd_icon_text"						"P"
 	}
 }

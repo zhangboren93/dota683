@@ -10,6 +10,10 @@
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hero_bar_block.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/courier.xml" />
 		<CustomUIElement type="Hud"	layoutfile="file://{resources}/layout/custom_game/combat_events.xml" />
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/fwd.xml"/>
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/fwd_icon.xml"/>
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/fwd_hero_select.xml"/>
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/fwd_item_select.xml"/>
 		<CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/end_game_summary.xml" />
 	</Panel>
 </root>

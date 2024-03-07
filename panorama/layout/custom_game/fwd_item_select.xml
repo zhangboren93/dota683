@@ -1,0 +1,167 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/fwd.css"/>
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/fwd_hero_select.js"/>
+	</scripts>
+	<Panel class="fwd-item-select-panel panel-hidden">
+		<Button class="fwd-hero-select-close-button" onactivate="fwdCloseButtonPressed()">
+			<Label text="X"/>
+		</Button>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_clarity')"><DOTAItemImage itemname="item_clarity"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_tango')"><DOTAItemImage itemname="item_tango"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_flask_datadriven')"><DOTAItemImage itemname="item_flask_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_smoke_of_deceit')"><DOTAItemImage itemname="item_smoke_of_deceit"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_tpscroll')"><DOTAItemImage itemname="item_tpscroll"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_dust_datadriven')"><DOTAItemImage itemname="item_dust_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_courier_2')"><DOTAItemImage itemname="item_courier_2"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_recipe_flying_courier_datadriven')"><DOTAItemImage itemname="item_recipe_flying_courier_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ward_observer')"><DOTAItemImage itemname="item_ward_observer"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ward_sentry')"><DOTAItemImage itemname="item_ward_sentry"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_bottle')"><DOTAItemImage itemname="item_bottle"/></Button>
+		</Panel>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_branches')"><DOTAItemImage itemname="item_branches"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_gauntlets')"><DOTAItemImage itemname="item_gauntlets"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_slippers')"><DOTAItemImage itemname="item_slippers"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_mantle')"><DOTAItemImage itemname="item_mantle"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_circlet')"><DOTAItemImage itemname="item_circlet"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_belt_of_strength')"><DOTAItemImage itemname="item_belt_of_strength"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_boots_of_elves')"><DOTAItemImage itemname="item_boots_of_elves"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_robe')"><DOTAItemImage itemname="item_robe"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ogre_axe')"><DOTAItemImage itemname="item_ogre_axe"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_blade_of_alacrity')"><DOTAItemImage itemname="item_blade_of_alacrity"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_staff_of_wizardry')"><DOTAItemImage itemname="item_staff_of_wizardry"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ultimate_orb')"><DOTAItemImage itemname="item_ultimate_orb"/></Button>
+		</Panel>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_ring_of_protection')"><DOTAItemImage itemname="item_ring_of_protection"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_stout_shield')"><DOTAItemImage itemname="item_stout_shield"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_quelling_blade_lua')"><DOTAItemImage itemname="item_quelling_blade_lua"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_blades_of_attack')"><DOTAItemImage itemname="item_blades_of_attack"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_chainmail')"><DOTAItemImage itemname="item_chainmail"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_quarterstaff')"><DOTAItemImage itemname="item_quarterstaff"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_helm_of_iron_will')"><DOTAItemImage itemname="item_helm_of_iron_will"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_broadsword')"><DOTAItemImage itemname="item_broadsword"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_claymore')"><DOTAItemImage itemname="item_claymore"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_javelin_datadriven')"><DOTAItemImage itemname="item_javelin_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_mithril_hammer')"><DOTAItemImage itemname="item_mithril_hammer"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_platemail')"><DOTAItemImage itemname="item_platemail"/></Button>
+		</Panel>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_magic_stick')"><DOTAItemImage itemname="item_magic_stick"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_sobi_mask_datadriven')"><DOTAItemImage itemname="item_sobi_mask_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ring_of_regen')"><DOTAItemImage itemname="item_ring_of_regen"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_boots')"><DOTAItemImage itemname="item_boots"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_gloves')"><DOTAItemImage itemname="item_gloves"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_cloak')"><DOTAItemImage itemname="item_cloak"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_gem')"><DOTAItemImage itemname="item_gem"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_lifesteal_datadriven')"><DOTAItemImage itemname="item_lifesteal_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_shadow_amulet')"><DOTAItemImage itemname="item_shadow_amulet"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ghost')"><DOTAItemImage itemname="item_ghost"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_blink')"><DOTAItemImage itemname="item_blink"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_talisman_of_evasion')"><DOTAItemImage itemname="item_talisman_of_evasion"/></Button>
+		</Panel>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_energy_booster')"><DOTAItemImage itemname="item_energy_booster"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_vitality_booster')"><DOTAItemImage itemname="item_vitality_booster"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_point_booster')"><DOTAItemImage itemname="item_point_booster"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_demon_edge')"><DOTAItemImage itemname="item_demon_edge"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_mystic_staff')"><DOTAItemImage itemname="item_mystic_staff"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_reaver')"><DOTAItemImage itemname="item_reaver"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_eagle')"><DOTAItemImage itemname="item_eagle"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_relic')"><DOTAItemImage itemname="item_relic"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_void_stone_datadriven')"><DOTAItemImage itemname="item_void_stone_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ring_of_health')"><DOTAItemImage itemname="item_ring_of_health"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_orb_of_venom')"><DOTAItemImage itemname="item_orb_of_venom"/></Button>
+		</Panel>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_magic_wand')"><DOTAItemImage itemname="item_magic_wand"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_null_talisman_datadriven')"><DOTAItemImage itemname="item_null_talisman_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_wraith_band_datadriven')"><DOTAItemImage itemname="item_wraith_band_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_poor_mans_shield')"><DOTAItemImage itemname="item_poor_mans_shield"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_bracer')"><DOTAItemImage itemname="item_bracer"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_soul_ring')"><DOTAItemImage itemname="item_soul_ring"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_phase_boots')"><DOTAItemImage itemname="item_phase_boots"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_power_treads')"><DOTAItemImage itemname="item_power_treads"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_oblivion_staff_datadriven')"><DOTAItemImage itemname="item_oblivion_staff_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_pers_datadriven')"><DOTAItemImage itemname="item_pers_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_hand_of_midas_datadriven')"><DOTAItemImage itemname="item_hand_of_midas_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_travel_boots_datadriven')"><DOTAItemImage itemname="item_travel_boots_datadriven"/></Button>
+		</Panel>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_ring_of_basilius_datadriven')"><DOTAItemImage itemname="item_ring_of_basilius_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_headdress_datadriven')"><DOTAItemImage itemname="item_headdress_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_buckler_2')"><DOTAItemImage itemname="item_buckler_2"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_urn_of_shadows_datadriven')"><DOTAItemImage itemname="item_urn_of_shadows_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_tranquil_boots_datadriven')"><DOTAItemImage itemname="item_tranquil_boots_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ring_of_aquila_lua')"><DOTAItemImage itemname="item_ring_of_aquila_lua"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_medallion_of_courage')"><DOTAItemImage itemname="item_medallion_of_courage"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_arcane_boots')"><DOTAItemImage itemname="item_arcane_boots"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ancient_janggo_datadriven')"><DOTAItemImage itemname="item_ancient_janggo_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_recipe_ancient_janggo_datadriven')"><DOTAItemImage itemname="item_recipe_ancient_janggo_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_mekansm_2')"><DOTAItemImage itemname="item_mekansm_2"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_vladmir_2')"><DOTAItemImage itemname="item_vladmir_2"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_pipe')"><DOTAItemImage itemname="item_pipe"/></Button>
+		</Panel>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_force_staff')"><DOTAItemImage itemname="item_force_staff"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_veil_of_discord_datadriven')"><DOTAItemImage itemname="item_veil_of_discord_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_necronomicon')"><DOTAItemImage itemname="item_necronomicon"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_recipe_necronomicon')"><DOTAItemImage itemname="item_recipe_necronomicon"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_dagon')"><DOTAItemImage itemname="item_dagon"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_recipe_dagon')"><DOTAItemImage itemname="item_recipe_dagon"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_cyclone')"><DOTAItemImage itemname="item_cyclone"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_rod_of_atos_datadriven')"><DOTAItemImage itemname="item_rod_of_atos_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_orchid')"><DOTAItemImage itemname="item_orchid"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ultimate_scepter')"><DOTAItemImage itemname="item_ultimate_scepter"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_refresher')"><DOTAItemImage itemname="item_refresher"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_sheepstick')"><DOTAItemImage itemname="item_sheepstick"/></Button>
+		</Panel>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_hood_of_defiance_datadriven')"><DOTAItemImage itemname="item_hood_of_defiance_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_vanguard')"><DOTAItemImage itemname="item_vanguard"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_blade_mail')"><DOTAItemImage itemname="item_blade_mail"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_soul_booster')"><DOTAItemImage itemname="item_soul_booster"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_crimson_guard')"><DOTAItemImage itemname="item_crimson_guard"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_black_king_bar_datadriven')"><DOTAItemImage itemname="item_black_king_bar_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_shivas_guard')"><DOTAItemImage itemname="item_shivas_guard"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_bloodstone_datadriven')"><DOTAItemImage itemname="item_bloodstone_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_manta')"><DOTAItemImage itemname="item_manta"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_sphere')"><DOTAItemImage itemname="item_sphere"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_assault')"><DOTAItemImage itemname="item_assault"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_heart_datadriven')"><DOTAItemImage itemname="item_heart_datadriven"/></Button>
+		</Panel>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_lesser_crit')"><DOTAItemImage itemname="item_lesser_crit"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_armlet')"><DOTAItemImage itemname="item_armlet"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_invis_sword')"><DOTAItemImage itemname="item_invis_sword"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_basher')"><DOTAItemImage itemname="item_basher"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_bfury_datadriven')"><DOTAItemImage itemname="item_bfury_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_ethereal_blade')"><DOTAItemImage itemname="item_ethereal_blade"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_radiance')"><DOTAItemImage itemname="item_radiance"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_monkey_king_bar_datadriven')"><DOTAItemImage itemname="item_monkey_king_bar_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_greater_crit')"><DOTAItemImage itemname="item_greater_crit"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_butterfly_datadriven')"><DOTAItemImage itemname="item_butterfly_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_rapier')"><DOTAItemImage itemname="item_rapier"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_abyssal_blade')"><DOTAItemImage itemname="item_abyssal_blade"/></Button>
+		</Panel>
+		<Panel class="fwd-item-select-attribute-row">
+			<Button onactivate="OnItemSelectItemPressed('item_mask_of_madness_datadriven')"><DOTAItemImage itemname="item_mask_of_madness_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_helm_of_the_dominator_datadriven')"><DOTAItemImage itemname="item_helm_of_the_dominator_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_sange_datadriven')"><DOTAItemImage itemname="item_sange_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_yasha')"><DOTAItemImage itemname="item_yasha"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_maelstrom_datadriven')"><DOTAItemImage itemname="item_maelstrom_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_diffusal_blade_datadriven')"><DOTAItemImage itemname="item_diffusal_blade_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_recipe_diffusal_blade_datadriven')"><DOTAItemImage itemname="item_recipe_diffusal_blade_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_desolator_datadriven')"><DOTAItemImage itemname="item_desolator_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_heavens_halberd_datadriven')"><DOTAItemImage itemname="item_heavens_halberd_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_sange_and_yasha_datadriven')"><DOTAItemImage itemname="item_sange_and_yasha_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_skadi_datadriven')"><DOTAItemImage itemname="item_skadi_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_mjollnir_datadriven')"><DOTAItemImage itemname="item_mjollnir_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_satanic_datadriven')"><DOTAItemImage itemname="item_satanic_datadriven"/></Button>
+		</Panel>
+	</Panel>
+</root>

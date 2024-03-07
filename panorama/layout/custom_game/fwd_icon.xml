@@ -1,0 +1,13 @@
+<root>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/fwd_icon.js"/>
+	</scripts>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/fwd.css"/>
+	</styles>
+	<Panel class="fwd-icon panel-hidden">
+		<Button onactivate="OnFWDIconPressed()">
+			<Label text="#fwd_icon_text"/>
+		</Button>
+	</Panel>
+</root>

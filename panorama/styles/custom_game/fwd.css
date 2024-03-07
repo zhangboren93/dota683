@@ -1,0 +1,172 @@
+.fwd-panel {
+	width: 300px;
+	margin-top: 150px;
+	flow-children: down;
+	background-color: gradient( linear, 0% 0%, 0% 25%, from( #232326 ), to( #1c1d20 ) );
+	border: 2px solid #32383677;
+	color: #939da0;
+	font-size: 24px;
+	padding-bottom: 20px;
+}
+
+.fwd-panel Panel {
+	margin-top: 10px;
+	margin-left: 10px;
+	flow-children: right;
+}
+
+.fwd-panel DOTAHeroImage {
+	height: 60px;
+	width: 100px;
+	margin-left: 10px;
+}
+
+#hero-selector Button {
+	vertical-align: center;
+}
+
+Label {
+	vertical-align: center;
+}
+
+Button {
+	width: 30px;
+	height: 30px;
+	opacity: 0.5;
+}
+
+Button Label {
+	horizontal-align: center;
+}
+
+Button:hover {
+	opacity: 1;
+}
+
+.two-button-row Button {
+	width: 120px;
+}
+
+DOTAItemImage {
+	height: 60px;
+	width: 100px;
+}
+
+#item-selector Button {
+	vertical-align:center;
+}
+
+#item-give-button Button {
+	width: 200px;
+}
+
+.TickBox {
+	width: 18px;
+	height: 18px;
+	background-color: black;
+	border: 2px solid #5e686966;
+}
+
+ToggleButton Label {
+	horizontal-align: left;
+	margin-left: 40px;
+	margin-top: 5px;
+}
+
+ToggleButton:selected .TickBox {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #e7f6f5 ), to( #a0d6d7 ) );
+}
+
+#rune-row Button {
+	margin-left:10px;
+}
+
+.SectionHeaderLineNoMargin {
+	height:2px;
+	width:100%;
+	background-color:#3b3f40;
+	margin-top: 2px;
+	margin-bottom: 12px;
+}
+
+.fwd-panel-close-button {
+	width: 32px;
+	height: 32px;
+}
+
+.fwd-hero-select-panel {
+	margin-top: 150px;
+	margin-left: 350px;
+	padding-right: 5px;
+	flow-children: down;
+	background-color: gradient( linear, 0% 0%, 0% 25%, from( #232326 ), to( #1c1d20 ) );
+	border: 2px solid #32383677;
+	color: #939da0;
+	font-size: 24px;
+	padding-bottom: 20px;
+}
+
+.fwd-hero-select-panel Panel {
+	flow-children: right;
+	margin-top: 10px;
+}
+
+.fwd-hero-select-panel DOTAHeroImage {
+	width: 50px;
+	height: 70px;
+}
+
+.fwd-hero-select-attribute-row Button {
+	width: 50px;
+	height: 70px;
+	margin-left: 5px;
+}
+
+.fwd-item-select-panel {
+	margin-top: 150px;
+	margin-left: 350px;
+	padding-right: 5px;
+	flow-children: right;
+	background-color: gradient( linear, 0% 0%, 0% 25%, from( #232326 ), to( #1c1d20 ) );
+	border: 2px solid #32383677;
+	color: #939da0;
+	font-size: 24px;
+	padding-bottom: 20px;
+}
+
+.fwd-item-select-panel Panel {
+	flow-children: down;
+	margin-left: 10px;
+}
+
+.fwd-item-select-attribute-row Button {
+	width: 50px;
+	height: 40px;
+	margin-top: 5px;
+}
+
+.fwd-icon {
+	width:55px;
+	height:35px;
+	margin-left:150px;
+	margin-top:15px;
+	color: #939da0;
+	font-size: 24px;
+}
+
+.panel-hidden {
+	width: 0px;
+	height: 0px;
+	margin-left: -2000px;
+}
+
+.fwd-panel Button {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #373d45 ), to( #4d5860 ) );
+	border-style: solid;
+	border-width: 1px;
+	border-top-color: #555555;
+	border-left-color: #494949;
+	border-bottom-color: #333333;
+	border-right-color: #404040;
+	margin-left: 10px;
+}

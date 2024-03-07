@@ -23,6 +23,7 @@ notValidRankedGame = false
 hasGameEnded = false
 playerId2LadderScore = {}
 player2BuildingDamage = {}
+fwdnocdenabled = 0
 
 function Precache( context )
 	--[[
@@ -345,6 +346,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
 	CustomGameEventManager:RegisterListener("hero_bar_ping_miss", CAddonTemplateGameMode.handleHeroBarPingMiss)
+	CustomGameEventManager:RegisterListener("fwd-command-issue", handleFWDCommand)
 
 	local spawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
 	for i=1,#spawners do
@@ -709,6 +711,23 @@ function CAddonTemplateGameMode:OnThink()
 		print(error)
 		GameRules:SendCustomMessage("Game main thinker failed.", -1, -1)
 		GameRules:SendCustomMessage(error, -1, -1)
+	end
+
+	if GetMapName() == "dota" and PlayerResource:GetPlayerCount() == 1 and fwdnocdenabled == 1 then
+		local currentEntity = nil
+		while true do
+			currentEntity = Entities:Next(currentEntity)
+			if currentEntity == nil then
+				break
+			end
+			if currentEntity.IsRealHero and currentEntity:IsRealHero() then
+				currentEntity:GetAbilityByIndex(0):EndCooldown()
+				currentEntity:GetAbilityByIndex(1):EndCooldown()
+				currentEntity:GetAbilityByIndex(2):EndCooldown()
+				currentEntity:GetAbilityByIndex(5):EndCooldown()
+				currentEntity:SetMana(currentEntity:GetMaxMana())
+			end
+		end
 	end
 	return 2
 end
@@ -2166,6 +2185,53 @@ function CAddonTemplateGameMode:handleHeroBarPingMiss(event)
 	local missing_hero = PlayerResource:GetPlayer(missing_player_id):GetAssignedHero():GetName()
 	local team = PlayerResource:GetPlayer(reporting_player_id):GetTeam()
 	GameRules:SendCustomMessageToTeam(string.sub(missing_hero, 15) .. "_miss", team, -1, -1)
+end
+
+function handleFWDCommand(userid, event)
+	if GetMapName() ~= "dota" or PlayerResource:GetPlayerCount() ~= 1 then
+		return
+	end
+	if event.type == 'ally' then
+		local player = PlayerResource:GetPlayer(event.playerid)
+		CreateUnitByNameAsync("npc_dota_hero_" .. event.heroname, Vector(
+			event.position["0"], event.position["1"], event.position["2"]), 
+			true, nil, nil, player:GetTeam(), function(unit)
+				unit:SetControllableByPlayer(event.playerid, true)
+			end)
+	elseif event.type == 'enem' then
+		local player = PlayerResource:GetPlayer(event.playerid)
+		local team
+		if player:GetTeam() == DOTA_TEAM_GOODGUYS then
+			team = DOTA_TEAM_BADGUYS 
+		else
+			team = DOTA_TEAM_GOODGUYS
+		end
+		CreateUnitByNameAsync("npc_dota_hero_" .. event.heroname, Vector(
+			event.position["0"], event.position["1"], event.position["2"]), 
+			true, nil, nil, team, function(unit)
+				unit:SetControllableByPlayer(event.playerid, true)
+			end)
+	elseif event.type == 'rune' then
+		CreateRune(GetGroundPosition(
+			Vector(event.position["0"], event.position["1"], event.position["2"]), nil),
+			event.rune)
+	elseif event.type == 'item' then
+		for _,val in pairs(event.entities) do
+			EntIndexToHScript(val):AddItemByName(event.itemname)
+		end
+	elseif event.type == 'lvlup' then
+		for _,val in pairs(event.entities) do
+			EntIndexToHScript(val):HeroLevelUp(true)
+		end
+	elseif event.type == 'lvlmax' then
+		for _,val in pairs(event.entities) do
+			for i=1,25 do
+				EntIndexToHScript(val):HeroLevelUp(false)
+			end
+		end
+	elseif event.type == 'nocd' then
+		fwdnocdenabled = event.state
+	end
 end
 
 function HandleBuyback(entindex, player_id)

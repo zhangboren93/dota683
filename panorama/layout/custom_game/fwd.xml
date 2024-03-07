@@ -1,0 +1,68 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/fwd.css"/>
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/fwd_hero_select.js"/>
+	</scripts>
+	<Panel class="fwd-panel panel-hidden">
+		<Panel>
+			<Button class="fwd-panel-close-button" onactivate="fwdCloseButtonPressed()">
+				<Label text="X"/>
+			</Button>
+		</Panel>
+		<Panel id="hero-selector">
+			<DOTAHeroImage id="hero-selector-image" class="hero-selector-image" heroname="npc_dota_hero_axe" heroimagestyle="landscape"/>
+			<Button onactivate="fwdHeroSelectPressed()"><Label text=">"/></Button>
+		</Panel>
+		<Panel class="two-button-row">
+			<Button onactivate="fwdSpawnAllyPressed()"><Label text="#hero_spawn_buttons_add_ally"/></Button>
+			<Button onactivate="fwdSpawnEnemyPressed()"><Label text="#hero_spawn_buttons_add_enemy"/></Button>
+		</Panel>
+		<Panel id="rune-row">
+			<Button onactivate="fwdRunePressed(0)">
+				<DOTAEmoticon src="s2r://panorama/images/emoticons/doubledamage_png.vtex"/>
+			</Button>
+			<Button onactivate="fwdRunePressed(1)">
+				<DOTAEmoticon src="s2r://panorama/images/emoticons/haste_png.vtex"/>
+			</Button>
+			<Button onactivate="fwdRunePressed(2)">
+				<DOTAEmoticon src="s2r://panorama/images/emoticons/illusion_png.vtex"/>
+			</Button>
+			<Button onactivate="fwdRunePressed(3)">
+				<DOTAEmoticon src="s2r://panorama/images/emoticons/invisibility_png.vtex"/>
+			</Button>
+			<Button onactivate="fwdRunePressed(4)">
+				<DOTAEmoticon src="s2r://panorama/images/emoticons/regeneration_png.vtex"/>
+			</Button>
+			<Button onactivate="fwdRunePressed(5)">
+				<DOTAEmoticon src="s2r://panorama/images/emoticons/bountyrune_png.vtex"/>
+			</Button>
+		</Panel>
+		<Panel>
+			<Label text="#selected_target"/>
+		</Panel>
+		<Panel class="SectionHeaderLineNoMargin"/>
+		<Panel id="item-selector">
+			<DOTAItemImage id="item-selector-image" class="item-selector-image" itemname="item_tpscroll"/>
+			<Button onactivate="fwdItemSelectPressed()"><Label text=">"/></Button>
+		</Panel>
+		<Panel id="item-give-button">
+			<Button onactivate="fwdGiveItemPressed()"><Label text="#item_give_button_label"/></Button>
+		</Panel>
+		<Panel class="two-button-row">
+			<Button onactivate='fwdLevelUpPressed()'><Label text="#selected_target_level_up"/></Button>
+			<Button onactivate='fwdLevelMaxPressed()'><Label text="#selected_target_level_max"/></Button>
+		</Panel>
+		<Panel>
+			<Label text="#global_settings"/>
+		</Panel>
+		<Panel class="SectionHeaderLineNoMargin"/>
+		<Panel>
+			<ToggleButton id="global-cooldown-toggle" onactivate="OnCooldownToggled()" class="CheckBox">
+				<Panel class="TickBox"/>
+				<Label text="#fwd_disable_cooldown_toggle"/>
+			</ToggleButton>
+		</Panel>
+	</Panel>
+</root>

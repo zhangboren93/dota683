@@ -2170,5 +2170,15 @@
 
 		"DOTA_HUD_BackpackHint"			"背包已被禁用。"
 		"DOTA_Hud_Pregame_Random_Tooltip"	"从经常使用的英雄中随机选择一个。在部分游戏模式中会获得 200 额外初始金钱。"
+
+		"hero_spawn_buttons_add_ally"		"+友军"
+		"hero_spawn_buttons_add_enemy"		"+敌人"
+		"item_give_button_label"			"+物品"
+		"selected_target"					"选中的单位："
+		"selected_target_level_up"			"+等级"
+		"selected_target_level_max"			"最大等级"
+		"global_settings"					"全局设定"
+		"fwd_disable_cooldown_toggle"		"无CD"
+		"fwd_icon_text"						"测"
 	}
 }
