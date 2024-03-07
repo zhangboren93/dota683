@@ -657,12 +657,23 @@
 		"DOTA_Tooltip_Ability_lycan_howl_datadriven_unit_bonus_damage"					"Non-Hero Attack Damage Bonus: "
 		"DOTA_Tooltip_Ability_lycan_howl_datadriven_hero_bonus_damage"					"Hero Attack Damage Bonus: "
 		"DOTA_Tooltip_Ability_lycan_howl_datadriven_howl_duration"						"Duration: "
+		"DOTA_Tooltip_modifier_howl_hero_datadriven"					"Howl"
+		"DOTA_Tooltip_modifier_howl_hero_datadriven_Description"		"Gaining %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage."
+		"DOTA_Tooltip_modifier_howl_unit_datadriven"					"Howl"
+		"DOTA_Tooltip_modifier_howl_unit_datadriven_Description"		"Gaining %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage."
 		"DOTA_Tooltip_modifier_feral_impulse_datadriven"								"Feral Impulse"
+		"DOTA_Tooltip_modifier_feral_impulse_datadriven_Description"					"Gaining %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% bonus damage
+		"DOTA_Tooltip_modifier_feral_impulse_unit_datadriven"							"Feral Impulse"
+		"DOTA_Tooltip_modifier_feral_impulse_unit_datadriven_Description"				"Gaining %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% bonus damage
 		"DOTA_Tooltip_Ability_lycan_feral_impulse_datadriven"							"Feral Impulse"
 		"DOTA_Tooltip_Ability_lycan_feral_impulse_datadriven_Description"				"Increases the attack speed and damage of Lycan and all units under his control."
 		"DOTA_Tooltip_Ability_lycan_feral_impulse_datadriven_radius"					"Raduis: "
 		"DOTA_Tooltip_Ability_lycan_feral_impulse_datadriven_bonus_attack_speed"		"Attack Speed Bonus: "
 		"DOTA_Tooltip_Ability_lycan_feral_impulse_datadriven_bonus_damage"				"%Attack Damage Bonus: "
+		"DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_datadriven"				"Critical Strike"
+		"DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_datadriven_Description"	"Gives a chance to deal bonus damage."
+		"DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_datadriven_crit_chance"	"%CRITICAL CHANCE:"
+		"DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_datadriven_crit_damage"	"%CRITICAL DAMAGE:"
 		//Magnus
 		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven"							"Shockwave"
 		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven_Description"				"Magnus sends out a wave of force, damaging enemy units in a line."
