@@ -1,0 +1,11 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	"lycan_summon_wolves_invisibility"
+	{
+		"AbilityValues"
+		{
+			"fade_delay"	"1.7"
+		}
+	}
+}

@@ -2938,8 +2938,8 @@
 		//----------------------------------------------------------------
 		"Ability1"					""			// Ability 1
 		"Ability2"					""			// Ability 2
-		"Ability3"					""			// Ability 3
-		"Ability4"					""			// Ability 4
+		"Ability3"					"creep_irresolute_alter"			// Ability 3
+		"Ability4"					"creep_strong"			// Ability 4
 
 		// Armor
 		//----------------------------------------------------------------
@@ -2951,7 +2951,7 @@
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"			"17"		// Damage range min.
 		"AttackDamageMax"			"18"		// Damage range max.	
-		"AttackRate"				"1.2"		// Speed of attack.
+		"AttackRate"				"1.25"		// Speed of attack.
 		"AttackAnimationPoint"		"0.33"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
 		"AttackRange"				"90"		// Range within a target can be attacked.
@@ -2990,8 +2990,6 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 	}	
 
@@ -3009,7 +3007,7 @@
 		//----------------------------------------------------------------
 		"AttackDamageMin"			"27"		// Damage range min.
 		"AttackDamageMax"			"30"		// Damage range max.	
-		"AttackRate"				"1.1"		// Speed of attack.
+		"AttackRate"				"1.2"		// Speed of attack.
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -3019,12 +3017,12 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementSpeed"				"420"		// Speed.
-
+		"MagicalResistance"             "80"        // Magical protection.
 
 		// Status
 		//----------------------------------------------------------------
 		"StatusHealth"				"240"		// Base health.
-	}	
+	}
 
 	"npc_dota_lycan_wolf3"
 	{
@@ -3045,7 +3043,7 @@
 		//----------------------------------------------------------------
 		"AttackDamageMin"			"34"		// Damage range min.
 		"AttackDamageMax"			"40"		// Damage range max.	
-		"AttackRate"				"1.0"		// Speed of attack.
+		"AttackRate"				"1.15"		// Speed of attack.
 
 		// Bounty
 		//----------------------------------------------------------------
@@ -3055,6 +3053,7 @@
 		// Movement
 		//----------------------------------------------------------------
 		"MovementSpeed"				"440"		// Speed.
+		"MagicalResistance"             "80"        // Magical protection.
 
 		// Status
 		//----------------------------------------------------------------
@@ -3068,7 +3067,7 @@
 	
 		// General
 		//----------------------------------------------------------------
-		"Level"						"4"
+		"Level"						"4" // 3?
 		"ModelScale" 					".99"
 
 		// Abilities
@@ -3080,7 +3079,7 @@
 		//----------------------------------------------------------------
 		"AttackDamageMin"			"43"		// Damage range min.
 		"AttackDamageMax"			"49"		// Damage range max.	
-		"AttackRate"				"0.9"		// Speed of attack.
+		"AttackRate"				"1.1"		// Speed of attack.
 
 		// Bounty
 		//----------------------------------------------------------------

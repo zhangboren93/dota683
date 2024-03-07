@@ -17,6 +17,7 @@
 #base "heroes/kunkka.txt"
 #base "heroes/legion_commander.txt"
 #base "heroes/luna.txt"
+#base "heroes/lycan.txt"
 #base "heroes/naga_siren.txt"
 #base "heroes/necrolyte.txt"
 #base "heroes/omniknight.txt"
@@ -22868,8 +22869,8 @@
 		{
 			"wolf_index"				"1 2 3 4"
 			"wolf_duration"				"55"
-			"wolf_bat"					"1.2 1.1 1.0 0.9"
-			"wolf_damage"				"18 28 37 46"				
+			"wolf_bat"					"1.25 1.2 1.15 1.1"
+			"wolf_damage"				"18 29 37 46"
 			"wolf_hp"					
 			{
 				"value"	"200 240 280 320"
