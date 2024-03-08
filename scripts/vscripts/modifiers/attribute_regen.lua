@@ -37,8 +37,11 @@ function modifier_attribute_regen_adjust:GetModifierMagicalResistanceBonus()
 end
 
 function modifier_attribute_regen_adjust:GetModifierMoveSpeed_Limit()
-    if self:GetParent():HasModifier("modifier_spirit_breaker_charge_of_darkness") then
+    local parent = self:GetParent()
+    if parent:HasModifier("modifier_spirit_breaker_charge_of_darkness") then
         return self:GetParent():FindAbilityByName("spirit_breaker_charge_of_darkness"):GetSpecialValueFor("movement_speed")
+    elseif parent:HasModifier("modifier_lycan_shapeshift_speed") then
+        return 650
     end
     return 522
 end
