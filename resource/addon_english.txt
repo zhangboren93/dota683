@@ -1327,8 +1327,6 @@
 		"DOTA_Tooltip_ability_mirana_starfall_Description"						"Calls down a wave of meteors to damage nearby enemy units. One random enemy unit in 175 range will take a second hit for 75%% of the damage."
 		"DOTA_Tooltip_ability_mirana_arrow_Description"										"Fires a long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from %arrow_min_stun% to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target."
 		"DOTA_Tooltip_ability_mirana_leap_Description"							"Mirana leaps forward into battle, empowering allied units with a ferocious roar that grants bonus attack and movement speed. Speed bonus lasts %leap_bonus_duration% seconds."
-		"DOTA_Tooltip_modifier_mirana_leap_lua"									"Leap"
-		"DOTA_Tooltip_modifier_mirana_leap_lua_Description"						"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_SECONDARY%"
 		// Morphling
 		"DOTA_Tooltip_Ability_morphling_adaptive_strike_str"					"Adaptive Strike"
 		"DOTA_Tooltip_Ability_morphling_adaptive_strike_str_Description"		"Strikes an enemy unit with a blast of water, stunning the target while dealing base damage plus additional damage based on Morphling's agility times a multiplier.  If Morphling's agility is 50%% higher than strength, the maximum damage and the minimum stun is dealt. If his strength is 50%% higher than his agility, the maximum stun and minimum damage are dealt."

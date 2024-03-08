@@ -1,31 +1,3 @@
-if modifier_mirana_leap_lua == nil then
-	modifier_mirana_leap_lua = class({ 
-		IsBuff				= function(self) return true end,
-		IsPurgable			= function(self) return false end,
-		DeclareFunctions    = function(self) return 
-			{
-				MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-				MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
-			}
-		end,
-	})
-end
-
-function modifier_mirana_leap_lua:OnCreated()
-	self.ability = self:GetCaster():FindAbilityByName("mirana_leap")
-
-	self.move_speed_pct = self.ability:GetSpecialValueFor("leap_speedbonus")
-	self.attack_speed = self.ability:GetSpecialValueFor("leap_speedbonus_as")
-end
-
-function modifier_mirana_leap_lua:GetModifierMoveSpeedBonus_Percentage()
-	return self.move_speed_pct
-end
-
-function modifier_mirana_leap_lua:GetModifierAttackSpeedBonus_Constant()
-	return self.attack_speed
-end
-
 function handleAbilityExecuted(event)
 	if event.event_ability:GetName() == "mirana_arrow" then
 		event.caster.arrow_start_loc = event.caster:GetAbsOrigin()
@@ -47,7 +19,7 @@ function handleAbilityExecuted(event)
 			false)
 		if #units > 0 then
 			for i = 1,#units do
-				units[i]:AddNewModifier(caster, ability, "modifier_mirana_leap_lua", {duration = ability:GetSpecialValueFor("leap_bonus_duration")})
+				units[i]:AddNewModifier(caster, ability, "modifier_mirana_leap_buff", {duration = ability:GetSpecialValueFor("leap_bonus_duration")})
 			end
 		end
 	end
