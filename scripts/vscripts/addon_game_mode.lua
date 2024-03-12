@@ -121,6 +121,7 @@ function Activate()
 	LinkLuaModifier( "modifier_frost_arrows_slow_datadriven",		"heroes/hero_drow_ranger/frost_arrow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_ability_elder_dragon_form",			"heroes/hero_dragon_knight/elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_ability_elder_dragon_form_corrosive", "heroes/hero_dragon_knight/elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_lycan_shapeshift_attackrange",		"heroes/hero_lycan/shapeshift.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_viper_poison_attack_debuff_datadriven", "heroes/hero_viper/poison_attack.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_burning_spear_datadriven_debuff", 	"heroes/hero_huskar/modifier_burning_spear_datadriven_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_burning_spear_datadriven_debuff_counter",	"heroes/hero_huskar/modifier_burning_spear_datadriven_debuff_counter", LUA_MODIFIER_MOTION_NONE)
@@ -151,7 +152,6 @@ function Activate()
 	LinkLuaModifier( "modifier_abyssal_underlord_pit_of_malice_ensare_lua",		"heroes/hero_abyssal_underlord/modifier_abyssal_underlord_pit_of_malice_ensare.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_enchant_lua",		"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_enchant_slow_lua",	"heroes/hero_enchantress/enchant.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_mirana_leap_lua",				"heroes/hero_mirana/arrow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_viper_viper_strike_slow_lua",	"heroes/hero_viper/viper_strike.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_spectre_dispersion_lua", 		"heroes/hero_spectre/modifier_spectre_dispersion_lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_rubick_fade_bolt_debuff_lua", 	"heroes/hero_rubick/modifier_rubick_fade_bolt_debuff.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1479,6 +1479,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		ApplyDamage({ victim = parent, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL })
+	elseif event.name_const == "modifier_lycan_shapeshift" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_lycan_shapeshift_attackrange", {duration = ability:GetSpecialValueFor("duration")})
 	elseif event.name_const == "modifier_morphling_adaptive_strike" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
@@ -1809,7 +1813,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_lone_druid_spirit_bear_attack_check" then return false
 	elseif event.name_const == "modifier_kunkka_torrent_slow" then return false
 	elseif event.name_const == "modifier_lion_finger_of_death_kill_counter" then return false
-	elseif event.name_const == "modifier_mirana_leap_buff" then return false
 	elseif event.name_const == "modifier_nevermore_requiem_slow" then return false
 	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false

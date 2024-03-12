@@ -1198,7 +1198,7 @@ function U.IsTowerAttackingMe(bot)
     if lane == 0 then return false end
 
     for i = 1, 5, 1 do
-        local target = U.GetLaneTowerAttackTarget(U.GetOtherTeam(), lane, i)
+        local target = U.GetLaneTowerAttackTarget(U.GetOtherTeam(bot), lane, i)
         if U.ValidTarget(target) then
             if bot == target then return true end
         end

@@ -17,6 +17,7 @@
 #base "heroes/kunkka.txt"
 #base "heroes/legion_commander.txt"
 #base "heroes/luna.txt"
+#base "heroes/lycan.txt"
 #base "heroes/naga_siren.txt"
 #base "heroes/necrolyte.txt"
 #base "heroes/omniknight.txt"
@@ -9708,12 +9709,13 @@
 			}
 			"speed"				"650"
 			"bonus_night_vision"		"1000"
-			"transformation_time"		"1.1"
+			"transformation_time"		"1.5"
 			"crit_chance"			
 			{
-				"value"			"30"
+				"value"			"0"
 				"special_bonus_unique_lycan_5"	"+30"
 			}
+			"crit_chance_tooltip"	"30"
 			"crit_multiplier"		"170"
 			"health_bonus"			"0"
 		}
@@ -22868,8 +22870,8 @@
 		{
 			"wolf_index"				"1 2 3 4"
 			"wolf_duration"				"55"
-			"wolf_bat"					"1.2 1.1 1.0 0.9"
-			"wolf_damage"				"18 28 37 46"				
+			"wolf_bat"					"1.25 1.2 1.15 1.1"
+			"wolf_damage"				"18 29 37 46"
 			"wolf_hp"					
 			{
 				"value"	"200 240 280 320"
@@ -22948,6 +22950,7 @@
 							"Radius" 	"%radius"
 							"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 							"Types" 	"DOTA_UNIT_TARGET_BASIC"
+							"Flags"    	"DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED"
 						}
 					
 						"Action"    
@@ -22973,6 +22976,7 @@
 							"Radius" 	"%radius"
 							"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 							"Types" 	"DOTA_UNIT_TARGET_BASIC"
+							"Flags"    	"DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED"
 						}
 					
 						"Action"    
@@ -31187,12 +31191,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"aura_radius"		"9000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"think_interval"	"0.5"
+				"aura_radius"		"45000"
 			}
 		}
 	
@@ -31219,7 +31218,13 @@
 	
 			"ApplyModifier"
 			{
-				"ModifierName"	"modifier_howl_datadriven"
+				"ModifierName"	"modifier_howl_hero_aura_datadriven"
+				"Target" 		"CASTER"
+				"Duration"		"%howl_duration"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_howl_unit_aura_datadriven"
 				"Target" 		"CASTER"
 				"Duration"		"%howl_duration"
 			}
@@ -31227,7 +31232,7 @@
 	
 		"Modifiers"
 		{
-			"modifier_howl_datadriven"
+			"modifier_howl_hero_aura_datadriven"
 			{
 				"IsHidden"		"1"
 				"IsPurgable"	"0"
@@ -31238,55 +31243,17 @@
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
 				"Aura_ApplyToCaster" "1"
+			}
+			"modifier_howl_unit_aura_datadriven"
+			{
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
 	
-				"OnCreated"
-				{
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"  	"CASTER"
-							"Radius" 	"%aura_radius"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-							"Types" 	"DOTA_UNIT_TARGET_BASIC"
-						}
-					
-						"Action"    
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"heroes/hero_lycan/howl.lua"
-								"Function"		"Howl"
-								"modifier"		"modifier_howl_unit_datadriven"
-							}
-						}
-					}
-				}
-	
-				"ThinkInterval"  "%think_interval"
-				"OnIntervalThink"
-				{
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"  	"CASTER"
-							"Radius" 	"%aura_radius"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-							"Types" 	"DOTA_UNIT_TARGET_BASIC"
-						}
-					
-						"Action"    
-						{
-							"RunScript"
-							{
-								"ScriptFile"	"heroes/hero_lycan/howl.lua"
-								"Function"		"Howl"
-								"modifier"		"modifier_howl_unit_datadriven"
-							}
-						}
-					}
-				}
+				"Aura"          	"modifier_howl_unit_datadriven"
+				"Aura_Radius"   	"%aura_radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED"
 			}
 	
 			"modifier_howl_hero_datadriven"
