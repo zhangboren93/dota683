@@ -35,7 +35,6 @@ function Precache( context )
 	]]
 	PrecacheResource( "particle", "particles/items_fx/immunity_sphere.vpcf", context )
 	PrecacheResource( "particle", "particles/items_fx/black_king_bar_avatar.vpcf", context )
-	PrecacheResource( "particle", "particles/units/heroes/hero_warlock/warlock_fatal_bonds_icon.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_elder_titan/elder_titan_scepter_disarm.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf", context)
 	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
@@ -1668,12 +1667,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		for i=1,modifier_count do
 			passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_vendetta_physical_damage_active", {})
 		end
-	elseif event.name_const == "modifier_warlock_fatal_bonds" then
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local duration = ability:GetSpecialValueFor("duration")
-		parent:AddNewModifier(caster, ability, "modifier_warlock_fatal_bonds_lua", { duration = duration })
-		return false
 	elseif event.name_const == "modifier_slark_shadow_dance_passive_regen" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(parent, ability, "modifier_slark_shadow_dance_passive_regen_lua", {})

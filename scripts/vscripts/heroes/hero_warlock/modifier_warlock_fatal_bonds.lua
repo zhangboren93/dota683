@@ -23,7 +23,7 @@ function modifier_warlock_fatal_bonds_lua:OnTakeDamage(event)
 			print("bonded units " .. #bond_units)
 			local ability = self:GetAbility()
 			local damage_share_percentage = ability:GetSpecialValueFor("damage_share_percentage")
-			local damage = event.damage * damage_share_percentage / 100
+			local damage = event.original_damage * damage_share_percentage / 100
 			for i=1,#bond_units do
 				local bond_unit = bond_units[i]
 				ApplyDamage({
