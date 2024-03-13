@@ -726,6 +726,12 @@ function CAddonTemplateGameMode:OnThink()
 				currentEntity:GetAbilityByIndex(2):EndCooldown()
 				currentEntity:GetAbilityByIndex(5):EndCooldown()
 				currentEntity:SetMana(currentEntity:GetMaxMana())
+				for slot=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_6 do
+					local item = currentEntity:GetItemInSlot(slot)
+					if item ~= nil then
+						item:EndCooldown()
+					end
+				end
 			end
 		end
 	end
