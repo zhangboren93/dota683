@@ -3626,19 +3626,16 @@
 		//----------------------------------------------------------------
 		"Ability1"					"warlock_golem_flaming_fists_datadriven"			// Ability 1
 		"Ability2"					"warlock_golem_permanent_immolation"	// Ability 2
-		"Ability3"					"generic_hidden"			// Ability 3
+		"Ability3"					"creep_light"			// Ability 3
 		"Ability4"					""			// Ability 4
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"0"			// Physical protection.
-		"MagicalResistance"				"100"		// Magical protection.  // this should be 33, switch it back once we implement Resistant Skin
+		"MagicalResistance"				"33"		// Magical protection.
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"100"		// Damage range min.
-		"AttackDamageMax"			"100"		// Damage range max.	
 		"AttackRate"				"1.2"		// Speed of attack.
 		"AttackAnimationPoint"		"0.26"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
@@ -3653,18 +3650,13 @@
 		// Bounty
 		//----------------------------------------------------------------
 		"BountyXP"					"98"		// Experience earn.
-		"BountyGoldMin"				"100"		// Gold earned min.
-		"BountyGoldMax"				"100"		// Gold earned max.
 
 		// Movement
 		//----------------------------------------------------------------
 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"320"		// Speed.
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1200"		// Base health.
-		"StatusHealthRegen"			"25"		// Health regeneration rate.
 		"StatusMana"				"0"			// Base mana.
 		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
 		
@@ -3676,8 +3668,6 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		"VoiceFile" 				"soundevents/voscripts/game_sounds_vo_warlock_golem.vsndevts"

@@ -1919,7 +1919,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				and inflictor:GetName() ~= "keeper_of_the_light_spirit_form_illuminate"
 				and inflictor:GetName() ~= "abaddon_death_coil_datadriven"
 				and inflictor:GetName() ~= "clinkz_death_pact_datadriven"
-				and inflictor:GetName() ~= "doom_bringer_devour_datadriven" then
+				and inflictor:GetName() ~= "doom_bringer_devour_datadriven"
+				and inflictor:GetName() ~= "warlock_shadow_word" then
 				event.damage = 0
 			end
 		end
