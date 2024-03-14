@@ -2067,6 +2067,8 @@
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_datadriven_damage_share_percentage"	"%伤害共享："
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_datadriven_duration"					"持续时间："
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_datadriven_Note0"						"共享伤害的类型与原伤害相同。"
+		"DOTA_Tooltip_modifier_warlock_fatal_bonds_lua"									"致命连接"
+		"DOTA_Tooltip_modifier_warlock_fatal_bonds_lua_Description"						"受到的所有伤害的%dMODIFIER_PROPERTY_TOOLTIP%%%会被分给连接在一起的所有单位。"
 		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven"					"烈焰之拳"
 		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven_Description"		"在攻击时对附近敌方单位造成额外伤害。"
 		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven_damage"			"额外伤害："

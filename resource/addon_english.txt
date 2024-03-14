@@ -2057,6 +2057,8 @@
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_datadriven_damage_share_percentage"	"%SHARED DAMAGE:"
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_datadriven_duration"					"DURATION:"
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_datadriven_Note0"						"The shared damage type is the same as the type of damage inflicted."
+		"DOTA_Tooltip_modifier_warlock_fatal_bonds_lua"									"Fatal Bonds"
+		"DOTA_Tooltip_modifier_warlock_fatal_bonds_lua_Description"						"Distributing %dMODIFIER_PROPERTY_TOOLTIP%%% of all damage to linked units"
 		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven"					"Flaming Fists"
 		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven_Description"		"Deals extra damage to nearby units when attacking."
 		"DOTA_Tooltip_ability_warlock_golem_flaming_fists_datadriven_damage"			"BONUS DAMAGE:"
