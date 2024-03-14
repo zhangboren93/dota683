@@ -1493,7 +1493,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_lycan_shapeshift_attackrange", {duration = ability:GetSpecialValueFor("duration")})
-	elseif event.name_const == "modifier_morphling_adaptive_strike" then
+	elseif event.name_const == "modifier_morphling_adaptive_strike" and parent:GetName() ~= "npc_dota_creep_siege" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local damage = ability:GetSpecialValueFor("damage_base")
