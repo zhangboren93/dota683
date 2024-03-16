@@ -2058,7 +2058,11 @@
 		"DOTA_Tooltip_ability_visage_gravekeepers_cloak_bonus_armor"			"每层提供的护甲："
 		"DOTA_Tooltip_ability_visage_gravekeepers_cloak_bonus_resist"			"%每层提供的魔抗："
 		"DOTA_Tooltip_modifier_visage_gravekeepers_cloak_Description"		"每层防护层都将给予额外护甲和魔法抗性。"
+		"DOTA_Tooltip_Ability_visage_summon_familiars_Description"				"召唤盲眼的佣兽为维萨吉作战。佣兽拥有很高的攻击力，但是每次攻击都会降低部分攻击力，降低的攻击力可以缓慢恢复。佣兽拥有石像形态技能，可以化为石像，在落地时使敌人眩晕。在石像形态中的佣兽无敌，并且迅速回复生命值和攻击力。佣兽被击杀时给予高额奖励。"
 		"DOTA_Tooltip_Ability_visage_summon_familiars_Scepter_Description"		"可以召唤三只佣兽。"
+		"DOTA_Tooltip_Ability_visage_summon_familiars_Note1"					""
+		"DOTA_Tooltip_modifier_familiar_attack_damage_lua"					"佣兽攻击力"
+		"DOTA_Tooltip_modifier_familiar_attack_damage_lua_Description"		"获得%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点额外攻击力。"
 		// Warlock
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_datadriven"							"致命连接"
 		"DOTA_Tooltip_ability_warlock_fatal_bonds_datadriven_Description"				"将数个敌方单位连接在一起，其中一人所受伤害的一定百分比会被其他所有人感受到。"
