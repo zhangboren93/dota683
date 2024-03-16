@@ -31,6 +31,7 @@
 #base "heroes/terrorblade.txt"
 #base "heroes/tusk.txt"
 #base "heroes/viper.txt"
+#base "heroes/visage.txt"
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
 #base "heroes/windrunner.txt"
@@ -12056,8 +12057,12 @@
 				"familiar_armor"			"0 1 2"
 				"familiar_speed"			"380 390 400"
 				"familiar_attack_damage"	"10"
-				"tooltip_scepter_total_familiars" 	"3"	
 				"damage_per_charge"			"8 14 22"
+				"tooltip_familiar_count"
+				{
+					"value"					"2"
+					"special_bonus_scepter"	"+1"
+				}
 		}
 	}
 	//=================================================================================================================
@@ -12089,8 +12094,8 @@
 				"stun_delay"						"1"
 				"stun_damage"						"60 100 140"
 				"stun_duration"						"1 1.25 1.5"
-				"stone_duration"					"7.0"
-				"hp_regen"							"150 175 200"
+				"stone_duration"					"8.0"
+				"hp_regen"							"50.0 68.7 87.5"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
 	}

@@ -1,0 +1,18 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	"visage_stone_form_self_cast"
+	{
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"stun_radius"						"325"
+			"stun_delay"						"1"
+			"stun_damage"						"60 100 140"
+			"stun_duration"						"1 1.25 1.5"
+			"stone_duration"					"8.0"
+			"hp_regen"							"50.0 68.7 87.5"
+		}
+	}
+}
