@@ -1480,6 +1480,11 @@ end
 function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	--print("ModifierGainedFilter " .. event.name_const)
 	local parent = EntIndexToHScript(event.entindex_parent_const)
+
+	if string.find(event.name_const, "_datadriven") == nil
+		and string.find(event.name_const, "_lua") == nil
+		then
+
 	if event.name_const == "modifier_dark_seer_wall_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
@@ -1488,7 +1493,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_lycan_shapeshift_attackrange", {duration = ability:GetSpecialValueFor("duration")})
-	elseif event.name_const == "modifier_morphling_adaptive_strike" then
+	elseif event.name_const == "modifier_morphling_adaptive_strike" and parent:GetName() ~= "npc_dota_creep_siege" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local damage = ability:GetSpecialValueFor("damage_base")
@@ -1806,18 +1811,20 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_tombstone_hp" then return false
 	elseif event.name_const == "modifier_courier_passive_bonus" then return false
 	elseif event.name_const == "modifier_beastmaster_call_of_the_wild_hawk" then return false
-	elseif event.name_const == "modifier_dragon_knight_corrosive_breath_dot" then return false
+--	elseif event.name_const == "modifier_dragon_knight_corrosive_breath_dot" then return false
 	elseif event.name_const == "modifier_undying_tombstone_zombie_aura" then return false
 	elseif event.name_const == "modifier_spirit_bear_attack_damage" then return false
 	elseif event.name_const == "modifier_lone_druid_spirit_bear_attack_check" then return false
-	elseif event.name_const == "modifier_kunkka_torrent_slow" then return false
+--	elseif event.name_const == "modifier_kunkka_torrent_slow" then return false
 	elseif event.name_const == "modifier_lion_finger_of_death_kill_counter" then return false
-	elseif event.name_const == "modifier_nevermore_requiem_slow" then return false
-	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
+--	elseif event.name_const == "modifier_nevermore_requiem_slow" then return false
+--	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis_thinker" then return false
 	elseif event.name_const == "modifier_legion_commander_press_the_attack" then return false
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then return false
+	end
+
 	end
 	if root_modifiers[event.name_const] then
 		if parent:IsChanneling() then
@@ -1912,7 +1919,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				and inflictor:GetName() ~= "keeper_of_the_light_spirit_form_illuminate"
 				and inflictor:GetName() ~= "abaddon_death_coil_datadriven"
 				and inflictor:GetName() ~= "clinkz_death_pact_datadriven"
-				and inflictor:GetName() ~= "doom_bringer_devour_datadriven" then
+				and inflictor:GetName() ~= "doom_bringer_devour_datadriven"
+				and inflictor:GetName() ~= "warlock_shadow_word" then
 				event.damage = 0
 			end
 		end

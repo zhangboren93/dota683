@@ -1,7 +1,8 @@
 modifier_warlock_fatal_bonds_lua = class({})
 function modifier_warlock_fatal_bonds_lua:DeclareFunctions()
 	return {
-		MODIFIER_EVENT_ON_TAKEDAMAGE
+		MODIFIER_EVENT_ON_TAKEDAMAGE,
+		MODIFIER_PROPERTY_TOOLTIP
 	}
 end
 
@@ -36,6 +37,13 @@ function modifier_warlock_fatal_bonds_lua:OnTakeDamage(event)
 			end
 		end
 	end
+end
+
+function modifier_warlock_fatal_bonds_lua:OnTooltip()
+	if self.damage_share_percentage == nil then
+		self.damage_share_percentage = self:GetAbility():GetSpecialValueFor("damage_share_percentage")
+	end
+	return self.damage_share_percentage
 end
 
 function modifier_warlock_fatal_bonds_lua:GetEffectName()
