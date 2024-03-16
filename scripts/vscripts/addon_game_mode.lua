@@ -960,7 +960,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 1
 			end, "visage scepter", 1);
-			-- entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_tiny" then
 			entity:AddItemByName("item_aghanims_shard")
 			entity:FindAbilityByName("tiny_grow_checker_datadriven"):SetLevel(1)
@@ -1110,9 +1109,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:GetOwner():FindAbilityByName("pugna_nether_ward"):GetLevel())
 	end
 	if entity:GetName() == "npc_dota_visage_familiar" then
-		entity:FindAbilityByName("visage_gravekeepers_cloak_bonus_datadriven"):SetLevel(1)
 		entity:FindAbilityByName("neutral_spell_immunity"):SetLevel(1)
-		entity:AddNewModifier(entity, entity, "modifier_familiar_attack_damage_lua", {})
+		local ability = entity:GetOwner():FindAbilityByName("visage_summon_familiars")
+		entity:AddNewModifier(entity, ability, "modifier_familiar_attack_damage_lua", {})
 	elseif entity:GetName() == "npc_dota_courier" then
 		entity:FindAbilityByName("courier_flying_upgrade_datadriven"):SetLevel(1)
 		if is_respawn > 0 then
