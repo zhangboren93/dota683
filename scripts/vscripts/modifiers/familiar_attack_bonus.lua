@@ -3,10 +3,19 @@ if modifier_familiar_attack_damage_lua == nil then
 end
 
 function modifier_familiar_attack_damage_lua:OnCreated()
+    self.damage_per_charge = self:GetAbility():GetSpecialValueFor("damage_per_charge")
     if IsServer() then
-        self.summon_ability = self:GetParent():GetPlayerOwner():GetAssignedHero():FindAbilityByName("visage_summon_familiars")
         self:refreshStackCount()
+        self:StartIntervalThink(15)
     end
+end
+
+function modifier_familiar_attack_damage_lua:OnIntervalThink()
+    local new_stack_count = self:GetStackCount() + 1
+    if new_stack_count > 7 then
+        new_stack_count = 7
+    end
+    self:SetStackCount(new_stack_count)
 end
 
 function modifier_familiar_attack_damage_lua:GetAttributes()
@@ -26,12 +35,12 @@ function modifier_familiar_attack_damage_lua:IsHidden()
 end
 
 function modifier_familiar_attack_damage_lua:GetModifierPreAttack_BonusDamage()
-    return self:GetStackCount() * 1
+    return self:GetStackCount() * self.damage_per_charge
 end
 
 function modifier_familiar_attack_damage_lua:OnAttackFinished(event)
     if event.attacker == self:GetParent() then
-        local new_stack_count = self:GetStackCount() - self.summon_ability:GetSpecialValueFor("damage_per_charge")
+        local new_stack_count = self:GetStackCount() - 1
         if new_stack_count <= 0 then
             new_stack_count = 0
         end
@@ -40,5 +49,5 @@ function modifier_familiar_attack_damage_lua:OnAttackFinished(event)
 end
 
 function modifier_familiar_attack_damage_lua:refreshStackCount()
-    self:SetStackCount(self.summon_ability:GetSpecialValueFor("damage_per_charge") * 7)
+    self:SetStackCount(7)
 end
