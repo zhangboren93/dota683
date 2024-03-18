@@ -129,6 +129,11 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnDestroy()
         ParticleManager:ReleaseParticleIndex(self.particle)
         self.particle = nil
     end
+	-- start counting ability's cooldown when charge stops.
+	local ability = self:GetAbility()
+	if ability and ability.StartCooldown ~= nil then
+		ability:StartCooldown(12)
+	end
 	self:Destroy()
 end
 
