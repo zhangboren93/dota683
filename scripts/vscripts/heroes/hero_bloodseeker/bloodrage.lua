@@ -8,10 +8,10 @@ function HealKiller(keys)
 	local health_bonus_pct = ability:GetLevelSpecialValueFor("health_bonus_pct", (ability:GetLevel() -1))/100
 	
 	if attacker:IsAlive() and not attacker:IsBuilding()
-		and not unit:IsBuilding() 
-		and not unit:IsIllusion() 
-		and unit:Getname() ~= "npc_dota_roshan_datadriven"
-		and not unit:IsWard() then
+		and not target:IsBuilding() 
+		and not target:IsIllusion() 
+		and target:GetName() ~= "npc_dota_roshan_datadriven"
+		and not target:IsWard() then
 		local caster_health = target:GetMaxHealth()
 		local heal = caster_health * health_bonus_pct
 	
