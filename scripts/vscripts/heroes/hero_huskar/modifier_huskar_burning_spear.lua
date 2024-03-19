@@ -16,13 +16,15 @@ function modifier_huskar_burning_spear_lua:DeclareFunctions()
 		MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
 		MODIFIER_EVENT_ON_ORDER,
 		MODIFIER_PROPERTY_PROJECTILE_NAME,
+		MODIFIER_EVENT_ON_ATTACK_RECORD_DESTROY,
 	}
 end
 
 function modifier_huskar_burning_spear_lua:OnAttack(params)
 	if params.attacker~=self:GetParent() then return end
 	-- register attack if being cast and fully castable
-	if self.cast and self.ability:IsFullyCastable() 
+	if (self.cast or self.ability:GetAutoCastState())
+		and self.ability:IsFullyCastable() 
 		and not self:GetParent():IsSilenced() 
 		and UnitFilter(params.target, self.ability:GetAbilityTargetTeam(), self.ability:GetAbilityTargetType(), self.ability:GetAbilityTargetFlags(), self:GetCaster():GetTeamNumber()) == UF_SUCCESS then	
 
@@ -117,3 +119,10 @@ function modifier_huskar_burning_spear_lua:FlagExist(a,b)--Bitwise Exist
 	return c==d
 end
 
+function modifier_huskar_burning_spear_lua:OnAttackRecordDestroy( params )
+	-- destroy attack record
+	self.records[params.record] = nil
+	
+	-- run OrbRecordDestroy script if available
+	if self.ability.OnOrbRecordDestroy then self.ability:OnOrbRecordDestroy( params ) end
+end

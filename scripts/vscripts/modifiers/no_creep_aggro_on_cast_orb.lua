@@ -19,7 +19,6 @@ function modifier_no_creep_aggro_on_cast_orb_lua:OnOrder(event)
 	if event.order_type == DOTA_UNIT_ORDER_CAST_TARGET then
 		local ability = event.ability
 		if bit.band(ability:GetBehaviorInt(), DOTA_ABILITY_BEHAVIOR_ATTACK) ~= 0 then
-			print("Adding modifier_no_creep_aggro_on_attack to " .. self:GetParent():GetName())
 			self:GetParent():FindAbilityByName("hero_intrinstic_mechanism_datadriven"):ApplyDataDrivenModifier(
 				self:GetParent(), self:GetParent(), "modifier_no_creep_aggro_on_attack", {})
 		end
