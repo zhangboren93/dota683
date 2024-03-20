@@ -237,6 +237,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(false)
 	GameRules:GetGameModeEntity():SetUseDefaultDOTARuneSpawnLogic(false)
 	GameRules:GetGameModeEntity():SetBountyRuneSpawnInterval(10000)
+	GameRules:GetGameModeEntity():SetPowerRuneSpawnInterval(120)
+	GameRules:GetGameModeEntity():SetXPRuneSpawnInterval(10000)
+	GameRules:GetGameModeEntity():SetRuneEnabled(DOTA_RUNE_XP, false)
 	GameRules:GetGameModeEntity():SetDaynightCycleDisabled(false)
 	GameRules:GetGameModeEntity():SetDaynightCycleAdvanceRate(1.25)
 	GameRules:GetGameModeEntity():SetTPScrollSlotItemOverride("item_dummy_tpblock_datadriven")
@@ -247,6 +250,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:SetTreeRegrowTime(300)
 	GameRules:SetHeroSelectionTime(80)
 	GameRules:SetCreepSpawningEnabled(false)
+	GameRules:SetRuneSpawnTime(120)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 
@@ -863,6 +867,10 @@ function CAddonTemplateGameMode:RuneSpawnFilter(event)
 		local nthRuneSpawned = math.floor((time + 10) / 60)
 		local recentRuneSpawn = self.runeSpawnedAtTime[nthRuneSpawned]
 		local runeTypes = {DOTA_RUNE_DOUBLEDAMAGE, DOTA_RUNE_HASTE, DOTA_RUNE_ILLUSION, DOTA_RUNE_INVISIBILITY, DOTA_RUNE_REGENERATION}
+		if nthRuneSpawned % 2 == 1 then
+			print("Cancelling first XP rune spawn event")
+			return false
+		end
 		if recentRuneSpawn == nil then
 			if RandomInt(0, 1) == 0 then
 				event.rune_type = DOTA_RUNE_BOUNTY
