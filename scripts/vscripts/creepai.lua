@@ -82,7 +82,10 @@ pathCornersMap["bt"] = {
 function modifier_creep_ai:OnCreated(kv)
 	if IsServer() then
 		self.kv = kv
-		self:StartIntervalThink(1)
+		local currentTime = GameRules:GetDOTATime(true, true)
+		self.nextTargetSelectTime = currentTime
+		self.nextTakePathTime = currentTime
+		self:StartIntervalThink(0.2)
 		self:GetParent():SetThink(function()
 			self:OnIntervalThink()
 		end, "creep ai think immediate", 0.1)
@@ -146,43 +149,112 @@ function modifier_creep_ai:OnIntervalThinkInternal()
 		and not self.target.unit:IsBuilding() then
 		local distance = (self.target.unit:GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length()
 		if distance <= self.kv.attackrange then
-		--	print("attack unit within range")
-			--entity:MoveToTargetToAttack(self.target.unit)
+			if not entity:IsAttackingEntity(self.target.unit) then
+				entity:MoveToTargetToAttack(self.target.unit)
+			end
 			return
 		end
 	end
-	-- move to target location if lose vision
-	if self.target ~= nil and IsValidEntity(self.target.unit) and not entity:CanEntityBeSeenByMyTeam(self.target.unit) then
-		if (entity:GetAbsOrigin() - self.target_loc):Length() > 100 and GameRules:GetDOTATime(false, false) - self.target_loc_time < 5 then
-			--print("move to target loc")
-			entity:MoveToPosition(self.target_loc)
+
+	local currentTime = GameRules:GetDOTATime(true, true)
+
+	if self.nextTargetSelectTime < currentTime then
+		self.nextTargetSelectTime = currentTime + 1
+		local target = self:selectTarget()
+		if target ~= nil and (self.target ~= nil and self.target.unit == target.unit) then
+			self.target = target
+			self.target.last_loc = target.unit:GetAbsOrigin()
+			self.target.last_loc_time = currentTime
+			--	print("move to target attack")
+			entity:MoveToTargetToAttack(self.target.unit)
+			--DebugDrawLine(entity:GetAbsOrigin(), self.target.unit:GetAbsOrigin(), 0, 0, 255, false, 1) 
 			return
+		end
+	end
+
+	if self.target ~= nil and not IsValidEntity(self.target.unit) then
+		self.target = nil
+	end
+
+	local targetCanBeSeen = false
+	if self.target ~= nil then 
+		targetCanBeSeen = entity:CanEntityBeSeenByMyTeam(self.target.unit)
+	end
+	if self.target == nil or not isAttackable(self.target.unit, entity) then
+		if entity:IsAttacking() then
+			self.target = {
+				unit = entity:GetAttackTarget(),
+				last_loc = entity:GetAttackTarget():GetAbsOrigin(),
+				last_loc_time = currentTime
+			}
 		else
-			self.target = nil
+			-- move to target location if lose vision
+			if self.target ~= nil and not targetCanBeSeen 
+				and self.target.last_loc ~= nil 
+				and (entity:GetAbsOrigin() - self.target.last_loc):Length() > 100 then
+				entity:MoveToPosition(self.target.last_loc)
+				--DebugDrawLine(entity:GetAbsOrigin(), self.target.last_loc, 255, 0, 0, false, 0.2)
+			else
+				if self.target ~= nil then
+					self.target.last_loc = nil
+					self.target.last_loc_time = nil
+				end
+				self:takePath(currentTime)
+			end
+		end
+		return
+	end
+
+	if targetCanBeSeen then
+		self.target.last_loc = self.target.unit:GetAbsOrigin()
+		self.target.last_loc_time = currentTime
+	end
+
+	-- attack the alert target
+	if self.alert_target ~= nil and self.alert_target ~= self.target.unit and isAttackable(self.alert_target, entity) then
+		-- if alert target is higher priority than current target
+		local alert_target_prio = 0
+		if self.alert_target:IsHero() then
+			alert_target_prio = 1
+		elseif self.alert_target:IsCreep() then
+			alert_target_prio = 2
+		end
+		local current_target_prio = 0
+		if self.target.unit:IsHero() then
+			current_target_prio = 1
+		elseif self.target.unit:IsCreep() then
+			current_target_prio = 2
+		end
+		
+		if alert_target_prio > current_target_prio then
+			self.target = {
+				unit = self.alert_target,
+				last_loc = self.alert_target:GetAbsOrigin(),
+				last_loc_time = currentTime
+			}
+			entity:MoveToTargetToAttack(self.target.unit)
+			--DebugDrawLine(entity:GetAbsOrigin(), self.target.last_loc, 255, 255, 0, false, 2)
+			return
 		end
 	end
-	local target = self:selectTarget()
-	-- TODO alert cooldown 2.1s
-	if target ~= nil then
-		self.target = target
-		self.target_loc = target.unit:GetAbsOrigin()
-		self.target_loc_time = GameRules:GetDOTATime(false, false)
-	--	print("move to target attack")
-		entity:MoveToTargetToAttack(self.target.unit)
-	else
-		if not entity:IsAttacking() then
-			self:takePath()
---		else
---			print("Not taking path")
-		end
+
+	if not isAttackable(self.target.unit, entity) then
+		self:takePath(currentTime)
 	end
 end
 
-function modifier_creep_ai:takePath() 
+function modifier_creep_ai:takePath(currentTime) 
 	if self.kv.pathName == nil then
 		return
 	end
 	--print("takePath " .. self.kv.pathName .. " pathCorners ")
+	
+	-- takePath throttle 1 per second
+	if currentTime < self.nextTargetSelectTime then
+		return
+	end
+	self.nextTakePathTime = currentTime + 1
+	
 	local entity = self:GetParent()
 	local position = entity:GetAbsOrigin()
 	local direction_right = entity:GetTeam() == DOTA_TEAM_GOODGUYS
@@ -192,7 +264,7 @@ function modifier_creep_ai:takePath()
 		local pathCorner = Entities:FindByName(nil, pathCorners[i]):GetAbsOrigin()
 		local dx = pathCorner[1] - position[1]
 		local dy = pathCorner[2] - position[2]
-		if math.abs(dx) + math.abs(dy) > 100 then
+		if math.abs(dx) + math.abs(dy) > 800 then
 			if direction_right then
 				if dx + dy > 0 then
 					nextPathPosition = pathCorner
@@ -206,17 +278,18 @@ function modifier_creep_ai:takePath()
 			end
 		end
 	end 
-	-- Move in direction aggressively (considering 1s think interval)
-	if (position - nextPathPosition):Length2D() < 500 then
-		nextPathPosition = (nextPathPosition - position):Normalized() * 500 + position
-	end
+--	-- Move in direction aggressively (considering 1s think interval)
+--	if (position - nextPathPosition):Length2D() < 500 then
+--		nextPathPosition = (nextPathPosition - position):Normalized() * 500 + position
+--	end
 	entity:MoveToPositionAggressive(nextPathPosition)
+	--DebugDrawLine(entity:GetAbsOrigin(), nextPathPosition, 0, 255, 0, false, 1)
 end
 
 function modifier_creep_ai:selectTarget()
 	local entity = self:GetParent()
 	local position = entity:GetAbsOrigin()
-	local unist = {}
+	local units = {}
 	if self.kv.seige > 0 then
 		units = FindUnitsInRadius(
 			entity:GetTeam(), position, entity, self.kv.attackrange, 
