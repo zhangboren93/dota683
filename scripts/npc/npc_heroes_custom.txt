@@ -2598,6 +2598,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability2"		"keeper_of_the_light_mana_leak_datadriven"
+		"Ability3"		"keeper_of_the_light_chakra_magic_2"
 		"Ability4"		"keeper_of_the_light_blinding_light"
 		"Ability5"		"keeper_of_the_light_recall"
 		"Ability10"		"keeper_of_the_light_spirit_form_checker"
