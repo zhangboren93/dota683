@@ -33,7 +33,6 @@ if modifier_blood_rage_lua == nil then
 			{
 				MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
 				MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-				MODIFIER_EVENT_ON_KILL,
 				MODIFIER_EVENT_ON_DEATH
 			}
 		end,
@@ -69,14 +68,11 @@ function modifier_blood_rage_lua:GetModifierIncomingDamage_Percentage(keys)
 	end
 end
 
-function modifier_blood_rage_lua:OnKill(keys)
-	local tmp = keys
-	tmp.ability = self:GetAbility()
-	HealKiller(tmp)
-end
-
 function modifier_blood_rage_lua:OnDeath(keys)
-	local tmp = keys
-	tmp.ability = self:GetAbility()
-	HealKiller(tmp)
+	local parent = self:GetParent()
+	if keys.unit == parent or keys.attacker == parent then
+		local tmp = keys
+		tmp.ability = self:GetAbility()
+		HealKiller(tmp)
+	end
 end
