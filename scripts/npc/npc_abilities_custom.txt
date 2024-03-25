@@ -14,6 +14,7 @@
 #base "heroes/gyrocopter.txt"
 #base "heroes/invoker.txt"
 #base "heroes/jakiro.txt"
+#base "heroes/keeper_of_the_light.txt"
 #base "heroes/kunkka.txt"
 #base "heroes/legion_commander.txt"
 #base "heroes/luna.txt"
@@ -25713,7 +25714,7 @@
 	
 							"FireSound"
 							{
-								"EffectName"	"Hero_KeeperOfTheLight.ManaLeak.Target"
+								"EffectName"	"Hero_KeeperOfTheLight.ManaLeak.Target.FP"
 								"Target" 		"UNIT"
 							}						
 						}

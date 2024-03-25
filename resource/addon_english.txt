@@ -1798,6 +1798,11 @@
 		"DOTA_Tooltip_Ability_keeper_of_the_light_mana_leak_datadriven_cast_range_tooltip"	"CAST RANGE:"
 		"DOTA_Tooltip_modifier_mana_leak_datadriven"				"Mana Leak"
 		"DOTA_Tooltip_modifier_mana_leak_datadriven_Description"	"Losing mana as you move."
+		"DOTA_Tooltip_ability_keeper_of_the_light_chakra_magic_2"							"Chakra Magic"
+		"DOTA_Tooltip_ability_keeper_of_the_light_chakra_magic_2_Description"				"Restores mana to the target unit."
+		"DOTA_Tooltip_ability_keeper_of_the_light_chakra_magic_2_Lore"						"In the same vein, Ezalor bestows his harmony among others."
+		"DOTA_Tooltip_ability_keeper_of_the_light_chakra_magic_2_mana_restore"				"MANA RESTORE:"
+		"DOTA_Tooltip_ability_keeper_of_the_light_recall_Description"						"After a short delay, teleports the targeted friendly hero to your location.  If the targeted friendly hero takes player based damage during this time, the ability is interrupted."
 		// Leshrac
 		"DOTA_Tooltip_Ability_leshrac_diabolic_edict_Description"	"Saturates the area around Leshrac with magical explosions that deal physical damage to enemy units and structures.  The fewer units available to attack, the more damage those units will take.  Deals %tower_bonus%%% more damage to towers. Lasts %abilityduration% seconds."
 		"DOTA_Tooltip_Ability_leshrac_pulse_nova_Scepter_Description"			"Increases damage per second."
