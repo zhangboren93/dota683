@@ -111,8 +111,8 @@
 			<Button onactivate="OnItemSelectItemPressed('item_veil_of_discord_datadriven')"><DOTAItemImage itemname="item_veil_of_discord_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_necronomicon')"><DOTAItemImage itemname="item_necronomicon"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_recipe_necronomicon')"><DOTAItemImage itemname="item_recipe_necronomicon"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_dagon')"><DOTAItemImage itemname="item_dagon"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_recipe_dagon')"><DOTAItemImage itemname="item_recipe_dagon"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_dagon_datadriven')"><DOTAItemImage itemname="item_dagon"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_recipe_dagon_datadriven')"><DOTAItemImage itemname="item_recipe_dagon"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_cyclone')"><DOTAItemImage itemname="item_cyclone"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_rod_of_atos_datadriven')"><DOTAItemImage itemname="item_rod_of_atos_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_orchid')"><DOTAItemImage itemname="item_orchid"/></Button>

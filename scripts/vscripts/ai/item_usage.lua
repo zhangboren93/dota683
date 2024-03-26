@@ -554,11 +554,11 @@ function UseCrimsonGuard(bot)
 end
 
 function UseDagon(bot, target)
-    local item = utils.IsItemAvailable(bot, "item_dagon")
-    if not item then item = utils.IsItemAvailable(bot, "item_dagon_2") end
-    if not item then item = utils.IsItemAvailable(bot, "item_dagon_3") end
-    if not item then item = utils.IsItemAvailable(bot, "item_dagon_4") end
-    if not item then item = utils.IsItemAvailable(bot, "item_dagon_5") end
+    local item = utils.IsItemAvailable(bot, "item_dagon_datadriven")
+    if not item then item = utils.IsItemAvailable(bot, "item_dagon_2_datadriven") end
+    if not item then item = utils.IsItemAvailable(bot, "item_dagon_3_datadriven") end
+    if not item then item = utils.IsItemAvailable(bot, "item_dagon_4_datadriven") end
+    if not item then item = utils.IsItemAvailable(bot, "item_dagon_5_datadriven") end
     if item then
         gHeroVar.HeroUseAbilityOnEntity(bot, item, target)
         return true

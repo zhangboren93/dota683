@@ -258,15 +258,15 @@ X["item_crimson_guard"] = { X["item_buckler"], X["item_vanguard"], "item_recipe_
 -- Daedalus
 X["item_greater_crit"] = { X["item_lesser_crit"], "item_demon_edge", "item_recipe_greater_crit" }
 
-X["item_dagon"] = { X["item_null_talisman_datadriven"], "item_staff_of_wizardry", "item_recipe_dagon" }
+X["item_dagon_datadriven"] = { X["item_null_talisman_datadriven"], "item_staff_of_wizardry", "item_recipe_dagon_datadriven" }
 
-X["item_dagon_2"] = { X["item_dagon_1"], "item_recipe_dagon" }
+X["item_dagon_2_datadriven"] = { X["item_dagon_datadriven"], "item_recipe_dagon_datadriven" }
 
-X["item_dagon_3"] = { X["item_dagon_2"], "item_recipe_dagon" }
+X["item_dagon_3_datadriven"] = { X["item_dagon_2_datadriven"], "item_recipe_dagon_datadriven" }
 
-X["item_dagon_4"] = { X["item_dagon_3"], "item_recipe_dagon" }
+X["item_dagon_4_datadriven"] = { X["item_dagon_3_datadriven"], "item_recipe_dagon_datadriven" }
 
-X["item_dagon_5"] = { X["item_dagon_4"], "item_recipe_dagon" }
+X["item_dagon_5_datadriven"] = { X["item_dagon_4_datadriven"], "item_recipe_dagon_datadriven" }
 
 -- Drums
 X["item_ancient_janggo_datadriven"] = { X["item_bracer"], "item_robe", "item_recipe_ancient_janggo_datadriven" }

@@ -3901,10 +3901,35 @@
 	//=================================================================================================================
 	"item_recipe_dagon"
 	{
+		"ItemPurchasable"				"0"
+	}
+	"item_dagon"
+	{
+		"ItemPurchasable"				"0"
+	}
+	"item_dagon_2"
+	{
+		"ItemPurchasable"				"0"
+	}
+	"item_dagon_3"
+	{
+		"ItemPurchasable"				"0"
+	}
+	"item_dagon_4"
+	{
+		"ItemPurchasable"				"0"
+	}
+	"item_dagon_5"
+	{
+		"ItemPurchasable"				"0"
+	}
+	"item_recipe_dagon_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"103"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3914,25 +3939,75 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_dagon"
+		"ItemResult"					"item_dagon_datadriven"
 		"ItemRequirements"
 		{
 			"01"						"item_staff_of_wizardry;item_null_talisman_datadriven"
 		}
 	}
 
+
+	"item_recipe_dagon_2_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
+		"ItemCost"						"0"	
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_dagon_2_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_dagon_datadriven;item_recipe_dagon_datadriven"
+		}
+	}
+
+	"item_recipe_dagon_3_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
+		"ItemCost"						"0"	
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_dagon_3_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_dagon_2_datadriven;item_recipe_dagon_datadriven"
+		}
+	}
+
+	"item_recipe_dagon_4_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
+		"ItemCost"						"0"	
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_dagon_4_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_dagon_3_datadriven;item_recipe_dagon_datadriven"
+		}
+	}
+
+	"item_recipe_dagon_5_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
+		"ItemCost"						"0"	
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_dagon_5_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_dagon_4_datadriven;item_recipe_dagon_datadriven"
+		}
+	}
+
 	//=================================================================================================================
 	// Dagon
 	//=================================================================================================================
-	"item_dagon"
+	"item_dagon_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"104"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"item_dagon"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -3952,8 +4027,8 @@
 		"ItemQuality"					"rare"	
 		"ItemAliases"					"dagon 1"
 		
-		"UpgradesItems"					"item_dagon;item_dagon_2;item_dagon_3;item_dagon_4"
-		"UpgradeRecipe"					"item_recipe_dagon"
+		"UpgradesItems"					"item_dagon_datadriven;item_dagon_2_datadriven;item_dagon_3_datadriven;item_dagon_4_datadriven"
+		"UpgradeRecipe"					"item_recipe_dagon_datadriven"
 		"ShouldBeSuggested"				"1"
 		
 		// Special	
@@ -3964,23 +4039,51 @@
 			"bonus_str"					"3"
 			"bonus_agi"					"3"
 			"damage"					"400 500 600 700 800"
-			"damage_delay"				"0"
 			"mana_cost_tooltip"			"180"
-			"int_damage"				"0"
-			"passive_spell_lifesteal"	"0"
-			"dagon_spell_lifesteal"		"0"
 			"bonus_damage"			"9"
 		}
+
+		"precache"
+		{
+			"particle"	"particles/items_fx/dagon.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_dagon.lua"
+				"Function"			"handleSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_dagon_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agi"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_int"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}
+			}
+		}
 	}
-	"item_dagon_2"
+
+	"item_dagon_2_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"201"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"item_dagon_2"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4000,8 +4103,8 @@
 		"ItemQuality"					"rare"	
 		"ItemAliases"					"dagon 2"
 		
-		"UpgradesItems"					"item_dagon_2;item_dagon_3;item_dagon_4"
-		"UpgradeRecipe"					"item_recipe_dagon"
+		"UpgradesItems"					"item_dagon_datadriven;item_dagon_2_datadriven;item_dagon_3_datadriven;item_dagon_4_datadriven"
+		"UpgradeRecipe"					"item_recipe_dagon_datadriven"
 		"ShouldBeSuggested"				"1"
 		
 		// Special	
@@ -4012,23 +4115,46 @@
 			"bonus_str"					"3"
 			"bonus_agi"					"3"
 			"damage"					"400 500 600 700 800"
-			"damage_delay"				"0"
 			"mana_cost_tooltip"			"180"
-			"int_damage"				"0"
-			"passive_spell_lifesteal"	"0"
-			"dagon_spell_lifesteal"		"0"
-			"bonus_damage"			"9"
+			"bonus_damage"				"9"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_dagon.lua"
+				"Function"			"handleSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_dagon_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agi"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_int"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}
+			}
 		}
 	}
-	"item_dagon_3"
+
+	"item_dagon_3_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"202"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"item_dagon_3"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4045,11 +4171,11 @@
 		"AbilityManaCost"				"180"
 		"ItemCost"						"5200"
 		"ItemShopTags"					"damage;int;str;agi;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"dagon 3"	
-
-		"UpgradesItems"					"item_dagon_3;item_dagon_4"
-		"UpgradeRecipe"					"item_recipe_dagon"
+		"ItemQuality"					"rare"	
+		"ItemAliases"					"dagon 3"
+		
+		"UpgradesItems"					"item_dagon_datadriven;item_dagon_2_datadriven;item_dagon_3_datadriven;item_dagon_4_datadriven"
+		"UpgradeRecipe"					"item_recipe_dagon_datadriven"
 		"ShouldBeSuggested"				"1"
 		
 		// Special	
@@ -4060,23 +4186,46 @@
 			"bonus_str"					"3"
 			"bonus_agi"					"3"
 			"damage"					"400 500 600 700 800"
-			"damage_delay"				"0"
 			"mana_cost_tooltip"			"180"
-			"int_damage"				"0"
-			"passive_spell_lifesteal"	"0"
-			"dagon_spell_lifesteal"		"0"
-			"bonus_damage"			"9"
+			"bonus_damage"				"9"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_dagon.lua"
+				"Function"			"handleSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_dagon_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agi"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_int"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}
+			}
 		}
 	}
-	"item_dagon_4"
+
+	"item_dagon_4_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"203"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"item_dagon_4"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4093,11 +4242,11 @@
 		"AbilityManaCost"				"180"
 		"ItemCost"						"6450"
 		"ItemShopTags"					"damage;int;str;agi;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"dagon 4"	
-
-		"UpgradesItems"					"item_dagon_4"
-		"UpgradeRecipe"					"item_recipe_dagon"
+		"ItemQuality"					"rare"	
+		"ItemAliases"					"dagon 4"
+		
+		"UpgradesItems"					"item_dagon_datadriven;item_dagon_2_datadriven;item_dagon_3_datadriven;item_dagon_4_datadriven"
+		"UpgradeRecipe"					"item_recipe_dagon_datadriven"
 		"ShouldBeSuggested"				"1"
 		
 		// Special	
@@ -4108,24 +4257,46 @@
 			"bonus_str"					"3"
 			"bonus_agi"					"3"
 			"damage"					"400 500 600 700 800"
-			"damage_delay"				"0"
 			"mana_cost_tooltip"			"180"
-			"int_damage"				"0"
-			"passive_spell_lifesteal"	"0"
-			"dagon_spell_lifesteal"		"0"
-			"bonus_damage"			"9"
+			"bonus_damage"				"9"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_dagon.lua"
+				"Function"			"handleSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_dagon_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agi"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_int"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}
+			}
 		}
 	}
 
-	"item_dagon_5"
+	"item_dagon_5_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"204"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"item_dagon_5"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4142,8 +4313,11 @@
 		"AbilityManaCost"				"180"
 		"ItemCost"						"7700"
 		"ItemShopTags"					"damage;int;str;agi;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"dagon 5"	
+		"ItemQuality"					"rare"	
+		"ItemAliases"					"dagon 5"
+		
+		"UpgradesItems"					"item_dagon_datadriven;item_dagon_2_datadriven;item_dagon_3_datadriven;item_dagon_4_datadriven"
+		"UpgradeRecipe"					"item_recipe_dagon_datadriven"
 		"ShouldBeSuggested"				"1"
 		
 		// Special	
@@ -4154,14 +4328,36 @@
 			"bonus_str"					"3"
 			"bonus_agi"					"3"
 			"damage"					"400 500 600 700 800"
-			"damage_delay"				"0"
 			"mana_cost_tooltip"			"180"
-			"int_damage"				"0"
-			"passive_spell_lifesteal"	"0"
-			"dagon_spell_lifesteal"		"0"
-			"bonus_damage"			"9"
+			"bonus_damage"				"9"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_dagon.lua"
+				"Function"			"handleSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_dagon_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_str"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agi"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_int"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+				}
+			}
 		}
 	}
+
 	//=================================================================================================================
 	// Recipe: Necronomicon
 	//=================================================================================================================

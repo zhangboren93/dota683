@@ -102,7 +102,7 @@
 		"item"		"item_force_staff"
 		"item"		"item_veil_of_discord_datadriven"		
 		"item"		"item_necronomicon"
-		"item"		"item_dagon"
+		"item"		"item_dagon_datadriven"
 		"item"		"item_cyclone"
 		"item"		"item_rod_of_atos_datadriven"
 		"item"		"item_orchid"	
