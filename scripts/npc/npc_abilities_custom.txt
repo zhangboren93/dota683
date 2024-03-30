@@ -4135,7 +4135,7 @@
 				"tick_interval"				"1.0"
 				"spell_aoe"					
 				{
-					"value"					"450"
+					"value"					"0"
 					"RequiresShard"			"1"
 				}
 				"shard_movement_speed_pct"					
