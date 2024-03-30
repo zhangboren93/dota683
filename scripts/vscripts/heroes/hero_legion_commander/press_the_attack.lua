@@ -19,3 +19,10 @@ function handleAbilityExecuted(keys)
         end
     end
 end
+
+function PtAStart(event)
+	local target = event.target
+    local ability = event.ability
+    ability:ApplyDataDrivenModifier(event.caster, target, "modifier_legion_commander_press_the_attack_datadriven", {})
+    target:Purge(false, true, false, true, true)
+end
