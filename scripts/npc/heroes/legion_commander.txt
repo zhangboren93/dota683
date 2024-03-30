@@ -84,7 +84,6 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"			"%hp_regen"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%attack_speed"
-					"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS"	"press_the_attack"
 				}
 			}
 		}
