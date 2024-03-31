@@ -966,6 +966,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 					ability:SetLevel(1)
 					print("added visage ahgs ability")
 				end
+				if not entity:HasScepter() and entity:HasAbility("special_bonus_unique_visage_6") then
+					entity:RemoveAbility("special_bonus_unique_visage_6")
+					print("removed visage ahgs ability")
+				end
 				return 1
 			end, "visage scepter", 1);
 		elseif entity:GetName() == "npc_dota_hero_tiny" then
@@ -1828,7 +1832,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 --	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis_thinker" then return false
-	elseif event.name_const == "modifier_legion_commander_press_the_attack" then return false
+--	elseif event.name_const == "modifier_legion_commander_press_the_attack" then return false
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then return false
 	end
 

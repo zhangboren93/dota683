@@ -3009,7 +3009,7 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDuration"				"9"
+		"AbilityDuration"				"10"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -4135,7 +4135,7 @@
 				"tick_interval"				"1.0"
 				"spell_aoe"					
 				{
-					"value"					"450"
+					"value"					"0"
 					"RequiresShard"			"1"
 				}
 				"shard_movement_speed_pct"					
@@ -13161,6 +13161,8 @@
 		}
 	}
 	//=================================================================================================================
+	// Deprecated
+	//
 	// Legion Commander: Press the Attack
 	//=================================================================================================================
 	"legion_commander_press_the_attack"
@@ -25684,6 +25686,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsPurgable"		"1"
 				"Duration"			"%duration"
 	
 				"OnCreated"
@@ -25710,13 +25713,7 @@
 								"EffectName"        "particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf"
 								"EffectAttachType"  "attach_origin"
 								"Target"            "UNIT"
-							}
-	
-							"FireSound"
-							{
-								"EffectName"	"Hero_KeeperOfTheLight.ManaLeak.Target.FP"
-								"Target" 		"UNIT"
-							}						
+							}					
 						}
 					}										
 				}			
@@ -28769,7 +28766,8 @@
 	//=================================================================================================================
 	"lina_dragon_slave"
 	{
-		"AbilityManaCost"				"90 105 125 140"
+		"AbilityCastRange"				"800"
+		"AbilityManaCost"				"100 115 130 145"
 		"AbilityValues"
 		{
 			"dragon_slave_damage"			"110 180 250 320"
@@ -28787,8 +28785,9 @@
 	//=================================================================================================================
 	"lina_light_strike_array"
 	{
+		"AbilityCastRange"				"625"
 		"AbilityCooldown"				"7"
-		"AbilityManaCost"				"90 100 110 125"
+		"AbilityManaCost"				"100 110 120 130"
 		"AbilityValues"
 		{
 				"light_strike_array_aoe"	"225"
