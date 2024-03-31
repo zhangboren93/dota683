@@ -389,3 +389,31 @@ function modifier_creep_ai:findUnitsInRadiusFiltered(entity, position, range, ta
 	end
 	return units
 end
+
+function modifier_creep_ai:OnAggroEnded()
+	print("OnAggroEnded")
+	-- attack the alert target
+	local currentTime = GameRules:GetDOTATime(true, true)
+	local entity = self:GetParent()
+	if self.alert_target ~= nil and isAttackable(self.alert_target, entity) then
+		self.target = {
+			unit = self.alert_target,
+			last_loc = self.alert_target:GetAbsOrigin(),
+			last_loc_time = currentTime
+		}
+		entity:MoveToTargetToAttack(self.target.unit)
+		--DebugDrawLine(entity:GetAbsOrigin(), self.target.last_loc, 255, 255, 0, false, 2)
+		return
+	end
+	-- find target
+	local target = self:selectTarget()
+	if target ~= nil then
+		self.target = target
+		self.target.last_loc = target.unit:GetAbsOrigin()
+		self.target.last_loc_time = currentTime
+		entity:MoveToTargetToAttack(self.target.unit)
+		return
+	end
+	-- take path
+	self:takePath(currentTime)
+end

@@ -53,7 +53,7 @@ function handleDestroy(event)
 		local ai = target:FindModifierByName("modifier_creep_ai")
 		if ai ~= nil and ai.target ~= nil then
 			ai.target = nil
-			ai:OnIntervalThink()
+			ai:OnAggroEnded()
 		end
 	end
 end
