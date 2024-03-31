@@ -88,6 +88,47 @@
 			}
 		}
 	}
+    //=================================================================================================================
+    // Legion Commander: Duel
+    //=================================================================================================================
+    "legion_commander_duel"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "HasShardUpgrade"           "0"
+        "HasScepterUpgrade"         "0"
+
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+
+        // Casting
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCastRange"              "150"
+        "AbilityCastPoint"              "0.3"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+
+        // Special
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "duration"					 "4.0 4.75 5.5"
+            "duration_scepter"      
+            {
+                "value"         "4.0 4.75 5.5"
+                "RequiresScepter"   "1"
+            }
+            "reward_damage"         
+            {
+                "value"         "10 14 18"
+                "special_bonus_shard"   "0"
+            }
+            "victory_range"         "600"
+            "scepter_damage_reduction_pct"	"0"    
+            "AbilityCooldown"			"50"
+            "shard_duel_damage_bonus"	"0"
+        }
+    }
 // Deprecated
 // -----------------------------
 // Rewrite of Legion Commander's Duel
