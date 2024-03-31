@@ -30569,7 +30569,7 @@
 	}
 	"zuus_arc_lightning"
 	{
-		"AbilityCastRange"				"700"
+		"AbilityCastRange"				"850"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"1.75"
 		"AbilityManaCost"				"65 70 75 80"
