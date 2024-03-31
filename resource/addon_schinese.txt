@@ -882,11 +882,15 @@
 		// Skeleton King
 		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven"				"吸血光环"
 		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Description"	"附近友方单位通过物理攻击回复一定的生命值。"
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Note0"			"与其他吸血效果完全叠加。"
 		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_vampiric_aura"	"%吸血："
+		"DOTA_Tooltip_modifier_vampiric_aura_buff"					"吸血光环"
+		"DOTA_Tooltip_modifier_vampiric_aura_buff_Description"		"攻击时吸取生命值"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven"				"殊死一搏"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven_Description"	"攻击时有几率造成额外伤害。"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven_crit_chance"	"%触发几率："
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven_crit_mult"		"%致命一击伤害："
+		"DOTA_Tooltip_Ability_skeleton_king_reincarnation_Description"				"冥魂大帝倒下后，他飞散的冥魂会重组，使他复活。死亡时附近%slow_radius%范围内的敌人会被减速。"
 		//Slardar
 		"DOTA_Tooltip_ability_slardar_slithereen_crush_2"								"鱼人碎击"
 		"DOTA_Tooltip_ability_slardar_slithereen_crush_2_Description"					"猛击地面，留下一片水洼，对附近敌方单位造成伤害并眩晕。眩晕结束后还会受到减速。"

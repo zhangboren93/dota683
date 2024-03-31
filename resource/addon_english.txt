@@ -893,11 +893,15 @@
 		// Skeletion King
 		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven"				"Vampiric Aura"
 		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Description"	"Nearby friendly units gain hit points based on their damage dealt when attacking enemy units."
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Note0"			"Stacks additively with other sources of Lifesteal."
 		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_vampiric_aura"	"%Lifesteal: "
+		"DOTA_Tooltip_modifier_vampiric_aura_buff"					"Vampiric Aura"
+		"DOTA_Tooltip_modifier_vampiric_aura_buff_Description"		"Regaining Health when attacking"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven"				"Mortal Strike"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven_Description"	"Wraith King gains a chance to deal bonus damage on an attack."
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven_crit_chance"	"%Proc Chance: "
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven_crit_mult"		"%Critical Damage: "
+		"DOTA_Tooltip_ability_skeleton_king_reincarnation_Description"				"Wraith King's members regroup after death, allowing him to resurrect when killed in battle.  Upon death, enemy units in a %slow_radius% radius will be slowed."
 		//Slardar
 		"DOTA_Tooltip_ability_slardar_slithereen_crush_2"									"Slithereen Crush"
 		"DOTA_Tooltip_ability_slardar_slithereen_crush_2_Description"						"Slams the ground, leaving a puddle of water, and stunning and damaging nearby enemy units.  After the stun, the affected units are slowed."
