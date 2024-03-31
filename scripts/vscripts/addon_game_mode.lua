@@ -966,6 +966,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 					ability:SetLevel(1)
 					print("added visage ahgs ability")
 				end
+				if not entity:HasScepter() and entity:HasAbility("special_bonus_unique_visage_6") then
+					entity:RemoveAbility("special_bonus_unique_visage_6")
+					print("removed visage ahgs ability")
+				end
 				return 1
 			end, "visage scepter", 1);
 		elseif entity:GetName() == "npc_dota_hero_tiny" then
