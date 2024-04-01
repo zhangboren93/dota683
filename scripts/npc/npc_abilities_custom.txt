@@ -27857,6 +27857,7 @@
 
 		}		
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"  	"0.538"
 	}
 	//=================================================================================================================
 	// Ability: Jakiro's Ice Path
