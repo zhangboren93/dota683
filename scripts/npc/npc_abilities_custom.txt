@@ -29,6 +29,7 @@
 #base "heroes/riki.txt"
 #base "heroes/spectre.txt"
 #base "heroes/spirit_breaker.txt"
+#base "heroes/techies.txt"
 #base "heroes/terrorblade.txt"
 #base "heroes/tusk.txt"
 #base "heroes/viper.txt"
@@ -16065,62 +16066,6 @@
 		{
 			"magic_resistance"		"0"
 			"armor_duration"		"0"
-		}
-	}
-	//=================================================================================================================
-	// Techies: Remote Mines
-	//=================================================================================================================
-	"techies_remote_mines"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5602"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
-		"AbilitySharedCooldown"			"techies_remote_mines"
-
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"HasScepterUpgrade"				"1"
-		"AbilityDraftPreAbility"		"techies_focused_detonate"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.75"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"10"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"200 240 300"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"AbilityCastRange"
-			{
-				"value"						"500"
-				"special_bonus_scepter"		"+200"
-			}
-			"damage"
-			{
-				"value"					"300 450 600"
-				"special_bonus_scepter"	"+150"
-			}
-				"radius"					"425"
-				"duration"					"600.0"
-				"activation_time"			"2.0"
-				"vision_radius"			"500"
-				"vision_duration"			"3.0"
-				"model_scale"				"0 10 20"     // Percentage over model scale
-				"detonate_delay"			"0.25"
 		}
 	}
 	//=================================================================================================================

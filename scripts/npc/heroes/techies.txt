@@ -1,0 +1,216 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+
+	// Rewrite of the Techies Remote Mines ability
+	// Author: Pizzalol
+	// Date: 25.03.2015.
+	// NOTE: THIS ABILITY REQUIRES THE FOLLOWING ABILITIES
+	// "techies_focused_detonate_datadriven"
+	// "techies_remote_mines_self_detonate_datadriven"
+	"techies_remote_mines_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"techies_remote_mines"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		"HasScepterUpgrade"				"1"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_techies.vsndevts"		
+			"particle"		"particles/units/heroes/hero_techies/techies_remote_mine.vpcf"
+			"particle"		"particles/units/heroes/hero_techies/techies_remote_mine_plant.vpcf"
+			"particle"		"particles/units/heroes/hero_techies/techies_remote_mines_detonate.vpcf"
+			"model"			"models/heroes/techies/fx_techies_remotebomb.vmdl"	
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"1.5"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200 240 300"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"AbilityCastRange"
+				{
+					"value"					"500"
+					"special_bonus_scepter"	"+200"
+				}
+				"max_mines"					"69"
+				"damage"					
+				{
+					"value"					"300 450 600"
+					"special_bonus_scepter"	"+150"
+				}
+				"radius"					"425"
+				"duration"					"600.0"
+				"activation_time"			"2.0"
+				"vision_radius"			"500"
+				"vision_duration"			"3.0"
+				"model_scale"				"0 10 20"     // Percentage over model scale
+		}
+	
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_techies/remote_mines.lua"
+				"Function"		"RemoteMinesUpgrade"
+				"ability_name"	"techies_focused_detonate_datadriven"
+			}
+		}
+	
+		"OnAbilityPhaseStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Techies.RemoteMine.Toss"
+				"Target" 		"CASTER"
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Techies.RemoteMine.Plant"
+				"Target" 		"CASTER"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_techies/remote_mines.lua"
+				"Function"		"RemoteMinesPlant"
+				"Target"		"POINT"
+				"modifier_remote_mine"	"modifier_remote_mine_datadriven"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_remote_mine_datadriven"
+			{
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+	
+				"OnCreated"
+				{
+					"FireEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_techies/techies_remote_mine.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+					}
+				}
+	
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_techies/remote_mines.lua"
+						"Function"		"RemoteMinesDeath"
+					}
+				}
+	
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	
+	// Rewrite of the Techies Remote Mines Self Detonate ability
+	// Author: Pizzalol
+	// Date: 25.03.2015.
+	// NOTE: THIS ABILITY IS USED WITH techies_remote_mines_datadriven 
+	"techies_remote_mines_self_detonate_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"techies_remote_mines_self_detonate"
+		
+		"AbilityCastRange"				"0"
+		"MaxLevel"						"1"
+		
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"radius"					"425"
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_techies/remote_mines.lua"
+				"Function"		"RemoteMinesSelfDetonate"
+			}
+		}
+	}
+	
+	// Rewrite of the Techies Focused Detonate ability
+	// Author: Pizzalol
+	// Date: 25.03.2015.
+	// NOTE: THIS ABILITY IS USED WITH techies_remote_mines_datadriven 
+	"techies_focused_detonate_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"techies_focused_detonate"
+		"AOERadius"						"%radius"	
+		
+		"AbilityCastRange"				"0"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"1.0 1.0 1.0"
+		
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"700"
+			}		
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_techies/remote_mines.lua"
+				"Function"		"RemoteMinesFocusedDetonate"
+				"Target"		"POINT"
+			}
+		}
+	}
+}
