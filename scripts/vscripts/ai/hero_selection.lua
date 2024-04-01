@@ -3,6 +3,8 @@
 --- GITHUB REPO: https://github.com/Nostrademous/Dota2-FullOverwrite
 -------------------------------------------------------------------------------
 
+-- Deprecated
+
 local utils = require( GetScriptDirectory().."/utility" )
 
 local Pos_1_Pool = {
