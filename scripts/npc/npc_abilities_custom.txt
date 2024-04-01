@@ -2817,7 +2817,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Ability.Powershot"
-		"AbilityTextureName"			"windrunner_powershot"
+		"AbilityTextureName"			"hoodwink_sharpshooter"
 
 
 		// Casting
@@ -27842,7 +27842,7 @@
 				"value"							"16 36 56 76"
 				"special_bonus_unique_jakiro_2"	"+100%"
 			}
-			"slow_movement_speed_pct"	
+			"slow_movement_speed_pct"
 			{
 				"value"												"-28 -32 -36 -40"
 				"special_bonus_unique_jakiro_dualbreath_slow"		"-10"
