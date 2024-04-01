@@ -7346,7 +7346,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.55"
+		"AbilityCastPoint"				"0.65"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
 		// Time		
@@ -7366,13 +7366,12 @@
 				"value"	"100 140 180"
 				"special_bonus_scepter"	"+25 +35 +45"
 			}
-			"path_width"			"520"				
+			"path_width"			"450"				
 			"AbilityCastRange"
 			{
 				"value"				"900"					
 				"special_bonus_scepter"	"+900"
 			}
-			"path_radius"				"225"
 			"duration"
 			{
 				"value"					"7"
@@ -27805,7 +27804,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityCastPoint"				"0.35"
+		"AbilityCastPoint"				"0.65"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -27829,15 +27828,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"start_radius"			"225"
-			"end_radius"			"275"
+			"start_radius"			"200"
+			"end_radius"			"250"
 			"AbilityCastRange"
 			{
-				"value"							"500"
+				"value"							"750"
 				"special_bonus_unique_jakiro_2"	"+100%"
 			}
 			"speed"					"1050"
-			"fire_delay"			"0.2"
+			"fire_delay"			"0.3"
 			"burn_damage"			
 			{
 				"value"							"16 36 56 76"
@@ -27854,7 +27853,7 @@
 				"value"												"-28 -32 -36 -40"
 				"special_bonus_unique_jakiro_dualbreath_slow"		"-10"
 			}
-			"speed_fire"			"1050"
+			"speed_fire"			"850"
 
 		}		
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"

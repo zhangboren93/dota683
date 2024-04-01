@@ -1820,6 +1820,7 @@
 		"DOTA_Tooltip_ability_Jakiro_liquid_fire_lua_AbilityDuration"		"DURATION:"
 		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_radius"				"RADIUS:"
 		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_abilitycastrange"		"CAST RANGE："
+		"DOTA_Tooltip_ability_jakiro_macropyre_aghanim_description"			"Increases cast range, distance, duration, and damage."
 		// Invoker
 		"DOTA_Tooltip_ability_invoker_quas_health_regen_per_instance"				"HP REGEN PER INSTANCE:"
 		"DOTA_Tooltip_ability_invoker_wex_attack_speed_per_instance"				"ATTACK SPEED PER INSTANCE:"
