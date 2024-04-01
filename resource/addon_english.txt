@@ -659,6 +659,7 @@
 		"DOTA_Tooltip_modifier_legion_press_active_datadriven_Description"					"Gaining %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP regen."
 		"DOTA_Tooltip_modifier_legion_commander_press_the_attack_datadriven"				"Press the Attack"
 		"DOTA_Tooltip_modifier_legion_commander_press_the_attack_datadriven_Description"	"Gaining %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_SECONDARY% attack speed and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% HP regen."
+		"DOTA_Tooltip_Ability_legion_commander_duel_Description"								"Legion Commander and the target enemy hero are forced to attack each other for a short duration.  Neither hero can use items or abilities.  If either hero dies during the duration, the hero winning the Duel gains permanent bonus damage."
 		"DOTA_Tooltip_Ability_legion_commander_duel_datadriven"									"Duel"
 		"DOTA_Tooltip_Ability_legion_commander_duel_datadriven_Description"						"Legion Commander and the target enemy hero are forced to attack each other for a short duration.  Neither hero can use items or abilities.  If either hero dies during the duration, the hero winning the Duel gains permanent bonus damage."
 		"DOTA_Tooltip_Ability_legion_commander_duel_datadriven_Lore"							"To face a soldier of Stonehall in single combat is a challenge few can resist."
