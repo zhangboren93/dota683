@@ -53,7 +53,7 @@ function LandMinesPlant( keys )
 
 	-- Apply the invisibility after the fade time
 	land_mine:SetThink(function()
-		ability:ApplyDataDrivenModifier(caster, land_mine, modifier_land_mine_invisibility, {})
+		land_mine:AddNewModifier(caster, ability, "modifier_invisible", {})
 	end, "land mine invis", fade_time)
 end
 
@@ -135,7 +135,7 @@ function LandMinesTracker( keys )
 	local target_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
 
 	-- Find the valid units in the trigger radius
-	local units = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), nil, trigger_radius, target_team, target_types, target_flags, FIND_CLOSEST, false) 
+	local units = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), target, trigger_radius, target_team, target_types, target_flags, FIND_CLOSEST, true) 
 
 	-- If there is a valid unit in range then explode the mine
 	if #units > 0 then

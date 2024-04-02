@@ -23020,7 +23020,6 @@
 				"modifier_land_mine"	"modifier_land_mine_datadriven"
 				"modifier_tracker"		"modifier_land_mine_tracker_datadriven"
 				"modifier_caster"		"modifier_land_mine_caster_datadriven"
-				"modifier_land_mine_invisibility"	"modifier_land_mine_invisibility_datadriven"
 			}
 		}
 	
@@ -23040,11 +23039,8 @@
 	
 			"modifier_land_mine_tracker_datadriven"
 			{
-				"IsHidden"		"0"
+				"IsHidden"		"1"
 				"IsPurgable"	"0"
-	
-				"EffectName"	"particles/units/heroes/hero_techies/techies_land_mine.vpcf"
-				"EffectAttachType"	"follow_origin"
 	
 				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
@@ -23063,16 +23059,6 @@
 				"IsPurgable"	"0"
 			}
 	
-			"modifier_land_mine_invisibility_datadriven"
-			{
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-	
-				"States"
-				{
-					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 			"modifier_dummy_detonate_effect_datadriven"
 			{			
 				"OnCreated"
