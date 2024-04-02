@@ -417,3 +417,15 @@ function modifier_creep_ai:OnAggroEnded()
 	-- take path
 	self:takePath(currentTime)
 end
+
+function modifier_creep_ai:OnHandleAlertTarget(target)
+	self.alert_target = target
+	if self.target == nil or not isAttackable(self.target.unit, self:GetParent()) then 
+		self.target = {
+			unit = target,
+			last_loc = target:GetAbsOrigin(),
+			last_loc_time = GameRules:GetDOTATime(true, true)
+		}
+		self:GetParent():MoveToTargetToAttack(target)
+	end
+end
