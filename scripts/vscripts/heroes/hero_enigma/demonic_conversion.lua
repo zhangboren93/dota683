@@ -75,6 +75,7 @@ function enigma_demonic_conversion_datadriven:OnSpellStart()
 	-- Gives the caster the gold bounty
 	if caster:GetTeam() ~= target:GetTeam() then
 		caster:ModifyGold(bounty, false, DOTA_ModifyGold_CreepKill)
+		SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, target, bounty, nil)
 	end
 	-- Splits the experience among heroes in range
 	for i=1,#units do
