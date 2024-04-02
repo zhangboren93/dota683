@@ -27,7 +27,10 @@ function GoblinsGreed( event )
 
 	-- Grant the gold
 	print("GG Stack Count: " .. stacks)
-	caster:ModifyGold(stacks, false, 0)
+	caster:ModifyGold(stacks, false, DOTA_ModifyGold_CreepKill)
+	if target:HasAbility("creep_siege_extra") then
+		SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, target, stacks, caster:GetPlayerOwner())
+	end
 
 	-- Show the particles, player only
 	local particleName = "particles/units/heroes/hero_alchemist/alchemist_lasthit_coins.vpcf"		
