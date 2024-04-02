@@ -32,8 +32,8 @@ function jakiro_liquid_fire_lua:OnOrbImpact( params )
 		nil,
 		radius,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING,
-		0,
+		self:GetAbilityTargetType(),
+		self:GetAbilityTargetFlags(),
 		0,
 		false
 	)
