@@ -1318,19 +1318,8 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			false)
 		for i=1,#units do
 			local ai = units[i]:FindModifierByName("modifier_creep_ai")
---			if ai ~= nil then
---				print("ai.target " .. entity:GetName())
---				print(ai.target)
---				if ai.target ~= nil then
---					print(ai.target.unit:GetName())
---				end
---			end
 			if ai ~= nil and ai.target ~=nil and ai.target.unit == entity then
-				ai.target = nil
---				print("OnIntervalThink from death handler")
-				units[i]:SetThink(function()
-					ai:OnIntervalThink()
-				end, "Find new targets", 0.2)
+				ai:HandleTargetKilled()
 			end
 		end
 	end

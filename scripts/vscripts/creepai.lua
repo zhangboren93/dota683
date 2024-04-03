@@ -419,13 +419,21 @@ function modifier_creep_ai:OnAggroEnded()
 end
 
 function modifier_creep_ai:OnHandleAlertTarget(target)
+	local parent = self:GetParent()
 	self.alert_target = target
-	if self.target == nil or not isAttackable(self.target.unit, self:GetParent()) then 
+	if self.target == nil or not isAttackable(self.target.unit, self:GetParent()) 
+		or (parent:GetAbsOrigin() - self.target.unit:GetAbsOrigin()):Length2D() > 
+			(parent:GetAbsOrigin() - target:GetAbsOrigin()):Length2D() then
 		self.target = {
 			unit = target,
 			last_loc = target:GetAbsOrigin(),
 			last_loc_time = GameRules:GetDOTATime(true, true)
 		}
-		self:GetParent():MoveToTargetToAttack(target)
+		parent:MoveToTargetToAttack(target)
 	end
+end
+
+function modifier_creep_ai:HandleTargetKilled()
+	self.nextTakePathTime = -1
+	self:takePath(GameRules:GetDOTATime(true, true))
 end
