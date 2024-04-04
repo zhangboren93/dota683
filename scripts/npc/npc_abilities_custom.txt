@@ -30908,6 +30908,14 @@
 			"stack_limit"						"4 8 12 16"
 			"stack_duration"					"16"
 		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_shredder/reactive_armor.lua"
+				"Function"		"handleUpgrade"
+			}
+		}
 		"modifiers"
 		{
 			"modifier_shredder_reactive_armor_datadriven"
@@ -30945,7 +30953,6 @@
 				"Passive"		"0"
 				"IsHidden"		"1"
 				"IsPurgable"	"0"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
