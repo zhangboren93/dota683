@@ -1,0 +1,132 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	"skywrath_mage_concussive_shot_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NO_INVIS | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"          "SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"                  "Hero_SkywrathMage.ConcussiveShot.Cast"
+		"AbilityTextureName"			"skywrath_mage_concussive_shot"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+			"particle"			"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot.vpcf"
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+		"AbilityCastRange"				"1600"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 18 16 14"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"110"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.1"	// Primarily about the damage
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{ 
+			"launch_radius"		"1600"
+			"slow_radius"		"200"
+			"speed"				"800 800 800 800"
+			"damage"			"60 120 180 240"
+			"slow_duration"		"4.0"
+			"movement_speed_pct"	"-30 -35 -40 -45"
+			"shot_vision"		"400"
+			"vision_duration"		"3.34"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"			"CASTER"
+				"EffectName"		"Hero_SkywrathMage.ConcussiveShot.Cast"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_skywrath_mage/concussive_shot.lua"
+				"Function"		"concussive_shot_seek_target"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_skywrath_mage/concussive_shot.lua"
+				"Function"		"concussive_shot_post_vision"
+			}
+		
+			"FireSound"
+			{
+				"Target"		"CASTER"
+				"EffectName"		"Hero_SkywrathMage.ConcussiveShot.Target"
+			}
+	
+			"ActOnTargets"
+			{
+				"Target"
+				{
+					"Center"			"TARGET"
+					"Radius"			"%slow_radius"
+					"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Types"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				}
+			
+				"Action"
+				{
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Damage"		"%damage"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+					}
+				
+					"ApplyModifier"
+					{
+						"Target"		"TARGET"
+						"ModifierName"	"modifier_concussive_shot_slow_datadriven"
+					}
+				}
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_concussive_shot_slow_datadriven"
+			{
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+			
+				"Duration"				"%slow_duration"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movement_speed_pct"
+				}
+			}
+		}
+	}
+}

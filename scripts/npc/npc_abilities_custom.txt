@@ -27,6 +27,7 @@
 #base "heroes/phoenix.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
+#base "heroes/skywrath_mage.txt"
 #base "heroes/spectre.txt"
 #base "heroes/spirit_breaker.txt"
 #base "heroes/techies.txt"
@@ -12591,54 +12592,6 @@
 				"total_bolt_count"		"1"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
-	// Skywrath Mage: Concussive Shot
-	//=================================================================================================================
-	"skywrath_mage_concussive_shot"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5582"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_SkywrathMage.ConcussiveShot.Cast"
-		"HasScepterUpgrade"				"1"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-		"AbilityCastRange"				"1600"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 18 16 14"
-
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"110" 
-
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{ 
-				"launch_radius"		"1600"
-				"slow_radius"		"200"
-				"speed"				"800 800 800 800"
-				"damage"			"60 120 180 240"
-				"slow_duration"		"4.0"
-				"movement_speed_pct"	"30 35 40 45"
-				"shot_vision"		"300"
-				"vision_duration"		"3.34"
-				"scepter_radius"		"700"
-				"creep_damage_pct"		"75"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	//=================================================================================================================
 	// Skywrath Mage: Ancient Seal
@@ -30908,6 +30861,14 @@
 			"stack_limit"						"4 8 12 16"
 			"stack_duration"					"16"
 		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_shredder/reactive_armor.lua"
+				"Function"		"handleUpgrade"
+			}
+		}
 		"modifiers"
 		{
 			"modifier_shredder_reactive_armor_datadriven"
@@ -30945,7 +30906,6 @@
 				"Passive"		"0"
 				"IsHidden"		"1"
 				"IsPurgable"	"0"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"

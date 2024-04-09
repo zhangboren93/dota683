@@ -1,0 +1,14 @@
+criterion "IsHoodwink" "classname" "npc_dota_hero_hoodwink" weight 5 required
+criterion "IsFocusFire" "abilityname" "windrunner_focusfire" weight 5 required
+
+Response hoodwink_CastExecuteIsFocusFire
+{
+    scene "scenes/hoodwink/hoodwink_hoodwink_acorn_en_07.vcd" nodelay noscene 
+    scene "scenes/hoodwink/hoodwink_hoodwink_acorn_en_08.vcd" nodelay noscene
+}
+
+Rule hoodwink_CastExecuteIsFocusFire_rule
+{
+    criteria CastExecute IsHoodwink IsFocusFire
+    response hoodwink_CastExecuteIsFocusFire
+}
