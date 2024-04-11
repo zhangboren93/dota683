@@ -18674,7 +18674,7 @@
 				"value"			"3.5"
 				"LinkedSpecialBonus"	"special_bonus_unique_slark"
 			}
-			"leash_radius"			"400"
+			"leash_radius"			"325"
 			"max_charges"			
 			{
 				"value"	"1"

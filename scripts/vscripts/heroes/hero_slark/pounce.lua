@@ -16,7 +16,7 @@ end
 function handleLeashIntervalThink(event)
 	local target = event.target
 	local caster = event.caster
-	if (target:GetAbsOrigin() - caster.leash_loc):Length() > 500 then
+	if (target:GetAbsOrigin() - caster.leash_loc):Length() > 425 then
 		target:RemoveModifierByName("modifier_slark_pounce_leash_datadriven")
 		return
 	end
@@ -25,8 +25,8 @@ function handleLeashIntervalThink(event)
 		return
 	end
 
-	if (target:GetAbsOrigin() - caster.leash_loc):Length() > 400 then
+	if (target:GetAbsOrigin() - caster.leash_loc):Length() > 325 then
 		target:SetAbsOrigin(caster.leash_loc + 
-			(target:GetAbsOrigin() - caster.leash_loc):Normalized() * 400)
+			(target:GetAbsOrigin() - caster.leash_loc):Normalized() * 325)
 	end
 end
