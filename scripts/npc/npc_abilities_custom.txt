@@ -7259,6 +7259,7 @@
 			"geminate_attack_mark_duration"	"0"
 			"shukuchi_attack_mark_radius"	"0"
 			"shukuchi_attack_delay"			"0"
+			"AbilityCooldown"				"12 10 8 6"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
