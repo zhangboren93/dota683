@@ -979,19 +979,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
 		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then
 			entity:FindAbilityByName("keeper_of_the_light_spirit_form_checker"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_puck" or entity:GetName() == "npc_dota_hero_dark_willow" then
-			entity:SetThink(function()
-				if entity:HasScepter() and not entity:HasAbility("special_bonus_unique_puck_5") then
-					local ability = entity:AddAbility("special_bonus_unique_puck_5")
-					ability:SetLevel(1)
-					print("added puck ahgs ability")
-				end
-				if not entity:HasScepter() and entity:HasAbility("special_bonus_unique_puck_5") then
-					entity:RemoveAbility("special_bonus_unique_puck_5")
-					print("removed puck ahgs ability")
-				end
-				return 0.3
-			end, "puck scepter", 0.3);
 		elseif entity:GetName() == "npc_dota_hero_slark" then
 			entity:FindAbilityByName("slark_shadow_dance_heal_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_sand_king" then
