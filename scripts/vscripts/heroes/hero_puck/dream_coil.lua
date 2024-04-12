@@ -1,6 +1,3 @@
-LinkLuaModifier( "modifier_dream_coil_lua", "heroes/hero_puck/dream_coil.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_dream_coil_thinker_lua", "heroes/hero_puck/dream_coil.lua", LUA_MODIFIER_MOTION_NONE )
-
 puck_dream_coil_lua = class({ 
 	GetAOERadius			= function(self) return self:GetSpecialValueFor("coil_radius") end
 })
