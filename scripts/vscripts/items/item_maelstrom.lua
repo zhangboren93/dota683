@@ -59,8 +59,16 @@ function handleOrbFire(event)
 	if target:IsBuilding() or target:IsMagicImmune() or caster:IsIllusion() then
 		return
 	end
-	if RandomInt(1, 100) <= chain_chance and not caster:HasModifier("modifier_maelstrom_trigger_no_miss") then
-		caster:AddNewModifier(caster, ability, "modifier_maelstrom_trigger_no_miss", { duration = 1 })
+	if RandomInt(1, 100) <= chain_chance then
+		if not caster:HasModifier("modifier_maelstrom_trigger_no_miss") then
+			caster:AddNewModifier(caster, ability, "modifier_maelstrom_trigger_no_miss", { duration = 1 })
+		end
+
+		-- flaming fist triggers immediately
+		if caster:HasModifier("modifier_ember_spirit_sleight_of_fist_caster_invulnerability") then
+			modifier_item_maelstrom_datadriven_on_orb_impact(event)
+		end
+
 	end
 end
 
