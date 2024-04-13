@@ -582,7 +582,7 @@ function prepareCreepSpawnQueue()
 		})
 		table.insert(result, 
 		{
-			name = creepUpgradedName("npc_dota_creep_badguys_melee", "good_rax_melee_bot", direracks),
+			name = creepUpgradedName("npc_dota_creep_badguys_melee", "good_rax_melee_bot", radiantracks),
 			path = "bb",
 			team = DOTA_TEAM_BADGUYS,
 			alertRadius = CREEP_ALERT_RADIUS,
@@ -591,7 +591,7 @@ function prepareCreepSpawnQueue()
 		})
 		table.insert(result, 
 		{
-			name = creepUpgradedName("npc_dota_creep_badguys_melee", "good_rax_melee_mid", direracks),
+			name = creepUpgradedName("npc_dota_creep_badguys_melee", "good_rax_melee_mid", radiantracks),
 			path = "bm",
 			team = DOTA_TEAM_BADGUYS,
 			alertRadius = CREEP_ALERT_RADIUS,
@@ -600,7 +600,7 @@ function prepareCreepSpawnQueue()
 		})
 		table.insert(result, 
 		{
-			name = creepUpgradedName("npc_dota_creep_badguys_melee", "good_rax_melee_top", direracks),
+			name = creepUpgradedName("npc_dota_creep_badguys_melee", "good_rax_melee_top", radiantracks),
 			path = "bt",
 			team = DOTA_TEAM_BADGUYS,
 			alertRadius = CREEP_ALERT_RADIUS,
@@ -725,9 +725,12 @@ function prepareCreepSpawnQueue()
 	return result
 end
 
-function processCreepSpawnQueue(queue, max)
+function processCreepSpawnQueue(queue, max, immediate)
 	--print("processCreepSpawnQueue called " .. #queue)
 	local creepLevel = math.floor((GameRules:GetDOTATime(false, false) + 30) / 450)
+    if immediate then
+        creepLevel = math.floor((GameRules:GetDOTATime(false, false)) / 450)
+    end
 	for i=1,max do
 		if #queue == 0 then
 			break
@@ -769,9 +772,9 @@ function processCreepSpawnQueue(queue, max)
 		CreateUnitByNameAsync(creep.name, spawnVecter, true, nil, nil, creep.team, function(spawnedUnit)
 			spawnedUnit:SetIdleAcquire(false)
 			local duration = 30 - GameRules:GetDOTATime(false, false) % 30
-			if duration > 0 then
+			if duration > 0 and not immediate then
 				spawnedUnit:AddNoDraw()
-				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_preparing_lua", { duration = duration })
+				spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_preparing_lua", {})
 			end
 			spawnedUnit:AddNewModifier(nil, nil, "modifier_creep_ai", { 
 				alertRadius = creep.alertRadius, 
@@ -828,4 +831,142 @@ function SpawnNeutralCreepCampCache()
 			break
 		end
 	end
+end
+
+local function getUnitSpawnerLane(unit)
+    local closest_spawner = nil
+    local teamSpawners = nil
+    local closest_spawner_idx = 1
+    if unit:GetTeam() == DOTA_TEAM_GOODGUYS then
+        closest_spawner = radiantSpawners[1]
+        teamSpawners = radiantSpawners
+    else
+        closest_spawner = direSpawners[1]
+        teamSpawners = direSpawners
+    end
+    for i=2,#teamSpawners do
+		local spawner = Entities:FindByName(nil, closest_spawner)
+        local spawner2 = Entities:FindByName(nil, teamSpawners[i])
+        if (unit:GetAbsOrigin() - spawner:GetAbsOrigin()):Length2D() >
+            (unit:GetAbsOrigin() - spawner2:GetAbsOrigin()):Length2D() then
+            closest_spawner = teamSpawners[i]
+            closest_spawner_idx = i
+        end
+    end
+    return closest_spawner_idx
+end
+
+local function targetCreepName(unit, lane)
+    local level_1_unit_name = "npc_dota_creep_goodguys_melee"
+    local rax_melee = true
+    if unit:GetTeam() == DOTA_TEAM_GOODGUYS then
+        if string.find(unit:GetUnitName(), "siege") ~= nil then
+            level_1_unit_name = "npc_dota_goodguys_siege"
+            rax_melee = false
+        elseif unit:IsRangedAttacker() then
+            level_1_unit_name = "npc_dota_creep_goodguys_ranged" 
+            rax_melee = false
+        end
+    else
+        if string.find(unit:GetUnitName(), "siege") ~= nil then
+            level_1_unit_name = "npc_dota_badguys_siege"
+            rax_melee = false
+        elseif unit:IsRangedAttacker() then
+            level_1_unit_name = "npc_dota_creep_badguys_ranged" 
+            rax_melee = false
+        else
+            level_1_unit_name = "npc_dota_creep_badguys_melee"
+        end
+    end
+
+    local enemy_rak_name = ""
+    local megaraks = direracks
+    if unit:GetTeam() == DOTA_TEAM_GOODGUYS then
+        enemy_rak_name = "bad_rax_"
+    else
+        enemy_rak_name = "good_rax_"
+        megaraks = radiantracks
+    end
+    if rax_melee then
+        enemy_rak_name = enemy_rak_name .. "melee_"
+    else
+        enemy_rak_name = enemy_rak_name .. "range_"
+    end
+    if lane == 1 then
+        enemy_rak_name = enemy_rak_name .. "bot"
+    elseif lane == 2 then
+        enemy_rak_name = enemy_rak_name .. "mid"
+    else
+        enemy_rak_name = enemy_rak_name .. "top"
+    end
+
+    return creepUpgradedName(level_1_unit_name, enemy_rak_name, megaraks)
+end
+
+local function shouldUpgradeCachedCreep(unit) 
+    -- find creep lane based on spawner distance
+    local closest_spawner_idx = getUnitSpawnerLane(unit) -- 1: bot, 2:mid, 3:top
+    local target_creep_name = targetCreepName(unit, closest_spawner_idx)
+ --   print(unit:GetUnitName() .. " lane " .. closest_spawner_idx .. " target " .. target_creep_name)
+    return target_creep_name ~= unit:GetUnitName()
+end
+
+function spawnNewLaneCreepWithSameType(unit)
+    -- find unit lane
+    local lane = getUnitSpawnerLane(unit) -- 1: bot, 2:mid, 3:top
+    local path = "gb"
+    if unit:GetTeam() == DOTA_TEAM_GOODGUYS then
+        if lane == 2 then path = "gm"
+        elseif lane == 3 then path = "gt"
+        end
+    else
+        if lane == 1 then path = "bt"
+        elseif lane == 2 then path = "bm"
+        else path = "bt"
+        end
+    end
+    -- find unit type
+    -- find unit level
+    local target_creep_name = targetCreepName(unit, lane)
+    local alertRadius = CREEP_ALERT_RADIUS
+    local attackRange = CREEP_ATTACK_RANGE
+    local siege = 0
+    if string.find(target_creep_name, "siege") ~= nil then
+        alertRadius = CREEP_ALERT_RADIUS_SEIGE
+        siege = 1
+        attackRange = CREEP_ATTACK_RANGE_SEIGE
+    elseif unit:IsRangedAttacker() then
+        alertRadius = CREEP_ALERT_RADIUS_RANGED
+        attackRange = CREEP_ATTACK_RANGE_RANGED
+    end
+    -- spawn unit
+    local dummyqueue = {}
+    table.insert(dummyqueue, {
+        team = unit:GetTeam(),
+        path = path,
+        name = target_creep_name,
+		alertRadius = alertRadius, 
+		siege = siege,
+		attackRange = attackRange
+    })
+    processCreepSpawnQueue(dummyqueue, 1, true) 
+end
+
+function SpawnCachedCreeps()
+    -- get all lane creeps with modifier_creep_health_bonus
+    local all_units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0, 0, 0), nil, 100000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_CREEP, 
+        DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD , FIND_ANY_ORDER, false)
+    for i=1,#all_units do
+        local unit = all_units[i]
+        if unit:GetTeam() == DOTA_TEAM_GOODGUYS or unit:GetTeam() == DOTA_TEAM_BADGUYS then
+            if unit:HasModifier("modifier_creep_preparing_lua") then
+                if shouldUpgradeCachedCreep(unit) then
+                    spawnNewLaneCreepWithSameType(unit)
+                    unit:ForceKill(false)
+                else
+                    unit:RemoveModifierByName("modifier_creep_preparing_lua")
+                end
+            end
+        end
+    end
 end

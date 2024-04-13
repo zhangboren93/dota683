@@ -625,6 +625,7 @@ function CAddonTemplateGameMode:OnThink()
 				self.creepSpawnPrepareStart = true
 			else
 				-- TODO flush creepSpawnPrepareQueue
+                SpawnCachedCreeps()
 			end
 			-- prepare next creep spawn queue
 			self.creepSpawnPrepareQueue = prepareCreepSpawnQueue()
@@ -633,7 +634,7 @@ function CAddonTemplateGameMode:OnThink()
 		if self.creepSpawnPrepareStart 
 			and math.ceil(#self.creepSpawnPrepareQueue / 6) + 1 >= (30 - math.floor(time) % 30) / 2 then
 			-- spawn 6 creeps at a time and hide them
-			processCreepSpawnQueue(self.creepSpawnPrepareQueue, 6)
+			processCreepSpawnQueue(self.creepSpawnPrepareQueue, 6, false)
 		end
 
 		-- cache neutral creep spawn 
