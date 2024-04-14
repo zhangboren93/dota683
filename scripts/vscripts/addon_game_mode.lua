@@ -1923,7 +1923,9 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				and inflictor:GetName() ~= "clinkz_death_pact_datadriven"
 				and inflictor:GetName() ~= "doom_bringer_devour_datadriven"
 				and inflictor:GetName() ~= "warlock_shadow_word"
-				and inflictor:GetName() ~= "kunkka_tidebringer_datadriven" then
+				and inflictor:GetName() ~= "kunkka_tidebringer_datadriven"
+				and inflictor:GetName() ~= "medusa_split_shot" 
+				and inflictor:GetName() ~= "axe_counter_helix_datadriven" then
 				event.damage = 0
 			end
 		end
