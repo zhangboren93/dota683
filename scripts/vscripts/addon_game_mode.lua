@@ -249,7 +249,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:SetGoldTickTime(1000)
 	GameRules:SetTreeRegrowTime(300)
 	GameRules:SetHeroSelectionTime(80)
-	GameRules:SetCreepSpawningEnabled(false)
+	GameRules:SetCreepSpawningEnabled(true)
 	GameRules:SetRuneSpawnTime(120)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
@@ -303,13 +303,14 @@ function CAddonTemplateGameMode:InitGameMode()
 		local first_creep_spawned = false
 		if event.new_state == 5 then
 			GameRules:GetGameModeEntity():SetThink(function()
-				SpawnNeutralCreepsCustom()
-				if first_creep_spawned then
-					return 60
-				else
-					first_creep_spawned = true
-					return 30
-				end
+                GameRules:SpawnNeutralCreeps()
+	    --		SpawnNeutralCreepsCustom()
+		--		if first_creep_spawned then
+		--			return 60
+		--		else
+		--			first_creep_spawned = true
+		--			return 30
+		--		end
 			end, "spawn neutral creep", 30)
 			if isMapRanked() and not notValidRankedGame and not hasGameEnded then
 				GameRules:GetGameModeEntity():SetThink(function()
@@ -351,10 +352,10 @@ function CAddonTemplateGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("hero_bar_ping_miss", CAddonTemplateGameMode.handleHeroBarPingMiss)
 	CustomGameEventManager:RegisterListener("fwd-command-issue", handleFWDCommand)
 
-	local spawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
-	for i=1,#spawners do
-		spawners[i]:Destroy()
-	end
+	--local spawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
+	--for i=1,#spawners do
+	--	spawners[i]:Destroy()
+	--end
 end
 
 function HandlePlayerChat(self, teamonly, text, playerid)
@@ -614,33 +615,33 @@ function CAddonTemplateGameMode:OnThink()
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
 
-		if (not self.botEnabled) 
-			and time > 0 
-			and (math.floor(time) % 30) < 3 
-			and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
-			if self.creepSpawnPrepareStart == nil then
-				--TODO first spawn prepare creeps as well
-				spawnCreepsLua()
-				self.creepSpawnTime = time
-				self.creepSpawnPrepareStart = true
-			else
-				-- TODO flush creepSpawnPrepareQueue
-                SpawnCachedCreeps()
-			end
-			-- prepare next creep spawn queue
-			self.creepSpawnPrepareQueue = prepareCreepSpawnQueue()
-		end
+		--if (not self.botEnabled) 
+		--	and time > 0 
+		--	and (math.floor(time) % 30) < 3 
+		--	and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
+		--	if self.creepSpawnPrepareStart == nil then
+		--		--TODO first spawn prepare creeps as well
+		--		spawnCreepsLua()
+		--		self.creepSpawnTime = time
+		--		self.creepSpawnPrepareStart = true
+		--	else
+		--		-- TODO flush creepSpawnPrepareQueue
+        --        SpawnCachedCreeps()
+		--	end
+		--	-- prepare next creep spawn queue
+		--	self.creepSpawnPrepareQueue = prepareCreepSpawnQueue()
+		--end
 
-		if self.creepSpawnPrepareStart 
-			and math.ceil(#self.creepSpawnPrepareQueue / 6) + 1 >= (30 - math.floor(time) % 30) / 2 then
-			-- spawn 6 creeps at a time and hide them
-			processCreepSpawnQueue(self.creepSpawnPrepareQueue, 6, false)
-		end
+		--if self.creepSpawnPrepareStart 
+		--	and math.ceil(#self.creepSpawnPrepareQueue / 6) + 1 >= (30 - math.floor(time) % 30) / 2 then
+		--	-- spawn 6 creeps at a time and hide them
+		--	processCreepSpawnQueue(self.creepSpawnPrepareQueue, 6, false)
+		--end
 
-		-- cache neutral creep spawn 
-		if math.floor(time % 4) > 1.9 then
-			SpawnNeutralCreepCampCache()
-		end
+		---- cache neutral creep spawn 
+		--if math.floor(time % 4) > 1.9 then
+		--	SpawnNeutralCreepCampCache()
+		--end
 
 		-- give each player passive gold
 		if time > 0 and IsServer() then
