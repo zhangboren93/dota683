@@ -372,6 +372,13 @@
 		"DOTA_Tooltip_modifier_item_aegis_regen_lua"				"Aegis Regeneration"
 		"DOTA_Tooltip_modifier_item_aegis_regen_lua_description"	"The Aegis of the Immortal has expired. Quickly restoring health and mana."
 
+		"DOTA_Tooltip_Ability_item_vanguard_lua"									"Vanguard"
+		"DOTA_Tooltip_ability_item_vanguard_lua_Description"						"<h1>Passive: Damage Block</h1> Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
+		"DOTA_Tooltip_ability_item_vanguard_lua_Lore"								"A powerful shield that defends its wielder from even the most vicious of attacks."
+		"DOTA_Tooltip_ability_item_vanguard_lua_Note0"								"Multiple sources of damage block do not stack."
+		"DOTA_Tooltip_ability_item_vanguard_lua_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_vanguard_lua_bonus_health_regen"					"+$hp_regen"
+
 		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"					"Go to secretshop"
 		"DOTA_Tooltip_ability_courier_burst_datadriven"								"Speed Burst"
 		"DOTA_Tooltip_ability_courier_burst_datadriven_Description"					"The courier gains a burst of speed for %AbilityDuration% seconds"

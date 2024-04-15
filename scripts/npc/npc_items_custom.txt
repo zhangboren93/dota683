@@ -5263,24 +5263,8 @@
 	//=================================================================================================================
 	"item_recipe_vanguard"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"124"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"0"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_vanguard"
-		"ItemRequirements"
-		{
-			"01"						"item_ring_of_health;item_vitality_booster;item_stout_shield"
-		}
+		"ItemPurchasable"	"0"
+		"IsObsolete"		"1"
 	}
 	
 	//=================================================================================================================
@@ -5288,13 +5272,33 @@
 	//=================================================================================================================
 	"item_vanguard"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"125"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemPurchasable"	"0"
+		"IsObsolete"		"1"
+	}
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
+	"item_recipe_vanguard_lua"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_vanguard_lua"
+		"ItemRequirements"
+		{
+			"01"						"item_ring_of_health;item_vitality_booster;item_stout_shield"
+		}
+	}
+
+	//=================================================================================================================
+	// Vanguard
+	//=================================================================================================================
+	"item_vanguard_lua"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_vanguard.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"item_vanguard"
 		"ItemCost"						"2225"
 		"ItemShopTags"					"regen_health;block;health_pool"
 		"ItemQuality"					"epic"
@@ -5302,9 +5306,6 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"bonus_health"			"250"
@@ -5314,6 +5315,7 @@
 			"block_chance"			"80"
 		}
 	}
+
 	//=================================================================================================================
 	// Recipe: Crimson Guard
 	//=================================================================================================================
@@ -5337,7 +5339,7 @@
 		"ItemResult"					"item_crimson_guard"
 		"ItemRequirements"
 		{
-			"01"						"item_vanguard;item_buckler_2"
+			"01"						"item_vanguard_lua;item_buckler_2"
 		}
 	}
 	

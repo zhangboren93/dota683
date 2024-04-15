@@ -240,7 +240,7 @@ X["item_tranquil_boots_datadriven"] = { "item_ring_of_protection", "item_ring_of
 
 X["item_urn_of_shadows_datadriven"] = { "item_gauntlets", "item_gauntlets", "item_sobi_mask_datadriven", "item_recipe_urn_of_shadows_datadriven" }
 
-X["item_vanguard"] = { "item_stout_shield" , "item_vitality_booster", "item_ring_of_health" }
+X["item_vanguard_lua"] = { "item_stout_shield" , "item_vitality_booster", "item_ring_of_health" }
 
 X["item_wraith_band_datadriven"] = { "item_slippers", "item_circlet", "item_recipe_wraith_band_datadriven" }
 
@@ -253,7 +253,7 @@ X["item_bloodstone_datadriven"] = { X["item_soul_ring"], X["item_soul_booster"],
 -- Battle Fury
 X["item_bfury_datadriven"] = { X["item_pers"], "item_claymore", "item_broadsword" }
 
-X["item_crimson_guard"] = { X["item_buckler"], X["item_vanguard"], "item_recipe_crimson_guard" }
+X["item_crimson_guard"] = { X["item_buckler"], X["item_vanguard_lua"], "item_recipe_crimson_guard" }
 
 -- Daedalus
 X["item_greater_crit"] = { X["item_lesser_crit"], "item_demon_edge", "item_recipe_greater_crit" }

@@ -360,6 +360,13 @@
 		"DOTA_Tooltip_ability_courier_transfer_items_lua_Description"				"将物品运送给英雄"
 		"DOTA_Tooltip_modifier_courier_transfer_items_active_lua"					"将物品送达英雄处"
 
+		"DOTA_Tooltip_Ability_item_vanguard_lua"									"先锋盾"
+		"DOTA_Tooltip_ability_item_vanguard_lua_Description"						"<h1>被动：伤害格挡</h1> 拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
+		"DOTA_Tooltip_ability_item_vanguard_lua_Lore"								"能够让持有者躲过最致命攻击的强力盾牌。"
+		"DOTA_Tooltip_ability_item_vanguard_lua_Note0"								"多种伤害格挡物品的效果互不叠加。"
+		"DOTA_Tooltip_ability_item_vanguard_lua_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_vanguard_lua_bonus_health_regen"					"+$hp_regen"
+
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_Description"			"亚巴顿以部分生命为代价，释放带有死亡气息的迷雾缠绕伤害敌方单位或治疗友方单位。"

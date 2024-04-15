@@ -22,8 +22,8 @@ generic.ItemsToBuyAsHardCarry = {
 	},
 	CoreItems = {
 		"item_power_treads_agi",
+		"item_vanguard_lua",
 		"item_bfury_datadriven",
-		"item_vanguard",
 		"item_yasha",
 		"item_manta",
 		"item_abyssal_blade"
