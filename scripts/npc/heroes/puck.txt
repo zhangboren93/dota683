@@ -1,0 +1,138 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	"puck_dream_coil_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_puck/dream_coil.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Puck.Dream_Coil"
+		"AbilityTextureName"			"puck_dream_coil"
+		"HasScepterUpgrade"				"1"
+
+		"MaxLevel"						"3"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"5"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"85"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 150 200"
+			
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers 
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"coil_duration"				
+			{
+				"value"	"6"
+				"special_bonus_scepter"	"+2"
+			}
+			"coil_break_radius"			"600"
+			"stun_duration"				"0.5"
+			"coil_initial_damage"		"100 150 200"
+			"coil_stun_duration"
+			{
+				"value"					"1.5 2.25 3.0"
+				"special_bonus_scepter"	"+0 +0.75 +1.5"
+			}
+			"coil_break_damage"			
+			{
+				"value"					"100 150 200"
+				"special_bonus_scepter"	"+100"
+			}
+			"coil_radius"				"375"
+		}
+	
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_puck.vsndevts"
+			"particle"					"particles/units/heroes/hero_puck/puck_dreamcoil.vpcf"
+			"particle"					"particles/units/heroes/hero_puck/puck_dreamcoil_emit.vpcf"
+			"particle"					"particles/units/heroes/hero_puck/puck_dreamcoil_tether.vpcf"
+		}
+	}
+	"puck_dream_coil_2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_puck/dream_coil.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"2"
+		"AbilitySound"					"Hero_Puck.Dream_Coil"
+		"AbilityTextureName"			"puck_dream_coil"
+		"HasScepterUpgrade"				"1"
+
+		"MaxLevel"						"3"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"5"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"85"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 150 200"
+			
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers 
+
+
+		"AbilityValues"
+		{
+			"coil_duration"				
+			{
+				"value"	"6"
+				"special_bonus_scepter"	"+2"
+			}
+			"coil_break_radius"			"600"
+			"stun_duration"				"0.5"
+			"coil_initial_damage"		"100 150 200"
+			"coil_stun_duration"
+			{
+				"value"					"1.5 2.25 3.0"
+				"special_bonus_scepter"	"+0 +0.75 +1.5"
+			}
+			"coil_break_damage"
+			{
+				"value"					"100 150 200"
+				"special_bonus_scepter"	"+100"
+			}
+			"coil_radius"				"375"
+		}
+	}
+}

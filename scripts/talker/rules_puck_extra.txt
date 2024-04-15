@@ -1,0 +1,14 @@
+criterion "IsPuck" "classname" "npc_dota_hero_puck" weight 5 required
+criterion "IsDreamCoil" "abilityname" "puck_dream_coil_lua" weight 5 required
+
+Response puck_CastExecuteIsDreamCoil
+{
+	scene "scenes/puck/puck_puck_ability_dreamcoil_01.vcd" nodelay noscene 
+	scene "scenes/puck/puck_puck_ability_dreamcoil_02.vcd" nodelay noscene
+}
+
+Rule puck_CastExecuteIsDreamCoil_rule
+{
+	criteria CastExecute IsPuck IsDreamCoil
+	response puck_CastExecuteIsDreamCoil
+}

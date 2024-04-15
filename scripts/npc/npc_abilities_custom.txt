@@ -25,6 +25,7 @@
 #base "heroes/oracle.txt"
 #base "heroes/phantom_assassin.txt"
 #base "heroes/phoenix.txt"
+#base "heroes/puck.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
 #base "heroes/skywrath_mage.txt"
@@ -1590,172 +1591,6 @@
 				"bonus_movement_speed"		"0"
 				"evasion"		"0"
 		}
-	}
-    "puck_dream_coil"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5073"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_Puck.Dream_Coil"
-		"HasScepterUpgrade"				"1"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"750"
-		"AbilityCastPoint"				"0.1 0.1 0.1"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"85"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 150 200"
-				
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers 
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-
-		"AbilityValues"
-		{
-				"coil_duration"				
-				{
-					"value"	"6"
-					"special_bonus_scepter"	"+2"
-				}
-				"coil_break_radius"			"600"
-				"stun_duration"				"0.5"
-				"coil_initial_damage"		"100 150 200"
-				"coil_stun_duration"
-				{
-					"value"					"1.5 2.25 3.0"
-					"special_bonus_scepter"	"+0 +0.75 +1.5"
-				}
-				"coil_break_damage"			
-				{
-					"value"					"100 150 200"
-					"special_bonus_scepter"	"+100"
-				}
-				"coil_radius"				"400"
-				"coil_rapid_fire_rate"
-				{
-					"value"							"0"
-					"special_bonus_scepter"			"+0"
-				}
-				"coil_rapid_fire_z_offset"
-				{
-					"value"							"0"
-					"special_bonus_scepter"			"+0"
-				}
-		}
-	}
-	"special_bonus_unique_puck_5"
-	{
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"						"1"
-				"ad_linked_abilities"		"puck_dream_coil"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"value"						"1"
-				"ad_linked_abilities"		"puck_dream_coil_2"				// this is the ability this bonus affects.  This line is required for Ability Draft to correctly choose talents.
-			}
-		}
-	}
-    "puck_dream_coil_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"puck_dream_coil"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_Puck.Dream_Coil"
-		"MaxLevel"            		  	"3"
-		"RequiredLevel"         		"6"
-		"LevelsBetweenUpgrades" 		"5"
-		"HasScepterUpgrade"				"1"
-		"AbilityTextureName"			"puck_dream_coil"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"750"
-		"AbilityCastPoint"				"0.1 0.1 0.1"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"85"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100 150 200"
-				
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers 
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-
-		"AbilityValues"
-		{
-				"coil_duration"				
-				{
-					"value"	"6"
-					"special_bonus_scepter"	"+2"
-				}
-				"coil_break_radius"			"600"
-				"stun_duration"				"0.5"
-				"coil_initial_damage"		"100 150 200"
-				"coil_stun_duration"
-				{
-					"value"					"1.5 2.25 3.0"
-					"special_bonus_scepter"	"+0 +0.75 +1.5"
-				}
-				"coil_break_damage"			
-				{
-					"value"					"100 150 200"
-					"special_bonus_scepter"	"+100"
-				}
-				"coil_radius"				"400"
-				"coil_rapid_fire_rate"
-				{
-					"value"							"0"
-					"special_bonus_scepter"			"+0"
-				}
-				"coil_rapid_fire_z_offset"
-				{
-					"value"							"0"
-					"special_bonus_scepter"			"+0"
-				}
-		}
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 	}
     "pudge_dismember"
 	{
@@ -27007,28 +26842,6 @@
 				"blast_dot_damage"		"15 30 40 50"
 				"bonus_move_speed"			"0"
 				"bonus_attack_speed"			"0"
-		}
-	}
-	"skywrath_mage_concussive_shot"
-	{
-		"AbilityCooldown"				"20 18 16 14"
-		"AbilityManaCost"				"110" 
-		"AbilityValues"
-		{ 
-				"launch_radius"		"1600"
-				"slow_radius"		"250"
-				"speed"				"800 800 800 800"
-				"damage"			"60 120 180 240"
-				"slow_duration"		"4.0"
-				"movement_speed_pct"	"30 35 40 45"
-				"shot_vision"		"300"
-				"vision_duration"		"3.34"
-				"scepter_radius"		
-				{
-					"value"	"700"
-					"RequiresScepter"	"1"
-				}
-				"creep_damage_pct"		"75"
 		}
 	}
 	//=================================================================================================================
