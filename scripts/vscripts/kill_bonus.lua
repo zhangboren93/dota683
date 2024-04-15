@@ -204,7 +204,10 @@ function handleKillBonus(self, attacker, entity)
 		end
 	end
 	-- add attacker the XP if out of range 
-	if not attacker:IsBuilding() and attacker:IsOwnedByAnyPlayer() and attacker:GetPlayerOwner():GetAssignedHero():IsAlive() then
+	if not attacker:IsBuilding() 
+		and attacker:GetPlayerOwner() ~= nil 
+		and attacker:GetPlayerOwner():GetAssignedHero() ~= nil 
+		and attacker:GetPlayerOwner():GetAssignedHero():IsAlive() then
 		exp_entity_ids[attacker:GetPlayerOwner():GetAssignedHero():GetEntityIndex()] = true
 	elseif attacker:IsAlive() and attacker:IsRealHero() then
 		exp_entity_ids[attacker:GetEntityIndex()] = true
