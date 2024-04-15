@@ -18,7 +18,7 @@ bin-release/
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
 
-# *.vtex_c
+*.vtex_c
 *.vxml_c
 *.vjs_c
 *.vcss_c
