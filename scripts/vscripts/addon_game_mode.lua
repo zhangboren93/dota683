@@ -306,8 +306,9 @@ function CAddonTemplateGameMode:InitGameMode()
 		local first_creep_spawned = false
 		if event.new_state == 5 then
 			GameRules:GetGameModeEntity():SetThink(function()
-                GameRules:SpawnNeutralCreeps()
-	    --		SpawnNeutralCreepsCustom()
+				-- first spawn find all trigger, find its spawner, trigger spawn with block
+				SpawnNeutralCreepFirstTime("neutralcamp_good_")
+				SpawnNeutralCreepFirstTime("neutralcamp_evil_")
 		--		if first_creep_spawned then
 		--			return 60
 		--		else
@@ -415,8 +416,8 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			for i=1,24 do
 				hero:HeroLevelUp(false)
 			end
-		elseif text == 'neutrals' then
-			SpawnNeutralCreepsCustom()
+	--	elseif text == 'neutrals' then
+	--		SpawnNeutralCreepsCustom()
 		end
 	end
 	if text == "-test" then

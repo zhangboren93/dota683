@@ -970,3 +970,29 @@ function SpawnCachedCreeps()
         end
     end
 end
+
+function SpawnNeutralCreepFirstTime(trigger_prefix)
+	for i=1,6 do
+		local neutralTrigger = Entities:FindAllByName(trigger_prefix..i)
+		if #neutralTrigger > 0 then
+			neutralTrigger = neutralTrigger[1]
+				local spawner = Entities:FindAllByClassname("npc_dota_neutral_spawner")
+				if #spawner > 0 then
+				local closestSpawner = spawner[1]
+				for i=2,#spawner do
+					if (spawner[i]:GetAbsOrigin() - neutralTrigger:GetAbsOrigin()):Length2D() <
+						(closestSpawner:GetAbsOrigin() - neutralTrigger:GetAbsOrigin()):Length2D() then
+						closestSpawner = spawner[i]
+					end
+				end
+				spawner = closestSpawner
+				spawner:CreatePendingUnits()
+				spawner:CreatePendingUnits()
+				spawner:CreatePendingUnits()
+				spawner:CreatePendingUnits()
+				spawner:CreatePendingUnits()
+				spawner:SpawnNextBatch(false)
+			end
+		end
+	end
+end
