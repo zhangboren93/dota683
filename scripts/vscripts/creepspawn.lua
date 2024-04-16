@@ -981,8 +981,55 @@ function SpawnNeutralCreepFirstTime(trigger_prefix)
 			local neutralTrigger = Entities:FindAllByName(trigger_prefix..i)
 			if #neutralTrigger > 0 then
 				neutralTrigger = neutralTrigger[1]
-					local spawner = Entities:FindAllByClassname("npc_dota_neutral_spawner")
-					if #spawner > 0 then
+				local spawner = Entities:FindAllByClassname("npc_dota_neutral_spawner")
+				if #spawner > 0 then
+					local closestSpawner = spawner[1]
+					for i=2,#spawner do
+						if (spawner[i]:GetAbsOrigin() - neutralTrigger:GetAbsOrigin()):Length2D() <
+							(closestSpawner:GetAbsOrigin() - neutralTrigger:GetAbsOrigin()):Length2D() then
+							closestSpawner = spawner[i]
+						end
+					end
+					spawner = closestSpawner
+					spawner:CreatePendingUnits()
+					spawner:CreatePendingUnits()
+					spawner:CreatePendingUnits()
+					spawner:CreatePendingUnits()
+					spawner:CreatePendingUnits()
+					spawner:SpawnNextBatch(true)
+				end
+			end
+		end
+	end
+end
+
+local function isCampBlockedByTechiesMine(trigger_name)
+	local spawn_trigger = Entities:FindByName(nil, trigger_name)
+	local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, spawn_trigger:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+	local blockedByMine = false
+	for j=1,#units do
+		if spawn_trigger:IsTouching(units[j]) then
+			if units[j]:GetName() == "npc_dota_techies_mines" 
+				or units[j]:GetUnitName() == "npc_dota_techies_remote_mine_datadriven" then
+				blockedByMine = true
+			elseif units[j]:GetName() ~= "npc_dota_templar_assassin_psionic_trap" then
+				return false
+			end
+		end
+	end
+	return blockedByMine
+end
+
+-- if camp is blocked by techies mine only, spawn neutrals that is blocked
+function SpawnNeutralCreepSecondTime(trigger_prefix)
+	for i=1,6 do
+		if isCampBlockedByTechiesMine(trigger_prefix .. i) then
+			local neutralTrigger = Entities:FindAllByName(trigger_prefix..i)
+			if #neutralTrigger > 0 then
+				neutralTrigger = neutralTrigger[1]
+				local spawner = Entities:FindAllByClassname("npc_dota_neutral_spawner")
+				if #spawner > 0 then
 					local closestSpawner = spawner[1]
 					for i=2,#spawner do
 						if (spawner[i]:GetAbsOrigin() - neutralTrigger:GetAbsOrigin()):Length2D() <

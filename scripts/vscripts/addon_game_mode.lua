@@ -307,14 +307,16 @@ function CAddonTemplateGameMode:InitGameMode()
 		if event.new_state == 5 then
 			GameRules:GetGameModeEntity():SetThink(function()
 				-- first spawn find all trigger, find its spawner, trigger spawn with block
-				SpawnNeutralCreepFirstTime("neutralcamp_good_")
-				SpawnNeutralCreepFirstTime("neutralcamp_evil_")
-		--		if first_creep_spawned then
-		--			return 60
-		--		else
-		--			first_creep_spawned = true
-		--			return 30
-		--		end
+				if first_creep_spawned then
+					SpawnNeutralCreepSecondTime("neutralcamp_good_")
+					SpawnNeutralCreepSecondTime("neutralcamp_evil_")
+					return 60
+				else
+					first_creep_spawned = true
+					SpawnNeutralCreepFirstTime("neutralcamp_good_")
+					SpawnNeutralCreepFirstTime("neutralcamp_evil_")
+					return 30
+				end
 			end, "spawn neutral creep", 30)
 			if isMapRanked() and not notValidRankedGame and not hasGameEnded then
 				GameRules:GetGameModeEntity():SetThink(function()
