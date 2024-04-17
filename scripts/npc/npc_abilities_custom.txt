@@ -11016,7 +11016,7 @@
 					"EffectName"		"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
 					"EffectAttachType"	"attach_hitloc"
 					"Target"			"TARGET"
-				}
+					}
 				
 				"FireSound"
 				{
@@ -22252,8 +22252,9 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_DOTA_RAZE_1"
-		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastGestureSlot"		""
 		"AbilityCastPoint"				"0.67"
+		"AnimationPlaybackRate"			"0.821"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -22321,8 +22322,9 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_DOTA_RAZE_2"
-		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastGestureSlot"		""
 		"AbilityCastPoint"				"0.67"
+		"AnimationPlaybackRate"			"0.821"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -22384,9 +22386,9 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_DOTA_RAZE_3"
-		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastGestureSlot"		""
 		"AbilityCastPoint"				"0.67"
-
+		"AnimationPlaybackRate"			"0.821"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
