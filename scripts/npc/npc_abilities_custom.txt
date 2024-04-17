@@ -25793,10 +25793,6 @@
 	{
 		"AbilityCooldown"				"12 11 10 9"
 	
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"25 50 75 100"
-
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
@@ -25808,6 +25804,7 @@
 			"stun_duration"				"2.5 2.75 3.0 3.25"
 			"dragon_cast_range"			"400"
 			"projectile_speed"			"16000"
+			"damage"					"25 50 75 100"
 		}
 	}
 	//=================================================================================================================
@@ -29385,7 +29382,7 @@
 	"tusk_ice_shards"
 	{
 		"HasShardUpgrade"				"0"
-		"AbilityCastRange"				"1500"
+		"AbilityCastRange"				"1800"
 		"AbilityCooldown"				"18 16 14 12"
 		"AbilityManaCost"				"120"
 		"AbilityValues"
@@ -29394,7 +29391,7 @@
 				"shard_damage"				"70 140 210 280"
 				"shard_count"				"7"
 				"shard_speed"				"1200.0"
-				"shard_duration"			"4 5 6 7"
+				"shard_duration"			"7"
 				"shard_angle_step"			"40.0"
 				"shard_distance"			"200"
 				"turn_rate_slow"			"0"
