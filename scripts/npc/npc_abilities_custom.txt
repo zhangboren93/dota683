@@ -5757,7 +5757,7 @@
 				"movement_speed_max"			"50"
 				"trap_duration_tooltip"			"5"
 				"trap_bonus_damage"			"0"
-				"trap_max_charge_duration"			"5"
+				"trap_max_charge_duration"			"4"
 				"shard_min_silence_duration"		"0"
 				"shard_max_silence_duration"		"0"
 				"shard_bonus_max_traps"			"0"
