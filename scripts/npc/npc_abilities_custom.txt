@@ -14760,12 +14760,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"					"1 1.5 2.25 3.25"
+				"duration"					"0.75 1.5 2.25 3.25"
 				"shard_attack_range_bonus"
 				{
 					"RequiresShard"				"1"
 					"value"						"200"
 				}
+				"AbilityCooldown"			"6"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
