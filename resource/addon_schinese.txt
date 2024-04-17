@@ -848,7 +848,7 @@
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist_Description"			"魔抗6/8/10/12%%"
 		"DOTA_Tooltip_Ability_pudge_dismember_Scepter_Description"				"造成等于100%%帕吉力量的额外伤害，并且可以治疗帕吉造成伤害数值。"
 		// Rattletrap
-		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD15秒"
+		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD 12秒"
 		// Sand King
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven"							"尸爆"
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_Description"				"沙王的攻击对敌方单位注入毒液，死亡时发生剧烈爆炸。"

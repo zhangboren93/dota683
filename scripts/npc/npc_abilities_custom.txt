@@ -6419,6 +6419,9 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Rattletrap.Hookshot.Fire"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 
 		"HasScepterUpgrade"			"1"
 		"AbilityDraftUltScepterAbility"		"rattletrap_overclocking"
@@ -6438,15 +6441,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"latch_radius"		"125 125 125"
-				"stun_radius"		"175 175 175"
-				"duration"			"1 1.5 2.0"
-				"speed"				"4000 5000 6000"
-				"damage"			"100 200 300"
+			"latch_radius"		"125 125 125"
+			"stun_radius"		"175 175 175"
+			"duration"			"1 1.5 2.0"
+			"speed"				"4000 5000 6000"
+			"damage"			"100 200 300"
 			"AbilityCooldown"
 			{
 				"value"					"75 55 40"
-				"special_bonus_scepter"	"-60 -40 -25"	
+				"special_bonus_scepter"	"-63 -43 -28"	
 			}
 		}
 	}

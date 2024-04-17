@@ -859,7 +859,7 @@
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist_Description" 			"Increase magic resistance by 6/8/10/12%%"
 		"DOTA_Tooltip_Ability_pudge_dismember_Scepter_Description"				"Deals 100% Strength attribute symbol strength as damage bonus. Self heals for 100% damage dealt."
 		// Rattletrap
-		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD 15 seconds"
+		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD 12 seconds"
 		// Sand King
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven"							"Caustic Finale"
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_Description"				"Sand King's attacks inject a venom, When it dies, it will violently explode."
