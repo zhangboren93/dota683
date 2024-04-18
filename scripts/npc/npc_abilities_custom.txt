@@ -6486,7 +6486,7 @@
 			"duration"						"3 3.75 4.5 5.25"
 			"blind_pct"						"0"
 			"leash"							"0"
-			"sprout_damage"					"0"
+			"sprout_damage_per_second"		"0"
 			"sprout_damage_inteval"			"0"
 			"sprout_damage_radius"			"0"
 		}
@@ -20367,7 +20367,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5132"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilitySound"					"Ability.Windrun"
 		"HasScepterUpgrade"			"0"
@@ -28463,7 +28463,7 @@
 	//=================================================================================================================
 	"lina_dragon_slave"
 	{
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"1075"
 		"AbilityManaCost"				"100 115 130 145"
 		"AbilityValues"
 		{

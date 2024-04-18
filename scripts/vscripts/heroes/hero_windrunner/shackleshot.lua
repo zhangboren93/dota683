@@ -66,6 +66,7 @@ function shackleshot_hit( keys )
 		latch_target:AddNewModifier(caster, ability, "modifier_stunned", { duration = stun_duration_long })
 
         EmitSoundOn("Hero_Windrunner.ShackleshotBind", target)
+        caster:QueueConcept(0.0, { shackled = 1 }, nil, caster, nil)
     else
 		if target:TriggerSpellAbsorb(ability) then
 			return

@@ -8980,7 +8980,8 @@
 		"AbilityValues"
 		{
 				"bonus_spell_amp"		"0"
-				"bonus_damage"			"350"
+				"bonus_damage"			"250"
+				"bonus_damage_base"		"100"
 		}
 	}
 	"item_aegis_lua"
