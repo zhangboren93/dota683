@@ -12049,10 +12049,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"AbilityCastRange"					"800"
+			"AbilityCastRange"					"1000"
 			"AbilityCooldown"					"90"
 			"AbilityManaCost"					"200"
-			"radius"							"800"
+			"radius"							"1000"
 			"duration"							"6"
 			"slow"								"0"
 			"slow_full_duration"				"50"
