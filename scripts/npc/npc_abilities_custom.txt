@@ -32369,7 +32369,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"175"
+		"AbilityManaCost"				"200"
 		"AbilityCastPoint"				"0.05"
 		"AbilityCastAnimation"			"ACT_INVALID"
 		
@@ -32378,8 +32378,8 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"		"35"
-			"duration"				"60"
-			"area_of_effect"		"450"
+			"duration"				"100"
+			"area_of_effect"		"400"
 			"enemy_slow"
 			{
 				"value"					"-20 -25 -30 -35 -40 -45 -50"
@@ -32504,7 +32504,7 @@
 				"levelkey"				"wexlevel"
 				
 			}
-			"damage_per_mana_pct"		"60"
+			"damage_per_mana_pct"		"50"
 			"shard_drag_speed"
 			{
 				"value"					"175"
