@@ -464,6 +464,9 @@
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven"					"毒"
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_Description"		"-%movement_speed%移速，-%attack_speed%攻速，持续3秒"
 		//Brewmaster
+		"DOTA_Tooltip_ability_brewmaster_thunder_clap_duration_creep"					"持续时间（小兵）："
+		"DOTA_Tooltip_modifier_brewmaster_thunder_clap_creep_lua"						"雷霆一击"
+		"DOTA_Tooltip_modifier_brewmaster_thunder_clap_creep_lua_Description"			"移动速度减缓，攻击速度降低。"
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven"					"醉拳"
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"		"有一定概率闪避攻击并能造成致命一击。只要在若干秒内没有发动攻击，或没有受到攻击，醉拳的被动效果将下一次攻击或被攻击时必定触发。"
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_dodge_chance"		"%闪避："

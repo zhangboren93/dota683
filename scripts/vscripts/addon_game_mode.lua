@@ -162,6 +162,7 @@ function Activate()
 	LinkLuaModifier( "modifier_supernova_sun_form_caster_datadriven", 	"heroes/hero_phoenix/modifier_supernova_sun_form_caster_datadriven.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_supernova_sun_form_egg_datadriven", 		"heroes/hero_phoenix/modifier_supernova_sun_form_egg_datadriven.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_supernova_burn_datadriven", 				"heroes/hero_phoenix/modifier_supernova_burn_datadriven", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_brewmaster_thunder_clap_creep_lua", 		"heroes/hero_brewmaster/modifier_brewmaster_thunder_clap_creep.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1816,6 +1817,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local quas_level = caster:FindAbilityByName("invoker_quas"):GetLevel() - 1
 		local duration = ability:GetLevelSpecialValueFor("duration", quas_level) 
 		ability:ApplyDataDrivenModifier(caster, parent, "modifier_cold_snap_datadriven", { duration = duration })
+		return false
+	elseif event.name_const == "modifier_brewmaster_thunder_clap" and parent:IsCreep() then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local duration_creep = ability:GetSpecialValueFor("duration_creep")
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		parent:AddNewModifier(caster, ability, "modifier_brewmaster_thunder_clap_creep_lua", { duration = duration_creep })
 		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false

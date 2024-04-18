@@ -477,6 +477,9 @@
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven"					"Poison"
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_Description"		"-%movement_speed% move speed, -%attack_speed% attack speed, lasts 3s"
 		//brewmaster
+		"DOTA_Tooltip_ability_brewmaster_thunder_clap_duration_creep"					"DURATION(CREEP):"
+		"DOTA_Tooltip_modifier_brewmaster_thunder_clap_creep_lua"						"Thunder Clap"
+		"DOTA_Tooltip_modifier_brewmaster_thunder_clap_creep_lua_Description"			"Movement slowed, attacks slowed."
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven"					"Drunken Brawler"
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_Description"		"Gives a chance to avoid attacks and to deal critical damage. Drunken Brawler will always trigger if you have not attacked, or have not been attacked, in the last several seconds."
 		"DOTA_Tooltip_Ability_brewmaster_drunken_brawler_datadriven_dodge_chance"		"%Evasion: "
