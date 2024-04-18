@@ -617,6 +617,7 @@
 		"DOTA_Tooltip_modifier_elder_titan_earth_splitter_disarm"							"Earth Splitter"
 		"DOTA_Tooltip_modifier_elder_titan_earth_splitter_disarm_Description"				"Disarmed."
 		// Huskar
+		"DOTA_Tooltip_ability_huskar_inner_vitality_Description"							"Unlocks the regenerative power of a friendly unit, with healing based upon its primary attribute. If the target is below 40%, it will heal faster.  Lasts %abilityduration% seconds."
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven"					"Burning Spear"
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_Description"		"Huskar drains some of his health, setting his spears aflame, dealing damage over time with his regular attack. Multiple attacks will stack additional damage."
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_health_cost"		"Health Cost: "

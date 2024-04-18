@@ -7000,7 +7000,7 @@
 				"tooltip_health_cost_percent"	"35"
 				"movespeed"					"-40 -50 -60"
 				"attack_speed"				"0"
-				"slow_durtion_tooltip"		"4 5 6"
+				"slow_duration_tooltip"		"4 5 6"
 				"taunt_duration"			"0"
 				"cast_range_bonus"			"0"
 				"AbilityCooldown"
@@ -15624,7 +15624,7 @@
 				"maximum_attack_speed"			"196 224 252 280"
 				"maximum_health_regen"			"0 0 0 0"
 				"maximum_magic_resist"			"56 70 84 98"
-				"hp_threshold_max"				"2"
+				"hp_threshold_max"				"3"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}

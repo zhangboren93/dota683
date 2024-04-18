@@ -604,6 +604,7 @@
 		"DOTA_Tooltip_modifier_elder_titan_earth_splitter_disarm"								"裂地沟壑"
 		"DOTA_Tooltip_modifier_elder_titan_earth_splitter_disarm_Description"					"被缴械。"
 		// Huskar
+		"DOTA_Tooltip_ability_huskar_inner_vitality_Description"						"激发友方单位的恢复力，基于其基础属性治疗目标。如果目标血量低于40%%，则恢复速度提高。持续%abilityduration%秒。"
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven"					"火矛"
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_Description"		"哈斯卡牺牲哈斯卡生命值将其长矛点燃，在普通攻击的同时对敌方单位造成持续伤害。多次攻击会造成持续伤害叠加。"
 		"DOTA_Tooltip_Ability_huskar_burning_spear_datadriven_health_cost"		"生命值消耗："
