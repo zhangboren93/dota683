@@ -21258,7 +21258,7 @@
 		"AbilityValues"
 		{
 				"buff_duration"			"2"
-				"spiderling_duration"	"50"
+				"spiderling_duration"	"60"
 				"damage"				
 				{
 					"value"				"75 150 225 300"
