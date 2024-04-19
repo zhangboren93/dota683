@@ -13902,11 +13902,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"duration"				"9"
+				"duration"				"6"
 				"attack_range_bonus"	"275 375 475 575"
 				"percent_damage"		"0"
 				"tick_rate"				"1.0"
-				"damage_duration"		"6.0"
+				"damage_duration"		"5.0"
 				"move_slow"				"25 30 35 40"
 				"night_vision_bonus"	"400"
 				"projectile_speed_bonus"	"500"
@@ -13959,8 +13959,8 @@
 				"projectile_speed"		"650"
 				"projectile_max_time"	"1.0"
 				"split_radius"			"500"
-				"bonus_movespeed"		"-30"
-				"movespeed_slow_tooltip"		"30"
+				"bonus_movespeed"		"-25"
+				"movespeed_slow_tooltip"		"25"
 				"duration"				"4.0"
 				"secondary_projectile_speed"		"800"
 				"damage"				"100 180 260 340"
@@ -32701,7 +32701,7 @@
 		"AbilityValues"
 		{
 			"armor_removed"			"1"
-			"max_armor_removed"		"20"
+			"max_armor_removed"		"10"
 			"duration"				"5"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
