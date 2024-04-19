@@ -1994,6 +1994,7 @@
 		"AttackDamageMax"			"43"		// Damage range max.	
 		"StatusHealth"				"1500"		// Base health.
 		"StatusMana"				"400"		// Base mana.
+		"AttackRange"				"128"		// Range within a target can be attacked.
 	}
 	"npc_dota_brewmaster_earth_2"
 	{
@@ -2005,6 +2006,7 @@
 		"AttackDamageMax"			"84"		// Damage range max.	
 		"StatusHealth"				"2200"		// Base health.
 		"StatusMana"				"500"		// Base mana.
+		"AttackRange"				"128"		// Range within a target can be attacked.
 	}
 	"npc_dota_brewmaster_earth_3"
 	{
@@ -2016,6 +2018,7 @@
 		"AttackDamageMax"			"171"		// Damage range max.	
 		"StatusHealth"				"3000"		// Base health.
 		"StatusMana"				"600"		// Base mana.
+		"AttackRange"				"128"		// Range within a target can be attacked.
 	}
 	"npc_dota_brewmaster_storm_1"
 	{										
@@ -2051,6 +2054,8 @@
 		"AttackDamageMin"			"72"		// Damage range min.
 		"AttackDamageMax"			"82"		// Damage range max.	
 		"StatusHealth"				"1200"		// Base health.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+		"MovementSpeed"				"522"		// Speed.
 	}
 	"npc_dota_brewmaster_fire_2"
 	{
@@ -2059,6 +2064,8 @@
 		"AttackDamageMin"			"115"		// Damage range min.
 		"AttackDamageMax"			"130"		// Damage range max.	
 		"StatusHealth"				"1200"		// Base health.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+		"MovementSpeed"				"522"		// Speed.
 	}
 	"npc_dota_brewmaster_fire_3"
 	{
@@ -2067,6 +2074,8 @@
 		"AttackDamageMin"			"144"		// Damage range min.
 		"AttackDamageMax"			"164"		// Damage range max.	
 		"StatusHealth"				"1200"		// Base health.
+		"AttackRange"				"128"		// Range within a target can be attacked.
+		"MovementSpeed"				"522"		// Speed.
 	}
 	"npc_dota_broodmother_spiderling"
 	{
