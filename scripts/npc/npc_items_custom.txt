@@ -4436,11 +4436,11 @@
 			"warrior_mana_break_tooltip"	"25 50 75"
 			"explosion"				"550 675 800"
 			"warrior_truesight"		"0 0 1200"
-			"archer_health_tooltip"	"800 1200 1600"
-			"archer_damage_tooltip"	"37 57 75"
+			"archer_health_tooltip"	"400 600 800"
+			"archer_damage_tooltip"	"40 80 120"
 			"archer_mana_burn"		"125 175 225"
-			"archer_aura_radius_tooltip"	"1200"
-			"archer_move_speed"	"5 7 9"
+			"archer_aura_radius_tooltip"	"900"
+			"archer_move_speed"		"3 6 9"
 			"bonus_intellect"		"15 21 24"
 		}
 	}
@@ -4490,11 +4490,11 @@
 			"warrior_mana_break_tooltip"	"25 50 75"
 			"explosion"				"550 675 800"
 			"warrior_truesight"		"0 0 1200"
-			"archer_health_tooltip"	"800 1200 1600"
-			"archer_damage_tooltip"	"37 57 75"
+			"archer_health_tooltip"	"400 600 800"
+			"archer_damage_tooltip"	"40 80 120"
 			"archer_mana_burn"		"125 175 225"
-			"archer_aura_radius_tooltip"	"1200"
-			"archer_move_speed"	"5 7 9"
+			"archer_aura_radius_tooltip"	"900"
+			"archer_move_speed"		"3 6 9"
 			"bonus_intellect"		"15 21 24"
 		}
 	}
@@ -4542,11 +4542,11 @@
 			"warrior_mana_break_tooltip"	"25 50 75"
 			"explosion"				"550 675 800"
 			"warrior_truesight"		"0 0 1200"
-			"archer_health_tooltip"	"800 1200 1600"
-			"archer_damage_tooltip"	"37 57 75"
+			"archer_health_tooltip"	"400 600 800"
+			"archer_damage_tooltip"	"40 80 120"
 			"archer_mana_burn"		"125 175 225"
-			"archer_aura_radius_tooltip"	"1200"
-			"archer_move_speed"	"5 7 9"
+			"archer_aura_radius_tooltip"	"900"
+			"archer_move_speed"		"3 6 9"
 			"bonus_intellect"		"15 21 24"
 		}
 	}
