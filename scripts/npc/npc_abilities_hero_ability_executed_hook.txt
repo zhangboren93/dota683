@@ -323,7 +323,7 @@
 				"IsHidden"		"1"
 				"IsDebuff"		"1"
 				"ThinkInterval"	"1"
-				"IsPurgable"	"1"
+				"IsPurgable"	"0"
 				"OnIntervalThink"
 				{
 					"RunScript"

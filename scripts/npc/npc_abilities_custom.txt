@@ -14115,7 +14115,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 
         "HasShardUpgrade"               "0"
 
@@ -14132,7 +14132,7 @@
 		"AbilityValues"
 		{
 				"AbilityCooldown"	"14"
-				"radius"			"450"
+				"radius"			"400"
 				"wave_duration"					"7.0"
 				"wave_count"					"6"
 				"wave_damage"					"25 40 55 70"
@@ -14262,7 +14262,7 @@
 		{
 
 			"radius"						"450"
-			"teleport_delay"				"6.0 5.0 4.0"
+			"teleport_delay"				"5 4 3"
 			"scepter_health_bonus" 
 			{
 				"special_bonus_scepter"	"+0"
