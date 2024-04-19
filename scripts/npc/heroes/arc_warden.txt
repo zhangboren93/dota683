@@ -40,7 +40,7 @@
 		"AbilityRadius"					"275"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCastRange"				"900"
-		"AbilityManaCost"				"75"
+		"AbilityManaCost"				"110"
 		"AbilityCooldown"				"50"
 		"AbilityTextureName"			"arc_warden_magnetic_field"
 		"AbilityCastAnimation"			"ACT_DOTA_AW_MAGNETIC_FIELD"
