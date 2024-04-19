@@ -4441,6 +4441,7 @@
 			"archer_mana_burn"		"125 175 225"
 			"archer_aura_radius_tooltip"	"900"
 			"archer_move_speed"		"3 6 9"
+			"archer_attack_speed"	"3 6 9"
 			"bonus_intellect"		"15 21 24"
 		}
 	}
@@ -4495,6 +4496,7 @@
 			"archer_mana_burn"		"125 175 225"
 			"archer_aura_radius_tooltip"	"900"
 			"archer_move_speed"		"3 6 9"
+			"archer_attack_speed"	"3 6 9"
 			"bonus_intellect"		"15 21 24"
 		}
 	}
@@ -4547,6 +4549,7 @@
 			"archer_mana_burn"		"125 175 225"
 			"archer_aura_radius_tooltip"	"900"
 			"archer_move_speed"		"3 6 9"
+			"archer_attack_speed"	"3 6 9"
 			"bonus_intellect"		"15 21 24"
 		}
 	}

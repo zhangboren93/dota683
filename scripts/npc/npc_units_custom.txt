@@ -2537,7 +2537,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"necronomicon_archer_mana_burn"			// Ability 1.
-		"Ability2"					"necronomicon_archer_aoe"			// Ability 1.
+		"Ability2"					"necronomicon_archer_aoe_datadriven"			// Ability 1.
 		"Ability3"					"creep_piercing"			// Ability 3.
 		"Ability4"					"creep_piercing_extra"			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -2629,7 +2629,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"necronomicon_archer_mana_burn"			// Ability 1.
-		"Ability2"					"necronomicon_archer_aoe"			// Ability 1.
+		"Ability2"					"necronomicon_archer_aoe_datadriven"			// Ability 1.
 		"Ability3"					"creep_piercing"			// Ability 3.
 		"Ability4"					"creep_piercing_extra"			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -2721,7 +2721,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"necronomicon_archer_mana_burn"			// Ability 1.
-		"Ability2"					"necronomicon_archer_aoe"			// Ability 2.
+		"Ability2"					"necronomicon_archer_aoe_datadriven"			// Ability 2.
 		"Ability3"					"creep_piercing"			// Ability 3.
 		"Ability4"					"creep_piercing_extra"			// Ability 4.
 		"Ability5"					""			// Ability 5.

@@ -33543,37 +33543,39 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Ability: Necronomicon Archer's AoE
-	//=================================================================================================================
-	"necronomicon_archer_aoe"
+	"necronomicon_archer_aoe_datadriven"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityTextureName"			"necronomicon_archer_aoe"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"ms_bonus"			"3 6 9"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"as_bonus"			"3 6 9"
+		}
+		"Modifiers"
+		{
+			"modifier_necronomicon_archer_aoe_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+		
+				"Aura" 			"modifier_necronomicon_archer_aoe_active_datadriven"
+				"Aura_Radius" 	"%radius"
+				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			}
+			"modifier_necronomicon_archer_aoe_active_datadriven"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%ms_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%as_bonus"
+				}
 			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Polar Furbolg Ursa Warrior: Thunder Clap
