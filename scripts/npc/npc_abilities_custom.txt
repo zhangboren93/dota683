@@ -21114,8 +21114,8 @@
 				"value"		"0" 
 				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
 			} 	
-			"health_regen"	"2 4 6 10"
-			"mana_regen"	"1 2 3 6"
+			"health_regen"	"1 2 3 6"
+			"mana_regen"	"2 4 6 10"
 			"hero_multiplier" "10"
 			"regen_duration"		"6"
 			"scepter_multiplier"
