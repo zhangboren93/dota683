@@ -168,6 +168,7 @@ function Activate()
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_take_stash_items_lua", 		"units/courier_take_stash_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_take_stash_return_to_base", 	"units/courier_take_stash_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_roshan_cancel_status_resistance_lua",	"units/modifier_roshan_cancel_statresist.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1091,6 +1092,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
 		entity.roshanNo = self.roshanCount
 		self.roshanCount = self.roshanCount + 1
+		entity:AddNewModifier(entity, nil, "modifier_roshan_cancel_status_resistance_lua", {})
 	end
 
 	if entity:GetName() == "npc_dota_creep_lane" then
