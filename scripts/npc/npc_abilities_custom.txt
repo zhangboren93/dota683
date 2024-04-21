@@ -5,6 +5,7 @@
 #base "heroes/broodmother.txt"
 #base "heroes/brewmaster.txt"
 #base "heroes/clinkz.txt"
+#base "heroes/dazzle.txt"
 #base "heroes/death_prophet.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
@@ -6277,55 +6278,9 @@
 		"AbilityValues"
 		{
 				"duration"			"5.0"
-				"fx_halo_height"	"190 240 300 350"
+				"fx_halo_height"	"350"
 				"heal_amplify"		"0"
 		}
-	}
-	//=================================================================================================================
-	// Dazzle: Shadow Wave
-	//=================================================================================================================
-	//TODO remove scepter effect
-	"dazzle_shadow_wave"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5235"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilitySound"					"Hero_Dazzle.Shadow_Wave"
-
-        "HasScepterUpgrade"			"0"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12 10 8 6"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 90 100 110"
-		
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"bounce_radius"		"475"
-				"damage_radius"		"185"
-				"max_targets"		"3 4 5 6"
-				"tooltip_max_targets_inc_dazzle"		"4 5 6 7"
-				"damage"				"80 100 120 140"
-				"scepter_heal_pct"		"0"
-				"scepter_cd_increase"	"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 	//=================================================================================================================
 	// Dazzle: Weave

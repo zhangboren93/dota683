@@ -1,0 +1,43 @@
+criterion "Isdazzle" "classname" "npc_dota_hero_dazzle" weight 5 required
+criterion "IsDazzleWeave" "abilityname" "dazzle_weave" weight 5 required
+criterion "IsDazzleShadowWave" "abilityname" "dazzle_shadow_wave_datadriven" weight 5 required
+
+Response dazzle_CastExecuteIsDazzleWeave
+{
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_01.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_02.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_03.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_04.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_05.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_06.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_07.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_09.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_10.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_11.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_12.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_13.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_14.vcd" nodelay noscene 
+    scene "scenes/dazzle/dazzle_dazz_ability_sfx_15.vcd" nodelay noscene 
+}
+
+Rule dazzle_CastExecuteIsDazzleWeave_Rule
+{
+    criteria CastExecute Isdazzle IsDazzleWeave
+    response dazzle_CastExecuteIsDazzleWeave
+}
+
+Response dazzle_CastExecuteIsDazzleShadowWave
+{
+    scene "scenes/dazzle/dazzle_dazz_ability_shadowave_01.vcd" nodelay noscene respeakdelay 60
+    scene "scenes/dazzle/dazzle_dazz_ability_shadowave_02.vcd" nodelay noscene respeakdelay 60
+    scene "scenes/dazzle/dazzle_dazz_ability_shadowave_03.vcd" nodelay noscene respeakdelay 60
+    scene "scenes/dazzle/dazzle_dazz_ability_shadowave_04.vcd" nodelay noscene respeakdelay 60
+    scene "scenes/dazzle/dazzle_dazz_ability_shadowave_09.vcd" nodelay noscene respeakdelay 60
+    scene "scenes/dazzle/dazzle_dazz_ability_shadowave_10.vcd" nodelay noscene respeakdelay 60
+}
+
+Rule dazzle_CastExecuteIsDazzleShadowWave_Rule
+{
+    criteria CastExecute Isdazzle IsDazzleShadowWave
+    response dazzle_CastExecuteIsDazzleShadowWave
+}

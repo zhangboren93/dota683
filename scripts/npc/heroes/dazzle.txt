@@ -1,0 +1,90 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	// Rewrite of the Dazzle Shadow Wave ability
+	// Author: Pizzalol
+	// Date: January 26, 2016
+	// Version: 6.86
+	// Type: Datadriven
+	//
+	// ----- FILE REQUIREMENTS -----
+	// Script files:
+	// scripts/vscripts/heroes/hero_dazzle/shadow_wave.lua
+	"dazzle_shadow_wave_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"dazzle_shadow_wave"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+			"particle"			"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+			"particle"			"particles/units/heroes/hero_dazzle/dazzle_shadow_wave_impact_damage.vpcf"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12 10 8 6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 90 100 110"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"80 100 120 140"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bounce_radius"		"475"
+			"damage_radius"		"185"
+			"max_targets"		"3 4 5 6"
+			"tooltip_max_targets_inc_dazzle"		"4 5 6 7"
+			"damage"			"80 100 120 140"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Dazzle.Shadow_Wave"
+				"Target" 		"CASTER"
+			}
+
+			"FireEffect"
+			{
+				"EffectName"        "particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+				"EffectAttachType"  "start_at_customorigin"
+			
+				"ControlPointEntities"
+				{
+					"CASTER"	"attach_attack1"
+					"TARGET"	"follow_origin"
+				}
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_dazzle/shadow_wave.lua"
+				"Function"		"ShadowWave"
+			}
+		}
+}
+}
