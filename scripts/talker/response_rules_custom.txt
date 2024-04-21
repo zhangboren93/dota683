@@ -5,6 +5,7 @@ criterion "Followup_Negative_Ongoing" "Concept" "TLK_DOTA_FOLLOWUP_NEGATIVE_ONGO
 criterion "Followup_Generic" "Concept" "TLK_DOTA_FOLLOWUP_GENERIC" required
 
 criterion "CastExecute" "Concept" "TLK_DOTA_CAST_EXECUTE" required
+criterion "Purchase" "Concept" "TLK_DOTA_PURCHASE" required
 
 criterion "Chance_1%"	"randomnum" "99" required
 criterion "Chance_2%"	"randomnum" ">=97,<=98" required
@@ -28,5 +29,6 @@ criterion "Chance_75%"	"randomnum" "<=75" required
 criterion "Chance_100%"	"randomnum" ">=0" required
 criterion "IsAlwaysTrue"	"randomnum" ">=0" required
 
+#include "talker/rules_dazzle_extra.txt"
 #include "talker/response_rules_hoodwink_extra.txt"
 #include "talker/rules_puck_extra.txt"

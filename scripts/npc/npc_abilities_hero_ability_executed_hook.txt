@@ -662,6 +662,19 @@
 					}
 				}
 			}
+			"modifier_dazzle_weave_sound_effect"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_ability_sound.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
 			"modifier_aegis_attacked_checker"
 			{
 				"IsHidden"	"1"
