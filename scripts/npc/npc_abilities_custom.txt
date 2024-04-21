@@ -5,6 +5,7 @@
 #base "heroes/broodmother.txt"
 #base "heroes/brewmaster.txt"
 #base "heroes/clinkz.txt"
+#base "heroes/dazzle.txt"
 #base "heroes/death_prophet.txt"
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
