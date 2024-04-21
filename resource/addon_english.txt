@@ -990,6 +990,17 @@
 		"DOTA_Tooltip_modifier_sven_gods_strength_ally_buff"					"God's Strength Aura"
 		
 		//Terrorblade
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven"								"Reflection"
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_Description"					"Terrorblade brings forth an invulnerable dark reflection. Affected enemy heroes have movement and attack speeds slowed and attacked by their reflection."
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_Lore"							"In the fractal prison of Foulfell, Terrorblade learned the truth of this old tale: you are your own worst enemy.  Now it is a lesson he teaches others."
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_illusion_duration"				"REFLECTION DURATION:"
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_illusion_outgoing_tooltip"		"%REFLECTION DAMAGE:"
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_move_slow"						"%MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_attack_slow_tooltip"			"ATTACK SPEED SLOW:"		
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_Note0"							"Reflections are untargetable, invulnerable illusions, that will be destroyed if the slow debuff is removed."
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_Note1"							"Reflections can only attack their source."
+		"DOTA_Tooltip_modifier_reflection_slow"													"Reflection"
+		"DOTA_Tooltip_modifier_reflection_slow_Description"										"Movement speed reduced, and being attacked by Terrorblade's reflection."
 		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven"								"Metamorphosis"
 		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_Description"					"Terrorblade transforms into a powerful demon with a ranged attack."
 		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_Lore"						"Temper, temper. The rage rises up and takes control.  Meet Terrorblade's own worst self."

@@ -1740,6 +1740,7 @@
 		"StatusHealthRegen"			"2"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability1"		"terrorblade_reflection_datadriven"
 		"Ability3"		"terrorblade_metamorphosis_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"

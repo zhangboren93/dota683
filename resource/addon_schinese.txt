@@ -979,6 +979,18 @@
 		"DOTA_Tooltip_modifier_sven_gods_strength_ally_buff"					"神之力量光环"
 		
 		//Terrorblade
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven"								"倒影"
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_Description"					"恐怖利刃映出敌方英雄的黑暗倒影对其进行反制，目标在短时间内将被自身倒影攻击，移动速度和攻击速度都会降低。倒影为无敌状态。"
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_Lore"							"荒邪之狱的分形之墙中，恐怖利刃洞悉了古老的寓言：你就是自己最可怕的敌人。现在他也要让别人明白这个道理。"
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_illusion_duration"				"倒影持续时间："
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_illusion_outgoing_tooltip"		"%倒影继承攻击力："
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_move_slow"						"%移动速度减缓："
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_attack_slow_tooltip"			"攻击速度减少："		
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_range"							"作用范围："
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_Note0"							"无法以倒影的幻象为目标，并且幻象为无敌，减速效果被移除后幻象将被摧毁。"
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_Note1"							"倒影只会攻击该技能指定的目标。"
+		"DOTA_Tooltip_modifier_reflection_slow"													"倒影"
+		"DOTA_Tooltip_modifier_reflection_slow_Description"										"移动速度减缓，并正遭受恐怖利刃倒影的攻击。"
 		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven"								"魔化"
 		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_Description"					"恐怖利刃变换形态，化身成可怕的恶魔并具备远程攻击能力。"
 		"DOTA_Tooltip_ability_terrorblade_metamorphosis_datadriven_Lore"						"暴躁生气，渐起怒意，激变形体。见识一下恐怖利刃最为恐怖的一面吧。"
