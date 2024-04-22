@@ -7422,7 +7422,7 @@
 		"AbilityValues"
 		{
 				"duration"					"5 6 7 8"
-				"speed"						"1400"
+				"speed"						"2000"
 				"bonus_movement_speed"		"-14 -18 -22 -26"
 				"bonus_attack_speed"		"0"
 				"damage"					"0"
@@ -7637,7 +7637,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityTextureName"			"chen_holy_persuasion"
 		"HasScepterUpgrade"				"1"
 		// Precache
@@ -24673,7 +24673,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"techies_suicide"
+		"AbilityTextureName"			"techies_suicide_icon"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -30186,7 +30186,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.4"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
