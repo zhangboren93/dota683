@@ -2022,7 +2022,7 @@
 	}
 	"npc_dota_brewmaster_storm_1"
 	{										
-		"Ability4"					"brewmaster_drunken_haze"
+		"Ability4"					"brewmaster_drunken_haze_datadriven"
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"37"		// Damage range min.
 		"AttackDamageMax"			"43"		// Damage range max.	
@@ -2031,7 +2031,7 @@
 	}
 	"npc_dota_brewmaster_storm_2"
 	{										
-		"Ability4"					"brewmaster_drunken_haze"
+		"Ability4"					"brewmaster_drunken_haze_datadriven"
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"75"		// Damage range min.
 		"AttackDamageMax"			"84"		// Damage range max.	
@@ -2040,7 +2040,7 @@
 	}
 	"npc_dota_brewmaster_storm_3"
 	{										
-		"Ability4"					"brewmaster_drunken_haze"
+		"Ability4"					"brewmaster_drunken_haze_datadriven"
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"159"		// Damage range min.
 		"AttackDamageMax"			"171"		// Damage range max.	

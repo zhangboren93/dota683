@@ -286,7 +286,7 @@
 		"StatusHealthRegen"			"0.75"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
-		"Ability2"		"brewmaster_drunken_haze"
+		"Ability2"		"brewmaster_drunken_haze_datadriven"
 		"Ability3"		"brewmaster_drunken_brawler_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability6"		"brewmaster_primal_split_datadriven"

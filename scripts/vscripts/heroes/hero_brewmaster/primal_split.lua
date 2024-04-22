@@ -62,7 +62,7 @@ function PrimalSplit( event )
 	local earth_scepter_ability = "brewmaster_thunder_clap"
 	LearnAllAbilitiesExcluding(caster.Earth, ability:GetLevel(), earth_scepter_ability)
 
-	local storm_scepter_ability = "brewmaster_drunken_haze"
+	local storm_scepter_ability = "brewmaster_drunken_haze_datadriven"
 	LearnAllAbilitiesExcluding(caster.Storm, ability:GetLevel(), storm_scepter_ability)
 
 	local fire_scepter_ability = "brewmaster_drunken_brawler_datadriven"
