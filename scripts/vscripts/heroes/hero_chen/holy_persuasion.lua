@@ -12,6 +12,8 @@ function chen_holy_persuasion_lua:CastFilterResultTarget(target)
 		return UF_FAIL_CUSTOM
 	elseif target:IsCourier() then
 		return UF_FAIL_COURIER
+	elseif target:IsWard() then
+		return UF_FAIL_CUSTOM
 	end
 	if self:GetCaster():HasScepter() then
 		return UF_SUCCESS
@@ -26,7 +28,7 @@ function chen_holy_persuasion_lua:GetCustomCastErrorTarget(target)
 	if target:HasModifier("roshan_inherent_buffs_checker_datadriven") then
 		return "#dota_hud_error_cant_cast_on_roshan"
 	end
-	return ""
+	return "dota_hud_error_cant_cast_on_other"
 end
 
 function chen_holy_persuasion_lua:OnSpellStart()
