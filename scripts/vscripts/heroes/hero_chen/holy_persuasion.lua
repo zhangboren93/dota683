@@ -1,11 +1,17 @@
 chen_holy_persuasion_lua = class({})
 
 function chen_holy_persuasion_lua:CastFilterResultTarget(target)
-	if target:GetTeam() == self:GetCaster():GetTeam() then
+	if target:GetTeamNumber() == self:GetCaster():GetTeamNumber() then
 		return UF_FAIL_FRIENDLY
 	end
-	if target:HasModifier("roshan_inherent_buffs_checker_datadriven") then
+	if target:IsBuilding() then
+		return UF_FAIL_BUILDING
+	elseif target:IsHero() then
+		return UF_FAIL_HERO
+	elseif target:HasModifier("roshan_inherent_buffs_checker_datadriven") then
 		return UF_FAIL_CUSTOM
+	elseif target:IsCourier() then
+		return UF_FAIL_COURIER
 	end
 	if self:GetCaster():HasScepter() then
 		return UF_SUCCESS
@@ -14,6 +20,13 @@ function chen_holy_persuasion_lua:CastFilterResultTarget(target)
 		return UF_FAIL_ANCIENT
 	end
 	return UF_SUCCESS
+end
+
+function chen_holy_persuasion_lua:GetCustomCastErrorTarget(target)
+	if target:HasModifier("roshan_inherent_buffs_checker_datadriven") then
+		return "#dota_hud_error_cant_cast_on_roshan"
+	end
+	return ""
 end
 
 function chen_holy_persuasion_lua:OnSpellStart()
