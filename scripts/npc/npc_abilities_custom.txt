@@ -24673,7 +24673,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"FightRecapLevel"				"1"
-		"AbilityTextureName"			"techies_suicide"
+		"AbilityTextureName"			"techies_suicide_icon"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
