@@ -29,6 +29,7 @@ criterion "Chance_75%"	"randomnum" "<=75" required
 criterion "Chance_100%"	"randomnum" ">=0" required
 criterion "IsAlwaysTrue"	"randomnum" ">=0" required
 
+#include "talker/rules_chen_extra.txt"
 #include "talker/rules_dazzle_extra.txt"
 #include "talker/response_rules_hoodwink_extra.txt"
 #include "talker/rules_puck_extra.txt"

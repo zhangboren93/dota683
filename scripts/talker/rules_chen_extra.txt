@@ -1,0 +1,31 @@
+criterion "Ischen" "classname" "npc_dota_hero_chen" weight 5 required
+criterion "IsAbilityHolyPersuasion" "abilityname" "chen_holy_persuasion_lua" weight 5 required
+criterion "IsAbilityTestOfFaith" "abilityname" "chen_test_of_faith" weight 5 required
+
+Response chen_KillIsAbilityTestOfFaithChance_50%
+{
+    scene "scenes/chen/chen_chen_ability_test_01.vcd" nodelay noscene 
+    scene "scenes/chen/chen_chen_ability_test_02.vcd" nodelay noscene 
+}
+
+Rule chen_KillIsAbilityTestOfFaithChance_50%_Rule
+{
+    criteria Kill Ischen IsAbilityTestOfFaith Chance_50%
+    response chen_KillIsAbilityTestOfFaithChance_50%
+}
+
+Response chen_CastExecuteIsAbilityHolyPersuasionChance_50%
+{
+    scene "scenes/chen/chen_chen_ability_holyp_01.vcd" nodelay noscene 
+    scene "scenes/chen/chen_chen_ability_holyp_02.vcd" nodelay noscene 
+    scene "scenes/chen/chen_chen_ability_holyp_03.vcd" nodelay noscene 
+    scene "scenes/chen/chen_chen_ability_holyp_04.vcd" nodelay noscene 
+    scene "scenes/chen/chen_chen_ability_holyp_05.vcd" nodelay noscene 
+    scene "scenes/chen/chen_chen_ability_holyp_06.vcd" nodelay noscene 
+}
+
+Rule chen_CastExecuteIsAbilityHolyPersuasionChance_50%_Rule
+{
+    criteria CastExecute Ischen IsAbilityHolyPersuasion Chance_50%
+    response chen_CastExecuteIsAbilityHolyPersuasionChance_50%
+}
