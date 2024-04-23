@@ -32281,7 +32281,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.05"
+		"AbilityCastPoint"				"0"
 		"AbilityCastAnimation"			"ACT_INVALID"
 		"AbilityManaCost"				"100"
 
@@ -32440,7 +32440,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"MaxLevel"						"1"
 		"HotKeyOverride"				"C"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilitySound"					"Hero_Invoker.EMP.Charge"
 
 		"HasShardUpgrade"				"0"
@@ -32473,9 +32473,10 @@
 			"damage_per_mana_pct"		"50"
 			"shard_drag_speed"
 			{
-				"value"					"175"
+				"value"					"0"
 				"RequiresShard"			"1"
 			}
+			"self_mana_restore_pct"     "0"
 		}
 	}
 	//=================================================================================================================
@@ -32679,6 +32680,7 @@
 			"modifier_melting_strike_passive_datadriven"
 			{
 				"Passive"			"1"
+				"IsHidden"			"1"
 				"OnCreated"
 				{
 					"RunScript"

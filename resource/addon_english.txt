@@ -1887,6 +1887,8 @@
 		"DOTA_Tooltip_Ability_invoker_invoke_AbilityCooldown"									"COOLDOWN:"
 		"DOTA_Tooltip_modifier_cold_snap_datadriven"									"Cold Snap"
 		"DOTA_Tooltip_modifier_cold_snap_datadriven_Description"						"When damaged, will take additional damage and will be frozen briefly."
+        "DOTA_Tooltip_modifier_melting_strike_debuff_lua"								"Melting Strike"
+        "DOTA_Tooltip_modifier_melting_strike_debuff_lua_Description"					"Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 		//Keeper of the light
 		"DOTA_Tooltip_Ability_keeper_of_the_light_spirit_form_Scepter_Description"			"Permanent Spirit Form. During daytime, grants unobstructed vision, and Illuminate heals allies for 75% of its damage values."
 		"DOTA_Tooltip_Ability_keeper_of_the_light_mana_leak_datadriven"						"Mana Leak"
