@@ -17,11 +17,6 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
 		local parent = self:GetParent()
         local ability = self:GetAbility()
 		if not IsValidEntity(self.target) or parent:IsStunned() or parent:IsRooted() or parent:IsHexed() then
-            if self.particle then
-                ParticleManager:DestroyParticle(self.particle, false)
-                ParticleManager:ReleaseParticleIndex(self.particle)
-                self.particle = nil
-            end
 			self:Destroy()
 			return true
 		end
@@ -39,7 +34,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
                 10000,
                 DOTA_UNIT_TARGET_TEAM_ENEMY,
                 DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
-                DOTA_UNIT_TARGET_FLAG_NONE,
+                DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
                 FIND_CLOSEST,
                 false)
             if #units == 0 then
@@ -70,11 +65,8 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
             local bash_duration = ability:GetSpecialValueFor("stun_duration")
 		    self.target:AddNewModifier(parent, ability, "modifier_stunned", { duration = bash_duration })
 
-            GridNav:DestroyTreesAroundPoint(parent:GetAbsOrigin(), 150, false)
 		    parent:RemoveHorizontalMotionController(self)
-            ParticleManager:DestroyParticle(self.particle, false)
-            ParticleManager:ReleaseParticleIndex(self.particle)
-            self.particle = nil
+			parent:MoveToTargetToAttack(self.target)
             self:Destroy()
             return true
         end
@@ -134,7 +126,10 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnDestroy()
 	if ability and ability.StartCooldown ~= nil then
 		ability:StartCooldown(12)
 	end
-	self:Destroy()
+	local parent = self:GetParent()
+	if parent ~= nil and IsServer() then
+    	GridNav:DestroyTreesAroundPoint(parent:GetAbsOrigin(), 150, false)
+	end
 end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:GetEffectName()
@@ -150,18 +145,20 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:OnOrder(event)
     if event.unit == self:GetParent() then
+		
 		-- ability no target won't cancel.
 		local ability = event.ability
 		if ability ~= nil and bit.band(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
 			return
 		end
-
-        if self.particle then
-            ParticleManager:DestroyParticle(self.particle, false)
-            ParticleManager:ReleaseParticleIndex(self.particle)
-            self.particle = nil
-        end
-        self:Destroy()
+		if	event.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or
+			event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET or
+			event.order_type == DOTA_UNIT_ORDER_CAST_TARGET or
+			event.order_type == DOTA_UNIT_ORDER_CAST_TARGET_TREE or
+			event.order_type == DOTA_UNIT_ORDER_HOLD_POSITION or
+			event.order_type == DOTA_UNIT_ORDER_STOP then
+    	    self:Destroy()
+		end
     end
 end
 

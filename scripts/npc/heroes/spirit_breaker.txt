@@ -9,7 +9,7 @@
         "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
         "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+        "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
         "FightRecapLevel"				"1"
         "AbilityTextureName"			"spirit_breaker_charge_of_darkness"
         
