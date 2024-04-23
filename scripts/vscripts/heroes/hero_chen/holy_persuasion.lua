@@ -12,7 +12,7 @@ function chen_holy_persuasion_lua:CastFilterResultTarget(target)
 		return UF_FAIL_CUSTOM
 	elseif target:IsCourier() then
 		return UF_FAIL_COURIER
-	elseif target:IsWard() then
+	elseif target.IsWard ~= nil and target:IsWard() then
 		return UF_FAIL_CUSTOM
 	end
 	if self:GetCaster():HasScepter() then
