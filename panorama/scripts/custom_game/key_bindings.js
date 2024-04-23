@@ -192,15 +192,58 @@ function showCourierSpawned() {
 	$("#courier-select-button").RemoveClass("button-hidden");
 }
 
-(function() {
+function conflictWithAbilityKB(key) {
+	let hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
+	if (hero == -1) {
+		return false
+	}
+	for (let i = 0; i < 6; i++) {
+		let ability = Entities.GetAbility(hero, i)
+		if (Abilities.GetKeybind(ability) === key) {
+			return true
+		}
+	}
+	return false
+}
+
+function initCustomCourierKB() {
+	let hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
+	if (hero == -1) {
+		$.Schedule(1, initCustomCourierKB);
+		return
+	}
+
 	let courier_select = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_SELECT);
 	let courier_deliver = Game.GetKeybindForCommand(DOTAKeybindCommand_t.DOTA_KEYBIND_COURIER_DELIVER);
 
-	let new_courier_select_command = "CustomGameCourierSelect" + Math.floor(Math.random() * 100000);
-	Game.AddCommand(new_courier_select_command, OnCustomeGameSelectCourier, "", 0);
-	Game.CreateCustomKeyBind(courier_select, new_courier_select_command );
+	if (!conflictWithAbilityKB(courier_select)) {
+		let new_courier_select_command = "CustomGameCourierSelect" + Math.floor(Math.random() * 100000);
+		Game.AddCommand(new_courier_select_command, OnCustomeGameSelectCourier, "", 0);
+		Game.CreateCustomKeyBind(courier_select, new_courier_select_command );
+	}
 
-	let new_courier_deliver_command = "CustomGameCourierDeliver" + Math.floor(Math.random() * 100000);
-	Game.AddCommand(new_courier_deliver_command, OnCustomGameCourierSend, "", 0);
-	Game.CreateCustomKeyBind(courier_deliver, new_courier_deliver_command );
+	if (!conflictWithAbilityKB(courier_deliver)) {
+		let new_courier_deliver_command = "CustomGameCourierDeliver" + Math.floor(Math.random() * 100000);
+		Game.AddCommand(new_courier_deliver_command, OnCustomGameCourierSend, "", 0);
+		Game.CreateCustomKeyBind(courier_deliver, new_courier_deliver_command );
+	}
+
+}
+
+(function() {
+	initCustomCourierKB()
+
+	let couriers = Entities.GetAllEntitiesByName("npc_dota_courier")
+	for (let i = 0; i < couriers.length; i++) {
+		let courier = couriers[i]
+		if (Entities.GetTeamNumber(courier) == Players.GetTeam(Players.GetLocalPlayer())) {
+			let ownerId = Entities.GetPlayerOwnerID(courier)
+			let hero = Players.GetPlayerHeroEntityIndex(ownerId)
+			let courier_spawned = {
+				id: courier,
+				owner_name: Entities.GetUnitName(hero)
+			}
+			OnCourierSpawned(courier_spawned)
+		}
+	}
 })()
