@@ -1885,6 +1885,9 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			--print("Etheral damage " .. event.damage)
 		elseif inflictor:GetName() == "death_prophet_exorcism" and victim:IsBuilding() then
 			event.damage = event.damage * 2
+		elseif inflictor:GetName() == "invoker_emp" then
+			event.damage = event.damage / (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
+			event.damagetype_const = DAMAGE_TYPE_PURE
 		elseif inflictor:GetName() == "leshrac_diabolic_edict" then
 			local armor = victim:GetPhysicalArmorValue(false) * 0.06
 			event.damage = event.damage * (1 - armor / (1 + math.abs(armor)))
