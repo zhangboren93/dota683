@@ -57,6 +57,7 @@ function chen_holy_persuasion_lua:OnSpellStart()
 	target:SetOwner(caster)
 	target:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 	target:GiveMana(target:GetMaxMana())
+	target:Purge(true, false, false, false, false)
 	target:SetBaseMaxHealth(target:GetMaxHealth() + health_bonus)
 	target:Heal(health_bonus, self)
 	local ancient_unit_killed = false
