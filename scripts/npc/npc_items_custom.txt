@@ -138,7 +138,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1100"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1245"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass" 					"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
@@ -175,6 +175,7 @@
 	}
 	"item_recipe_flying_courier_datadriven"
 	{
+		"ID"							"1486"
 		"BaseClass"						"item_datadriven"
 		"ItemCost"						"220"	
 		"ItemPurchasable"				"1"
@@ -859,8 +860,9 @@
 
 	"item_quelling_blade_lua"
 	{
-		"BaseClass"		"item_lua"
-		"ScriptFile"	"items/item_quelling_blade.lua"
+		"ID"							"1211"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_quelling_blade.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM | DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -1027,6 +1029,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1226"
 		"BaseClass" 					"item_lua"
 		"ScriptFile"					"items/item_lifesteal.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
@@ -1228,6 +1231,10 @@
 				"buff_duration"			"40"
 		}
 	}
+	"item_flask"
+	{
+		"ItemPurchasable"	"0"
+	}
 	// Rewrite of Healing Salve
 	// Author: Rook
 	// Date: January 25, 2015
@@ -1235,6 +1242,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1239"
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -1316,6 +1324,7 @@
 	}
 	"item_dust_datadriven"
 	{
+		"ID"							"1240"
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Model"							"models/props_gameplay/dust.vmdl"
@@ -1541,6 +1550,7 @@
 	//=================================================================================================================
 	"item_recipe_travel_boots_datadriven"
 	{
+		"ID"							"1247"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_recipe_travel_boots"
@@ -1567,6 +1577,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1248"
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOASSIST | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_CAN_SELF_CAST"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -2071,6 +2082,7 @@
 	}
 	"item_recipe_hand_of_midas_datadriven"
 	{
+		"ID"							"1264"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -2743,6 +2755,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1280"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_vladmir"
@@ -3320,6 +3333,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1291"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_urn_of_shadows"
@@ -3927,6 +3941,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1303"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -4802,6 +4817,7 @@
 	}
 	"item_recipe_black_king_bar_datadriven"
 	{
+		"ID"							"1315"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_black_king_bar"
@@ -6605,7 +6621,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"item_datadriven"
-		"ID"							"155"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1355"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_satanic"
 		
@@ -6680,6 +6696,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1357"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_mjollnir"
@@ -7057,36 +7074,13 @@
 	//=================================================================================================================
 	"item_recipe_maelstrom"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"165"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"700"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_maelstrom"
-		"ItemRequirements"
-		{
-			"01"						"item_gloves;item_mithril_hammer"
-		}
-	}
-	//=================================================================================================================
-	// Recipe: Maelstrom
-	//=================================================================================================================
-	"item_recipe_maelstrom"
-	{
 		"ItemPurchasable"				"0"
 	}
 	"item_recipe_maelstrom_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1365"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -7162,6 +7156,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1367"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_desolator"

@@ -46,6 +46,7 @@ ITEM_RECIPE_RULES = {
     {"item_butterfly_datadriven", "item_eagle", "item_talisman_of_evasion", "item_quarterstaff"},
     {"item_basher", "item_recipe_basher", "item_javelin_datadriven", "item_belt_of_strength"},
     {"item_bfury_datadriven", "item_broadsword", "item_claymore", "item_pers_datadriven"},
+	{"item_yasha", "item_recipe_yasha", "item_blade_of_alacrity", "item_boots_of_elves"},
     {"item_manta", "item_recipe_manta", "item_yasha", "item_ultimate_orb"},
     {"item_lesser_crit", "item_recipe_lesser_crit", "item_broadsword", "item_blades_of_attack"},
     {"item_armlet", "item_recipe_armlet", "item_helm_of_iron_will", "item_gloves", "item_blades_of_attack"},
