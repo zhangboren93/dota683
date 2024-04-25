@@ -5284,8 +5284,8 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"forged_spirit_melting_strike_datadriven"			// Ability 1.
-		"Ability2"					""			// Ability 2.
-		"Ability3"					""			// Ability 3.
+		"Ability2"					"creep_light"			// Ability 2.
+		"Ability3"					"creep_strong"			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.

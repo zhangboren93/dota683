@@ -1,6 +1,7 @@
 criterion "Ischen" "classname" "npc_dota_hero_chen" weight 5 required
 criterion "IsAbilityHolyPersuasion" "abilityname" "chen_holy_persuasion_lua" weight 5 required
 criterion "IsAbilityTestOfFaith" "abilityname" "chen_test_of_faith" weight 5 required
+criterion "HolyPersuasionMax" "skill4_level" "4" weight 5 required
 
 Response chen_KillIsAbilityTestOfFaithChance_50%
 {
@@ -28,4 +29,15 @@ Rule chen_CastExecuteIsAbilityHolyPersuasionChance_50%_Rule
 {
     criteria CastExecute Ischen IsAbilityHolyPersuasion Chance_50%
     response chen_CastExecuteIsAbilityHolyPersuasionChance_50%
+}
+
+Response chen_LearnIsAbilityHolyPersuasionHolyPersuasionMax
+{
+    scene "scenes/chen/chen_chen_item_04.vcd" nodelay noscene 
+}
+
+Rule chen_LearnIsAbilityHolyPersuasionHolyPersuasionMax_Rule
+{
+    criteria Learn Ischen IsAbilityHolyPersuasion HolyPersuasionMax
+    response chen_LearnIsAbilityHolyPersuasionHolyPersuasionMax
 }

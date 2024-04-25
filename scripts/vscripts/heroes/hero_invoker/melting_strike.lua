@@ -16,8 +16,11 @@ function handleAttackLanded(event)
 	attacker:SpendMana(mana_cost, ability)
 	local modifier = target:FindModifierByName("modifier_melting_strike_debuff_lua")
 	if modifier == nil then
-		target:AddNewModifier(attacker, ability, "modifier_melting_strike_debuff_lua",
-			{ duration = duration }):SetStackCount(1)
+		local tmp_modifier = target:AddNewModifier(attacker, abilizty, "modifier_melting_strike_debuff_lua",
+			{ duration = duration })
+		if tmp_modifier ~= nil then
+			tmp_modifier:SetStackCount(1)
+		end
 	else
 		modifier:SetDuration(duration, true)
 		if modifier:GetStackCount() < max_stack_count then
