@@ -1,6 +1,7 @@
 criterion "Custom"	"Concept" "TLK_DOTA_CUSTOM" required
 criterion "Followup_Positive" "Concept" "TLK_DOTA_FOLLOWUP_POSITIVE" required
 criterion "Followup_Negative" "Concept" "TLK_DOTA_FOLLOWUP_NEGATIVE" required
+criterion "Kill" "Concept" "TLK_DOTA_KILL" required
 criterion "Followup_Negative_Ongoing" "Concept" "TLK_DOTA_FOLLOWUP_NEGATIVE_ONGOING" required
 criterion "Followup_Generic" "Concept" "TLK_DOTA_FOLLOWUP_GENERIC" required
 
