@@ -9,81 +9,81 @@ last_select_courier_time = -1;
 courier_dead_interval = -1;
 ITEM_RECIPE_RULES = [
     ["item_poor_mans_shield", "item_slippers", "item_slippers", "item_stout_shield" ],
-    ["item_necronomicon", "item_recipe_necronomicon", "item_belt_of_strength", "item_staff_of_wizardry" ],
+    ["item_necronomicon", "item_belt_of_strength", "item_staff_of_wizardry", "item_recipe_necronomicon" ],
     ["item_necronomicon_2", "item_recipe_necronomicon", "item_necronomicon" ],
     ["item_necronomicon_3", "item_recipe_necronomicon", "item_necronomicon_2" ],
-    ["item_magic_wand", "item_recipe_magic_wand", "item_branches", "item_branches", "item_branches", "item_magic_stick"],
-    ["item_travel_boots_datadriven", "item_recipe_travel_boots_datadriven", "item_boots"],
+    ["item_magic_wand", "item_branches", "item_branches", "item_branches", "item_magic_stick", "item_recipe_magic_wand"],
+    ["item_travel_boots_datadriven", "item_boots", "item_recipe_travel_boots_datadriven"],
     ["item_phase_boots", "item_boots", "item_blades_of_attack", "item_blades_of_attack"],
-    ["item_hand_of_midas_datadriven", "item_recipe_hand_of_midas_datadriven", "item_gloves"],
-    ["item_wraith_band_datadriven", "item_recipe_wraith_band_datadriven", "item_circlet", "item_slippers"],
+    ["item_hand_of_midas_datadriven", "item_gloves", "item_recipe_hand_of_midas_datadriven"],
+    ["item_wraith_band_datadriven", "item_circlet", "item_slippers", "item_recipe_wraith_band_datadriven"],
     ["item_ring_of_basilius_datadriven", "item_sobi_mask_datadriven", "item_ring_of_protection"],
     ["item_ring_of_aquila_lua", "item_wraith_band_datadriven", "item_ring_of_basilius_datadriven"],
     ["item_ring_of_aquila_lua", "item_wraith_band_datadriven", "item_ring_of_basilius_inactive_datadriven"],
-    ["item_vladmir_2", "item_recipe_vladmir_2", "item_ring_of_regen", "item_ring_of_basilius_datadriven", "item_lifesteal_datadriven"],
-    ["item_vladmir_2", "item_recipe_vladmir_2", "item_ring_of_regen", "item_ring_of_basilius_inactive_datadriven", "item_lifesteal_datadriven"],
-    ["item_buckler_2", "item_recipe_buckler_2", "item_chainmail", "item_branches"],
-    ["item_headdress_datadriven", "item_recipe_headdress_datadriven", "item_ring_of_regen", "item_branches"],
-    ["item_mekansm_2", "item_recipe_mekansm_2", "item_headdress_datadriven", "item_buckler_2"],
+    ["item_vladmir_2", "item_ring_of_regen", "item_ring_of_basilius_datadriven", "item_lifesteal_datadriven", "item_recipe_vladmir_2"],
+    ["item_vladmir_2", "item_ring_of_regen", "item_ring_of_basilius_inactive_datadriven", "item_lifesteal_datadriven", "item_recipe_vladmir_2"],
+    ["item_buckler_2", "item_chainmail", "item_branches", "item_recipe_buckler_2"],
+    ["item_headdress_datadriven", "item_ring_of_regen", "item_branches", "item_recipe_headdress_datadriven"],
+    ["item_mekansm_2", "item_headdress_datadriven", "item_buckler_2", "item_recipe_mekansm_2"],
     ["item_hood_of_defiance_datadriven", "item_ring_of_health", "item_cloak", "item_ring_of_regen", "item_ring_of_regen"],
-    ["item_pipe", "item_recipe_pipe", "item_hood_of_defiance_datadriven", "item_headdress_datadriven"],
-    ["item_urn_of_shadows_datadriven", "item_recipe_urn_of_shadows_datadriven", "item_sobi_mask_datadriven", "item_gauntlets", "item_gauntlets"],
+    ["item_pipe", "item_hood_of_defiance_datadriven", "item_headdress_datadriven", "item_recipe_pipe"],
+    ["item_urn_of_shadows_datadriven", "item_sobi_mask_datadriven", "item_gauntlets", "item_gauntlets", "item_recipe_urn_of_shadows_datadriven"],
     ["item_sheepstick", "item_mystic_staff", "item_ultimate_orb", "item_void_stone_datadriven"],
     ["item_pers_datadriven", "item_ring_of_health", "item_void_stone_datadriven"],
     ["item_bfury_datadriven", "item_broadsword", "item_claymore", "item_pers_datadriven"],
     ["item_oblivion_staff_datadriven", "item_quarterstaff", "item_sobi_mask_datadriven", "item_robe"],
-    ["item_orchid", "item_recipe_orchid", "item_oblivion_staff_datadriven", "item_oblivion_staff_datadriven"],
-    ["item_refresher", "item_recipe_refresher", "item_pers_datadriven", "item_oblivion_staff_datadriven"],
-    ["item_sphere", "item_recipe_sphere", "item_ultimate_orb", "item_pers_datadriven"],
-    ["item_cyclone", "item_recipe_cyclone", "item_staff_of_wizardry", "item_void_stone_datadriven", "item_sobi_mask_datadriven"],
-    ["item_force_staff", "item_recipe_force_staff", "item_staff_of_wizardry", "item_ring_of_regen"],
-    ["item_null_talisman_datadriven", "item_recipe_null_talisman_datadriven", "item_circlet", "item_mantle"],
-    ["item_dagon_datadriven", "item_recipe_dagon_datadriven", "item_staff_of_wizardry", "item_null_talisman_datadriven"],
+    ["item_orchid", "item_oblivion_staff_datadriven", "item_oblivion_staff_datadriven", "item_recipe_orchid"],
+    ["item_refresher", "item_pers_datadriven", "item_oblivion_staff_datadriven", "item_recipe_refresher"],
+    ["item_sphere", "item_ultimate_orb", "item_pers_datadriven", "item_recipe_sphere"],
+    ["item_cyclone", "item_staff_of_wizardry", "item_void_stone_datadriven", "item_sobi_mask_datadriven", "item_recipe_cyclone"],
+    ["item_force_staff", "item_staff_of_wizardry", "item_ring_of_regen", "item_recipe_force_staff"],
+    ["item_null_talisman_datadriven", "item_circlet", "item_mantle", "item_recipe_null_talisman_datadriven"],
+    ["item_dagon_datadriven", "item_staff_of_wizardry", "item_null_talisman_datadriven", "item_recipe_dagon_datadriven"],
     ["item_dagon_2_datadriven", "item_recipe_dagon_datadriven", "item_dagon_datadriven"],
     ["item_dagon_3_datadriven", "item_recipe_dagon_datadriven", "item_dagon_2_datadriven"],
     ["item_dagon_4_datadriven", "item_recipe_dagon_datadriven", "item_dagon_3_datadriven"],
     ["item_dagon_5_datadriven", "item_recipe_dagon_datadriven", "item_dagon_4_datadriven"],
-    ["item_veil_of_discord_datadriven", "item_recipe_veil_of_discord_datadriven", "item_helm_of_iron_will", "item_null_talisman_datadriven"],
-    ["item_assault", "item_recipe_assault", "item_platemail", "item_hyperstone", "item_chainmail"],
-    ["item_heart_datadriven", "item_recipe_heart_datadriven", "item_vitality_booster", "item_reaver"],
-    ["item_black_king_bar_datadriven", "item_recipe_black_king_bar_datadriven", "item_ogre_axe", "item_mithril_hammer"],
-    ["item_shivas_guard", "item_recipe_shivas_guard", "item_platemail", "item_mystic_staff"],
+    ["item_veil_of_discord_datadriven", "item_helm_of_iron_will", "item_null_talisman_datadriven", "item_recipe_veil_of_discord_datadriven"],
+    ["item_assault", "item_platemail", "item_chainmail", "item_hyperstone", "item_recipe_assault"],
+    ["item_heart_datadriven", "item_vitality_booster", "item_reaver", "item_recipe_heart_datadriven"],
+    ["item_black_king_bar_datadriven", "item_ogre_axe", "item_mithril_hammer", "item_recipe_black_king_bar_datadriven"],
+    ["item_shivas_guard", "item_platemail", "item_mystic_staff", "item_recipe_shivas_guard"],
     ["item_vanguard_lua", "item_ring_of_health", "item_vitality_booster"],
-    ["item_crimson_guard", "item_recipe_crimson_guard", "item_vanguard_lua", "item_buckler_2"],
+    ["item_crimson_guard", "item_vanguard_lua", "item_buckler_2", "item_recipe_crimson_guard"],
     ["item_blade_mail", "item_broadsword", "item_chainmail", "item_robe"],
     ["item_monkey_king_bar_datadriven", "item_demon_edge", "item_javelin_datadriven", "item_javelin_datadriven"],
-    ["item_radiance", "item_recipe_radiance", "item_relic"],
+    ["item_radiance", "item_relic", "item_recipe_radiance"],
     ["item_butterfly_datadriven", "item_eagle", "item_talisman_of_evasion", "item_quarterstaff"],
-    ["item_lesser_crit", "item_recipe_lesser_crit", "item_broadsword", "item_blades_of_attack"],
-    ["item_greater_crit", "item_recipe_greater_crit", "item_lesser_crit", "item_demon_edge"],
-    ["item_armlet", "item_recipe_armlet", "item_helm_of_iron_will", "item_gloves", "item_blades_of_attack"],
+    ["item_lesser_crit", "item_broadsword", "item_blades_of_attack", "item_recipe_lesser_crit"],
+    ["item_greater_crit", "item_lesser_crit", "item_demon_edge", "item_recipe_greater_crit"],
+    ["item_armlet", "item_helm_of_iron_will", "item_gloves", "item_blades_of_attack", "item_recipe_armlet"],
     ["item_invis_sword", "item_shadow_amulet", "item_claymore"],
-    ["item_sange_datadriven", "item_recipe_sange_datadriven", "item_ogre_axe", "item_belt_of_strength"],
-	["item_yasha", "item_recipe_yasha", "item_blade_of_alacrity", "item_boots_of_elves"],
-    ["item_manta", "item_recipe_manta", "item_yasha", "item_ultimate_orb"],
+    ["item_sange_datadriven", "item_ogre_axe", "item_belt_of_strength", "item_recipe_sange_datadriven"],
+	["item_yasha", "item_blade_of_alacrity", "item_boots_of_elves", "item_recipe_yasha"],
+    ["item_manta", "item_yasha", "item_ultimate_orb", "item_recipe_manta"],
     ["item_sange_and_yasha_datadriven", "item_yasha", "item_sange_datadriven"],
     ["item_heavens_halberd_datadriven", "item_sange_datadriven", "item_talisman_of_evasion"],
     ["item_helm_of_the_dominator_datadriven", "item_helm_of_iron_will", "item_lifesteal_datadriven"],
-    ["item_satanic_datadriven", "item_recipe_satanic_datadriven", "item_helm_of_the_dominator_datadriven", "item_reaver"],
-    ["item_maelstrom_datadriven", "item_recipe_maelstrom_datadriven", "item_gloves", "item_mithril_hammer"],
-    ["item_mjollnir_datadriven", "item_recipe_mjollnir_datadriven", "item_maelstrom_datadriven", "item_hyperstone"],
+    ["item_satanic_datadriven", "item_helm_of_the_dominator_datadriven", "item_reaver", "item_recipe_satanic_datadriven"],
+    ["item_maelstrom_datadriven", "item_gloves", "item_mithril_hammer", "item_recipe_maelstrom_datadriven"],
+    ["item_mjollnir_datadriven", "item_maelstrom_datadriven", "item_hyperstone", "item_recipe_mjollnir_datadriven"],
     ["item_skadi_datadriven", "item_ultimate_orb", "item_ultimate_orb", "item_point_booster", "item_orb_of_venom"],
-    ["item_desolator_datadriven", "item_recipe_desolator_datadriven", "item_mithril_hammer", "item_mithril_hammer"],
-    ["item_mask_of_madness_datadriven", "item_recipe_mask_of_madness_datadriven", "item_lifesteal_datadriven"],
-    ["item_diffusal_blade_datadriven", "item_recipe_diffusal_blade_datadriven", "item_blade_of_alacrity", "item_blade_of_alacrity", "item_robe"],
+    ["item_desolator_datadriven", "item_mithril_hammer", "item_mithril_hammer", "item_recipe_desolator_datadriven"],
+    ["item_mask_of_madness_datadriven", "item_lifesteal_datadriven", "item_recipe_mask_of_madness_datadriven"],
+    ["item_diffusal_blade_datadriven", "item_blade_of_alacrity", "item_blade_of_alacrity", "item_robe", "item_recipe_diffusal_blade_datadriven"],
     ["item_diffusal_blade_2_datadriven", "item_recipe_diffusal_blade_datadriven", "item_diffusal_blade_datadriven"],
     ["item_ethereal_blade", "item_eagle", "item_ghost"],
-    ["item_soul_ring", "item_recipe_soul_ring", "item_sobi_mask_datadriven", "item_ring_of_regen"],
+    ["item_soul_ring", "item_sobi_mask_datadriven", "item_ring_of_regen", "item_recipe_soul_ring"],
     ["item_soul_booster", "item_energy_booster", "item_vitality_booster", "item_point_booster"],
-    ["item_bloodstone_datadriven", "item_recipe_bloodstone_datadriven", "item_soul_ring", "item_soul_booster"],
+    ["item_bloodstone_datadriven", "item_soul_ring", "item_soul_booster", "item_recipe_bloodstone_datadriven"],
     ["item_arcane_boots", "item_boots", "item_energy_booster"],
-    ["item_medallion_of_courage", "item_recipe_medallion_of_courage", "item_chainmail", "item_sobi_mask_datadriven"],
+    ["item_medallion_of_courage", "item_chainmail", "item_sobi_mask_datadriven", "item_recipe_medallion_of_courage"],
     ["item_rod_of_atos_datadriven", "item_staff_of_wizardry", "item_staff_of_wizardry", "item_vitality_booster"],
-    ["item_basher", "item_recipe_basher", "item_javelin_datadriven", "item_belt_of_strength"],
+    ["item_basher", "item_javelin_datadriven", "item_belt_of_strength", "item_recipe_basher"],
     ["item_abyssal_blade", "item_basher", "item_relic"],
     ["item_tranquil_boots_datadriven", "item_boots", "item_ring_of_regen", "item_ring_of_protection"],
-    ["item_bracer", "item_recipe_bracer", "item_circlet", "item_gauntlets"],
-    ["item_ancient_janggo_datadriven", "item_recipe_ancient_janggo_datadriven", "item_bracer", "item_robe"],
+    ["item_bracer", "item_circlet", "item_gauntlets", "item_recipe_bracer"],
+    ["item_ancient_janggo_datadriven", "item_bracer", "item_robe", "item_recipe_ancient_janggo_datadriven"],
     ["item_ancient_janggo_datadriven", "item_recipe_ancient_janggo_datadriven", "item_ancient_janggo_datadriven"],
     ["item_power_treads", "item_boots", "item_gloves", "item_belt_of_strength"],
     ["item_power_treads", "item_boots", "item_gloves", "item_boots_of_elves"],
@@ -441,7 +441,8 @@ function IsItemCombined(itemname) {
 }
 
 function quickBuySubItem(all_hero_items, itemname) {
-	let item_recipe_components = findItemRecipe(quickbuy_item.itemname)
+	let item_recipe_components = findItemRecipe(itemname)
+	let hero = Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer())
 	// purchase the first item not owned by hero
 	for (let i = 0; i < item_recipe_components.length; i++) {
 		let item_index = all_hero_items.indexOf(item_recipe_components[i])
@@ -502,36 +503,49 @@ function markQuickBuyItemsAsPurchased() {
 	
 	$.Msg("All hero items " + all_hero_items)
 
-	// combine hero's all items
-	for (let i = 0; i < ITEM_RECIPE_RULES.length; i++) {
-		// deep copy all hero items
-		let all_hero_items_copy = all_hero_items.slice()
-		let currentItem = ITEM_RECIPE_RULES[i][0]
-		let canCombineItem = false
-		for (let j = 1; j < ITEM_RECIPE_RULES[i].length; j++) {
-			let item_index = all_hero_items_copy.indexOf(ITEM_RECIPE_RULES[i][j]);
-			if (item_index == -1) {
-				// cannot combine current item
-				break;
-			}
-			if (j == ITEM_RECIPE_RULES[i].length) {
-				canCombineItem = true
-				break;
-			}
-			all_hero_items_copy.splice(item_index)
-		}
-		if (canCombineItem) {
-			$.Msg("Can combine item " + currentItem);
-			all_hero_items.push(currentItem);
+	while(true) {
+		let hasCombinedItem = false
+		// combine hero's all items
+		for (let i = 0; i < ITEM_RECIPE_RULES.length; i++) {
+			// deep copy all hero items
+			let all_hero_items_copy = all_hero_items.slice()
+			let currentItem = ITEM_RECIPE_RULES[i][0]
+			let canCombineItem = false
 			for (let j = 1; j < ITEM_RECIPE_RULES[i].length; j++) {
-				all_hero_items.splice(all_hero_items.indexOf(ITEM_RECIPE_RULES[i][j]), 1)
+				let item_index = all_hero_items_copy.indexOf(ITEM_RECIPE_RULES[i][j]);
+				if (item_index == -1) {
+					// cannot combine current item
+					break;
+				}
+				if (j == ITEM_RECIPE_RULES[i].length - 1) {
+					canCombineItem = true
+					break;
+				}
+				all_hero_items_copy.splice(item_index, 1)
 			}
+			if (canCombineItem) {
+				$.Msg("Can combine item " + currentItem);
+				all_hero_items.push(currentItem);
+				for (let j = 1; j < ITEM_RECIPE_RULES[i].length; j++) {
+					all_hero_items.splice(all_hero_items.indexOf(ITEM_RECIPE_RULES[i][j]), 1)
+				}
+				hasCombinedItem = true
+			}
+		}
+		if (!hasCombinedItem) {
+			break;
 		}
 	}
 	$.Msg("All hero items combined " + all_hero_items);
 
+	if (all_hero_items.indexOf(quickbuy_item.itemname) >= 0) {
+		$.Msg("Already has the item, skipping quick buy")
+		return;
+	}
+	
 	if (item_recipe_components.length == 0) {
 		//basic item, just purchase the current item
+		//TODO if item from side shop/ancient shop, and a courier is near them, issue the buy command for the courier
 		$.Msg("buying basic item " + quickbuy_item.itemname)
 		if (all_hero_items.indexOf(quickbuy_item.itemname) == -1) {
 			Game.PrepareUnitOrders({
