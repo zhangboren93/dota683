@@ -68,7 +68,7 @@ end
 function modifier_toss_flying_lua:UpdateHorizontalMotion(me, dt)
 	if IsServer() then
 		local dist = (me.toss_to_target:GetAbsOrigin() - me:GetAbsOrigin()):Length()
-		if dist < 80 then
+		if dist < 80 or dist > 3000 or self:GetRemainingTime() < 0.2 then
 			return true
 		end
 		me:SetAbsOrigin(me:GetAbsOrigin() + (me.toss_to_target:GetAbsOrigin() - me:GetAbsOrigin()) * dt / self:GetRemainingTime() )

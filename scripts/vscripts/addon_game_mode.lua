@@ -169,6 +169,7 @@ function Activate()
 	LinkLuaModifier( "modifier_courier_take_stash_items_lua", 		"units/courier_take_stash_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_take_stash_return_to_base", 	"units/courier_take_stash_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_roshan_cancel_status_resistance_lua",	"units/modifier_roshan_cancel_statresist.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_unstuck_timer_lua",					"modifiers/modifier_unstuck_timer.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -413,6 +414,11 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			end
 			playerRepicked[playerid] = true
 		end
+	end
+	if text == "-unstuck" then
+		-- if hero hasn't move for 1 minutes or hasn't been attacked in 1 minute, move hero to base
+		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+		hero:AddNewModifier(hero, nil, "modifier_unstuck_timer_lua", { duration = 60 })
 	end
 	if self.botEnabled then
 		if text == "-gold" then
