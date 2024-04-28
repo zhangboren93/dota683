@@ -3825,19 +3825,10 @@
 				
 				"OnAttackStart"
 				{
-					"Random"
+					"RunScript"
 					{
-						"Chance"		"%proc_chance"
-						"PseudoRandom"	"DOTA_PSEUDO_RANDOM_SNIPER_HEADSHOT"
-						
-						"OnSuccess"
-						{
-							"ApplyModifier"
-							{
-								"Target"			"CASTER"
-								"ModifierName"		"modifier_headshot_on_hit_datadriven"
-							}
-						}
+						"ScriptFile"	"heroes/hero_sniper/headshot.lua"
+						"Function"		"handleAttackStart"
 					}
 				}
 			}

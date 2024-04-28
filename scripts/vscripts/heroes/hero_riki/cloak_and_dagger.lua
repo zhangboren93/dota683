@@ -5,6 +5,10 @@
 	
 function CheckBackstab(params)
 	
+	if params.caster:IsIllusion() or params.target:IsBuilding() then
+		return 
+	end
+
 	local ability = params.ability
 	local agility_damage_multiplier = ability:GetLevelSpecialValueFor("agility_damage", ability:GetLevel() - 1) / 100
 
