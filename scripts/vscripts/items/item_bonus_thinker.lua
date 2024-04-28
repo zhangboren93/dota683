@@ -14,6 +14,7 @@ item2pctregen["item_oblivion_staff_datadriven"] = 75
 item2pctregen["item_pers_datadriven"] = 125 
 item2pctregen["item_urn_of_shadows_datadriven"] = 50 
 item2pctregen["item_bloodstone_datadriven"] = 200 
+item2pctregen["item_soul_booster"] = 100
 
 function handleIntervalThink(event)
 	local caster = event.caster

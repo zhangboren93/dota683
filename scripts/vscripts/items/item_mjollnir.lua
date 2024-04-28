@@ -4,7 +4,7 @@ function shield_triggered(event)
     local ability = event.ability
     local damage = ability:GetSpecialValueFor("static_damage")
     local static_radius = ability:GetSpecialValueFor("static_range")
-    local count = ability:GetSpecialValueFor("static_count")
+    local count = ability:GetSpecialValueFor("static_count") - 1
 
     local time = GameRules:GetDOTATime(true, false)
     if attacker:IsBuilding() or attacker:IsMagicImmune() then
