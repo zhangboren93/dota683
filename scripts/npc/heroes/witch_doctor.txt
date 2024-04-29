@@ -1,0 +1,125 @@
+"DOTAAbilities"
+{
+	"Version"   "1"
+
+	"witch_doctor_maledict_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_WitchDoctor.Maledict_Cast"
+		"AbilityTextureName"			"witch_doctor_maledict"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"525"
+		"AbilityCastPoint"				"0.35 0.35 0.35 0.35"
+		"AOERadius"						"%radius"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+		"AbilityDuration"				"12.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"5 10 15 20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius"					"180"
+			"duration_tooltip"			"12.0"
+			"bonus_damage"				"16 24 32 40"
+			"bonus_damage_threshold"	"100"
+			"ticks"						"3"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_witchdoctor/witchdoctor_maledict.vpcf"
+			"particle"					"particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_witch_doctor.vsndevts"
+			"soundfile"					"soundevents/voscripts/game_sounds_vo_witchdoctor.vsndevts"
+		}
+
+		"OnSpellStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_witchdoctor/witchdoctor_maledict_aoe.vpcf"
+				"EffectAttachType"  "start_at_customorigin"
+				"TargetPoint"       "POINT"
+				"ControlPoints"
+				{
+					"01"    "%radius %radius %radius"
+				}
+			}
+		
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_witch_doctor/maledict.lua"
+				"Function"		"Maledict"
+				"Target"		"POINT"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_maledict_datadriven"
+			{
+				"IsDebuff"	"1"
+				"Duration"	"%duration_tooltip"
+
+				"StatusEffectName"		"particles/status_fx/status_effect_maledict.vpcf"
+				"StatusEffectPriority"	"5"
+		
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_witch_doctor/maledict.lua"
+						"Function"		"CheckHealth"
+						"sound"			"Hero_WitchDoctor.Maledict_Loop"
+					}
+				}
+		
+				"ThinkInterval"		"1"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"  "TARGET"
+						"Type"    "DAMAGE_TYPE_MAGICAL"
+						"Damage"  "%AbilityDamage"
+					}
+				
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_witch_doctor/maledict.lua"
+						"Function"		"DealBurst"
+						"sound"			"Hero_WitchDoctor.Maledict_Tick"
+						"sound2"		"Hero_WitchDoctor.Maledict_Loop"
+						"particle"		"particles/units/heroes/hero_witchdoctor/witchdoctor_maledict.vpcf"
+					}
+				}
+			}
+		}
+	}
+}
