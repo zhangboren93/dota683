@@ -9114,7 +9114,8 @@
 		{
 				"bonus_health"			"450"
 				"bonus_mana"			"400"
-				"mana_regen_pct"		"100"
+				"bonus_mana_regen_pct"	"100"
+				"bonus_health_regen"	"4"
 		}
 	}
 }

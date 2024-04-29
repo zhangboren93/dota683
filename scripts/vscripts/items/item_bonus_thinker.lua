@@ -28,6 +28,7 @@ function handleIntervalThink(event)
 	item2modifier("item_necronomicon_2", 	"modifier_necronomicon_2_intellect_bonus", caster, ability)
 	item2modifier("item_necronomicon_3", 	"modifier_necronomicon_3_intellect_bonus", caster, ability)
 	item2modifier("item_force_staff", 		"modifier_item_force_staff_health_regen", caster, ability)
+	item2modifier("item_soul_booster", 		"modifier_item_soul_booster_health_regen_lua", caster, ability)
 	itemPctManaRegen(caster)
 
 	-- apply gem effect
@@ -45,6 +46,7 @@ function item2modifier(itemname, modifier, caster, ability)
 	local item = caster:FindItemInInventory(itemname)	
 	if item ~= nil and item:GetItemState() == 1  then
 		if not caster:HasModifier(modifier) then
+			print("Applying item bonus modifier " .. modifier)
 			ability:ApplyDataDrivenModifier(caster, caster, modifier, {})
 		end
 	else

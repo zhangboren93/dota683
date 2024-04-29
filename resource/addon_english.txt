@@ -389,7 +389,8 @@
 		"DOTA_Tooltip_ability_item_vanguard_lua_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_vanguard_lua_bonus_health_regen"					"+$hp_regen"
 		
-		"DOTA_Tooltip_Ability_item_soul_booster_mana_regen_pct"						"%+$mana_regen"
+		"DOTA_Tooltip_Ability_item_soul_booster_bonus_mana_regen_pct"						"%+$mana_regen"
+		"DOTA_Tooltip_ability_item_soul_booster_bonus_health_regen"						"+$hp_regen"
 
 		"DOTA_Tooltip_Ability_courier_go_to_secretshop_datadriven"					"Go to secretshop"
 		"DOTA_Tooltip_ability_courier_burst_datadriven"								"Speed Burst"
