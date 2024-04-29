@@ -188,6 +188,7 @@ ITEMNAME_2_ITEMID = {
 	"item_recipe_mask_of_madness_datadriven"		:1371,
 	"item_recipe_diffusal_blade_datadriven"		:1373,
 	"item_recipe_soul_ring"		:177,
+	"item_orb_of_venom": 181,
 	"item_stout_shield": 182,
 	"item_recipe_ancient_janggo_datadriven"		:1384,
 	"item_recipe_medallion_of_courage"		:186,
@@ -195,6 +196,21 @@ ITEMNAME_2_ITEMID = {
 	"item_recipe_veil_of_discord_datadriven"		:1389,
 	"item_shadow_amulet"		:215
 }
+
+SIDE_SHOP_ITEMS = ["item_ring_of_health", "item_energy_booster"]
+SECRET_SHOP_ITEMS = [
+	"item_energy_booster",
+	"item_vitality_booster",
+	"item_point_booster",
+	"item_hyperstone",
+	"item_demon_edge",
+	"item_mystic_staff",
+	"item_reaver",
+	"item_eagle",
+	"item_relic",
+	"item_void_stone_datadriven",
+	"item_ring_of_health",
+	"item_orb_of_venom"]
 
 function OnCustomeGameSelectCourier()
 {
@@ -447,12 +463,15 @@ function quickBuySubItem(all_hero_items, itemname) {
 	for (let i = 0; i < item_recipe_components.length; i++) {
 		let item_index = all_hero_items.indexOf(item_recipe_components[i])
 		if (item_index == -1) {
-			//TODO Purchase item from ancient with courier
+			let buying_unit = findBuyingUnit(itemname, hero);
+			if (buying_unit == null) {
+				continue;
+			}
 			Game.PrepareUnitOrders({
 				"OrderType": dotaunitorder_t.DOTA_UNIT_ORDER_PURCHASE_ITEM,
 				"TargetIndex": hero,
-				"OrderIssuer": PlayerOrderIssuer_t.DOTA_ORDER_ISSUER_HERO_ONLY,
-				"UnitIndex": hero,
+				"OrderIssuer": PlayerOrderIssuer_t.DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+				"UnitIndex": buying_unit,
 				"AbilityIndex": ITEMNAME_2_ITEMID[item_recipe_components[i]]
 			});
 			return;
@@ -461,6 +480,34 @@ function quickBuySubItem(all_hero_items, itemname) {
 			all_hero_items.splice(item_index, 1)
 		}
 	}
+}
+
+function findBuyingUnit(itemname, hero) {
+	let buying_unit_candidates = [ hero ]
+	let couriers = Entities.GetAllEntitiesByName("npc_dota_courier")
+	for (i in couriers) {
+		if (Entities.GetTeamNumber(couriers[i]) == Entities.GetTeamNumber(hero)) {
+			buying_unit_candidates.push(couriers[i])
+		}
+	}
+	if (SECRET_SHOP_ITEMS.indexOf(itemname) >= 0) {
+		for (i in buying_unit_candidates) {
+			if (Entities.IsInRangeOfShop(buying_unit_candidates[i], DOTA_SHOP_TYPE.DOTA_SHOP_SECRET, true)) {
+				return buying_unit_candidates[i];
+			}
+		}
+	}
+	if (SIDE_SHOP_ITEMS.indexOf(itemname) >= 0) {
+		for (i in buying_unit_candidates) {
+			if (Entities.IsInRangeOfShop(buying_unit_candidates[i], DOTA_SHOP_TYPE.DOTA_SHOP_SIDE, true)) {
+				return buying_unit_candidates[i];
+			}
+		}
+	}
+	if (SECRET_SHOP_ITEMS.indexOf(itemname) < 0) {
+		return hero
+	}
+	return null
 }
 
 function markQuickBuyItemsAsPurchased() {
@@ -545,16 +592,20 @@ function markQuickBuyItemsAsPurchased() {
 	
 	if (item_recipe_components.length == 0) {
 		//basic item, just purchase the current item
-		//TODO if item from side shop/ancient shop, and a courier is near them, issue the buy command for the courier
 		$.Msg("buying basic item " + quickbuy_item.itemname)
 		if (all_hero_items.indexOf(quickbuy_item.itemname) == -1) {
-			Game.PrepareUnitOrders({
-				"OrderType": dotaunitorder_t.DOTA_UNIT_ORDER_PURCHASE_ITEM,
-				"TargetIndex": hero,
-				"OrderIssuer": PlayerOrderIssuer_t.DOTA_ORDER_ISSUER_HERO_ONLY,
-				"UnitIndex": hero,
-				"AbilityIndex": ITEMNAME_2_ITEMID[quickbuy_item.itemname]
-			})
+			let buying_unit = findBuyingUnit(quickbuy_item.itemname, hero)
+			if (buying_unit != null) {
+				Game.PrepareUnitOrders({
+					"OrderType": dotaunitorder_t.DOTA_UNIT_ORDER_PURCHASE_ITEM,
+					"TargetIndex": hero,
+					"OrderIssuer": PlayerOrderIssuer_t.DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+					"UnitIndex": buying_unit,
+					"AbilityIndex": ITEMNAME_2_ITEMID[quickbuy_item.itemname]
+				})
+			} else {
+				$.Msg("Hero or courier not near secret or side shop")
+			}
 		} else {
 			$.Msg("Hero already has this item")
 		}
@@ -566,11 +617,15 @@ function markQuickBuyItemsAsPurchased() {
 		if (item_index == -1) {
 			if (!IsItemCombined(item_recipe_components[i])) {
 				$.Msg("Buying basic component " + item_recipe_components[i])
+				let buying_unit = findBuyingUnit(item_recipe_components[i], hero);
+				if (buying_unit == null) {
+					continue;
+				}
 				Game.PrepareUnitOrders({
 					"OrderType": dotaunitorder_t.DOTA_UNIT_ORDER_PURCHASE_ITEM,
 					"TargetIndex": hero,
-					"OrderIssuer": PlayerOrderIssuer_t.DOTA_ORDER_ISSUER_HERO_ONLY,
-					"UnitIndex": hero,
+					"OrderIssuer": PlayerOrderIssuer_t.DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+					"UnitIndex": buying_unit,
 					"AbilityIndex": ITEMNAME_2_ITEMID[item_recipe_components[i]]
 				});
 				return;
