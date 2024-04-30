@@ -5387,7 +5387,6 @@
 	        // Movement
 	        //----------------------------------------------------------------
 	        "MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
-			"MovementTurnRate"			"0.5"		// Turning rate.
 	       
 	        // Status
 	        //----------------------------------------------------------------
