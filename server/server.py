@@ -95,12 +95,16 @@ def start_dota():
 def do_dota_stuff():
     print("dota ready")
     #ParseGameThread(dota).start()
-    game_id = 7695127660
+    game_id = 7695021711
     print(f"processing game_id {game_id}")
-    jobId = self.dota.request_matches_minimal([game_id])
+    jobId = dota.request_match_details(game_id)
     print(f"Created job {jobId}")
-    response = dota.wait_msg(jobId, timeout = 120)
-    print(response)
+    #response = dota.wait_msg(jobId, timeout = 120)
+    #print(response)
+@dota.on('match_details')
+def print_match_details(match_id, result, match):
+    print('match_details ready')
+    print(match)
 
 class ParseGameThread(threading.Thread):
     def __init__(self, dota):
@@ -114,7 +118,7 @@ class ParseGameThread(threading.Thread):
             while (not q.empty()):
                 game_id = q.get()
                 print(f"processing game_id {game_id}")
-                jobId = self.dota.request_matches_minimal([game_id])
+                jobId = self.dota.request_matches_details(game_id)
                 print(f"Created job {jobId}")
                 response = self.dota.wait_msg(jobId, timeout = 120)
                 print(response)
@@ -122,8 +126,10 @@ class ParseGameThread(threading.Thread):
 if __name__ == "__main__":
     client.login(username='', password='')
     dota.wait_event('ready')
+    dota.wait_event('match_details')
+    #client.run_forever()
 
-    webServer = HTTPServer((hostName, serverPort), MyServer)
-    print("Server started http://%s:%s" % (hostName, serverPort))
+    #webServer = HTTPServer((hostName, serverPort), MyServer)
+    #print("Server started http://%s:%s" % (hostName, serverPort))
 
-    webServer.serve_forever()
+    #webServer.serve_forever()

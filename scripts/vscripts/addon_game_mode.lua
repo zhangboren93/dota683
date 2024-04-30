@@ -703,7 +703,7 @@ function CAddonTemplateGameMode:OnThink()
 					sendEndGameStats(player2BuildingDamage)
 					GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
 					hasGameEnded = true
-			--		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+					GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 				elseif getConnectedPlayerCount(DOTA_TEAM_BADGUYS) == 0 then
 					if shouldCalcuateScore then
 						calculateLadderScoreLose(DOTA_TEAM_BADGUYS, playerId2LadderScore, LADDER_HOST)
@@ -711,7 +711,7 @@ function CAddonTemplateGameMode:OnThink()
 					sendEndGameStats(player2BuildingDamage)
 					GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
 					hasGameEnded = true
-			--		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+					GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 				end
 			end
 		end
@@ -1342,6 +1342,12 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		if isValidRankedGame and not hasGameEnded and shouldCalcuateScore then
 			calculateLadderScoreLose(entity:GetTeam(), playerId2LadderScore, LADDER_HOST)
 		end
+        if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
+            GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+        else
+            GameRules.SetGameWinner(DOTA_TEAM_GOODGUYS)
+        end
+
 		sendEndGameStats(player2BuildingDamage)
 	end
 	if IsServer() and entity:IsCreep() and not entity:IsNeutralUnitType() then
