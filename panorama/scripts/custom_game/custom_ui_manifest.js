@@ -12,6 +12,7 @@ function replaceLadderScoreboard(player2score) {
     let mapName = Game.GetMapInfo().map_display_name;
     if (mapName == "rank") {
         let scoreboard = PanelHUD.FindChildTraverse("scoreboard");
+		let radiantPlayers = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)
         for(let i = 0;i < 5;i++) {
             let playerScore = scoreboard.FindChildTraverse("RadiantPlayer" + i);
             if (playerScore == null) {
@@ -26,7 +27,10 @@ function replaceLadderScoreboard(player2score) {
                 if (!playerScore.FindChildTraverse(lsid)) {
                     let newChildPanel = $.CreatePanel( "Panel", playerScore, lsid);
                     newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/ladder_score.xml", false, false);
-                    let score = player2score[(i+1).toString()]
+					let score = 0
+					if (i < radiantPlayers.length) {
+						score = player2score[radiantPlayers[i].toString()]
+					}
                     if (score >= 0) {
                         newChildPanel.FindChildTraverse("ladder_score_label").text = score;
                     }
@@ -34,6 +38,7 @@ function replaceLadderScoreboard(player2score) {
                 }
             }
         }
+		let direPlayers = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS)
         for(let i = 0;i < 5;i++) {
             let playerScore = scoreboard.FindChildTraverse("DirePlayer" + i);
             if (playerScore) {
@@ -42,7 +47,10 @@ function replaceLadderScoreboard(player2score) {
                 if (!playerScore.FindChildTraverse(lsid)) {
                     let newChildPanel = $.CreatePanel( "Panel", playerScore, lsid);
                     newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/ladder_score.xml", false, false);
-                    let score = player2score[(i+6).toString()]
+					let score = 0;
+					if (i < direPlayers.length) {
+                    	score = player2score[direPlayers[i].toString()]
+					}
                     if (score >= 0) {
                         newChildPanel.FindChildTraverse("ladder_score_label").text = score;
                     }

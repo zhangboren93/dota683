@@ -15,13 +15,14 @@ if CAddonTemplateGameMode == nil then
 end
 
 RANK_PLAYER_COUNT_REQ = 10
-LADDER_HOST = "119.8.186.190"
+LADDER_HOST = "localhost:4526"
 
 playerRepicked = {}
 randomBonusGranted = {}
-notValidRankedGame = false
+isValidRankedGame = true
 hasGameEnded = false
 playerId2LadderScore = {}
+shouldCalcuateScore = false
 player2BuildingDamage = {}
 fwdnocdenabled = 0
 
@@ -324,10 +325,10 @@ function CAddonTemplateGameMode:InitGameMode()
 					return 30
 				end
 			end, "spawn neutral creep", 30)
-			if isMapRanked() and not notValidRankedGame and not hasGameEnded then
+			if isMapRanked() and isValidRankedGame and not hasGameEnded then
 				GameRules:GetGameModeEntity():SetThink(function()
-					if not notValidRankedGame and not hasGameEnded then
-						putGameToLadderServer()
+					if isValidRankedGame and not hasGameEnded then
+						shouldCalcuateScore = true
 					end
 				end, "validate rank game after 5 minutes", 300)
 			end
@@ -340,9 +341,9 @@ function CAddonTemplateGameMode:InitGameMode()
 				--verify number of players is 10
 				if playerCount ~= RANK_PLAYER_COUNT_REQ then
 					GameRules:SendCustomMessage("天梯比赛需要10名玩家，本次对局不记录天梯分数!", -1, -1)
-					GameRules:SetGameWinner(DOTA_TEAM_NOTEAM)
+				--	GameRules:SetGameWinner(DOTA_TEAM_NOTEAM)
 					hasGameEnded = true
-					notValidRankedGame = true
+					isValidRankedGame = true
 				else
 					GameRules:GetGameModeEntity():SetThink(function()
 						getAllPlayerScores()
@@ -352,6 +353,24 @@ function CAddonTemplateGameMode:InitGameMode()
 					GameRules:AddHeroToBlacklist(all_heroes[i])
 				end
 				self.game_mode = "LD"
+			end
+		elseif event.new_state == 2 then
+			if isMapRanked() and isValidRankedGame then
+				local players = getAllPlayerIds()
+				-- randomly assign player team start from either side
+				local startTeam = DOTA_TEAM_GOODGUYS
+				while #players > 0 do
+					local randomIndex = RandomInt(1, #players)
+					local randomPlayer = players[randomIndex][1]
+					print("Assigning " .. randomPlayer .. " to team " .. startTeam)
+					PlayerResource:SetCustomTeamAssignment(randomPlayer, startTeam)
+					table.remove(players, randomIndex)
+					if startTeam == DOTA_TEAM_BADGUYS then
+						startTeam = DOTA_TEAM_GOODGUYS
+					else
+						startTeam = DOTA_TEAM_BADGUYS
+					end
+				end
 			end
 		end
 	end, nil)
@@ -429,19 +448,12 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			for i=1,24 do
 				hero:HeroLevelUp(false)
 			end
-	--	elseif text == 'neutrals' then
-	--		SpawnNeutralCreepsCustom()
 		end
 	end
-	if text == "-test" then
--- 	   	CustomGameEventManager:Send_ServerToAllClients("player_streak_shutdown", {
---			pid = 0,
---			streak = 3
---		})
-	end
-	--if text == "-win" then
-	--	GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-	--end
+--	if text == "-test" then
+--		calculateLadderScoreLose(DOTA_TEAM_GOODGUYS, playerId2LadderScore, LADDER_HOST)
+--		hasGameEnded = true
+--	end
 end
 
 function swapLocation(e1, e2)
@@ -683,16 +695,23 @@ function CAddonTemplateGameMode:OnThink()
 		-- respawn base trees in rank map
 		if isMapRanked() then
 			-- if all players from one team has disconnected from the game, call other team the winner.
-			if not notValidRankedGame and not hasGameEnded then
-				sendEndGameStats(player2BuildingDamage)
+			if isValidRankedGame and not hasGameEnded then
 				if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
+					if shouldCalcuateScore then
+						calculateLadderScoreLose(DOTA_TEAM_GOODGUYS, playerId2LadderScore, LADDER_HOST)
+					end
+					sendEndGameStats(player2BuildingDamage)
 					GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
 					hasGameEnded = true
-					GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+			--		GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 				elseif getConnectedPlayerCount(DOTA_TEAM_BADGUYS) == 0 then
+					if shouldCalcuateScore then
+						calculateLadderScoreLose(DOTA_TEAM_BADGUYS, playerId2LadderScore, LADDER_HOST)
+					end
+					sendEndGameStats(player2BuildingDamage)
 					GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
 					hasGameEnded = true
-					GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+			--		GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 				end
 			end
 		end
@@ -1320,6 +1339,9 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 	end
 	if entity:IsFort() then
 		--End game, send player status to clients
+		if isValidRankedGame and not hasGameEnded and shouldCalcuateScore then
+			calculateLadderScoreLose(entity:GetTeam(), playerId2LadderScore, LADDER_HOST)
+		end
 		sendEndGameStats(player2BuildingDamage)
 	end
 	if IsServer() and entity:IsCreep() and not entity:IsNeutralUnitType() then
@@ -2342,57 +2364,55 @@ function CAddonTemplateGameMode:HandleChannelFinish(event)
 	end
 end
 
-function getAllPlayerScores()
+function getPlayerScore(playerIds)
+	DeepPrintTable(playerIds)
+	if #playerIds > 0 then
+		local pid = playerIds[1][1]
+		local accountId = playerIds[1][2]
+		CreateHTTPRequest("GET", "http://"..LADDER_HOST.."/" .. accountId):Send(function(response)
+			print("status code " .. response.StatusCode)
+			if response.StatusCode == 200 then
+				print("response " .. response.Body)
+				local seperator_index = string.find(response.Body, ":")
+				local score = string.sub(response.Body, seperator_index + 1)
+				print("score " .. score)
+				playerId2LadderScore[pid] = tonumber(score)
+				DeepPrintTable(playerId2LadderScore)
+				GameRules:SendCustomMessage("玩家"..pid..PlayerResource:GetPlayerName(pid).."排位分:"..score, -1, -1);
+			else
+				GameRules:SendCustomMessage("获取天梯分数失败，本次比赛将不会计算天梯分数！", -1, -1);
+				isValidRankedGame = false
+			end
+			table.remove(playerIds, 1)
+			getPlayerScore(playerIds)
+		end)
+	end
+end
+function getAllPlayerIds() 
 	local playerIds = {}
 	for i=1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) do
 		local player = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
-		table.insert(playerIds, PlayerResource:GetSteamAccountID(player))
+		table.insert(playerIds, {player, PlayerResource:GetSteamAccountID(player)})
 	end
 	for i=1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS) do
-		local player = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
-		table.insert(playerIds, PlayerResource:GetSteamAccountID(player))
+		local player = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
+		table.insert(playerIds, {player, PlayerResource:GetSteamAccountID(player)})
 	end
 	for i=1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_NOTEAM) do
-		local player = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
-		table.insert(playerIds, PlayerResource:GetSteamAccountID(player))
+		local player = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_NOTEAM, i)
+		table.insert(playerIds, {player, PlayerResource:GetSteamAccountID(player)})
 	end
-	DeepPrintTable(playerIds)
-	local query = "p0="..playerIds[1]
-	for i=2,#playerIds do
-		query = query.."&p"..(i-1).."="..playerIds[i]
-	end
-	print(query)
-	CreateHTTPRequest("GET", "http://"..LADDER_HOST.."/dota683_ladder/players?" .. query):Send(function(response)
-		print("status code " .. response.StatusCode)
-		if response.StatusCode == 200 then
-			print("response " .. response.Body)
-			for w in string.gmatch(response.Body, "[0-9%-]+") do
-				table.insert(playerId2LadderScore, tonumber(w))
-			end
-			DeepPrintTable(playerId2LadderScore)
-			GameRules:SendCustomMessage("启用天梯模式！", -1, -1);
-		else
-			GameRules:SendCustomMessage("获取天梯分数失败，本次比赛将不会计算天梯分数！", -1, -1);
-			notValidRankedGame = true
-		end
-	end)
+	return playerIds
+end
+function getAllPlayerScores()
+	getPlayerScore(getAllPlayerIds())
 end
 
 function CAddonTemplateGameMode:handleFirstBlood()
 	self.firstBlood = true
-	if isMapRanked() and not notValidRankedGame and not hasGameEnded then
-		putGameToLadderServer()
+	if isMapRanked() and isValidRankedGame and not hasGameEnded then
+		shouldCalcuateScore = true
 	end
-end
-
-function putGameToLadderServer()
-	CreateHTTPRequest("GET", "http://" .. LADDER_HOST .. "/dota683_ladder/game/register/" .. GameRules:Script_GetMatchID():__tostring()
-		):Send(function(response)
-		print("post game status code " .. response.StatusCode)
-		if response.StatusCode ~= 200 then
-			notValidRankedGame = true
-		end
-	end)
 end
 
 function getConnectedPlayerCount(team)
