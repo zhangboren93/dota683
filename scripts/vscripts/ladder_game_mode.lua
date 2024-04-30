@@ -250,11 +250,13 @@ function calculateLadderScoreLose(losing_team, player_2_score, host)
 			score = 0
 		end
 		print("Player " .. player .. " Account " .. accountid .. " score " .. score)
-		GameRules:SendCustomMessage("玩家" .. player .. "分数:".. score .. "("..sign..diff..")", -1, -1)
+	--	GameRules:SendCustomMessage("玩家" .. player .. "分数:".. score .. "("..sign..diff..")", -1, -1)
 		table.insert(accountId2Score, {accountid, score})
 	end
 	-- upload score
 	uploadNewScore(accountId2Score, host)	
+
+    uploadGameToServer(host)
 end
 
 function uploadNewScore(accountId2Score, host)
@@ -267,4 +269,11 @@ function uploadNewScore(accountId2Score, host)
 			uploadNewScore(accountId2Score, host)
 		end)
 	end
+end
+
+function uploadGameToServer(host)
+	CreateHTTPRequest("POST", "http://" .. host .. "/" .. CDOTAGameRules:Script_GetMatchID()):Send(
+        function(response)
+            print("Post game status " .. response.StatusCode)
+        end);
 end

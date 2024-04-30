@@ -1,9 +1,16 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from datetime import datetime
+import queue
+import threading 
+import time
 
-hostName = "localhost"
+from steam.client import SteamClient
+from dota2.client import Dota2Client
+
+hostName = "192.168.1.4"
 serverPort = 4526
 userLastUpdateDate = {}
+q = queue.SimpleQueue()
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -69,7 +76,47 @@ class MyServer(BaseHTTPRequestHandler):
             fp.write(str(post_body, 'utf-8'))
         self.send_response(200)
 
+    def do_POST(self):
+        print("do_POST")
+        game_id = int(self.path[1:])
+        q.put(game_id)
+        self.send_response(200)
+        print("do_POST end")
+
+client = SteamClient()
+dota = Dota2Client(client)
+
+class ParseGameThread(threading.Thread):
+    def run(self):
+        while(True):
+            time.sleep(10)
+            # clear queue
+            while (not q.empty()):
+                game_id = q.get()
+                print(f"processing game_id {game_id}")
+                jobId = dota.request_matches_minimal([game_id])
+                print(f"Created job {jobId}")
+                response = dota.wait_msg(jobId, timeout = 120)
+                print(response)
+
+class DotaThread(threading.Thread):
+    def run(self):
+        client.run_forever()
+
+@client.on('logged_on')
+def start_dota():
+    print("start_dota")
+    dota.launch()
+
+@dota.on('ready')
+def do_dota_stuff():
+    print("dota ready")
+
 if __name__ == "__main__":
+#    client.cli_login()
+#    dota.wait_event('ready')
+#    ParseGameThread().start()
+
     webServer = HTTPServer((hostName, serverPort), MyServer)
     print("Server started http://%s:%s" % (hostName, serverPort))
 
