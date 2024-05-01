@@ -4,6 +4,7 @@ import queue
 import threading 
 import time
 import subprocess
+import sys
 
 hostName = "192.168.1.4"
 serverPort = 4526
@@ -43,10 +44,11 @@ class MyServer(BaseHTTPRequestHandler):
         self.send_response(200)
         print(f"do_POST {game_id} end")
 
+shouldStopThread = False
 class ParseGameThread(threading.Thread):
     def run(self):
-        while(True):
-            time.sleep(10)
+        while(not shouldStopThread):
+            time.sleep(60 * 60)
             if q.empty():
                 continue
             # clear queue
@@ -60,8 +62,13 @@ class ParseGameThread(threading.Thread):
 
 if __name__ == "__main__":
 
-    ParseGameThread().start()
+    t = ParseGameThread()
+    t.start()
     webServer = HTTPServer((hostName, serverPort), MyServer)
     print("Server started http://%s:%s" % (hostName, serverPort))
 
-    webServer.serve_forever()
+    try:
+        webServer.serve_forever()
+    except:
+        print('f')
+    shouldStopThread = True

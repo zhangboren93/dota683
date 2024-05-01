@@ -9,7 +9,7 @@ import dota2.protobufs.dota_gcmessages_client_pb2 as dota_gcmessages_client__pb2
 import sys
 import math
 
-PRODUCTION = False
+PRODUCTION = True
 
 game_ids = sys.argv[1].split(',')
 
