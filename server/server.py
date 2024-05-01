@@ -7,7 +7,7 @@ import subprocess
 import sys
 
 hostName = "192.168.1.4"
-serverPort = 4526
+serverPort = 80
 userLastUpdateDate = {}
 gameInsertDate = {}
 q = queue.SimpleQueue()
