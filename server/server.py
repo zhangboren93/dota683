@@ -9,7 +9,10 @@ import sys
 hostName = "192.168.1.4"
 serverPort = 4526
 userLastUpdateDate = {}
+gameInsertDate = {}
 q = queue.SimpleQueue()
+process_game_interval = 60 * 60
+process_game_buffer = 30 * 60
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -39,23 +42,53 @@ class MyServer(BaseHTTPRequestHandler):
 
     def do_POST(self):
         print("do_POST")
-        game_id = int(self.path[1:])
+        if '/ladder_game/' not in self.path:
+            print(f"Invalid path {self.path}")
+            self.send_response(403)
+            return
+        game_id = int(self.path.split('/')[2])
+        print(f"Adding game {game_id}")
+        if game_id < 7000000000:
+            print(f"[WARNING] game id looks weird {game_id}")
+            self.send_response(403)
+            return
         q.put(game_id)
+        gameInsertDate[str(game_id)] = round(datetime.now().timestamp())
         self.send_response(200)
         print(f"do_POST {game_id} end")
 
 shouldStopThread = False
 class ParseGameThread(threading.Thread):
+    def __init__(self):
+        threading.Thread.__init__(self)
+        self.nextRunTime = datetime.now().timestamp()
+
     def run(self):
         while(not shouldStopThread):
-            time.sleep(60 * 60)
+            time.sleep(10)
+            now = datetime.now().timestamp()
+            if self.nextRunTime > now:
+                continue
+            self.nextRunTime = now + process_game_interval
             if q.empty():
                 continue
             # clear queue
             game_ids = []
             while (not q.empty()):
                 game_ids.append(str(q.get()))
-            commands = ['python', 'process_game_result.py', ','.join(game_ids)]
+
+            # put games not finished within 15 minutes back in the queue
+            valid_game_ids = []
+            for game_id in game_ids:
+                if now < gameInsertDate[str(game_id)] + process_game_buffer:
+                    print(f"Game {game_id} back in queue")
+                    q.put(game_id)
+                else:
+                    valid_game_ids.append(game_id)
+
+            if len(valid_game_ids) == 0:
+                continue
+            commands = ['python', 'process_game_result.py', ','.join(valid_game_ids)]
             print(f"Executing command {commands})")
             process = subprocess.run(commands, capture_output = True)
             print(process)

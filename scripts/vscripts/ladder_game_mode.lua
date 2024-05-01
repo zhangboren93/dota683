@@ -200,7 +200,7 @@ function calculateLadderScoreLose(losing_team, player_2_score, host)
 end
 
 function uploadGameToServer(host)
-	CreateHTTPRequest("POST", "http://" .. host .. "/" .. CDOTAGameRules:Script_GetMatchID()):Send(
+	CreateHTTPRequest("POST", "http://" .. host .. "/ladder_game/" .. CDOTAGameRules:Script_GetMatchID()):Send(
         function(response)
             print("Post game status " .. response.StatusCode)
         end);
