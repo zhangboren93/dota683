@@ -196,79 +196,7 @@ function isMapRanked()
 end
 
 function calculateLadderScoreLose(losing_team, player_2_score, host)
-	print("calculateLadderScoreLose " .. losing_team)
-	DeepPrintTable(player_2_score)
-	-- get all player current score
-	local winning_team = DOTA_TEAM_GOODGUYS
-	local winning_team_total_score = 0
-	local winning_team_players = {}
-	local losing_team_total_score = 0
-	local losing_team_players = {}
-	if winning_team == losing_team then
-		winning_team = DOTA_TEAM_BADGUYS
-	end
-	local n = PlayerResource:GetPlayerCountForTeam(winning_team)
-	print("winning team count " .. n)
-	for i=1,n do
-		local playerid = PlayerResource:GetNthPlayerIDOnTeam(winning_team, i)
-		winning_team_total_score = winning_team_total_score + tonumber(player_2_score[playerid])
-		table.insert(winning_team_players, playerid)
-	end
-	local n = PlayerResource:GetPlayerCountForTeam(losing_team)
-	print("losing team count " .. n)
-	for i=1,n do
-		local playerid = PlayerResource:GetNthPlayerIDOnTeam(losing_team, i)
-		losing_team_total_score = losing_team_total_score + tonumber(player_2_score[playerid])
-		table.insert(losing_team_players, playerid)
-	end
-	print("winning_team_total " .. winning_team_total_score .. " losing " .. losing_team_total_score)
-	-- get score diff
-	local diff = 25 - (winning_team_total_score - losing_team_total_score) / 250
-	if diff - math.floor(diff) > 0.5 then
-		diff = math.ceil(diff)
-	else
-		diff = math.floor(diff)
-	end
-	if diff > 50 then
-		diff = 50
-	elseif diff < 0 then
-		diff = 0
-	end
-	print("diff " .. diff)
-	DeepPrintTable(player_2_score)
-	local accountId2Score = {}
-	for player, score in pairs(player_2_score) do
-		local accountid = PlayerResource:GetSteamAccountID(player)
-		local sign = "+"
-		if PlayerResource:GetTeam(player) == losing_team then
-			score = score - diff
-			sign = "-"
-		else
-			score = score + diff
-		end
-		if score < 0 then
-			score = 0
-		end
-		print("Player " .. player .. " Account " .. accountid .. " score " .. score)
-	--	GameRules:SendCustomMessage("玩家" .. player .. "分数:".. score .. "("..sign..diff..")", -1, -1)
-		table.insert(accountId2Score, {accountid, score})
-	end
-	-- upload score
-	uploadNewScore(accountId2Score, host)	
-
     uploadGameToServer(host)
-end
-
-function uploadNewScore(accountId2Score, host)
-	if #accountId2Score > 0	then
-		local request = CreateHTTPRequest("PUT", "http://" .. host .. "/" .. accountId2Score[1][1]);
-		request:SetHTTPRequestRawPostBody("text/plain", "score:"..accountId2Score[1][2]);
-		request:Send(function(response)
-			print("post player score " .. response.StatusCode)
-			table.remove(accountId2Score, 1)
-			uploadNewScore(accountId2Score, host)
-		end)
-	end
 end
 
 function uploadGameToServer(host)
