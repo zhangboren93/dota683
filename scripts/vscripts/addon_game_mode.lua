@@ -15,7 +15,7 @@ if CAddonTemplateGameMode == nil then
 end
 
 RANK_PLAYER_COUNT_REQ = 10
-LADDER_HOST = "localhost:4526"
+LADDER_HOST = "123.60.19.83"
 
 playerRepicked = {}
 randomBonusGranted = {}
