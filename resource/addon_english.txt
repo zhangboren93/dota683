@@ -464,6 +464,8 @@
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_bonus_health_regen"		"BONUS HEALTH REGEN:"
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_bonus_mana_regen"			"BONUS MANA REGEN:"
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_bonus_movespeed"			"BONUS MOVE SPEED:"
+		"DOTA_Tooltip_modifier_chemical_rage"												"Chemical Rage"
+		"DOTA_Tooltip_modifier_chemical_rage_Description"									"Reducing attack time, increasing health regeneration, increasing movement speed."
 		// Axe
 		"DOTA_Tooltip_ability_axe_battle_hunger_Description"							"Enrages an enemy unit, causing it to take damage over time until it kills another unit or the duration ends. The enemy is also slowed"
 		"DOTA_Tooltip_ability_axe_battle_hunger_slow_tooltip"							"%MOVEMENT SLOW:"

@@ -1584,6 +1584,14 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		if hook ~= nil then
 			hook:ApplyDataDrivenModifier(caster, parent, "modifier_illusion_bounty_cancel_datadriven", {})
 		end
+		-- inherit caster's buffs
+		local modifiers = caster:FindAllModifiers()
+		for i=1,#modifiers do
+			if modifiers[i]:GetName() == "modifier_chemical_rage" then
+				caster:FindAbilityByName("alchemist_chemical_rage_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_chemical_rage", { }) 
+				break
+			end
+		end
 	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		caster:FindAbilityByName("hero_ability_executed_hook_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_arctic_burn_pure_datadriven", {})

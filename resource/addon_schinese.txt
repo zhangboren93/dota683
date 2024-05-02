@@ -448,6 +448,8 @@
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_bonus_health_regen"	"生命回复提升："
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_bonus_mana_regen"		"魔法回复提升："
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_bonus_movespeed"		"移动速度提升："
+		"DOTA_Tooltip_modifier_chemical_rage"											"化学狂暴"
+		"DOTA_Tooltip_modifier_chemical_rage_Description"								"攻击间隔降低，每秒生命回复，移动速度提升。"
 		// Axe
 		"DOTA_Tooltip_ability_axe_battle_hunger_Description"							"激怒一个敌方单位，使他受到持续伤害，直到他杀死一个单位或者持续时间结束。敌人还将被减速。"
 		"DOTA_Tooltip_ability_axe_battle_hunger_slow"									""

@@ -8854,7 +8854,13 @@
 				}
 				"Damage"
 				{
-					"Target"		 "TARGET"
+	 		       	"Target"
+					{
+						"Center"  	"TARGET"
+						"Teams"   	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						"Types"   	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+					}
 					"Type"			 "DAMAGE_TYPE_PHYSICAL"
 					"Damage"		 "%damage"
 				}
@@ -8960,14 +8966,14 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"			"alchemist_chemical_rage"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
