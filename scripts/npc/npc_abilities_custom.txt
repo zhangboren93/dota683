@@ -33403,5 +33403,38 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
+    "black_dragon_splash_attack_datadriven"
+    {
+        "BaseClass"                     "ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityCastAnimation"		    "ACT_DOTA_CAST_ABILITY_2"
+        "AbilityTextureName"            "black_dragon_splash_attack"
+		"AbilityValues"
+		{
+            "close_range"               "50"
+            "mid_range"                 "150"
+			"range"	                    "250"
+			"damage_percent"			"100"
+            "damage_percent_mid"        "50"
+            "damage_percent_far"        "25"
 
+		}
+        "Modifiers"
+        {
+            "modifier_black_dragon_splash_attack_datadriven"
+            {
+                "Passive"               "1"
+                "IsHidden"              "1"
+                "OnAttackLanded"
+                {
+                    "RunScript"     
+                    {
+                        "ScriptFile"    "units/black_dragon_splash_attack.lua"
+                        "Function"      "handleAttackLanded"
+                        "Damage"        "%attack_damage"
+                    }
+                }
+            }
+        }
+    }
 }

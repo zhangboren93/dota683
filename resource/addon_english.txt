@@ -2272,6 +2272,11 @@
 		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Scepter_Description"	"Increases damage."
 
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"Chaos attack"
+		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven"						    "Splash Attack"
+		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_Description"			    "The Black Dragon's explosive attacks are felt by all nearby enemies."
+		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_range"				    	"25% DAMAGE RANGE:"
+		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_close_range"				"100% DAMAGE RANGE:"
+		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_mid_range"					"50% DAMAGE RANGE:"
 
 		"DOTA_Tooltip_Ability_glyph_datadriven"										"Glyph"
 

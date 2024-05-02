@@ -390,6 +390,7 @@
 	"npc_dota_neutral_black_dragon"	
 	{
 		"Ability1"					"neutral_spell_immunity"			// Ability 1
+        "Ability2"                  "black_dragon_splash_attack_datadriven"
 		"Ability3"					"creep_light"			// Ability 3
 		"Ability4"					"creep_strong"			// Ability 4
 		"ArmorPhysical"				"6"			// Physical protection.

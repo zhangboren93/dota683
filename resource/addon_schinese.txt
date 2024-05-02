@@ -2259,6 +2259,11 @@
 		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Scepter_Description"	"提高伤害。"
 
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"混乱攻击"
+		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven"							"溅射攻击"
+		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_Description"				"周围所有敌人都感受到黑龙的爆炸攻击。"
+		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_range"						"25%伤害距离："
+		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_close_range"				"100%伤害距离："
+		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_mid_range"					"50%伤害距离："
 
 		"DOTA_Tooltip_Ability_glyph_datadriven"										"塔防"
 
