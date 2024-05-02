@@ -6171,12 +6171,14 @@
 			"tooltip_illusion_duration"			"20"
 			"images_do_damage_percent_melee"	"-67"
 			"tooltip_damage_outgoing_melee"			"33"
-			"images_take_damage_percent"	"350"
+			"images_take_damage_percent"	"250"
 			"tooltip_damage_incoming_total_pct"			"350"
 			"images_do_damage_percent_ranged"	"-72"
 			"tooltip_damage_outgoing_ranged"			"28"
 			"invuln_duration"		"0.1"
 			"vision_radius"			"1000"
+			"cooldown_ranged"		"50"
+			"tooltip_images_take_damage_percent_ranged"	"400"
 		}
 	}
 	//=================================================================================================================

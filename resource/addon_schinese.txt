@@ -376,6 +376,9 @@
 		"DOTA_Tooltip_ability_item_vanguard_lua_Note0"								"多种伤害格挡物品的效果互不叠加。"
 		"DOTA_Tooltip_ability_item_vanguard_lua_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_vanguard_lua_bonus_health_regen"					"+$hp_regen"
+		
+		"DOTA_Tooltip_ability_item_manta_cooldown_ranged"								"CD（远程）："
+		"DOTA_Tooltip_ability_item_manta_tooltip_images_take_damage_percent_ranged"		"%幻象承受伤害（远程）："
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"

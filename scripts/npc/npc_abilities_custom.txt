@@ -31383,6 +31383,19 @@
 					}
 				}
 			}
+			"modifier_item_manta_cooldown_ranged_checker"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_manta.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
 		}
 	}
 	//=================================================================================================================
