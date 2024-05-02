@@ -2264,6 +2264,7 @@
 		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_range"						"25%伤害距离："
 		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_close_range"				"100%伤害距离："
 		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_mid_range"					"50%伤害距离："
+		"DOTA_Tooltip_ability_satyr_trickster_purge_Description"							"萨特放逐者通晓所有的诡计，让他能驱散友军身上的负面效果或者敌人身上的增益效果。对召唤单位造成400点伤害。\n\n驱散类型：弱驱散"
 
 		"DOTA_Tooltip_Ability_glyph_datadriven"										"塔防"
 

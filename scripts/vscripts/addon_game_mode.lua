@@ -1863,6 +1863,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_brewmaster_thunder_clap_creep_lua", { duration = duration_creep })
 		return false
+	elseif event.name_const == "modifier_satyr_trickster_purge" and parent:IsSummoned() then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		ApplyDamage({victim = parent, attacker = caster, damage = 400, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

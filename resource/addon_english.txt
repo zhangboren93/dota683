@@ -2277,6 +2277,7 @@
 		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_range"				    	"25% DAMAGE RANGE:"
 		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_close_range"				"100% DAMAGE RANGE:"
 		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven_mid_range"					"50% DAMAGE RANGE:"
+		"DOTA_Tooltip_ability_satyr_trickster_purge_Description"								"The Satyr Banisher knows every trick in the book, allowing him to dispel debuffs from allies or buffs from enemies. His trickery also slows the enemy's movement. Deals 400 damage to summoned units.\n\nDISPEL TYPE: Basic Dispel"
 
 		"DOTA_Tooltip_Ability_glyph_datadriven"										"Glyph"
 
