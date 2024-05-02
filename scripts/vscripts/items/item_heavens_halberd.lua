@@ -26,8 +26,8 @@ function item_heavens_halberd_datadriven_on_spell_start(keys)
 	if is_spell_blocked_by_linkens_sphere(keys.target) then return end
 	
 	if keys.target:IsRangedAttacker() then
-		keys.ability:ApplyDataDrivenModifier(keys.caster, keys.target, "modifier_item_heavens_halberd_datadriven_disarm", {duration = keys.DisarmDurationRanged})
+		keys.target:AddNewModifier(keys.caster, keys.ability, "modifier_item_heavens_halberd_datadriven_disarm", { duration = keys.DisarmDurationRanged })
 	else  --The target is melee.
-		keys.ability:ApplyDataDrivenModifier(keys.caster, keys.target, "modifier_item_heavens_halberd_datadriven_disarm", {duration = keys.DisarmDurationMelee})
+		keys.target:AddNewModifier(keys.caster, keys.ability, "modifier_item_heavens_halberd_datadriven_disarm", { duration = keys.DisarmDurationMelee })
 	end
 end

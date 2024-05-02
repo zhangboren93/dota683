@@ -90,6 +90,7 @@ function Activate()
 	LinkLuaModifier( "modifier_item_mjollnir_shield_datadriven", 		"items/modifier_item_mjollnir_shield_datadriven.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_vanguard_lua",						"items/item_vanguard.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_soul_booster_health_regen_lua", 	"items/modifier_item_soul_booster_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_heavens_halberd_datadriven_disarm", "items/modifier_item_heavens_halberd_datadriven_disarm.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)

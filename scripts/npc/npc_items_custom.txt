@@ -8510,33 +8510,6 @@
 				"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%maim_movement_speed"
 			}
 		}
-		"modifier_item_heavens_halberd_datadriven_disarm"
-		{
-			"Passive"				"0"
-			"IsHidden"				"0"
-			"IsBuff"				"0"
-			"IsDebuff"				"1"
-			"IsPurgable"			"0"
-			
-			"EffectName"            "particles/items2_fx/heavens_halberd.vpcf"
-			"EffectAttachType"      "PATTACH_ABSORIGIN"
-			
-			"States"
-			{
-				"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
-			}
-			
-			//Apply the generic disarm particle overhead, which is not included in particles/items2_fx/heavens_halberd.vpcf.
-			"OnCreated"
-            {
-                "AttachEffect"
-                {
-                    "Target"			"TARGET"
-                    "EffectName"		"particles/generic_gameplay/generic_disarm.vpcf"
-                    "EffectAttachType"	"follow_overhead"
-                }
-            }
-		}
 	}
 }
 	//=================================================================================================================
