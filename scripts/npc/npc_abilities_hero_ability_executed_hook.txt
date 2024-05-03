@@ -346,14 +346,26 @@
 					}
 				}
 			}
+			"modifier_winter_wyvern_arctic_burn_immunity_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_winter_wyvern/arctic_burn.lua"
+						"Function"		"handleAttackLanded"
+					}
+				}
+			}
 			"modifier_winter_wyvern_arctic_burn_pure_datadriven"
 			{
-				"Passive"		"0"
 				"IsHidden"		"0"
 				"IsDebuff"		"1"
-				"Duration"		"6"
-				"IsPurgable"	"1"
+				"Duration"		"5"
 				"ThinkInterval"	"1"
+				"TextureName"	"winter_wyvern_arctic_burn"
 				"OnIntervalThink"
 				{
 					"RunScript"

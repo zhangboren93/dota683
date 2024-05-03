@@ -1592,9 +1592,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 				break
 			end
 		end
-	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		caster:FindAbilityByName("hero_ability_executed_hook_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_arctic_burn_pure_datadriven", {})
 	elseif event.name_const == "modifier_techies_stasis_trap" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(parent, nil, "modifier_kill", { duration = ability:GetSpecialValueFor("duration") })
@@ -1894,6 +1891,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_windrunner_windrun_invis_thinker" then return false
 --	elseif event.name_const == "modifier_legion_commander_press_the_attack" then return false
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then return false
+	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then return false 
 	end
 
 	end

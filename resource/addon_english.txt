@@ -2252,6 +2252,8 @@
 		"DOTA_Tooltip_Ability_winter_wyvern_arctic_burn_Description"			"Winter Wyvern soars upon an arctic wind, granting her unobstructed movement and allowing her to exhale a blistering chill into each attack. While soaring, her attacks travel further and faster, and slow enemies with a burning freeze that strips them of %percent_damage_pure%%% of their current health each second. Her sight is also hardened against night's chill, granting her %night_vision_bonus%% additional vision range at night while soaring."
 		"DOTA_Tooltip_ability_winter_wyvern_arctic_burn_percent_damage"			""
 		"DOTA_Tooltip_ability_winter_wyvern_arctic_burn_percent_damage_pure"	"%HEALTH BURN:"
+		"DOTA_Tooltip_modifier_winter_wyvern_arctic_burn_pure_datadriven"						"Arctic Burn Slow"
+		"DOTA_Tooltip_modifier_winter_wyvern_arctic_burn_pure_datadriven_Description"			"Slowed and losing a percentage of current health per second."
 		//Witch Doctor
 		"DOTA_Tooltip_ability_witch_doctor_maledict_datadriven"					"Maledict"
 		"DOTA_Tooltip_ability_witch_doctor_maledict_datadriven_Description"		"Curses all enemy Heroes in a small area, causing them to take a set amount of damage each second, as well as bursts of damage every 4 seconds based on how much health they have lost since the curse began."
