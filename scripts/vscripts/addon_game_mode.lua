@@ -373,6 +373,30 @@ function CAddonTemplateGameMode:InitGameMode()
 					end
 				end
 			end
+			if self.game_mode == 'DM' then
+				GameRules:AddHeroToBlacklist("npc_dota_hero_hoodwink")			
+				GameRules:AddHeroToBlacklist("npc_dota_hero_dawnbreaker")		
+				GameRules:AddHeroToBlacklist("npc_dota_hero_marci")		
+				GameRules:AddHeroToBlacklist("npc_dota_hero_primal_beast")		
+				GameRules:AddHeroToBlacklist("npc_dota_hero_muerta")		
+				GameRules:AddHeroToBlacklist("npc_dota_hero_lone_druid")			
+				GameRules:AddHeroToBlacklist("npc_dota_hero_void_spirit")		
+				GameRules:AddHeroToBlacklist("npc_dota_hero_snapfire")		
+				GameRules:AddHeroToBlacklist("npc_dota_hero_pangolier")			
+				GameRules:AddHeroToBlacklist("npc_dota_hero_grimstroke")
+				GameRules:AddHeroToBlacklist("npc_dota_hero_dark_willow")
+				GameRules:AddHeroToBlacklist("npc_dota_hero_monkey_king")
+				GameRules:AddHeroToBlacklist("npc_dota_hero_lone_druid")			
+				GameRules:AddHeroToBlacklist("npc_dota_hero_meepo")		
+				GameRules:AddHeroToBlacklist("npc_dota_hero_invoker")			
+				GameRules:SetHeroRespawnEnabled(false)
+				GameRules:SetUseUniversalShopMode(true)
+				-- randoms all player's hero selection
+				local players = getAllPlayerIds()
+				for i=1,#players do
+					PlayerResource:GetPlayer(players[i][1]):MakeRandomHeroSelection()
+				end
+			end
 		end
 	end, nil)
 	ListenToGameEvent("dota_item_picked_up", function(event) HandleItemPickedUp(event.itemname, event.PlayerID)	end, nil)
@@ -414,6 +438,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 				self.botEnabled = false
 				self.game_mode = "CM"
 				GameRules:SendCustomMessage("开启队长模式", -1, -1)
+			elseif text == '-dm' then
+				self.game_mode = "DM"
+				GameRules:SendCustomMessage("开启死亡随机模式", -1, -1)
 			end
 		end
 	end
@@ -892,6 +919,20 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		or event.order_type == DOTA_UNIT_ORDER_GIVE_ITEM then
 		local item = EntIndexToHScript(event.entindex_ability)
 		if item:GetName() == "item_dummy_backpackblock_datadriven" then
+			return false
+		end
+	end
+	if event.order_type == DOTA_UNIT_ORDER_SELL_ITEM then
+		local item = EntIndexToHScript(event.entindex_ability)
+		if self.game_mode == 'DM' then
+			local playerId = event.issuer_player_id_const
+			-- DM sell item for 85% 
+			local sell_bonus = item:GetCost() * 0.85
+			print("Giving " .. sell_bonus .. " dm sell bonus to player " .. playerId)
+			PlayerResource:ModifyGold(playerId, sell_bonus, false, DOTA_ModifyGold_SellItem)
+			item:Destroy()
+			local player = PlayerResource:GetPlayer(playerId)
+			SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, EntIndexToHScript(event.units['0']), sell_bonus, player)
 			return false
 		end
 	end
