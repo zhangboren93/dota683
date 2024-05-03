@@ -1012,7 +1012,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				return 1
 			end, "visage scepter", 1);
 		elseif entity:GetName() == "npc_dota_hero_tiny" then
-			entity:AddItemByName("item_aghanims_shard")
 			entity:FindAbilityByName("tiny_grow_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_enchantress" then
 			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
@@ -1929,6 +1928,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				event.damage = (attacker:GetIntellect() * 2 + 75) * (1 - victim:Script_GetMagicalArmorValue(false, attacker))
 			end
 			--print("Etheral damage " .. event.damage)
+		elseif inflictor:GetName() == "centaur_return" and victim:IsBuilding() then
+			event.damage = event.damage * 4 -- self 50% & siege 50%
 		elseif inflictor:GetName() == "death_prophet_exorcism" and victim:IsBuilding() then
 			event.damage = event.damage * 2
 		elseif inflictor:GetName() == "invoker_emp" then

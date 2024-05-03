@@ -535,11 +535,13 @@
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_quill_release_threshold"	"DAMAGE THRESHOLD:"
 		//Centaur
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven"								"Hoof Stomp"
-		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Description"					"After a brief windup, Centaur Warrunner slams the ground, stunning and damaging nearby enemy units."
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Description"					"Slams the ground, stunning and damaging nearby enemy units."
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Lore"							"When the mighty hoof of the Warrunner touches soil, the tremors are felt far and wide."
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stun_duration"					"STUN DURATION:"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stomp_damage"					"STOMP DAMAGE:"
+		"DOTA_Tooltip_ability_centaur_return_Description"									"Centaur immediately counters every attack, damaging the attacker based on a percentage of Centaur's strength."
+		"DOTA_Tooltip_modifier_hoof_stomp"													"#DOTA_Tooltip_modifier_stunned"
 		//Chaos Knight
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven"							"Reality Rift"
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift	_datadriven_Description"				"Teleports you, any images you have and the target unit to a point along the line between the two of you. Chaos Knight gains attack power bonus."
