@@ -9,6 +9,7 @@ require("root_modifiers")
 require("hero_types")
 require("ladder_game_mode")
 require("end_game")
+require("death_match")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
@@ -374,23 +375,7 @@ function CAddonTemplateGameMode:InitGameMode()
 				end
 			end
 			if self.game_mode == 'DM' then
-				GameRules:AddHeroToBlacklist("npc_dota_hero_hoodwink")			
-				GameRules:AddHeroToBlacklist("npc_dota_hero_dawnbreaker")		
-				GameRules:AddHeroToBlacklist("npc_dota_hero_marci")		
-				GameRules:AddHeroToBlacklist("npc_dota_hero_primal_beast")		
-				GameRules:AddHeroToBlacklist("npc_dota_hero_muerta")		
-				GameRules:AddHeroToBlacklist("npc_dota_hero_lone_druid")			
-				GameRules:AddHeroToBlacklist("npc_dota_hero_void_spirit")		
-				GameRules:AddHeroToBlacklist("npc_dota_hero_snapfire")		
-				GameRules:AddHeroToBlacklist("npc_dota_hero_pangolier")			
-				GameRules:AddHeroToBlacklist("npc_dota_hero_grimstroke")
-				GameRules:AddHeroToBlacklist("npc_dota_hero_dark_willow")
-				GameRules:AddHeroToBlacklist("npc_dota_hero_monkey_king")
-				GameRules:AddHeroToBlacklist("npc_dota_hero_lone_druid")			
-				GameRules:AddHeroToBlacklist("npc_dota_hero_meepo")		
-				GameRules:AddHeroToBlacklist("npc_dota_hero_invoker")			
-				GameRules:SetHeroRespawnEnabled(false)
-				GameRules:SetUseUniversalShopMode(true)
+				deathMatchGameRulesUpdate()
 				-- randoms all player's hero selection
 				local players = getAllPlayerIds()
 				for i=1,#players do
@@ -1319,6 +1304,9 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		PlayerResource:SetCustomBuybackCost(entity:GetPlayerID(), buyback_cost)
 		entity.last_dead_time = GameRules:GetDOTATime(false, false)
 		entity:ModifyGold(-30 * entity:GetLevel(), false, DOTA_ModifyGold_Death)
+		if self.game_mode == "DM" then
+			deathMatchSpawnHero(entity)
+		end
 	end
 	if attacker:IsOwnedByAnyPlayer() and entity:IsBuilding() and attacker:GetTeam() ~= entity:GetTeam() then
 		-- grant building kill bonus
@@ -1391,25 +1379,25 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 
 		sendEndGameStats(player2BuildingDamage)
 	end
-	if IsServer() and entity:IsCreep() and not entity:IsNeutralUnitType() then
-		-- find creeps nearby whose target is me, preempty trigger its interval think
-		local units = FindUnitsInRadius(
-			entity:GetTeam(),
-			entity:GetAbsOrigin(),
-			nil,
-			600,
-			DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_CREEP,
-			DOTA_UNIT_TARGET_FLAG_NOT_DOMINATED,
-			FIND_ANY_ORDER,
-			false)
-		for i=1,#units do
-			local ai = units[i]:FindModifierByName("modifier_creep_ai")
-			if ai ~= nil and ai.target ~=nil and ai.target.unit == entity then
-				ai:HandleTargetKilled()
-			end
-		end
-	end
+	--if IsServer() and entity:IsCreep() and not entity:IsNeutralUnitType() then
+	--	-- find creeps nearby whose target is me, preempty trigger its interval think
+	--	local units = FindUnitsInRadius(
+	--		entity:GetTeam(),
+	--		entity:GetAbsOrigin(),
+	--		nil,
+	--		600,
+	--		DOTA_UNIT_TARGET_TEAM_ENEMY,
+	--		DOTA_UNIT_TARGET_CREEP,
+	--		DOTA_UNIT_TARGET_FLAG_NOT_DOMINATED,
+	--		FIND_ANY_ORDER,
+	--		false)
+	--	for i=1,#units do
+	--		local ai = units[i]:FindModifierByName("modifier_creep_ai")
+	--		if ai ~= nil and ai.target ~=nil and ai.target.unit == entity then
+	--			ai:HandleTargetKilled()
+	--		end
+	--	end
+	--end
 	if (entity:GetName() == "npc_dota_ward_base" or entity:GetName() == "npc_dota_ward_base_truesight")
 		and attacker:IsControllableByAnyPlayer()
 		and attacker:GetTeam() ~= entity:GetTeam() then
