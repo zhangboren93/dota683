@@ -25394,6 +25394,7 @@
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	"FightRecapLevel"				"1"
 	"AbilityTextureName"			"centaur_hoof_stomp"
+		"SpellDispellableType"          "SPELL_DISPELLABLE_YES_STRONG"
 	
 	// Stats
 	//-------------------------------------------------------------------------------------------------------------
@@ -25515,7 +25516,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
 		"AbilityCastRange"				"150 150 150 150"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.5"
 
 		//------------------------------------------------------------------------------
 		"AbilityManaCost"				"0 0 0 0"

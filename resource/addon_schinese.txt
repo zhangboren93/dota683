@@ -519,11 +519,13 @@
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_quill_release_threshold"	"伤害吸收触发值："
 		//Centaur
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven"								"马蹄践踏"
-		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Description"					"经过短暂的蓄力后，半人马战行者猛踏地面，眩晕并伤害身边的敌方单位。"
+		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Description"					"猛踏地面，眩晕并伤害身边的敌方单位。"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Lore"							"当战行者健壮的马蹄碰到了土壤，大地的震颤各处都能感受到。"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_radius"						"范围："
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stun_duration"					"眩晕持续时间："
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stomp_damage"					"践踏伤害："
+		"DOTA_Tooltip_ability_centaur_return_Description"									"半人马战行者立刻反击攻击他的单位，伤害与半人马战行者的力量值成正比。"
+		"DOTA_Tooltip_modifier_hoof_stomp"													"#DOTA_Tooltip_modifier_stunned"
 		//Chaos Knight
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven"							"实相裂隙"
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven_Description"				"将混沌骑士及其幻象和目标单位传送到混沌骑士与目标连线上的随机位置。混沌骑士的下一次攻击将具有额外攻击力加成。"
