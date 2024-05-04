@@ -137,12 +137,18 @@ function deathMatchSpawnHero(entity)
 	if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
 		respawnCount[1] = respawnCount[1] + 1
 		if respawnCount[1] > RESPAWN_MAX then
+			GameRules:SendCustomMessage("天辉没命了，玩家".. entity:GetPlayerOwnerID() .."永久死亡。", -1, -1)
 			return
+		else
+			GameRules:SendCustomMessage("天辉剩".. (44 - respawnCount[1]).."条命。", -1, -1)
 		end
 	else
 		respawnCount[2] = respawnCount[2] + 1
 		if respawnCount[2] > RESPAWN_MAX then
+			GameRules:SendCustomMessage("夜魇没命了，玩家".. entity:GetPlayerOwnerID() .."永久死亡。", -1, -1)
 			return
+		else
+			GameRules:SendCustomMessage("夜魇剩".. (44 - respawnCount[2]).."条命。", -1, -1)
 		end
 	end
 	
@@ -162,7 +168,7 @@ function deathMatchSpawnHero(entity)
 	for i=1,#ITEM_SLOTS do
 		local item = entity:GetItemInSlot(ITEM_SLOTS[i])
 		if item ~= nil then
-			table.insert(items, item:GetName())
+			table.insert(items, item)
 		end
 	end
 	print("Respawning player " .. playerid .. " with hero " .. nextRandomHero .. " level " .. level .. " items:")
@@ -171,9 +177,14 @@ function deathMatchSpawnHero(entity)
 		unit:SetIdleAcquire(true)
 		unit:SetControllableByPlayer(playerid, false)
 		unit:SetOwner(player)
+		unit:SetPlayerID(playerid)
 		player:SetAssignedHeroEntity(unit)
 		for i=2,level do
 			unit:HeroLevelUp(false)
 		end
+		for i=1,#items do 
+			unit:AddItem(items[i])
+		end
+		entity:Destroy()
 	end)
 end

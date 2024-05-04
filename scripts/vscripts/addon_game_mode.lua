@@ -1335,9 +1335,6 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		PlayerResource:SetCustomBuybackCost(entity:GetPlayerID(), buyback_cost)
 		entity.last_dead_time = GameRules:GetDOTATime(false, false)
 		entity:ModifyGold(-30 * entity:GetLevel(), false, DOTA_ModifyGold_Death)
-		if self.game_mode == "DM" then
-			deathMatchSpawnHero(entity)
-		end
 	end
 	if attacker:IsOwnedByAnyPlayer() and entity:IsBuilding() and attacker:GetTeam() ~= entity:GetTeam() then
 		-- grant building kill bonus

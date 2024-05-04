@@ -1,3 +1,4 @@
+require("death_match")
 function handleDeath(event)
 	local caster = event.caster
 	if not caster:IsRealHero() or caster:GetName() == "npc_dota_lone_druid_bear" then
@@ -53,6 +54,12 @@ function handleDeath(event)
 					EmitSoundOnEntityForPlayer("MobaTimeMachine.Hero_Respawn", caster, caster:GetPlayerID())
 				end
 			end, "respawn music", new_time_until_respawn - 3)
+		end
+
+		if GameRules.AddonTemplate.game_mode == "DM" then
+			caster:SetThink(function()
+				deathMatchSpawnHero(caster)
+			end, "respawn new hero", new_time_until_respawn)
 		end
 	end, "set time until respawn", 0.5)
 end
