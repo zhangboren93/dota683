@@ -71,3 +71,9 @@ function DealBurst(keys)
 		end
 	end
 end
+
+function handleDestroy(event)
+	local target = event.target
+	StopSoundEvent("Hero_WitchDoctor.Maledict_Loop", target)
+	target.maledict_tick = 0
+end

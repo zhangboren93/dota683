@@ -119,6 +119,15 @@
 						"particle"		"particles/units/heroes/hero_witchdoctor/witchdoctor_maledict.vpcf"
 					}
 				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_witch_doctor/maledict.lua"
+						"Function"		"handleDestroy"
+					}
+				}
 			}
 		}
 	}
