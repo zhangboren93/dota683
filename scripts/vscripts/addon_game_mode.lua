@@ -898,6 +898,15 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		elseif ability:GetName() == "item_ultimate_scepter" then
 			-- alchemist cannot give aghs to friendly
 			return false
+		elseif ability:GetName() == "lion_mana_drain" then
+			local target = EntIndexToHScript(event.entindex_target)
+			for i,v in pairs(event.units) do
+				local unit = EntIndexToHScript(v)
+				if unit:GetTeam() == target:GetTeam() then
+					print("Lion's mana drain cannot target allies.")
+					return false
+				end
+			end
 		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
