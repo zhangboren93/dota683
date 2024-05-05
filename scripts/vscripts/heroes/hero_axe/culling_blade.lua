@@ -85,6 +85,9 @@ function CullingBlade( keys )
 		damage_table.damage_type = DAMAGE_TYPE_PURE
 		damage_table.damage = kill_threshold
 		ApplyDamage(damage_table)
+		if target:HasModifier("modifier_oracle_false_promise_timer") then
+			target:Kill(ability, caster)
+		end
 
 		-- Find the valid units in the area that should recieve the speed buff and then apply it to them
 		local units_to_buff = FindUnitsInRadius(caster:GetTeam(), caster_location, nil, speed_aoe, DOTA_UNIT_TARGET_TEAM_FRIENDLY, ability:GetAbilityTargetType() , 0, FIND_CLOSEST, false)
