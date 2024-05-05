@@ -188,7 +188,7 @@
 		"ItemStockInitial"				"0"
 		"ItemRequirements"
 		{
-			"01"	"item_courier_2"
+		//	"01"	"item_courier_2"
 		}
 	}
 	"item_flying_courier_datadriven"

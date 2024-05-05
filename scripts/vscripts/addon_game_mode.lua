@@ -931,6 +931,23 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			return false
 		end
 	end
+	if event.order_type == DOTA_UNIT_ORDER_PURCHASE_ITEM then
+		if event.shop_item_name == "item_recipe_flying_courier_datadriven" then
+			local target = EntIndexToHScript(event.units["0"])
+			if target:IsRealHero() then
+				local couriers = Entities:FindAllByClassname("npc_dota_courier")
+				for i=1,#couriers do
+					if couriers[i]:GetTeam() == target:GetTeam() and 
+						not couriers[i]:HasModifier("modifier_courier_flying_upgrade_active") and 
+						couriers[i]:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
+						-- instead issue the purchase command from the courier
+						event.units["0"] = couriers[i]:GetEntityIndex()
+						return true
+					end
+				end
+			end
+		end
+	end
 	return true
 end
 
