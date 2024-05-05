@@ -34,7 +34,15 @@ function modifier_tidebringer_cleave:OnProcessCleave(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = self:GetAbility()
-	if attacker == self:GetParent() and not target:IsBuilding() and attacker:GetTeam() ~= target:GetTeam() then
+	if attacker ~= self:GetParent() then
+		return
+	end
+	if target:IsBuilding() or attacker:IsIllusion() then
+		ability:StartCooldown(-1)
+		self:Destroy()
+		return
+	end
+	if attacker:GetTeam() ~= target:GetTeam() then
 		local pct = ability:GetSpecialValueFor("cleave_damage")
 		local radius = ability:GetSpecialValueFor("cleave_radius")
 		local damage = event.damage * pct /100
