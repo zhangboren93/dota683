@@ -7990,7 +7990,7 @@
 		"ItemStackable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"					"0"
-		"ItemInitialCharges"			"3"
+		"ItemInitialCharges"			"1"
 		"ItemDisplayCharges"			"1"
 		"ItemStockInitial"				"3"
 		"ItemStockMax"					"3"
