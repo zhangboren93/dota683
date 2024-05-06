@@ -8433,6 +8433,12 @@
 				"Target" 		"CASTER"
 				"Duration"		"%duration"
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 	
 		"Modifiers"

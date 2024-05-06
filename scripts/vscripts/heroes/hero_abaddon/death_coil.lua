@@ -4,6 +4,7 @@
 	If cast on an ally it will heal, if cast on an enemy it will do damage
 ]]
 require("../../items/item_sphere")
+require("../../items/item_magic_stick")
 function DeathCoil( event )
 	-- Variables
 	local caster = event.caster
@@ -14,6 +15,8 @@ function DeathCoil( event )
 	local heal = ability:GetLevelSpecialValueFor( "heal_amount" , ability:GetLevel() - 1 )
 	local projectile_speed = ability:GetSpecialValueFor( "projectile_speed" )
 	local particle_name = "particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
+
+	ProcsMagicStick(event)
 
 	-- Play the ability sound
 	caster:EmitSound("Hero_Abaddon.DeathCoil.Cast")
