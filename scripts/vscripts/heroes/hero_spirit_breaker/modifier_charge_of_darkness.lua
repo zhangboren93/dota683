@@ -152,6 +152,8 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnOrder(event)
 			return
 		end
 		if	event.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or
+			event.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or
+			event.order_type == DOTA_UNIT_ORDER_MOVE_TO_DIRECTION or
 			event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET or
 			event.order_type == DOTA_UNIT_ORDER_CAST_TARGET or
 			event.order_type == DOTA_UNIT_ORDER_CAST_TARGET_TREE or
