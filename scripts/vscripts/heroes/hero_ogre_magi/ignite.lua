@@ -3,6 +3,7 @@
 	Checks if the target already has a projectile flying at it, and attempts to send one at a fresh target]]
 
 require("../../items/item_sphere")
+require("../../items/item_magic_stick")
 
 function CheckTargets(keys)
 	local caster = keys.caster
@@ -40,6 +41,9 @@ function CheckDistance(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
+
+	ProcsMagicStick(keys)
+	
 	ability:ApplyDataDrivenModifier( caster, target, "modifier_ignite_multicast", {} )
 
 	local multicast_ability = caster:FindAbilityByName("ogre_magi_multicast_datadriven")

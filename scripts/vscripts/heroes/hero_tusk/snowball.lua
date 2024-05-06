@@ -1,8 +1,10 @@
+require("../../items/item_magic_stick")
 function handleSpellStart(event)
 	local caster = event.caster
 	local ability = event.ability
 	local target = event.target
 	local windup = ability:GetSpecialValueFor("snowball_windup")
+	ProcsMagicStick(event)
 	local dummyUnit = CreateUnitByName("npc_dummy_unit_snowball",
 						caster:GetAbsOrigin(),
 						false,

@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --[[Author: Noya
 	Date: 11.01.2015.
 	Creates an unselectable, uncontrollable and invulnerable illusion at the back of the target
@@ -13,6 +14,10 @@ function Reflection( event )
 	local origin = target:GetAbsOrigin() + RandomVector(100)
 	local duration = ability:GetLevelSpecialValueFor( "illusion_duration", ability:GetLevel() - 1 )
 	local outgoingDamage = ability:GetLevelSpecialValueFor( "illusion_outgoing_damage", ability:GetLevel() - 1 )
+
+	ProcsMagicStick(event)
+	if target:TriggerSpellAbsorb(ability) then return end
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_reflection_slow", { duration = duration })
 
 	-- handle_UnitOwner needs to be nil, else it will crash the game.
 	local illusion = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())

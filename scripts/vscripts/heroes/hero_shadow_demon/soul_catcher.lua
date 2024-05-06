@@ -1,9 +1,11 @@
+require("../../items/item_magic_stick")
 function handleSpellStart(event)
 	local target_point = event.target_points[1]
 	local caster = event.caster
 	local ability = event.ability
 	local radius = ability:GetSpecialValueFor("radius")
 
+	ProcsMagicStick(event)
 	caster:EmitSound("Hero_ShadowDemon.Soul_Catcher.Cast")
 
 	local units = FindUnitsInRadius(

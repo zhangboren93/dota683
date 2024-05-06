@@ -1,7 +1,9 @@
+require("../../items/item_magic_stick")
 function handleSpellStart(event)
 	local caster = event.caster
 	local ability = event.ability
 	local ability_range = ability:GetCastRange(nil, nil)
+	ProcsMagicStick(event)
 	local units = FindUnitsInRadius(
 		caster:GetTeam(), 
 		caster:GetAbsOrigin(), nil, 

@@ -1920,6 +1920,11 @@
 				"Target"		"CASTER"
 				"ModifierName"	"modifier_razor_eye_datadriven"
 			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 
 		"Modifiers"
@@ -3166,6 +3171,12 @@
 			{
 				"ModifierName"	"modifier_mass_serpent_spawn"
 				"Target" 		"POINT"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
 			}
 		}
 	
@@ -8563,56 +8574,6 @@
 			"kill_pct"				"10 11 12"
 			"target_sight_radius"	"500 500 500"
 		}
-	}
-	//=================================================================================================================
-	// Spirit Breaker: Charge of Darkness
-	//=================================================================================================================
-	"spirit_breaker_charge_of_darkness"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5353"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-
-		"AbilitySound"					"Hero_Spirit_Breaker.ChargeOfDarkness"
-		"HasScepterUpgrade"			"0"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.47"
-		"AbilityCastRange"				"0"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	".30" // applies multiple modifiers
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"movement_speed"		"600 650 700 750"
-				"stun_duration"			"1.2 1.6 2.0 2.4"
-				"bash_radius"			"300 300 300 300"
-				"vision_radius"			"400 400 400 400"
-				"vision_duration"		"0.94 0.94 0.94 0.94"
-				"scepter_cooldown"		"12"
-				"scepter_speed"			"0"
-				"scepter_cast_point"	"0.47"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Spirit Breaker: Empowering Haste
@@ -14512,6 +14473,12 @@
 				"Target"				"CASTER"
 				"EffectName"			"Hero_Sniper.AssassinateProjectile"
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 		
 		"OnProjectileHitUnit"
@@ -16041,6 +16008,12 @@
 						"Duration"		"%trance_duration"
 					}
 				}
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
 			}
 		}
 	
@@ -18726,6 +18699,12 @@
 			{
 				"EffectName"		"Hero_Sven.StormBolt"
 				"Target"			"CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
 			}
 		}
 	

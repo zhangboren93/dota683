@@ -1,7 +1,9 @@
+require("../../items/item_magic_stick")
 function handleSpellStart(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
+	ProcsMagicStick(event)
 	if target:TriggerSpellAbsorb(ability) then
 		return
 	end

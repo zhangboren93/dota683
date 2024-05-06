@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --[[
 	CHANGELIST:
 	09.01.2015 - Standized variables
@@ -19,6 +20,7 @@ function concussive_shot_seek_target( keys )
 	local targetType = ability:GetAbilityTargetType() -- DOTA_UNIT_TARGET_HERO
 	local targetFlag = ability:GetAbilityTargetFlags() -- DOTA_UNIT_TARGET_FLAG_NO_INVIS + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS
 	
+	ProcsMagicStick(keys)
 	-- pick up x nearest target heroes and create tracking projectile targeting the number of targets
 	local units = FindUnitsInRadius(
 		caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, radius, targetTeam,

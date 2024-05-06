@@ -67,6 +67,12 @@
 				"MoveSpeed"        	"%arrow_speed"
 				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 	
 		"OnProjectileHitUnit"

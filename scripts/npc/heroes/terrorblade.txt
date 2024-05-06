@@ -68,6 +68,12 @@
 				"ModifierName"		"modifier_metamorphosis_datadriven"
 				"Target"			"CASTER"
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 	
 		"Modifiers"
@@ -218,11 +224,6 @@
 	
 		"OnSpellStart"
 		{
-			"ApplyModifier"
-			{
-				"ModifierName"		"modifier_reflection_slow"
-				"Target" 			"TARGET"
-			}
 			"RunScript"
 			{
 				"ScriptFile"		"heroes/hero_terrorblade/reflection.lua"

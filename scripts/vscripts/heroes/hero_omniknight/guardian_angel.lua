@@ -1,6 +1,8 @@
+require("../../items/item_magic_stick")
 function handleSpellStart(event)
 	local caster = event.caster
 	local ability = event.ability
+	ProcsMagicStick(event)
 	if caster:HasScepter() then
 		buildings = FindUnitsInRadius(
 			caster:GetTeam(),
