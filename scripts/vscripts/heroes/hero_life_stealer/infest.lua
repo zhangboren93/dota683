@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --[[
     Author: jacklarnes, RcColes
     Date: 08.07.2015.
@@ -16,6 +17,7 @@ function infest_check_valid( keys )
     print(target:GetUnitLabel())
     print(target:GetUnitName())
 
+	ProcsMagicStick(keys)
     --check for validity. theres a lot of exceptions, and i'd like a better way to do this.
     --unsure of the formatting as well as it's a long list.
     local enemyexceptionlist = {"spirit_bear", "visage_familiars"}

@@ -2,6 +2,7 @@
 	Date: 27.09.2015.
 	Calculate the rift position and play the particle]]
 require("../../items/item_sphere")
+require("../../items/item_magic_stick")
 function RealityRiftPosition( keys )
 	local caster = keys.caster
 	local target = keys.target
@@ -45,6 +46,7 @@ function RealityRift( keys )
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
+	ProcsMagicStick(keys)
 	if is_spell_blocked_by_linkens_sphere(target) then return end
 
 

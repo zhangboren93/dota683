@@ -116,17 +116,10 @@
 				"Target"		"CASTER"
 			}
 	
-			"ApplyModifier"
+			"RunScript"
 			{
-				"ModifierName"    "modifier_drunken_haze"
-				"Target"
-				{
-					"Center"	"TARGET"
-					"Radius"	"%radius"
-					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Types"		"DOTA_UNIT_TARGET_HERO"
-				}
-				"Duration"		"%duration"
+				"ScriptFile"	"heroes/hero_brewmaster/drunken_haze.lua"
+				"Function"		"handleSpellStart"
 			}
 	
 			"ApplyModifier"

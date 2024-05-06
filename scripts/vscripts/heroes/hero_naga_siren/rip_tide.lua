@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --[[
 	Author: Ractidous
 	Date: 29.01.2015.
@@ -41,6 +42,7 @@ function RipTide( event )
 	local modifierName = "modifier_rip_tide_datadriven"
 	local dummyModifierName = "modifier_rip_tide_dummy_datadriven"
 
+	ProcsMagicStick(event)
 	local allVictims = {}	-- hashset
 
 	local castRipTide = function ( unit )

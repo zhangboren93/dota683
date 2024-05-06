@@ -77,6 +77,8 @@ function Ensnare_CastFakeNets( event )
 	local ability = event.ability
 	local projectile_speed = ability:GetLevelSpecialValueFor( "net_speed", ( ability:GetLevel() - 1 ) )
 
+	ProcsMagicStick(event)
+
 	if not caster.ensnare_fake_illusions then
 		return
 	end
@@ -105,4 +107,13 @@ function handleIntervalThink(event)
 	if target:IsAttackImmune() then
 		target:RemoveModifierByName("modifier_ensnare_datadriven")
 	end
+end
+
+function handleProjectileHitUnit(event)
+	local target = event.target
+	local ability = event.ability
+	if target:TriggerSpellAbsorb(ability) then return end
+	local caster = event.caster
+	local duration = ability:GetSpecialValueFor("duration")
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_ensnare_datadriven", { duration = duration })
 end

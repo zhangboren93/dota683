@@ -2,6 +2,7 @@
 	Date: 07.03.2015.
 	Initializes all the needed starting values for the Mystic Snake]]
 require("../../items/item_sphere")
+require("../../items/item_magic_stick")
 function MysticSnakeInitialize( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -10,6 +11,7 @@ function MysticSnakeInitialize( keys )
 	local base_damage = ability:GetLevelSpecialValueFor("snake_damage", ability_level) 
 	local base_mana = ability:GetLevelSpecialValueFor("snake_mana_steal", ability_level)
 
+	ProcsMagicStick(keys)
 	caster.mystic_snake_jumps = 1
 	caster.mystic_snake_damage = base_damage
 	caster.mystic_snake_mana = base_mana

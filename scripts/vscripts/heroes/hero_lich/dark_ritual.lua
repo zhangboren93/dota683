@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --[[
 	Author: Noya
 	Date: 18.01.2015.
@@ -19,6 +20,7 @@ function DarkRitual( event )
 	local XP = target:GetDeathXP()
 	local split_XP = XP / #heroes
 
+	ProcsMagicStick(event)
 	caster:GiveMana( mana_gain )
 
 	-- Purple particle with eye

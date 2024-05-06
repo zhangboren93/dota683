@@ -103,14 +103,10 @@
 				"Target"				"TARGET"
 			}
 	
-			"ApplyModifier"
+			"RunScript"
 			{
-				"Target"				
-				{
-					"Center"	"TARGET"
-					"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				}
-				"ModifierName"			"modifier_ensnare_datadriven"
+				"ScriptFile"			"heroes/hero_naga_siren/ensnare.lua"
+				"Function"				"handleProjectileHitUnit"
 			}
 		}
 	

@@ -1177,6 +1177,7 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
+	//TODO continue fix for magic stick
 	"npc_dota_hero_ogre_magi"			
 	{
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"

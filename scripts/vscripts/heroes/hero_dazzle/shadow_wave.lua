@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --------------------------------------------------------------------------------
 -- Ability Start
 function ShadowWave(keys)
@@ -11,6 +12,7 @@ function ShadowWave(keys)
 	local jumps = ability:GetSpecialValueFor( "max_targets" )
 	local damage = ability:GetSpecialValueFor( "damage" )
 
+	ProcsMagicStick(keys)
 	-- precache damage
 
 	-- unit groups

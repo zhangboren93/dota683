@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --[[
 	Author: kritth
 	Date: 10.01.2015.
@@ -5,6 +6,7 @@
 ]]
 function spiked_carapace_init( keys )
 	keys.caster.carapaced_units = {}
+	ProcsMagicStick(keys)
 end
 
 --[[

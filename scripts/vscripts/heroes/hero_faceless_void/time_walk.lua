@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --[[Author: Pizzalol
 	Date: 21.09.2015.
 	Prepares all the required information for movement]]
@@ -15,6 +16,7 @@ function TimeWalk( keys )
 	local direction = (target_point - caster_location):Normalized()
 	local duration = distance/speed
 
+	ProcsMagicStick(keys) 
 	-- Saving the data in the ability
 	ability.time_walk_distance = distance
 	ability.time_walk_speed = speed * 1/30 -- 1/30 is how often the motion controller ticks

@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --[[Author: YOLOSPAGHETTI
 	Date: July 30, 2016
 	Renders the echo slam particles, applies all the initial damage, and sends projectiles to the echo targets]]
@@ -9,6 +10,7 @@ function EchoSlam(keys)
 	local echo_slam_echo_search_range = ability:GetLevelSpecialValueFor("echo_slam_echo_search_range", (ability:GetLevel() -1))
 	local echo_slam_echo_range = ability:GetLevelSpecialValueFor("echo_slam_echo_range", (ability:GetLevel() -1))
 	
+	ProcsMagicStick(keys)
 	-- Renders the echoslam particle around the caster
 	local particle1 = ParticleManager:CreateParticle(keys.particle1, PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(particle1, 0, Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + caster:GetBoundingMaxs().z ))

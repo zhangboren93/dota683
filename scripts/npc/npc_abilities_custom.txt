@@ -6120,6 +6120,12 @@
 				"MoveSpeed"        	"%projectile_speed"
 				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 	
 		"OnProjectileHitUnit"
@@ -9389,9 +9395,15 @@
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/hero_obsidian_destroyer/sanity_eclipse.lua"
 						"Function"		"SanityEclipseDamage"
-						"Target"		"POINT"
+						"Target"		"TARGET"
 					}			
 				}
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
 			}
 		}
 	}
@@ -19558,6 +19570,12 @@
 				"HasFrontalCone"    "0"
 				"ProvidesVision" "0"
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 		
 		"OnProjectileHitUnit"
@@ -20372,6 +20390,12 @@
 		{
 			"ModifierName"	"modifier_enchant_totem_datadriven"
 			"Target"		"CASTER"
+		}
+
+		"RunScript"
+		{
+			"ScriptFile"	"items/item_magic_stick.lua"
+			"Function"		"ProcsMagicStick"
 		}
 	}
 	
@@ -25486,6 +25510,12 @@
 				}
 			}
 		}		
+
+		"RunScript"
+		{
+			"ScriptFile"	"items/item_magic_stick.lua"
+			"Function"		"ProcsMagicStick"
+		}
 	}
 
 	"Modifiers"
@@ -27844,6 +27874,12 @@
 				"EffectName"	"Hero_Brewmaster.PrimalSplit.Cast"
 				"Target" 		"CASTER"
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 		
 		"Modifiers"
@@ -28043,6 +28079,12 @@
 			{
 				"EffectName" "Hero_DragonKnight.BreathFire"
 				"Target" "CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
 			}
 		}
 		
@@ -30689,6 +30731,12 @@
 				"ModifierName"	"modifier_howl_unit_aura_datadriven"
 				"Target" 		"CASTER"
 				"Duration"		"%howl_duration"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
 			}
 		}
 	

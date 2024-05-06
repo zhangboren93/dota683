@@ -1,9 +1,11 @@
 require("../../items/item_sphere")
+require("../../items/item_magic_stick")
 function replicate(event)
     local target = event.target
     local ability = event.ability
     local caster = event.caster
 
+	ProcsMagicStick(event)
 	if is_spell_blocked_by_linkens_sphere(target) then return end
 
 	local illusion = CreateUnitByName(target:GetUnitName(), target:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
@@ -55,6 +57,7 @@ function morph_replicate(event)
 	local caster = event.caster
 	local replica = caster.replica
 	if replica ~= nil and replica:IsAlive() then
+		ProcsMagicStick(event)
 		caster:SetAbsOrigin(replica:GetAbsOrigin())
 		replica:ForceKill(false)
 		caster.replica = nil

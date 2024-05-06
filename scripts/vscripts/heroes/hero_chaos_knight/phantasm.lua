@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --[[Author: Pizzalol, Noya, Ractidous
 	Date: 08.04.2015.
 	Creates illusions while shuffling the positions]]
@@ -19,6 +20,8 @@ function Phantasm( keys )
 	local chance = RandomInt(1, 100)
 	local casterOrigin = caster:GetAbsOrigin()
 	local casterAngles = caster:GetAngles()
+
+	ProcsMagicStick(keys)
 
 	-- Stop any actions of the caster otherwise its obvious which unit is real
 	caster:Stop()

@@ -3,9 +3,12 @@
 	Checks if the target hp is below the threshold and depending on that it kills the target
 	or deals magic damage]]
 require("../../items/item_sphere")
+require("../../items/item_magic_stick")
 function CullingBlade( keys )
 	local caster = keys.caster
 	local target = keys.target
+
+	ProcsMagicStick(keys)
 
 	if is_spell_blocked_by_linkens_sphere(target) then return end
 

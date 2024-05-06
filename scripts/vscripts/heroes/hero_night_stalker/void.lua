@@ -2,12 +2,14 @@
 	Date: 10.01.2015.
 	It applies a slow of a different duration depending on the time of the day]]
 require("../../items/item_sphere")
+require("../../items/item_magic_stick")
 function Void( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
 	local modifier = keys.modifier
 
+	ProcsMagicStick(keys)
 	if is_spell_blocked_by_linkens_sphere(target) then return end
 
 	local duration_day = ability:GetLevelSpecialValueFor("duration_day", (ability:GetLevel() - 1))

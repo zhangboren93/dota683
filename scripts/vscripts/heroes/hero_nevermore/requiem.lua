@@ -1,6 +1,8 @@
+require("../../items/item_magic_stick")
 function handleAbilityStart(event)
 	local caster = event.caster
 	local ability = event.ability
+	ProcsMagicStick(event)
 	-- Apply slow first
 	local units = FindUnitsInRadius(caster:GetTeam(),
         caster:GetAbsOrigin(), nil,
