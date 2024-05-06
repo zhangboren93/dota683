@@ -10204,6 +10204,11 @@
 				"Type"		"DAMAGE_TYPE_MAGICAL"
 				"Damage"	"%decay_damage"
 			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 	}
 	//=================================================================================================================
