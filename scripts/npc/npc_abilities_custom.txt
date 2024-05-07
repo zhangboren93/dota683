@@ -3436,11 +3436,6 @@
 				"EffectName"		"particles/units/heroes/hero_witchdoctor/witchdoctor_ward_skull.vpcf"
 				"EffectAttachType"	"follow_origin"
 			
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"%damage"
-				}
-			
 				"States"
 				{
 					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -3453,6 +3448,15 @@
 					{
 						"ScriptFile"	"heroes/hero_witch_doctor/death_ward.lua"
 						"Function"		"handleAttackStart"
+					}
+				}
+				
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_witch_doctor/death_ward.lua"
+						"Function"		"handleAttackLanded"
 					}
 				}
 			}

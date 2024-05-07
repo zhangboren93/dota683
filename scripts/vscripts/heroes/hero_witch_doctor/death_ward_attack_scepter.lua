@@ -7,11 +7,16 @@ end
 function death_ward_attack_scepter_lua:OnProjectileHit_ExtraData(target, location, data)
 	local caster = self:GetCaster()
 	local bounces = self:GetSpecialValueFor("bounces")
+	local witch_doctor = caster:GetOwner()
+	local death_ward = witch_doctor:FindAbilityByName("witch_doctor_death_ward")
+	local damage = death_ward:GetSpecialValueFor("damage")
 	ApplyDamage({
 		victim = target,
 		attacker = caster, 
-		damage = caster:GetAttackDamage(),
-		damage_type = DAMAGE_TYPE_PHYSICAL})
+		damage = damage,
+		damage_type = DAMAGE_TYPE_PHYSICAL,
+		damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+		ability = death_ward })
 	if data.bn > bounces then
 		return true
 	end

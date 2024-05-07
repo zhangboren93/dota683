@@ -55,3 +55,17 @@ function handleAttackStart(event)
 		end
 	end
 end
+
+function handleAttackLanded(event)
+	local ability = event.ability
+	local target = event.target
+	local attacker = event.attacker
+	local damage = ability:GetSpecialValueFor("damage")
+	ApplyDamage({
+		attacker = attacker,
+		victim = target,
+		damage = damage,
+		damage_type = DAMAGE_TYPE_PHYSICAL,
+		damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK,
+		ability = ability })
+end

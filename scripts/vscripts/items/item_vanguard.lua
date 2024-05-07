@@ -27,7 +27,7 @@ function modifier_item_vanguard_lua:OnTakeDamage(event)
 		return
 	end
 
-	if RandomInt(1, 100) > 80 then
+	if RandomInt(1, 100) > 67 then
 		return
 	end
 
