@@ -31,6 +31,7 @@
 		"AbilityCastPoint"				"0.3"
 		"AbilityChannelTime"			"2.5"
 		"AOERadius"						"%radius"
+		"ProcsMagicStick"				"1"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
