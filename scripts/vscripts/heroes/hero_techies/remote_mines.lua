@@ -91,7 +91,7 @@ function RemoteMinesDeath( keys )
 		for i=1,#units do
 			ApplyDamage({
 				victim = units[i],
-				attacker = caster,
+				attacker = target,
 				damage = damage,
 				damage_type = DAMAGE_TYPE_MAGICAL,
 				ability = ability

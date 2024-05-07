@@ -101,11 +101,11 @@ function LandMinesDeath( keys )
 	-- Find the valid units in the trigger radius
 	local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, trigger_radius, target_team, target_types, target_flags, FIND_CLOSEST, false) 
 	for i=1,#units do
-		ApplyDamage({ victim = units[i], attacker = caster, damage = damage_half,	damage_type = DAMAGE_TYPE_PHYSICAL})
+		ApplyDamage({ victim = units[i], attacker = unit, damage = damage_half,	damage_type = DAMAGE_TYPE_PHYSICAL})
 	end
 	units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, big_radius, target_team, target_types, target_flags, FIND_CLOSEST, false) 
 	for i=1,#units do
-		ApplyDamage({ victim = units[i], attacker = caster, damage = damage_half,	damage_type = DAMAGE_TYPE_PHYSICAL})
+		ApplyDamage({ victim = units[i], attacker = unit, damage = damage_half,	damage_type = DAMAGE_TYPE_PHYSICAL})
 	end
 end
 
