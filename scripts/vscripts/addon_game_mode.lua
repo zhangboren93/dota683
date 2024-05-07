@@ -1211,6 +1211,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		if is_respawn > 0 then
 			CustomGameEventManager:Send_ServerToTeam(entity:GetTeam(), "courier_spawned", { id = tostring(entity:GetEntityIndex()), respawn = 1 })
 		end
+		entity:FindAbilityByName("courier_use_clarity_datadriven"):SetLevel(1)
 	elseif entity:GetName() == "npc_dota_beastmaster_hawk" then
 		--print("owned by " .. entity:GetPlayerOwnerID())
 		entity:SetControllableByPlayer(entity:GetPlayerOwnerID(), false)

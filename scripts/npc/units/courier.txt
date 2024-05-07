@@ -35,4 +35,22 @@
 				"handoff_distance"		"400"
 		}
 	}
+	"courier_use_clarity_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"			"clarity_icon"
+		"AbilityCastRange"				"100"
+		"AbilityCooldown"				"1"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"units/courier_use_item.lua"
+				"Function"				"handleUseClarityStart"
+			}
+		}
+	}
 }
