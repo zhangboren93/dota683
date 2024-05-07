@@ -9093,4 +9093,33 @@
 				"bonus_health_regen"	"4"
 		}
 	}
+	//=================================================================================================================
+	// Recipe: Ward Dispenser
+	//=================================================================================================================
+	"item_recipe_ward_dispenser"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemPurchasable"				"0"
+		"IsObsolete"					"1"
+		"ItemResult"					"item_ward_dispenser"
+		"ItemRequirements"
+		{
+			"01"						"item_ward_sentry;item_ward_observer"
+			"02"						"item_ward_sentry;item_ward_dispenser"
+			"03"						"item_ward_dispenser*;item_ward_observer"
+			"04"						"item_ward_dispenser*;item_ward_dispenser"
+		}
+	}
+
 }
