@@ -1,6 +1,7 @@
 --[[Author: Pizzalol
 	Date: 13.04.2015.
 	Applies the initial stun and modifier depending on Quas level]]
+require("../../items/item_magic_stick")
 function ColdSnapStart( keys )
 	local caster = keys.caster
 	local target = keys.target
@@ -16,6 +17,9 @@ function ColdSnapStart( keys )
 	local stun_modifier = keys.stun_modifier
 	local cold_snap_modifier = keys.cold_snap_modifier
 
+	ProcsMagicStick(keys)
+	if target:TriggerSpellAbsorb(ability) then return end
+	
 	local damage_table = {}
 	damage_table.attacker = caster
 	damage_table.victim = target

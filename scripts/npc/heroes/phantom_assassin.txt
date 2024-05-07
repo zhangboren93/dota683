@@ -70,6 +70,12 @@
 				"EffectName"		"Hero_PhantomAssassin.Dagger.Cast"
 				"Target"			"CASTER"
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 	
 		"OnProjectileHitUnit"

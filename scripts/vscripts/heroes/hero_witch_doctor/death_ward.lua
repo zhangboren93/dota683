@@ -1,6 +1,7 @@
 --[[Author: YOLOSPAGHETTI
 	Date: March 15, 2016
 	Creates the death ward]]
+require("../../items/item_magic_stick")
 
 WARD_ATTACK_RANGE = 700
 
@@ -9,6 +10,8 @@ function CreateWard(keys)
 	local ability = keys.ability
 	local position = ability:GetCursorPosition()
 	
+	ProcsMagicStick(keys)
+
 	-- Creates the death ward (There is no way to control the default ward, so this is a custom one)
 	caster.death_ward = CreateUnitByName("witch_doctor_death_ward_datadriven", position, true, caster, nil, caster:GetTeam())
 	caster.death_ward:SetControllableByPlayer(caster:GetPlayerID(), true)

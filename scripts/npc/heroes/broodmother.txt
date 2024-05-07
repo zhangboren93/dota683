@@ -61,6 +61,12 @@
 				"ModifierName"	"modifier_broodmother_insatiable_hunger_datadriven"
 				"Target"		"CASTER"
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 	
 		"Modifiers"

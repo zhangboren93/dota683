@@ -1,6 +1,7 @@
 --[[Author: Pizzalol, kritth
 	Date: 01.01.2016.
 	Create the wall dummies at along the wall]]
+require("../../items/item_magic_stick")
 function WallOfReplica( keys )
 	local caster = keys.caster
 	local caster_location = caster:GetAbsOrigin()
@@ -8,6 +9,8 @@ function WallOfReplica( keys )
 	local target_point = keys.target_points[1]
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
+
+	ProcsMagicStick(keys)
 
 	-- Cosmetic variables
 	local dummy_modifier = keys.dummy_modifier

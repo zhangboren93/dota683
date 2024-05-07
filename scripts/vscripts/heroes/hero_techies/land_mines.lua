@@ -1,12 +1,14 @@
 --[[Author: Pizzalol
 	Date: 24.03.2015.
 	Creates the land mine and keeps track of it]]
+require("items/item_magic_stick")
 function LandMinesPlant( keys )
 	local caster = keys.caster
 	local target_point = keys.target_points[1]
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
+	ProcsMagicStick(keys)
 	-- Modifiers
 	local modifier_land_mine = keys.modifier_land_mine
 	local modifier_tracker = keys.modifier_tracker

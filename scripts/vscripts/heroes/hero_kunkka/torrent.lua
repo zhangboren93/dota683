@@ -1,3 +1,4 @@
+require("items/item_magic_stick")
 function handleCreated(event)
 	local target = event.target
 	local caster = event.caster
@@ -24,6 +25,7 @@ end
 function torrent_bubble_allies( keys )
 	local caster = keys.caster
 	
+	ProcsMagicStick(keys)
 	local allHeroes = HeroList:GetAllHeroes()
 	local delay = keys.ability:GetLevelSpecialValueFor( "delay", keys.ability:GetLevel() - 1 )
 	local particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_bubbles.vpcf"

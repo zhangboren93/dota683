@@ -3,12 +3,14 @@
 	Date: 10.1.2015.
 	Tracks when the first ability is cast, swaps with the sub ability and plays a sound that can be stopped later
 ]]
+require("../../items/item_magic_stick")
 function StartBrewing( event )
 	-- Variables
 	local caster = event.caster
 	local ability = event.ability
 	ability.brew_start = GameRules:GetGameTime()
 	
+	ProcsMagicStick(event)
 	-- Swap sub_ability
 	local sub_ability_name = event.sub_ability_name
 	local main_ability_name = ability:GetAbilityName()

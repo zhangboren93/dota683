@@ -3,11 +3,14 @@
 	Date: April 5, 2015
 	Increases the casters current and max HP, and applies a damage bonus.
 ]]
+require("../../items/item_magic_stick")
 function DeathPact( event )
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
 	local duration = ability:GetLevelSpecialValueFor( "duration" , ability:GetLevel() - 1 )
+
+	ProcsMagicStick(event)
 
 	-- Health Gain
 	local health_gain_pct = ability:GetLevelSpecialValueFor( "health_gain_pct" , ability:GetLevel() - 1 ) * 0.01

@@ -1,5 +1,5 @@
-
 require("../../items/item_sphere")
+require("../../items/item_magic_stick")
 --[[Author: Pizzalol
 	Date: 19.09.2015.
 	Upon blinking to the target it applies the attack speed modifier if the target is an enemy
@@ -10,6 +10,7 @@ function PhantomStrike( keys )
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
+	ProcsMagicStick(keys)
 	-- blocked by linkens
 	if is_spell_blocked_by_linkens_sphere_a(target, caster) then return end
 

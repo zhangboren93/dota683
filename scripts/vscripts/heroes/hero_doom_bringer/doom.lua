@@ -3,11 +3,13 @@
 	Purges positive buffs from the target]]
 
 -- Todo: Timer stop aura (scepter)
+require("items/item_magic_stick")
 function DoomPurge( keys )
 	local target = keys.target
 	local caster = keys.caster
 	local ability = keys.ability
 
+	ProcsMagicStick(keys)
 	if target:TriggerSpellAbsorb(ability) then
 		return
 	end

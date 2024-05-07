@@ -1,9 +1,12 @@
+require("../../items/item_magic_stick")
 function Maledict(keys)
 	local vPosition = keys.target_points[1]
 	local ability = keys.ability
 	local caster = keys.caster
 
 	local radius = ability:GetSpecialValueFor("radius")
+
+	ProcsMagicStick(keys)
 
 	local enemies = FindUnitsInRadius(
 		caster:GetTeamNumber(), vPosition,

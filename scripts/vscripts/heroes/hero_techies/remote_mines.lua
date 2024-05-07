@@ -1,6 +1,7 @@
 --[[Author: Pizzalol
 	Date: 25.03.2015.
 	Upgrades the focused detonate ability]]
+require("items/item_magic_stick")
 function RemoteMinesUpgrade( keys )
 	local caster = keys.caster
 	local ability_name = keys.ability_name
@@ -18,6 +19,7 @@ function RemoteMinesPlant( keys )
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
+	ProcsMagicStick(keys)
 	-- Modifiers
 	local modifier_remote_mine = keys.modifier_remote_mine
 	local modifier_remote_mine_invisibility = keys.modifier_remote_mine_invisibility

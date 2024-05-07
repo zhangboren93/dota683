@@ -2,6 +2,7 @@
 	Date: March 28, 2016
 	Creates the missile]]
 require("../../items/item_sphere")
+require("../../items/item_magic_stick")
 function CreateMissile(keys)
 	local caster = keys.caster
 	local target = keys.target
@@ -10,6 +11,9 @@ function CreateMissile(keys)
 	local direction = caster:GetForwardVector()
 	-- The missile starts some distance from the caster, in the direction of the target (also the way the caster's facing)
 	local position = caster:GetAbsOrigin() + starting_distance * direction
+
+	ProcsMagicStick(keys)
+
 	ability.target = target
 	-- The initial position of the missile, to be used later in damage calculations
 	ability.starting_position = position

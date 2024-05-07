@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 function providesVision(event)
 	local ability = event.ability
 	local vision_duration = ability:GetSpecialValueFor("vision_duration")
@@ -9,6 +10,7 @@ end
 function handleSpellStart(event)
 	local target = event.target
 	local ability = event.ability
+	ProcsMagicStick(event)
 	if target:TriggerSpellAbsorb(ability) then
 		return
 	end

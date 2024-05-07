@@ -4981,6 +4981,12 @@
 					}
 				}
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 	
 		"Modifiers"
@@ -6549,6 +6555,12 @@
 			{
 				"ModifierName"	"modifier_wrath_of_nature_thinker"
 				"Target" 		"POINT"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
 			}
 		}
 	
@@ -8774,6 +8786,12 @@
 	 		"ModifierName"	"modifier_acid_spray_thinker"
 	 		"Target" 		"POINT"
 	 	}
+
+		"RunScript"
+		{
+			"ScriptFile"	"items/item_magic_stick.lua"
+			"Function"		"ProcsMagicStick"
+		}
 	} 
 
 	"Modifiers"
@@ -9021,6 +9039,11 @@
 			{
 				"ModifierName"	"modifier_chemical_rage_transform"
 				"Target"		"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
 			}
 		}
 
@@ -12744,6 +12767,7 @@
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_LegionCommander.Overwhelming.Location"
 		"AbilityTextureName"			"legion_commander_overwhelming_odds"
+		"AbilityProcsMagicStick"				"1"
 	
 		"precache"
 		{
@@ -14647,6 +14671,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"ursa_earthshock"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST1_STATUE"
+		"AbilityProcsMagicStick"				"1"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -15440,6 +15465,12 @@
 				"ModifierName"	"modifier_strafe"
 				"Target" 		"CASTER"
 				"Duration"		"%duration"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
 			}
 		}
 	
@@ -16979,6 +17010,12 @@
 					"Duration"				"%duration"
 				}
 			}
+		}
+
+		"RunScript"
+		{
+			"ScriptFile"	"items/item_magic_stick.lua"
+			"Function"		"ProcsMagicStick"
 		}
 	}
 
@@ -24847,6 +24884,12 @@
 					}
 				}
 			}	
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -25350,50 +25393,6 @@
 			}
 		}	
 	}	
-	//=================================================================================================================
-	// Keeper of the Light: Chakra Magic
-	//=================================================================================================================
-	"keeper_of_the_light_chakra_magic"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5473"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"AbilitySound"					"Hero_KeeperOfTheLight.ChakraMagic.Target"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900 900 900 900"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"25 35 45 55"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"3.0"	// Value much higher than cost.
-
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"mana_restore"			"75 150 225 300"
-				"cooldown_reduction"	"0"
-				"mana_leak_pct"			"4.5 5 5.5 6.0"
-				"duration"				"5"
-				"AbilityCooldown"		"19 18 17 16"
-				"self_bonus"			"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
 // Rewrite of Centaur Hoof Stomp 
 // Author: Noya
 // Date: December 1, 2015
@@ -27105,6 +27104,12 @@
 						"ModifierName"	"modifier_invisible"
 					}
 				}  
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
 			}
 		}
 	
@@ -29855,6 +29860,12 @@
 				"Target" 		"TARGET"
 				"Duration"		"%duration"
 			}
+
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 
 		"Modifiers"
@@ -30321,7 +30332,11 @@
 				}
 			}
 	
-	
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_stick.lua"
+				"Function"		"ProcsMagicStick"
+			}
 		}
 	
 		"Modifiers"
@@ -32261,68 +32276,6 @@
 				"value"					"200"
 				"RequiresScepter"		"1"
 			}
-		}
-	}
-	//=================================================================================================================
-	// Invoker: Cold Snap
-	//=================================================================================================================
-	"invoker_cold_snap"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5376"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
-		"HotKeyOverride"				"Y"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Invoker.ColdSnap"
-		
-		// Unit Targeting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_INVALID"
-		"AbilityManaCost"				"100"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.15"	// Applies multiple modifiers
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"AbilityCooldown"			"20"
-			"duration"
-			{
-				"value"					"3.0 3.5 4 4.5 5.0 5.5 6"
-				"levelkey"				"quaslevel"	
-			}
-			"freeze_duration"			"0.4"
-			"freeze_cooldown"
-			{
-				"value"					"0.77 0.74 0.71 0.69 0.66 0.63 0.6"
-				"levelkey"				"quaslevel"	
-			}
-			"freeze_damage"
-			{
-				"value"					"7 14 21 28 35 42 49"
-				"levelkey"				"quaslevel"	
-			}
-			"freeze_heal"
-			{
-				"value"					"0"
-				"levelkey"				"quaslevel"	
-			}
-			"damage_trigger"			"10.0"
 		}
 	}
 	//=================================================================================================================

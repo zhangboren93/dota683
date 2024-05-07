@@ -4,6 +4,7 @@
 	Checks if the target is in the allowed table for taking abilities
 	If it is then get the abilities of the target and give them to the caster]]
 
+require("items/item_magic_stick")
 local devour_table = {
 	"npc_dota_neutral_kobold_taskmaster",
 	"npc_dota_neutral_centaur_khan",
@@ -40,6 +41,7 @@ function Devour( keys )
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
+	ProcsMagicStick(keys)
 	-- Ability variables
 	local target_hp = target:GetHealth()
 	local health_per_second = ability:GetLevelSpecialValueFor("health_per_second", ability_level)

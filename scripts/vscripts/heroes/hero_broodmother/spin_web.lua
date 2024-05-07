@@ -3,11 +3,14 @@
 	Date: 18.01.2015.
 	Main: Check/Reduce charge, spawn dummy and do web logic
 ]]
+require("items/item_magic_stick")
 function spin_web( keys )
 	local caster = keys.caster
 	local target = keys.target_points[1]
 	local ability = keys.ability
 	local player = caster:GetPlayerID()
+
+	ProcsMagicStick(keys)
 
 	caster.web_maximum_charges = ability:GetLevelSpecialValueFor( "max_charges", ( ability:GetLevel() - 1 ) )
 	caster.web_maximum_webs = ability:GetLevelSpecialValueFor("count", (ability:GetLevel() - 1))

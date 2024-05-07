@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 function applyAttributeDebuff(event)
     local target = event.target
     local ability = event.ability
@@ -28,6 +29,7 @@ function applyDamage(event)
     local whirling_damage = ability:GetSpecialValueFor("whirling_damage") 
     local has_tree = GridNav:IsNearbyTree(caster:GetAbsOrigin(), whirling_radius, false)
     local damage_type = DAMAGE_TYPE_MAGICAL if has_tree then damage_type = DAMAGE_TYPE_PURE end
+	ProcsMagicStick(event)
     GridNav:DestroyTreesAroundPoint(caster:GetAbsOrigin(), whirling_radius, false)
     local units = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, whirling_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, 
 					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, FIND_ANY_ORDER, false)

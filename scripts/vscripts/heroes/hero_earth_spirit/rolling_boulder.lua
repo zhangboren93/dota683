@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 function rollingMotion(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -28,6 +29,7 @@ function handleSpellStart(event)
 	local target = event.target_points[1]
 	local caster = event.caster
 	local ability = event.ability
+	ProcsMagicStick(event)
 	ability.startPosition = caster:GetAbsOrigin()
 	ability.rollDistance = ability:GetSpecialValueFor("distance")
 	ability.rollSpeed = ability:GetSpecialValueFor("speed")

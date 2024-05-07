@@ -1,12 +1,15 @@
 --[[Author: YOLOSPAGHETTI
 	Date: March 28, 2016
 	Gives the caster's team vision in the radius]]
+require("../../items/item_magic_stick")
 function GiveVision(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local point = keys.target_points[1]
 	local sight_radius = ability:GetLevelSpecialValueFor("vision_radius", (ability:GetLevel() -1))
 	local sight_duration = ability:GetLevelSpecialValueFor("vision_duration", (ability:GetLevel() -1))
+
+	ProcsMagicStick(keys)
 	
 	AddFOWViewer(caster:GetTeam(), point, sight_radius, sight_duration, false)
 end

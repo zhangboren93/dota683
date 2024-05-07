@@ -1,12 +1,14 @@
 --[[Author: YOLOSPAGHETTI
 	Date: April 3, 2016
 	Applies the damage absorb and bonus damage modifiers to the caster]]
+require("items/item_magic_stick")
 function ApplyModifiers(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local stacks = ability:GetLevelSpecialValueFor( "instances", ability:GetLevel() - 1 )
 	local duration = ability:GetLevelSpecialValueFor( "duration", ability:GetLevel() - 1 )
 	
+	ProcsMagicStick(keys)
 	-- Applies the damage absorb buff
 	caster:AddNewModifier(caster, ability, "modifier_templar_assassin_refraction_absorb", { duration = duration, damage_threshold = 5 })
 	-- Applies the bonus damage buff

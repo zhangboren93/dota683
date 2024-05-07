@@ -3,6 +3,7 @@
 	Date: 28.01.2015.
 	Cast Fire Spirts.
 ]]
+require("../../items/item_magic_stick")
 function CastFireSpirits( event )
 	local caster	= event.caster
 	local ability	= event.ability
@@ -11,6 +12,7 @@ function CastFireSpirits( event )
 	local hpCost		= event.hp_cost_perc
 	local numSpirits	= event.spirit_count
 
+	ProcsMagicStick(event)
 	-- Create particle FX
 	local particleName = "particles/units/heroes/hero_phoenix/phoenix_fire_spirits.vpcf"
 	pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, caster )

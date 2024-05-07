@@ -2,6 +2,7 @@
 	Date: 06.01.2015.
 	Deals damage depending on missing hp
 	If the target dies then it increases the respawn time]]
+require("../../items/item_magic_stick")
 function ReapersScythe( keys )
 	local caster = keys.caster
 	local target = keys.target
@@ -38,6 +39,7 @@ function handleSpellStart(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
+	ProcsMagicStick(event)
 	if target:TriggerSpellAbsorb(ability) then return end
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_reapers_scythe_datadriven", { duration = 1.5 })
 	caster:EmitSound("Hero_Necrolyte.ReapersScythe.Cast")

@@ -1,7 +1,9 @@
+require("../../items/item_magic_stick")
 function ApplyLivingArmor(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
+	ProcsMagicStick(keys)
 	if not target then
 		local search = ability:GetCursorPosition()
 		local allies = FindUnitsInRadius(caster:GetTeamNumber(), search, nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)

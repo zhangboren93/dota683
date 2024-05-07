@@ -3,12 +3,14 @@
 	Puts Riki behind the target, if the target is an enemy, applies the bonus damage, 
 	and queues up an attack order on the target]]
 require("items/item_sphere")
+require("items/item_magic_stick")
 function BlinkStrike( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
+	ProcsMagicStick(keys)
 	if target:TriggerSpellAbsorb(ability) then return end
 	-- Ability variables
 	local bonus_damage = ability:GetLevelSpecialValueFor("bonus_damage", ability_level)
