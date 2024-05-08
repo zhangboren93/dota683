@@ -2368,6 +2368,5 @@
 		"global_settings"					"Global Settings:"
 		"fwd_disable_cooldown_toggle"		"No cooldown"
 		"fwd_icon_text"						"P"
-        "death_match_sell_button_text"      "Sl"
 	}
 }
