@@ -18,7 +18,7 @@ function modifier_hero_attack_point_adjust_lua:DeclareFunctions()
 end
 
 function modifier_hero_attack_point_adjust_lua:IsHidden()
-	return false
+	return true
 end
 
 function modifier_hero_attack_point_adjust_lua:GetOverrideAnimation()
