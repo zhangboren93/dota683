@@ -178,7 +178,8 @@ function Activate()
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_primal_beast_attack_animation_lua",	"heroes/hero_primal_beast/modifier_primal_beast_attack_animation.lua", LUA_MODIFIER_MOTION_NONE)
+	--LinkLuaModifier( "modifier_primal_beast_attack_animation_lua",	"heroes/hero_primal_beast/modifier_primal_beast_attack_animation.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_hero_attack_point_adjust_lua", 	"heroes/modifier_hero_attack_point_adjust.lua", LUA_MODIFIER_MOTION_NONE)
  
 	-- horizontal motion controllers
 	LinkLuaModifier( "modifier_toss_flying_lua", 				"heroes/hero_tiny/modifier_toss_flying.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
@@ -1111,6 +1112,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
 			entity:FindAbilityByName(innate_ability):SetLevel(1)
+		end
+		local new_attack_point = HERO_ATTACKPOINT_NEW[entity:GetName()]
+		if new_attack_point ~= nil and not entity:HasAbility("hero_attack_animation_datadriven") then
+			entity:AddAbility("hero_attack_animation_datadriven"):SetLevel(1)
 		end
 
 		-- debug abilities' name
