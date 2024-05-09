@@ -369,6 +369,8 @@
 		"DOTA_Tooltip_ability_courier_transfer_items_lua"							"运送物品"
 		"DOTA_Tooltip_ability_courier_transfer_items_lua_Description"				"将物品运送给英雄"
 		"DOTA_Tooltip_modifier_courier_transfer_items_active_lua"					"将物品送达英雄处"
+		"DOTA_Tooltip_ability_courier_use_clarity_datadriven"						"贴净化"
+		"DOTA_Tooltip_ability_courier_use_clarity_datadriven_Description"			"使用物品栏中的净化药水。"
 
 		"DOTA_Tooltip_Ability_item_vanguard_lua"									"先锋盾"
 		"DOTA_Tooltip_ability_item_vanguard_lua_Description"						"<h1>被动：伤害格挡</h1> 拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"

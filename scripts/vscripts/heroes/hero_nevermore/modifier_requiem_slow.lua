@@ -7,11 +7,11 @@ function modifier_requiem_slow_lua:DeclareFunctions()
 end
 
 function modifier_requiem_slow_lua:GetModifierMoveSpeedBonus_Percentage()
-	return self:GetAbility():GetSpecialValueFor("slow_pct")
+	return self:GetAbility():GetSpecialValueFor("requiem_reduction_ms")
 end
 
 function modifier_requiem_slow_lua:GetModifierDamageOutgoing_Percentage()
-	return self:GetAbility():GetSpecialValueFor("damage_reduct_pct")
+	return self:GetAbility():GetSpecialValueFor("requiem_reduction_damage")
 end
 
 function modifier_requiem_slow_lua:IsDebuff()
