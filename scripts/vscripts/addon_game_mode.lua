@@ -2059,7 +2059,10 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				and inflictor:GetName() ~= "warlock_shadow_word"
 				and inflictor:GetName() ~= "kunkka_tidebringer_datadriven"
 				and inflictor:GetName() ~= "medusa_split_shot" 
-				and inflictor:GetName() ~= "axe_counter_helix_datadriven" then
+				and inflictor:GetName() ~= "axe_counter_helix_datadriven" 
+				and inflictor:GetName() ~= "item_bfury_datadriven" 
+				and inflictor:GetName() ~= "magnataur_empower" 
+				and inflictor:GetName() ~= "sven_great_cleave" then
 				event.damage = 0
 			end
 		end
