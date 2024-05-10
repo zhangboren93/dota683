@@ -17458,12 +17458,12 @@
 				"Target"			"CASTER"
 			}
 	
-			"AttachEffect"
-			{
-				"EffectName"		"particles/units/heroes/hero_riki/riki_blink_strike.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"			"CASTER"
-			}
+			//"AttachEffect"
+			//{
+			//	"EffectName"		"particles/units/heroes/hero_riki/riki_blink_strike.vpcf"
+			//	"EffectAttachType"	"follow_origin"
+			//	"Target"			"CASTER"
+			//}
 			
 			"RunScript"
 			{
