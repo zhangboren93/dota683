@@ -12,7 +12,8 @@ function modifier_hero_attack_point_adjust_lua:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION_WEIGHT,
-		MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE
+		MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
+		MODIFIER_EVENT_ON_ORDER
 	}
 	return funcs
 end
@@ -31,6 +32,12 @@ end
 
 function modifier_hero_attack_point_adjust_lua:GetOverrideAnimationRate()
 	return self:GetParent():GetAttackSpeed(false) * self:GetStackCount() / 100
+end
+
+function modifier_hero_attack_point_adjust_lua:OnOrder(event)
+	if event.unit == self:GetParent() and event.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+		self:Destroy()
+	end
 end
 
 function HandleHeroAttackStart(event)
