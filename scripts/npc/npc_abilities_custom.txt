@@ -10346,10 +10346,17 @@
 				}
 				"OnCreated"
 				{
-					"RunScript"				
+					"DelayedAction"
 					{
-						"ScriptFile"	"heroes/hero_undying/tombstone.lua"
-						"Function"		"tombstoneHandleIntervalThink"
+						"Delay"	"0.5"
+						"Action"
+						{
+							"RunScript"				
+							{
+								"ScriptFile"	"heroes/hero_undying/tombstone.lua"
+								"Function"		"tombstoneHandleIntervalThink"
+							}
+						}
 					}
 				}
 			}
