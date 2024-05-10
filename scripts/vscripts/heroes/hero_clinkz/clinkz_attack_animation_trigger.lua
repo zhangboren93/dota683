@@ -6,7 +6,8 @@ function modifier_clinkz_attack_animation:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 		MODIFIER_PROPERTY_OVERRIDE_ANIMATION_WEIGHT,
-		MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE
+		MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE,
+		MODIFIER_EVENT_ON_ORDER
 	}
 	return funcs
 end
@@ -25,6 +26,12 @@ end
 
 function modifier_clinkz_attack_animation:GetOverrideAnimationRate()
 	return self:GetParent():GetAttackSpeed(false)
+end
+
+function modifier_clinkz_attack_animation:OnOrder(event)
+	if event.unit == self:GetParent() and event.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION then
+		self:Destroy()
+	end
 end
 
 function HandleClinkzAttackStart(event)
