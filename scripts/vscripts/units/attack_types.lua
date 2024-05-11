@@ -1,6 +1,9 @@
-creep_siege_alter = class({ 
-	GetIntrinsicModifierName = function(self) return "modifier_creep_siege_alter" end,
-})
+function handleSiegeExtra(event)
+	local attacker = event.attacker
+	local ability = event.ability
+	attacker:AddNewModifier(attacker, ability, "modifier_creep_siege_alter", {})
+	attacker:RemoveModifierByName("modifier_creep_siege_extra")
+end
 
 modifier_creep_siege_alter = class({ 
 	IsPurgable			= function(self) return false end,
@@ -27,6 +30,7 @@ end
 function modifier_creep_siege_alter:GetModifierDamageOutgoing_Percentage(event)
 	local target = event.target
 	local ability = self:GetAbility()
+	if event.attacker ~= self:GetParent() or target == nil then return 0 end
 	if target:IsHero() or target:HasAbility("creep_hero_armor") then
 		return self.hero_damage
 	elseif target:HasAbility("creep_siege_alter") then
