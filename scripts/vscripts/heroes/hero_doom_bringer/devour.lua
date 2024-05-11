@@ -23,7 +23,7 @@ local devour_table = {
 
 function CheckDevourable(ability_name)
 	return ability_name ~= "neutral_upgrade"
-		and ability_name ~= "creep_siege_extra"
+		and ability_name ~= "creep_siege_alter"
 		and ability_name ~= "creep_piercing"
 		and ability_name ~= "creep_piercing_extra"
 		and ability_name ~= "creep_irresolute"

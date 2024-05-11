@@ -154,7 +154,7 @@ function modifier_creep_light:GetModifierDamageOutgoing_Percentage(event)
 	local attacker = event.attacker
 	local ability = self:GetAbility()
 	if target == nil then return end
-	if target:HasAbility("creep_siege") then
+	if target:HasAbility("creep_siege_alter") then
 		return ability:GetSpecialValueFor("building_damage_penalty")
 	else
 		return 0

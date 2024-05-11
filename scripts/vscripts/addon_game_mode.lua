@@ -190,7 +190,7 @@ function Activate()
 	LinkLuaModifier( "modifier_tusk_snowball_moving_lua", 		"heroes/hero_tusk/modifier_tusk_snowball_moving.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 	-- attack type & armor type
-	LinkLuaModifier( "modifier_creep_siege_extra_effect",		"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_siege_alter",				"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_piercing_extra",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_irresolute_extra",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_light",					"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1142,8 +1142,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		--end
 	end
 
-	if entity:HasAbility("creep_siege_extra") then
-		entity:FindAbilityByName("creep_siege_extra"):SetLevel(1)
+	if entity:HasAbility("creep_siege_alter") then
+		entity:FindAbilityByName("creep_siege_alter"):SetLevel(1)
 	end
 	if entity:HasAbility("creep_piercing_extra") then
 		entity:FindAbilityByName("creep_piercing_extra"):SetLevel(1)

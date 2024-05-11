@@ -33237,7 +33237,7 @@
 		"ScriptFile"					"units/attack_types.lua"
 		"AbilityValues"
 		{
-			"building_damage_penalty"		"-42.8571"
+			"building_damage_penalty"		"-60"
 			"building_damage_tooltip"		"40"
 		}
 	}
