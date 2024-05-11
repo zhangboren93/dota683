@@ -25999,6 +25999,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.65"
+		"AnimationPlaybackRate"			"0.615"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -28838,6 +28839,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.5"
+		"AnimationPlaybackRate"			"0.4"
 		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"100 120 140 160"
 		"AbilityValues"
