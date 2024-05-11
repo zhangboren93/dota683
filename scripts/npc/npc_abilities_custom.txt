@@ -8412,7 +8412,7 @@
 		{
 			"FireSound"
 			{
-				"EffectName"	"Hero_Ancient_Apparition.ChillingTouchCast" 
+				"EffectName"	"Hero_Ancient_Apparition.ChillingTouch.Cast" 
 				"Target" 		"CASTER"
 			}
 	
@@ -8428,6 +8428,12 @@
 				}
 			}
 	
+			"ApplyModifier"
+			{
+				"Target"		"CASTER"
+				"ModifierName"	"modifier_chilling_touch_cast_animation_datadriven"
+			}
+
 			"ActOnTargets"
 			{
 				"Target"
@@ -8535,6 +8541,13 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%attack_speed_pct"
 				}
+			}
+			"modifier_chilling_touch_cast_animation_datadriven"
+			{
+
+				"Duration"				"0.9"
+				"IsHidden"				"1"
+				"OverrideAnimation"		"ACT_DOTA_CHILLING_TOUCH"
 			}
 		}
 	}
