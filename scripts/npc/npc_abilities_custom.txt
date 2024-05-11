@@ -25598,7 +25598,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"8.0"
 		"AbilityCastRange"				"150 150 150 150"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate"			"0.833"
 
 		//------------------------------------------------------------------------------
 		"AbilityManaCost"				"0 0 0 0"
