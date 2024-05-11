@@ -24509,7 +24509,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
@@ -24517,6 +24517,8 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"abaddon_death_coil"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate"  		"0.552"
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -24562,6 +24564,7 @@
 		{
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
 			"particle" 	"particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
+			"particle"	"particles/units/heroes/hero_abaddon/abaddon_death_coil_explosion.vpcf"
 		}
 	
 		"OnSpellStart"
@@ -24595,6 +24598,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.452 0.452 0.452 0.452"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate"			"0.663"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------

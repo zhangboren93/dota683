@@ -34,19 +34,7 @@ function DeathCoil( event )
 	-- Self Damage
 	ApplyDamage({ victim = caster, attacker = caster, damage = self_damage,	damage_type = DAMAGE_TYPE_PURE, ability = ability })
 
-	-- Create the projectile
-	local info = {
-		Target = target,
-		Source = caster,
-		Ability = ability,
-		EffectName = particle_name,
-		bDodgeable = false,
-			bProvidesVision = true,
-			iMoveSpeed = projectile_speed,
-        iVisionRadius = 0,
-        iVisionTeamNumber = caster:GetTeamNumber(),
-		iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
-	}
-	ProjectileManager:CreateTrackingProjectile( info )
-
+	local particle_id = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_death_coil_explosion.vpcf", PATTACH_POINT_FOLLOW, target)
+	ParticleManager:SetParticleControlEnt(particle_id, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
+	ParticleManager:ReleaseParticleIndex(particle_id)
 end
