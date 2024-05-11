@@ -33181,41 +33181,21 @@
 			}
 		}
 	}
-	"creep_siege"
+	"creep_siege_alter"
 	{
-		"AbilityValues"
-		{
-			"incoming_basic_damage_penalty"		"-30"
-			"incoming_controlled_unit_penalty"	"-30"
-		}
-	}
-	"creep_siege_extra"
-	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
 		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
 		"AbilityTextureName"			"creep_siege"
+		"ScriptFile"					"units/attack_types.lua"
 		"AbilityValues"
 		{
-			"hero_damage_penalty"			"-25"
-			"basic_armor_damage_penalty"	"-50"
-			"strong_armor_damage_bonus"		"25"
-		}
-		"Modifiers"
-		{
-			"modifier_creep_siege_extra"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"units/attack_types.lua"
-						"Function"		"handleSiegeExtra"
-					}
-				}
-			}
+			"incoming_hero_damage_penalty"      "-50"
+			"incoming_basic_damage_penalty"		"-30"
+			"bonus_building_damage"				"50"
+			"hero_damage_penalty"				"-25"
+			"basic_armor_damage_penalty"		"-50"
+			"strong_armor_damage_bonus"			"25"
 		}
 	}
 	"creep_piercing_extra"
