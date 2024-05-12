@@ -3655,6 +3655,7 @@
 		"AbilityCastGestureSlot"		"DEFAULT"
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.3"
+		"AnimationPlaybackRate"			"0.333"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -7154,6 +7155,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.65"
+		"AnimationPlaybackRate"			"0.615"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
 		// Time		
@@ -8759,6 +8761,7 @@
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
 	"AbilityCastPoint"				"0.2"
+	"AnimationPlaybackRate"			"0.5"
 	"AbilityCastRange"				"900"
 
 	// Time		
@@ -14090,6 +14093,7 @@
 
 		"AbilityCastRange"				"750"
 		"AbilityCastPoint"				"0.45"
+		"AnimationPlaybackRate"			"0.555"
 		"FightRecapLevel"				"1"
 		"AbilityDamage"					"100"
 
