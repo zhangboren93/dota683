@@ -1350,6 +1350,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.6"
+		"AnimationPlaybackRate"			"0.666"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_6"
 
 		// Time		
@@ -7398,7 +7399,8 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
+		"AbilityCastPoint"				"0.2"
+		"AnimationPlaybackRate"			"1.5"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
 		// Time		
@@ -10145,6 +10147,7 @@
 		"AbilityCastGestureSlot"		"DEFAULT"
 		"AbilityCastRange"				"625"
 		"AbilityCastPoint"				"0.45"
+		"AnimationPlaybackRate"			"0.666"
 		"AOERadius"						"325"
 		
 		// Time		
@@ -10269,7 +10272,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_DOTA_UNDYING_SOUL_RIP"
 		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.45"
+		"AnimationPlaybackRate"			"0.666"
 		"AbilityCastRange"				"650"
 
 		// Time		
@@ -10312,7 +10316,8 @@
 		"AbilityCastAnimation"			"ACT_DOTA_UNDYING_TOMBSTONE"
 		"AbilityCastGestureSlot"		"DEFAULT"
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.45"
+		"AbilityCastPoint"				"0.6"
+		"AnimationPlaybackRate"			"0.75"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -30245,6 +30250,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.4"
+		"AnimationPlaybackRate"			"0.75"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
@@ -30296,7 +30302,8 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"350 550 750 1000"
-		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+		"AbilityCastPoint"				"0.4"
+		"AnimationPlaybackRate"			"0.5"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
