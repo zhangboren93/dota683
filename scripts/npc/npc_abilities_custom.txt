@@ -13461,7 +13461,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.5"
-		"AnimationPlaybackRate"			"0.3"
+		//"AnimationPlaybackRate"			"0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 
 
@@ -26889,6 +26889,8 @@
 		"AbilityCooldown"				"20.0 18.0 16.0 14.0"
 		"AbilityManaCost"				"110 120 130 140"
 		"AbilityCastPoint"				"0.35"
+		"AnimationPlaybackRate"			"0.571"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityValues"
 		{
 				"hero_duration"			"1.0 1.0 1.0 1.0"
@@ -28216,7 +28218,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.7"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate"			"0.428"
+		//"AnimationPlaybackRate"			"0.428"
 		"HasScepterUpgrade"				"0"
 		"AbilityCooldown"				"4"
 		"AbilityManaCost"				"90 100 110 120"
