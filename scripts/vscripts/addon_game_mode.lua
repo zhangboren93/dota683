@@ -1658,6 +1658,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		if hook ~= nil then
 			hook:ApplyDataDrivenModifier(caster, parent, "modifier_illusion_bounty_cancel_datadriven", {})
 		end
+		-- remove modifiers which are not inherited.
+		parent:RemoveModifierByName("modifier_templar_assassin_psi_blades")
 		-- inherit caster's buffs
 		local modifiers = caster:FindAllModifiers()
 		for i=1,#modifiers do
