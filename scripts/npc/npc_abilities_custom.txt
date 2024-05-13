@@ -33193,7 +33193,6 @@
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"creep_siege"
-		"ScriptFile"					"units/attack_types.lua"
 		"AbilityValues"
 		{
 			"incoming_hero_damage_penalty"      "-50"
