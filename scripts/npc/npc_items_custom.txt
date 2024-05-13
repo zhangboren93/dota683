@@ -6374,7 +6374,7 @@
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
-		"AbilityCooldown"				"1.0"
+		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"0"
 		
 		// Item Info
@@ -6388,6 +6388,7 @@
 		"AbilityValues"
 		{
             "fade_time"             "1.5"
+			"fade_duration"			"999"
             "bonus_attackspeed"     "30"
 		}
 	}
