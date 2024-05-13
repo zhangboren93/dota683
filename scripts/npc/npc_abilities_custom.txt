@@ -3862,8 +3862,7 @@
 						"Target"
 						{
 							"Center"		"TARGET"
-							"Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-							"Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+							"Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"							
 						}
 						"ModifierName"		"modifier_headshot_debuff_datadriven"
 					}
@@ -3874,6 +3873,7 @@
 						{
 							"Center"		"TARGET"
 							"Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 						}
 						"Damage"			"%AbilityDamage"
 						"Type"				"DAMAGE_TYPE_PHYSICAL"
@@ -14368,6 +14368,10 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
 	
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
@@ -14406,7 +14410,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2500 3000"
 		"AbilityCastRangeBuffer"		"600"
-		"AbilityCastPoint"				"1.7"
+		"AbilityCastPoint"				"2.0"
+		"AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -14442,7 +14447,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"charge_time"				"1.7"
+				"charge_time"				"2.0"
 			}
 			"04"
 			{
@@ -14537,6 +14542,7 @@
 			"modifier_assassinate_caster_datadriven"
 			{
 				"Duration"				"%charge_time"
+				"IsHidden"				"1"
 			
 				"OnOrder"
 				{
