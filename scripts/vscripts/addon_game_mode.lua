@@ -508,6 +508,7 @@ function CAddonTemplateGameMode:OnThink()
 			end
 			if self.game_mode == "LD" then
 				pickLadderHeroes(self)
+				CustomGameEventManager:Send_ServerToAllClients("hero_select_player_ladder_scores", playerId2LadderScore)
 				self.hero_selection_state = "BAN"
 			elseif self.game_mode == "CM" then
 				for i=1,#all_heroes do
@@ -2439,7 +2440,7 @@ function HandleItemDestroyed(itemname, heroindex)
 end
 
 function HandleHeroSwap(player1, player2)
-	if GetMapName() ~= "rank" then
+	if not isMapRanked() then
 		if PlayerResource:HasRandomed(player1) then
 			PlayerResource:ModifyGold(player1, -100, false, DOTA_ModifyGold_SelectionPenalty)
 		end

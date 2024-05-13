@@ -1,0 +1,24 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/ladder_hero_score.css" />
+	</styles>
+    <scripts>
+		<include src="file://{resources}/scripts/custom_game/ladder_hero_score.js" />
+	</scripts>
+	<Panel class="ladder_hero_score hidden">
+		<Panel class="ladder_team_score" style="flow-children:right;">
+			<Label id="rad_player_1_score" style="margin-left:30px;"/>
+			<Label id="rad_player_2_score"/>
+			<Label id="rad_player_3_score"/>
+			<Label id="rad_player_4_score"/>
+			<Label id="rad_player_5_score"/>
+		</Panel>
+		<Panel class="ladder_team_score" style="horizontal-align:right;flow-children:left;">
+			<Label id="dir_player_5_score" style="margin-right:20px;"/>
+			<Label id="dir_player_4_score"/>
+			<Label id="dir_player_3_score"/>
+			<Label id="dir_player_2_score"/>
+			<Label id="dir_player_1_score"/>
+		</Panel>
+    </Panel>
+</root>

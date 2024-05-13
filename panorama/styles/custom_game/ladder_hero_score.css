@@ -1,0 +1,28 @@
+.ladder_hero_score {
+	width: 1500px;
+	height: 80px;
+	horizontal-align: center;
+	vertical-align: top;
+	/*border: 2px solid #0000FFFF;*/
+}
+
+.ladder_hero_score.hidden {
+	width: 0px;
+	height: 0px;
+	horizontal-align: left;
+	margin-left: -1000px;
+}
+
+.ladder_team_score {
+	height: 100%;
+	/*border: 2px solid #00FF00FF;*/
+}
+
+.ladder_team_score Label {
+	vertical-align: center;
+	font-size: 24px;
+	color: #FFFFFF;
+	margin-left: 55px;
+	width: 70px;
+	/*border: 2px solid #FF0000FF;*/
+}
