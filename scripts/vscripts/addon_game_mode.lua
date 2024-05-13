@@ -190,7 +190,7 @@ function Activate()
 	LinkLuaModifier( "modifier_tusk_snowball_moving_lua", 		"heroes/hero_tusk/modifier_tusk_snowball_moving.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 	-- attack type & armor type
-	LinkLuaModifier( "modifier_creep_siege_extra_effect",		"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_siege_alter",				"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_piercing_extra",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_irresolute_extra",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_light",					"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1142,8 +1142,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		--end
 	end
 
-	if entity:HasAbility("creep_siege_extra") then
-		entity:FindAbilityByName("creep_siege_extra"):SetLevel(1)
+	if entity:HasAbility("creep_siege_alter") then
+		entity:FindAbilityByName("creep_siege_alter"):SetLevel(1)
 	end
 	if entity:HasAbility("creep_piercing_extra") then
 		entity:FindAbilityByName("creep_piercing_extra"):SetLevel(1)
@@ -1658,6 +1658,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		if hook ~= nil then
 			hook:ApplyDataDrivenModifier(caster, parent, "modifier_illusion_bounty_cancel_datadriven", {})
 		end
+		-- remove modifiers which are not inherited.
+		parent:RemoveModifierByName("modifier_templar_assassin_psi_blades")
 		-- inherit caster's buffs
 		local modifiers = caster:FindAllModifiers()
 		for i=1,#modifiers do
@@ -2005,7 +2007,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			end
 			--print("Etheral damage " .. event.damage)
 		elseif inflictor:GetName() == "centaur_return" and victim:IsBuilding() then
-			event.damage = event.damage * 4 -- self 50% & siege 50%
+			event.damage = event.damage * 2
 		elseif inflictor:GetName() == "death_prophet_exorcism" and victim:IsBuilding() then
 			event.damage = event.damage * 2
 		elseif inflictor:GetName() == "invoker_emp" then

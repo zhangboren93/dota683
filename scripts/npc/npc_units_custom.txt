@@ -5,7 +5,7 @@
 	"dota_fountain"
 	{
 		"Ability2"					"glyph_datadriven"			// Ability 2.
-		"Ability3"					"creep_siege_extra"			// Ability 3.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 	}	
 	"npc_dota_neutral_kobold"
 	{
@@ -787,7 +787,7 @@
 	}
 	"npc_dota_goodguys_tower1_top"
 	{
-		"Ability2"					"creep_siege_extra"	// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"ArmorPhysical"				"20"		// Physical protection.
 		"AttackDamageMin"			"100"		// Damage range min.
 		"AttackDamageMax"			"120"		// Damage range max.
@@ -814,8 +814,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"creep_siege"			// Ability 1.
-		"Ability2"					"creep_siege_extra"	// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -913,8 +912,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"creep_siege"			// Ability 1.
-		"Ability2"					"creep_siege_extra"	// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -1013,8 +1011,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"creep_siege"			// Ability 1.
-		"Ability2"					"creep_siege_extra"	// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -1112,8 +1109,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"creep_siege"			// Ability 1.
-		"Ability2"					"creep_siege_extra"	// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -1210,8 +1206,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"creep_siege"			// Ability 1.
-		"Ability2"					"creep_siege_extra"	// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -1296,7 +1291,7 @@
 //=================================================================================
 	"npc_dota_goodguys_tower2_top"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 3.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"120"		// Damage range min.
@@ -1308,7 +1303,7 @@
 	}	
 	"npc_dota_goodguys_tower2_mid"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 3.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"120"		// Damage range min.
@@ -1320,7 +1315,7 @@
 	}	
 	"npc_dota_goodguys_tower2_bot"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 3.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"120"		// Damage range min.
@@ -1332,7 +1327,7 @@
 	}	
 	"npc_dota_goodguys_tower3_top"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 3.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"122"		// Damage range min.
@@ -1344,7 +1339,7 @@
 	}	
 	"npc_dota_goodguys_tower3_mid"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 3.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"122"		// Damage range min.
@@ -1356,7 +1351,7 @@
 	}	
 	"npc_dota_goodguys_tower3_bot"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 3.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"122"		// Damage range min.
@@ -1368,7 +1363,7 @@
 	}	
 	"npc_dota_badguys_tower2_top"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 3.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"120"		// Damage range min.
@@ -1380,7 +1375,7 @@
 	}	
 	"npc_dota_badguys_tower2_mid"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 2.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"120"		// Damage range min.
@@ -1392,7 +1387,7 @@
 	}	
 	"npc_dota_badguys_tower2_bot"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 2.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"120"		// Damage range min.
@@ -1404,7 +1399,7 @@
 	}	
 	"npc_dota_badguys_tower3_top"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 2.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"122"		// Damage range min.
@@ -1416,7 +1411,7 @@
 	}	
 	"npc_dota_badguys_tower3_mid"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 2.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"122"		// Damage range min.
@@ -1428,7 +1423,7 @@
 	}	
 	"npc_dota_badguys_tower3_bot"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 3.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"25"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"122"		// Damage range min.
@@ -1440,7 +1435,7 @@
 	}	
 	"npc_dota_goodguys_tower4"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 3.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"30"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"122"		// Damage range min.
@@ -1452,7 +1447,7 @@
 	}	
 	"npc_dota_badguys_tower4"
 	{
-		"Ability3"					"creep_siege_extra"	// Ability 3.
+		"Ability2"					"creep_siege_alter"	// Ability 2.
 		"ArmorPhysical"				"30"		// Physical protection.
 		"StatusHealth"				"1600"		// Base health.
 		"AttackDamageMin"			"122"		// Damage range min.
@@ -1464,6 +1459,7 @@
 	}	
 	"npc_dota_goodguys_melee_rax_top"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1471,6 +1467,7 @@
 	}	
 	"npc_dota_goodguys_melee_rax_mid"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1478,6 +1475,7 @@
 	}	
 	"npc_dota_goodguys_melee_rax_bot"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1485,6 +1483,7 @@
 	}	
 	"npc_dota_badguys_melee_rax_top"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1492,6 +1491,7 @@
 	}	
 	"npc_dota_badguys_melee_rax_mid"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1499,6 +1499,7 @@
 	}	
 	"npc_dota_badguys_melee_rax_bot"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1506,6 +1507,7 @@
 	}	
 	"npc_dota_goodguys_range_rax_top"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1513,6 +1515,7 @@
 	}	
 	"npc_dota_goodguys_range_rax_mid"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1520,6 +1523,7 @@
 	}	
 	"npc_dota_goodguys_range_rax_bot"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1527,6 +1531,7 @@
 	}	
 	"npc_dota_badguys_range_rax_top"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1534,6 +1539,7 @@
 	}	
 	"npc_dota_badguys_range_rax_mid"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1541,6 +1547,7 @@
 	}	
 	"npc_dota_badguys_range_rax_bot"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1562,7 +1569,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
-		"Ability2"					"creep_siege"			// Ability 2.
+		"Ability2"					"creep_siege_alter"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -1649,7 +1656,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
-		"Ability2"					"creep_siege"			// Ability 2.
+		"Ability2"					"creep_siege_alter"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -1818,37 +1825,37 @@
 	}
 	"npc_dota_goodguys_siege"
 	{
-		"Ability2"					"creep_siege_extra"			// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_goodguys_siege_upgraded"
 	{
-		"Ability2"					"creep_siege_extra"			// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_goodguys_siege_upgraded_mega"
 	{
-		"Ability2"					"creep_siege_extra"			// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_badguys_siege"
 	{
-		"Ability2"					"creep_siege_extra"			// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_badguys_siege_upgraded"
 	{
-		"Ability2"					"creep_siege_extra"			// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	
 	"npc_dota_badguys_siege_upgraded_mega"
 	{
-		"Ability2"					"creep_siege_extra"			// Ability 2.
+		"Ability1"					"creep_siege_alter"			// Ability 1.
 		"MagicalResistance"			"0"		// Magical protection.
 		"StatusHealth"				"550"		// Base health.
 	}	

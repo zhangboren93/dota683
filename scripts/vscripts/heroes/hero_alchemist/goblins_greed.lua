@@ -28,7 +28,7 @@ function GoblinsGreed( event )
 	-- Grant the gold
 	print("GG Stack Count: " .. stacks)
 	caster:ModifyGold(stacks, false, DOTA_ModifyGold_CreepKill)
-	if target:HasAbility("creep_siege_extra") then
+	if target:HasAbility("creep_siege_alter") then
 		SendOverheadEventMessage(caster:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, target, stacks, caster:GetPlayerOwner())
 	end
 

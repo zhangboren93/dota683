@@ -3873,8 +3873,7 @@
 						"Target"
 						{
 							"Center"		"TARGET"
-							"Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-							"Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+							"Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"							
 						}
 						"ModifierName"		"modifier_headshot_debuff_datadriven"
 					}
@@ -3885,6 +3884,7 @@
 						{
 							"Center"		"TARGET"
 							"Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 						}
 						"Damage"			"%AbilityDamage"
 						"Type"				"DAMAGE_TYPE_PHYSICAL"
@@ -14409,6 +14409,10 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
 	
+        // Cost
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityManaCost"               "0"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
@@ -14447,7 +14451,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000 2500 3000"
 		"AbilityCastRangeBuffer"		"600"
-		"AbilityCastPoint"				"1.7"
+		"AbilityCastPoint"				"2.0"
+		"AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_4"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -14483,7 +14488,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"charge_time"				"1.7"
+				"charge_time"				"2.0"
 			}
 			"04"
 			{
@@ -14578,6 +14583,7 @@
 			"modifier_assassinate_caster_datadriven"
 			{
 				"Duration"				"%charge_time"
+				"IsHidden"				"1"
 			
 				"OnOrder"
 				{
@@ -33253,15 +33259,7 @@
 			}
 		}
 	}
-	"creep_siege"
-	{
-		"AbilityValues"
-		{
-			"incoming_basic_damage_penalty"		"-30"
-			"incoming_controlled_unit_penalty"	"-30"
-		}
-	}
-	"creep_siege_extra"
+	"creep_siege_alter"
 	{
 		"BaseClass"						"ability_datadriven"
 		"MaxLevel"						"1"
@@ -33269,9 +33267,12 @@
 		"AbilityTextureName"			"creep_siege"
 		"AbilityValues"
 		{
-			"hero_damage_penalty"			"-25"
-			"basic_armor_damage_penalty"	"-50"
-			"strong_armor_damage_bonus"		"25"
+			"incoming_hero_damage_penalty"      "-50"
+			"incoming_basic_damage_penalty"		"-30"
+			"bonus_building_damage"				"50"
+			"hero_damage_penalty"				"-25"
+			"basic_armor_damage_penalty"		"-50"
+			"strong_armor_damage_bonus"			"25"
 		}
 		"Modifiers"
 		{
@@ -33329,7 +33330,7 @@
 		"ScriptFile"					"units/attack_types.lua"
 		"AbilityValues"
 		{
-			"building_damage_penalty"		"-42.8571"
+			"building_damage_penalty"		"-60"
 			"building_damage_tooltip"		"40"
 		}
 	}
