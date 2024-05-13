@@ -2005,7 +2005,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			end
 			--print("Etheral damage " .. event.damage)
 		elseif inflictor:GetName() == "centaur_return" and victim:IsBuilding() then
-			event.damage = event.damage * 4 -- self 50% & siege 50%
+			event.damage = event.damage * 2
 		elseif inflictor:GetName() == "death_prophet_exorcism" and victim:IsBuilding() then
 			event.damage = event.damage * 2
 		elseif inflictor:GetName() == "invoker_emp" then
