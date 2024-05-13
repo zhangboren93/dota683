@@ -1459,6 +1459,7 @@
 	}	
 	"npc_dota_goodguys_melee_rax_top"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1466,6 +1467,7 @@
 	}	
 	"npc_dota_goodguys_melee_rax_mid"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1473,6 +1475,7 @@
 	}	
 	"npc_dota_goodguys_melee_rax_bot"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1480,6 +1483,7 @@
 	}	
 	"npc_dota_badguys_melee_rax_top"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1487,6 +1491,7 @@
 	}	
 	"npc_dota_badguys_melee_rax_mid"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1494,6 +1499,7 @@
 	}	
 	"npc_dota_badguys_melee_rax_bot"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"15"		// Physical protection.
 		"StatusHealth"				"1500"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1501,6 +1507,7 @@
 	}	
 	"npc_dota_goodguys_range_rax_top"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1508,6 +1515,7 @@
 	}	
 	"npc_dota_goodguys_range_rax_mid"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1515,6 +1523,7 @@
 	}	
 	"npc_dota_goodguys_range_rax_bot"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1522,6 +1531,7 @@
 	}	
 	"npc_dota_badguys_range_rax_top"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1529,6 +1539,7 @@
 	}	
 	"npc_dota_badguys_range_rax_mid"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1536,6 +1547,7 @@
 	}	
 	"npc_dota_badguys_range_rax_bot"
 	{
+		"Ability2"                  "creep_siege_alter"           // Ability 2.
 		"ArmorPhysical"				"10"			// Physical protection.
 		"StatusHealth"				"1200"		// Base health.
 		"BountyGoldMin"				"100"		// Gold earned min.
@@ -1557,7 +1569,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
-		"Ability2"					"creep_siege"			// Ability 2.
+		"Ability2"					"creep_siege_alter"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
@@ -1644,7 +1656,7 @@
 		//----------------------------------------------------------------
 		
 		"Ability1"					"backdoor_protection_in_base"			// Ability 1.
-		"Ability2"					"creep_siege"			// Ability 2.
+		"Ability2"					"creep_siege_alter"			// Ability 2.
 		"Ability3"					""			// Ability 3.
 		"Ability4"					""			// Ability 4.
 		"Ability5"					""			// Ability 5.
