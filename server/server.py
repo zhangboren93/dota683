@@ -16,10 +16,9 @@ process_game_buffer = 30 * 60
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
-        user_id = self.path[1:]
-        print('files/' + user_id)
+        user_id = int(self.path[1:])
         try:
-            with open('files/' + user_id, 'r', encoding='utf-8') as fp:
+            with open(f"files/{user_id}", 'r', encoding='utf-8') as fp:
                 file_content = fp.read()
                 print(file_content)
         except FileNotFoundError:
