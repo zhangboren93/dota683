@@ -28208,6 +28208,9 @@
 		"precache"
 		{
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury.vpcf"
+			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_null.vpcf"
+			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_tgt.vpcf"
 		}
 
 		// Casting
