@@ -954,16 +954,19 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_MOVE_ITEM then
+		local item = EntIndexToHScript(event.entindex_ability)
 		local unit = EntIndexToHScript(event.units['0'])
-		local hasEmptySpace = false
-		for i=0,DOTA_ITEM_SLOT_6 do
-			if unit:GetItemInSlot(i) == nil then
-				hasEmptySpace = true
+		if item:GetItemSlot() > DOTA_STASH_SLOT_1 and unit:GetName() == "npc_dota_courier" then 
+			local hasEmptySpace = false
+			for i=0,DOTA_ITEM_SLOT_6 do
+				if unit:GetItemInSlot(i) == nil then
+					hasEmptySpace = true
+				end
 			end
-		end
-		if not hasEmptySpace then
-			print("Unit has no space to hold item")
-			return false
+			if not hasEmptySpace then
+				print("Unit has no space to hold item")
+				return false
+			end
 		end
 	end
 	return true
