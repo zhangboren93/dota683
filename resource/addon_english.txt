@@ -1206,6 +1206,7 @@
 		"DOTA_Tooltip_modifier_thirst_debuff_datadriven"						"Thirst"
 		"DOTA_Tooltip_modifier_thirst_debuff_datadriven_Description"			"Bloodseeker senses your injuries, and knows exactly where you are."
 		//Bounty Hunter
+		"DOTA_Tooltip_ability_bounty_hunter_shuriken_toss_Description"				"Hurls a deadly shuriken at an enemy unit, dealing damage and mini-stunning the target.  The shuriken will bounce between any Tracked units who are within a %bounce_aoe% radius of each other."
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven"						"Jinada"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Description"			"Bounty Hunter plans his next hit, passively adding a critical strike and maim to his next attack."
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Lore"					"Gondar's vast experience ensures he never walks away from a transaction empty-handed."

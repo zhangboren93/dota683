@@ -1193,6 +1193,7 @@
 		"DOTA_Tooltip_modifier_thirst_debuff_datadriven"						"焦渴"
 		"DOTA_Tooltip_modifier_thirst_debuff_datadriven_Description"			"血魔感觉到了你的伤痛，对你的位置了如指掌。"
 		//Bounty Hunter
+		"DOTA_Tooltip_ability_bounty_hunter_shuriken_toss_Description"				"向一名敌方单位掷出一枚致命的飞镖，对目标造成伤害和短暂眩晕。只要作用目标周围%bounce_aoe%范围内存在被追踪术标记的单位，飞镖就能向其弹射。"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven"						"忍术"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Description"			"赏金猎人准备好他的下次攻击，造成致命一击并残废目标。"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Lore"					"刚铎庞杂的经验能确保他在交易后不会空手而归。"
