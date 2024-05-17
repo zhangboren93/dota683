@@ -19249,6 +19249,7 @@
 		"MaxLevel"              		"3"
 		"RequiredLevel"         		"6"
 		"LevelsBetweenUpgrades" 		"5"
+		"AbilityProcsMagicStick"		"1"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
