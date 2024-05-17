@@ -1478,6 +1478,8 @@
         "DOTA_Tooltip_Ability_nyx_assassin_spiked_carapace_datadriven_Description"              "Spiked Carapace reflects and negates damage dealt to Nyx Assassin (max once from each source), as well as stunning the source of the damage."
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_reflect_duration"					"REFLECT DURATION:"
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_stun_duration"						"STUN DURATION:"
+		"DOTA_Tooltip_modifier_spiked_carapace_buff_datadriven"					"Spiked Carapace"
+        "DOTA_Tooltip_modifier_spiked_carapace_buff_datadriven_Description"		"The next player-owned damage instance will be reflected, damaging and stunning the hero that caused it."
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage"								""	
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage_physical"						"BONUS DAMAGE"	
 		//Phantom Assassin

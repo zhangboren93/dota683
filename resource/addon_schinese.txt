@@ -1465,6 +1465,9 @@
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_Description"				"激活状态下，尖刺外壳可以反弹并无效化司夜刺客受到的伤害（每个攻击者最多作用一次），同时眩晕攻击者。"
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_reflect_duration"			"反弹持续时间："
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_stun_duration"			"眩晕时间："
+        "DOTA_Tooltip_modifier_spiked_carapace_buff_datadriven"					"尖刺外壳"
+        "DOTA_Tooltip_modifier_spiked_carapace_buff_datadriven_Description"		"下一次来自玩家的伤害将被反弹，发动攻击的英雄将受到伤害和眩晕。"
+        "DOTA_Tooltip_modifier_spiked_carapaced_stun_datadriven"				"#DOTA_Tooltip_modifier_stunned"
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage"								""	
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage_physical"						"额外伤害："	
 		//Phantom Assassin
