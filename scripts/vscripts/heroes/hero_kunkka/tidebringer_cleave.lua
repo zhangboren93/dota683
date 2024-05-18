@@ -20,7 +20,7 @@ end
 function modifier_tidebringer_cleave:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_PROCESS_CLEAVE,
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+		MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL,
 		MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
 	}
 	return funcs
@@ -85,10 +85,6 @@ function modifier_tidebringer_cleave:IsDebuff()
 	return false
 end
 
-function modifier_tidebringer_cleave:GetModifierPreAttack_BonusDamage()
-	return self:GetAbility():GetSpecialValueFor("damage_bonus")
-end
-
 function modifier_tidebringer_cleave:GetActivityTranslationModifiers()
 	return "tidebringer"
 end
@@ -99,4 +95,8 @@ function modifier_tidebringer_cleave:OnDestroy()
 		ParticleManager:ReleaseParticleIndex(self.particle)
 		self.particle = nil
 	end
+end
+
+function modifier_tidebringer_cleave:GetModifierProcAttack_BonusDamage_Physical()
+	return self:GetAbility():GetSpecialValueFor("damage_bonus")
 end
