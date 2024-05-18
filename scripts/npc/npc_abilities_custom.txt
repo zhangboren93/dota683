@@ -19300,6 +19300,7 @@
 		"MaxLevel"              		"3"
 		"RequiredLevel"         		"6"
 		"LevelsBetweenUpgrades" 		"5"
+		"AbilityProcsMagicStick"		"1"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -26509,12 +26510,13 @@
 	"nyx_assassin_impale"
 	{
 		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.4"
+		"AnimationPlaybackRate"			"0.75"
 		"AbilityCooldown"				"13"
 		"AbilityManaCost"				"95 115 135 155"
 		"AbilityValues"
 		{
-				"width"				"140"
+				"width"				"125"
 				"duration"			"1.27 1.77 2.27 2.77"
 				"length"			"700"
 				"speed"				"1600"
@@ -26583,6 +26585,7 @@
 	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 	"FightRecapLevel"				"1"
 	"AbilityTextureName"			"nyx_assassin_spiked_carapace"
+	"AbilitySound"                  "Hero_NyxAssassin.SpikedCarapace"
 
 	// Stats		
 	//-------------------------------------------------------------------------------------------------------------
@@ -26631,6 +26634,12 @@
 			"Target"					"CASTER"
 			"ModifierName"				"modifier_spiked_carapace_buff_datadriven"
 		}
+
+		"FireSound"
+		{
+			"EffectName"	"Hero_NyxAssassin.SpikedCarapace"
+			"Target"		"CASTER"
+		}
 	}
 	
 	"Modifiers"
@@ -26646,6 +26655,11 @@
 			
 			"OnTakeDamage"
 			{
+				"FireSound"
+				{
+					"EffectName"	"Hero_NyxAssassin.SpikedCarapace.Stun"
+					"Target"		"ATTACKER"
+				}
 				"RunScript"
 				{
 					"ScriptFile"	"heroes/hero_nyx_assassin/spiked_carapace.lua"

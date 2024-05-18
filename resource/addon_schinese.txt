@@ -1193,6 +1193,7 @@
 		"DOTA_Tooltip_modifier_thirst_debuff_datadriven"						"焦渴"
 		"DOTA_Tooltip_modifier_thirst_debuff_datadriven_Description"			"血魔感觉到了你的伤痛，对你的位置了如指掌。"
 		//Bounty Hunter
+		"DOTA_Tooltip_ability_bounty_hunter_shuriken_toss_Description"				"向一名敌方单位掷出一枚致命的飞镖，对目标造成伤害和短暂眩晕。只要作用目标周围%bounce_aoe%范围内存在被追踪术标记的单位，飞镖就能向其弹射。"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven"						"忍术"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Description"			"赏金猎人准备好他的下次攻击，造成致命一击并残废目标。"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_Lore"					"刚铎庞杂的经验能确保他在交易后不会空手而归。"
@@ -1464,6 +1465,9 @@
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_Description"				"激活状态下，尖刺外壳可以反弹并无效化司夜刺客受到的伤害（每个攻击者最多作用一次），同时眩晕攻击者。"
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_reflect_duration"			"反弹持续时间："
 		"DOTA_Tooltip_ability_nyx_assassin_spiked_carapace_datadriven_stun_duration"			"眩晕时间："
+        "DOTA_Tooltip_modifier_spiked_carapace_buff_datadriven"					"尖刺外壳"
+        "DOTA_Tooltip_modifier_spiked_carapace_buff_datadriven_Description"		"下一次来自玩家的伤害将被反弹，发动攻击的英雄将受到伤害和眩晕。"
+        "DOTA_Tooltip_modifier_spiked_carapaced_stun_datadriven"				"#DOTA_Tooltip_modifier_stunned"
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage"								""	
 		"DOTA_Tooltip_ability_nyx_assassin_vendetta_bonus_damage_physical"						"额外伤害："	
 		//Phantom Assassin
