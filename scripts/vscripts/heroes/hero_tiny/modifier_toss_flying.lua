@@ -18,7 +18,7 @@ function modifier_toss_flying_lua:OnDestroy()
 		local parent = self:GetParent()
 		parent:RemoveHorizontalMotionController(self)
 		parent:RemoveVerticalMotionController(self)
-		if (parent:GetAbsOrigin() - parent.toss_to_target:GetAbsOrigin()):Length() < 120 then
+		if (parent:GetAbsOrigin() - parent.toss_to_target:GetAbsOrigin()):Length2D() < 120 then
 			local caster = self:GetAbility():GetCaster()
 			local ability = self:GetAbility()
 			local damage_radius = ability:GetSpecialValueFor("radius")
