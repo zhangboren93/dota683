@@ -26449,6 +26449,7 @@
 	{
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.4"
+		"AnimationPlaybackRate"			"0.75"
 		"AbilityCooldown"				"13"
 		"AbilityManaCost"				"95 115 135 155"
 		"AbilityValues"
