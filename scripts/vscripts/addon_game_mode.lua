@@ -168,6 +168,7 @@ function Activate()
 	LinkLuaModifier( "modifier_supernova_sun_form_egg_datadriven", 		"heroes/hero_phoenix/modifier_supernova_sun_form_egg_datadriven.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_supernova_burn_datadriven", 				"heroes/hero_phoenix/modifier_supernova_burn_datadriven", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_brewmaster_thunder_clap_creep_lua", 		"heroes/hero_brewmaster/modifier_brewmaster_thunder_clap_creep.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_slark_pounce_leash_lua", 				"heroes/hero_slark/pounce.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1726,8 +1727,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		parent:SetNightTimeVisionRange(400)
 	elseif event.name_const == "modifier_slark_pounce_leash" then 
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		caster:FindAbilityByName("slark_shadow_dance_heal_datadriven"):ApplyDataDrivenModifier(
-			caster, parent, "modifier_slark_pounce_leash_datadriven", { duration = 3.5 })
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_slark_pounce_leash_lua", { duration = 3.5})
 		return false
 	elseif event.name_const == "modifier_lich_frostnova_slow" then 
 		local modifier = parent:FindModifierByName("modifier_lich_chainfrost_slow")

@@ -11971,39 +11971,6 @@
 		{
 			"particle"	"particles/units/heroes/hero_slark/slark_pounce_leash.vpcf"
 		}
-		"Modifiers"
-		{
-			"modifier_slark_pounce_leash_datadriven"
-			{
-				"IsDebuff"		"1"
-				"ThinkInterval"	"0.1"
-				"IsPurgable"	"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_slark/pounce.lua"
-						"Function"		"handleLeashCreated"
-					}
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_slark/pounce.lua"
-						"Function"		"handleLeashIntervalThink"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_slark/pounce.lua"
-						"Function"		"handleLeashDestroy"
-					}
-				}
-			}
-		}
 	}
     "medusa_stone_gaze"
 	{

@@ -1,32 +1,42 @@
-function handleLeashCreated(event)
-	local target = event.target
-	local caster = event.caster
-	caster.leash_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_slark/slark_pounce_leash.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-	ParticleManager:SetParticleControl(caster.leash_particle, 1, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControlEnt(caster.leash_particle, 3, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
-	caster.leash_loc = caster:GetAbsOrigin()
+modifier_slark_pounce_leash_lua = class({})
+
+function modifier_slark_pounce_leash_lua:OnCreated(keys)
+	if not IsServer() then return end
+	local caster = self:GetCaster()
+	local target = self:GetParent()
+	self.leash_loc = caster:GetAbsOrigin()
+ 	self.leash_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_slark/slark_pounce_leash.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+    ParticleManager:SetParticleControl(self.leash_particle, 1, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControlEnt(self.leash_particle, 3, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
 end
 
-function handleLeashDestroy(event)
-	local caster = event.caster
-	ParticleManager:DestroyParticle(caster.leash_particle, false)
-	ParticleManager:ReleaseParticleIndex(caster.leash_particle)
+function modifier_slark_pounce_leash_lua:CheckState() 
+	local leash_loc = self.leash_loc
+	local target = self:GetParent()
+	if not IsServer() then return {} end
+	
+	if (target:GetAbsOrigin() - leash_loc):Length2D() > 425 then
+		self:Destroy()
+		return {}
+	end
+
+	if not target:IsCurrentlyHorizontalMotionControlled() 
+		and (target:GetAbsOrigin() - leash_loc):Length2D() > 325 
+		and target:GetForwardVector():Dot(target:GetAbsOrigin() - leash_loc) > 0 then
+		return {
+			[MODIFIER_STATE_ROOTED] = true
+		}
+	end
+
+	return { }
 end
 
-function handleLeashIntervalThink(event)
-	local target = event.target
-	local caster = event.caster
-	if (target:GetAbsOrigin() - caster.leash_loc):Length() > 425 then
-		target:RemoveModifierByName("modifier_slark_pounce_leash_datadriven")
-		return
-	end
+function modifier_slark_pounce_leash_lua:IsPurgable()
+	return true
+end
 
-	if target:IsCurrentlyHorizontalMotionControlled() then
-		return
-	end
-
-	if (target:GetAbsOrigin() - caster.leash_loc):Length() > 325 then
-		target:SetAbsOrigin(caster.leash_loc + 
-			(target:GetAbsOrigin() - caster.leash_loc):Normalized() * 325)
-	end
+function modifier_slark_pounce_leash_lua:OnDestroy()
+	if not IsServer() then return end
+    ParticleManager:DestroyParticle(self.leash_particle, false)
+    ParticleManager:ReleaseParticleIndex(self.leash_particle)
 end

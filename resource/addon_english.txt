@@ -1587,6 +1587,8 @@
 		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven_duration"			"DURATION:"
 		"DOTA_Tooltip_modifier_slark_essence_shift_datadriven_buff_counter"		"Essence Shift"
 		"DOTA_Tooltip_modifier_slark_essence_shift_datadriven_debuff_counter"	"Essence Shift"
+		"DOTA_Tooltip_modifier_slark_pounce_leash_lua"							"Leashed"
+		"DOTA_Tooltip_modifier_slark_pounce_leash_lua_Description"				"Leashed to Slark, can only move a limited distance away."
 		"DOTA_Tooltip_Ability_slark_shadow_dance_bonus_regen"					"" 
 		"DOTA_Tooltip_Ability_slark_shadow_dance_bonus_pct_regen"				"%HEALTH REGEN:"
 		"DOTA_Tooltip_modifier_slark_shadow_dance_passive_regen_Description"	"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% bonus movement speed and regenerating a certain percentage of max HP per second."

@@ -1575,6 +1575,8 @@
 		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven_duration"					"持续时间："
 		"DOTA_Tooltip_modifier_slark_essence_shift_datadriven_buff_counter"				"能量转移"
 		"DOTA_Tooltip_modifier_slark_essence_shift_datadriven_debuff_counter"			"能量转移"
+		"DOTA_Tooltip_modifier_slark_pounce_leash_lua"									"被束缚"
+		"DOTA_Tooltip_modifier_slark_pounce_leash_lua_Description"						"被斯拉克束缚了，只能在有限距离内移动。"
 		"DOTA_Tooltip_Ability_slark_shadow_dance_bonus_regen"							"" 
 		"DOTA_Tooltip_Ability_slark_shadow_dance_bonus_pct_regen"						"%回血："
 		"DOTA_Tooltip_modifier_slark_shadow_dance_passive_regen_Description"			"获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%额外移动速度同时每秒回复最大生命值的一定百分比。"
