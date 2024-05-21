@@ -74,9 +74,6 @@ function OnEndGameStats(event) {
     CenterBlock.FindChildTraverse("inventory_composition_layer_container").style.visibility = "collapse";
     GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false);
     GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false);
-
-    let combat_events = PanelHUD.FindChildTraverse("combat_events");
-    combat_events.visible = false;
  
     //let backpack_list = PanelHUD.FindChildTraverse("inventory_backpack_list");
     //backpack_list.visible = false;

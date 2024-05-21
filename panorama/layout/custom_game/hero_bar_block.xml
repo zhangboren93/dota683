@@ -7,12 +7,12 @@
 		<include src="file://{resources}/scripts/custom_game/hero_bar_block.js"/>
 	</scripts>
 	<Panel class="hero-bar-block">
-		<Panel id="hero-bar-block-buttons">
-			<Button id="hero-bar-block-button-0" onactivate="pingMiss(0)"/>
-			<Button id="hero-bar-block-button-1" onactivate="pingMiss(1)"/>
-			<Button id="hero-bar-block-button-2" onactivate="pingMiss(2)"/>
-			<Button id="hero-bar-block-button-3" onactivate="pingMiss(3)"/>
-			<Button id="hero-bar-block-button-4" onactivate="pingMiss(4)"/>
+		<Panel id="hero-bar-block-buttons" class="Buttons">
+			<Button id="hero-bar-block-button-0"/>
+			<Button id="hero-bar-block-button-1"/>
+			<Button id="hero-bar-block-button-2"/>
+			<Button id="hero-bar-block-button-3"/>
+			<Button id="hero-bar-block-button-4"/>
 		</Panel>
     </Panel>
 </root>

@@ -18,8 +18,12 @@
 	width: 310px;
 	/*border: 2px solid #FFFF00FF;*/
 	flow-children: right;
-}
+}	
 
 .dire-block {
 	horizontal-align: right;
+}
+
+.AltPressed {
+	visibility: collapse;
 }
