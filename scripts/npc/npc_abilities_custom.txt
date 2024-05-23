@@ -21854,6 +21854,15 @@
 					"value"		"200"
 					"RequiresScepter"			"1"
 				}
+				"punch_duration"				"0"
+				"punch_attack_range"			"0"
+				"punch_bonus_damage_base"		"0"
+				"punch_bonus_damage_per_stack"	"0"
+				"punch_grace_period"			"0"
+				"cleave_starting_width"			"0"
+				"cleave_ending_width"			"0"
+				"cleave_distance"				"0"
+				"cleave_damage"					"0"
 		}
 	}
 	// Rewrite of Slark's Essence Shift
