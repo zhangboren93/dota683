@@ -63,7 +63,7 @@ function itemPctManaRegen(caster)
 		end
 	end
 
-	local mana_gen = 1 + caster:GetIntellect() * 4;
+	local mana_gen = 1 + caster:GetIntellect(true) * 4;
 	local bonus_mana = math.floor(mana_gen * total_pct / 100)
 
 	local modifier = caster:FindModifierByName("item_pct_mana_regen_modifier_lua")

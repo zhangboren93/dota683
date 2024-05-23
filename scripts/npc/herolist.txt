@@ -123,7 +123,7 @@
 	"npc_dota_hero_kunkka"				"1"
 	"npc_dota_hero_legion_commander"	"1"
 	"npc_dota_hero_meepo"				"1"
-	"npc_dota_hero_monkey_king"			"1"
+	"npc_dota_hero_monkey_king"			"0"
 	"npc_dota_hero_phantom_lancer"		"1"
 	"npc_dota_hero_spectre"				"1"
 	"npc_dota_hero_undying"				"1"
