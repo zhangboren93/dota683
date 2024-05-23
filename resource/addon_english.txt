@@ -2229,6 +2229,10 @@
 		// Tinker
 		"DOTA_Tooltip_Ability_tinker_laser_scepter_description"					"Doubles cast range."
 		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"	"Doubles missile count."
+		"DOTA_Tooltip_Facet_tinker_repair_bots"										"Null"		
+		"DOTA_Tooltip_ability_tinker_march_of_the_machines_facet_tinker_repair_bots"	"This facet is of NO effect."
+		"DOTA_Tooltip_Facet_tinker_translocator"									"Null"
+		"DOTA_Tooltip_Facet_tinker_translocator_Description"						"This facet is of NO effect."
 		// Visage
 		"DOTA_Tooltip_Ability_visage_grave_chill_Description"					"Visage drains the movement and attack speed of the targeted unit, gaining it for itself."
 		"DOTA_Tooltip_Ability_visage_gravekeepers_cloak_Description"			"Visage generates a layered barrier that protects him from physical and magical attacks.  If he receives damage from a player, one layer is removed, and takes time to recover."

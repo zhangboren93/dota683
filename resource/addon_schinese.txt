@@ -2218,6 +2218,10 @@
 		// Tinker
 		"DOTA_Tooltip_ability_tinker_laser_scepter_description"  					"施法距离加倍。"
 		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"  	"导弹数量加倍。"
+		"DOTA_Tooltip_Facet_tinker_repair_bots"										"空"		
+		"DOTA_Tooltip_ability_tinker_march_of_the_machines_facet_tinker_repair_bots"	"这颗命石没有效果。"
+		"DOTA_Tooltip_Facet_tinker_translocator"									"空"
+		"DOTA_Tooltip_Facet_tinker_translocator_Description"						"这颗命石没有效果。"
 		// Visage
 		"DOTA_Tooltip_Ability_visage_grave_chill_Description"					"维萨吉吸取目标单位的移动和攻击速度，自身获得等量加成。"
 		"DOTA_Tooltip_Ability_visage_gravekeepers_cloak_Description"			"维萨吉产生数层屏障来保护他，降低受到的物理和魔法伤害。每当他受到来自玩家的伤害，就会失去一层屏障，失去的屏障需要一定时间才能恢复。"
