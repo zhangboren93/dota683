@@ -7004,18 +7004,19 @@
 		{
 				"damage"			"15 20 25 30"
 				"attack_rate"		"1.35"
-				"count"				"12 12 12 12"
-				"armor_reduction"	"1 1 1 1"
+				"count"				"12"
+				"armor_reduction"	"1"
 				"duration"			"14 16 18 20"
 				"destroy_attacks"	"4"
-				"radius"			"100 100 100 100"
-				"speed"				"750 750 750 750"
-				"spawn_radius"		"300 300 300 300"
+				"radius"			"100"
+				"speed"				"750"
+				"spawn_radius"		"300"
 				"shard_cooldown_reduction"		
 				{
 					"value"		"2"
 					"RequiresShard"		"1"
 				}
+				"experience_gain"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -7052,16 +7053,19 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"damage"									"75 100 125 150"
+			"damage"				"75 100 125 150"
 			"speed"					"250"
-			"radius"				"175 175 175 175"
+			"radius"				"175"
 			"fade_time"				"0.25"
-			"duration"				"4.0 4.0 4.0 4.0"
+			"duration"				"4.0"
 			"AbilityCharges"		"0"
 			"geminate_attack_mark_duration"	"0"
 			"shukuchi_attack_mark_radius"	"0"
 			"shukuchi_attack_delay"			"0"
 			"AbilityCooldown"				"12 10 8 6"
+			"min_movespeed_override"		"0"
+			"slow_duration"					"0"
+			"slow_percent"					"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
