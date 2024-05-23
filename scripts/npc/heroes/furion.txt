@@ -16,27 +16,12 @@
 				"value"		"150 225 300 375"
 				"affected_by_aoe_increase"	"1"
 			}
-			"max_treants"
-			{
-				"value"							"2 3 4 5"
-				"special_bonus_unique_furion_2"	"+5"
-			}
+			"max_treants"					"2 3 4 5"
+			"siege_treants"					"0"
 			"treant_duration"				"60"
-			"treant_health"
-			{
-				"value"								"550"
-				"special_bonus_unique_furion"			"x2.5"
-			}
-			"treant_damage_min"
-			{
-				"value"					"21"
-				"special_bonus_unique_furion"			"x2.5"
-			}
-			"treant_damage_max"
-			{
-				"value"					"23"
-				"special_bonus_unique_furion"			"x2.5"
-			}
+			"treant_health"					"550"
+			"treant_damage_min"				"21"
+			"treant_damage_max"				"23"
 			"AbilityCooldown"			"37"
 		}
 	}

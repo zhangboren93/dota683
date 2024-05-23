@@ -6441,9 +6441,12 @@
 			"duration"						"3 3.75 4.5 5.25"
 			"blind_pct"						"0"
 			"leash"							"0"
-			"sprout_damage_per_second"		"0"
+			"sprout_damage"					"0"
 			"sprout_damage_inteval"			"0"
 			"sprout_damage_radius"			"0"
+			"sprout_heal_interval"			"0"
+			"sprout_heal_per_second"		"0"
+			"building_healing_pct"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -6476,6 +6479,7 @@
 				"special_bonus_unique_furion_teleportation_max_stacks"		"+4"
 
 			}
+			"barrier"				"0"
 			"buff_duration"			"1"
 			"damage_per_stack"		"0"
 			"armor_per_stack"		"0"	
@@ -15765,6 +15769,9 @@
 				"distance"				"1800"
 				"distance_scepter"		"1800"
 				"damage"				"16 24 32 40"
+
+			"heal_per_second"		"0"
+			"heal_duration"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -15802,6 +15809,7 @@
 		{
 			"magic_resistance"		"0"
 			"armor_duration"		"0"
+			"affects_items"			"1"
 		}
 	}
 	//=================================================================================================================
@@ -29574,6 +29582,14 @@
 			"radius"		"225 225 225 225"
 			"speed"				"1600 2000 2400 2800"
 			"damage"			"100 140 180 220"
+
+			"tree_splinter_count"		"0"
+			"tree_splinter_distance"	"0"
+			"tree_splinter_width"		"0"
+			"tree_splinter_speed"		"0"
+			"tree_splinter_damage"		"0"
+			"tree_splinter_slow_duration"	"0"
+			"tree_splinter_slow_pct"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}

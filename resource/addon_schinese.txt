@@ -389,8 +389,8 @@
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_target_damage"			"敌方目标伤害："
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_heal_amount"			"友方目标治疗："
 		"DOTA_Tooltip_facet_abaddon_mephitic_shroud"								"空"
-		"DOTA_Tooltip_facet_abaddon_mephitic_shroud_Description"					"这块命石没有效果。"
-		"DOTA_Tooltip_ability_abaddon_aphotic_shield_facet_abaddon_mephitic_shroud"	"这块命石没有效果。"
+		"DOTA_Tooltip_facet_abaddon_mephitic_shroud_Description"					"这颗命石没有效果。"
+		"DOTA_Tooltip_ability_abaddon_aphotic_shield_facet_abaddon_mephitic_shroud"	"这颗命石没有效果。"
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven"						"霜之哀伤"
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_Description"			"亚巴顿的攻击中带有寒心诅咒，受到攻击的敌人将被减速，同时所有攻击被减速目标的单位将提升移动速度和攻击速度，持续一定时间。"
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_slow_pct"				"%移动速度减缓："
@@ -920,6 +920,9 @@
 		"DOTA_Tooltip_ability_shredder_whirling_death_datadriven_duration"						"属性降低持续时间："
 		"DOTA_Tooltip_modifier_timber_whiling_death_debuff_visual"								"死亡旋风"
 		"DOTA_Tooltip_modifier_timber_whiling_death_debuff_visual_Description"					"损失15%%的主要属性。"
+		"DOTA_Tooltip_Facet_shredder_shredder"													"空"
+		"DOTA_Tooltip_Facet_shredder_shredder_Description"										"这颗命石没有效果。"
+        "DOTA_Tooltip_ability_shredder_timber_chain_Facet_shredder_shredder"					"这颗命石没有效果。"
         "DOTA_Tooltip_Ability_shredder_reactive_armor_datadriven"                               "活性护甲"
         "DOTA_Tooltip_Ability_shredder_reactive_armor_datadriven_Description"                   "伐木机每受到一次物理攻击，他的生命恢复速率和护甲值都会提升。"
         "DOTA_Tooltip_Ability_shredder_reactive_armor_datadriven_bonus_armor"                   "每次叠加护甲加成："
@@ -1130,7 +1133,7 @@
 		"DOTA_Tooltip_ability_undying_decay_datadriven_decay_duration"			"偷取效果持续时间："
 		"DOTA_Tooltip_ability_undying_decay_datadriven_radius"					"作用范围："
 		"DOTA_Tooltip_Facet_undying_ripped"										"空"	
-		"DOTA_Tooltip_ability_undying_soul_rip_Facet_undying_ripped"			"这块命石没有效果。"
+		"DOTA_Tooltip_ability_undying_soul_rip_Facet_undying_ripped"			"这颗命石没有效果。"
 		"DOTA_Tooltip_ability_undying_tombstone_radius"												""
 		"DOTA_Tooltip_ability_undying_tombstone_radius_tooltip"										"僵尸产生范围："
 		"DOTA_Tooltip_ability_undying_tombstone_health_threshold_fixed_tooltip"						"临界生命值："
@@ -1149,7 +1152,7 @@
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Lore"							"光环伤害加深5~20%/10~25%/15~30%, 小兵死亡回复2%，英雄死亡回复6%, -5~20%移速"
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Scepter_Description"			"光环伤害加深5~25%/10~30%/15~35%, 小兵死亡回复4%，英雄死亡回复10%"
 		"DOTA_Tooltip_Facet_undying_rotting_mitts"								"空"
-		"DOTA_Tooltip_ability_undying_flesh_golem_Facet_undying_rotting_mitts"	"这块命石没有效果。"
+		"DOTA_Tooltip_ability_undying_flesh_golem_Facet_undying_rotting_mitts"	"这颗命石没有效果。"
 
 		// Antimage
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"				"法力损毁"
@@ -1355,7 +1358,7 @@
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_datadriven"				"剑刃风暴"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_datadriven_Description"	"每秒造成伤害"
 		"DOTA_Tooltip_Facet_juggernaut_bladestorm"								"空"
-		"DOTA_Tooltip_Facet_juggernaut_bladestorm_Description"					"这块命石没有效果。"
+		"DOTA_Tooltip_Facet_juggernaut_bladestorm_Description"					"这颗命石没有效果。"
         "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild"								"无敌斩"
         "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild_Description"					"主宰挥剑跃向敌人，随后再斩击附近的其它敌方单位，每次斩击造成200-225点伤害。主宰在无敌斩期间无敌。"
         "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild_Note0"							"可以打断主目标的持续施法。"
@@ -1887,6 +1890,10 @@
 		"DOTA_Tooltip_ability_enigma_midnight_pulse_Description"								"使一块区域浸入暗共振中，对敌方单位造成他们基于最大生命值的伤害。"
 		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"							"黑洞额外造成凋零伤害"
 		// Natural Prophet (Furion)
+		"DOTA_Tooltip_Facet_furion_soothing_saplings"											"空"
+		"DOTA_Tooltip_ability_furion_sprout_Facet_furion_soothing_saplings"						"这颗命石没有效果。"
+		"DOTA_Tooltip_Facet_furion_ironwood_treant"												"空"
+		"DOTA_Tooltip_ability_furion_force_of_nature_Facet_furion_ironwood_treant"				"这颗命石没有效果。"
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven"								"自然之怒"
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_Description"					"伤害性的能量在全地图跳跃，打击视野中距目标点最近的多个敌人。每击中一个敌人伤害都会增加。"
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_scepter_description"			"提高伤害和弹跳次数。"
@@ -2220,6 +2227,11 @@
 		// Tinker
 		"DOTA_Tooltip_ability_tinker_laser_scepter_description"  					"施法距离加倍。"
 		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"  	"导弹数量加倍。"
+		"DOTA_Tooltip_Facet_tinker_repair_bots"										"空"		
+		"DOTA_Tooltip_ability_tinker_march_of_the_machines_facet_tinker_repair_bots"	"这颗命石没有效果。"
+		"DOTA_Tooltip_Facet_tinker_translocator"									"空"
+		"DOTA_Tooltip_Facet_tinker_translocator_Description"						"这颗命石没有效果。"
+		"DOTA_Tooltip_ability_tinker_rearm_Description"								"持续施法 - 重置修补匠的大多数物品和技能的冷却时间。"
 		// Visage
 		"DOTA_Tooltip_Ability_visage_grave_chill_Description"					"维萨吉吸取目标单位的移动和攻击速度，自身获得等量加成。"
 		"DOTA_Tooltip_Ability_visage_gravekeepers_cloak_Description"			"维萨吉产生数层屏障来保护他，降低受到的物理和魔法伤害。每当他受到来自玩家的伤害，就会失去一层屏障，失去的屏障需要一定时间才能恢复。"
@@ -2394,8 +2406,8 @@
 		"fwd_icon_text"						"测"	
 
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction"								"空"
-		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"这块命石没有效果。"
+		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"这颗命石没有效果。"
 		"DOTA_Tooltip_ability_null_facet"											"空"
-		"DOTA_Tooltip_ability_null_facet_Description"								"这块命石没有效果。"
+		"DOTA_Tooltip_ability_null_facet_Description"								"这颗命石没有效果。"
 	}
 }

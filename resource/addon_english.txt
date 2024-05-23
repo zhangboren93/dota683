@@ -935,6 +935,9 @@
 		"DOTA_Tooltip_ability_shredder_whirling_death_datadriven_duration"									"STAT LOSS DURATION:"
 		"DOTA_Tooltip_modifier_timber_whiling_death_debuff_visual"								"Whirling Death"
 		"DOTA_Tooltip_modifier_timber_whiling_death_debuff_visual_Description"					"Losing 15%% of primary attribute."
+		"DOTA_Tooltip_Facet_shredder_shredder"													"Null"
+		"DOTA_Tooltip_Facet_shredder_shredder_Description"										"This facet is of NO effect."
+        "DOTA_Tooltip_ability_shredder_timber_chain_Facet_shredder_shredder"					"This facet is of NO effect."
         "DOTA_Tooltip_Ability_shredder_reactive_armor_datadriven"                               "Reactive Armor"
         "DOTA_Tooltip_Ability_shredder_reactive_armor_datadriven_Description"                   "Each time Timbersaw is attacked, he gains increased health regen and armor."
         "DOTA_Tooltip_Ability_shredder_reactive_armor_datadriven_bonus_armor"                   "Armor Bonus per Stack: "
@@ -1898,6 +1901,10 @@
 		"DOTA_Tooltip_ability_enigma_midnight_pulse_Description"							"Steeps an area in dark resonance, damaging enemy units based on their max HP."
 		"DOTA_Tooltip_ability_enigma_black_hole_scepter_description"						"Black Hole deals additional damage equivalent to midnight pulse"
 		// Natural Prophet (Furion)
+		"DOTA_Tooltip_Facet_furion_soothing_saplings"										"Null"
+		"DOTA_Tooltip_ability_furion_sprout_Facet_furion_soothing_saplings"					"This facet is of NO effect."
+		"DOTA_Tooltip_Facet_furion_ironwood_treant"											"Null"
+		"DOTA_Tooltip_ability_furion_force_of_nature_Facet_furion_ironwood_treant"			"This facet is of NO effect."
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven"							"Wrath of Nature"
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_Description"				"Damaging energy bounces around the map, striking enemies close to the cast point that are in vision. Each enemy hit beyond the first adds damage."
 		"DOTA_Tooltip_ability_furion_wrath_of_nature_datadriven_scepter_description"		"Increases damage and bounces."
@@ -2231,6 +2238,11 @@
 		// Tinker
 		"DOTA_Tooltip_Ability_tinker_laser_scepter_description"					"Doubles cast range."
 		"DOTA_Tooltip_Ability_tinker_heat_seeking_missile_scepter_description"	"Doubles missile count."
+		"DOTA_Tooltip_Facet_tinker_repair_bots"										"Null"		
+		"DOTA_Tooltip_ability_tinker_march_of_the_machines_facet_tinker_repair_bots"	"This facet is of NO effect."
+		"DOTA_Tooltip_Facet_tinker_translocator"									"Null"
+		"DOTA_Tooltip_Facet_tinker_translocator_Description"						"This facet is of NO effect."
+		"DOTA_Tooltip_ability_tinker_rearm_Description"								"CHANNELED - Resets the cooldown on most of Tinker's items and abilities."
 		// Visage
 		"DOTA_Tooltip_Ability_visage_grave_chill_Description"					"Visage drains the movement and attack speed of the targeted unit, gaining it for itself."
 		"DOTA_Tooltip_Ability_visage_gravekeepers_cloak_Description"			"Visage generates a layered barrier that protects him from physical and magical attacks.  If he receives damage from a player, one layer is removed, and takes time to recover."
