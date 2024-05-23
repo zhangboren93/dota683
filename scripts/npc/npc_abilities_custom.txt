@@ -1379,6 +1379,8 @@
 			"AbilityCastRange"					"1000"
 			"AbilityCharges"					"0"
 			"AbilityCooldown"				"60"
+			"knockback"						"0"			
+			"knockback_duration"			"0"
 		}
 	}
     "crystal_maiden_freezing_field"
