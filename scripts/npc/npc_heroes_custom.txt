@@ -911,6 +911,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability2"		"luna_moon_glaive_lua"
 		"Ability3"		"luna_lunar_blessing_datadriven"
+		"Ability7"		"generic_hidden"		
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"

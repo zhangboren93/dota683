@@ -5938,6 +5938,7 @@
 			"stun_duration"		"0.6"
 			"damage_buff_duration"	"0"
 			"damage_buff_per_beam"	"0"
+			"damage_buff_from_eclipse_pct"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
