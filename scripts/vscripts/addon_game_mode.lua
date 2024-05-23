@@ -1956,6 +1956,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		ApplyDamage({victim = parent, attacker = caster, damage = 400, damage_type = DAMAGE_TYPE_MAGICAL, ability = ability})
+	elseif event.name_const == "modifier_magnataur_skewer_slow" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_magnataur_skewer_attack_speed_datadriven", { duration = 2.5 })
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

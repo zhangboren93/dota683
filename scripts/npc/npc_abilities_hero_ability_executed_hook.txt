@@ -700,4 +700,13 @@
 					}
 				}
 			}
+			"modifier_magnataur_skewer_attack_speed_datadriven"
+			{
+				"IsHidden"		"1"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-40"
+				}
+			}
 		}}}

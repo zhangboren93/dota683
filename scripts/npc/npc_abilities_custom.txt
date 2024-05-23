@@ -12102,9 +12102,14 @@
 			"polarity_damage"				"50 125 200"
 			"hero_stun_duration"			"2.25 3 3.75"
 			"creep_stun_duration"			"3 4 5"
-			"pull_duration"					"0.0 0.0 0.0"
+			"pull_duration"					"0"
 			"strength_buff_duration"		"0"
 			"strength_per_stack"			"0"
+			"push_radius"					"0"
+			"max_knockback_distance"		"0"
+			"knockback_height"				"0"
+			"stat_buff_duration"			"0"
+			"stats_per_stack"				"0"
 		}
 	}
 	//=================================================================================================================
@@ -19716,6 +19721,9 @@
 				"skewer_cooldown"				"30"
 				"skewer_manacost"				"80"
 				"damage_distance_pct"			"0"
+				"tree_hit_damage"				"0"
+				"cliff_hit_damage"				"0"
+				"terrain_hit_cooldown"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -29906,6 +29914,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
+		"AnimationPlaybackRate"			"0.5"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
