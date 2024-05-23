@@ -846,7 +846,8 @@
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_scepter_description"		"Increases duration, radius becomes global and affects buildings."
 		"DOTA_Tooltip_modifier_guardian_angel"												"Guardian Angel"
 		"DOTA_Tooltip_modifier_guardian_angel_Description"									"Immune to physical damage."
-
+		"DOTA_Tooltip_Facet_omniknight_omnipresent"								"Null"
+		"DOTA_Tooltip_Facet_omniknight_omnipresent_Description"					"This facet is of NO effect."
 		// Phoenix
 		"DOTA_Tooltip_ability_phoenix_fire_spirits_datadriven"							"Fire Spirits"
 		"DOTA_Tooltip_ability_phoenix_fire_spirits_datadriven_Description"				"Summons 4 fire spirits that circle around Phoenix. Each spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced."
@@ -1284,6 +1285,9 @@
 		"DOTA_Tooltip_Ability_clinkz_death_pact_datadriven_damage_gain_pct"	"%DAMAGE GAIN:"
 		"DOTA_Tooltip_modifier_death_pact"									"Death Pact"
 		"DOTA_Tooltip_modifier_death_pact_Description"						"Damage and health increased."
+		"DOTA_Tooltip_Facet_clinkz_suppressive_fire"							"Null"		
+		"DOTA_Tooltip_Facet_clinkz_suppressive_fire_Description"				"This facet is of NO effect."
+		"DOTA_Tooltip_Facet_clinkz_engulfing_step"								"Null"
 		// Drow Ranger
 		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven"										"Frost Arrows"
 		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven_Description"							"Adds a freezing effect to Drow's attacks, slowing enemy movement.\n<font color=\"#ff0000\">Orb effects don't stack.</font>"
@@ -1960,6 +1964,8 @@
 		"DOTA_Tooltip_ability_keeper_of_the_light_chakra_magic_2_Lore"						"In the same vein, Ezalor bestows his harmony among others."
 		"DOTA_Tooltip_ability_keeper_of_the_light_chakra_magic_2_mana_restore"				"MANA RESTORE:"
 		"DOTA_Tooltip_ability_keeper_of_the_light_recall_Description"						"After a short delay, teleports the targeted friendly hero to your location.  If the targeted friendly hero takes player based damage during this time, the ability is interrupted."
+		"DOTA_Tooltip_ability_keeper_of_the_light_spirit_form_Facet_keeper_of_the_light_facet_solar_bind"	"This facet is of NO effect."
+		"DOTA_Tooltip_ability_keeper_of_the_light_spirit_form_Facet_keeper_of_the_light_facet_recall"		"This facet is of NO effect."
 		// Leshrac
 		"DOTA_Tooltip_Ability_leshrac_diabolic_edict_Description"	"Saturates the area around Leshrac with magical explosions that deal physical damage to enemy units and structures.  The fewer units available to attack, the more damage those units will take.  Deals %tower_bonus%%% more damage to towers. Lasts %abilityduration% seconds."
 		"DOTA_Tooltip_Ability_leshrac_pulse_nova_Scepter_Description"			"Increases damage per second."

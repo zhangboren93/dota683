@@ -24135,6 +24135,7 @@
 		"RequiredLevel"         		"6"
 		"LevelsBetweenUpgrades" 		"5"
 		"HasScepterUpgrade"				"1"
+		"HasShardUpgrade"				"0"				
 				
 
 		// Time		
@@ -24168,6 +24169,7 @@
 			{
 				"value" 				"0" 
 				"special_bonus_scepter"	"+75"
+				"special_bonus_shard"	"0"
 			}
 		}
 	}
@@ -24284,6 +24286,7 @@
 		"AbilitySound"					"Hero_KeeperOfTheLight.Recall.Cast"
 		"IsGrantedByShard"				"0"
 		"IsGrantedByScepter"			"0"
+		"HasShardUpgrade"				"0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -24293,7 +24296,6 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
-		"AbilityCooldown"				"15"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -24304,6 +24306,11 @@
 		"AbilityValues"
 		{
 				"teleport_delay"		"5 4 3"
+			"movespeed_bonus_duration"	"0"
+			"ally_movespeed_pct"		"0"
+			"AbilityCooldown"			"15"
+			"AbilityChargeRestoreTime"	"0"
+			"AbilityCharges"			"0"
 		}
 	}
 	//=================================================================================================================
