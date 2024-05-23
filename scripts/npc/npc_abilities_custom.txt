@@ -27308,15 +27308,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"		"100 200 250 325"
-			"speed"					"1000 1000 1000 1000"
+			"bonus_damage"			"100 200 250 325"
+			"speed"					"1000"
 			"bounce_aoe"			"900"
 			"slow_duration"			"0"
 			"scepter_cast_range"	"650"
 			"scepter_cooldown"		"10"
+			"attack_slow"			"0"
+			"passthrough_damage"	"0"
+			"passthrough_width"		"0"
 			"cast_range"			"650"
 			"slow"					"0"		
-			"attack_slow"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -27356,7 +27358,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"target_crit_multiplier"	"100"
+				"target_damage_amp"			"0"
 				"bonus_gold_radius"		"1200"
 				"bonus_gold_self"		"200 275 350"
 				"bonus_gold"			"50 100 150"
@@ -27364,7 +27366,6 @@
 				"gold_steal"			"0"
 				"bonus_move_speed_pct"	"0"
 				"bonus_move_speed_pct_aura"	"20"
-				"toss_crit_multiplier"	"100"
 		}
 	}
 	"ember_spirit_searing_chains"
