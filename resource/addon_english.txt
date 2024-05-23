@@ -414,6 +414,9 @@
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_self_damage"			"Self Damage: "
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_target_damage"			"Enemy Damage: "
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_heal_amount"			"Ally Heal: "
+		"DOTA_Tooltip_facet_abaddon_mephitic_shroud"								"Null"
+		"DOTA_Tooltip_facet_abaddon_mephitic_shroud_Description"					"This facet is of NO effect."
+		"DOTA_Tooltip_ability_abaddon_aphotic_shield_facet_abaddon_mephitic_shroud"	"This facet is of NO effect."
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven"						"Frostmourne"
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_Description"			"Abaddon strikes an enemy with chilling curse on each attack, causing all units who attack the slowed enemy to gain increased movement speed, along with faster attack speed, for a limited time."
 		"DOTA_Tooltip_Ability_abaddon_frostmourne_datadriven_slow_pct"				"%Move Speed Slow: "
@@ -1132,6 +1135,8 @@
 		"DOTA_Tooltip_ability_undying_decay_datadriven_str_steal"				"STRENGTH STEAL:"
 		"DOTA_Tooltip_ability_undying_decay_datadriven_decay_duration"			"STEAL DURATION:"
 		"DOTA_Tooltip_ability_undying_decay_datadriven_radius"					"RADIUS:"
+		"DOTA_Tooltip_Facet_undying_ripped"										"Null“
+		"DOTA_Tooltip_ability_undying_soul_rip_Facet_undying_ripped"			"This facet is of NO effect."
 		"DOTA_Tooltip_ability_undying_tombstone_radius"							""
 		"DOTA_Tooltip_ability_undying_tombstone_radius_tooltip"					"ZOMBIE SPAWN RADIUS:"
 		"DOTA_Tooltip_ability_undying_tombstone_health_threshold_fixed_tooltip"						"HEALTH THRESHOLD:"
@@ -1149,7 +1154,10 @@
 		"DOTA_Tooltip_modifier_undying_zombie_deathstrike_slow_Description"							"Being slowed by Undying Zombies."
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Lore"							"aura increase incoming damage by 5~20%/10~25%/15~30%, creep death heal 2%, hero death heal 6%, move speed -5~20%"
 		"DOTA_Tooltip_Ability_undying_flesh_golem_Scepter_Description"			"aura increase incoming damage by 5~25%/10~30%/15~35%, creep death heal 4%, hero death heal 10%"
-		
+		"DOTA_Tooltip_Facet_undying_rotting_mitts"								"Null"
+		"DOTA_Tooltip_ability_undying_flesh_golem_Facet_undying_rotting_mitts"	"This facet is of NO effect."
+
+
 		// Antimage
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"					"Mana Break"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"		"Burns an opponent's mana on each attack. Mana Break deals 60%% of the mana burned as damage to the target.\n<font color=\"#ff0000\">Orb effects don't stack.</font>"
@@ -1354,6 +1362,8 @@
         "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild"                                    "Omni Slash"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_datadriven"				"Blade Fury"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_datadriven_Description"	"Dealing damage every second"
+		"DOTA_Tooltip_Facet_juggernaut_bladestorm"								"Null"
+		"DOTA_Tooltip_Facet_juggernaut_bladestorm_Description"					"This facet is of NO effect."
         "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild_Description"					"Juggernaut leaps towards the target enemy unit with a damaging attack, and then slashes other nearby enemy units, dealing between 200-225 damage per slash.  Juggernaut is invulnerable for the duration.\n\nUpgradable by Aghanim's Scepter."
         "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild_Note0"							"Interrupts channeling spells of the primary target."
         "DOTA_Tooltip_Ability_juggernaut_omni_slash_rebuild_Note1"							"Slashes happen on an interval of 0.4 seconds."
