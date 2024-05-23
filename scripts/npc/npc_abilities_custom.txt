@@ -10287,6 +10287,9 @@
 				"max_units"					"10 12 14 16"
 				"radius"					"1300"
 				"tombstone_heal"			"0"
+				"strength_share_percent"	"0"
+				"strength_share_duration"	"0"
+				"strength_share_model_scale"	"0"
 		}
 	}	
 	//=================================================================================================================
@@ -10509,6 +10512,8 @@
 			"duration"					"30"
 			"movement_bonus"			"0"
 			"shard_cooldown_reduction"	"0"
+			"spawn_zombie_on_attack"	"0"
+			"zombie_duration"			"0"
 		}
 	}
 	"undying_flesh_golem_aura_datadriven"
