@@ -1,0 +1,46 @@
+#ModeSelect {
+	vertical-align: center;
+	flow-children: right;
+	font-size: 24px;
+	color: white;
+}
+
+#ModeSelectRadios {
+	margin-left: 20px;
+	width: 100px;
+	flow-children: down;
+}
+
+RadioButton .RadioBox {
+	width: 20px;
+	height: 20px;
+	vertical-align: center;
+	background-color: grey;
+	border-radius: 50%;
+}
+
+RadioButton Label {
+	margin-left: 30px;
+}
+
+RadioButton:selected .RadioBox {
+	background-color: white;
+}
+
+#GameModeNameLabel {
+	color: white;
+}
+
+.PlayButton {
+	color: white;
+	font-size: 30px;
+	margin-left: 16px;
+	margin-right: 58px;
+	margin-bottom: 20px;
+	padding: 10px;
+	width: 100%;
+}
+
+.PlayButton Label{
+	horizontal-align: center;
+}

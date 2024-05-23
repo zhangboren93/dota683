@@ -5,7 +5,9 @@
 	IsTemplate = false
 	maps = 
 	[
-		"dota"
+		"dota",
+		"rank",
+		"custom"
 	]
 	Default_Keys = 
 	[
@@ -24,8 +26,13 @@
 		{
 			map = "dota"
 		},
+		{
+			map = "rank"
+		},
+		{
+			map = "custom"
+		}
 	]
 	PenaltiesEnabled = false
 	TeamCount = -1
-	CheckAFKPlayers = false
 }

@@ -403,6 +403,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
 	CustomGameEventManager:RegisterListener("hero_bar_ping_miss", CAddonTemplateGameMode.handleHeroBarPingMiss)
 	CustomGameEventManager:RegisterListener("fwd-command-issue", handleFWDCommand)
+	CustomGameEventManager:RegisterListener("game_mode_select", CAddonTemplateGameMode.handleGameModeSelect)
 
 	--local spawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
 	--for i=1,#spawners do
@@ -2579,6 +2580,25 @@ function CAddonTemplateGameMode:handleFirstBlood()
 	self.firstBlood = true
 	if isMapRanked() and isValidRankedGame and not hasGameEnded then
 		shouldCalcuateScore = true
+	end
+end
+
+function CAddonTemplateGameMode:handleGameModeSelect(data)
+	DeepPrintTable(data)
+	if GetMapName() == "custom" and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+		GameRules.AddonTemplate.rdEnabled = false
+		GameRules.AddonTemplate.botEnabled = false
+		if data.gm == 'ap' then
+			GameRules.AddonTemplate.game_mode = "AP"
+			GameRules:SendCustomMessage("AP模式开启", -1, -1)
+		elseif data.gm == 'dm' then
+			GameRules.AddonTemplate.game_mode = "DM"
+			GameRules:SendCustomMessage("开启死亡随机模式", -1, -1)
+		else
+			print("Invalid game mode selected " .. data.gm)
+			return
+		end
+		CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, gm = data.gm })
 	end
 end
 

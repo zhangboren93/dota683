@@ -2483,6 +2483,7 @@
 		"dota_hud_error_cant_cast_on_self"					"Cannot cast on self"
 		"dota_hud_error_demonic_conversion_creep_level"		"Creep level too high"
 		"dota_hud_error_demonic_conversion_beast_master"	"Cannot target boar or hawk"
+		"683modeselect_gamemode"							"GAME MODE:"
 
 		"DOTA_HUD_BackpackHint"			"Backpack has been disabled."
 		"DOTA_Hud_Pregame_Random_Tooltip"   "Randomly picks from a pool of heroes you frequently play. In some game modes, grants extra 200 golds."
