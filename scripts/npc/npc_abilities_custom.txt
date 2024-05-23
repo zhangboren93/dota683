@@ -29581,6 +29581,14 @@
 			"radius"		"225 225 225 225"
 			"speed"				"1600 2000 2400 2800"
 			"damage"			"100 140 180 220"
+
+			"tree_splinter_count"		"0"
+			"tree_splinter_distance"	"0"
+			"tree_splinter_width"		"0"
+			"tree_splinter_speed"		"0"
+			"tree_splinter_damage"		"0"
+			"tree_splinter_slow_duration"	"0"
+			"tree_splinter_slow_pct"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
