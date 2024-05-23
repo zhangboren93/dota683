@@ -2234,6 +2234,11 @@
 				"static_remnant_damage_radius"	"260"
 				"static_remnant_delay"		"1.0"
 				"static_remnant_damage"			"140 180 220 260"
+				"is_point_targeted"			"0"
+				"AbilityCastRange"			"0"
+				"static_remnant_travel_speed"	"0"
+				"static_remnant_vision_radius_day"		"800"
+				"static_remnant_vision_radius_night"	"800"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -27556,6 +27561,7 @@
 					"value"			"0"
 					"RequiresScepter"			"1"
 				}
+				"enemy_overload_duration"	"0"
 		}
 	}
 	//=================================================================================================================
