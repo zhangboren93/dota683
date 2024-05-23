@@ -6441,9 +6441,12 @@
 			"duration"						"3 3.75 4.5 5.25"
 			"blind_pct"						"0"
 			"leash"							"0"
-			"sprout_damage_per_second"		"0"
+			"sprout_damage"					"0"
 			"sprout_damage_inteval"			"0"
 			"sprout_damage_radius"			"0"
+			"sprout_heal_interval"			"0"
+			"sprout_heal_per_second"		"0"
+			"building_healing_pct"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -6476,6 +6479,7 @@
 				"special_bonus_unique_furion_teleportation_max_stacks"		"+4"
 
 			}
+			"barrier"				"0"
 			"buff_duration"			"1"
 			"damage_per_stack"		"0"
 			"armor_per_stack"		"0"	
