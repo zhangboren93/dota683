@@ -12261,9 +12261,6 @@
 	//=================================================================================================================
 	"bristleback_warpath"
 	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5551"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
@@ -12271,6 +12268,10 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"MaxLevel"              		"3"
+		"Innate"						"0"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 		
 
 		// Casting
@@ -12281,10 +12282,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"damage_per_stack"					"20 25 30"
-				"move_speed_per_stack"				"3 4 5"
-				"stack_duration"				"14.0"
-				"max_stacks"					"5 6 7"
+			"damage_per_stack"				"20 25 30"
+			"aspd_per_stack"				"0"
+			"move_speed_per_stack"			"3 4 5"
+			"stack_duration"				"14"
+			"max_stacks"					"5 6 7"
 		}
 	}
     "tusk_walrus_punch"
