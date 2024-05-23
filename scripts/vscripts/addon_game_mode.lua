@@ -1097,8 +1097,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("slark_shadow_dance_heal_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_sand_king" then
 			entity:AddNewModifier(entity, entity, "modifier_sandstorm_channel_end", {})
-		elseif entity:GetName() == "npc_dota_hero_razor" then
-			entity:FindAbilityByName("razor_unstable_current_reflect_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_lone_druid" then
 			entity:FindAbilityByName("lone_druid_true_form_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_undying" then
