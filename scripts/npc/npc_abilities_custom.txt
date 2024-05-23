@@ -12557,6 +12557,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_ElderTitan.AncestralSpirit.Cast"
+		"Innate"						"0"
 
 		"HasScepterUpgrade"			"0"
 
