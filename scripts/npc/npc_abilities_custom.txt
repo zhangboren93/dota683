@@ -11709,6 +11709,8 @@
 			"movespeed_bonus"			"32"
 			"attackspeed_bonus"			"64"
 			"radius"					"0"
+			"target_radius"				"0"
+			"penalty"					"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}	
@@ -11777,6 +11779,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"HasShardUpgrade"             "0"
 		"AbilityDraftPreAbility"		"visage_summon_familiars_stone_form"
+		"Innate"						"0"
+		"MaxLevel"						"4"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -11861,6 +11865,7 @@
 				"familiar_hp"				"300 450 600"
 				"familiar_armor"			"0 1 2"
 				"familiar_speed"			"380 390 400"
+				"familiar_base_movespeed"	"380 390 400"
 				"familiar_attack_damage"	"10"
 				"damage_per_charge"			"8 14 22"
 				"tooltip_familiar_count"
@@ -11868,6 +11873,7 @@
 					"value"					"2"
 					"special_bonus_scepter"	"+1"
 				}
+				"in_formation"				"0"
 		}
 	}
 	//=================================================================================================================
