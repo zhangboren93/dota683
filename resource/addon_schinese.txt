@@ -1759,6 +1759,7 @@
 		"DOTA_Tooltip_modifier_viper_viper_strike_slow_lua_Description"		"移动速度减缓%fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度被降低%fMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
 
 		//Ancient Apparition
+		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_damage"						"每秒伤害："
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven"						"极寒之触"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven_Description"			"一阵极寒之风对友方英雄施加魔法，使他们接下来的数次普通攻击造成额外魔法伤害，但稍微降低攻击速度。无论选择何处施放，远古冰魄总是会获得状态效果。持续30秒。"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven_Note0"				"额外伤害与普通攻击造成的伤害分开计算。"
@@ -1769,6 +1770,7 @@
 		"DOTA_Tooltip_ability_ancient_apparition_chilling_touch_datadriven_attack_speed_pct"	"攻击速度降低："
 		"DOTA_Tooltip_modifier_chilling_touch_stack_datadriven"				"极寒之触"
 		"DOTA_Tooltip_modifier_chilling_touch_stack_datadriven_Description"	"攻击速度略微降低，然而将造成额外的伤害"
+		"DOTA_Tooltip_ability_ancient_apparition_ice_blast_dot_damage"					"寒霜诅咒持续伤害："
 		"DOTA_Tooltip_Ability_ancient_apparition_ice_blast_Scepter_Description"				"增加持续时间。"
 		//Bane
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven"								"虚弱"

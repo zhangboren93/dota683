@@ -1958,6 +1958,16 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_magnataur_skewer_attack_speed_datadriven", { duration = 2.5 })
+	elseif event.name_const == "modifier_cold_feet" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_cold_feet_damage_datadriven", { duration = 4 })
+	elseif event.name_const == "modifier_ice_blast" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local duration = ability:GetSpecialValueFor("frostbite_duration")
+		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_ice_blast_damage_datadriven", { duration = duration })
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

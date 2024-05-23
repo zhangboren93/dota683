@@ -8263,23 +8263,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"damage"				
-			{
-				"value"		"37.5 50 62.5 75"
-				"special_bonus_unique_ancient_apparition_8"	"+40"
-			}
-			"break_distance"
-			{
-				"value"		"740"
-				"special_bonus_unique_ancient_apparition_1"	"+200"
-			}
-			"stun_duration"			"1.25 2 2.75 3.5"
-			"area_of_effect"
-			{
-				"value"			"0"
-				"special_bonus_unique_ancient_apparition_6"			"+450"
-			}
-
+			"aoe"				"0"
+			"frost_stacks"		"0"
+			"damage"			"37.5 50 62.5 75"
+			"break_distance"	"740"
+			"stun_duration"		"1.25 2 2.75 3.5"
+			"area_of_effect"	"0"
 		}
 	}
 	//=================================================================================================================
@@ -8326,17 +8315,8 @@
 				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
 			}
 			"vision_aoe"			"200 200 200 200"
+			"frost_stacks"	"0"
 			"vortex_duration"		"16"
-			"shard_dps"
-			{
-				"value"		"0"
-				"RequiresShard"			"1"
-			}
-			"shard_attack_speed_reduction"
-			{
-				"value"					"0"
-				"RequiresShard"			"1"
-			}
 		}
 	}
 	// Rewrite of the Ancient Apparition Chilling Touch ability
@@ -8606,10 +8586,11 @@
 				"value"	"8 9 10"
 				"special_bonus_scepter"	"+9 +8 +7"
 			}
+			"frost_stacks"			"0"
 			"dot_damage"			"12.5 20.0 32.0"
-			"speed"					"1500 1500 1500 1500"
+			"speed"					"1500"
 			"kill_pct"				"10 11 12"
-			"target_sight_radius"	"500 500 500"
+			"target_sight_radius"	"500"
 		}
 	}
 	//=================================================================================================================

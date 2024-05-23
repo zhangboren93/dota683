@@ -1770,6 +1770,7 @@
 		"DOTA_Tooltip_modifier_viper_viper_strike_slow_lua_Description"		"Movement speed reduced by %fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %fMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 		//Ancient Apparition
+		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_damage"						"DAMAGE PER SECOND:"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven"					"Chilling Touch"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven_Description"			"A frigid gust enchants allied heroes, granting them bonus magical damage for a given number of physical attacks, while slowing their attack speed slightly.  Ancient Apparition always receives the buff. Lasts 30 seconds."
 		"DOTA_Tooltip_ability_ancient_apparition_chilling_touch_datadriven_Note0"				"Extra damage is its own instance of damage."
@@ -1780,6 +1781,7 @@
 		"DOTA_Tooltip_ability_ancient_apparition_chilling_touch_datadriven_attack_speed_pct"	"ATTACK SPEED:"
 		"DOTA_Tooltip_modifier_chilling_touch_stack_datadriven"				"Chilling Touch"
 		"DOTA_Tooltip_modifier_chilling_touch_stack_datadriven_Description"	"Attacks are slower but will deal additional damage."
+		"DOTA_Tooltip_ability_ancient_apparition_ice_blast_dot_damage"						"FROSTBITTEN DAMAGE PER SECOND:"
 		"DOTA_Tooltip_Ability_ancient_apparition_ice_blast_Scepter_Description"				"Increase Duration."
 		//Bane
 		"DOTA_Tooltip_Ability_bane_enfeeble_datadriven"								"Enfeeble"

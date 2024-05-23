@@ -709,4 +709,36 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-40"
 				}
 			}
+			"modifier_cold_feet_damage_datadriven"
+			{
+				"IsHidden"		"1"
+				"IsPurgable" 	"1"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/interval_think_damage.lua"
+						"Function"		"handleIntervalThink"
+						"AbilityName"	"ancient_apparition_cold_feet"
+						"DamageKey"		"damage"
+					}
+				}
+			}
+			"modifier_ice_blast_damage_datadriven"
+			{
+				"IsHidden"		"1"
+				"IsPurgable" 	"1"
+				"ThinkInterval"	"1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/interval_think_damage.lua"
+						"Function"		"handleIntervalThink"
+						"AbilityName"	"ancient_apparition_ice_blast"
+						"DamageKey"		"dot_damage"
+					}
+				}
+			}
 		}}}
