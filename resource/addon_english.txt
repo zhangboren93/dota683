@@ -2388,5 +2388,10 @@
 		"global_settings"					"Global Settings:"
 		"fwd_disable_cooldown_toggle"		"No cooldown"
 		"fwd_icon_text"						"P"
+
+		"DOTA_Tooltip_Facet_elder_titan_deconstruction"								"Null"
+		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"This facet is of NO effect."
+		"DOTA_Tooltip_ability_null_facet"											"Null"
+		"DOTA_Tooltip_ability_null_facet_Description"								"This facet is of NO effect."
 	}
 }
