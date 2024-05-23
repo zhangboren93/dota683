@@ -825,7 +825,8 @@
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_scepter_description"		"提升持续时间，作用范围变为全地图，对建筑有效。"
 		"DOTA_Tooltip_modifier_guardian_angel"												"守护天使"
 		"DOTA_Tooltip_modifier_guardian_angel_Description"									"对物理攻击免疫。"
-
+		"DOTA_Tooltip_Facet_omniknight_omnipresent"								"空"
+		"DOTA_Tooltip_Facet_omniknight_omnipresent_Description"					"这颗命石没有效果。"
 		// Phoenix
 		"DOTA_Tooltip_ability_phoenix_fire_spirits_datadriven"							"烈火精灵"
 		"DOTA_Tooltip_ability_phoenix_fire_spirits_datadriven_Description"				"召唤4只围绕凤凰飞行的烈火精灵。每一只烈火精灵都能被单独发射到指定区域。对敌人持续造成伤害并大幅降低他们的攻击速度。"

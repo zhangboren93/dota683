@@ -841,7 +841,7 @@
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_scepter_description"		"Increases duration, radius becomes global and affects buildings."
 		"DOTA_Tooltip_modifier_guardian_angel"												"Guardian Angel"
 		"DOTA_Tooltip_modifier_guardian_angel_Description"									"Immune to physical damage."
-
+		"DOTA_Tooltip_Facet_omniknight_omnipresent"								"Null"
 		// Phoenix
 		"DOTA_Tooltip_ability_phoenix_fire_spirits_datadriven"							"Fire Spirits"
 		"DOTA_Tooltip_ability_phoenix_fire_spirits_datadriven_Description"				"Summons 4 fire spirits that circle around Phoenix. Each spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced."
