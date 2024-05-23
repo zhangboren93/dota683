@@ -2362,6 +2362,19 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"elder_titan_boost_atkspd" 
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+		}
 	}
 	"npc_dota_hero_ember_spirit"		
 	{
