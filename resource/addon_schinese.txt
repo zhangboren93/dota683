@@ -1268,6 +1268,9 @@
 		"DOTA_Tooltip_Ability_clinkz_death_pact_datadriven_damage_gain_pct"	"%攻击力提升："
 		"DOTA_Tooltip_modifier_death_pact"									"死亡契约"
 		"DOTA_Tooltip_modifier_death_pact_Description"						"攻击力和生命值均获得提升。"
+		"DOTA_Tooltip_Facet_clinkz_suppressive_fire"						"空"		
+		"DOTA_Tooltip_Facet_clinkz_suppressive_fire_Description"			"这颗命石没有效果。"	
+		"DOTA_Tooltip_Facet_clinkz_engulfing_step"							"空"
 		// Drow Ranger
 		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven"										"冰箭"
 		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven_Description"							"卓尔游侠在箭矢中附上冰冻效果，降低敌人的移动速度。\n<font color=\"#ff0000\">法球效果无法叠加。</font>"

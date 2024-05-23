@@ -842,6 +842,7 @@
 		"DOTA_Tooltip_modifier_guardian_angel"												"Guardian Angel"
 		"DOTA_Tooltip_modifier_guardian_angel_Description"									"Immune to physical damage."
 		"DOTA_Tooltip_Facet_omniknight_omnipresent"								"Null"
+		"DOTA_Tooltip_Facet_omniknight_omnipresent_Description"					"This facet is of NO effect."
 		// Phoenix
 		"DOTA_Tooltip_ability_phoenix_fire_spirits_datadriven"							"Fire Spirits"
 		"DOTA_Tooltip_ability_phoenix_fire_spirits_datadriven_Description"				"Summons 4 fire spirits that circle around Phoenix. Each spirit can be launched independently at a targeted area of effect. Affected enemy units take damage over time and have their attack speed greatly reduced."
@@ -1279,6 +1280,9 @@
 		"DOTA_Tooltip_Ability_clinkz_death_pact_datadriven_damage_gain_pct"	"%DAMAGE GAIN:"
 		"DOTA_Tooltip_modifier_death_pact"									"Death Pact"
 		"DOTA_Tooltip_modifier_death_pact_Description"						"Damage and health increased."
+		"DOTA_Tooltip_Facet_clinkz_suppressive_fire"							"Null"		
+		"DOTA_Tooltip_Facet_clinkz_suppressive_fire_Description"				"This facet is of NO effect."
+		"DOTA_Tooltip_Facet_clinkz_engulfing_step"								"Null"
 		// Drow Ranger
 		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven"										"Frost Arrows"
 		"DOTA_Tooltip_Ability_drow_ranger_frost_arrows_datadriven_Description"							"Adds a freezing effect to Drow's attacks, slowing enemy movement.\n<font color=\"#ff0000\">Orb effects don't stack.</font>"
