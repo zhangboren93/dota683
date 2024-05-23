@@ -25,7 +25,7 @@ function modifier_attribute_regen_adjust:IsHidden()
 end
 
 function modifier_attribute_regen_adjust:GetModifierConstantManaRegen()
-    return self:GetParent():GetIntellect() * (-0.01)
+    return self:GetParent():GetIntellect(true) * (-0.01)
 end
 
 function modifier_attribute_regen_adjust:GetModifierConstantHealthRegen()
@@ -33,7 +33,7 @@ function modifier_attribute_regen_adjust:GetModifierConstantHealthRegen()
 end
 
 function modifier_attribute_regen_adjust:GetModifierMagicalResistanceBonus()
-    return 1 + self:GetParent():GetIntellect() * (-0.16)
+    return 1 + self:GetParent():GetIntellect(true) * (-0.16)
 end
 
 function modifier_attribute_regen_adjust:GetModifierMoveSpeed_Limit()

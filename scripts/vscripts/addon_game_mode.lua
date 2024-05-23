@@ -2009,7 +2009,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			elseif attacker:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then
 				event.damage = (attacker:GetAgility() * 2 + 75) * (1 - victim:Script_GetMagicalArmorValue(false, attacker))
 			else
-				event.damage = (attacker:GetIntellect() * 2 + 75) * (1 - victim:Script_GetMagicalArmorValue(false, attacker))
+				event.damage = (attacker:GetIntellect(true) * 2 + 75) * (1 - victim:Script_GetMagicalArmorValue(false, attacker))
 			end
 			--print("Etheral damage " .. event.damage)
 		elseif inflictor:GetName() == "centaur_return" and victim:IsBuilding() then

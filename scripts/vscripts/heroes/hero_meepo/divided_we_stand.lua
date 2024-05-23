@@ -16,7 +16,7 @@ function checkAghs(keys)
 			ApplyDebufModifiers(caster, ability, "modifier_dws_agility_datadriven",   
 				caster.mainMeepo:GetAgility() - caster.mainMeepo:GetBaseAgility(),     "item_power_treads")
 			ApplyDebufModifiers(caster, ability, "modifier_dws_intellect_datadriven", 
-				caster.mainMeepo:GetIntellect() - caster.mainMeepo:GetBaseIntellect(), "item_power_treads")
+				caster.mainMeepo:GetIntellect(true) - caster.mainMeepo:GetBaseIntellect(), "item_power_treads")
 		end
 
 		--rewrite from DOTA_IMBA meepo

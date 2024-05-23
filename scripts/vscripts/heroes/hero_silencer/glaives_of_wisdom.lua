@@ -7,7 +7,7 @@ function IntToDamage( keys )
 	local ability = keys.ability
 	local caster = keys.caster
 	local target = keys.target
-	local int_caster = caster:GetIntellect()
+	local int_caster = caster:GetIntellect(true)
 	local int_damage = ability:GetLevelSpecialValueFor("intellect_damage_pct", (ability:GetLevel() -1)) 
 	
 

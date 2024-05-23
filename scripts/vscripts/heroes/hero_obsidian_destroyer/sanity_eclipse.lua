@@ -9,8 +9,8 @@ function SanityEclipseDamage( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	local od_int = caster:GetIntellect()
-	local target_int = target:GetIntellect()
+	local od_int = caster:GetIntellect(true)
+	local target_int = target:GetIntellect(true)
 	local mana = target:GetMaxMana()
 	local dmg_multiplier = ability:GetLevelSpecialValueFor("damage_multiplier", (ability:GetLevel() -1))
 	local threshold = ability:GetLevelSpecialValueFor("int_threshold", (ability:GetLevel() -1))
