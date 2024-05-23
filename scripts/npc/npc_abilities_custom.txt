@@ -2912,7 +2912,8 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.45 0.45 0.45"
+		"AbilityCastPoint"				"0.45"
+		"AnimationPlaybackRate"			"0.666"
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 
 		// Time		
@@ -28391,6 +28392,8 @@
 	//=================================================================================================================
 	"lina_dragon_slave"
 	{
+		"AbilityCastPoint"				"0.45"
+		"AnimationPlaybackRate"			"0.777"
 		"AbilityCastRange"				"1075"
 		"AbilityManaCost"				"100 115 130 145"
 		"AbilityValues"
