@@ -1112,6 +1112,38 @@
 		"Ability20"			"special_bonus_all_stats_10"
 		"Ability21"			"special_bonus_all_stats_12"
 		"Ability22"			"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"morphling_agi"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+				"AbilityIconReplacements"
+				{
+					"morphling_adaptive_strike_str"	"morphling_adaptive_strike_agi"
+				}
+			}
+
+			"morphling_str"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+	}
+				}
+				"AbilityIconReplacements"
+				{
+					"morphling_adaptive_strike_str"	"morphling_adaptive_strike_agi"
+				}
+			}
+		}
 	}
 	"npc_dota_hero_naga_siren"			
 	{
