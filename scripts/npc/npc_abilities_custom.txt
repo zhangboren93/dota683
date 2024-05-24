@@ -12963,6 +12963,8 @@
 		"ID"							"5597"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_LegionCommander.Courage"
+		"MaxLevel"						"4"
+		"Innate"						"0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------

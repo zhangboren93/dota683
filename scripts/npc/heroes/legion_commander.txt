@@ -124,6 +124,8 @@
                 "value"         "10 14 18"
                 "special_bonus_shard"   "0"
             }
+			"assist_reward_damage"	"0"
+			"debuff_immunity"		"0"
             "victory_range"         "600"
             "scepter_damage_reduction_pct"	"0"    
             "AbilityCooldown"			"50"
