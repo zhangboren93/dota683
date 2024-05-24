@@ -244,6 +244,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"bane_enfeeble_datadriven"
 		"Ability4"		"generic_hidden"
+		"Ability8"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1445,6 +1446,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"oracle_fortunes_end_lua"
 		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1453,6 +1455,31 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"oracle_facet_dmg"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+
+			"oracle_facet_heal"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+		}
+
 	}
 	"npc_dota_hero_pugna"				
 	{
@@ -2724,6 +2751,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability2"		"gyrocopter_homing_missile_datadriven"
+		"Ability4"		"generic_hidden"
 		"Ability6"		"gyrocopter_call_down_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
@@ -2794,6 +2822,7 @@
 		"Ability22"		"generic_hidden"
 		"Ability23"		"generic_hidden"
 		"Ability24"		"generic_hidden"
+		"Ability25"		"generic_hidden"
 	}
 	"npc_dota_hero_jakiro"					
 	{
@@ -3458,6 +3487,8 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability4"		"generic_hidden"
+		"Ability6"		"mirana_invis"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -3466,6 +3497,29 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"mirana_moonlight"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+			"mirana_sunlight"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+		}
 	}
 	"npc_dota_hero_snapfire"				
 	{

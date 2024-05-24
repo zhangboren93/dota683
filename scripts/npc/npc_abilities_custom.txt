@@ -961,11 +961,13 @@
 
 			"nightmare_invuln_time"		"1.0"
 			"duration"					"4.0 5.0 6.0 7.0"
-			"animation_rate"			"0.2 0.2 0.2 0.2"
+			"animation_rate"			"0.2"
 			"nightmare_tick_damage"		"20"
 			"AbilityCooldown"			"16 15 14 13"
 			"nightmare_heal_pct"		"0"
 			"bonus_attack_speed"		"0"
+			"is_vector_targeted"		"0"
+			"walk_speed"				"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -19820,6 +19822,8 @@
 				"rocket_damage"				"11 15 19 23"
 				"bonus_movement_speed"		"0"
 				"slow_resistance"			"0"
+				"bonus_movespeed_duration"	"0"
+				"bonus_movement_speed_per_hit"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}	
@@ -32348,6 +32352,9 @@
 			"health_regen_per_instance"		"1 2 3 4 5 6 7"
 			"spell_lifesteal"				"0"
 			"strength_bonus"				"2"
+			"lifesteal_per_instance"		"0"
+			"intrinsic_attack_damage_dot_per_second"	"0"
+			"intrinsic_attack_damage_dot_duration"		"0"
 		}
 	}
 	//=================================================================================================================
@@ -32964,8 +32971,8 @@
 		{
 			"attack_speed_per_instance"	"2 4 6 8 10 12 14"
 			"move_speed_per_instance"	"1 2 3 4 5 6 7"
-			"cooldown_reduction"		"0"
 			"agility_bonus"				"2"
+			"intrinsic_attack_speed"	"0"
 		}
 	}
 	//=================================================================================================================
@@ -32991,7 +32998,9 @@
 		"AbilityValues"
 		{
 			"bonus_damage_per_instance"	"3 6 9 12 15 18 21"
-			"spell_amp"					"0"
+			"magic_amp"					"0"
+			"resist_debuff_duration"	"0"
+			"intrinsic_attack_damage"	"0"
 			"intelligence_bonus"		"2"
 		}
 	}
