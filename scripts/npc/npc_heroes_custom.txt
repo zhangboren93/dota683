@@ -1591,6 +1591,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability2"		"skeleton_king_vampiric_aura_datadriven"
 		"Ability3"		"skeleton_king_mortal_strike_datadriven"
+		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -1599,6 +1600,30 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"skeleton_king_facet_bone_guard" 
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+
+			"skeleton_king_facet_cursed_blade"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+	}
 	}
 	"npc_dota_hero_skywrath_mage"		
 	{
@@ -2853,6 +2878,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability2"		"phoenix_fire_spirits_datadriven"
+		"Ability5"		"generic_hidden"
 		"Ability6"		"phoenix_supernova_datadriven"
 		"Ability7"		"phoenix_launch_fire_spirit_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
@@ -2863,6 +2889,26 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"phoenix_facet_immolate"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+
+			"phoenix_hotspot" 
+			{
+				"Icon"				"nuke"
+				"Color"				"Red"
+				"GradientID"		"1"
+			}
+		}
 	}
 	"npc_dota_hero_sand_king"			
 	{

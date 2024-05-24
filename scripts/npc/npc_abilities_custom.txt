@@ -4160,6 +4160,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"Innate"						"0"
+		"MaxLevel"						"4"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -4175,6 +4177,13 @@
 				"value"									"15 25 35 45"
 				"special_bonus_unique_beastmaster_4"		"+10"
 			}
+			"attack_speed_per_unit"			"0"
+			"berserk_duration"				"0"		
+			"berserk_bonus_attack_speed"	"0"
+			"AbilityCooldown"				"0"
+			"AbilityManaCost"				"0"
+			"magic_resist"					"0"
+			"bonus_damage"					"0"
 		}
 	}
 	//=================================================================================================================
@@ -4592,6 +4601,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Venomancer.VenomousGale"
+		"HasShardUpgrade"				"0"
 
 
 		// Casting
@@ -12954,6 +12964,8 @@
 		"ID"							"5597"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_LegionCommander.Courage"
+		"MaxLevel"						"4"
+		"Innate"						"0"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -13602,6 +13614,9 @@
 				"shard_move_slow_pct"		"0"
 				"blind_per_second"	"0"
 				"blind_duration"	"0"	
+				"focal_point_max_multiplier"			"0"
+				"focal_point_start_length_pct"			"0"
+				"focal_point_full_length_tooltip_only"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -14812,7 +14827,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityTextureName"			"skeleton_king_vampiric_aura"
+		"AbilityTextureName"			"skeleton_king_bone_guard"
 		
 		"AbilitySpecial"
 		{
