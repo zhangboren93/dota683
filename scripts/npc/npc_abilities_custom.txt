@@ -14823,7 +14823,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityTextureName"			"skeleton_king_vampiric_aura"
+		"AbilityTextureName"			"skeleton_king_bone_guard"
 		
 		"AbilitySpecial"
 		{
