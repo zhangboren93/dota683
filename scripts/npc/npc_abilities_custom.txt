@@ -4160,6 +4160,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"Innate"						"0"
+		"MaxLevel"						"4"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -4175,6 +4177,13 @@
 				"value"									"15 25 35 45"
 				"special_bonus_unique_beastmaster_4"		"+10"
 			}
+			"attack_speed_per_unit"			"0"
+			"berserk_duration"				"0"		
+			"berserk_bonus_attack_speed"	"0"
+			"AbilityCooldown"				"0"
+			"AbilityManaCost"				"0"
+			"magic_resist"					"0"
+			"bonus_damage"					"0"
 		}
 	}
 	//=================================================================================================================
