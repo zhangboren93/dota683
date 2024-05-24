@@ -3774,13 +3774,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"slow_movement_speed"	"-15 -20 -25 -30"
-				"radius"				"450"
-				"shrapnel_damage"		"12 24 36 48"
-				"duration"				"10.0"
-				"damage_delay"			"0.8"
-				"slow_duration"			"2.0 2.0 2.0 2.0"
-				"AbilityCharges"		"3"
+				"AbilityChargeRestoreTime"		"40"
+				"slow_movement_speed"			"-15 -20 -25 -30"
+				"radius"						"450"
+				"shrapnel_damage"				"12 24 36 48"
+				"duration"						"10.0"
+				"damage_delay"					"0.8"
+				"slow_duration"					"2"
+				"AbilityCharges"				"3"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -9448,22 +9449,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"
-			{
-				"value"				"18"
-				"special_bonus_unique_lycan_1"	"+6"
-			}
+			"duration"			"18"
 			"speed"				"650"
 			"bonus_night_vision"		"1000"
 			"transformation_time"		"1.5"
-			"crit_chance"			
-			{
-				"value"			"0"
-				"special_bonus_unique_lycan_5"	"+30"
-			}
+			"crit_chance"				"0"
 			"crit_chance_tooltip"	"30"
 			"crit_multiplier"		"170"
 			"health_bonus"			"0"
+			"is_wolfpack"			"1"
+			"kill_duration_extension"	"0"
 		}
 	}
 	//=================================================================================================================
@@ -14380,31 +14375,41 @@
 		}
 	}
 
-	"sniper_take_aim"
+	"sniper_take_aim_datadriven"
 	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5156"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-	
-        // Cost
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityManaCost"               "0"
-
-		// Casting
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"sniper_take_aim"
+		
+		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0 0 0 0"
-		"AbilityValues"
+		"AbilitySpecial"
 		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
 				"bonus_attack_range"			"100 200 300 400"
-				"duration"			"0"
-				"slow"			"0"
-				"headshot_chance"			"0"
+			}
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"Modifiers"
+		{
+			"modifier_take_aim_datadriven"
+			{
+				"Passive"			"1"
+				"IsPurgable"		"0"
+				"IsHidden"			"1"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"%bonus_attack_range"
+				}
+			}
+		}
 	}
 	//=================================================================================================================
 	// Sniper: Assassinate
@@ -21112,7 +21117,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5159"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"necrolyte_sadist"
+		"AbilityTextureName"			"necrolyte_ghost_shroud"
 		"HasScepterUpgrade"				"0"
 		"AbilityValues"
 		{
@@ -22563,38 +22568,30 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"145"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityManaCost"			"145"
 			"wolf_index"				"1 2 3 4"
 			"wolf_duration"				"55"
 			"wolf_bat"					"1.25 1.2 1.15 1.1"
 			"wolf_damage"				"18 29 37 46"
-			"wolf_hp"					
-			{
-				"value"	"200 240 280 320"
-				"special_bonus_unique_lycan_7"	"+200"
-			}
-			"bonus_health"
-			{
-				"value"			"0"
-				"special_bonus_unique_lycan_7"	"+200"
-			}
-			"bonus_damage"
-			{
-				"value"			"0"
-				"special_bonus_unique_lycan_3"	"+10"
-			}
+			"wolf_hp"					"200 240 280 320"
+			"bonus_health"				"0"
+			"bonus_damage"				"0"
 			"bash_chance"				"0"
 			"bash_duration"				"0"
-			"tooltip_wolf_count"			
-			{
-				"value"			"2 2 2 2"
-				"special_bonus_unique_lycan_2" "+2"
-			}
+			"wolf_count"				"2"
+			"is_lone_wolf"				"0"
+			"back_distance"				"0"
+			"side_distance"				"0"
+			"model_scale"				"0"
+			"invis_level"				"0"
+			"health_per_wolf"			"0"
+			"damage_per_wolf"			"0"
+			"death_fx_time"				"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
