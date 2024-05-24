@@ -1984,7 +1984,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 --	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis_thinker" then return false
---	elseif event.name_const == "modifier_legion_commander_press_the_attack" then return false
+	elseif event.name_const == "modifier_riki_smoke_screen_ally" then return false
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then return false
 	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then return false 
 	end
