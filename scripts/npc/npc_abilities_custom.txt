@@ -6405,6 +6405,8 @@
 		{
 			"latch_radius"		"125 125 125"
 			"stun_radius"		"175 175 175"
+			"stun_radius_ally"	"175"
+			"cooldown_refund_ally"		"0"
 			"duration"			"1 1.5 2.0"
 			"speed"				"4000 5000 6000"
 			"damage"			"100 200 300"
