@@ -4169,6 +4169,7 @@
 		"Ability4"		"meepo_divided_we_stand_aghs_datadriven"
 		"Ability5"		"generic_hidden"
 		"Ability7"		"generic_hidden"
+		"Ability8"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -4176,7 +4177,22 @@
 		"Ability14"		"special_bonus_all_stats_8"
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
-		"Ability17"		""
+		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"meepo_pack_rat"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"			"null_facet"
+					}
+				}
+			}
+
+		}
+
 	}
 	"npc_dota_hero_monkey_king"			
 	{

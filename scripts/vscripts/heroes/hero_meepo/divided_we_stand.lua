@@ -1,9 +1,25 @@
 function checkAghs(keys) 
 	local caster = keys.caster
 	local ability = keys.ability
-	if caster.mainMeepo == nil and caster:HasScepter() and not caster:HasAbility("special_bonus_unique_meepo_5") then
-		caster:AddAbility("special_bonus_unique_meepo_5"):SetLevel(1)
-		print("added meepo ahgs ability")
+	if caster.mainMeepo == nil and caster:HasScepter() then
+		-- add 1 ability point to meepo if all ability points equals level
+		if caster:GetAbilityByIndex(0):GetLevel() +
+			caster:GetAbilityByIndex(1):GetLevel() + 
+			caster:GetAbilityByIndex(2):GetLevel() + 
+			caster:GetAbilityByIndex(5):GetLevel() +
+			caster:GetAbilityByIndex(8):GetLevel() +
+			caster:GetAbilityByIndex(9):GetLevel() +
+			caster:GetAbilityByIndex(10):GetLevel() +
+			caster:GetAbilityByIndex(11):GetLevel() +
+			caster:GetAbilityByIndex(12):GetLevel() +
+			caster:GetAbilityByIndex(13):GetLevel() +
+			caster:GetAbilityByIndex(14):GetLevel() +
+			caster:GetAbilityByIndex(15):GetLevel() +
+			caster:GetAbilityByIndex(16):GetLevel() +
+			caster:GetAbilityPoints() == caster:GetLevel() then
+			local divide = caster:GetAbilityByIndex(5)
+			divide:SetLevel(divide:GetLevel() + 1)
+		end
 	end
 	if caster.mainMeepo ~= nil then
 		if caster.mainMeepo:HasScepter() then

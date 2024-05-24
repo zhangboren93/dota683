@@ -971,6 +971,21 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			end
 		end
 	end
+	if event.order_type == DOTA_UNIT_ORDER_TRAIN_ABILITY then
+		local unit = EntIndexToHScript(event.units['0'])
+		local ability = EntIndexToHScript(event.entindex_ability)
+		if unit:GetName() == "npc_dota_hero_meepo" and ability:GetName() == "meepo_divided_we_stand" then
+			if unit:HasScepter() then
+				if unit:GetLevel() + 4 < ability:GetLevel() * 7 then
+					return false
+				end
+			else
+				if unit:GetLevel() - 3 < ability:GetLevel() * 7 then
+					return false
+				end
+			end
+		end
+	end
 	return true
 end
 
