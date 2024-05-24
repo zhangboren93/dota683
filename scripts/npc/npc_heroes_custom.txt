@@ -555,6 +555,7 @@
 		"Ability1"		"drow_ranger_frost_arrows_datadriven"
 		"Ability3"		"drow_ranger_trueshot_datadriven"
 		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
 		"Ability6"		"drow_ranger_marksmanship_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
@@ -564,6 +565,19 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"drow_ranger_high_ground"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+	}
+				}
+			}
+		}
 	}
 	"npc_dota_hero_earthshaker"			
 	{
