@@ -30,6 +30,7 @@
 #base "heroes/puck.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
+#base "heroes/silencer.txt"
 #base "heroes/skywrath_mage.txt"
 #base "heroes/spectre.txt"
 #base "heroes/spirit_breaker.txt"
@@ -9142,48 +9143,6 @@
 					}
 				}
 			}
-		}
-	}
-    "silencer_global_silence"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5380"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_Silencer.GlobalSilence.Cast"
-		"MaxLevel"              		"3"
-		"RequiredLevel"         		"6"
-		"LevelsBetweenUpgrades" 		"5"
-		"HasScepterUpgrade"				"1"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"130"
-		"AbilityDuration"				"4 5 6"
-
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250 375 500"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Hits all units on the map.
-
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
 		}
 	}
 	"silencer_global_silence_aghs_datadriven"
@@ -25764,28 +25723,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"AbilityCastRange"				
-			{
-				"value"								"500"
-				"special_bonus_unique_crystal_maiden_frostbite_castrange" 		"+125"
-			}
-			"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+			"AbilityCastRange"				"500"
+			"AbilityCastPoint"				"0.3"
 			"AbilityCooldown"				"10 9 8 7"
 			"AbilityManaCost"				"115 125 140 150"
 			"damage_per_second"				"100"
 			"creep_damage_per_second"		"100"
-			"duration"
-			{
-				"value"										"1.5 2.0 2.5 3.0"
-				"special_bonus_unique_crystal_maiden_1"		"+1.25"
-			}
-			"creep_duration"
-			{
-				"value"										"10"
-				"special_bonus_unique_crystal_maiden_1"		"+1.25"
-			}
+			"duration"						"1.5 2.0 2.5 3.0"
+			"creep_duration"				"10"
+			"creep_multiplier"				"1"
 			"tick_interval"					"0.5"
-			
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
@@ -25800,8 +25747,11 @@
 			"proximity_mana_regen_tooltip"	"1 1.5 2 2.5"
 			"self_mana_regen_tooltip"		"2 3 4 5"
 			"self_factor"					"2"
-			"proximity_bonus_factor"		"1"
-			"proximity_bonus_radius"		"1200"
+			"proximity_bonus_factor"		"2"
+			"proximity_bonus_radius"		"1"
+			"self_cast_range_bonus"			"0"
+			"aoe_bonus"						"0"
+			"mana_battery_mana_pct"			"0"
 		}
 	}
 	"dragon_knight_dragon_tail"

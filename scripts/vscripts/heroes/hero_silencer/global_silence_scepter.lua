@@ -3,7 +3,7 @@ function handleAbilityExecuted(keys)
     local ability = keys.ability
     local event_ability = keys.event_ability
     local target = keys.target
-    if event_ability:GetName() == "silencer_global_silence" and unit:HasScepter() then
+    if event_ability:GetName() == "silencer_global_silence_datadriven" and unit:HasScepter() then
         local curse = unit:FindAbilityByName("silencer_curse_of_the_silent_datadriven")
         if curse:GetLevel() > 0 then
             units = FindUnitsInRadius(unit:GetTeam(), unit:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
