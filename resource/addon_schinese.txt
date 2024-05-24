@@ -1452,6 +1452,7 @@
 		"DOTA_Tooltip_ability_morphling_adaptive_strike_str_damage_min"			"最小敏捷值伤害倍率："
 		"DOTA_Tooltip_ability_morphling_adaptive_strike_str_damage_max"			"最大敏捷值伤害倍率："
 		"DOTA_Tooltip_ability_morphling_adaptive_strike_str_bonus_attributes"	""
+		"DOTA_Tooltip_ability_morphling_adaptive_strike_str_Facet_morphling_str"	"还会根据变体精灵的力量值击退目标。"
 		"DOTA_Tooltip_Ability_morphling_morph_str_Description"					"变体精灵改变它的形态，将一些敏捷转化成力量。该过程可逆。升级此技能将提高转化速率。被动获得力量加成。"
 		"DOTA_Tooltip_Ability_morphling_morph_str_Note2"						"变体精灵在眩晕状态下可以变换属性。"
 		"DOTA_Tooltip_Ability_morphling_morph_str_bonus_attributes"				"力量加成："
