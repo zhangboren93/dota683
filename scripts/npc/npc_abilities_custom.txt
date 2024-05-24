@@ -25639,6 +25639,9 @@
 			"edge_damage"					"175 250 325 400"
 			"radius"						"190"
 			"strength_damage"				"0"
+			"stack_duration"				"0"
+			"pct_of_incoming_damage_as_bonus"	"0"
+			"max_damage_increase_pct"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
