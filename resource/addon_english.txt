@@ -1464,6 +1464,7 @@
 		"DOTA_Tooltip_ability_morphling_adaptive_strike_str_damage_min"			"DAMAGE MIN AGI MULTIPLIER:"
 		"DOTA_Tooltip_ability_morphling_adaptive_strike_str_damage_max"			"DAMAGE MAX AGI MULTIPLIER:"
 		"DOTA_Tooltip_ability_morphling_adaptive_strike_str_bonus_attributes"	""
+		"DOTA_Tooltip_ability_morphling_adaptive_strike_str_Facet_morphling_str"	"The target is also knocked back based on Morphling's strength."
 		"DOTA_Tooltip_Ability_morphling_morph_str_Description"					"Morphling shifts its form, pulling points from Agility and pouring them into Strength. The process is reversible.  Additional points in Morph increase the rate of stat change.  Passively grants bonus Strength."
 		"DOTA_Tooltip_Ability_morphling_morph_str_Note2"						"Morphling can shift attributes while stunned."
 		"DOTA_Tooltip_Ability_morphling_morph_str_bonus_attributes"				"BONUS STRENGTH:"
