@@ -1140,6 +1140,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddAbility("sven_gods_strength_aghs_datadriven"):SetLevel(1)
 			entity:AddAbility("undying_flesh_golem_aura_datadriven"):SetLevel(1)
 			entity:AddAbility("legion_commander_press_the_attack_as_datadriven"):SetLevel(1)
+		elseif entity:GetName() == "npc_dota_hero_troll_warlord" then
+			entity:SetThink(function()
+				entity:FindAbilityByName("troll_warlord_berserkers_rage"):SetLevel(0)
+			end, "troll unset 1st skill", 0.1)
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then

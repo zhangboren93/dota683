@@ -3003,15 +3003,15 @@
 				"value"		"280 370 460"
 				"special_bonus_scepter" "+90"
 			}
-			"jumps"		 			"10 10 10"
+			"bonus_jump_damage"		"0"
+			"jumps"		 			"10"
 			"jump_range"			"575"
 			"slow_movement_speed"	"-30"
 			"slow_attack_speed"		"-20"
 			"slow_duration"			"4.0"
+			"initial_projectile_speed"		"675"
 			"projectile_speed"		"675"
 			"vision_radius"			"1000"
-			"bonus_jump_damage"		"0"
-			"initial_projectile_speed"		"675"
 			"has_unlimited_jumps"
 			{
 				"special_bonus_scepter"	"+1"
@@ -3022,6 +3022,9 @@
 				"special_bonus_scepter"	"+100"
 			}
 			"stun_duration"				"0.1"
+			"bonus_jumps_per_hero_killed"	"0"
+			"bonus_jumps_per_creep_killed"	"0"
+			"frostbound_duration"			"0"
 		}
 	}
 	"lich_chain_frost_2"
@@ -14597,18 +14600,15 @@
         "HasScepterUpgrade"               "0"
 		"AbilityValues"
 		{
-				"radius"				"400 400 400 400"
-				"silence_duration"		
-				{
-					"value"					"0.75 1.5 2.25 3"
-					"special_bonus_unique_puck_7"	"+0.75"
-				}
-				"damage"				
-				{
-					"value"		"70 140 210 280"
-					"special_bonus_unique_puck_6"	"+75"
-				}
+				"radius"				"400"
+				"silence_duration"		"0.75 1.5 2.25 3"
+				"damage"				"70 140 210 280"
 				"max_distance"			"0"
+				"push_pull_enabled"		"0"
+				"knock_distance"		"0"
+				"knock_duration"		"0"
+				"pull_distance"			"0"
+				"pull_duration"			"0"
 		}
 	}
 	//=================================================================================================================
@@ -15847,7 +15847,9 @@
 		"ID"					"5508"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilitySound"					"Hero_TrollWarlord.BerserkersRage.Toggle"
-
+		"MaxLevel"						"4"
+		"Innate"						"0"
+		"RequiredLevel"					"1"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
@@ -15974,6 +15976,7 @@
 			"extra_attack_chance_per_stack"	"0"
 			"base_chance"	"0"
 			"range_buffer"	"0"
+			"armor_per_stack"	"0"
 		}
 	}
 	// Rewrite of the Troll Warlord Battle Trance ability
@@ -16120,6 +16123,7 @@
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" 	"15"
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"		"-22"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"100"
 				}
 			}
 		}
@@ -26804,7 +26808,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityValues"
 		{
-				"hero_duration"			"1.0 1.0 1.0 1.0"
+				"hero_duration"			"1"
 				"creep_duration"		"5"
 				"base_damage"			"50"
 				"bounce_range"			"575"
@@ -26845,6 +26849,8 @@
 				"heal"						"16 24 32 40"
 				"heal_interval"				"0.33 0.33 0.33 0.33"
 				"enemy_damage_pct"				"0"
+				"does_heal"					"1"
+				"does_damage"				"1"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -30063,16 +30069,16 @@
 			"orb_speed"					"600"
 			"orb_vision"				"800"
 			"vision_duration"			"3.34"
-			"damage"			
-			{		
-				"value"										"70 140 210 280"
-				"special_bonus_unique_puck_orb_damage"		"+50"
-			}
-			"AbilityCooldown"
-			{
-				"value"								"12"
-				"special_bonus_unique_puck_8"		"-2"
-			}
+			"damage"					"70 140 210 280"
+			"AbilityCooldown"			"12"
+			"curve_orb"					"0"
+			"curve_orb_duration_multiplier"	"0"
+			"curve_orb_max_acceleration"	"0"
+			"curve_orb_pullback_bonus_launch_speed"	"0"
+			"curve_strength"				"0"
+			"orb_particle_offset_z"			"0"
+			"vector_reticle_distance"		"0"
+			"vector_reticle_radius"			"0"
 		}
 	}
 	"puck_ethereal_jaunt"
