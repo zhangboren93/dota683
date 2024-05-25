@@ -1102,8 +1102,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				end
 				return 1
 			end, "visage scepter", 1);
-		elseif entity:GetName() == "npc_dota_hero_tiny" then
-			entity:FindAbilityByName("tiny_grow_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_enchantress" then
 			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
 		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then

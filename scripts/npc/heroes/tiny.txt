@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	//=================================================================================================================
+	// Tiny: Craggy Exterior
+	//=================================================================================================================
+	"tiny_craggy_exterior_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilitySound"					"Hero_Tiny.CraggyExterior.Stun"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"tiny_craggy_exterior"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"		"35"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"stun_chance"				"10 15 20 25"
+				"stun_duration"				"1 1.25 1.5 1.75"
+				"damage"					"25 35 45 55"
+				"radius"					"300"
+				"bonus_armor"				"2 3 4 5"
+		}
+		
+		"Modifiers"
+		{
+			"modifier_tiny_craggy_exterior_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_armor"
+				}
+				"Aura" 			"modifier_tiny_craggy_exterior_aura_datadriven"
+				"Aura_Radius" 	"300"
+				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+			}
+			"modifier_tiny_craggy_exterior_aura_datadriven"
+			{
+				"IsHidden"		"1"
+				"OnAttackStart"
+				{
+					"Random"
+					{
+						"Chance"	"%stun_chance"
+	
+						"OnSuccess"
+						{
+							"FireSound"
+							{
+								"EffectName"	"Hero_Tiny.CraggyExterior.Stun"
+								"Target"		"ATTACKER"
+							}
+	
+							"Stun"
+							{
+								"Target"		"ATTACKER"
+								"Duration"		"%stun_duration"
+							}
+			
+							"Damage"
+							{
+								"Target"		"ATTACKER"
+								"Type"			"DAMAGE_TYPE_MAGICAL"
+								"Damage"		"%damage"
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

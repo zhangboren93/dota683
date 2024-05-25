@@ -1,7 +1,6 @@
 function growPassive(event)
 	local caster = event.caster
     caster:FindAbilityByName("tiny_grow_move_speed_datadriven"):SetLevel(event.caster:FindAbilityByName("tiny_grow"):GetLevel())
-    caster:FindAbilityByName("tiny_coat_armor_datadriven"):SetLevel(event.caster:FindAbilityByName("tiny_craggy_exterior"):GetLevel())
 
 	if caster:HasScepter() then
 		if caster:FindAbilityByName("tiny_grow"):GetLevel() > 0 then

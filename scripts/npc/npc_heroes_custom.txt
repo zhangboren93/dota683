@@ -2242,6 +2242,34 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"tusk_facet_tag_team"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"generic_hidden"
+						"AbilityIndex"	"6"
+						"AutoLevelAbility"	"false"
+					}
+				}
+			}
+
+			"tusk_facet_fist_bump"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"generic_hidden"
+						"AbilityIndex"	"6"
+						"AutoLevelAbility"	"false"
+					}
+				}
+			}
+		}
 	}
 	"npc_dota_hero_vengefulspirit"		
 	{
@@ -3452,8 +3480,8 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability2"		"tiny_toss_datadriven"
-		"Ability3"		"tiny_craggy_exterior"
-		"Ability4"		"tiny_coat_armor_datadriven"
+		"Ability3"		"tiny_craggy_exterior_datadriven"
+		"Ability4"		"generic_hidden"
 		"Ability5"		"tiny_grow_move_speed_datadriven"
 		"Ability6"		"tiny_grow"
 		"Ability7"		"tiny_grow_checker_datadriven"
@@ -3465,6 +3493,20 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"tiny_insurmountable" 
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+		}
+
 	}
 	"npc_dota_hero_treant"					
 	{
@@ -4133,6 +4175,37 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"techies_atk_range"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+
+			"techies_spleens_secret_sauce" 
+			{
+				"Icon"				"nuke"
+				"Color"				"Red"
+				"GradientID"		"0"
+			}
+
+			"techies_backpack"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+		}
 	}
 	"npc_dota_hero_templar_assassin"	
 	{
