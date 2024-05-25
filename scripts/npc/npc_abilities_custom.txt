@@ -13912,6 +13912,9 @@
 				"bonus_attack_speed"	"0"
 				"duration"			"2.5 2.75 3"
 				"early_out_timer"	"2.5 2.75 3"
+				"max_duration"		"2.5 2.75 3"
+				"bonus_duration_per_hero"	"0"
+				"bonus_duration_per_creep"	"0"
 		}
 	}
 	"arc_warden_spark_wraith_lua"
