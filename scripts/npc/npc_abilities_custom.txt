@@ -19238,13 +19238,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
 		"Innate"						"1"
-		"MaxLevel"						"1"
+		"MaxLevel"						"5"
+		"DependentOnAbility"			"tidehunter_kraken_shell"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"damage_cleanse"		"600"
+			"damage_cleanse"		"999999 600 550 500 450"
 			"damage_reset_interval"	"6.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
