@@ -430,6 +430,7 @@
 			"duration"				"2.0 2.4 2.8 3.2"
 			"scepter_cooldown_reduction"	"+0"
 			"applies_battle_hunger"			"0"
+			"bonus_attack_speed"	"0"
 		}
 	}
 	//=================================================================================================================
@@ -3259,28 +3260,13 @@
 		
 		"AbilityValues"
 		{
-			"armor_reduction"		
-			{ 
-				"value"				"-10 -15 -20"
-				"special_bonus_unique_slardar_5"	"-4"
-			}
-			"duration"
-			{
-				"value"			"25"
-			}
-			"undispellable"
-			{
-				"value"			"0"
-				"special_bonus_unique_slardar_3"	"+1"
-			}
-			"puddle_radius"
-			{
-				"value"			"0"
-			}
-			"puddle_duration"
-			{
-				"value"			"0"
-			}
+			"armor_reduction"	"-10 -15 -20"
+			"duration"			"25"
+			"undispellable"		"0"
+			"puddle_radius"		"0"
+			"puddle_duration"	"0"
+			"has_self_buff"		"0"
+			"armor_pct"			"0"
 		}
 	}
     "tidehunter_ravage"
@@ -22002,6 +21988,27 @@
 				}
 			}
 		}
+	}
+	"slark_barracuda"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"4"
+		"Innate"						"1"
+		"DependentOnAbility"			"slark_shadow_dance"
+
+		"AbilityValues"
+		{
+			"bonus_movement_speed"		"0 30 35 40"
+			"bonus_pct_regen"			"0 3 5 7"
+			"bonus_regen"				"0"
+			"linger_search_radius"		"0"
+			"linger_duration"			"0"
+			"activation_delay"			"0.5"
+			"neutral_disable"			"2.0"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
 	"life_stealer_open_wounds_2"
 	{
