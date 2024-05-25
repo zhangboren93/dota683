@@ -15,7 +15,7 @@ function handleAbilityStart(event)
         units[i]:AddNewModifier(caster, ability, "modifier_requiem_slow_lua", { duration = 5})
     end
 
-	local necromastery = caster:FindModifierByName("modifier_nevermore_necromastery")
+	local necromastery = caster:FindModifierByName("modifier_necromastery")
 	if necromastery == nil then return end
 	local stacks = necromastery:GetStackCount()
 	local souls = math.ceil(stacks / 2)
@@ -32,7 +32,7 @@ end
 function handleDeath(event)
 	if not IsServer() then return end
 	local caster = event.caster
-	local necromastery = caster:FindModifierByName("modifier_nevermore_necromastery")
+	local necromastery = caster:FindModifierByName("modifier_necromastery")
 	if necromastery == nil then return end
 	local stacks = necromastery:GetStackCount()
 	-- release half the amount of souls
