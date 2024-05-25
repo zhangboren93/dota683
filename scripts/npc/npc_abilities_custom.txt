@@ -17133,6 +17133,8 @@
 				"radius"						"500"
 				"duration"						"4.5"
 				"projectile_speed"				"450"
+				"can_target_ground"				"0"
+				"creep_damage_reduction_pct"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -23264,31 +23266,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"		"18 16 14 12"
 			"prison_duration"		"1 2 3 4"
-			"damage"		
-			{
-				"value"					"0"
-				"special_bonus_scepter"		"+0"
-			}
-			"mana_capacity_steal"	
-			{
-				"value"							"0"
-				"special_bonus_shard"			"+5"
-			}
-			
+			"damage"				"0"
+			"mana_capacity_steal"	"0"
 			"mana_capacity_duration"	"50"
-			"allied_movement_speed_pct"
-			{
-				"value"					"0"
-				"special_bonus_shard"	"+60"
-			}				
-			"AbilityCastRange"
-			{
-				"value"						"500"
-				"special_bonus_unique_outworld_devourer_astral_castrange"	"+100"
-			}
+			"allied_movement_speed_pct"	"0"
+			"AbilityCastRange"			"500"
 			"int_steal"				"-4 -7 -10 -13"
 			"int_gain"				"4 7 10 13"
+			"debuff_duration"		"0"
+			"percentage_damage"		"0"
+			"percentage_heal"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
