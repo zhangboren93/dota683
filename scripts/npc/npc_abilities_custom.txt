@@ -4165,6 +4165,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"Innate"						"0"
+		"RequiredLevel"					"1"
 		"MaxLevel"						"4"
 
 		// Casting
@@ -5694,6 +5695,9 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"1"
+		"Innate"						"0"
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -5712,6 +5716,8 @@
 				"attack_spill_width"		"90"
 				"attack_spill_pct"			"100"
 				"attack_spill_penalty"			"0"
+				"spill_slow_duration"		"0"
+				"spill_movement_slow_pct"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}	
@@ -6988,6 +6994,9 @@
 					"value"				"12"
 					"special_bonus_scepter"	"-8"
 				}
+			"splash_radius"					"0"
+			"life_break_heal_radius"		"0"
+			"life_break_heal_pct"			"0"
 		}
 	}
 	//=================================================================================================================
@@ -11207,16 +11216,16 @@
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70 60 50"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"160 210 260"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"				"70 60 50"
+			"AbilityManaCost"				"160 210 260"
 			"duration"				"20 35 50"
 			"fade_time"				"0.0"
 			"movement_speed"		"16 18 20"
@@ -11243,6 +11252,8 @@
 			"mana_removal_pct"		"0"
 			"attack_animation_bonus"	"0"
 			"attack_range_bonus"		"0"
+			"free_pathing_duration"		"0"
+			"free_pathing_movement_speed_bonus"	"0"
 		}
 	}
     "naga_siren_song_of_the_siren"
@@ -11748,6 +11759,7 @@
 		"HasShardUpgrade"             "0"
 		"AbilityDraftPreAbility"		"visage_summon_familiars_stone_form"
 		"Innate"						"0"
+		"RequiredLevel"					"1"
 		"MaxLevel"						"4"
 
 		// Special
@@ -12528,6 +12540,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_ElderTitan.AncestralSpirit.Cast"
 		"Innate"						"0"
+		"RequiredLevel"					"1"
 
 		"HasScepterUpgrade"			"0"
 
@@ -12923,6 +12936,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_LegionCommander.Courage"
 		"MaxLevel"						"4"
+		"RequiredLevel"					"1"
 		"Innate"						"0"
 
 		// Time		
@@ -19238,13 +19252,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_INNATE_UI"
 		"Innate"						"1"
-		"MaxLevel"						"1"
+		"MaxLevel"						"5"
+		"DependentOnAbility"			"tidehunter_kraken_shell"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"damage_cleanse"		"600"
+			"damage_cleanse"		"999999 600 550 500 450"
 			"damage_reset_interval"	"6.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -26836,6 +26851,8 @@
 			"magic_missile_stun"	"1.45 1.55 1.65 1.75"
 			"magic_missile_damage"	"100 175 250 325"
 			"AbilityCastRange"		"500"
+			"bounce_range_pct"		"0"
+			"damage_per_lasthit"	"0"
 		}
 	}
 	//=================================================================================================================
