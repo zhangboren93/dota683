@@ -2152,6 +2152,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability3"					"vengefulspirit_command_aura_datadriven"
+		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -2160,6 +2161,23 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"vvengefulspirit_melee"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+				"KeyValueOverrides"
+				{
+					"AttackRate"		"1.7"
+				}
+			}
+		}
 	}
 	"npc_dota_hero_viper"				
 	{
