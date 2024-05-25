@@ -2743,17 +2743,16 @@
 		"AbilityManaCost"				"225 325 450"
 		"AbilityValues"
 		{
-				"sight_radius_day"		"900"
-				"sight_radius_night"	"900"
-				"sight_duration"		"3.0 3.0 3.0"
-				"damage"
-				{
-					"value"						"225 350 475"
-					"special_bonus_scepter"		"+215 +190 +165"
-				}
-				"damage_pct"			"0"
-				"second_strike_delay"				"0"
-				"second_strike_damage_percent"		"0"
+			"sight_radius_day"		"900"
+			"sight_radius_night"	"900"
+			"sight_duration"		"3.0"
+			"damage"
+			{
+				"value"						"225 350 475"
+				"special_bonus_scepter"		"+215 +190 +165"
+			}
+			"growing_delay"			"0"
+			"grow_kill_amp"			"0"
 		}
 	}
     "kunkka_ghostship"
