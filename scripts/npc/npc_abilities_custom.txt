@@ -4165,6 +4165,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
 		"Innate"						"0"
+		"RequiredLevel"					"1"
 		"MaxLevel"						"4"
 
 		// Casting
@@ -11758,6 +11759,7 @@
 		"HasShardUpgrade"             "0"
 		"AbilityDraftPreAbility"		"visage_summon_familiars_stone_form"
 		"Innate"						"0"
+		"RequiredLevel"					"1"
 		"MaxLevel"						"4"
 
 		// Special
@@ -12538,6 +12540,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySound"					"Hero_ElderTitan.AncestralSpirit.Cast"
 		"Innate"						"0"
+		"RequiredLevel"					"1"
 
 		"HasScepterUpgrade"			"0"
 
@@ -12933,6 +12936,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_LegionCommander.Courage"
 		"MaxLevel"						"4"
+		"RequiredLevel"					"1"
 		"Innate"						"0"
 
 		// Time		
