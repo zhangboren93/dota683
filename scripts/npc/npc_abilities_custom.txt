@@ -5694,6 +5694,9 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"1"
+		"Innate"						"0"
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -5712,6 +5715,8 @@
 				"attack_spill_width"		"90"
 				"attack_spill_pct"			"100"
 				"attack_spill_penalty"			"0"
+				"spill_slow_duration"		"0"
+				"spill_movement_slow_pct"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}	
