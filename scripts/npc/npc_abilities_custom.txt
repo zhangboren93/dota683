@@ -11269,9 +11269,10 @@
 		"AbilityValues"
 		{
 			"radius"					"1250"
-			"duration"					"7.0 7.0 7.0"
-			"animation_rate"			"0.55 0.55 0.55"
+			"duration"					"7.0"
+			"animation_rate"			"0.55"
 			"heal_pct"					"0"
+			"mana_pct"					"0"
 			"AbilityCooldown"			"180 120 60"
 		}
 	}
