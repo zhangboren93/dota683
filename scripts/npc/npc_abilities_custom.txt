@@ -3928,6 +3928,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.5"
+		"AnimationPlaybackRate"			"0.4"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3945,32 +3946,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"damage"					
-				{
-					"value"				"15 25 35 45"
-					"special_bonus_unique_warlock_7"		"+25"
-				}
-				"duration"					
-				{
-					"value"				"11.0"
-					"special_bonus_unique_warlock_8"	"+2"
-				}
+				"damage"					"15 25 35 45"
+				"duration"					"11.0"
 				"tick_interval"				"1.0"
-				"spell_aoe"					
-				{
-					"value"					"0"
-					"RequiresShard"			"1"
-				}
-				"shard_movement_speed_pct"					
-				{
-					"value"					"0"
-					"RequiresShard"			"1"
-				}	
-				"AbilityCooldown"					
-				{
-					"value"										"16"
-					"special_bonus_unique_warlock_3"			"-4"
-				}
+				"spell_aoe"					"0"
+				"shard_movement_speed_pct"	"0"
+				"AbilityCooldown"			"16"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
@@ -4070,7 +4051,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"golem_duration"			"60 60 60"
+			"golem_duration"			"60"
 			"stun_duration"				"1.0"
 			"aoe"						"600"
 			"golem_hp"					"900 1200 1500"
@@ -4104,6 +4085,7 @@
 			"bonus_armor"				"0"
 			"tooltip_golem_armor"		"6 9 12"
 			"bonus_slow_resistance"		"0"
+			"tooltip_manahealthboost"	"0"
 		}
 	}
 	//=================================================================================================================
@@ -26797,6 +26779,14 @@
 				"movespeed"					"100"
 				"duration"					"1.25 2.0 2.75 3.5"
 				"damage_amp"				"0"
+				"can_target_allies"			"0"
+				"ally_invuln_duration"		"0"
+				"ally_voodoo_duration"		"0"
+				"ally_invuln_vision_radius"	"0"
+				"ally_chicken_images_count"	"0"
+				"ally_chicken_images_take_damage_percent"	"0"
+				"ally_chicken_movement_speed_bonus_pct"		"0"
+				"tooltip_damage_incoming_total_pct"			"0"
 		}
 	}
 	"shadow_shaman_shackles"
