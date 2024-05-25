@@ -365,26 +365,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"AbilityCooldown"				
-			{
-				"value"			"70"
-				"special_bonus_unique_antimage_2"	"-50"
-			}
-			"mana_void_damage_per_mana"		
-			{
-				"value"				"0.6 0.85 1.1"
-				"special_bonus_unique_antimage_6"	"+0.1"
-			}			
-			"mana_void_ministun"			
-			{
-				"value"					"0.1 0.2 0.3"
-				"special_bonus_unique_antimage_8" "+1"
-			}			
-			"mana_void_aoe_radius"			
-			{
-				"value"					"500"
-				"special_bonus_unique_antimage_manavoid_aoe"			"+150"
-			}
+			"AbilityCooldown"				"70"
+			"mana_void_damage_per_mana"		"0.6 0.85 1.1"
+			"mana_void_ministun"			"0.1 0.2 0.3"
+			"mana_void_aoe_radius"			"500"
+			"thirst_enabled"				"0"
+			"thirst_range"					"0"
+			"threshold_pct"					"0"
+			"min_bonus_pct"					"0"
+			"max_bonus_pct"					"0"
+			"bonus_attack_damage"			"0"
+			"linger_duration"				"0"
 		}
 	}
 	//=================================================================================================================
@@ -10786,6 +10777,7 @@
 				"value"				"20 18 16"
 				"special_bonus_scepter"		"-15 -13 -11"
 			}
+			"stolen_mana_reduction"			"0"
 		}
 	}
 	"rubick_spell_steal_limit_one_datadriven"
@@ -14580,6 +14572,9 @@
 			"duration_illusion"			"0"
 			"outgoing_damage"			"0"
 			"incoming_damage"			"100"
+			"castable_while_disabled"	"0"
+			"does_reflect"				"0"
+			"AbilityCooldown"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityCastGestureSlot"		"DEFAULT"
