@@ -13394,24 +13394,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"illusion_duration"					
-			{
-				"value"			"32.0"
-				"special_bonus_unique_terrorblade_5"	"+10"
-			}
-			"illusion_outgoing_damage"	
-			{
-				"value"		"-70 -60 -50 -40"		 
-				"special_bonus_unique_terrorblade_4"	"+10"
-			}
-					
-			"illusion_outgoing_tooltip"			
-			{
-				"value"				"30 40 50 60"
-				"special_bonus_unique_terrorblade_4"	"+10"
-			}
+			"illusion_duration"					"32.0"
+			"illusion_outgoing_damage"			"-70 -60 -50 -40"		 
+			"illusion_outgoing_tooltip"			"30 40 50 60"
 			"illusion_incoming_damage"			"325.0"
 			"illusion_incoming_damage_total_tooltip"			"425.0"
+			"strong_illusion"					"0"
+			"show_particle_effect"				"1"
+			"appear_as_illusion"				"1"
+			"hp_cost_perc"						"0"
+			"illusions_spawn_with_full_hp"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -13452,7 +13444,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"hit_point_minimum_pct"		"20"
+				"hit_point_minimum_pct"						"20"
+				"ignore_minimum_pct_for_enemies"			"0"
+				"ignore_minimum_pct_for_enemies_tooltip"	"1"
 		}
 	}
 	//=================================================================================================================
@@ -25872,6 +25866,8 @@
 				"num_explosions"		"40"
 				"radius"				"500"
 				"tower_bonus"			"40"
+				"affects_buildings"		"1"
+				"AbilityDuration"		"10"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}

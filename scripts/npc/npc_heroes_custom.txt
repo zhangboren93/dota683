@@ -483,6 +483,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"dazzle_poison_touch_datadriven"
 		"Ability3"		"dazzle_shadow_wave_datadriven"
+		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"dazzle_weave"
 		"Ability10"		"special_bonus_all_stats_4"
@@ -493,6 +494,19 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"dazzle_facet_nothl_boon"
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+		}
 	}
 	"npc_dota_hero_dragon_knight"		
 	{
@@ -793,6 +807,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -801,6 +816,19 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+			"leshrac_attacks_mana" 
+			{
+				"Abilities"
+				{
+					"Ability1"
+					{
+						"AbilityName"	"null_facet"
+					}
+				}
+			}
+		}
 	}
 	"npc_dota_hero_lich"				
 	{
@@ -2086,6 +2114,7 @@
 		"Ability3"		"terrorblade_metamorphosis_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
+		"Ability7"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
