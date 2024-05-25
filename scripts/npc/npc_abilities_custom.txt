@@ -19048,11 +19048,7 @@
 		"AbilityValues"
 		{
 				"radius"				"700 700 700"
-				"spirits"				
-				{
-					"value"					"4 12 21"
-					"LinkedSpecialBonus"	"special_bonus_unique_death_prophet"
-				}
+				"spirits"				"4 12 21"
 				"spirit_speed"			"500"
 				"max_distance"			"2000 2000 2000"
 				"give_up_distance"		"1200 1200 1200"
@@ -19089,12 +19085,12 @@
 	//=================================================================================================================
 	// Death Prophet: Witchcraft 
 	//=================================================================================================================
-	"death_prophet_witchcraft"
+	"death_prophet_witchcraft_datadriven"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5092"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"death_prophet_witchcraft"
+
 				
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -19105,9 +19101,28 @@
 				"carrion_swarm_cooldown_adjust"		"-1.0 -2.0 -3.0 -4.0"
 				"silence_mana_cost_adjust"			"-10 -15 -20 -25"
 				"silence_cooldown_adjust"			"-1.0 -2.0 -3.0 -4.0"
-				"exorcism_1_extra_spirits"			"3 4 5 6"
-				"exorcism_2_extra_spirits"			"3 4 5 6"
-				"exorcism_3_extra_spirits"			"3 4 5 6"
+				"exorcism_extra_spirits"			"3 4 5 6"
+		}
+
+		"Modifiers"
+		{
+			"modifier_death_prophet_witchcraft_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_death_prophet/witchcraft.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+				"Properites"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
+				}
+			}
 		}
 	}
 	//=================================================================================================================

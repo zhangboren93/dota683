@@ -2320,6 +2320,14 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 				return true
 			end
 		end
+	elseif ability:GetName() == "death_prophet_exorcism" then
+		if event.value_name_const == "spirits" then
+			local witchcraft = caster:FindAbilityByName("death_prophet_witchcraft_datadriven")
+			if witchcraft:GetLevel() > 0 then
+				event.value = event.value + witchcraft:GetSpecialValueFor("exorcism_extra_spirits")
+				return true
+			end
+		end
 	end
 end
 

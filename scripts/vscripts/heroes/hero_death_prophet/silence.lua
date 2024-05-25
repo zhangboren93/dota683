@@ -7,7 +7,7 @@ death_prophet_silence_lua = class({
 })
 
 function death_prophet_silence_lua:GetCooldown(level)
-	local ability = self:GetCaster():FindAbilityByName("death_prophet_witchcraft")
+	local ability = self:GetCaster():FindAbilityByName("death_prophet_witchcraft_datadriven")
 	if ability ~= nil then
 		return 15 + ability:GetSpecialValueFor("silence_cooldown_adjust")
 	else
@@ -16,7 +16,7 @@ function death_prophet_silence_lua:GetCooldown(level)
 end
 
 function death_prophet_silence_lua:GetManaCost(level)
-	local ability = self:GetCaster():FindAbilityByName("death_prophet_witchcraft")
+	local ability = self:GetCaster():FindAbilityByName("death_prophet_witchcraft_datadriven")
 	if ability ~= nil then
 		return 80 + ability:GetSpecialValueFor("silence_mana_cost_adjust")
 	else
