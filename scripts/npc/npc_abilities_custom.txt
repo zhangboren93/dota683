@@ -7845,6 +7845,7 @@
 				"illusion_damage_incoming"	"100 100 100"
 				"tooltip_illusion_total_damage_incoming"	"200 200 200"
 				"attack_delay"				"1"
+				"destroy_if_target_is_dead"	"1"
 		}
 	}
 	//=================================================================================================================
@@ -7867,6 +7868,11 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"0"
+		"AbilityValues"
+		{
+			"cast_dagger_on_target"		"0"
+			"AbilityCooldown"				"0"
+		}
 	}
 	"spectre_reality_levelup_with_haunt_datadriven"
 	{
@@ -18265,7 +18271,7 @@
 				"value"					"1"
 				"special_bonus_unique_phantom_lancer_doppel_illusion2_amt"		"+1"
 			}
-
+			"hp_missing_per_extra_illusion_pct"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -18281,6 +18287,9 @@
 		"AbilitySound"			"Hero_PhantomLancer.PhantomEdge"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"HasScepterUpgrade"				"0"
+		"Innate"						"0"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"1"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -18291,18 +18300,10 @@
 		"AbilityValues"
 		{
 				"min_distance"		"300"
-				"max_distance"				
-				{
-					"value"				"600 700 800 900"
-					"LinkedSpecialBonus"		"special_bonus_unique_phantom_lancer"
-				}
+				"max_distance"		"600 700 800 900"
 				"bonus_speed"		"800"
 				"bonus_agility"		"0"
-				"agility_duration"		
-				{
-					"value"			"0"
-					"special_bonus_unique_phantom_lancer_2"		"+2.5"
-				}
+				"agility_duration"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -18347,6 +18348,8 @@
 				"shard_bonus_illusions"		"0"
 				"invis_duration"			"0"
 				"invis_movespeed"			"0"
+				"uncontrollable_illusions"	"0"
+				"new_target_radius"			"0"
 		}
 	}
 	"monkey_king_pl_sound_effects"

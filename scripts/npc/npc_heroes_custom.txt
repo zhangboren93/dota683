@@ -4645,6 +4645,7 @@
 		"Ability3"		"spectre_dispersion_lua"
 		"Ability5"		"spectre_reality_levelup_with_haunt_datadriven"
 		"Ability6"		"spectre_haunt"
+		"Ability7"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
