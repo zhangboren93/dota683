@@ -11207,16 +11207,16 @@
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70 60 50"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"160 210 260"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"				"70 60 50"
+			"AbilityManaCost"				"160 210 260"
 			"duration"				"20 35 50"
 			"fade_time"				"0.0"
 			"movement_speed"		"16 18 20"
@@ -11243,6 +11243,8 @@
 			"mana_removal_pct"		"0"
 			"attack_animation_bonus"	"0"
 			"attack_range_bonus"		"0"
+			"free_pathing_duration"		"0"
+			"free_pathing_movement_speed_bonus"	"0"
 		}
 	}
     "naga_siren_song_of_the_siren"
