@@ -1994,6 +1994,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local duration = ability:GetSpecialValueFor("frostbite_duration")
 		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_ice_blast_damage_datadriven", { duration = duration })
+	elseif event.name_const == "modifier_rattletrap_cog_pinball" then
+		-- kill the cog if attacked by clockwerk itself
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		parent:ForceKill(false)
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
