@@ -23026,6 +23026,7 @@
 			"AbilityCooldown"		"18 16 14 12"
 			"prison_duration"		"1 2 3 4"
 			"damage"				"0"
+			"has_mana_steal"				"0"
 			"mana_capacity_steal"	"0"
 			"mana_capacity_duration"	"50"
 			"allied_movement_speed_pct"	"0"
