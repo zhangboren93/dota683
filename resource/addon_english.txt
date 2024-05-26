@@ -1254,6 +1254,13 @@
 		"DOTA_Tooltip_modifier_bounty_hunter_track_effect_lua_Description"	"Increasing move speed by 20%%."
 
 		// Broodmother
+		"DOTA_Tooltip_ability_broodmother_spawn_spiderite_datadriven"							"Spawn Spiderling"
+		"DOTA_Tooltip_ability_broodmother_spawn_spiderite_datadriven_Description"				"Applies debuff on attack. If debuffed unit dies, a spiderling will spawn."
+		"DOTA_Tooltip_ability_broodmother_spawn_spiderite_datadriven_spiderite_duration"		"LIFETIME:"
+		"DOTA_Tooltip_ability_broodmother_spawn_spiderite_datadriven_buff_duration"				"DEBUFF DURATION:"
+		"DOTA_Tooltip_modifier_broodmother_spawn_spiderite_debuff_datadriven"					"Spawn Spiderling"
+		"DOTA_Tooltip_modifier_broodmother_spawn_spiderite_debuff_datadriven_Description"		"If killed, will spawn a Spiderite."
+
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"Spin Web"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"Spins a large web that renders Broodmother invisible, grants a passive movement speed increase, gives free movement, and boosts regeneration while in its vicinity. If damage is taken, free movement is disabled and the movement speed increase is halved for %damage_time% seconds. Spin Web can be cast from anywhere as long as the new web touches an existing web.<br> Webs never expire, and can be manually destroyed. When the maximum limit of webs is exceeded, the oldest web disappears."
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_count"			"MAX WEBS:"

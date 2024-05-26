@@ -1242,6 +1242,12 @@
 		"DOTA_Tooltip_modifier_bounty_hunter_track_effect_lua_Description"			"移动速度提升20%%。"
 
 		// Broodmother
+		"DOTA_Tooltip_ability_broodmother_spawn_spiderite_datadriven"								"孵化蜘蛛"
+		"DOTA_Tooltip_ability_broodmother_spawn_spiderite_datadriven_Description"					"攻击会感染敌人。如果目标在感染期内死亡，一只小蜘蛛会从尸体中产出。"
+		"DOTA_Tooltip_ability_broodmother_spawn_spiderite_datadriven_spiderite_duration"			"生存时间："
+		"DOTA_Tooltip_ability_broodmother_spawn_spiderite_datadriven_buff_duration"				"感染时间："
+		"DOTA_Tooltip_modifier_broodmother_spawn_spiderite_debuff_datadriven"				"孵化蜘蛛"
+		"DOTA_Tooltip_modifier_broodmother_spawn_spiderite_debuff_datadriven_Description"	"被杀死的话，会生出一只小蜘蛛。"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven"					"织网"
 		"DOTA_Tooltip_Ability_broodmother_spin_web_datadriven_Description"		"编织出一张蜘蛛网，育母蜘蛛在蛛网里可以隐身，获得无视地形移动的能力，同时提高生命回复和移动速度。一旦育母蜘蛛受到来自敌人的伤害，她将在%damage_time%秒内丧失无视地形移动的能力，移动速度加成效果也会减半。织网现在可向其他蛛网触及的区域全屏释放。<br>蛛网永久存在，不过可以手动摧毁。当其数量超过上限，最早的蛛网将会消失。"
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_count"			"蛛网数量上限："
