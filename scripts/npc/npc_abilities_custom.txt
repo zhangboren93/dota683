@@ -21013,39 +21013,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-	//=================================================================================================================
-	// Ability: Necrolyte's Heartstopper Aura
-	//=================================================================================================================
-	"necrolyte_heartstopper_aura"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5159"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"necrolyte_ghost_shroud"
-		"HasScepterUpgrade"				"0"
-		"AbilityValues"
-		{
-			"aura_radius"			"0"		
-			"aura_damage"
-			{
-				"value"		"0" 
-				"DamageTypeTooltip"	"DAMAGE_TYPE_NONE"
-			} 	
-			"health_regen"	"1 2 3 6"
-			"mana_regen"	"2 4 6 10"
-			"hero_multiplier" "10"
-			"regen_duration"		"6"
-			"scepter_multiplier"
-			{
-				"value"					"1" 
-				"RequiresScepter"		"1"
-			} 
-			"heal_reduction_pct"		"0"
-			"heal_regen_to_damage"		"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
 	// Rewrite of the Necrophos Heartstopper Aura ability
 	// Author: Pizzalol
 	// Date: 11.07.2015.
