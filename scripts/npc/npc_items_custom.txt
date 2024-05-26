@@ -13,6 +13,7 @@
 	"item_aghanims_shard"
 	{
 		"ItemPurchasable"	"0"
+		"ItemCost"			"0"
 	}
 
 	"item_recipe_dragon_lance"

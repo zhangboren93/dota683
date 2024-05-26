@@ -12970,21 +12970,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"				"120.0"
-			"polarization_distance"
-			{
-				"value"			"0"
-				
-			}
-			"vision_radius"				"325"
-			"AbilityCharges"
-			{
-				"value"							"6"
-				"special_bonus_shard"			"+0"
-			}
-			"shard_tooltip"						"0"
-			"rolling_offset_distance"			"150"
-			"hero_level_increment"				"100"
+			"duration"						"120.0"
+			"polarization_distance"			"0"
+			"vision_radius"					"0"
+			"AbilityCharges"				"6"
+			"shard_tooltip"					"0"
+			"rolling_offset_distance"		"150"
+			"hero_level_increment"			"100"
+			"AbilityManaCost"				"0"
+			"AbilityCooldown"				"0"
+			"AbilityChargeRestoreTime"		"18"
 		}
 	}
 	//=================================================================================================================
@@ -13262,24 +13257,17 @@
 		"AbilityValues"
 		{
 			"cast_radius"			"300"
-			"damage_per_second"	
-			{
-				"value"									"50 75 100"
-				"special_bonus_unique_earth_spirit_8"	"+20"
-			}		
-			
-			"damage_duration"
-			{
-				"value"			"6.0"
-				"special_bonus_unique_earth_spirit_6"	"+2"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
-			}
+			"damage_per_second"		"50 75 100"
+			"damage_duration"		"6.0"
 			"rock_search_radius"			"300"
 			"rock_explosion_radius"			"400"
 			"damage_interval"			"1.0"
 			"rock_explosion_delay"			"8.0"
 			"silence_duration"			"5.0"
 			"slow_duration"			"2.0"
+			"magnetized_rocks_buff_self"			"0"
+			"magnetized_rocks_buff_self_duration"	"0"
+			"magnetized_rocks_bonus_self_damage"	"0"
 		}
 	}
 
