@@ -40,8 +40,6 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/items_fx/black_king_bar_avatar.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_elder_titan/elder_titan_scepter_disarm.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf", context)
-	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts", context)
-	PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts", context)
 	PrecacheResource( "soundfile", "soundevents/custom_sounds.vsndevts", context)
 	if GetMapName() == "vsbot" then
 		-- cache sound for all bot heroes
@@ -170,6 +168,7 @@ function Activate()
 	LinkLuaModifier( "modifier_supernova_burn_datadriven", 				"heroes/hero_phoenix/modifier_supernova_burn_datadriven", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_brewmaster_thunder_clap_creep_lua", 		"heroes/hero_brewmaster/modifier_brewmaster_thunder_clap_creep.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_slark_pounce_leash_lua", 				"heroes/hero_slark/pounce.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_tusk_walrus_punch_visual_lua", 			"heroes/hero_tusk/walrus_punch.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1998,6 +1997,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		-- kill the cog if attacked by clockwerk itself
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:ForceKill(false)
+		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

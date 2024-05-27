@@ -1116,6 +1116,16 @@
 		"DOTA_Tooltip_ability_tusk_frozen_sigil_attack_slow_tooltip"	"攻击速度降低："
 		"DOTA_Tooltip_modifier_sigil_aura_effect"						"寒冰碎片"
 		"DOTA_Tooltip_modifier_sigil_aura_effect_Description"			"移动速度攻速减缓。"
+		"DOTA_Tooltip_ability_tusk_walrus_punch_datadriven"						"海象神拳！"
+		"DOTA_Tooltip_ability_tusk_walrus_punch_datadriven_Description"			"巨牙海民为他强力的海象神拳做好准备，下一次攻击将会暴击并将目标打到半空中。目标在落地后会被减速。"
+		"DOTA_Tooltip_ability_tusk_walrus_punch_datadriven_Lore"				"谁打出第一拳往往不重要，看的可是最后一拳。"
+		"DOTA_Tooltip_ability_tusk_walrus_punch_datadriven_Note0"				"海象神拳！拥有克敌机先效果。"
+		"DOTA_Tooltip_ability_tusk_walrus_punch_datadriven_crit_multiplier"		"%致命一击伤害："
+		"DOTA_Tooltip_ability_tusk_walrus_punch_datadriven_air_time"			"滞空时间："
+		"DOTA_Tooltip_ability_tusk_walrus_punch_datadriven_slow_duration"		"减速持续时间："
+		"DOTA_Tooltip_ability_tusk_walrus_punch_datadriven_move_slow"			"%移动速度减缓："
+		"DOTA_Tooltip_modifier_tusk_walrus_punch_slow_datadriven"				"被海象神拳击中"
+		"DOTA_Tooltip_modifier_tusk_walrus_punch_slow_datadriven_Description"	"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
 
 		// IO
 		"DOTA_Tooltip_Ability_wisp_tether_slow_duration"						"减速持续时间："

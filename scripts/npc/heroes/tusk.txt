@@ -137,4 +137,87 @@
 			}
 		}
 	}
+    "tusk_walrus_punch_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Tusk.WalrusPunch.Target"
+		"AbilityTextureName"			"tusk_walrus_punch"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+		"AbilityCastRange"				"150"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 16 12"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 75 100"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"crit_multiplier"			"350"
+			"air_time"					"1"
+			"slow_duration"				"2 3 4"
+			"move_slow"					"-40"
+			"push_length"				"1000"
+		}
+		"precache"
+		{
+			"particle"	"particles/status_fx/status_effect_frost.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_tusk/walrus_punch.lua"
+				"Function"		"handleSpellStart"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_tusk_walrus_punch_crit_datadriven"
+			{
+				"IsHidden"	"0"
+			    "Properties"
+			    {
+			        "MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "%crit_multiplier"
+			    }
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_tusk/walrus_punch.lua"
+						"Function"		"handleAttackLanded"
+					}
+				}
+			}
+			"modifier_tusk_walrus_punch_slow_datadriven"
+			{
+				"IsPurgable"		"1"
+				"IsDebuff"			"1"
+				"StatusEffectName"	"particles/status_fx/status_effect_frost.vpcf"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%move_slow"
+				}
+			}
+		}
+	}
 }
