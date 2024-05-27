@@ -1,5 +1,5 @@
 require("death_match")
-function handleDeath(event)
+function handleDeathRespawnTime(event)
 	local caster = event.caster
 	if not caster:IsRealHero() or caster:GetName() == "npc_dota_lone_druid_bear" then
 		return
@@ -15,7 +15,6 @@ function handleDeath(event)
 		caster:SetTimeUntilRespawn(5)
 		return
 	end
-	local ability = event.ability
 	print("Setting Custom respawn time " .. caster:GetName())
 
 	local new_time_until_respawn = 4 * caster:GetLevel()
@@ -23,10 +22,10 @@ function handleDeath(event)
 	if bs ~= nil then
 		new_time_until_respawn = new_time_until_respawn - 4 * bs:GetCurrentCharges()
 	end
-	caster:SetThink(function()
-		-- respawn time by necro
-		if caster.necrospawnminus ~= nil then
-			new_time_until_respawn = new_time_until_respawn + caster.necrospawnminus
+	
+	-- respawn time by necro
+	if caster.necrospawnminus ~= nil then
+		new_time_until_respawn = new_time_until_respawn + caster.necrospawnminus
 		end
 		-- buy back respawn time
 		print(caster.buybacked)
@@ -44,22 +43,12 @@ function handleDeath(event)
 		print("New respawn time " .. new_time_until_respawn)
 	
 		caster:SetTimeUntilRespawn(new_time_until_respawn)
-		caster.necrospawnminus = nil
-		caster.buybacked = nil
+	caster.necrospawnminus = nil
+	caster.buybacked = nil
 
-		if (new_time_until_respawn > 3) then
-			caster:SetThink(function()
-				if not caster:IsAlive() then
-					print("Emit respawn sound")
-					EmitSoundOnEntityForPlayer("MobaTimeMachine.Hero_Respawn", caster, caster:GetPlayerID())
-				end
-			end, "respawn music", new_time_until_respawn - 3)
-		end
-
-		if GameRules.AddonTemplate.game_mode == "DM" then
-			caster:SetThink(function()
-				deathMatchSpawnHero(caster)
-			end, "respawn new hero", new_time_until_respawn)
-		end
-	end, "set time until respawn", 0.5)
+	if GameRules.AddonTemplate.game_mode == "DM" then
+		caster:SetThink(function()
+			deathMatchSpawnHero(caster)
+		end, "respawn new hero", new_time_until_respawn)
+	end
 end

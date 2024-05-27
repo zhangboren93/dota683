@@ -10,6 +10,7 @@ require("hero_types")
 require("ladder_game_mode")
 require("end_game")
 require("death_match")
+require("heroes/hero_respawn_time")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
@@ -1373,6 +1374,9 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		PlayerResource:SetCustomBuybackCost(entity:GetPlayerID(), buyback_cost)
 		entity.last_dead_time = GameRules:GetDOTATime(false, false)
 		entity:ModifyGold(-30 * entity:GetLevel(), false, DOTA_ModifyGold_Death)
+		local event = {}
+		event.caster = entity
+		handleDeathRespawnTime(event)
 	end
 	if attacker:IsOwnedByAnyPlayer() and entity:IsBuilding() and attacker:GetTeam() ~= entity:GetTeam() then
 		-- grant building kill bonus
