@@ -30974,19 +30974,6 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-30" 
 				}
 			}
-			"modifier_respawn_time_datadriven"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_respawn_time.lua"
-						"Function"		"handleDeath"
-					}
-				}
-			}
 			"modifier_item_shadow_amulet_attack_speed"
 			{
 				"Passive"		"0"
