@@ -28197,6 +28197,8 @@
 					"special_bonus_unique_morphling_1"	"+250"
 				}			
 				"AbilityCooldown"				"11"
+				"pct_damage"			"0"
+				"process_procs"			"0"
 		}
 	}
 	// Rewrite of the Ogre Magi Ignite ability
