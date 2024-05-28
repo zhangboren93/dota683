@@ -29,6 +29,7 @@
 #base "heroes/phantom_assassin.txt"
 #base "heroes/phoenix.txt"
 #base "heroes/puck.txt"
+#base "heroes/rattletrap.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
 #base "heroes/silencer.txt"
@@ -28949,12 +28950,14 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5237"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Rattletrap.Battery_Assault_Impact"
+
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------

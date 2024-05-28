@@ -1,0 +1,53 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	//=================================================================================================================
+	// Rattletrap: Power Cogs
+	//=================================================================================================================
+	"rattletrap_power_cogs_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"rattletrap_power_cogs"
+		"AbilitySound"					"Hero_Rattletrap.Power_Cogs"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AnimationPlaybackRate"			"0.66"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50 60 70 80"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"				"5.0 6.0 7.0 8.0"
+			"damage"				"80 120 160 200"
+			"mana_burn"				"80 120 160 200"
+			"attacks_to_destroy"	"2 2 2 3"
+			"push_length"			"252"
+			"push_speed"			"300"
+			"cogs_radius"			"225"
+			"spacing"				"160"
+			"trigger_distance"		"185"
+			"AbilityCooldown"		"15"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_rattletrap/power_cogs.lua"
+				"Function"		"handleSpellStart"
+			}
+		}
+	}
+}

@@ -906,6 +906,14 @@
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist_Description" 			"Increase magic resistance by 6/8/10/12%%"
 		"DOTA_Tooltip_Ability_pudge_dismember_Scepter_Description"				"Deals 100% Strength attribute symbol strength as damage bonus. Self heals for 100% damage dealt."
 		// Rattletrap
+		"DOTA_Tooltip_ability_rattletrap_battery_assault_Description"				"Discharges high-powered shrapnel at random nearby enemy units, dealing minor magical damage and ministun."
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven"						"Power Cogs"
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_Description"			"Forms a barrier of energized cogs around Clockwerk, trapping any units that are near.  Enemies outside the trap that touch a cog are knocked back, losing health and mana. Once a cog has delivered a shock, it will power down.  Cogs can be destroyed by enemy attacks, but Clockwerk can destroy them with just one."
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_Note0"				"Cogs can shock invisible units."
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_Lore"				"#DOTA_Tooltip_ability_rattletrap_power_cogs_Lore"
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_mana_burn"			"MANA/HEALTH DRAIN:"
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_attacks_to_destroy"	"ATTACKS REQUIRED:"
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD 12 seconds"
 		// Sand King
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven"							"Caustic Finale"

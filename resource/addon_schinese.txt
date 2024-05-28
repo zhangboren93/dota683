@@ -891,6 +891,14 @@
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist_Description"			"魔抗6/8/10/12%%"
 		"DOTA_Tooltip_Ability_pudge_dismember_Scepter_Description"				"造成等于100%%帕吉力量的额外伤害，并且可以治疗帕吉造成伤害数值。"
 		// Rattletrap
+		"DOTA_Tooltip_ability_rattletrap_battery_assault_Description"				"向附近敌方单位随机射出高能弹片，造成小额魔法伤害和短暂眩晕。"
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven"						"能量齿轮"
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_Description"			"用通电的齿轮在发条技师周围形成一圈障碍物，困住贴近的单位。在外侧的敌人碰到齿轮会被电流震退，损失一定的生命和魔法。一个齿轮发动过一次震击后就会报废。敌人攻击齿轮数次后可将其摧毁，而发条技师只需要攻击一次。"
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_Note0"				"齿轮可以震退隐身单位。"
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_Lore"				"#DOTA_Tooltip_ability_rattletrap_power_cogs_Lore"
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_duration"			"持续时间："
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_mana_burn"			"魔法/生命 损失："
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_attacks_to_destroy"	"摧毁齿轮的攻击次数："
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD 12秒"
 		// Sand King
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven"							"尸爆"

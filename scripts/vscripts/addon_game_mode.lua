@@ -151,6 +151,7 @@ function Activate()
 	LinkLuaModifier( "modifier_warlock_fatal_bonds_lua", 		"heroes/hero_warlock/modifier_warlock_fatal_bonds.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_slark_shadow_dance_passive_regen_lua", "heroes/hero_slark/modifier_slark_shadow_dance_passive_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_requiem_slow_lua", 				"heroes/hero_nevermore/modifier_requiem_slow.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_rattletrap_cog_buff_lua",		"heroes/hero_rattletrap/power_cogs.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_electric_vortex_self_slow_lua",  "heroes/hero_storm_spirit/modifier_electric_vortex_self_slow.lua", LUA_MODIFIER_MOTION_NONE)
 	--LinkLuaModifier( "modifier_torrent_slow_lua", 				"heroes/hero_kunkka/modifier_torrent_slow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_reset_visual_z", 				"heroes/hero_tiny/modifier_reset_visual_z.lua", LUA_MODIFIER_MOTION_NONE)
@@ -187,6 +188,7 @@ function Activate()
 	LinkLuaModifier( "modifier_elder_titan_echo_stomp_lua", 	"heroes/hero_elder_titan/modifier_elder_titan_echo_stomp.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_flamebreak_knockback_lua", 		"heroes/hero_batrider/modifier_flamebreak_knockback.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_nether_bash_motion_lua", 		"heroes/hero_spirit_breaker/modifier_nether_bash_motion.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+	LinkLuaModifier( "modifier_rattletrap_cog_push_lua",		"heroes/hero_rattletrap/power_cogs.lua", LUA_MODIFIER_MOTION_HORIZONTAL	)
 	LinkLuaModifier( "modifier_spirit_breaker_charge_of_darkness_lua", "heroes/hero_spirit_breaker/modifier_charge_of_darkness.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_tusk_snowball_moving_lua", 		"heroes/hero_tusk/modifier_tusk_snowball_moving.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
@@ -1187,7 +1189,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:FindAbilityByName("creep_irresolute_alter"):SetLevel(1)
 	end
 	if entity:HasAbility("twin_gate_portal_warp") then -- 移除双生门传送
-		entity:RemoveAbility("twin_gate_portal_warp")	
+		entity:RemoveAbility("twin_gate_portal_warp")
 	end
 	
 	if not entity:IsWard() and not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then

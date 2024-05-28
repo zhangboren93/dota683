@@ -5655,4 +5655,10 @@
 		//----------------------------------------------------------------
 		"AttackDesire" "1.5" // How much bots want to attack them vs other non-hero things
 	}
+	"npc_dota_rattletrap_cog"
+	{										
+		// General
+		//----------------------------------------------------------------
+		"ModelScale"				"1.4"
+	}
 }
