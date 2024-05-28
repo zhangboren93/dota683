@@ -1,0 +1,61 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	//=================================================================================================================
+	// Batrider: Sticky Napalm
+	//=================================================================================================================
+	"batrider_sticky_napalm_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
+		"AbilityTextureName"			"batrider_sticky_napalm"
+		"AbilityCastPoint"				"0.2"
+		"AbilityManaCost"				"20"
+		"AbilityCastRange"				"700"
+		"AbilityCooldown"				"3.0"
+		"AOERadius"						"375"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_batrider/batrider_stickynapalm_debuff.vpcf"
+			"particle"				"particles/units/heroes/hero_batrider/batrider_stickynapalm_impact.vpcf"
+		}
+		"AbilityValues"
+		{
+			"radius"				"375"
+			"damage"				"10 15 20 25"
+			"duration" 				"8"
+			"movement_speed_pct" 	"-3 -5 -7 -9"			
+			"turn_rate_pct"			"-70"
+			"max_stacks"			"10"
+			"creep_damage_pct"		"50"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_batrider/sticky_napalm.lua"
+				"function"		"handleSpellStart"
+				"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_batrider_sticky_napalm_vision_datadriven"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_OUT_OF_GAME"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+}

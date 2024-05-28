@@ -2,6 +2,7 @@
 #base "npc_abilities_hero_ability_executed_hook.txt"
 #base "heroes/alchemist.txt"
 #base "heroes/arc_warden.txt"
+#base "heroes/batrider.txt"
 #base "heroes/broodmother.txt"
 #base "heroes/brewmaster.txt"
 #base "heroes/clinkz.txt"
@@ -7187,82 +7188,6 @@
 			"ice_edge_movement_slow"	"0"
 		}	
 	}
-	//=================================================================================================================
-	// Batrider: Sticky Napalm
-	//=================================================================================================================
-	"batrider_sticky_napalm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5320"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
-		"HasShardUpgrade"			"0"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.2"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"20"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Works by boosting damage
-
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"AbilityCooldown"				"3.0"
-			"AbilityCastRange"				"700"
-			"damage"
-			{
-				"value"	"10 15 20 25"
-				"CalculateSpellDamageTooltip"		"1"
-			}
-			"radius"	"375"
-			"duration" 	"8"
-			"movement_speed_pct" "-3 -5 -7 -9"			
-			"turn_rate_pct"			"-70"
-			"max_stacks"			"10 10 10 10"
-			"creep_damage_pct"			"50"
-			"shard_napalm_on_attack_chance_pct"		
-			{
-				"value"			"50"
-				"RequiresShard"			"1"
-			}
-			"application_damage"	"0"
-			"is_passive"			"0"
-			"base_applications_every_attack"	"0"
-			"building_damage_pct"	"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
-	// Batrider: Sticky Napalm
-	//=================================================================================================================
-	"batrider_sticky_napalm_application_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"976"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
-		"MaxLevel"						"1"
-
-	}	
-
-
 	//=================================================================================================================
 	// Batrider: Flamebreak
 	//=================================================================================================================

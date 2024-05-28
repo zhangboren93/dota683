@@ -470,6 +470,18 @@
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_damage"						"伤害："
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_speed_duration"				"击杀加成持续时间："
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Scepter_Description"			"CD降至6秒，提高斩杀阈限和加速持续时间。"
+		// Batrider
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven"						"粘性燃油"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Description"			"用粘性油浸透一块区域，蝙蝠骑士的攻击和技能对区域内的敌人造成额外伤害，并降低他们的移动速度和转身速率。再次施法可以继续提高伤害，最多叠加%max_stacks%次。"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Lore"					"蝙蝠骑士给他的对手泼燃油时，经常能听见他在喋喋不休。"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Note2"					"粘性燃油对非英雄单位造成%creep_damage_pct%%%伤害。"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_damage"					"每次叠加伤害："
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_duration"				"持续时间："
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_movement_speed_pct"		"%移动速度减缓："
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_turn_rate_pct"			"%转身速度降低："
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_radius"					"作用范围："
+		"DOTA_Tooltip_modifier_batrider_sticky_napalm_debuff_lua"						"粘性燃油"
+		"DOTA_Tooltip_modifier_batrider_sticky_napalm_debuff_lua_Description"			"施法者造成的伤害提高。\n转身速率降低%dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%。\n移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
 		// Beastmaster
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_Description"						"兽王投出他的斧头然后召回它们，切开飞过的敌人和树木。每把飞斧只对同一个敌人攻击一次。"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_Lore"								"在独自学习野外生存时，兽王也掌握了飞斧的运用技巧，使他能够熟练地砍下树木，或者敌人的脑袋。"

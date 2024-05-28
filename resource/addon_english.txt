@@ -486,6 +486,18 @@
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_damage"						"Damage:"
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_speed_duration"				"Buff Duration: "
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Scepter_Description"			"Reduces cooldown to 6. Increases kill health threshold and kill speed duration."
+		// Batrider
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven"						"Sticky Napalm"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Description"			"Drenches an area in sticky oil, amplifying damage from Batrider's attacks and abilities and slowing the movement speed and turn rate of enemies in the area.  Additional casts of Sticky Napalm continue to increase damage, up to %max_stacks% stacks."
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Lore"					"It's not uncommon to hear the Rider cackle while he increases the flammability of his opponents."
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Note2"					"Sticky Napalm deals %creep_damage_pct%%% damage to creeps."
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_damage"					"DAMAGE PER STACK:"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_movement_speed_pct"		"%MOVEMENT SLOW:"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_turn_rate_pct"			"%TURN RATE SLOW:"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_radius"					"RADIUS:"
+		"DOTA_Tooltip_modifier_batrider_sticky_napalm_debuff_lua"						"Sticky Napalm"
+		"DOTA_Tooltip_modifier_batrider_sticky_napalm_debuff_lua_Description"			"Increasing napalm-caster's damage.\nSlowing turn rate by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.\nSlowing movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		// Beastmaster
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_Description"						"Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path. Each axe can hit an enemy once."
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_Lore"								"While learning to maneuver in nature alone, the Beastmaster also mastered the use of a pair of tomahawks, adept at cutting down trees as well as adversaries."
