@@ -1443,6 +1443,8 @@
 		"DOTA_Tooltip_ability_medusa_stone_gaze_speed_boost"					""
 		"DOTA_Tooltip_ability_medusa_stone_gaze_slow_full_duration"				"%速度减缓："
 		"DOTA_Tooltip_modifier_medusa_stone_gaze_facing_Description"		"攻速和移速均减少50%%。凝视美杜莎将会被石化。"
+		"DOTA_Tooltip_modifier_medusa_stone_gaze_slow_full_duration"		"石化凝视"
+		"DOTA_Tooltip_modifier_medusa_stone_gaze_slow_full_duration_Description"		"即使不面向美杜莎，攻速和移速仍然减少50%%。"
 		"DOTA_Tooltip_modifier_medusa_stone_gaze_stone_Description"			"被完全石化。处于眩晕状态，魔法抗性达到100%%，受到物理攻击时承受%dMODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE%%%额外伤害。"
 		// Meepo
 		"DOTA_Tooltip_Ability_meepo_geostrike_datadriven"						"地之突袭"
@@ -2441,6 +2443,7 @@
 		"DOTA_Tooltip_modifier_rune_haste_datadriven_description"			"将移动速度提高到最大"
 		"DOTA_Tooltip_modifier_rune_regen_datadriven"						"恢复"
 		"DOTA_Tooltip_modifier_rune_regen_datadriven_Description"			"恢复生命值和魔法值。"
+		"DOTA_Tooltip_Ability_item_bottle_double_damage"					"神符：双倍伤害"
 
 		//Hud error message
 		"dota_hud_error_no_units_to_grab"		"没有抓取的目标"

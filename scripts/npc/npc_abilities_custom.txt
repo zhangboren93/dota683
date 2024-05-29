@@ -24771,7 +24771,7 @@
 					"special_bonus_unique_medusa_2"	"+10"
 				}
 				"arrow_count"				"1 2 3 4"
-				"split_shot_bonus_range"		"150"
+				"split_shot_bonus_range"		"100"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -24805,7 +24805,7 @@
 	
 	// Casting
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastRange"				"700"
+	"AbilityCastRange"				"800"
 	"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
 
 	// Time		

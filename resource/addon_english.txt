@@ -1456,6 +1456,8 @@
 		"DOTA_Tooltip_ability_medusa_stone_gaze_speed_boost"					""
 		"DOTA_Tooltip_ability_medusa_stone_gaze_slow_full_duration"				"%SLOW:"
 		"DOTA_Tooltip_modifier_medusa_stone_gaze_facing_Description"		"Speed reduced by 50%%. Turning to stone while looking at Medusa."
+		"DOTA_Tooltip_modifier_medusa_stone_gaze_slow_full_duration"		"Stone Gaze"
+		"DOTA_Tooltip_modifier_medusa_stone_gaze_slow_full_duration_Description"		"Though faces away from Medusa，speeds still reduced by 50%%。"
 		"DOTA_Tooltip_modifier_medusa_stone_gaze_stone_Description"			"Turned to stone. Stunned, 100%% magic damage resistance, and taking %dMODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE%%% extra physical damage."
 		// Meepo
 		"DOTA_Tooltip_Ability_meepo_geostrike_datadriven"				"Geostrike"
