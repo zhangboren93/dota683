@@ -79,8 +79,12 @@ function modifier_batrider_sticky_napalm_debuff_lua:OnTakeDamage(event)
 	if event.damage == 0 then return end
 	local caster = self:GetCaster()
 	if event.attacker ~= caster then return end
+	local damage_flags = event.damage_flags
+	if bit.band(damage_flags, DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_HPLOSS) > 0 then
+		return 
+	end
 	local inflictor = event.inflictor
-	if inflictor == nil or inflictor:GetName() == "batrider_flamebreak" or inflictor:GetName() == "batrider_firefly" or inflictor:GetName() == "batrider_flaming_lasso" then
+	if inflictor == nil or (inflictor:GetName() ~= "item_radiance" and inflictor:GetName() ~= "item_urn_of_shadows_datadriven" and inflictor:GetName() ~= "batrider_sticky_napalm_datadriven") then
 		local stackCount = self:GetStackCount()
 		if stackCount < 1 then stackCount = 1 end
 		local ability = self:GetAbility()
