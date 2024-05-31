@@ -1710,8 +1710,8 @@
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_duration"		"持续时间："
 		"DOTA_Tooltip_modifier_bonus_damage_visual"									"折光 - 攻击力"
 		"DOTA_Tooltip_modifier_bonus_damage_visual_Description"						"提升攻击力。"
-		"DOTA_Tooltip_modifier_damage_absorb"										"折光 - 伤害吸收"
-		"DOTA_Tooltip_modifier_damage_absorb_Description"							"吸收所有伤害。"
+		"DOTA_Tooltip_modifier_damage_absorb_lua"									"折光 - 伤害吸收"
+		"DOTA_Tooltip_modifier_damage_absorb_lua_Description"						"吸收所有伤害。"
 
 		// Troll Warlord
 		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage"					"狂战士之怒"

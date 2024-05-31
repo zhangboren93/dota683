@@ -5544,6 +5544,7 @@
 			"duration"					"17.0 17.0 17.0 17.0"
 		}
 	}
+	"AbilityCastAnimation"      "ACT_DOTA_CAST_ABILITY_1"
 	
 	"OnSpellStart"
 	{
@@ -5563,31 +5564,6 @@
 	
 	"Modifiers"
 	{
-		"modifier_damage_absorb"
-		{
-			"Duration"	"%duration"
-			
-			"OnTakeDamage"
-			{
-				"RunScript"
-				{
-					"ScriptFile"	"heroes/hero_templar_assassin/refraction.lua"
-					"Function"		"RemoveDamageAbsorbStack"
-					"damage"		"%attack_damage"
-					"sound"			"Hero_TemplarAssassin.Refraction.Absorb"
-				}
-			}
-			
-			"OnDestroy"
-			{
-				"RunScript"
-				{
-					"ScriptFile"	"heroes/hero_templar_assassin/refraction.lua"
-					"Function"		"RemoveDamageAbsorbStack"
-				}
-			}
-		}
-		
 		"modifier_bonus_damage"
 		{
 			"Duration"	"%duration"
