@@ -2588,6 +2588,8 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 	if GetMapName() == "custom" and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		GameRules.AddonTemplate.rdEnabled = false
 		GameRules.AddonTemplate.botEnabled = false
+		local hasGameModeChanged = (data.gm == "ap" and GameRules.AddonTemplate.game_mode ~= "AP") or
+								   (data.gm == "dm" and GameRules.AddonTemplate.game_mode ~= "DM")
 		if data.gm == 'ap' then
 			GameRules.AddonTemplate.game_mode = "AP"
 			GameRules:SendCustomMessage("AP模式开启", -1, -1)
@@ -2598,7 +2600,9 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 			print("Invalid game mode selected " .. data.gm)
 			return
 		end
-		CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, gm = data.gm })
+		if hasGameModeChanged then
+			CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, gm = data.gm })
+		end
 	end
 end
 
