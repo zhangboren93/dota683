@@ -1700,8 +1700,8 @@
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven_duration"		"DURATION:"
 		"DOTA_Tooltip_modifier_bonus_damage_visual"									"Refraction - Damage"
 		"DOTA_Tooltip_modifier_bonus_damage_visual_Description"						"Increasing attack damage by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
-		"DOTA_Tooltip_modifier_damage_absorb"										"Refraction - Absorb"
-		"DOTA_Tooltip_modifier_damage_absorb_Description"							"Absorbs any incoming damage."
+		"DOTA_Tooltip_modifier_damage_absorb_lua"									"Refraction - Absorb"
+		"DOTA_Tooltip_modifier_damage_absorb_lua_Description"						"Absorbs any incoming damage."
 
 		// Troll Warlord
 		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage"					"Berserker's Rage"
