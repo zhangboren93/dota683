@@ -5582,4 +5582,14 @@
 		//----------------------------------------------------------------
 		"ModelScale"				"1.4"
 	}
+	"npc_dota_templar_assassin_psionic_trap"
+	{										
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"templar_assassin_self_trap"			// Ability 1
+		"Ability2"					"creep_basic"			// Ability 2
+
+		"BountyGoldMin"				"1"		// Gold earned min.
+		"BountyGoldMax"				"1"		// Gold earned max.
+	}	
 }

@@ -5655,7 +5655,7 @@
 					"value"							"590 630 670 710"
 					"special_bonus_unique_templar_assassin_8"	"+120"
 				}
-				"attack_spill_width"		"90"
+				"attack_spill_width"		"68"
 				"attack_spill_pct"			"100"
 				"attack_spill_penalty"			"0"
 				"spill_slow_duration"		"0"
@@ -5703,17 +5703,21 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"trap_radius"					"400"
+			"trap_duration"					"5.0"
 				"max_traps"					"5 8 11"
 				"trap_fade_time"			"2.0 2.0 2.0"
 				"movement_speed_min"			"30"
 				"movement_speed_max"			"50"
 				"trap_duration_tooltip"			"5"
 				"trap_bonus_damage"			"0"
+				"instant_trap_damage"				"0"
+				"extra_damage"						"0"
 				"trap_max_charge_duration"			"4"
-				"shard_min_silence_duration"		"0"
-				"shard_max_silence_duration"		"0"
+				"min_silence_duration"		"0"
+				"max_silence_duration"		"0"
 				"shard_bonus_max_traps"			"0"
-				"shard_bonus_vision"			"0"
+				"bonus_vision"			"0"
 				"damage_tick_rate"					"1"
 		}
 	}
