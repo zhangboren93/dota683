@@ -838,6 +838,16 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		if target:GetClassname() == "dota_item_drop" or target:GetClassname() == "dota_item_rune" then
 			return true
 		end
+		if target:GetClassname() == 'npc_dota_templar_assassin_psionic_trap'
+			and target:GetHealth() * 100.0 / target:GetMaxHealth() > 50 then
+				for i,v in pairs(event.units) do
+					local unit = EntIndexToHScript(v)
+					if unit:GetTeam() == target:GetTeam() then
+						print("cannot deny psionic trap more than 50% HP.")
+						return false
+					end
+				end
+		end
 		for i,v in pairs(event.units) do
 			local unit = EntIndexToHScript(v)
 			local ability = unit:FindAbilityByName("hero_creep_aggro_datadriven")
