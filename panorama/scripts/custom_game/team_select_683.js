@@ -9,12 +9,28 @@ function OnGameModeSelectedFromServer(data) {
 	$.Msg("OnGameModeSelectedFromServer")
 	$.Msg(data)
 	if (data.pid != Players.GetLocalPlayer()) {
+		if (data.sp != null) {
+			$.Msg("Other Client changed sp option " + data.sp)
+			if (data.sp == 1) {
+				$("#sp").SetSelected(true)
+			} else {
+				$("#sp").SetSelected(false)
+			}
+			return 
+		}
 		if (data.gm == "ap") {
 			$("#ap").checked = true
 		} else if (data.gm == "dm") {
 			$("#dm").checked = true
 		}
 	}
+}
+
+function handleSamePickToggle() {
+	$.Msg("handleSamePickToggle")
+	$.Msg($("#sp").IsSelected())
+	let sp = $("#sp").IsSelected()
+	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), sp: sp})
 }
 
 (function() {

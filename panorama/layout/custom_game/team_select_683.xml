@@ -16,10 +16,15 @@
 			<Panel hittest="false" id="TeamsSelectEmptySpace" />
 
 			<Panel id="ModeSelect" style="visibility: collapse;">
-				<Label text="#683modeselect_gamemode"/>
-				<Panel id="ModeSelectRadios">
-					<RadioButton group="mode" id="ap" text="AP" onselect="handleModeSelect('ap')"/>
-					<RadioButton group="mode" id="dm" text="DM" onselect="handleModeSelect('dm')"/>
+				<Panel style="flow-children: right;">
+					<Label text="#683modeselect_gamemode"/>
+					<Panel id="ModeSelectRadios">
+						<RadioButton group="mode" id="ap" text="AP" onactivate="handleModeSelect('ap')"/>
+						<RadioButton group="mode" id="dm" text="DM" onactivate="handleModeSelect('dm')"/>
+					</Panel>
+				</Panel>
+				<Panel id="ModelSelectToggleOptions">
+					<ToggleButton id="sp" checked="false" text="#683modeselect_gamemode_samepick" onactivate="handleSamePickToggle()" />
 				</Panel>
 			</Panel>
 			<!--Teams List, left hand panel-->

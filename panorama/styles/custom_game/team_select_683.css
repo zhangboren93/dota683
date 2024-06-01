@@ -1,6 +1,6 @@
 #ModeSelect {
 	vertical-align: center;
-	flow-children: right;
+	flow-children: down;
 	font-size: 24px;
 	color: white;
 }
@@ -43,4 +43,19 @@ RadioButton:selected .RadioBox {
 
 .PlayButton Label{
 	horizontal-align: center;
+}
+
+ToggleButton .TickBox {
+	width: 20px;
+	height: 20px;
+	vertical-align: center;
+	background-color: grey;
+}
+
+ToggleButton:selected .TickBox {
+	background-color: white;
+}
+
+ToggleButton Label {
+	margin-left: 30px;
 }

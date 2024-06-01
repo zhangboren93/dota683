@@ -27,6 +27,7 @@ playerId2LadderScore = {}
 shouldCalcuateScore = false
 player2BuildingDamage = {}
 fwdnocdenabled = 0
+sameHeroPickEnabled = false
 
 function Precache( context )
 	--[[
@@ -2596,6 +2597,20 @@ end
 function CAddonTemplateGameMode:handleGameModeSelect(data)
 	DeepPrintTable(data)
 	if GetMapName() == "custom" and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+		if data.sp ~= nil then
+			if data.sp == 1 and not sameHeroPickEnabled then
+				GameRules:SetSameHeroSelectionEnabled(true)
+				sameHeroPickEnabled = true
+				GameRules:SendCustomMessage("开启相同英雄选择", -1, -1)
+				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, sp = data.sp })
+			elseif data.sp == 0 and sameHeroPickEnabled then
+				GameRules:SetSameHeroSelectionEnabled(false)
+				sameHeroPickEnabled = false
+				GameRules:SendCustomMessage("关闭相同英雄选择", -1, -1)
+				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, sp = data.sp })
+			end
+			return
+		end
 		GameRules.AddonTemplate.rdEnabled = false
 		GameRules.AddonTemplate.botEnabled = false
 		local hasGameModeChanged = (data.gm == "ap" and GameRules.AddonTemplate.game_mode ~= "AP") or

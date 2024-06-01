@@ -2472,6 +2472,8 @@
 		"dota_hud_error_cant_cast_on_self"		"不能对自身释放"
 		"dota_hud_error_demonic_conversion_creep_level"		"单位等级太高"
 		"dota_hud_error_demonic_conversion_beast_master"	"不能吃猪和鹰"
+		"683modeselect_gamemode"				"模式："
+		"683modeselect_gamemode_samepick"			"可以选择相同英雄"
 
 		"DOTA_HUD_BackpackHint"			"背包已被禁用。"
 		"DOTA_Hud_Pregame_Random_Tooltip"	"从经常使用的英雄中随机选择一个。在部分游戏模式中会获得 200 额外初始金钱。"
