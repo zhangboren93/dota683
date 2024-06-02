@@ -392,6 +392,7 @@ function CAddonTemplateGameMode:InitGameMode()
 				local players = getAllPlayerIds()
 				for i=1,#players do
 					PlayerResource:GetPlayer(players[i][1]):MakeRandomHeroSelection()
+					removeHeroFromDMPool(PlayerResource:GetSelectedHeroName(players[i][1]))
 				end
 			end
 		end

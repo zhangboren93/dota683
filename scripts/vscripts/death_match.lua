@@ -154,7 +154,9 @@ function deathMatchSpawnHero(entity)
 	
 	-- remember all hero items
 	-- schedule spawning of a random hero
-	local nextRandomHero = DM_HERO_POOL[RandomInt(1, #DM_HERO_POOL)]
+	local nextRandomHeroIdx = RandomInt(1, #DM_HERO_POOL)
+	local nextRandomHero = DM_HERO_POOL[nextRandomHeroIdx]
+	table.remove(DM_HERO_POOL, nextRandomHeroIdx)
 	local spawnLocation
 	if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
 		spawnLocation = Vector(-7111, -6618, 520)
@@ -184,7 +186,20 @@ function deathMatchSpawnHero(entity)
 		end
 		for i=1,#items do 
 			unit:AddItem(items[i])
+			-- reset cd for tp scroll or travel boots
+			if items[i]:GetName() == "item_tpscroll" or items[i]:GetName() == "item_travel_boots_datadriven" then
+				items[i]:EndCooldown()
+			end
 		end
 		entity:Destroy()
 	end)
+end
+
+function removeHeroFromDMPool(hero_name)
+	for i=1,#DM_HERO_POOL do
+		if DM_HERO_POOL[i] == hero_name then
+			table.remove(DM_HERO_POOL, i)
+			return
+		end
+	end
 end
