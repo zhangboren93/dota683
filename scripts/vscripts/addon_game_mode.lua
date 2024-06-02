@@ -400,6 +400,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent("dota_item_picked_up", function(event) HandleItemPickedUp(event.itemname, event.PlayerID)	end, nil)
 	ListenToGameEvent("dota_item_physical_destroyed", function(event) HandleItemDestroyed(event.itemname, event.HeroEntityIndex)	end, nil)
 	ListenToGameEvent("dota_ability_channel_finished", Dynamic_Wrap(CAddonTemplateGameMode, 'HandleChannelFinish'), self)
+	ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(CAddonTemplateGameMode, "HandleItemPurchased"), self)
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
@@ -2541,6 +2542,18 @@ function CAddonTemplateGameMode:HandleChannelFinish(event)
 	local caster = EntIndexToHScript(event.caster_entindex)
 	if event.abilityname == "bane_fiends_grip" then
 		caster:RemoveModifierByName("modifier_bane_fiends_grip_scepter")
+	end
+end
+
+function CAddonTemplateGameMode:HandleItemPurchased(event)
+	print("HandleItemPurchased " .. event.itemname .. " " .. event.PlayerID)
+	if self.game_mode == "DM" and event.itemname == "item_tpscroll" then
+		local hero = PlayerResource:GetPlayer(event.PlayerID):GetAssignedHero()
+		-- DM allways resets cooldown if tp purchased from base
+		if hero:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
+			local item = hero:FindItemInInventory("item_tpscroll")
+			item:EndCooldown()
+		end
 	end
 end
 
