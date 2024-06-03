@@ -22,6 +22,8 @@ function OnGameModeSelectedFromServer(data) {
 			$("#ap").checked = true
 		} else if (data.gm == "dm") {
 			$("#dm").checked = true
+		} else if (data.gm == "rd") {
+			$("#rd").checked = true
 		}
 	}
 }

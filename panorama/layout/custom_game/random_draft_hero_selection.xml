@@ -1,0 +1,44 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/random_draft_hero_selection.css" />
+	</styles>
+    <scripts>
+		<include src="file://{resources}/scripts/custom_game/random_draft_hero_selection.js" />
+	</scripts>
+	<Panel class="random-draft-panel random-draft-panel-hide">
+		<Panel style="flow-children: right; horizontal-align: center;">
+			<Label text="#your_turn_to_pick_at_time"/>
+			<Label id="turn-to-pick-time-label" text="1:00" style="margin-left: 10px;"/>
+		</Panel>
+        <Panel class="ladder_attr_heroes">
+			<DOTAHeroImage id="hero-image-str-1"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-2"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-3"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-4"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-5"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-6"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-7"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-8"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+        </Panel>
+        <Panel class="ladder_attr_heroes">
+            <DOTAHeroImage id="hero-image-str-9"   class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-10"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-11"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-12"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-13"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-14"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-15"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-16"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+        </Panel>
+        <Panel class="ladder_attr_heroes">
+            <DOTAHeroImage id="hero-image-str-17"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-18"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-19"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-20"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-21"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-22"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-23"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+            <DOTAHeroImage id="hero-image-str-24"  class="hero-image" heroimagestyle="portrait" heroname="npc_dota_hero_antimage"/>
+        </Panel>
+	</Panel>
+</root>

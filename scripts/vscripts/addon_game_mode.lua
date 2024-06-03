@@ -28,6 +28,7 @@ shouldCalcuateScore = false
 player2BuildingDamage = {}
 fwdnocdenabled = 0
 sameHeroPickEnabled = false
+RandomDraftHeroPool = {} -- RANDOM PICK HERO POOL
 
 function Precache( context )
 	--[[
@@ -417,35 +418,25 @@ end
 function HandlePlayerChat(self, teamonly, text, playerid)
 	if teamonly == 0 and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		if not isMapRanked() then
-			if text == '-rd' then
-				self.rdEnabled = true
-				GameRules:SendCustomMessage("RD模式开启", -1, -1)
-			elseif text == '-ap' then
-				self.rdEnabled = false
+			if text == '-ap' then
 				self.botEnabled = false
+				self.game_mode = "AP"
 				GameRules:SendCustomMessage("AP模式开启", -1, -1)
 			elseif text == '-vsbot' then
 				self.botEnabled = true
 				GameRules:SendCustomMessage("Bot模式开启", -1, -1)
 				GameRules:SetCustomGameDifficulty(2) -- 2 for hard as default
-			elseif text == '-sp' then
-				GameRules:SetSameHeroSelectionEnabled(true)
-				GameRules:SendCustomMessage("开启相同英雄选择", -1, -1)
 			elseif text == '-cm' then
 				GameRules:SetHeroSelectionTime(40 * 10 + 110 * 2 + 60)
 				GameRules:SetSameHeroSelectionEnabled(false)
-				self.rdEnabled = false
 				self.botEnabled = false
 				self.game_mode = "CM"
 				GameRules:SendCustomMessage("开启队长模式", -1, -1)
-			elseif text == '-dm' then
-				self.game_mode = "DM"
-				GameRules:SendCustomMessage("开启死亡随机模式", -1, -1)
 			end
 		end
 	end
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
-		if not self.rdEnabled and not self.game_mode ~= "CM" and text == '-repick' then
+		if (self.game_mode == nil or self.game_mode == "AP") and text == '-repick' then
 			if PlayerResource:GetSelectedHeroName(playerid) == "" or playerRepicked[playerid] then
 				GameRules:SendCustomMessage("无法重新选择英雄", -1, -1)
 				return
@@ -490,6 +481,38 @@ function swapLocation(e1, e2)
 	e2:SetAbsOrigin(tmpLoc)
 end
 
+local function RDPlayerPicksNext(team, idx)
+	local direPlayerCount = PlayerResource:GetPlayerCountForTeam(team)
+	if direPlayerCount >= idx then
+		local playerId = PlayerResource:GetNthPlayerIDOnTeam(team, idx)
+		for i=1,#RandomDraftHeroPool do
+			local heroid = DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[i])
+			print("Opening hero " .. heroid .. " to player " .. playerId)
+			GameRules:AddHeroToPlayerAvailability(playerId, DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[i]))
+			CustomGameEventManager:Send_ServerToAllClients("random_draft_player_start", {spid = playerId})
+		end
+	end
+end
+
+local function RDPlayerRandomPick(team, idx)
+	local radiantPlayerCount = PlayerResource:GetPlayerCountForTeam(team)
+	if radiantPlayerCount >= idx then
+		local playerId = PlayerResource:GetNthPlayerIDOnTeam(team, idx)
+		local heroName = PlayerResource:GetSelectedHeroName(playerId)
+		if heroName == "" then
+			PlayerResource:GetPlayer(playerId):MakeRandomHeroSelection()
+		 	heroName = PlayerResource:GetSelectedHeroName(playerId)
+		end
+		-- remove heroName from current pool
+		for i = 1,#RandomDraftHeroPool do
+			if heroName == RandomDraftHeroPool[i] then
+				table.remove(RandomDraftHeroPool, i)
+				break
+			end
+		end
+	end
+end
+
 -- Evaluate the state of the game
 function CAddonTemplateGameMode:OnThink()
 	local ret,error = pcall(function()
@@ -498,25 +521,31 @@ function CAddonTemplateGameMode:OnThink()
 			self.hero_selection_state = "INI"
 		end
 		if self.hero_selection_state == "INI" then
-			if self.rdEnabled then
+			if self.game_mode == "RD" then
 				local heroes = all_heroes
-				for i=2,#heroes do
-					local j=RandomInt(1,i)
-					if i ~= j then
-						local tmp = heroes[i];
-						heroes[i] = heroes[j];
-						heroes[j] = tmp;
+				-- shuffles
+				for i=1,24 do
+					local j=RandomInt(i,#heroes)
+					local tmp = heroes[i];
+					heroes[i] = heroes[j];
+					heroes[j] = tmp;
+					table.insert(RandomDraftHeroPool, heroes[i])
+				end
+				--add all heroes to radiant 1st player's availability
+				local radiantPlayerCount = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+				local playerId = -1
+				if radiantPlayerCount > 0 then
+					playerId = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, 1)
+					for i=1,#RandomDraftHeroPool do
+						local heroid = DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[i])
+						print("Opening hero " .. heroid .. " to player " .. playerId)
+						GameRules:AddHeroToPlayerAvailability(playerId, DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[i]))
 					end
 				end
-				for i=31,#heroes do
-					GameRules:AddHeroToBlacklist(heroes[i])
-					if same_ability_heroes[heroes[i]] ~= nil then
-						GameRules:AddHeroToBlacklist(same_ability_heroes[heroes[i]])
-					end
-				end
-				self.hero_selection_state = "PIC"
-			end
-			if self.game_mode == "LD" then
+				--send all heroes backed up to the clients
+ 	   			CustomGameEventManager:Send_ServerToAllClients("random_draft_start", {sh = RandomDraftHeroPool, spid = playerId})
+				self.hero_selection_state = "RD_PICK_RAD_1"
+			elseif self.game_mode == "LD" then
 				pickLadderHeroes(self)
 				CustomGameEventManager:Send_ServerToAllClients("hero_select_player_ladder_scores", playerId2LadderScore)
 				self.hero_selection_state = "BAN"
@@ -574,6 +603,56 @@ function CAddonTemplateGameMode:OnThink()
 				end
 				CustomGameEventManager:Send_ServerToAllClients("captain_pick_timer", 
 					{nt = captain_normal_time, et = captain_dire_extra_time });
+			end
+		end
+		if self.hero_selection_state == "RD_PICK_RAD_1" then
+			local time = GameRules:GetDOTATime(true, true)
+			if time > -101 then
+				RDPlayerRandomPick(DOTA_TEAM_GOODGUYS, 1)
+				RDPlayerPicksNext(DOTA_TEAM_BADGUYS, 1)
+				RDPlayerPicksNext(DOTA_TEAM_BADGUYS, 2)
+				self.hero_selection_state = "RD_PICK_DIR_1_2"
+			end
+		elseif self.hero_selection_state == "RD_PICK_DIR_1_2" then
+			local time = GameRules:GetDOTATime(true, true)
+			if time > -81 then
+				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 1)
+				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 2)
+				RDPlayerPicksNext(DOTA_TEAM_GOODGUYS, 2)
+				RDPlayerPicksNext(DOTA_TEAM_GOODGUYS, 3)
+				self.hero_selection_state = "RD_PICK_RAD_2_3"
+			end
+		elseif self.hero_selection_state == "RD_PICK_RAD_2_3" then
+			local time = GameRules:GetDOTATime(true, true)
+			if time > -61 then
+				RDPlayerRandomPick(DOTA_TEAM_GOODGUYS, 2)
+				RDPlayerRandomPick(DOTA_TEAM_GOODGUYS, 3)
+				RDPlayerPicksNext(DOTA_TEAM_BADGUYS, 3)
+				RDPlayerPicksNext(DOTA_TEAM_BADGUYS, 4)
+				self.hero_selection_state = "RD_PICK_DIR_3_4"
+			end
+		elseif self.hero_selection_state == "RD_PICK_DIR_3_4" then
+			local time = GameRules:GetDOTATime(true, true)
+			if time > -41 then
+				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 3)
+				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 4)
+				RDPlayerPicksNext(DOTA_TEAM_GOODGUYS, 4)
+				RDPlayerPicksNext(DOTA_TEAM_GOODGUYS, 5)
+				self.hero_selection_state = "RD_PICK_RAD_4_5"
+			end
+		elseif self.hero_selection_state == "RD_PICK_RAD_4_5" then
+			local time = GameRules:GetDOTATime(true, true)
+			if time > -21 then
+				RDPlayerRandomPick(DOTA_TEAM_GOODGUYS, 4)
+				RDPlayerRandomPick(DOTA_TEAM_GOODGUYS, 5)
+				RDPlayerPicksNext(DOTA_TEAM_BADGUYS, 5)
+				self.hero_selection_state = "RD_PICK_DIR_5"
+			end
+		elseif self.hero_selection_state == "RD_PICK_DIR_5" then
+			local time = GameRules:GetDOTATime(true, true)
+			if time > -1 then
+				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 5)
+				self.hero_selection_state = "RD_PICK_ENDS"
 			end
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and (self.botEnabled or GetMapName() == "vsbot") and self.botInitialized == nil then
@@ -748,7 +827,8 @@ function CAddonTemplateGameMode:OnThink()
 		return nil
 	end
 
-	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) and not self.rdEnabled and self.game_mode ~= 'LD' and self.game_mode ~= 'CM' then
+	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) and 
+		self.game_mode ~= 'RD' and self.game_mode ~= 'LD' and self.game_mode ~= 'CM' and self.game_mode ~= 'DM' then
 		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
@@ -2625,16 +2705,24 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 			end
 			return
 		end
-		GameRules.AddonTemplate.rdEnabled = false
 		GameRules.AddonTemplate.botEnabled = false
 		local hasGameModeChanged = (data.gm == "ap" and GameRules.AddonTemplate.game_mode ~= "AP") or
-								   (data.gm == "dm" and GameRules.AddonTemplate.game_mode ~= "DM")
+								   (data.gm == "dm" and GameRules.AddonTemplate.game_mode ~= "DM") or
+								   (data.gm == "rd" and GameRules.AddonTemplate.game_mode ~= "RD")
 		if data.gm == 'ap' then
 			GameRules.AddonTemplate.game_mode = "AP"
+			GameRules:SetHeroSelectionTime(80)
+			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(false)
 			GameRules:SendCustomMessage("AP模式开启", -1, -1)
 		elseif data.gm == 'dm' then
 			GameRules.AddonTemplate.game_mode = "DM"
+			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(false)
 			GameRules:SendCustomMessage("开启死亡随机模式", -1, -1)
+		elseif data.gm == 'rd' then
+			GameRules.AddonTemplate.game_mode = "RD"
+			GameRules:SetHeroSelectionTime(120)
+			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(true)
+			GameRules:SendCustomMessage("开启RD模式", -1, -1)
 		else
 			print("Invalid game mode selected " .. data.gm)
 			return
