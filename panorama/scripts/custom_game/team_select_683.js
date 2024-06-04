@@ -17,6 +17,14 @@ function OnGameModeSelectedFromServer(data) {
 				$("#sp").SetSelected(false)
 			}
 			return 
+		} else if (data.sf != null) {
+			$.Msg("Other Client changed sf option " + data.sf)
+			if (data.sf == 1) {
+				$("#sf").SetSelected(true)
+			} else {
+				$("#sf").SetSelected(false)
+			}
+			return 
 		}
 		if (data.gm == "ap") {
 			$("#ap").checked = true
@@ -33,6 +41,13 @@ function handleSamePickToggle() {
 	$.Msg($("#sp").IsSelected())
 	let sp = $("#sp").IsSelected()
 	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), sp: sp})
+}
+
+function handleShufflePlayers() {
+	$.Msg("handleShufflePlayers")
+	$.Msg($("#sf").IsSelected())
+	let sf = $("#sf").IsSelected()
+	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), sf: sf})
 }
 
 (function() {

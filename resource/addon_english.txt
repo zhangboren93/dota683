@@ -2485,6 +2485,7 @@
 		"dota_hud_error_demonic_conversion_beast_master"	"Cannot target boar or hawk"
 		"683modeselect_gamemode"							"GAME MODE:"
 		"683modeselect_gamemode_samepick"					"SAME PICK"
+		"683modeselect_gamemode_shuffle_players"			"SHUFFLE PLAYERS"
 		"your_turn_to_pick_at_time"							"Your turn to pick at:"
 
 		"DOTA_HUD_BackpackHint"			"Backpack has been disabled."

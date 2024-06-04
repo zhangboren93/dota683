@@ -28,6 +28,7 @@ shouldCalcuateScore = false
 player2BuildingDamage = {}
 fwdnocdenabled = 0
 sameHeroPickEnabled = false
+shufflePlayersEnabled = false
 RandomDraftHeroPool = {} -- RANDOM PICK HERO POOL
 
 function Precache( context )
@@ -370,7 +371,7 @@ function CAddonTemplateGameMode:InitGameMode()
 				self.game_mode = "LD"
 			end
 		elseif event.new_state == 2 then
-			if isMapRanked() and isValidRankedGame then
+			if (isMapRanked() and isValidRankedGame) or shufflePlayersEnabled then
 				local players = getAllPlayerIds()
 				-- randomly assign player team start from either side
 				local startTeam = DOTA_TEAM_GOODGUYS
@@ -519,6 +520,10 @@ function CAddonTemplateGameMode:OnThink()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION and IsServer() then
 		if self.hero_selection_state == nil then
 			self.hero_selection_state = "INI"
+			-- Wait for team to be reassigned then start
+			if shufflePlayersEnabled then
+				return 2
+			end
 		end
 		if self.hero_selection_state == "INI" then
 			if self.game_mode == "RD" then
@@ -2689,6 +2694,7 @@ function CAddonTemplateGameMode:handleFirstBlood()
 end
 
 function CAddonTemplateGameMode:handleGameModeSelect(data)
+	print("handleGameModeSelect")
 	DeepPrintTable(data)
 	if GetMapName() == "custom" and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		if data.sp ~= nil then
@@ -2696,13 +2702,22 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 				GameRules:SetSameHeroSelectionEnabled(true)
 				sameHeroPickEnabled = true
 				GameRules:SendCustomMessage("开启相同英雄选择", -1, -1)
-				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, sp = data.sp })
 			elseif data.sp == 0 and sameHeroPickEnabled then
 				GameRules:SetSameHeroSelectionEnabled(false)
 				sameHeroPickEnabled = false
 				GameRules:SendCustomMessage("关闭相同英雄选择", -1, -1)
-				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, sp = data.sp })
 			end
+			CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, sp = data.sp })
+			return
+		elseif data.sf ~= nil then
+			if data.sf == 1 and not shufflePlayersEnabled then
+				shufflePlayersEnabled = true
+				GameRules:SendCustomMessage("开启随机阵营", -1, -1)
+			elseif data.sf == 0 and shufflePlayersEnabled then
+				shufflePlayersEnabled = false
+				GameRules:SendCustomMessage("关闭随机阵营", -1, -1)
+			end
+			CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, sf = data.sf})
 			return
 		end
 		GameRules.AddonTemplate.botEnabled = false

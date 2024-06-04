@@ -24,8 +24,9 @@
 						<RadioButton group="mode" id="dm" text="DM" onactivate="handleModeSelect('dm')"/>
 					</Panel>
 				</Panel>
-				<Panel id="ModelSelectToggleOptions">
+				<Panel id="ModelSelectToggleOptions" style="flow-children: down;">
 					<ToggleButton id="sp" checked="false" text="#683modeselect_gamemode_samepick" onactivate="handleSamePickToggle()" />
+					<ToggleButton id="sf" checked="false" text="#683modeselect_gamemode_shuffle_players" onactivate="handleShufflePlayers()" />
 				</Panel>
 			</Panel>
 			<!--Teams List, left hand panel-->
