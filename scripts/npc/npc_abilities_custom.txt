@@ -16029,6 +16029,7 @@
 				"required_level"					"3"
 				"levels_between_upgrades"			"1"
 				"max_level"							"4"
+				"main_meepo_stats_pct"				"100"
 		}
 	}
 	"meepo_divided_we_stand_aghs_datadriven"
