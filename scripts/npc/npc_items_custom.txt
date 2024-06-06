@@ -5409,6 +5409,7 @@
 			"bonus_strength"				"0"
 			"strength_pct"					"0"
 			"all_stats_bonus"				"2"
+			"max_hp_pct"					"0"
 		}
 	}
 
