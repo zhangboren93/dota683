@@ -2630,8 +2630,6 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Ability.Powershot"
-		"AbilityTextureName"			"hoodwink_sharpshooter"
-
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
