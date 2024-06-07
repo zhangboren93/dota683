@@ -2540,8 +2540,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_keeper_of_the_light"	
+	"npc_dota_hero_keeper_of_the_light_683"	
 	{
+		"override_hero"				"npc_dota_hero_keeper_of_the_light"
+		"Facets" {}
 		"AttributeBaseStrength"   	"14"
 		"AttributeStrengthGain"   	"1.8"
 		"AttributeBaseAgility"  	"15"
@@ -2574,32 +2576,11 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 		"Ability18"		"special_bonus_all_stats_4"
-		"Facets"
-		{
-			"keeper_of_the_light_facet_solar_bind"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
 	}
-				}
-			}
-			"keeper_of_the_light_facet_recall"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
-	}
-	"npc_dota_hero_phantom_assassin"	
+	"npc_dota_hero_phantom_assassin_683"	
 	{
+		"override_hero"				"npc_dota_hero_phantom_assassin"
+		"Facets" {}
 		"AttributeBaseStrength"   	"20"
 		"AttributeStrengthGain"   	"1.85"
 		"AttributeBaseAgility"  	"23"
@@ -2633,8 +2614,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_phoenix"				
+	"npc_dota_hero_phoenix_683"				
 	{
+		"override_hero"				"npc_dota_hero_phoenix"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2.9"
@@ -2666,29 +2649,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"phoenix_facet_immolate"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-
-			"phoenix_hotspot" 
-			{
-				"Icon"				"nuke"
-				"Color"				"Red"
-				"GradientID"		"1"
-			}
-		}
 	}
-	"npc_dota_hero_sand_king"			
+	"npc_dota_hero_sand_king_683"			
 	{
+		"override_hero"				"npc_dota_hero_sand_king"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"18"
 		"AttributeStrengthGain"   	"2.6"
@@ -2720,8 +2685,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_shredder"			
+	"npc_dota_hero_shredder_683"			
 	{
+		"override_hero"				"npc_dota_hero_shredder"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"22"
 		"AttributeStrengthGain"   	"2.1"
@@ -2753,22 +2720,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{		
-			"shredder_second_chakram"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
 	}
-	"npc_dota_hero_silencer"			
+	"npc_dota_hero_silencer_683"			
 	{
+		"override_hero"				"npc_dota_hero_silencer"
+		"Facets" {}
 		"AttributeBaseStrength"   	"17"
  		"AttributeStrengthGain"   	"2.2"
  		"AttributeBaseAgility"  	"16"
@@ -2801,22 +2757,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"silencer_irrepressible"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
 	}
-	"npc_dota_hero_tinker"				
+	"npc_dota_hero_tinker_683"				
 	{
+		"override_hero"				"npc_dota_hero_tinker"
+		"Facets" {}
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2"    
 		"AttributeBaseAgility"  	"13"
@@ -2849,8 +2794,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_tiny"				
+	"npc_dota_hero_tiny_683"				
 	{
+		"override_hero"				"npc_dota_hero_tiny"
+		"Facets" {}
 		"AttributeBaseStrength"   	"24"
 		"AttributeStrengthGain"   	"3.0"
 		"AttributeBaseAgility"  	"9" 
@@ -2883,23 +2830,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"tiny_insurmountable" 
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
-
 	}
-	"npc_dota_hero_treant"					
+	"npc_dota_hero_treant_683"					
 	{
+		"override_hero"				"npc_dota_hero_treant"
+		"Facets" {}
 		"AttributeBaseStrength"   "25"
 		"AttributeStrengthGain"   "3.3"
 		"AttributeBaseAgility"  "15"
@@ -2932,8 +2867,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_venomancer"			
+	"npc_dota_hero_venomancer_683"			
 	{
+		"override_hero"				"npc_dota_hero_venomancer"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"   	"18"
 		"AttributeStrengthGain"   	"1.85"
@@ -2966,8 +2903,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_winter_wyvern"		
+	"npc_dota_hero_winter_wyvern_683"		
 	{
+		"override_hero"				"npc_dota_hero_winter_wyvern"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"24"
 		"AttributeStrengthGain"   	"2.1"
@@ -2993,33 +2932,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"winter_wyvern_heal_mana"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-
-			"winter_wyvern_atk_range"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
 	}
-	"npc_dota_hero_bristleback"			
+	"npc_dota_hero_bristleback_683"			
 	{
+		"override_hero"				"npc_dota_hero_bristleback"
+		"Facets" {}
 		"AttributeBaseStrength"   	"22"
 		"AttributeStrengthGain"   	"2.2"
 		"AttributeBaseAgility"  	"17"
@@ -3049,8 +2966,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_storm_spirit"		
+	"npc_dota_hero_storm_spirit_683"		
 	{
+		"override_hero"				"npc_dota_hero_storm_spirit"
+		"Facets" {}
 		"AttributeBaseStrength"   	"19"
 		"AttributeStrengthGain"   	"1.5"
 		"AttributeBaseAgility"  	"22"
@@ -3080,8 +2999,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_wisp"				
+	"npc_dota_hero_wisp_683"				
 	{
+		"override_hero"				"npc_dota_hero_wisp"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"1.9"
@@ -3112,8 +3033,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_dark_seer"			
+	"npc_dota_hero_dark_seer_683"			
 	{
+		"override_hero"				"npc_dota_hero_dark_seer"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"22"
 		"AttributeStrengthGain"   	"2.3"
@@ -3145,36 +3068,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-
-		"Facets"
-		{
-			"dark_seer_atkspd"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-
-			"dark_seer_movespd"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
-
-
 	}
-	"npc_dota_hero_lone_druid"			
+	"npc_dota_hero_lone_druid_683"			
 	{
+		"override_hero"				"npc_dota_hero_lone_druid"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2.1"
@@ -3207,8 +3105,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_mirana"				
+	"npc_dota_hero_mirana_683"				
 	{
+		"override_hero"				"npc_dota_hero_mirana"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"   "17"
 		"AttributeStrengthGain"   "1.85"
@@ -3238,68 +3138,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"mirana_moonlight"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-			"mirana_sunlight"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
 	}
-	"npc_dota_hero_snapfire"				
+	"npc_dota_hero_necrolyte_683"			
 	{
-		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
-		"AttributeBaseStrength"   	"17"
-		"AttributeStrengthGain"   	"1.85"
-		"AttributeBaseAgility"  	"20"
-		"AttributeAgilityGain"   	"2.75" 
-		"AttributeBaseIntelligence" "17" 
-		"AttributeIntelligenceGain" "1.65"
-		"MovementSpeed"				"300"
-		"MovementTurnRate"			"0.4"
-		"ArmorPhysical"				"-1.53"
-		"AttackRate"				"1.7"
-		"AttackDamageMin"			"18"
-		"AttackDamageMax"			"29"
-		"AttackRange"				"600"
-		"ProjectileSpeed"			"900"
-		"AttackAnimationPoint"		"0.3"
-		"StatusHealthRegen"			"0.25"
-		"StatusManaRegen"			"0.01"
-		"BaseAttackSpeed"			"100"
-		"Ability1"		"mirana_starfall"
-		"Ability2"		"mirana_arrow"
-		"Ability3"		"mirana_leap"
-		"Ability4"		"generic_hidden"
-		"Ability5"		"generic_hidden"
-		"Ability6"		"mirana_invis"
-		"Ability10"		"special_bonus_all_stats_4"
-		"Ability11"		"special_bonus_all_stats_5"
-		"Ability12"		"special_bonus_all_stats_6"
-		"Ability13"		"special_bonus_all_stats_7"
-		"Ability14"		"special_bonus_all_stats_8"
-		"Ability15"		"special_bonus_all_stats_10"
-		"Ability16"		"special_bonus_all_stats_12"
-		"Ability17"		"special_bonus_all_stats_14"
-	}
-	"npc_dota_hero_necrolyte"			
-	{
+		"override_hero"				"npc_dota_hero_necrolyte"
+		"Facets" {}
 		"AttributeBaseStrength"   	"16"
 		"AttributeStrengthGain"   	"2"    
 		"AttributeBaseAgility"  	"15"
@@ -3333,8 +3176,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_puck"				
+	"npc_dota_hero_puck_683"				
 	{
+		"override_hero"				"npc_dota_hero_puck"
+		"Facets" {}
 		"AttributeBaseStrength"   	"15"
 		"AttributeStrengthGain"   	"1.7"
 		"AttributeBaseAgility"  	"22"
@@ -3364,44 +3209,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_dark_willow"
+	"npc_dota_hero_pudge_683"				
 	{
-		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
-		"AttributeBaseStrength"   	"15"
-		"AttributeStrengthGain"   	"1.7"
-		"AttributeBaseAgility"  	"22"
-		"AttributeAgilityGain"   	"1.7"  
-		"AttributeBaseIntelligence" "25"  
-		"AttributeIntelligenceGain" "2.4"  
-		"MovementSpeed"				"295"
-		"MovementTurnRate"			"0.4"
-		"ArmorPhysical"				"-1.58"
-		"AttackRate"				"1.7"
-		"AttackDamageMin"			"22"
-		"AttackDamageMax"			"33"
-		"AttackRange"				"550"
-		"ProjectileSpeed"			"900"
-		"AttackAnimationPoint"		"0.5"
-		"StatusHealthRegen"			"0.25"
-		"StatusManaRegen"			"0.01"
-		"BaseAttackSpeed"			"100"
-		"Ability1"		"puck_illusory_orb"
-		"Ability2"		"puck_waning_rift"
-		"Ability3"		"puck_phase_shift"
-		"Ability4"		"puck_ethereal_jaunt"
-		"Ability5"		"dark_willow_puck_sound_effects"
-		"Ability6"		"puck_dream_coil_2"
-		"Ability10"		"special_bonus_all_stats_4"
-		"Ability11"		"special_bonus_all_stats_5"
-		"Ability12"		"special_bonus_all_stats_6"
-		"Ability13"		"special_bonus_all_stats_7"
-		"Ability14"		"special_bonus_all_stats_8"
-		"Ability15"		"special_bonus_all_stats_10"
-		"Ability16"		"special_bonus_all_stats_12"
-		"Ability17"		"special_bonus_all_stats_14"
-	}
-	"npc_dota_hero_pudge"				
-	{
+		"override_hero"				"npc_dota_hero_pudge"
+		"Facets" {}
 		"AttributeBaseStrength"   "25"
 		"AttributeStrengthGain"   "3.2"
 		"AttributeBaseAgility"  "14"
@@ -3431,8 +3242,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_queenofpain"			
+	"npc_dota_hero_queenofpain_683"			
 	{
+		"override_hero"				"npc_dota_hero_queenofpain"
+		"Facets" {}
 		"AttributeBaseStrength"   	"16"
 		"AttributeStrengthGain"   	"1.7"
 		"AttributeBaseAgility"  	"18"
@@ -3460,35 +3273,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"queenofpain_lifesteal"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}			
-			"queenofpain_selfdmg"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-
-		}
-
-
 	}
-	"npc_dota_hero_riki"				
+	"npc_dota_hero_riki_683"				
 	{
+		"override_hero"				"npc_dota_hero_riki"
+		"Facets" {}
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2"    
 		"AttributeBaseAgility"  	"34"
@@ -3522,8 +3311,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_rubick"				
+	"npc_dota_hero_rubick_683"				
 	{
+		"override_hero"				"npc_dota_hero_rubick"
+		"Facets" {}
 		"AttributeBaseStrength"   	"19"
 		"AttributeStrengthGain"   	"1.5"
 		"AttributeBaseAgility"  	"14"
@@ -3554,8 +3345,10 @@
 		"Ability18"		"special_bonus_all_stats_14"
 		"Ability19"		"special_bonus_all_stats_4"
 	}
-	"npc_dota_hero_techies"				
+	"npc_dota_hero_techies_683"				
 	{
+		"override_hero"				"npc_dota_hero_techies"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2"    
@@ -3589,40 +3382,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"techies_atk_range"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-
-			"techies_spleens_secret_sauce" 
-			{
-				"Icon"				"nuke"
-				"Color"				"Red"
-				"GradientID"		"0"
-			}
-
-			"techies_backpack"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
 	}
-	"npc_dota_hero_templar_assassin"	
+	"npc_dota_hero_templar_assassin_683"	
 	{
+		"override_hero"				"npc_dota_hero_templar_assassin"
+		"Facets" {}
 		"AttributeBaseStrength"   	"18"
 		"AttributeStrengthGain"   	"2.1"
 		"AttributeBaseAgility"  	"23"
@@ -3652,8 +3416,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_zuus"				
+	"npc_dota_hero_zuus_683"				
 	{
+		"override_hero"				"npc_dota_hero_zuus"
+		"Facets" {}
 		"AttributeBaseStrength"   	"19"
 		"AttributeStrengthGain"   	"2.3"
 		"AttributeBaseAgility"  	"11"
@@ -3685,8 +3451,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_batrider"			
+	"npc_dota_hero_batrider_683"			
 	{
+		"override_hero"				"npc_dota_hero_batrider"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"23"
 		"AttributeStrengthGain"   	"2.4"
@@ -3717,23 +3485,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"batrider_buff_on_displacement" 
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
-
 	}
-	"npc_dota_hero_bloodseeker"			
+	"npc_dota_hero_bloodseeker_683"			
 	{
+		"override_hero"				"npc_dota_hero_bloodseeker"
+		"Facets" {}
 		"AttributeBaseStrength"   	"23"
 		"AttributeStrengthGain"   	"2"    
 		"AttributeBaseAgility"  	"24"
@@ -3765,8 +3521,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_broodmother"			
+	"npc_dota_hero_broodmother_683"			
 	{
+		"override_hero"				"npc_dota_hero_broodmother"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2.5"
@@ -3801,8 +3559,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_chen"				
+	"npc_dota_hero_chen_683"				
 	{
+		"override_hero"				"npc_dota_hero_chen"
+		"Facets" {}
 		"AttributePrimary"			"DOTA_ATTRIBUTE_INTELLECT"
 		"AttributeBaseStrength"   	"20"
 		"AttributeStrengthGain"   	"1.5"
@@ -3835,8 +3595,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_doom_bringer"		
+	"npc_dota_hero_doom_bringer_683"		
 	{
+		"override_hero"				"npc_dota_hero_doom_bringer"
+		"Facets" {}
 		"AttributeBaseStrength"   	"26"
 		"AttributeStrengthGain"   	"3.2"
 		"AttributeBaseAgility"  	"11"
@@ -3867,22 +3629,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"doom_bringer_boost_selling"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
 	}
-	"npc_dota_hero_enchantress"			
+	"npc_dota_hero_enchantress_683"			
 	{
+		"override_hero"				"npc_dota_hero_enchantress"
+		"Facets" {}
 		"AttributeBaseStrength"   	"16"
 		"AttributeStrengthGain"   	"1.0"
 		"AttributeBaseAgility"  	"19"
@@ -3917,8 +3668,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_furion"				
+	"npc_dota_hero_furion_683"				
 	{
+		"override_hero"				"npc_dota_hero_furion"
+		"Facets" {}
 		"AttributeBaseStrength"   	"19"
 		"AttributeStrengthGain"   	"1.8"
 		"AttributeBaseAgility"  	"18"
@@ -3949,8 +3702,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_kunkka"				
+	"npc_dota_hero_kunkka_683"				
 	{
+		"override_hero"				"npc_dota_hero_kunkka"
+		"Facets" {}
 		"AttributeBaseStrength"   	"24"
 		"AttributeStrengthGain"   	"3.0"
 		"AttributeBaseAgility"  	"14"
@@ -3982,8 +3737,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_legion_commander"	
+	"npc_dota_hero_legion_commander_683"	
 	{
+		"override_hero"				"npc_dota_hero_legion_commander"
+		"Facets" {}
 		"AttributeBaseStrength"   	"26"
 		"AttributeStrengthGain"   	"2.6"
 		"AttributeBaseAgility"  	"18"
@@ -4014,8 +3771,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_meepo"				
+	"npc_dota_hero_meepo_683"				
 	{
+		"override_hero"				"npc_dota_hero_meepo"
+		"Facets" {}
 		"AttributeBaseStrength"   	"23"
 		"AttributeStrengthGain"   	"1.6"
 		"AttributeBaseAgility"  	"23"
@@ -4048,60 +3807,11 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"meepo_pack_rat"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"			"null_facet"
-					}
-				}
-			}
-
-		}
-
 	}
-	"npc_dota_hero_monkey_king"			
+	"npc_dota_hero_phantom_lancer_683"		
 	{
-		"AttributeBaseStrength"   	"21"
-		"AttributeStrengthGain"   	"1.7"
-		"AttributeBaseAgility"  	"29"
-		"AttributeAgilityGain"   	"3.0"  
-		"AttributeBaseIntelligence" "21"  
-		"AttributeIntelligenceGain" "2"    
-		"MovementSpeed"				"290"
-		"MovementTurnRate"			"0.6"
-		"ArmorPhysical"				"-0.77"
-		"AttackRate"				"1.7"
-		"AttackDamageMin"			"22"
-		"AttackDamageMax"			"44"
-		"AttackRange"				"128"
-		"AttackAnimationPoint"		"0.5"
-		"StatusHealthRegen"			"0.75"
-		"StatusManaRegen"			"0.01"
-		"BaseAttackSpeed"			"100"
-		"Ability1"		"phantom_lancer_spirit_lance_2"
-		"Ability2"		"phantom_lancer_doppelwalk"
-		"Ability3"		"phantom_lancer_phantom_edge"
-		"Ability4"		"monkey_king_pl_sound_effects"
-		"Ability5"		"generic_hidden"
-		"Ability6"		"phantom_lancer_juxtapose"
-		"Ability7"		"generic_hidden"
-		"Ability8"		"generic_hidden"
-		"Ability10"		"special_bonus_all_stats_4"
-		"Ability11"		"special_bonus_all_stats_5"
-		"Ability12"		"special_bonus_all_stats_6"
-		"Ability13"		"special_bonus_all_stats_7"
-		"Ability14"		"special_bonus_all_stats_8"
-		"Ability15"		"special_bonus_all_stats_10"
-		"Ability16"		"special_bonus_all_stats_12"
-		"Ability17"		"special_bonus_all_stats_14"
-	}
-	"npc_dota_hero_phantom_lancer"		
-	{
+		"override_hero"				"npc_dota_hero_phantom_lancer"
+		"Facets" {}
 		"AttributeBaseStrength"   	"21"
 		"AttributeStrengthGain"   	"1.7"
 		"AttributeBaseAgility"  	"29"
@@ -4129,8 +3839,10 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_spectre"				
+	"npc_dota_hero_spectre_683"				
 	{
+		"override_hero"				"npc_dota_hero_spectre"
+		"Facets" {}
 		"AttributeBaseStrength"   	"19"
 		"AttributeStrengthGain"   	"2"    
 		"AttributeBaseAgility"  	"23"
@@ -4198,8 +3910,10 @@
 		{
 		}
 	}
-	"npc_dota_hero_ursa"					
+	"npc_dota_hero_ursa_683"					
 	{
+		"override_hero"				"npc_dota_hero_ursa"
+		"Facets" {}
 		"AttributeBaseStrength"   	"23"
 		"AttributeStrengthGain"   	"2.9"
 		"AttributeBaseAgility"  	"18"
@@ -4229,19 +3943,5 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
-		"Facets"
-		{
-			"ursa_debuff_reduce"
-			{
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"	"null_facet"
-					}
-				}
-			}
-		}
-
 	}
 }
