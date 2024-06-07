@@ -455,6 +455,10 @@
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_bonus_movespeed"		"移动速度提升："
 		"DOTA_Tooltip_modifier_chemical_rage"											"化学狂暴"
 		"DOTA_Tooltip_modifier_chemical_rage_Description"								"攻击间隔降低，每秒生命回复，移动速度提升。"
+		"DOTA_Tooltip_facet_alchemist_mixologist"									"空"
+		"DOTA_Tooltip_facet_alchemist_mixologist_Description"						"这颗命石没有效果。"
+		"DOTA_Tooltip_facet_alchemist_seed_money"									"空"
+		"DOTA_Tooltip_facet_alchemist_seed_money_Description"						"这颗命石没有效果。"
 		// Axe
 		"DOTA_Tooltip_ability_axe_battle_hunger_Description"							"激怒一个敌方单位，使他受到持续伤害，直到他杀死一个单位或者持续时间结束。敌人还将被减速。"
 		"DOTA_Tooltip_ability_axe_battle_hunger_slow"									""
@@ -470,6 +474,9 @@
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_damage"						"伤害："
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_speed_duration"				"击杀加成持续时间："
 		"DOTA_Tooltip_Ability_axe_culling_blade_datadriven_Scepter_Description"			"CD降至6秒，提高斩杀阈限和加速持续时间。"
+		"DOTA_Tooltip_Facet_axe_call_out"												"空"
+		"DOTA_Tooltip_Facet_axe_call_out_Description"									"这颗命石没有效果。"
+		"DOTA_Tooltip_ability_axe_berserkers_call_facet_axe_call_out"  					"这颗命石没有效果。"
 		// Batrider
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven"						"粘性燃油"
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Description"			"用粘性油浸透一块区域，蝙蝠骑士的攻击和技能对区域内的敌人造成额外伤害，并降低他们的移动速度和转身速率。再次施法可以继续提高伤害，最多叠加%max_stacks%次。"
@@ -495,6 +502,12 @@
 		"DOTA_Tooltip_Ability_beastmaster_primal_roar_Scepter_Description"			"+350施法距离，CD45秒"
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven"					"毒"
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_Description"		"-%movement_speed%移速，-%attack_speed%攻速，持续3秒"
+		"DOTA_Tooltip_Facet_beastmaster_wild_hunt"									"空"		
+		"DOTA_Tooltip_Facet_beastmaster_wild_hunt_Description"						"这颗命石没有效果。"
+		"DOTA_Tooltip_Facet_beastmaster_beast_mode"									"空"
+		"DOTA_Tooltip_Facet_beastmaster_beast_mode_Description"						"这颗命石没有效果。"
+		"DOTA_Tooltip_ability_beastmaster_inner_beast_Facet_beastmaster_wild_hunt"	"这颗命石没有效果。"
+		"DOTA_Tooltip_ability_beastmaster_inner_beast_Facet_beastmaster_beast_mode"	"这颗命石没有效果。"
 		//Brewmaster
 		"DOTA_Tooltip_ability_brewmaster_thunder_clap_duration_creep"					"持续时间（小兵）："
 		"DOTA_Tooltip_modifier_brewmaster_thunder_clap_creep_lua"						"雷霆一击"
@@ -525,6 +538,10 @@
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_scepter_description"	"大地战士获得当前等级雷霆一击，狂风战士获得当前等级醉酒云雾，烈火战士获得当前等级醉拳。"
 		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven"					"粉碎击"
 		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven_Description"		"20%%几率攻击150范围造成40伤害，250范围造成20伤害。"
+		"DOTA_Tooltip_Facet_brewmaster_roll_out_the_barrel"								"空"
+		"DOTA_Tooltip_Facet_brewmaster_roll_out_the_barrel_Description"					"无效。"
+		"DOTA_Tooltip_Facet_brewmaster_drunken_master"									"空"
+		"DOTA_Tooltip_Facet_brewmaster_drunken_master_Description"						"无效。"
 		//Bristleback
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven"						"钢毛后背"
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_Description"			"如果伤害来自钢背兽的侧面或者背后，他将会受到较少的伤害。钢毛后背每吸收%quill_release_threshold%点伤害会自动释放一次当前等级的刺针扫射。"
@@ -534,6 +551,14 @@
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_side_damage_reduction"	"%侧面伤害减少："
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_back_damage_reduction"	"%背后伤害减少："
 		"DOTA_Tooltip_ability_bristleback_bristleback_datadriven_quill_release_threshold"	"伤害吸收触发值："
+		"DOTA_Tooltip_Facet_bristleback_berserk"											"空"
+		"DOTA_Tooltip_Facet_bristleback_berserk_Description"								"无效。"
+		"DOTA_Tooltip_Facet_bristleback_snot_rocket"										"空"
+        "DOTA_Tooltip_Facet_bristleback_snot_rocket_Description"							"无效。"
+		"DOTA_Tooltip_ability_bristleback_bristleback_Facet_bristleback_snot_rocket"		"无效。"
+		"DOTA_Tooltip_ability_bristleback_warpath_Facet_bristleback_berserk"				"无效。"
+		"DOTA_Tooltip_ability_bristleback_viscous_nasal_goo_Facet_bristleback_snot_rocket" 	"无效。"
+
 		//Centaur
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven"								"马蹄践踏"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_Description"					"猛踏地面，眩晕并伤害身边的敌方单位。"
@@ -543,6 +568,10 @@
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stomp_damage"					"践踏伤害："
 		"DOTA_Tooltip_ability_centaur_return_Description"									"半人马战行者立刻反击攻击他的单位，伤害与半人马战行者的力量值成正比。"
 		"DOTA_Tooltip_modifier_hoof_stomp"													"#DOTA_Tooltip_modifier_stunned"
+		"DOTA_Tooltip_ability_centaur_double_edge_facet_centaur_counter_strike"				"无效。"
+		"DOTA_Tooltip_Facet_centaur_counter_strike"											"空"
+		"DOTA_Tooltip_Facet_centaur_counter_strike_Description"								"无效。"
+
 		//Chaos Knight
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven"							"实相裂隙"
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven_Description"				"将混沌骑士及其幻象和目标单位传送到混沌骑士与目标连线上的随机位置。混沌骑士的下一次攻击将具有额外攻击力加成。"
