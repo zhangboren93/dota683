@@ -422,7 +422,7 @@
 				{
 					"Ability1"
 					{
-						"AbilityName"	"generic_hidden"
+						"AbilityName"	"null_facet"
 					}
 				}
 			}

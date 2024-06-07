@@ -587,6 +587,8 @@
 		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven_Description"			"从另一维度内召唤若干个混沌骑士的幻象，%extra_phantasm_chance_pct_tooltip%%%概率额外产生一个。幻象继承%outgoing_damage_tooltip%%%攻击力，但是承受%incoming_damage_tooltip%%%伤害。"
 		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven_images_count"		"幻象数量："
 		"DOTA_Tooltip_Ability_chaos_knight_phantasm_datadriven_illusion_duration"	"持续时间："
+		"DOTA_Tooltip_Facet_chaos_knight_irrationality"								"空"
+		"DOTA_Tooltip_Facet_chaos_knight_irrationality_Description"					"无效。"
 		//Doom
 		"DOTA_Tooltip_ability_doom_bringer_devour_datadriven"						"吞噬"
 		"DOTA_Tooltip_ability_doom_bringer_devour_datadriven_Description"			"消化一个敌军或中立生物，获得其特殊技能。持续时间=血量/20。"
@@ -941,6 +943,11 @@
 		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_mana_burn"			"魔法/生命 损失："
 		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_attacks_to_destroy"	"摧毁齿轮的攻击次数："
 		"DOTA_Tooltip_Ability_rattletrap_hookshot_scepter_description"					"CD 12秒"
+		"DOTA_Tooltip_ability_rattletrap_hookshot_Facet_rattletrap_hookup"			"无效。"
+		"DOTA_Tooltip_Facet_rattletrap_hookup"										"空"
+		"DOTA_Tooltip_Facet_rattletrap_expanded_armature"							"空"
+		"DOTA_Tooltip_Facet_rattletrap_expanded_armature_Description"				"无效。"
+		"DOTA_Tooltip_Facet_rattletrap_hookup_Description"							"无效。"
 		// Sand King
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven"							"尸爆"
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_Description"				"沙王的攻击对敌方单位注入毒液，死亡时发生剧烈爆炸。"
