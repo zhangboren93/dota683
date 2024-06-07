@@ -1,0 +1,13 @@
+criterion "Istroll_warlord" "classname" "npc_dota_hero_troll_warlord" weight 5 required
+criterion "IsTrollTrance" "abilityname" "troll_warlord_battle_trance_datadriven" weight 5 required
+
+Response troll_warlord_LearnIsTrollTranceChance_5%
+{
+    scene "scenes/troll_warlord/troll_warlord_troll_battletrance_04.vcd" nodelay noscene speakonce
+}
+
+Rule troll_warlord_LearnIsTrollTranceChance_5%_Rule
+{
+    criteria Learn Istroll_warlord IsTrollTrance Chance_5%
+    response troll_warlord_LearnIsTrollTranceChance_5%
+}
