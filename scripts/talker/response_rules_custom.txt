@@ -35,3 +35,4 @@ criterion "IsAlwaysTrue"	"randomnum" ">=0" required
 #include "talker/rules_dazzle_extra.txt"
 #include "talker/response_rules_hoodwink_extra.txt"
 #include "talker/rules_puck_extra.txt"
+#include "talker/rules_troll_warlord_extra.txt"

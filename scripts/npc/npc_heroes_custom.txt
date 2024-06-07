@@ -2232,8 +2232,9 @@
 		}
 
 	}
-	"npc_dota_hero_troll_warlord"		
+	"npc_dota_hero_troll_warlord_683"		
 	{
+		"override_hero"				"npc_dota_hero_troll_warlord"
 		"AttributeBaseStrength"   	"17"
 		"AttributeStrengthGain"   	"2.2"
 		"AttributeBaseAgility"  	"21"
@@ -2262,6 +2263,9 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+		}
 	}
 	"npc_dota_hero_tusk"				
 	{
@@ -4843,8 +4847,9 @@
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
 	}
-	"npc_dota_hero_undying"				
+	"npc_dota_hero_undying_683"				
 	{
+		"override_hero"				"npc_dota_hero_undying"
 		"AttributeBaseStrength"   	"22"
 		"AttributeStrengthGain"   	"2.1"
 		"AttributeBaseAgility"  	"10"
@@ -4872,6 +4877,9 @@
 		"Ability15"		"special_bonus_all_stats_10"
 		"Ability16"		"special_bonus_all_stats_12"
 		"Ability17"		"special_bonus_all_stats_14"
+		"Facets"
+		{
+		}
 	}
 	"npc_dota_hero_ursa"					
 	{

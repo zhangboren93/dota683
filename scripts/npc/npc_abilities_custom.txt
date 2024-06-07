@@ -15789,6 +15789,8 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"MaxLevel"						"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades"			"5"
 		"FightRecapLevel"				"2"
 		"AbilityTextureName"			"troll_warlord_battle_trance"
 	
@@ -15803,6 +15805,8 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0 0.0 0.0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
