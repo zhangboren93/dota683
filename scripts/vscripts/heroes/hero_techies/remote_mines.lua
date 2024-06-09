@@ -30,7 +30,7 @@ function RemoteMinesPlant( keys )
 	local model_scale = ability:GetLevelSpecialValueFor("model_scale", ability_level) / 100
 
 	-- Create the land mine and initialize it
-	local remote_mine = CreateUnitByName("npc_dota_techies_remote_mine_datadriven", target_point, false, nil, nil, caster:GetTeamNumber())
+	local remote_mine = CreateUnitByName("npc_dota_techies_remote_mine_datadriven", target_point, false, caster, caster, caster:GetTeamNumber())
 	ability:ApplyDataDrivenModifier(caster, remote_mine, modifier_remote_mine, {})
 	remote_mine:AddNewModifier(caster, ability, "modifier_kill", {Duration = duration})
 	remote_mine:SetModelScale(1 + model_scale)
