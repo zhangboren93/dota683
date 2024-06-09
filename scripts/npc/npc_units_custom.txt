@@ -1866,7 +1866,7 @@
 		"Model"						"models/heroes/lone_druid/spirit_bear.vmdl"	// Model.
 		"BaseClass"					"npc_dota_lone_druid_bear"
 		"SoundSet"					"LoneDruid_SpiritBear"
-		"Level"						"1"
+		"Level"						"7"
 		"ModelScale" 				".65"
 		"ConsideredHero"			"1"
 		"UnitLabel"			"spirit_bear"
@@ -1878,6 +1878,8 @@
 		"Ability3"					"generic_hidden"			// Ability 3
 		"Ability4"					"generic_hidden"			// Ability 4
 		"Ability5"					"lone_druid_bear_damage_return_cd"
+		"Ability6"					"creep_irresolute_alter"
+		"Ability7"					"creep_strong"
 
 		// Armor
 		//----------------------------------------------------------------
@@ -1891,9 +1893,9 @@
 		"AttackRate"				"1.75"		// Speed of attack.
 		"AttackAnimationPoint"		"0.43"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"500"		// Range within a target can be acquired.
-		"AttackRange"				"150"		// Range within a target can be attacked.
+		"AttackRange"				"128"		// Range within a target can be attacked.
 		"ProjectileModel"			""			// Particle system model for projectile.
-		"ProjectileSpeed"			"0"			// Speed of projectile.		   
+		"ProjectileSpeed"			"0"			// Speed of projectile.
 
 		// Bounds
 		//----------------------------------------------------------------
@@ -1914,10 +1916,10 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1100"		// Base health.
+		"StatusHealth"				"1400"		// Base health.
 		"StatusHealthRegen"			"2"			// Health regeneration rate.
 		"StatusMana"				"300"		// Base mana.
-		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 
+		"StatusManaRegen"			"0.0"		// Mana regeneration rate.		 
 		
 		// Vision
 		//----------------------------------------------------------------
@@ -1927,8 +1929,6 @@
 		// Team
 		//----------------------------------------------------------------
 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
-		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_HERO"
-		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 
 		//Inventory
@@ -1938,7 +1938,7 @@
 	"npc_dota_lone_druid_bear2"
 	{		
 		"include_keys_from" "npc_dota_lone_druid_bear1"
-
+		"Level"						"7"
 		"ModelScale" 					".72"
 		"ArmorPhysical"				"4"			// Physical protection.
 		"AttackRate"				"1.65"		// Speed of attack.
@@ -1948,10 +1948,10 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1400"		// Base health.
+		"StatusHealth"				"1800"		// Base health.
 		"StatusHealthRegen"			"3"			// Health regeneration rate.
 		"StatusMana"				"300"		// Base mana.
-		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 	
+		"StatusManaRegen"			"0.0"		// Mana regeneration rate.		 	
 	}	
 
 	"npc_dota_lone_druid_bear3"
@@ -1959,6 +1959,7 @@
 		"include_keys_from" "npc_dota_lone_druid_bear1"
 		
 		"ModelScale" 					".78"
+		"Level"						"7"
 		"ArmorPhysical"				"5"			// Physical protection.
 		"AttackRate"				"1.55"		// Speed of attack.
 		"MovementSpeed"				"330"		// Speed.
@@ -1968,16 +1969,17 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"1700"		// Base health.
+		"StatusHealth"				"2300"		// Base health.
 		"StatusHealthRegen"			"4"			// Health regeneration rate.
 		"StatusMana"				"300"			// Base mana.
-		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 	
+		"StatusManaRegen"			"0.0"		// Mana regeneration rate.		 	
 	}	
 	"npc_dota_lone_druid_bear4"
 	{				
 		"include_keys_from" "npc_dota_lone_druid_bear1"
 						
 		"ModelScale" 					".85"
+		"Level"						"7"
 		"Ability1"					"lone_druid_spirit_bear_return"			// Ability 1
 		"Ability2"					"lone_druid_spirit_bear_demolish"			// Ability 2
 		"Ability4"					"lone_druid_spirit_bear_entangle"			// Ability 4
@@ -1988,10 +1990,10 @@
 
 		// Status
 		//----------------------------------------------------------------
-		"StatusHealth"				"2000"		// Base health.
+		"StatusHealth"				"2700"		// Base health.
 		"StatusHealthRegen"			"5"			// Health regeneration rate.
 		"StatusMana"				"300"		// Base mana.
-		"StatusManaRegen"			"0.01"		// Mana regeneration rate.		 	
+		"StatusManaRegen"			"0.0"		// Mana regeneration rate.		 	
 	}	
 	"npc_dota_brewmaster_earth_1"
 	{
