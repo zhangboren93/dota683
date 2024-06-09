@@ -2,7 +2,16 @@ HERO_2_ASP = {
 	npc_dota_hero_clinkz = -58,
 	npc_dota_hero_axe = -20,
 	npc_dota_hero_crystal_maiden = -19,
-	npc_dota_hero_drow_ranger = -29
+	npc_dota_hero_drow_ranger = -29,
+	npc_dota_hero_lina = -14,
+	npc_dota_hero_luna = -24,
+	npc_dota_hero_visage = -13,
+	npc_dota_hero_weaver = -14,
+	npc_dota_hero_death_prophet = -9,
+	npc_dota_hero_huskar = -25,
+	npc_dota_hero_tiny = -18,
+	npc_dota_hero_necrolyte = -43,
+	npc_dota_hero_zuus = -44
 }
 hero_attack_point_adjust_lua = class({})
 function hero_attack_point_adjust_lua:GetIntrinsicModifierName()

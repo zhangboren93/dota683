@@ -24,4 +24,7 @@ function growPassive(event)
 			caster:RemoveModifierByName("modifier_sven_great_cleave_radius")
 		end
 	end
+	if not caster:HasModifier("modifier_clinkz_attack_animation") then
+		caster:AddNewModifier(caster, event.ability, "modifier_clinkz_attack_animation", {})
+	end
 end

@@ -137,15 +137,3 @@ same_ability_heroes["npc_dota_hero_snapfire"] = "npc_dota_hero_mirana"
 same_ability_heroes["npc_dota_hero_mirana"] = "npc_dota_hero_snapfire"
 same_ability_heroes["npc_dota_hero_pangolier"] = "npc_dota_hero_juggernaut"
 same_ability_heroes["npc_dota_hero_juggernaut"] = "npc_dota_hero_pangolier"
-
-HERO_ATTACKPOINT_NEW = {}
-HERO_ATTACKPOINT_NEW["npc_dota_hero_lina"] = 0.65
-HERO_ATTACKPOINT_NEW["npc_dota_hero_luna"] = 0.35
-HERO_ATTACKPOINT_NEW["npc_dota_hero_visage"] = 0.4
-HERO_ATTACKPOINT_NEW["npc_dota_hero_weaver"] = 0.55
-HERO_ATTACKPOINT_NEW["npc_dota_hero_death_prophet"] = 0.5
-HERO_ATTACKPOINT_NEW["npc_dota_hero_void_spirit"] = 0.35
-HERO_ATTACKPOINT_NEW["npc_dota_hero_huskar"] = 0.3
-HERO_ATTACKPOINT_NEW["npc_dota_hero_tiny"] = 0.4
-HERO_ATTACKPOINT_NEW["npc_dota_hero_necrolyte"] = 0.3
-HERO_ATTACKPOINT_NEW["npc_dota_hero_zuus"] = 0.35

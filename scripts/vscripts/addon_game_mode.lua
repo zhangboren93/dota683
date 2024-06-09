@@ -1249,11 +1249,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		if innate_ability ~= nil then
 			entity:FindAbilityByName(innate_ability):SetLevel(1)
 		end
-		local new_attack_point = HERO_ATTACKPOINT_NEW[entity:GetName()]
-		if new_attack_point ~= nil and not entity:HasAbility("hero_attack_animation_datadriven") then
-			entity:AddAbility("hero_attack_animation_datadriven"):SetLevel(1)
-		end
-
 		-- debug abilities' name
 		--for i = 0, 34 do
 		--	local ability = entity:GetAbilityByIndex(i)
