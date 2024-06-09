@@ -1496,7 +1496,15 @@
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_bear_bonus_speed"		"熊灵移动速度加成："
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_rabid_duration_bonus"	"狂猛持续时间加成："
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_true_form_hp_bonus"		"真熊形态生命加成："
-
+		"DOTA_Tooltip_modifier_lone_druid_bear_disarm_datadriven"					"熊灵距离"
+		"DOTA_Tooltip_modifier_lone_druid_bear_disarm_datadriven_Description"		"熊灵相距德鲁伊太远将丧失攻击能力。"
+		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven"					"缠绕之爪"
+		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven_Description"		"攻击时有一定概率从地上生出根须缠绕住敌方单位，使其无法移动并造成持续伤害。"
+		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven_entangle_chance"	"%缠绕概率："
+		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven_hero_duration"		"英雄缠绕时间："
+		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven_creep_duration"	"非英雄单位缠绕时间："
+		"DOTA_Tooltip_modifier_lone_druid_spirit_bear_entangle_effect_datadriven"				"缠绕之爪"
+		"DOTA_Tooltip_modifier_lone_druid_spirit_bear_entangle_effect_datadriven_Description"	"无法移动并且受到持续伤害。"
 		//Luna
 		"DOTA_Tooltip_ability_luna_eclipse_scepter_description"						"双击施放月食。增加月光数量，并且移除单体打击次数上限。"
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua"									"月刃"
