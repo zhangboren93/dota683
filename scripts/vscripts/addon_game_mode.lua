@@ -2635,8 +2635,9 @@ function CAddonTemplateGameMode:HandleChannelFinish(event)
 end
 
 function CAddonTemplateGameMode:HandleItemPurchased(event)
-	print("HandleItemPurchased " .. event.itemname .. " " .. event.PlayerID)
-	if self.game_mode == "DM" and event.itemname == "item_tpscroll" then
+	local time = GameRules:GetDOTATime(true, true)
+	print("HandleItemPurchased " .. event.itemname .. " " .. event.PlayerID .. " " .. time)
+	if event.itemname == "item_tpscroll" and (self.game_mode == "DM" or time < 0)  then
 		local hero = PlayerResource:GetPlayer(event.PlayerID):GetAssignedHero()
 		-- DM allways resets cooldown if tp purchased from base
 		if hero:IsInRangeOfShop(DOTA_SHOP_HOME, true) then
