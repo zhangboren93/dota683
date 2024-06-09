@@ -165,7 +165,7 @@ function deathMatchSpawnHero(entity)
 	end
 	local player = entity:GetPlayerOwner()
 	local playerid = entity:GetPlayerOwnerID()
-	local level = entity:GetLevel()
+	local xp = entity:GetCurrentXP()
 	local items = {}
 	for i=1,#ITEM_SLOTS do
 		local item = entity:GetItemInSlot(ITEM_SLOTS[i])
@@ -173,17 +173,17 @@ function deathMatchSpawnHero(entity)
 			table.insert(items, item)
 		end
 	end
-	print("Respawning player " .. playerid .. " with hero " .. nextRandomHero .. " level " .. level .. " items:")
-	print(items)
+	print("Respawning player " .. playerid .. " with hero " .. nextRandomHero .. " xp " .. xp .. " items:" )
+	for i=1,#items do
+		print(items[i]:GetName())
+	end
 	CreateUnitByNameAsync(nextRandomHero, spawnLocation, true, nil, nil, entity:GetTeam(), function(unit)
 		unit:SetIdleAcquire(true)
 		unit:SetControllableByPlayer(playerid, false)
 		unit:SetOwner(player)
 		unit:SetPlayerID(playerid)
 		player:SetAssignedHeroEntity(unit)
-		for i=2,level do
-			unit:HeroLevelUp(false)
-		end
+		unit:AddExperience(xp, DOTA_ModifyXP_Unspecified, false, false)
 		for i=1,#items do 
 			unit:AddItem(items[i])
 			-- reset cd for tp scroll or travel boots

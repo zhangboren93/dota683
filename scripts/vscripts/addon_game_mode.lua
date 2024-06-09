@@ -1478,7 +1478,11 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		entity:ModifyGold(-30 * entity:GetLevel(), false, DOTA_ModifyGold_Death)
 		local event = {}
 		event.caster = entity
-		handleDeathRespawnTime(event)
+		local ret,error = pcall(function() handleDeathRespawnTime(event) end)
+		if not ret then
+			print(error)
+			GameRules:SendCustomMessage(error, -1, -1)
+		end
 	end
 	if attacker:IsOwnedByAnyPlayer() and entity:IsBuilding() and attacker:GetTeam() ~= entity:GetTeam() then
 		-- grant building kill bonus
