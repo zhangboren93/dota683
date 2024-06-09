@@ -139,9 +139,6 @@ same_ability_heroes["npc_dota_hero_pangolier"] = "npc_dota_hero_juggernaut"
 same_ability_heroes["npc_dota_hero_juggernaut"] = "npc_dota_hero_pangolier"
 
 HERO_ATTACKPOINT_NEW = {}
-HERO_ATTACKPOINT_NEW["npc_dota_hero_axe"] = 0.4
-HERO_ATTACKPOINT_NEW["npc_dota_hero_crystal_maiden"] = 0.45
-HERO_ATTACKPOINT_NEW["npc_dota_hero_drow_ranger"] = 0.5
 HERO_ATTACKPOINT_NEW["npc_dota_hero_lina"] = 0.65
 HERO_ATTACKPOINT_NEW["npc_dota_hero_luna"] = 0.35
 HERO_ATTACKPOINT_NEW["npc_dota_hero_visage"] = 0.4
