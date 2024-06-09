@@ -15278,28 +15278,12 @@
 			}
 		}
 	}
-	"clinkz_attack_animation_datadriven"
+	"hero_attack_point_adjust_lua"
 	{
-		"BaseClass"			"ability_datadriven"
+		"BaseClass"		"ability_lua"
+		"ScriptFile"		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"Modifiers"
-		{
-			"modifier_clinkz_attack_animation_datadriven"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_clinkz/clinkz_attack_animation_trigger.lua"
-						"Function"		"HandleClinkzAttackStart"
-					}
-				}
-			}
-		}
-		
+		"MaxLevel"		"1"
 	}
 
 	"hero_attack_animation_datadriven"
