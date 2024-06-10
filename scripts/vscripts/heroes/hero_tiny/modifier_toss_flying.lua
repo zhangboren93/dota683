@@ -1,5 +1,9 @@
 modifier_toss_flying_lua = class({})
 
+function modifier_toss_flying_lua:GetAttributes()
+	return MODIFIER_ATTRIBUTE_PERMANENT 
+end
+
 function modifier_toss_flying_lua:IsHidden()
 	return false
 end
@@ -18,7 +22,7 @@ function modifier_toss_flying_lua:OnDestroy()
 		local parent = self:GetParent()
 		parent:RemoveHorizontalMotionController(self)
 		parent:RemoveVerticalMotionController(self)
-		if (parent:GetAbsOrigin() - parent.toss_to_target:GetAbsOrigin()):Length2D() < 120 then
+		if (parent:GetAbsOrigin() - parent.toss_to_target:GetAbsOrigin()):Length2D() < 1000 then
 			local caster = self:GetAbility():GetCaster()
 			local ability = self:GetAbility()
 			local damage_radius = ability:GetSpecialValueFor("radius")
@@ -43,7 +47,7 @@ function modifier_toss_flying_lua:OnDestroy()
 					damage_type = DAMAGE_TYPE_MAGICAL
 				})
 			end
-			if parent:GetTeam() ~= caster:GetTeam() and not parent:IsMagicImmune() then
+			if parent:GetTeam() ~= caster:GetTeam() and not parent:IsMagicImmune() and not parent:TriggerSpellAbsorb(ability) then
 				local bonus_damage_pct = ability:GetSpecialValueFor("bonus_damage_pct")
 				local grow = caster:FindAbilityByName("tiny_grow")
 				bonus_damage_pct = bonus_damage_pct + grow:GetLevel() * 15
