@@ -1496,6 +1496,7 @@
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_bear_bonus_speed"		"熊灵移动速度加成："
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_rabid_duration_bonus"	"狂猛持续时间加成："
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_true_form_hp_bonus"		"真熊形态生命加成："
+		"DOTA_Tooltip_ability_lone_druid_true_form_speed_loss"						"基础移动速度损失："
 		"DOTA_Tooltip_modifier_lone_druid_bear_disarm_datadriven"					"熊灵距离"
 		"DOTA_Tooltip_modifier_lone_druid_bear_disarm_datadriven_Description"		"熊灵相距德鲁伊太远将丧失攻击能力。"
 		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven"					"缠绕之爪"

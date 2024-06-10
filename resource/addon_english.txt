@@ -1439,6 +1439,7 @@
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_bear_bonus_speed"	"BEAR BONUS SPEED:"
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_rabid_duration_bonus"	"RABID DURATION BONUS:"
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_true_form_hp_bonus"	"TRUE FORM BONUS HP:"
+		"DOTA_Tooltip_ability_lone_druid_true_form_speed_loss"					"BASE SPEED LOSS:"
 		"DOTA_Tooltip_modifier_lone_druid_bear_disarm_datadriven"					"Spirit Bear Proximity"
 		"DOTA_Tooltip_modifier_lone_druid_bear_disarm_datadriven_Description"		"If the Spirit Bear moves too far away from Lone Druid, it will not be able to attack."
 		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven"					"Entangling Claws"
