@@ -1965,7 +1965,7 @@
 		"MovementSpeed"				"330"		// Speed.
 		"MovementTurnRate"			"0.6"		// Turning rate.
 		"Ability1"					"lone_druid_spirit_bear_return"			// Ability 1
-		"Ability4"					"lone_druid_spirit_bear_entangle"			// Ability 4
+		"Ability4"					"lone_druid_spirit_bear_entangle_datadriven"			// Ability 4
 
 		// Status
 		//----------------------------------------------------------------
@@ -1982,7 +1982,7 @@
 		"Level"						"7"
 		"Ability1"					"lone_druid_spirit_bear_return"			// Ability 1
 		"Ability2"					"lone_druid_spirit_bear_demolish"			// Ability 2
-		"Ability4"					"lone_druid_spirit_bear_entangle"			// Ability 4
+		"Ability4"					"lone_druid_spirit_bear_entangle_datadriven"			// Ability 4
 		"ArmorPhysical"				"6"			// Physical protection.
 		"AttackRate"				"1.45"		// Speed of attack.
 		"MovementSpeed"				"340"		// Speed.

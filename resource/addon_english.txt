@@ -1439,7 +1439,15 @@
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_bear_bonus_speed"	"BEAR BONUS SPEED:"
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_rabid_duration_bonus"	"RABID DURATION BONUS:"
 		"DOTA_Tooltip_Ability_lone_druid_synergy_datadriven_true_form_hp_bonus"	"TRUE FORM BONUS HP:"
-
+		"DOTA_Tooltip_modifier_lone_druid_bear_disarm_datadriven"					"Spirit Bear Proximity"
+		"DOTA_Tooltip_modifier_lone_druid_bear_disarm_datadriven_Description"		"If the Spirit Bear moves too far away from Lone Druid, it will not be able to attack."
+		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven"					"Entangling Claws"
+		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven_Description"		"Attacks have a chance to cause roots to burst from the ground, immobilizing the attacked enemy unit, and dealing damage per second."
+		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven_entangle_chance"	"%ENTANGLE CHANCE:"
+		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven_hero_duration"		"HERO DURATION:"
+		"DOTA_Tooltip_ability_lone_druid_spirit_bear_entangle_datadriven_creep_duration"	"CREEP DURATION:"
+		"DOTA_Tooltip_modifier_lone_druid_spirit_bear_entangle_effect_datadriven"				"Entangling Claws"
+		"DOTA_Tooltip_modifier_lone_druid_spirit_bear_entangle_effect_datadriven_Description"	"Immobilized and taking damage over time."
 		//Luna
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua"											"Moon Glaives"
 		"DOTA_Tooltip_ability_luna_moon_glaive_lua_Description"								"Empowers Luna's glaives, causing her attacks to bounce between enemy units. Deals less damage with each bounce."

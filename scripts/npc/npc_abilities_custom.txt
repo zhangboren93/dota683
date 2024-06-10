@@ -20,6 +20,7 @@
 #base "heroes/keeper_of_the_light.txt"
 #base "heroes/kunkka.txt"
 #base "heroes/legion_commander.txt"
+#base "heroes/lone_druid.txt"
 #base "heroes/luna.txt"
 #base "heroes/lycan.txt"
 #base "heroes/naga_siren.txt"
