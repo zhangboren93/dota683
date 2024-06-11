@@ -1,28 +1,23 @@
 modifier_item_quelling_blade_hooks_lua = class({})
 function modifier_item_quelling_blade_hooks_lua:DeclareFunctions()
 	return {
-		MODIFIER_EVENT_ON_ATTACK_START
+		MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL 
 	}
-end
-
-function modifier_item_quelling_blade_hooks_lua:OnAttackStart(event)
-    local target = event.target
-    local attacker = event.attacker
-    local ability = self:GetAbility()
-	if attacker == self:GetParent() then
-    	if target:IsCreep() and target:GetTeamNumber() ~= attacker:GetTeamNumber() and target:GetModelName() ~= "models/creeps/roshan/roshan.vmdl" then
-    	    if attacker:IsRangedAttacker() then
-    	        attacker:AddNewModifier(attacker, ability, "modifier_item_quelling_blade_active_ranged_lua", { duration = 1 })
-    	    else
-    	        attacker:AddNewModifier(attacker, ability, "modifier_item_quelling_blade_active_melee_lua", { duration = 1 })
-    	    end
-    	else
-    	    attacker:RemoveModifierByName("modifier_item_quelling_blade_active_ranged_lua")
-    	    attacker:RemoveModifierByName("modifier_item_quelling_blade_active_melee_lua")
-    	end
-	end
 end
 
 function modifier_item_quelling_blade_hooks_lua:IsHidden()
 	return true
+end
+
+function modifier_item_quelling_blade_hooks_lua:GetModifierProcAttack_BonusDamage_Physical(event)
+	if not IsServer() or event.attacker ~= self:GetParent() then return end
+	local attacker = event.attacker
+	local target = event.target
+	local damage = event.damage
+	if not target:IsCreep() then return end
+	if attacker:IsRangedAttacker() then
+		return damage * 12 / 100
+	else
+		return damage * 32 / 100
+	end
 end
