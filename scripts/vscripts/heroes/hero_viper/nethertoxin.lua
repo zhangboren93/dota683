@@ -1,49 +1,39 @@
---[[Author: Pizzalol
-	Date: 19.12.2014.
-	This is run whenever an attack is started to determine which modifier gets applied]]
-function Nethertoxin( keys )
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	local HPPercentage = (target:GetHealth()/target:GetMaxHealth())*100 -- Calculate the target HP percentage
+viper_nethertoxin_lua = class({})
+function viper_nethertoxin_lua:GetIntrinsicModifierName()
+	return "modifier_viper_nethertoxin_lua"
+end
 
-	--print("Hello !")
-	--print(HPPercentage)
+modifier_viper_nethertoxin_lua = class({})
 
+function modifier_viper_nethertoxin_lua:IsHidden()
+	return true
+end
 
-	-- Apply a modifier depending on the HP percentage and unit type
-	if(HPPercentage<=100 and HPPercentage>80) then
-		if target:IsRealHero() then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_100_hero_datadriven", {})
-		else
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_100_creep_datadriven", {})
-		end
-	elseif(HPPercentage<=80 and HPPercentage>60) then
-		if target:IsRealHero() then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_80_hero_datadriven", {})
-		else
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_80_creep_datadriven", {})
-		end
-	elseif(HPPercentage<=60 and HPPercentage>40) then
-		if target:IsRealHero() then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_60_hero_datadriven", {})
-		else
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_60_creep_datadriven", {})
-		end
-	elseif(HPPercentage<=40 and HPPercentage>20) then
-		if target:IsRealHero() then
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_40_hero_datadriven", {})
-		else
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_40_creep_datadriven", {})
-		end
+function modifier_viper_nethertoxin_lua:DeclareFunctions()
+	return { MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_PHYSICAL }
+end
+
+function modifier_viper_nethertoxin_lua:GetModifierProcAttack_BonusDamage_Physical(event)
+	local attacker = event.attacker
+	if not IsServer() or attacker ~= self:GetParent() then return 0 end
+	local victim = event.target
+	local ability = self:GetAbility()
+	local health_pct = victim:GetHealthPercent()
+	local bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+	local damage = 0
+	if health_pct > 80 then
+		damage = bonus_damage
+	elseif health_pct > 60 then
+		damage = bonus_damage * 2
+	elseif health_pct > 40 then
+		damage = bonus_damage * 4  
+	elseif health_pct > 20 then
+		damage = bonus_damage * 8
 	else
-		--print("Hello Im testing")
-		if target:IsRealHero() then
-			--print("Im a hero!")
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_20_hero_datadriven", {})
-		else
-			--print("Im not a hero :(")
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_nethertoxin_20_creep_datadriven", {})
-		end
+		damage = bonus_damage * 16 
 	end
+	if victim:IsHero() then
+		return damage
+	end
+	return damage / 2
 end

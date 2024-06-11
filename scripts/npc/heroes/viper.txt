@@ -142,4 +142,19 @@
 			"bonus_attack_speed"			"-10 -20 -30 -40"
 		}
 	}
+	"viper_nethertoxin_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_viper/nethertoxin.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"viper_nethertoxin"
+		"AbilityValues"
+		{
+			"bonus_damage"			"2.5 5 7.5 10"
+			"non_hero_damage_pct"	"50"
+			"max_damage_tooltip"	"40 80 120 160"
+		}
+	}
 }
