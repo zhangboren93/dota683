@@ -1478,6 +1478,13 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			print(error)
 			GameRules:SendCustomMessage(error, -1, -1)
 		end
+		for i=1,PlayerResource:NumPlayers() do
+			if PlayerResource:GetTeam(i-1) == entity:GetTeam() then
+				EmitSoundOnClient("notification.teammate.death", PlayerResource:GetPlayer(i-1))
+			else
+				EmitSoundOnClient("notification.teammate.kill", PlayerResource:GetPlayer(i-1))
+			end
+		end
 	end
 	if attacker:IsOwnedByAnyPlayer() and entity:IsBuilding() and attacker:GetTeam() ~= entity:GetTeam() then
 		-- grant building kill bonus
