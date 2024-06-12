@@ -1759,6 +1759,7 @@
 		"DOTA_Tooltip_Ability_slark_shadow_dance_bonus_regen"							"" 
 		"DOTA_Tooltip_Ability_slark_shadow_dance_bonus_pct_regen"						"%回血："
 		"DOTA_Tooltip_modifier_slark_shadow_dance_passive_regen_Description"			"获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%额外移动速度同时每秒回复最大生命值的一定百分比。"
+		"DOTA_Tooltip_Ability_slark_barracuda_bonus_pct_regen"							"%回血："
 		//Sniper
 		"DOTA_Tooltip_ability_sniper_headshot_datadriven"										"爆头"
 		"DOTA_Tooltip_ability_sniper_headshot_datadriven_Description"							"狙击手提高他的精确度，有一定概率造成额外伤害。爆头会短暂地降低敌人100%%移动和攻击速度。触发爆头的攻击无法被闪避。"
@@ -1782,7 +1783,7 @@
 		"DOTA_Tooltip_modifier_assassinate_target_datadriven_Description"	"狙击手瞄准了你的脑袋！"
 		//Spectre
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2"						"幽鬼之刃"
-		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Description"			"幽鬼掷出一把匕首，留下一条暗影之径，对路径上的敌人造成伤害并减缓其移动速度。被匕首击中的单位移动时也会留下暗影之径。幽鬼在暗影之径上可以无视地形移动。幽鬼之刃对400范围内没有友军的目标施加一次荒芜伤害。"
+		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Description"			"幽鬼掷出一把匕首，留下一条暗影之径，对路径上的敌人造成伤害并减缓其移动速度。被匕首击中的单位移动时也会留下暗影之径。幽鬼在暗影之径上可以无视地形移动。"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Lore"					"墨丘利的匕首将物质位面遮蔽于暗影中，凡人在其中畏缩不前，但幽鬼们相当强势。"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_Note0"				"在离开暗影之径后%dagger_grace_period%秒内碰撞体积依然为0，作为缓冲时间。"
 		"DOTA_Tooltip_ability_spectre_spectral_dagger_2_damage"				"伤害："
@@ -1816,6 +1817,7 @@
 		"DOTA_Tooltip_modifier_bonus_damage_visual_Description"						"提升攻击力。"
 		"DOTA_Tooltip_modifier_damage_absorb_lua"									"折光 - 伤害吸收"
 		"DOTA_Tooltip_modifier_damage_absorb_lua_Description"						"吸收所有伤害。"
+		"DOTA_Tooltip_ability_templar_assassin_psi_blades_Description"				"圣堂刺客锋利的灵能之刃可以穿透敌人，对其正后方的敌方单位造成伤害，并且攻击距离得到提升。"
 
 		// Troll Warlord
 		"DOTA_Tooltip_ability_troll_warlord_berserkers_rage"					"狂战士之怒"
@@ -1841,16 +1843,17 @@
 		"DOTA_Tooltip_modifier_battle_trance_datadriven_Description"					"攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
 
 		//Ursa
-		"DOTA_Tooltip_ability_ursa_earthshock_datadriven"											"震撼大地"
-		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_Description"								"熊战士猛击地面带来强烈的冲击，对附近范围内的所有敌方单位造成伤害并减速%abilityduration%秒。"
-		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_Lore"										"雄性熊怪有力的步伐撼动着大地，展示了他们坚定的战士之心。"
-		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_movement_slow"								"%移动速度减缓："
-		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_shock_radius"								"作用范围："
+		"DOTA_Tooltip_ability_ursa_earthshock_datadriven"						"震撼大地"
+		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_Description"			"熊战士猛击地面带来强烈的冲击，对附近范围内的所有敌方单位造成伤害并减速%abilityduration%秒。"
+		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_Lore"					"雄性熊怪有力的步伐撼动着大地，展示了他们坚定的战士之心。"
+		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_movement_slow"			"%移动速度减缓："
+		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_shock_radius"			"作用范围："
+		"DOTA_Tooltip_ability_ursa_overpower_Description"						"乌尔萨的战斗技巧提升他接下来几次攻击的攻击速度。"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"狂怒"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"乌尔萨进入狂暴，将当前生命值一定百分比的数值转化为额外伤害。持续15秒。"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_damage_health_pct"			"%百分比："
-		"DOTA_Tooltip_modifier_enrage_buff_datadriven"				"激怒"
-		"DOTA_Tooltip_modifier_enrage_buff_datadriven_Description"	"正在造成基于当前生命值的额外伤害"
+		"DOTA_Tooltip_modifier_enrage_buff_datadriven"							"激怒"
+		"DOTA_Tooltip_modifier_enrage_buff_datadriven_Description"				"正在造成基于当前生命值的额外伤害"
 		// Vengeful Spirit	
 		"DOTA_Tooltip_ability_vengefulspirit_nether_swap_scepter_description"			"-CD"
 		"DOTA_Tooltip_ability_vengefulspirit_command_aura_datadriven" 					"复仇光环"
@@ -1860,6 +1863,7 @@
 		"DOTA_Tooltip_ability_vengefulspirit_command_aura_datadriven_aura_radius"		"作用范围："
 		"DOTA_Tooltip_modifier_command_aura_caster_datadriven"							"复仇光环"
 		"DOTA_Tooltip_modifier_command_aura_caster_datadriven_Description"				"攻击力提升%dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%"
+		"DOTA_Tooltip_ability_vengefulspirit_nether_swap_Description"					"与一个目标英雄瞬间交换位置，不论敌我。移形换位会打断目标的持续施法。"
 		// Venomancer
 		"DOTA_Tooltip_modifier_venomancer_venomous_gale_lua"							"瘴气"
 		"DOTA_Tooltip_modifier_venomancer_venomous_gale_lua_Description"				"被减速，每次将受到伤害。"
