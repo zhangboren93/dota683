@@ -967,6 +967,7 @@
 		"DOTA_Tooltip_Ability_pudge_flesh_heap_magic_resistance"				"%魔法抗性："
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist"						"腐肉"
 		"DOTA_Tooltip_modifier_pudge_flesh_magic_resist_Description"			"魔抗6/8/10/12%%"
+		"DOTA_Tooltip_ability_pudge_dismember_Description"						"持续施法 - 帕吉撕咬一个敌方单位，使其失去行动能力并受到持续伤害。对非英雄单位的持续时间更长。"
 		"DOTA_Tooltip_Ability_pudge_dismember_Scepter_Description"				"造成等于100%%帕吉力量的额外伤害，并且可以治疗帕吉造成伤害数值。"
 		// Rattletrap
 		"DOTA_Tooltip_ability_rattletrap_battery_assault_Description"				"向附近敌方单位随机射出高能弹片，造成小额魔法伤害和短暂眩晕。"
@@ -985,6 +986,7 @@
 		"DOTA_Tooltip_Facet_rattletrap_expanded_armature_Description"				"无效。"
 		"DOTA_Tooltip_Facet_rattletrap_hookup_Description"							"无效。"
 		// Sand King
+		"DOTA_Tooltip_ability_sandking_burrowstrike_Description"						"沙王钻入地面挖掘隧道前进，穿出地面时伤害并眩晕上方的敌方单位。"
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven"							"尸爆"
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_Description"				"沙王的攻击对敌方单位注入毒液，死亡时发生剧烈爆炸。"
 		"DOTA_Tooltip_Ability_sandking_caustic_finale_datadriven_caustic_finale_radius"		"伤害范围："
@@ -1025,6 +1027,7 @@
 		"DOTA_Tooltip_modifier_shredder_reactive_armor_datadriven"								"活性护甲"
 		"DOTA_Tooltip_modifier_shredder_reactive_armor_datadriven_Description"					"每次叠加均获得1点额外护甲和1点/秒的生命恢复速率。"
 		"DOTA_Tooltip_ability_shredder_chakram_scepter_description"								""
+		"DOTA_Tooltip_ability_shredder_chakram_2_Description"									"可以发射第二个独立的锯齿飞轮。"
 		// Skeleton King
 		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven"				"吸血光环"
 		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Description"	"附近友方单位通过物理攻击回复一定的生命值。"
