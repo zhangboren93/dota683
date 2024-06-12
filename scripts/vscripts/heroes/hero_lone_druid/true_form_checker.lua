@@ -5,6 +5,7 @@ function handleAbilityExecuted(keys)
     local target = keys.target
     if event_ability:GetName() == "lone_druid_true_form" then
         unit:FindAbilityByName("lone_druid_true_form_druid"):SetLevel(1)
+        ability:ApplyDataDrivenModifier(unit, unit, "modifier_ld_true_form_extra_datadriven", {})
         unit:SwapAbilities("lone_druid_true_form", "lone_druid_true_form_druid", false, true)
         unit:SetThink(function()
             unit:RemoveAbility("lone_druid_spirit_bear_demolish")
@@ -13,6 +14,7 @@ function handleAbilityExecuted(keys)
         end, "remove ld passive", 3)
     elseif event_ability:GetName() == "lone_druid_true_form_druid" then
         unit:SwapAbilities("lone_druid_true_form", "lone_druid_true_form_druid", true, false)
+        unit:RemoveModifierByName("modifier_ld_true_form_extra_datadriven")
         unit:RemoveAbility("lone_druid_true_form_battle_cry")
     end
 end

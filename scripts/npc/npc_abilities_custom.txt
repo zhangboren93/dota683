@@ -9635,27 +9635,6 @@
 		}
 	}
 	//=================================================================================================================
-	// Lone Druid: Spirit Bear Demolish
-	//=================================================================================================================
-	"lone_druid_spirit_bear_demolish"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5420"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"spell_resistance"		"0 0 0 33"
-				"bonus_building_damage"		"10 20 30 40"
-				"true_form_bonus_building_damage"		"15 30 45 60"
-		}
-	}
-	//=================================================================================================================
 	// Lone Druid: Summon Spirit Bear
 	//=================================================================================================================
 	"lone_druid_spirit_bear"
@@ -9669,7 +9648,7 @@
 		"Innate"					"0"
 		"RequiredLevel"				"1"
 		"MaxLevel"					"4"
-		"HasScepterUpgrade"			"1"
+		"HasScepterUpgrade"			"0"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -9742,6 +9721,8 @@
 				"AbilityCooldown"			"2"
 				"transform_bear"			"0"
 				"entangling_claws_cooldown_reduction_pct"	"0"
+				"base_attack_time"			"1.5"
+				"speed_loss"				"45"
 		}
 	}
 	//=================================================================================================================
@@ -9797,6 +9778,17 @@
 					}
 				}
 			}
+			"modifier_ld_true_form_extra_datadriven"
+			{
+				"RemoveOnDeath"	"0"
+				"IsHidden"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"					"-97"
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"			"1.5"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"			"-45"
+				}
+			}
 		}
 	}
 	//=================================================================================================================
@@ -9846,7 +9838,7 @@
 		"ID"							"5420"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-
+		"MaxLevel"						"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -32359,7 +32351,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5418"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		
+		"HasScepterUpgrade"		"1"
+
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"5.0"

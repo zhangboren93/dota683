@@ -31,7 +31,7 @@ function modifier_creep_siege_alter:GetModifierDamageOutgoing_Percentage(event)
 	local target = event.target
 	local ability = self:GetAbility()
 	if event.attacker ~= self:GetParent() or target == nil then return 0 end
-	if target:IsHero() or target:HasAbility("creep_hero_armor") then
+	if target:IsRealHero() or target:HasAbility("creep_hero_armor") then
 		return self.hero_damage
 	elseif target:HasAbility("creep_siege_alter") then
 		return self.building_damage
@@ -46,7 +46,7 @@ end
 function modifier_creep_siege_alter:GetModifierIncomingPhysicalDamage_Percentage(event)
 	local attacker = event.attacker
 	local ability = self:GetAbility()
-	if (attacker:IsHero() or attacker:HasAbility("creep_hero_attack"))
+	if (attacker:IsRealHero() or attacker:HasAbility("creep_hero_attack"))
 		and (inflictor == nil or inflictor ~= 'centaur_return') then
 		return self.incoming_hero_damage
 	elseif attacker:HasAbility('creep_light') or attacker:HasAbility("creep_siege_alter") then
@@ -89,7 +89,7 @@ function modifier_creep_piercing_extra:GetModifierPreAttack_BonusDamage(event)
 		damage_pct = ability:GetSpecialValueFor("basic_armor_damage_penalty")
 	elseif target:HasAbility("creep_strong") then
 		damage_pct = ability:GetSpecialValueFor("strong_armor_damage_penalty")
-		if target:IsHero() then
+		if target:IsRealHero() then
 			damage_pct = 50
 		end
 	end
@@ -127,7 +127,7 @@ function modifier_creep_irresolute_extra:GetModifierPreAttack_BonusDamage(event)
 		damage_pct = ability:GetSpecialValueFor("basic_armor_damage_bonus")
 	elseif target:HasAbility("creep_strong") then
 		damage_pct = ability:GetSpecialValueFor("strong_armor_damage_bonus")
-		if target:IsHero() then
+		if target:IsRealHero() then
 			damage_pct = 150
 		end
 	end
@@ -191,7 +191,7 @@ end
 function modifier_creep_irresolute_alter:GetModifierDamageOutgoing_Percentage(event)
 	local target = event.target
 	if target == nil then return 0 end
-	if target:IsHero() then
+	if target:IsRealHero() then
 		return self.hero_penalty
 	elseif target:HasAbility("creep_basic") then
 		return self.basic_bonus
