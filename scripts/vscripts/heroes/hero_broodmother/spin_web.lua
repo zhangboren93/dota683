@@ -119,3 +119,9 @@ function spin_web_aura( keys )
 		end
 	end
 end
+
+function handlePathingDestroy(event)
+	local unit = event.target
+	local position = unit:GetAbsOrigin()
+	GridNav:DestroyTreesAroundPoint(position, 150, false)
+end

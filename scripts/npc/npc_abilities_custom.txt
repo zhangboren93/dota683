@@ -20785,60 +20785,18 @@
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"radius"				"900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"count"					"2 4 6 8"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"health_regen"			"2 4 6 8"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"bonus_movespeed"		"20 25 30 35"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"invis_movespeed_tooltip"		"40 50 60 70"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"fade_delay"			"2.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"damage_time"			"6.0"
-			}
-			// Extra
-			// Set this value to 1 if you want it to affect every player controlled unit
-			"8"
-			{
-				"var_type"				"FIELD_INTEGER"
 				"all_units"			"0"
-			}
-			"9"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"linger_time"	"0.15"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"aura_interval"	"0.1"
-			}
 		}
 	
 		"OnUpgrade"
@@ -20981,6 +20939,15 @@
 				"States"
 				{
 					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_broodmother/spin_web.lua"
+						"Function"		"handlePathingDestroy"
+					}
 				}
 			}
 	
