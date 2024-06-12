@@ -1793,6 +1793,8 @@
 		"AbilityValues"
 		{
 			"self_movement_speed_pct"	"4 8 12 16"
+			"slow_duration"				"0.5 1 1.5 2"
+			"damage"					"40 70 100 130"
 		}
 		"Modifiers"
 		{
@@ -1831,7 +1833,7 @@
 				"IsDebuff"				"1"
 		    	"EffectName"            "particles/items_fx/diffusal_slow.vpcf"
 		    	"EffectAttachType"      "PATTACH_ABSORIGIN"
-				"Duration"				"%duration"
+				"Duration"				"%slow_duration"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-100"

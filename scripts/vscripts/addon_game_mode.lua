@@ -2216,7 +2216,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			end
 		elseif inflictor:GetName() == "axe_battle_hunger" then
 			-- apply magic damage instead of physical
-			event.damage = inflictor:GetSpecialValueFor("damage_per_second") * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
+			event.damage = inflictor:GetSpecialValueFor("damage_per_second") / 2 * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
 		elseif inflictor:GetName() == "vengefulspirit_wave_of_terror" then
 			event.damage = inflictor:GetSpecialValueFor("damage")
 		elseif inflictor:GetName() == "tiny_avalanche" then
