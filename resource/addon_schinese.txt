@@ -1029,10 +1029,11 @@
 		"DOTA_Tooltip_ability_shredder_chakram_scepter_description"								""
 		"DOTA_Tooltip_ability_shredder_chakram_2_Description"									"可以发射第二个独立的锯齿飞轮。"
 		// Skeleton King
-		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven"				"吸血光环"
-		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Description"	"附近友方单位通过物理攻击回复一定的生命值。"
-		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Note0"			"与其他吸血效果完全叠加。"
-		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_vampiric_aura"	"%吸血："
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven"						"吸血光环"
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Description"			"附近友方单位通过物理攻击回复一定的生命值。"
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_Note0"					"与其他吸血效果完全叠加。"
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_vampiric_aura"			"%吸血："
+		"DOTA_Tooltip_Ability_skeleton_king_vampiric_aura_datadriven_vampiric_aura_radius"	"作用范围："
 		"DOTA_Tooltip_modifier_vampiric_aura_buff"					"吸血光环"
 		"DOTA_Tooltip_modifier_vampiric_aura_buff_Description"		"攻击时吸取生命值"
 		"DOTA_Tooltip_Ability_skeleton_king_mortal_strike_datadriven"				"殊死一搏"
@@ -1268,6 +1269,7 @@
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"				"法力损毁"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"每次攻击损毁目标一定量的魔法值，并额外造成相当于损毁魔法值60%%的伤害。\n<font color=\"#ff0000\">法球效果无法叠加。</font>"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"	"每次攻击损毁魔法："
+		"DOTA_Tooltip_ability_antimage_counterspell_Description"			"被动提升魔法抗性。"
 
 		//Arc Warden
 		"DOTA_Tooltip_ability_arc_warden_flux_lua"							"乱流"
