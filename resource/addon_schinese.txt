@@ -196,7 +196,7 @@
 		"DOTA_Tooltip_Ability_item_hood_of_defiance_datadriven_bonus_health_regen"				"+$hp_regen"
 		"DOTA_Tooltip_Ability_item_hood_of_defiance_datadriven_bonus_magic_resist_percentage"	"%+$spell_resist"
 		"DOTA_Tooltip_Ability_item_blade_mail_Description"								"<h1>主动：反弹伤害</h1>以100%纯粹伤害的形式反弹所有受到的伤害，持续4秒。"
-		"DOTA_Tooltip_Ability_item_crimson_guard_Description"					"<h1>主动：坚盾</h1>使周围所有友方英雄和建筑每次受到物理攻击都有%block_chance_active%%%几率格挡%block_damage_active%点伤害，并提升%bonus_aoe_armor%点护甲。持续%duration%秒。<br>每%tooltip_reapply_time%秒才能被坚盾作用一次。<br><br>作用范围：%bonus_aoe_radius%\n\n<h1>被动：伤害格挡</h1>拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
+		"DOTA_Tooltip_Ability_item_crimson_guard_Description"					"<h1>主动：坚盾</h1>使周围所有友方英雄每次受到物理攻击都有%block_chance_active%%%几率格挡%block_damage_active%点伤害，并提升%bonus_aoe_armor%点护甲。持续%duration%秒。<br>每%tooltip_reapply_time%秒才能被坚盾作用一次。<br><br>作用范围：%bonus_aoe_radius%\n\n<h1>被动：伤害格挡</h1>拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
 		"DOTA_Tooltip_Ability_item_crimson_guard_all_stats_bonus"				"+$all"
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven"						"黑皇杖"
 		"DOTA_Tooltip_Ability_item_black_king_bar_datadriven_Description"			"<h1>主动：天神下凡</h1>获得魔法免疫，持续%duration%秒。"
@@ -391,6 +391,12 @@
 		"DOTA_Tooltip_ability_item_phase_boots_bonus_movement_speed"				""
 		"DOTA_Tooltip_ability_item_arcane_boots_Description"						"<h1>主动：补魔</h1>回复英雄周围友方单位%replenish_amount%点魔法。<br><br>作用范围：%replenish_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_pipe_Description"								"<h1>主动：魔法护盾</h1>为周围友方单位套上能抵挡%barrier_block%点魔法伤害的护盾。持续%barrier_duration%秒。<br><br>作用范围：%barrier_radius%\n\n<h1>被动：洞察光环</h1> 提升友方单位每秒生命恢复速度%aura_health_regen%点。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_Description"						"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低敌人%aura_attack_speed%攻击速度。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_armlet_Description"								"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力和+%unholy_bonus_strength%点力量，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		"DOTA_Tooltip_ability_item_basher_Description"								"<h1>被动：重击</h1>近战英雄的攻击有%bash_chance_melee%%%的概率击晕目标%bash_duration%秒。远程英雄的击晕概率为%bash_chance_ranged%%%。"
+		"DOTA_Tooltip_ability_item_radiance_Description"							"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害。<br><br>作用范围：%aura_radius%"	
+		"DOTA_Tooltip_ability_item_rapier_Description"								"<h1>被动：永恒</h1> <font color='#e03e2e'>死亡后掉落，而且无法被摧毁。</font> <br><br>当拥有者的队友拾取后，仅在返还给拥有者后才会有效。一旦被敌人拾取，圣剑将不再受此限制，信使无法拾取掉落的圣剑。"
+		"DOTA_Tooltip_ability_item_abyssal_blade_Description"						"<h1>主动：强击</h1>击晕一个敌方目标，持续%stun_duration%秒。<br><br>无视技能免疫。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：重击</h1>近战英雄攻击时有%bash_chance_melee%%%的概率击晕目标%bash_duration%秒。远程英雄的击晕概率为%bash_chance_ranged%%%。"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"
