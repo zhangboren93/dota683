@@ -12159,6 +12159,7 @@
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_SkywrathMage.ArcaneBolt.Cast"
 		"HasScepterUpgrade"			"0"
+		"HasShardUpgrade"			"0"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
