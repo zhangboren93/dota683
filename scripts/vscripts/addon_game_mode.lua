@@ -174,6 +174,7 @@ function Activate()
 	LinkLuaModifier( "modifier_slark_pounce_leash_lua", 				"heroes/hero_slark/pounce.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tusk_walrus_punch_visual_lua", 			"heroes/hero_tusk/walrus_punch.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_batrider_sticky_napalm_debuff_lua", 		"heroes/hero_batrider/sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_ice_vortex_slow_lua", 					"heroes/hero_ancient_apparition/modifier_ice_vortex_slow.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -2106,6 +2107,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:ForceKill(false)
 		return false
+	elseif event.name_const == "modifier_ice_vortex" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_ice_vortex_slow_lua", {})
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

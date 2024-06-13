@@ -1924,6 +1924,8 @@
 
 		//Ancient Apparition
 		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_damage"						"每秒伤害："
+		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex_Description"						"创造一个寒冰能量的漩涡，对范围内敌人造成减速，并增加他们受到的魔法伤害。"
+		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex_movement_speed_pct"					"%移动速度减缓："
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven"						"极寒之触"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven_Description"			"一阵极寒之风对友方英雄施加魔法，使他们接下来的数次普通攻击造成额外魔法伤害，但稍微降低攻击速度。无论选择何处施放，远古冰魄总是会获得状态效果。持续30秒。"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven_Note0"				"额外伤害与普通攻击造成的伤害分开计算。"
@@ -1947,6 +1949,7 @@
 		"DOTA_Tooltip_Ability_bane_fiends_grip_scepter_description"				"提高每秒伤害和魔法吸取量，并增加持续时间。如果敌人在祸乱之源施放魔爪期间向其攻击，那么他们会马上被施加当前等级的噩梦。"
 		//Chen
 		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"				"减少冷却时间至30秒。"
+		"DOTA_Tooltip_ability_chen_hand_of_god_Description"						"治疗地图上的所有友军英雄以及陈控制的所有单位。"
 		"DOTA_Tooltip_Ability_chen_penitence_Description"						"迫使一个敌方单位移动变慢，受到的攻击和技能伤害增加。"
 		"DOTA_Tooltip_ability_chen_penitence_incoming_damage_pct"				"%受到伤害加成："
 		"DOTA_Tooltip_ability_chen_penitence_bonus_attack_speed"				""
@@ -1967,7 +1970,11 @@
 		"DOTA_Tooltip_modifier_test_of_faith_teleport_datadriven"				"听命于陈"
 		"DOTA_Tooltip_modifier_test_of_faith_teleport_datadriven_Description"	"正在传送至安全处。"
 		// Crystal Maiden
-		"DOTA_Tooltip_Ability_crystal_maiden_freezing_field_Scepter_Description"	"提高伤害和减速效果。"
+		"DOTA_Tooltip_ability_crystal_maiden_frostbite_Description"							"操控冰霜包围一个敌方单位，禁止移动和攻击，并持续造成伤害。对6级以下的普通单位施放将产生%creep_duration%秒的持续时间。"
+		"DOTA_Tooltip_Ability_crystal_maiden_freezing_field_Scepter_Description"			"提高伤害和减速效果。"
+		"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_Description"					"地图上所有友方单位获得额外魔法恢复。水晶室女自身获得%self_factor%倍加成效果。"
+		"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_proximity_bonus_factor"		""
+		"DOTA_Tooltip_ability_crystal_maiden_brilliance_aura_proximity_mana_regen_tooltip"	""
 		// Dark Seer
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven"								"离子外壳"
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven_Description"					"将目标用一个尖刺之盾包裹起来，对周围的敌人造成伤害。"
@@ -1993,6 +2000,7 @@
 		"DOTA_Tooltip_Ability_dazzle_poison_touch_datadriven_duration_tooltip"	"伤害持续时间："	
 		"DOTA_Tooltip_modifier_poison_touch_debuff_datadriven"					"剧毒之触"
 		"DOTA_Tooltip_modifier_poison_touch_debuff_datadriven_Description"		"受到间断伤害"
+		"DOTA_Tooltip_ability_dazzle_shallow_grave_Description"					"友军身受薄葬的福佑，在其保护下不论受到多大的伤害都不会阵亡。"
 		"DOTA_Tooltip_ability_dazzle_shadow_wave_datadriven"				"暗影波"
 		"DOTA_Tooltip_ability_dazzle_shadow_wave_datadriven_Description"	"放出一道能量弧，可以瞬间跳跃至目标附近的队友，治疗的同时还将对附近的敌人造成伤害。施放暗影波时戴泽必定会享受到治疗效果。"
 		"DOTA_Tooltip_ability_dazzle_shadow_wave_datadriven_Note0"			"优先治疗友方英雄。"
