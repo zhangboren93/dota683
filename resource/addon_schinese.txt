@@ -382,6 +382,16 @@
 		"DOTA_Tooltip_ability_item_manta_cooldown_ranged"								"CD（远程）："
 		"DOTA_Tooltip_ability_item_manta_tooltip_images_take_damage_percent_ranged"		"%幻象承受伤害（远程）："
 
+		"DOTA_Tooltip_ability_item_clarity_Description"								"<h1>使用：回魔</h1>向目标提供%mana_regen%点/秒魔法恢复，持续%buff_duration%秒。<br><br>受到攻击时效果会被驱散。<br><br>对友军施放距离：%abilitycastrange%"
+		"DOTA_Tooltip_ability_item_tango_Description"								"<h1>使用：吞食</h1>吃掉一棵树，获得%health_regen%点/秒生命恢复，持续%buff_duration%秒。<br><br>可以使用%tooltip_charges%次。对友方英雄使用可以分给他一次使用机会。<br><br>吞食树木施法距离：%abilitycastrange%"
+		"DOTA_Tooltip_ability_item_smoke_of_deceit_Description"						"<h1>使用：潜行</h1>施法者和附近%application_radius%范围内的友方玩家控制单位在%duration%秒内获得隐身效果和%bonus_movement_speed%%%移动速度加成。他们在小地图上的图标也会消失。<br><br>发动攻击，或靠近敌方英雄或防御塔%visibility_radius%距离后将打破隐身效果。<br><br>潜行的隐身效果不受真实视域影响。"
+		"DOTA_Tooltip_ability_item_branches_Description"							""
+		"DOTA_Tooltip_ability_item_gem_Description"									"<h1>被动：真实视域</h1>携带者自身和周围友方单位可以看见%radius%范围内的隐形单位和守卫。\n\n<h1>被动：永恒</h1><font color='#e03e2e'>死亡后掉落，而且不能被摧毁。</font>"
+		"DOTA_Tooltip_ability_item_bracer_Description"								""
+		"DOTA_Tooltip_ability_item_phase_boots_bonus_movement_speed"				""
+		"DOTA_Tooltip_ability_item_arcane_boots_Description"						"<h1>主动：补魔</h1>回复英雄周围友方单位%replenish_amount%点魔法。<br><br>作用范围：%replenish_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_pipe_Description"								"<h1>主动：魔法护盾</h1>为周围友方单位套上能抵挡%barrier_block%点魔法伤害的护盾。持续%barrier_duration%秒。<br><br>作用范围：%barrier_radius%\n\n<h1>被动：洞察光环</h1> 提升友方单位每秒生命恢复速度%aura_health_regen%点。<br><br>作用范围：%aura_radius%"
+
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_Description"			"亚巴顿以部分生命为代价，释放带有死亡气息的迷雾缠绕伤害敌方单位或治疗友方单位。"
