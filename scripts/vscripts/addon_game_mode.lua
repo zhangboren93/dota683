@@ -1247,7 +1247,13 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
-			entity:FindAbilityByName(innate_ability):SetLevel(1)
+			if type(innate_ability) == "table" then
+				for i=1,#innate_ability do
+					entity:FindAbilityByName(innate_ability[i]):SetLevel(1)
+				end
+			else
+				entity:FindAbilityByName(innate_ability):SetLevel(1)
+			end
 		end
 		-- debug abilities' name
 		--for i = 0, 34 do

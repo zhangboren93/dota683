@@ -11,7 +11,8 @@ HERO_2_ASP = {
 	npc_dota_hero_huskar = -25,
 	npc_dota_hero_tiny = -18,
 	npc_dota_hero_necrolyte = -43,
-	npc_dota_hero_zuus = -44
+	npc_dota_hero_zuus = -44,
+	npc_dota_hero_monkey_king = -10 
 }
 hero_attack_point_adjust_lua = class({})
 function hero_attack_point_adjust_lua:GetIntrinsicModifierName()
