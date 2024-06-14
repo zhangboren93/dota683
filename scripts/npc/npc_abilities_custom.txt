@@ -19329,7 +19329,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"5361"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
@@ -19339,7 +19339,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -19567,7 +19567,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -19581,16 +19580,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"			"30"
 			"radius"					"1000"
 			"max_attacks"				"3 4 5 6"
 			"projectile_speed"			"800"
 			"bonus_damage"				"0"
 			"fire_rate"  		"0"
-			"scepter_radius"
-			{
-				"value"								"0"
-				"RequiresScepter"					"1"
-			}
+			"sidegunner_fire_rate"		"0"
+			"sidegunner_radius"			"0"
+			"double_target"				"0"
 			"bonus_night_vision"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
