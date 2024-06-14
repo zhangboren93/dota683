@@ -39,7 +39,7 @@
 					<Panel id="TeamsListRoot" />
 					<Button id="ShuffleTeamAssignmentButton" onactivate="OnShufflePlayersPressed()">
 						<Label text="#custom_game_team_select_shuffle" />
-						<Image src="file://{images}/control_icons/shuffle.psd" />
+						<Image src="file://{images}/custom_game/shuffle.png" />
 					</Button>
 				</Panel>
 			</Panel>
@@ -81,7 +81,7 @@
 					</Button>		
 				
 					<Button id="AutoAssignButton" onactivate="OnAutoAssignPressed()">
-						<Image src="file://{images}/control_icons/double_arrow_left.png" />
+						<Image src="file://{images}/custom_game/double_arrow_left.png" />
 						<Label text="#custom_game_team_select_auto_assign" />
 					</Button>
 				</Panel>

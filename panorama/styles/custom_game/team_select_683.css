@@ -3,6 +3,7 @@
 	flow-children: down;
 	font-size: 24px;
 	color: white;
+	margin-right: 300px;
 }
 
 #ModeSelectRadios {
@@ -58,4 +59,30 @@ ToggleButton:selected .TickBox {
 
 ToggleButton Label {
 	margin-left: 30px;
+}
+
+#MapInfoLabel {
+	font-size: 16px;
+}
+
+#ShuffleTeamAssignmentButton Image {
+	width: 24px;
+	height: 24px;
+	wash-color: #888888;
+	vertical-align: center;
+}
+
+#AutoAssignButton Image {
+	width: 24px;
+	height: 24px;
+	wash-color: #888888;
+	vertical-align: center;
+}
+
+#LockAndStartButton Label {
+	font-size: 28px;
+}
+
+#CancelAndUnlockButton Label {
+	font-size: 28px;
 }
