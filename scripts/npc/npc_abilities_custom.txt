@@ -6363,7 +6363,7 @@
 		{
 			"latch_radius"		"125 125 125"
 			"stun_radius"		"175 175 175"
-			"stun_radius_ally"	"100"
+			"stun_radius_ally"	"175"
 			"cooldown_refund_ally"		"0"
 			"ally_shield_duration"		"0"
 			"duration"			"1 1.5 2.0"
@@ -6372,7 +6372,7 @@
 			"AbilityCooldown"
 			{
 				"value"					"75 55 40"
-				"special_bonus_scepter"	"-63 -43 -28"	
+				"special_bonus_scepter"	"=12"	
 			}
 		}
 	}
@@ -28590,52 +28590,6 @@
 			"creep_damage_multiplier"					"1"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
-	// Rattletrap: Power Cogs
-	//=================================================================================================================
-	"rattletrap_power_cogs"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5238"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilitySound"					"Hero_Rattletrap.Power_Cogs"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
-		"AnimationPlaybackRate"			"0.66"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 60 70 80"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"duration"				"5.0 6.0 7.0 8.0"
-			"damage"				"80 120 160 200"
-			"mana_burn"				"80 120 160 200"
-			"magic_barrier"			"0"
-			"attacks_to_destroy"	"2 2 2 3"
-			"push_length"			"300"
-			"push_duration"			"1"
-			"cogs_radius"			"215"
-			"trigger_distance"		"185"
-			"extra_pull_buffer"		"-10"
-			"bonus_armor"			"0"
-			"leash"					"0"
-			"AbilityCooldown"		"15"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	//=================================================================================================================
 	// Rattletrap: Rocket Flare
