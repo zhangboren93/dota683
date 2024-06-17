@@ -34,6 +34,8 @@ function OnGameModeSelectedFromServer(data) {
 			$("#rd").checked = true
 		} else if (data.gm == "js") {
 			$("#js").checked = true
+		} else if (data.gm == "sp") {
+			$("#sp").checked = true
 		}
 	}
 }

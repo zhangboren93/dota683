@@ -518,6 +518,21 @@ local function RDPlayerRandomPick(team, idx)
 	end
 end
 
+local function add3heoresToPlayerOfTeam(team) 
+	local radiantPlayerCount = PlayerResource:GetPlayerCountForTeam(team)
+	if radiantPlayerCount > 0 then
+		for i=1,radiantPlayerCount do
+			local playerId = PlayerResource:GetNthPlayerIDOnTeam(team, i)
+			for i=1,3 do
+				local heroid = DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[1])
+				print("Opening hero " .. heroid .. " to player " .. playerId)
+				GameRules:AddHeroToPlayerAvailability(playerId, DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[i]))
+				table.remove(RandomDraftHeroPool, 1)
+			end
+		end
+	end
+end
+
 -- Evaluate the state of the game
 function CAddonTemplateGameMode:OnThink()
 	local ret,error = pcall(function()
@@ -558,6 +573,19 @@ function CAddonTemplateGameMode:OnThink()
 				pickLadderHeroes(self)
 				CustomGameEventManager:Send_ServerToAllClients("hero_select_player_ladder_scores", playerId2LadderScore)
 				self.hero_selection_state = "BAN"
+			elseif self.game_mode == "SP" then
+				local heroes = all_heroes
+				-- shuffles
+				for i=1,30 do
+					local j=RandomInt(i,#heroes)
+					local tmp = heroes[i];
+					heroes[i] = heroes[j];
+					heroes[j] = tmp;
+					table.insert(RandomDraftHeroPool, heroes[i])
+				end
+				add3heoresToPlayerOfTeam(DOTA_TEAM_GOODGUYS)
+				add3heoresToPlayerOfTeam(DOTA_TEAM_BADGUYS)
+				self.hero_selection_state = "SP_PICK"
 			elseif self.game_mode == "CM" then
 				for i=1,#all_heroes do
 					GameRules:AddHeroToBlacklist(all_heroes[i])
@@ -837,10 +865,7 @@ function CAddonTemplateGameMode:OnThink()
 	end
 
 	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) 
-		and self.game_mode ~= 'RD' 
-		and self.game_mode ~= 'LD'
-		and self.game_mode ~= 'CM' 
-		and self.game_mode ~= 'DM' then
+		and (self.game_mode == nil or self.game_mode == "AP") then
 		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
@@ -2754,7 +2779,8 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 		local hasGameModeChanged = (data.gm == "ap" and GameRules.AddonTemplate.game_mode ~= "AP") or
 								   (data.gm == "dm" and GameRules.AddonTemplate.game_mode ~= "DM") or
 								   (data.gm == "rd" and GameRules.AddonTemplate.game_mode ~= "RD") or
-								   (data.gm == "js" and GameRules.AddonTemplate.game_mode ~= "JS") 
+								   (data.gm == "js" and GameRules.AddonTemplate.game_mode ~= "JS") or
+								   (data.gm == "sp" and GameRules.AddonTemplate.game_mode ~= "SP") 
 		if data.gm == 'ap' then
 			GameRules.AddonTemplate.game_mode = "AP"
 			GameRules:SetHeroSelectionTime(80)
@@ -2774,6 +2800,11 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 			GameRules:SetHeroSelectionTime(80)
 			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(false)
 			GameRules:SendCustomMessage("开启JS模式", -1, -1)
+		elseif data.gm == 'sp' then
+			GameRules.AddonTemplate.game_mode = "SP"
+			GameRules:SetHeroSelectionTime(80)
+			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(true)
+			GameRules:SendCustomMessage("开启SP模式", -1, -1)
 		else
 			print("Invalid game mode selected " .. data.gm)
 			return
