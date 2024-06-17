@@ -396,6 +396,10 @@ function CAddonTemplateGameMode:InitGameMode()
 					PlayerResource:GetPlayer(players[i][1]):MakeRandomHeroSelection()
 					removeHeroFromDMPool(PlayerResource:GetSelectedHeroName(players[i][1]))
 				end
+			elseif self.game_mode == "LD" then
+				for i=1,#all_heroes do
+					GameRules:AddHeroToBlacklist(all_heroes[i])
+				end
 			end
 		end
 	end, nil)
@@ -832,8 +836,11 @@ function CAddonTemplateGameMode:OnThink()
 		return nil
 	end
 
-	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) and 
-		self.game_mode ~= 'RD' and self.game_mode ~= 'LD' and self.game_mode ~= 'CM' and self.game_mode ~= 'DM' then
+	if (GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME or GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION) 
+		and self.game_mode ~= 'RD' 
+		and self.game_mode ~= 'LD'
+		and self.game_mode ~= 'CM' 
+		and self.game_mode ~= 'DM' then
 		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
@@ -2746,7 +2753,8 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 		GameRules.AddonTemplate.botEnabled = false
 		local hasGameModeChanged = (data.gm == "ap" and GameRules.AddonTemplate.game_mode ~= "AP") or
 								   (data.gm == "dm" and GameRules.AddonTemplate.game_mode ~= "DM") or
-								   (data.gm == "rd" and GameRules.AddonTemplate.game_mode ~= "RD")
+								   (data.gm == "rd" and GameRules.AddonTemplate.game_mode ~= "RD") or
+								   (data.gm == "js" and GameRules.AddonTemplate.game_mode ~= "JS") 
 		if data.gm == 'ap' then
 			GameRules.AddonTemplate.game_mode = "AP"
 			GameRules:SetHeroSelectionTime(80)
@@ -2761,6 +2769,11 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 			GameRules:SetHeroSelectionTime(120)
 			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(true)
 			GameRules:SendCustomMessage("开启RD模式", -1, -1)
+		elseif data.gm == 'js' then
+			GameRules.AddonTemplate.game_mode = "LD"
+			GameRules:SetHeroSelectionTime(80)
+			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(false)
+			GameRules:SendCustomMessage("开启JS模式", -1, -1)
 		else
 			print("Invalid game mode selected " .. data.gm)
 			return

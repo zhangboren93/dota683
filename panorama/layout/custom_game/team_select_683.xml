@@ -21,6 +21,7 @@
 					<Panel id="ModeSelectRadios">
 						<RadioButton group="mode" id="ap" text="AP" onactivate="handleModeSelect('ap')"/>
 						<RadioButton group="mode" id="rd" text="RD" onactivate="handleModeSelect('rd')"/>
+						<RadioButton group="mode" id="js" text="JS" onactivate="handleModeSelect('js')"/>
 						<RadioButton group="mode" id="dm" text="DM" onactivate="handleModeSelect('dm')"/>
 					</Panel>
 				</Panel>
