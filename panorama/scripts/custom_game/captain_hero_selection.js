@@ -191,7 +191,6 @@ hero_names = [
 	"kunkka"				,
 	"legion_commander"	,
 	"meepo"				,
-	"monkey_king"			,
 	"phantom_lancer"		,
 	"spectre"				,
 	"undying"				,

@@ -95,7 +95,6 @@
                     <DOTAHeroImage class="hero-image" id="hi_bloodseeker"         heroimagestyle="portrait" heroname="npc_dota_hero_bloodseeker"      onactivate="handleHeroClicked('bloodseeker')"/>
                     <DOTAHeroImage class="hero-image" id="hi_broodmother"         heroimagestyle="portrait" heroname="npc_dota_hero_broodmother"      onactivate="handleHeroClicked('broodmother')"/>
                     <DOTAHeroImage class="hero-image" id="hi_meepo"               heroimagestyle="portrait" heroname="npc_dota_hero_meepo"            onactivate="handleHeroClicked('meepo')"/>
-                    <DOTAHeroImage class="hero-image" id="hi_monkey_king"         heroimagestyle="portrait" heroname="npc_dota_hero_monkey_king"      onactivate="handleHeroClicked('monkey_king')"/>
                     <DOTAHeroImage class="hero-image" id="hi_phantom_lancer"      heroimagestyle="portrait" heroname="npc_dota_hero_phantom_lancer"   onactivate="handleHeroClicked('phantom_lancer')"/>
                     <DOTAHeroImage class="hero-image" id="hi_spectre"             heroimagestyle="portrait" heroname="npc_dota_hero_spectre"          onactivate="handleHeroClicked('spectre')"/>
                     <DOTAHeroImage class="hero-image" id="hi_ursa"                heroimagestyle="portrait" heroname="npc_dota_hero_ursa"             onactivate="handleHeroClicked('ursa')"/>

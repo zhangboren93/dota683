@@ -431,12 +431,6 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 				self.botEnabled = true
 				GameRules:SendCustomMessage("Bot模式开启", -1, -1)
 				GameRules:SetCustomGameDifficulty(2) -- 2 for hard as default
-			elseif text == '-cm' then
-				GameRules:SetHeroSelectionTime(40 * 10 + 110 * 2 + 60)
-				GameRules:SetSameHeroSelectionEnabled(false)
-				self.botEnabled = false
-				self.game_mode = "CM"
-				GameRules:SendCustomMessage("开启队长模式", -1, -1)
 			end
 		end
 	end
@@ -587,13 +581,10 @@ function CAddonTemplateGameMode:OnThink()
 				add3heoresToPlayerOfTeam(DOTA_TEAM_BADGUYS)
 				self.hero_selection_state = "SP_PICK"
 			elseif self.game_mode == "CM" then
-				for i=1,#all_heroes do
-					GameRules:AddHeroToBlacklist(all_heroes[i])
-				end
 				self.hero_selection_state = "CD_RAD_BAN_1"
  	   			CustomGameEventManager:Send_ServerToAllClients("captain_draft_start", {})
 			else
-				CustomGameEventManager:Send_ServerToAllClients("ladder_pick_start", {})
+				print("[WARN] unhandled hero selection state: "..self.hero_selection_state)
 			end
 		end
 		if self.hero_selection_state == "BAN" and GameRules:GetDOTATime(true, true) > -60 then
@@ -788,34 +779,6 @@ function CAddonTemplateGameMode:OnThink()
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		local time = GameRules:GetDOTATime(false, false) 
-
-		--if (not self.botEnabled) 
-		--	and time > 0 
-		--	and (math.floor(time) % 30) < 3 
-		--	and (self.creepSpawnTime == nil or (time - self.creepSpawnTime) > 10) then
-		--	if self.creepSpawnPrepareStart == nil then
-		--		--TODO first spawn prepare creeps as well
-		--		spawnCreepsLua()
-		--		self.creepSpawnTime = time
-		--		self.creepSpawnPrepareStart = true
-		--	else
-		--		-- TODO flush creepSpawnPrepareQueue
-        --        SpawnCachedCreeps()
-		--	end
-		--	-- prepare next creep spawn queue
-		--	self.creepSpawnPrepareQueue = prepareCreepSpawnQueue()
-		--end
-
-		--if self.creepSpawnPrepareStart 
-		--	and math.ceil(#self.creepSpawnPrepareQueue / 6) + 1 >= (30 - math.floor(time) % 30) / 2 then
-		--	-- spawn 6 creeps at a time and hide them
-		--	processCreepSpawnQueue(self.creepSpawnPrepareQueue, 6, false)
-		--end
-
-		---- cache neutral creep spawn 
-		--if math.floor(time % 4) > 1.9 then
-		--	SpawnNeutralCreepCampCache()
-		--end
 
 		-- give each player passive gold
 		if time > 0 and IsServer() then
@@ -2515,13 +2478,16 @@ captain_dire_extra_time = 110;
 function CAddonTemplateGameMode:handleCaptainClientPick(event)
 	DeepPrintTable(event)
 	if captain_pick_phase == event.pp then
-		-- TODO validate player team
 		if captain_pick_phase == 0 
 			or captain_pick_phase == 2 
 			or captain_pick_phase == 8 
 			or captain_pick_phase == 10
 			or captain_pick_phase == 17
 			then
+			if PlayerResource:GetPlayer(event.pid):GetTeam() ~= DOTA_TEAM_GOODGUYS then
+				print("pick by wrong team")
+				return
+			end
 			table.insert(captain_radiant_ban, event.sh)
 			DeepPrintTable(captain_radiant_ban)
 		elseif captain_pick_phase == 1 
@@ -2530,6 +2496,10 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 			or captain_pick_phase == 11
 			or captain_pick_phase == 16
 			then
+			if PlayerResource:GetPlayer(event.pid):GetTeam() ~= DOTA_TEAM_BADGUYS then
+				print("pick by wrong team")
+				return
+			end
 			table.insert(captain_dire_ban, event.sh)
 			DeepPrintTable(captain_dire_ban)
 		elseif captain_pick_phase == 4 
@@ -2538,6 +2508,10 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 			or captain_pick_phase == 14
 			or captain_pick_phase == 18
 			then
+			if PlayerResource:GetPlayer(event.pid):GetTeam() ~= DOTA_TEAM_GOODGUYS then
+				print("pick by wrong team")
+				return
+			end
 			table.insert(captain_radiant_pick, event.sh)
 			DeepPrintTable(captain_radiant_pick)
 		elseif captain_pick_phase == 5
@@ -2546,16 +2520,30 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 			or captain_pick_phase == 15
 			or captain_pick_phase == 19
 			then
+			if PlayerResource:GetPlayer(event.pid):GetTeam() ~= DOTA_TEAM_BADGUYS then
+				print("pick by wrong team")
+				return
+			end
 			table.insert(captain_dire_pick, event.sh)
 			DeepPrintTable(captain_dire_pick)
 		end
 		if (captain_pick_phase == 19) then
 			GameRules:GetGameModeEntity():SetThink(function()
-				for i=1,#captain_radiant_pick do
-					GameRules:RemoveHeroFromBlacklist("npc_dota_hero_"..captain_radiant_pick[i])
+				print("Setting radiant pick")
+				for i=1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) do
+					local playerId = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
+					for j=1,#captain_radiant_pick do
+						local hero_name = "npc_dota_hero_"..captain_radiant_pick[j]
+						print("Adding hero " .. hero_name .. " to player " .. playerId)
+						GameRules:AddHeroToPlayerAvailability(playerId, DOTAGameManager:GetHeroIDByName(hero_name))
+					end
 				end
-				for i=1,#captain_dire_pick do
-					GameRules:RemoveHeroFromBlacklist("npc_dota_hero_"..captain_dire_pick[i])
+				print("Setting dire pick")
+				for i=1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS) do
+					local playerId = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
+					for j=1,#captain_dire_pick do
+						GameRules:AddHeroToPlayerAvailability(playerId, DOTAGameManager:GetHeroIDByName("npc_dota_hero_"..captain_dire_pick[j]))
+					end
 				end
 				CustomGameEventManager:Send_ServerToAllClients("captain_player_pick_start", {})
 			end, "captain pick ends", 5)
@@ -2780,7 +2768,8 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 								   (data.gm == "dm" and GameRules.AddonTemplate.game_mode ~= "DM") or
 								   (data.gm == "rd" and GameRules.AddonTemplate.game_mode ~= "RD") or
 								   (data.gm == "js" and GameRules.AddonTemplate.game_mode ~= "JS") or
-								   (data.gm == "sp" and GameRules.AddonTemplate.game_mode ~= "SP") 
+								   (data.gm == "sp" and GameRules.AddonTemplate.game_mode ~= "SP") or
+								   (data.gm == "cm" and GameRules.AddonTemplate.game_mode ~= "CM")
 		if data.gm == 'ap' then
 			GameRules.AddonTemplate.game_mode = "AP"
 			GameRules:SetHeroSelectionTime(80)
@@ -2805,6 +2794,11 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 			GameRules:SetHeroSelectionTime(80)
 			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(true)
 			GameRules:SendCustomMessage("开启SP模式", -1, -1)
+		elseif data.gm == 'cm' then
+			GameRules.AddonTemplate.game_mode = "CM"
+			GameRules:SetHeroSelectionTime(40 * 10 + 110 * 2 + 60)
+			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(true)
+			GameRules:SendCustomMessage("开启队长模式", -1, -1)
 		else
 			print("Invalid game mode selected " .. data.gm)
 			return
