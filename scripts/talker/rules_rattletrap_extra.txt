@@ -1,0 +1,15 @@
+criterion "Israttletrap" "classname" "npc_dota_hero_rattletrap" weight 5 required	
+criterion "IsRattletrapPowerCogs" "abilityname" "rattletrap_power_cogs_datadriven" weight 5 required
+
+Response rattletrap_CastExecuteIsRattletrapPowerCogsChance_50%
+{
+    scene "scenes/rattletrap/rattletrap_ratt_ability_cogs_01.vcd" nodelay noscene 
+    scene "scenes/rattletrap/rattletrap_ratt_ability_cogs_02.vcd" nodelay noscene 
+    scene "scenes/rattletrap/rattletrap_ratt_ability_cogs_07.vcd" nodelay noscene 
+}
+
+Rule rattletrap_CastExecuteIsRattletrapPowerCogsChance_50%_Rule
+{
+    criteria CastExecute Israttletrap IsRattletrapPowerCogs Chance_50%
+    response rattletrap_CastExecuteIsRattletrapPowerCogsChance_50%
+}
