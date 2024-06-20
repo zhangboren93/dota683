@@ -24,6 +24,6 @@ hero_innate_abilities["npc_dota_hero_monkey_king"] = {"monkey_king_pl_sound_effe
 hero_innate_abilities["npc_dota_hero_rubick"] = "rubick_spell_steal_limit_one_datadriven"
 hero_innate_abilities["npc_dota_hero_obsidian_destroyer"] = "obsidian_destroyer_imprison_int_steal_datadriven"
 hero_innate_abilities["npc_dota_hero_wisp"] = "wisp_tether_charge_checker_datadriven"
---hero_innate_abilities["npc_dota_hero_primal_beast"] = "primal_beast_attack_animation_datadriven"
 hero_innate_abilities["npc_dota_hero_troll_warlord"] = "troll_warload_berserkers_rage_bash_datadriven"
 hero_innate_abilities["npc_dota_hero_tiny"] = "tiny_grow_checker_datadriven"
+hero_innate_abilities["npc_dota_hero_legion_commander"] = "legion_commander_press_the_attack_as_datadriven"

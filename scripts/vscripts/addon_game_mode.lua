@@ -175,6 +175,7 @@ function Activate()
 	LinkLuaModifier( "modifier_tusk_walrus_punch_visual_lua", 			"heroes/hero_tusk/walrus_punch.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_batrider_sticky_napalm_debuff_lua", 		"heroes/hero_batrider/sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_ice_vortex_slow_lua", 					"heroes/hero_ancient_apparition/modifier_ice_vortex_slow.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_legion_commander_duel_ignore_ethreal_lua", "heroes/hero_legion_commander/modifier_legion_commander_duel_ignore_ethreal.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1214,8 +1215,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("undying_flesh_golem_aura_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_chen" then
 			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_legion_commander" then
-			entity:FindAbilityByName("legion_commander_press_the_attack_as_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_silencer" then
 			local ability = entity:FindAbilityByName("silencer_global_silence_aghs_datadriven")
 			ability:SetLevel(1)
@@ -2170,12 +2169,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	if root_modifiers[event.name_const] then
 		if parent:IsChanneling() then
 			parent:InterruptChannel()
-		end
-	end
-	if ethereal_modifiers[event.name_const] or disarm_modifiers[event.name_const] then
-		if parent:HasModifier("modifier_legion_commander_duel") then
-			print("Cannot apply ethereal or disable modifier on dualed targets")
-			return false
 		end
 	end
 	return true
