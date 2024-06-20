@@ -2103,6 +2103,39 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local duration = ability:GetSpecialValueFor("frostbite_duration")
 		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_ice_blast_damage_datadriven", { duration = duration })
+	elseif event.name_const == "modifier_rattletrap_cog" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+
+		local spacing = ability:GetSpecialValueFor("spacing")
+		local cog_vector = 
+		{
+			Vector(-spacing, spacing, 0), Vector(0, spacing, 0), Vector(spacing, spacing, 0),
+			Vector(-spacing, 0, 0), Vector(spacing, 0, 0),
+			Vector(-spacing, -spacing, 0), Vector(0, -spacing, 0), Vector(spacing, -spacing, 0)
+		}
+		if caster.power_cogs_cnt == nil then
+			caster.power_cogs_cnt = 1
+		else
+			caster.power_cogs_cnt = caster.power_cogs_cnt % 8 + 1
+		end
+		local new_position = caster:GetAbsOrigin() + cog_vector[caster.power_cogs_cnt]
+		print(new_position)
+
+		parent:SetThink(function()
+			parent:SetAbsOrigin(new_position)
+			parent:AddNewModifier(caster, ability, 'modifier_rattletrap_cog_buff_lua',
+			{
+				duration 	= event.duration,
+				x 			= (parent:GetAbsOrigin() - caster:GetAbsOrigin()).x,
+				y 			= (parent:GetAbsOrigin() - caster:GetAbsOrigin()).y,
+				center_x	= caster:GetAbsOrigin().x,
+				center_y	= caster:GetAbsOrigin().y,
+				center_z	= caster:GetAbsOrigin().z
+			})
+			modifier = parent:FindModifierByName("modifier_rattletrap_cog")
+			modifier:StartIntervalThink(-1)
+		end, "init power cog", 0)
 	elseif event.name_const == "modifier_rattletrap_cog_pinball" then
 		-- kill the cog if attacked by clockwerk itself
 		local caster = EntIndexToHScript(event.entindex_caster_const)
