@@ -9,6 +9,8 @@ criterion "CastExecute" "Concept" "TLK_DOTA_CAST_EXECUTE" required
 criterion "Learn" "Concept" "TLK_DOTA_LEARN" required
 criterion "Purchase" "Concept" "TLK_DOTA_PURCHASE" required
 
+criterion "IsEnemyInFOW" "infow" "1" required
+
 criterion "Chance_1%"	"randomnum" "99" required
 criterion "Chance_2%"	"randomnum" ">=97,<=98" required
 criterion "Chance_3%"	"randomnum" ">=94,<=96" required
@@ -36,6 +38,7 @@ criterion "IsAlwaysTrue"	"randomnum" ">=0" required
 #include "talker/rules_chen_extra.txt"
 #include "talker/rules_dazzle_extra.txt"
 #include "talker/response_rules_hoodwink_extra.txt"
+#include "talker/rules_kunkka_extra.txt"
 #include "talker/rules_puck_extra.txt"
 #include "talker/rules_rattletrap_extra.txt"
 #include "talker/rules_troll_warlord_extra.txt"
