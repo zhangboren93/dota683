@@ -20,7 +20,7 @@ end
 function modifier_tidebringer_cleave:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_PROCESS_CLEAVE,
-		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE_POST_CRIT,
 		MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
 	}
 	return funcs
@@ -97,6 +97,6 @@ function modifier_tidebringer_cleave:OnDestroy()
 	end
 end
 
-function modifier_tidebringer_cleave:GetModifierPreAttack_BonusDamage()
+function modifier_tidebringer_cleave:GetModifierPreAttack_BonusDamagePostCrit()
 	return self:GetAbility():GetSpecialValueFor("damage_bonus")
 end
