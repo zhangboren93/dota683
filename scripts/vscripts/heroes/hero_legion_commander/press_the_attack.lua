@@ -9,14 +9,9 @@ function handleAbilityExecuted(keys)
         bonus:SetLevel(event_ability:GetLevel())
         bonus:ApplyDataDrivenModifier(unit, target, "modifier_legion_press_active_datadriven", {})
     elseif event_ability:GetName() == "legion_commander_duel" then
-        for i,v in pairs(ethereal_modifiers) do
-            unit:RemoveModifierByName(i)
-            target:RemoveModifierByName(i)
-        end
-        for i,v in pairs(disarm_modifiers) do
-            unit:RemoveModifierByName(i)
-            target:RemoveModifierByName(i)
-        end
+		local duration = event_ability:GetSpecialValueFor("duration")
+		unit:AddNewModifier(unit, event_ability, "modifier_legion_commander_duel_ignore_ethreal_lua", { duration = duration })
+		target:AddNewModifier(unit, event_ability, "modifier_legion_commander_duel_ignore_ethreal_lua", { duration = duration})
     end
 end
 
