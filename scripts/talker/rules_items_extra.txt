@@ -1,0 +1,45 @@
+criterion "IsHealingSalve"			"itemname"		"item_flask_datadriven"					required
+criterion "IsDust"					"itemname"		"item_dust_datadriven"					required
+criterion "IsCourier"				"itemname"		"item_courier_2"						required
+criterion "IsCourierFlying"			"itemname"		"item_recipe_flying_courier_datadriven"	required
+
+criterion "IsQuellingBlade"			"itemname"		"item_quelling_blade_lua"				required
+criterion "IsJavelin"				"itemname"		"item_javelin_datadriven"				required
+
+criterion "IsNullTalisman"			"itemname"		"item_null_talisman_datadriven"			required
+criterion "IsPerseverance"			"itemname"		"item_pers_datadriven"					required
+criterion "IsHandOfMidas"			"itemname"		"item_hand_of_midas_datadriven"			required
+criterion "IsBootsOfTravel"			"itemname"		"item_travel_boots_datadriven"			required
+
+criterion "IsUrnOfShadows"			"itemname"		"item_urn_of_shadows_datadriven"		required
+criterion "IsTranquilBoots"			"itemname"		"item_tranquil_boots_datadriven"		required
+criterion "IsRingofAquila"			"itemname"		"item_ring_of_aquila_lua"				required
+criterion "IsDrums"					"itemname"		"item_ancient_janggo"					required
+criterion "IsMekansm"				"itemname"		"item_mekansm_2"						required
+criterion "IsVladmirs"				"itemname"		"item_vladmir_2"						required
+
+criterion "IsVeilofDiscord"			"itemname"		"item_veil_of_discord_datadriven"		required
+criterion "IsDagon"					"itemname"		"item_dagon_datadriven"					required
+criterion "IsRodofAtos"				"itemname"		"item_rod_of_atos_datadriven"			required
+
+criterion "IsHoodOfDefiance"		"itemname"		"item_hood_of_defiance_datadriven"		required
+criterion "IsVanguard"				"itemname"		"item_vanguard_lua"						required
+criterion "IsBlackKingBar"			"itemname"		"item_black_king_bar_datadriven"		required
+criterion "IsBloodStone"			"itemname"		"item_bloodstone_datadriven"			required
+criterion "IsHeart"					"itemname"		"item_heart_datadriven"					required
+
+criterion "IsBattleFury"			"itemname"		"item_bfury_datadriven"					required
+criterion "IsMonkeyKingBar"			"itemname"		"item_monkey_king_bar_datadriven"		required
+criterion "IsButterfly"				"itemname"		"item_butterfly_datadriven"				required
+
+criterion "IsMaskOfMadness"			"itemname"		"item_mask_of_madness_datadriven"		required
+criterion "IsHelmOftheDominator"	"itemname"		"item_helm_of_the_dominator_datadriven"	required
+criterion "IsSange"					"itemname"		"item_sange_datadriven"					required
+criterion "IsMaelstrom"				"itemname"		"item_maelstrom_datadriven"				required
+criterion "IsDiffusal"				"itemname"		"item_diffusal_blade_datadriven"		required
+criterion "IsDesolator"				"itemname"		"item_desolator_datadriven"				required
+criterion "IsHeavens"				"itemname"		"item_heavens_halberd_datadriven"		required
+criterion "IsSangeAndYasha"			"itemname"		"item_sange_and_yasha_datadriven"		required
+criterion "IsSkadi"					"itemname"		"item_skadi_datadriven"					required
+criterion "IsMjollnir"				"itemname"		"item_mjollnir_datadriven"				required
+criterion "IsSatanic"				"itemname"		"item_satanic_datadriven"				required

@@ -34,7 +34,7 @@ end
 function analyse_modifier(unit, name)
 	local modifier = unit:FindModifierByName(name)
 	if modifier ~= nil then
-		for i = 0,291 do
+		for i = 0,331 do
 			if modifier:HasFunction(i) then
 				print(i)
 			end

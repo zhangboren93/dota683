@@ -1,0 +1,70 @@
+criterion "Iskunkka" "classname" "npc_dota_hero_kunkka" weight 5 required
+criterion "IsTorrentKill" "abilityname" "kunkka_torrent_datadriven" weight 5 required
+
+Response kunkka_KillIsTorrentKillChance_30%
+{
+    scene "scenes/kunkka/kunkka_kunk_ability_torrent_02.vcd" nodelay noscene 
+    scene "scenes/kunkka/kunkka_kunk_ability_tidebrng_02.vcd" nodelay noscene 
+    scene "scenes/kunkka/kunkka_kunk_ability_tidebrng_03.vcd" nodelay noscene 
+}
+
+Rule kunkka_KillIsTorrentKillChance_30%_Rule
+{
+    criteria Kill Iskunkka IsTorrentKill Chance_30%
+    response kunkka_KillIsTorrentKillChance_30%
+}
+
+Response kunkka_KillIsTorrentKillIsEnemyInFOWChance_30%
+{
+    scene "scenes/kunkka/kunkka_kunk_ability_torrent_04.vcd" nodelay noscene 
+}
+
+Rule kunkka_KillIsTorrentKillIsEnemyInFOWChance_30%_Rule
+{
+    criteria Kill Iskunkka IsTorrentKill IsEnemyInFOW Chance_30%
+    response kunkka_KillIsTorrentKillIsEnemyInFOWChance_30%
+}
+
+Response kunkka_PurchaseIsBlackKingBar
+{
+    scene "scenes/kunkka/kunkka_kunk_item_04.vcd" nodelay noscene speakonce
+}
+
+Rule kunkka_PurchaseIsBlackKingBar_Rule
+{
+    criteria Purchase Iskunkka IsBlackKingBar
+    response kunkka_PurchaseIsBlackKingBar
+}
+
+Response kunkka_PurchaseIsVanguard
+{
+    scene "scenes/kunkka/kunkka_kunk_item_05.vcd" nodelay noscene speakonce
+}
+
+Rule kunkka_PurchaseIsVanguard_Rule
+{
+    criteria Purchase Iskunkka IsVanguard
+    response kunkka_PurchaseIsVanguard
+}
+
+Response kunkka_PurchaseIsBattlefury
+{
+    scene "scenes/kunkka/kunkka_kunk_item_06.vcd" nodelay noscene speakonce
+}
+
+Rule kunkka_PurchaseIsBattlefury_Rule
+{
+    criteria Purchase Iskunkka IsBattlefury
+    response kunkka_PurchaseIsBattlefury
+}
+
+Response kunkka_PurchaseIsHeart
+{
+    scene "scenes/kunkka/kunkka_kunk_item_08.vcd" nodelay noscene speakonce
+}
+
+Rule kunkka_PurchaseIsHeart_Rule
+{
+    criteria Purchase Iskunkka IsHeart
+    response kunkka_PurchaseIsHeart
+}
