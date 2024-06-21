@@ -1,0 +1,93 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/captain_hero_selection.css"/>
+		<include src="file://{resources}/styles/custom_game/captain_draft_hero_selection.css"/>
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/captain_draft_hero_selection.js"/>
+	</scripts>
+	<Panel class="captain_draft_panel captain_draft_panel_hide">
+		<Panel id="pick-phase-panel">
+			<Label id="pick-phase-radiant" text="#team_radiant"/>
+			<Label id="pick-phase-dire" class="label-hide" text="#team_dire"/>
+			<Label id="pick-phase-ban" text="#phase_ban"/>
+			<Label id="pick-phase-pick" class="label-hide" text="#phase_pick"/>
+			<Label text=": "/>
+			<Label id="pick-phase-time" text="150"/>
+			<Label text="#time_second"/>
+		</Panel>
+		<Panel style="flow-children: right;">
+		<Panel style="flow-children: down;">
+			<Panel class="ladder_attr_heroes">
+				<DOTAHeroImage id="hero-image-str-1"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(1)"/>
+				<DOTAHeroImage id="hero-image-str-2"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(2)"/>
+				<DOTAHeroImage id="hero-image-str-3"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(3)"/>
+				<DOTAHeroImage id="hero-image-str-4"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(4)"/>
+				<DOTAHeroImage id="hero-image-str-5"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(5)"/>
+				<DOTAHeroImage id="hero-image-str-6"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(6)"/>
+				<DOTAHeroImage id="hero-image-str-7"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(7)"/>
+				<DOTAHeroImage id="hero-image-str-8"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(8)"/>
+				<DOTAHeroImage id="hero-image-str-9"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(9)"/>
+			</Panel>
+			<Panel class="ladder_attr_heroes">
+				<DOTAHeroImage id="hero-image-str-10"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(10)"/>
+				<DOTAHeroImage id="hero-image-str-11"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(11)"/>
+				<DOTAHeroImage id="hero-image-str-12"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(12)"/>
+				<DOTAHeroImage id="hero-image-str-13"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(13)"/>
+				<DOTAHeroImage id="hero-image-str-14"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(14)"/>
+				<DOTAHeroImage id="hero-image-str-15"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(15)"/>
+				<DOTAHeroImage id="hero-image-str-16"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(16)"/>
+				<DOTAHeroImage id="hero-image-str-17"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(17)"/>
+				<DOTAHeroImage id="hero-image-str-18"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(18)"/>
+			</Panel>
+			<Panel class="ladder_attr_heroes">
+				<DOTAHeroImage id="hero-image-str-19"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(19)"/>
+				<DOTAHeroImage id="hero-image-str-20"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(20)"/>
+				<DOTAHeroImage id="hero-image-str-21"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(21)"/>
+				<DOTAHeroImage id="hero-image-str-22"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(22)"/>
+				<DOTAHeroImage id="hero-image-str-23"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(23)"/>
+				<DOTAHeroImage id="hero-image-str-24"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(24)"/>
+				<DOTAHeroImage id="hero-image-str-25"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(25)"/>
+				<DOTAHeroImage id="hero-image-str-26"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(26)"/>
+				<DOTAHeroImage id="hero-image-str-27"  class="hero-image" heroimagestyle="portrait" onactivate="handleHeroClicked(27)"/>
+			</Panel>
+			<Button id="select_hero_button" class="DefaultValveButtonClass button_hidden" onactivate="handleBanButtonClicked()">
+				<Label text="#button_select_hero"/>
+			</Button>
+			<Button id="ban_hero_button" class="DefaultValveButtonClass" onactivate="handleBanButtonClicked()">
+				<Label text="#button_ban_hero"/>
+			</Button>
+		</Panel>
+		<Panel class="pick_sequence_labels" style="margin-left: 20px;">
+			<Label text="x"/>
+			<Label text="x"/>
+			<Label text="x"/>
+			<Label text="o"/>
+			<Label text="o"/>
+			<Label text="o"/>
+			<Label text="o"/>
+			<Label text="o"/>
+		</Panel>
+		<Panel class="pick_sequence_labels">
+			<DOTAHeroImage id="radiant-ban-1"   class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="radiant-ban-2"   class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="radiant-ban-3"   class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="radiant-pick-1"  class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="radiant-pick-2"  class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="radiant-pick-3"  class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="radiant-pick-4"  class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="radiant-pick-5"  class="hero-image" heroimagestyle="landscape"/>
+		</Panel>
+		<Panel class="pick_sequence_labels">
+			<DOTAHeroImage id="dire-ban-1"   class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="dire-ban-2"   class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="dire-ban-3"   class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="dire-pick-1"  class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="dire-pick-2"  class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="dire-pick-3"  class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="dire-pick-4"  class="hero-image" heroimagestyle="landscape"/>
+			<DOTAHeroImage id="dire-pick-5"  class="hero-image" heroimagestyle="landscape"/>
+		</Panel>
+		</Panel>
+	</Panel>
+</root>

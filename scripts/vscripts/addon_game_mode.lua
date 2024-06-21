@@ -11,6 +11,7 @@ require("ladder_game_mode")
 require("end_game")
 require("death_match")
 require("heroes/hero_respawn_time")
+require("game_mode/captain_draft")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
@@ -603,6 +604,9 @@ function CAddonTemplateGameMode:OnThink()
 			elseif self.game_mode == "CM" then
 				self.hero_selection_state = "CD_RAD_BAN_1"
  	   			CustomGameEventManager:Send_ServerToAllClients("captain_draft_start", {})
+			elseif self.game_mode == "CD" then
+				self.hero_selection_state = "CDD_RAD_BAN_1"
+				initCaptainDraft()
 			else
 				print("[WARN] unhandled hero selection state: "..self.hero_selection_state)
 			end
@@ -705,6 +709,11 @@ function CAddonTemplateGameMode:OnThink()
 				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 5)
 				self.hero_selection_state = "RD_PICK_ENDS"
 			end
+		end
+
+		if self.hero_selection_state == "CDD_RAD_BAN_1" then
+			--Check if time has run out for team
+			countDownRDTeamTimer(2)
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and (self.botEnabled or GetMapName() == "vsbot") and self.botInitialized == nil then
 		if GetMapName() == "vsbot" then
@@ -2573,6 +2582,10 @@ captain_radiant_extra_time = 110;
 captain_dire_extra_time = 110;
 function CAddonTemplateGameMode:handleCaptainClientPick(event)
 	DeepPrintTable(event)
+	if GameRules.AddonTemplate.game_mode == "CD" then
+		handleCaptainDraftPickEvent(event)
+		return
+	end
 	if captain_pick_phase == event.pp then
 		if captain_pick_phase == 0 
 			or captain_pick_phase == 2 
@@ -2876,7 +2889,8 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 								   (data.gm == "rd" and GameRules.AddonTemplate.game_mode ~= "RD") or
 								   (data.gm == "js" and GameRules.AddonTemplate.game_mode ~= "JS") or
 								   (data.gm == "sp" and GameRules.AddonTemplate.game_mode ~= "SP") or
-								   (data.gm == "cm" and GameRules.AddonTemplate.game_mode ~= "CM")
+								   (data.gm == "cm" and GameRules.AddonTemplate.game_mode ~= "CM") or
+								   (data.gm == "cd" and GameRules.AddonTemplate.game_mode ~= "CD") 
 		if data.gm == 'ap' then
 			GameRules.AddonTemplate.game_mode = "AP"
 			GameRules:SetHeroSelectionTime(80)
@@ -2905,7 +2919,12 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 			GameRules.AddonTemplate.game_mode = "CM"
 			GameRules:SetHeroSelectionTime(40 * 10 + 110 * 2 + 60)
 			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(true)
-			GameRules:SendCustomMessage("开启队长模式", -1, -1)
+			GameRules:SendCustomMessage("开启CM模式", -1, -1)
+		elseif data.gm == 'cd' then
+			GameRules.AddonTemplate.game_mode = "CD"
+			GameRules:SetHeroSelectionTime(360)
+			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(true)
+			GameRules:SendCustomMessage("开启CD模式", -1, -1)
 		else
 			print("Invalid game mode selected " .. data.gm)
 			return

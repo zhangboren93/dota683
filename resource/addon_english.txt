@@ -2628,6 +2628,13 @@
 		"global_settings"					"Global Settings:"
 		"fwd_disable_cooldown_toggle"		"No cooldown"
 		"fwd_icon_text"						"P"
+		"team_radiant"						"Radiant"
+		"team_dire"							"Dire"
+		"phase_ban"							"Bans"
+		"phase_pick"						"Picks"
+		"time_second"						"s"
+		"button_ban_hero"					"Ban"
+		"button_select_hero"				"Pick"
 
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction"								"Null"
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"This facet is of NO effect."

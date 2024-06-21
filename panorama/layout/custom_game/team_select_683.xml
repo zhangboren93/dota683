@@ -25,6 +25,7 @@
 						<RadioButton group="mode" id="dm" text="DM" onactivate="handleModeSelect('dm')"/>
 						<RadioButton group="mode" id="sp" text="SP" onactivate="handleModeSelect('sp')"/>
 						<RadioButton group="mode" id="cm" text="CM" onactivate="handleModeSelect('cm')"/>
+						<RadioButton group="mode" id="cd" text="CD" onactivate="handleModeSelect('cd')"/>
 					</Panel>
 				</Panel>
 				<Panel id="ModelSelectToggleOptions" style="flow-children: down;">

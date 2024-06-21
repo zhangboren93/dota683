@@ -1,0 +1,74 @@
+.captain_draft_panel {
+	background-color: black;
+	horizontal-align: center;
+	margin-top: 150px;
+	flow-children: down;
+	padding: 20px;
+}
+
+#pick-phase-panel {
+	flow-children: right;
+	horizontal-align: center;
+}
+#pick-phase-panel Label {
+	margin-left:10px;
+}
+
+#pick-phase-radiant {
+	color: green;
+}
+
+#pick-phase-dire {
+	color: red;
+}
+
+Label {
+	color: white;
+	font-size: 24px;
+}
+
+.label-hide {
+	visibility: collapse;
+}
+
+.ladder_attr_heroes {
+	flow-children: right;
+	margin-top: 5px;
+	width: 1100px;
+}
+
+.ladder_attr_heroes DOTAHeroImage {
+	width: 100px;
+	height: 140px;
+	margin-left: 10px;
+}
+
+.button_hidden {
+	visibility: collapse;
+}
+
+Button {
+	margin-top: 20px;
+}
+
+.pick_sequence_labels {
+	flow-children: down;
+	margin-left:10px;
+}
+.pick_sequence_labels Label {
+	margin-top: 18px;
+	margin-bottom: 18px;
+}
+.pick_sequence_labels DOTAHeroImage {
+	margin-top: 5px;
+	width: 90px;
+	height: 55px;
+}
+
+.hero-selected {
+	border: 5px solid gold;
+}
+
+.captain_draft_panel_hide {
+	position: -100% 0 0;
+}

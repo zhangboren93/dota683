@@ -38,6 +38,8 @@ function OnGameModeSelectedFromServer(data) {
 			$("#sp").checked = true
 		} else if (data.gm == "cm") {
 			$("#cm").checked = true
+		} else if (data.gm == "cd") {
+			$("#cd").checked = true
 		}
 	}
 }

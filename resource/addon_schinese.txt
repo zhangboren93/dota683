@@ -2724,6 +2724,13 @@
 		"global_settings"					"全局设定"
 		"fwd_disable_cooldown_toggle"		"无CD"
 		"fwd_icon_text"						"测"	
+		"team_radiant"						"近卫"
+		"team_dire"							"天灾"
+		"phase_ban"							"禁用"
+		"phase_pick"						"选择"
+		"time_second"						"秒"
+		"button_ban_hero"					"禁用"
+		"button_select_hero"				"选择"
 
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction"								"空"
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"这颗命石没有效果。"
