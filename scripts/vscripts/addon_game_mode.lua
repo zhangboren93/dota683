@@ -408,6 +408,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	ListenToGameEvent("dota_item_physical_destroyed", function(event) HandleItemDestroyed(event.itemname, event.HeroEntityIndex)	end, nil)
 	ListenToGameEvent("dota_ability_channel_finished", Dynamic_Wrap(CAddonTemplateGameMode, 'HandleChannelFinish'), self)
 	ListenToGameEvent("dota_item_purchased", Dynamic_Wrap(CAddonTemplateGameMode, "HandleItemPurchased"), self)
+	ListenToGameEvent("dota_inventory_item_added", Dynamic_Wrap(CAddonTemplateGameMode, "HandleInventoryItemAdded"), self)
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
@@ -2709,6 +2710,17 @@ function CAddonTemplateGameMode:HandleItemPurchased(event)
 			item:EndCooldown()
 		end
 	end
+end
+
+function CAddonTemplateGameMode:HandleInventoryItemAdded(event)
+	local time = GameRules:GetDOTATime(true, true)
+	print("HandleInventoryItemAdded " .. event.itemname .. " " .. event.inventory_player_id .. " " .. event.is_courier .. " " .. time)
+	if event.itemname == "item_tpscroll" or time < 0 then return end
+	local hero = PlayerResource:GetPlayer(event.inventory_player_id):GetAssignedHero()
+	hero:QueueTeamConceptNoSpectators(1, {
+		custom_behaviour = "purchase",
+		itemname = event.itemname
+	}, nil, hero, nil)
 end
 
 function getPlayerScore(playerIds)

@@ -32,7 +32,7 @@ Response kunkka_PurchaseIsBlackKingBar
 
 Rule kunkka_PurchaseIsBlackKingBar_Rule
 {
-    criteria Purchase Iskunkka IsBlackKingBar
+    criteria Custom CustomPurchase Iskunkka IsBlackKingBar
     response kunkka_PurchaseIsBlackKingBar
 }
 
@@ -43,7 +43,7 @@ Response kunkka_PurchaseIsVanguard
 
 Rule kunkka_PurchaseIsVanguard_Rule
 {
-    criteria Purchase Iskunkka IsVanguard
+    criteria Custom CustomPurchase Iskunkka IsVanguard
     response kunkka_PurchaseIsVanguard
 }
 
@@ -54,7 +54,7 @@ Response kunkka_PurchaseIsBattlefury
 
 Rule kunkka_PurchaseIsBattlefury_Rule
 {
-    criteria Purchase Iskunkka IsBattlefury
+    criteria Custom CustomPurchase Iskunkka IsBattlefury
     response kunkka_PurchaseIsBattlefury
 }
 
@@ -65,6 +65,6 @@ Response kunkka_PurchaseIsHeart
 
 Rule kunkka_PurchaseIsHeart_Rule
 {
-    criteria Purchase Iskunkka IsHeart
+    criteria Custom CustomPurchase Iskunkka IsHeart
     response kunkka_PurchaseIsHeart
 }

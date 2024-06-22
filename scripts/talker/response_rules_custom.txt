@@ -7,7 +7,8 @@ criterion "Followup_Generic" "Concept" "TLK_DOTA_FOLLOWUP_GENERIC" required
 
 criterion "CastExecute" "Concept" "TLK_DOTA_CAST_EXECUTE" required
 criterion "Learn" "Concept" "TLK_DOTA_LEARN" required
-criterion "Purchase" "Concept" "TLK_DOTA_PURCHASE" required
+
+criterion "CustomPurchase" "custom_behaviour" "purchase" required
 
 criterion "IsEnemyInFOW" "infow" "1" required
 
