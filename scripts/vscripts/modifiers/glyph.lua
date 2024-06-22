@@ -43,16 +43,14 @@ function enableGlyph(event)
 
     local towerNames = {}
     if team == DOTA_TEAM_GOODGUYS then
-        GameRules:GetAnnouncer(team):QueueConcept(0.0, 
-        {
-            announce_event = "glyph_used_good"
-        }, nil, GameRules:GetAnnouncer(team), nil)
+        GameRules:GetAnnouncer(team):SpeakConcept({
+			announce_event = "glyph_used_good"
+		})
         towerNames = goodTeamTowerNames
     else
-        GameRules:GetAnnouncer(team):QueueConcept(0.0, 
-        {
+        GameRules:GetAnnouncer(team):SpeakConcept({
             announce_event = "glyph_used_bad"
-        }, nil, GameRules:GetAnnouncer(team), nil)
+        })
         towerNames = badTeamTowerNames
     end
     for i = 1,#towerNames do

@@ -1426,15 +1426,13 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		local team = attacker:GetTeam()
 		if team == DOTA_TEAM_GOODGUYS or team == DOTA_TEAM_BADGUYS then
 			if team == DOTA_TEAM_GOODGUYS then
-				GameRules:GetAnnouncer(team):QueueConcept(0.0, 
-				{
+				GameRules:GetAnnouncer(team):SpeakConcept({
 					announce_event = "roshan_killed_good"
-				}, nil, GameRules:GetAnnouncer(team), nil)
+				})
 			else
-				GameRules:GetAnnouncer(team):QueueConcept(0.0, 
-				{
+				GameRules:GetAnnouncer(team):SpeakConcept({
 					announce_event = "roshan_killed_bad"
-				}, nil, GameRules:GetAnnouncer(team), nil)
+				})
 			end
 			local n = PlayerResource:GetPlayerCountForTeam(team)
 			for i=1,n do
