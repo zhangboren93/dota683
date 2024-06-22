@@ -5440,7 +5440,6 @@
 		{
 			"ScriptFile"	"heroes/hero_pugna/life_drain.lua"
 			"Function" 		"LifeDrainRemoveModifier"
-			"Target"		"TARGET"
 		}
 	}
 
@@ -5454,7 +5453,7 @@
 				"RunScript"
 				{
 					"ScriptFile"	"heroes/hero_pugna/life_drain.lua"
-					"Function"		"LifeDrainParticle"
+					"Function"		"LifeDrainParticleAndMemTarget"
 				}
 			}
 
