@@ -14,6 +14,8 @@
 
     	// Casting
     	//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastGestureSlot"		"DEFAULT"
     	"AbilityCastRange"				"1400"
     	"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
     
@@ -124,7 +126,9 @@
     	// Casting
     	//-------------------------------------------------------------------------------------------------------------
     	"AbilityCastRange"				"1400"
+        "AbilityCastAnimation"			"ACT_INVALID"
     	"AbilityCastPoint"				"0.01"
+        "AOERadius"                     "%radius"
     
     	// Time		
     	//-------------------------------------------------------------------------------------------------------------
