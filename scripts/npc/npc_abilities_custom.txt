@@ -2803,14 +2803,14 @@
 		"AbilityValues"
 		{
 			"tooltip_delay"				"3.1"
-			"ghostship_distance"		"2000"
+			"ghostship_distance"		"1000"
 			"ghostship_width"			"425 425 425"
 			"movespeed_bonus"			"10"
 			"buff_duration"				"10"
 			"stun_duration"				"1.4 1.4 1.4"
 			"ghostship_speed"			"650"
 			"ghostship_absorb"			"50"
-			"AbilityCooldown"				
+			"AbilityCooldown"			
 			{
 				"value"					"60 50 40"
 				"special_bonus_unique_kunkka_ghostship_cooldown"	"-15"
@@ -29581,7 +29581,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Ability.XMarksTheSpot.Target"
@@ -29590,7 +29590,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"350 550 750 1000"
 		"AbilityCastPoint"				"0.4"
-		"AnimationPlaybackRate"			"0.5"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
