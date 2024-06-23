@@ -1,3 +1,5 @@
+-- Deprecated
+
 function handleAttackStart(event)
 	local target = event.target
 	local attacker = event.attacker
