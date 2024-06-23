@@ -7367,6 +7367,7 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
+	// Deprecated
 	"chen_penitence_incoming_dmg_checker"
 	{
 		"BaseClass"			"ability_datadriven"
@@ -7454,6 +7455,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
 		"AbilityTextureName"			"chen_test_of_faith_teleport"
+		"DependentOnAbility"			"chen_test_of_faith"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------

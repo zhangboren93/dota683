@@ -1214,8 +1214,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("lone_druid_true_form_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_undying" then
 			entity:FindAbilityByName("undying_flesh_golem_aura_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_chen" then
-			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
+--		elseif entity:GetName() == "npc_dota_hero_chen" then
+--			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_silencer" then
 			local ability = entity:FindAbilityByName("silencer_global_silence_aghs_datadriven")
 			ability:SetLevel(1)
