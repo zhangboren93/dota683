@@ -1155,6 +1155,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:RemoveAbility("ability_pluck_famango")	-- 摘莲花
 		entity:RemoveAbility("ability_lamp_use")		-- 占领观察者
 		entity:RemoveAbility("ability_capture")			-- 占领前哨
+		entity:RemoveAbility("abyssal_underlord_portal_warp")	-- 使用孽主的“恶魔之扉”传送门
 
 		-- thinkers
 		entity:SetThink(function()
