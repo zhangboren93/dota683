@@ -52,6 +52,21 @@ function chen_holy_persuasion_lua:OnSpellStart()
 		print("chen_persuaded_units " .. chen_persuaded_units[i]:GetName())
 	end
 
+	if string.find(target:GetUnitName(), "guys_") then
+		local lane_creep_name = target:GetUnitName()
+			
+		local new_lane_creep = CreateUnitByName(target:GetUnitName(), target:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+		-- Copy the relevant stats over to the creep
+		new_lane_creep:SetBaseMaxHealth(target:GetMaxHealth())
+		new_lane_creep:SetHealth(target:GetHealth())
+		new_lane_creep:SetBaseDamageMin(target:GetBaseDamageMin())
+		new_lane_creep:SetBaseDamageMax(target:GetBaseDamageMax())
+		new_lane_creep:SetMinimumGoldBounty(target:GetGoldBounty())
+		new_lane_creep:SetMaximumGoldBounty(target:GetGoldBounty())			
+		target:AddNoDraw()
+		target:ForceKill(false)
+		target = new_lane_creep
+	end
 	target:Purge(true, false, false, false, false)
 	target:AddNewModifier(caster, self, "modifier_dominated", {})
 	target:SetTeam(caster:GetTeam())
