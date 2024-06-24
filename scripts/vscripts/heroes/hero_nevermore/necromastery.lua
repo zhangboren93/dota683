@@ -12,7 +12,7 @@ function NecromasteryDeath( event )
 
 	local current_stack = caster:GetModifierStackCount( modifier, ability )
 	if current_stack then
-		target:SetModifierStackCount( modifierName, ability, math.ceil(current_stack * necromastery_soul_release) )
+		caster:SetModifierStackCount( modifier, ability, math.ceil(current_stack * necromastery_soul_release) )
 	end
 end
 
