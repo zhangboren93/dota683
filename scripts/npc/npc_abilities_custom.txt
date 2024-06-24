@@ -2784,7 +2784,8 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_GHOST_SHIP"
 		"AbilityCastGestureSlot"		"DEFAULT"
 		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.4"
+		"AnimationPlaybackRate"			"0.75"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -2802,8 +2803,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"tooltip_delay"				"3.1"
-			"ghostship_distance"		"1000"
+			"tooltip_delay"				"3.0"
+			"ghostship_distance"		"2000"
 			"ghostship_width"			"425 425 425"
 			"movespeed_bonus"			"10"
 			"buff_duration"				"10"
