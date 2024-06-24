@@ -2,6 +2,7 @@
 	Author: kritth
 	Date: 09.01.2015
 	Reset cooldown after attack is landed
+	This function have been deprecated.
 ]]
 function tidebringer_set_cooldown( keys )
 	-- Variables

@@ -84,6 +84,8 @@ function TestOfFaithTeleport( keys )
 	target:AddNewModifier(caster, nil, "modifier_phased", {Duration = 0.03})
 end
 
+-- Deprecated
+
 function handleIntervalThink(event)
 	local caster = event.caster
 	local test_of_faith = caster:FindAbilityByName("chen_test_of_faith")

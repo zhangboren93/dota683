@@ -4,7 +4,7 @@
 	Creates the Life Drain Particle rope. 
 	It is indexed on the caster handle to have access to it later, because the Color CP changes if the drain is restoring mana.
 ]]
-function LifeDrainParticle( event)
+function LifeDrainParticleAndMemTarget( event)
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
@@ -12,7 +12,7 @@ function LifeDrainParticle( event)
 	local particleName = "particles/units/heroes/hero_pugna/pugna_life_drain.vpcf"
 	caster.LifeDrainParticle = ParticleManager:CreateParticle(particleName, PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(caster.LifeDrainParticle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-
+	caster.lifedrain_target = target
 end
 
 --[[
@@ -41,8 +41,8 @@ function LifeDrainHealthTransfer( event )
 
 	-- If its an illusion then kill it
 	if target:IsIllusion() then
-		target:ForceKill(true)
 		ability:OnChannelFinish(false)
+		target:ForceKill(true)
 		caster:Stop()
 		return
 	else
@@ -52,7 +52,7 @@ function LifeDrainHealthTransfer( event )
 
 		-- Distance variables
 		local distance = (target_location - caster_location):Length2D()
-		local break_distance = ability:GetCastRange() + 200
+		local break_distance = ability:GetCastRange() + 50
 		local direction = (target_location - caster_location):Normalized()
 
 		-- If the leash is broken then stop the channel
@@ -114,6 +114,10 @@ function LifeDrainParticleEnd( event )
 end
 
 function LifeDrainRemoveModifier( event )
-	local target = event.target
-	target:RemoveModifierByName("modifier_life_drain")
+	--print("Try remove modifier")
+	local target = event.caster.lifedrain_target
+	if target ~= nil then
+		target:RemoveModifierByName("modifier_life_drain")
+		event.caster.lifedrain_target = nil
+	end
 end

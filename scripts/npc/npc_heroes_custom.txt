@@ -3589,7 +3589,7 @@
 		"Ability2"		"chen_test_of_faith"
 		"Ability3"		"chen_test_of_faith_teleport_datadriven"
 		"Ability4"		"chen_holy_persuasion_lua"
-		"Ability5"		"chen_penitence_incoming_dmg_checker"
+		"Ability5"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
