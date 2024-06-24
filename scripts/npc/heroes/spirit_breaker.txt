@@ -15,7 +15,7 @@
         
         // Casting
         //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastPoint"				"0.47 0.47 0.47 0.47"
+        "AbilityCastPoint"				"0.47"
         "AbilityCastRange"				"0"
     
         // Time		
@@ -36,9 +36,9 @@
         {
             "movement_speed"		"600 650 700 750"
             "stun_duration"			"1.2 1.6 2.0 2.4"
-            "bash_radius"			"300 300 300 300"
-            "vision_radius"			"400 400 400 400"
-            "vision_duration"		"0.94 0.94 0.94 0.94"
+            "bash_radius"			"300"
+            "vision_radius"			"400"
+            "vision_duration"		"0.94"
         }
 
 		"precache"
