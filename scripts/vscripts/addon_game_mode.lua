@@ -176,6 +176,7 @@ function Activate()
 	LinkLuaModifier( "modifier_batrider_sticky_napalm_debuff_lua", 		"heroes/hero_batrider/sticky_napalm.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_ice_vortex_slow_lua", 					"heroes/hero_ancient_apparition/modifier_ice_vortex_slow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_legion_commander_duel_ignore_ethreal_lua", "heroes/hero_legion_commander/modifier_legion_commander_duel_ignore_ethreal.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_blur_enemy_lua", 						"heroes/hero_phantom_assassin/modifier_blur_enemy.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)

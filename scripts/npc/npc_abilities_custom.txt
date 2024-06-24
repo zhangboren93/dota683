@@ -17625,18 +17625,6 @@
 					}
 				}
 			}
-	
-			"modifier_blur_enemy_datadriven"
-			{
-				"EffectName"	"particles/units/heroes/hero_phantom_assassin/phantom_assassin_blur.vpcf"
-				"EffectAttachType"	"follow_origin"
-				
-	
-				"States"
-				{
-					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 		}
 	}
 	//=================================================================================================================
