@@ -29794,40 +29794,34 @@
 	//=================================================================================================================
 	"shredder_chakram"
 	{
-		"AbilityCastPoint"				"0.15"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
 		"AbilityManaCost"				"100 150 200"
 		"AbilityCastPoint"				"0.3"
-		//"AnimationPlaybackRate"			"0.5"
 		"HasScepterUpgrade"				"1"
 		"AbilityValues"
 		{
-				"speed"					"900.0"
-				"radius"				"200"
-				"pass_damage"			"100 140 180"
-				"damage_per_second"		"50 75 100"
-				"slow"
-				{
-					"value"				"5"
-					"LinkedSpecialBonus"	"special_bonus_unique_timbersaw_4"
-				}
-				"damage_interval"		"0.5"
-				"break_distance"		"2000.0"
-				"mana_per_second"		"20 25 30"
-				"pass_slow_duration"	"0.5"
-				"slow_health_percentage"	"5"	
-				"castpoint_scepter"		
-				{
-					"value"			"0.15"
-					"RequiresScepter"	"1"
-				}
-				"second_chakram"
-				{
-					"value"			"0"
-					"special_bonus_scepter"	"+1"
-				}
+			"speed"						"900.0"
+			"radius"					"200"
+			"pass_damage"				"100 140 180"
+			"damage_per_second"			"50 75 100"
+			"slow"						"5"
+			"damage_interval"			"0.5"
+			"break_distance"			"2000.0"
+			"mana_per_second"			"20 25 30"
+			"pass_slow_duration"		"0.5"
+			"slow_health_percentage"	"5"	
+			"castpoint_scepter"		
+			{
+				"value"					"0.3"
+				"RequiresScepter"		"1"
+			}
+			"second_chakram"
+			{
+				"value"					"0"
+				"special_bonus_scepter"	"+1"
+			}
 		}
 	}
 
