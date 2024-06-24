@@ -3,18 +3,6 @@ function handleAbilityStart(event)
 	local caster = event.caster
 	local ability = event.ability
 	ProcsMagicStick(event)
-	-- Apply slow first
-	local units = FindUnitsInRadius(caster:GetTeam(),
-        caster:GetAbsOrigin(), nil,
-        700,
-        DOTA_UNIT_TARGET_TEAM_ENEMY, 
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
-        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-		0, false)
-    for i=1,#units do
-        units[i]:AddNewModifier(caster, ability, "modifier_requiem_slow_lua", { duration = 5})
-    end
-
 	local necromastery = caster:FindModifierByName("modifier_necromastery")
 	if necromastery == nil then return end
 	local stacks = necromastery:GetStackCount()
@@ -42,6 +30,7 @@ function handleDeath(event)
 end
 
 function releaseNumberOfSouls(souls, ability, caster)
+	print("releaseNumberOfSouls " .. souls)
 	if souls <= 0 then return end
 	local anglePerSoul = math.pi / souls * 2
 	local requiem_radius = ability:GetSpecialValueFor("requiem_radius")
@@ -75,4 +64,19 @@ function releaseNumberOfSouls(souls, ability, caster)
 		ability:ApplyDataDrivenModifier(dummy, dummy, "modifier_requiem_head_datadriven", {})
 		dummy:AddNewModifier(caster, ability, "modifier_kill", { duration = requiem_radius / requiem_line_speed })
 	end
+end
+
+function handleProjectileHitUnit(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	local damage = ability:GetAbilityDamage()
+	local duration = ability:GetSpecialValueFor("requiem_slow_duration")
+	ApplyDamage({
+		victim = target,
+		attacker = caster,
+		damage = damage,
+		damage_type = DAMAGE_TYPE_MAGICAL,
+		ability = ability })
+    target:AddNewModifier(caster, ability, "modifier_requiem_slow_lua", { duration = duration })
 end
