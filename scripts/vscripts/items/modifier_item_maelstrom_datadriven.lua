@@ -2,6 +2,10 @@ require("scripts/vscripts/items/item_maelstrom")
 
 modifier_item_maelstrom_datadriven = class({})
 
+function modifier_item_maelstrom_datadriven:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
 function modifier_item_maelstrom_datadriven:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,

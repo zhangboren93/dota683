@@ -68,6 +68,7 @@
 			<Button onactivate="OnItemSelectItemPressed('item_energy_booster')"><DOTAItemImage itemname="item_energy_booster"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_vitality_booster')"><DOTAItemImage itemname="item_vitality_booster"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_point_booster')"><DOTAItemImage itemname="item_point_booster"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_hyperstone')"><DOTAItemImage itemname="item_hyperstone"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_demon_edge')"><DOTAItemImage itemname="item_demon_edge"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_mystic_staff')"><DOTAItemImage itemname="item_mystic_staff"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_reaver')"><DOTAItemImage itemname="item_reaver"/></Button>
