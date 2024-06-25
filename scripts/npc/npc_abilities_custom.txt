@@ -8424,13 +8424,6 @@
 						"Function"		"ChillingTouchDecrement"
 						"modifier_stack"	"modifier_chilling_touch_stack_datadriven"
 					}
-	
-					"Damage"
-					{
-						"Target"		"TARGET"
-						"Type"			"DAMAGE_TYPE_MAGICAL"
-						"Damage"		"%bonus_damage"
-					}
 				}			
 			}
 	

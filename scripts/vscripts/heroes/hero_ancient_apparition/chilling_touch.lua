@@ -21,6 +21,7 @@ function ChillingTouchDecrement( keys )
 	local target = keys.attacker
 	local ability = keys.ability
 	local modifier_stack = keys.modifier_stack
+	local damage = ability:GetSpecialValueFor("bonus_damage")
 
 	-- Get the current stack count
 	local current_stack = target:GetModifierStackCount(modifier_stack, ability)
@@ -31,4 +32,11 @@ function ChillingTouchDecrement( keys )
 	else
 		target:SetModifierStackCount(modifier_stack, ability, current_stack - 1)
 	end
+	
+	ApplyDamage({
+		victim = keys.target,
+		attacker = target,
+		damage = damage,
+		damage_type = DAMAGE_TYPE_MAGICAL,
+		ability = ability })
 end
