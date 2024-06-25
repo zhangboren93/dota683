@@ -30,7 +30,7 @@ ITEM_RECIPE_RULES = {
 	{"item_dagon_3_datadriven", "item_recipe_dagon_datadriven", "item_dagon_2_datadriven"},
 	{"item_dagon_4_datadriven", "item_recipe_dagon_datadriven", "item_dagon_3_datadriven"},
 	{"item_dagon_5_datadriven", "item_recipe_dagon_datadriven", "item_dagon_4_datadriven"},
-	{"item_refresher", "item_recipe_refresher", "item_pers_datadriven", "item_oblivion_staff_datadriven"},
+	{"item_refresher_datadriven", "item_recipe_refresher_datadriven", "item_pers_datadriven", "item_oblivion_staff_datadriven"},
 	{"item_assault", "item_recipe_assault", "item_platemail", "item_hyperstone", "item_chainmail"},
 	{"item_heart_datadriven", "item_recipe_heart_datadriven", "item_vitality_booster", "item_reaver"},
 	{"item_black_king_bar_datadriven", "item_recipe_black_king_bar_datadriven", "item_ogre_axe", "item_mithril_hammer"},

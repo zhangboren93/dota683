@@ -118,7 +118,7 @@
 			<Button onactivate="OnItemSelectItemPressed('item_rod_of_atos_datadriven')"><DOTAItemImage itemname="item_rod_of_atos_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_orchid')"><DOTAItemImage itemname="item_orchid"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_ultimate_scepter')"><DOTAItemImage itemname="item_ultimate_scepter"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_refresher')"><DOTAItemImage itemname="item_refresher"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_refresher_datadriven')"><DOTAItemImage itemname="item_refresher_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_sheepstick')"><DOTAItemImage itemname="item_sheepstick"/></Button>
 		</Panel>
 		<Panel class="fwd-item-select-attribute-row">

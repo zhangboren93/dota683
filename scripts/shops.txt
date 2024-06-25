@@ -107,7 +107,7 @@
 		"item"		"item_rod_of_atos_datadriven"
 		"item"		"item_orchid"
 		"item"		"item_ultimate_scepter"
-		"item"		"item_refresher"
+		"item"		"item_refresher_datadriven"
 		"item"		"item_sheepstick"
 	}
 

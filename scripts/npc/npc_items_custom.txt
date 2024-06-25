@@ -4570,40 +4570,32 @@
 			"bonus_intellect"		"15 21 24"
 		}
 	}
-	//=================================================================================================================
-	// Recipe: Refresher
-	//=================================================================================================================
-	"item_recipe_refresher"
+	"item_recipe_refresher_datadriven"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"109"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"ID"							"1309"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"FightRecapLevel"				"2"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1800"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_refresher"
+		"ItemResult"					"item_refresher_datadriven"
+		"AbilityTextureName"			"item_recipe_refresher"
 		"ItemRequirements"
 		{
 			"01"						"item_pers_datadriven;item_oblivion_staff_datadriven"
 		}
+		
 	}
-	//=================================================================================================================
-	// Refresher
-	//=================================================================================================================
-	"item_refresher"
+	"item_recipe_refresher"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"110"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ItemPurchasable"				"0"
+	}
+	"item_refresher_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
+		"ID"							"1310"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"item_refresher"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4620,16 +4612,45 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		
+		"precache"
+		{
+			"particle"					"particles/items2_fx/refresher.vpcf"
+		}
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_health_regen"	"5"
-			"bonus_mana_regen"		"0"
-			"bonus_damage"			"40"
+			"bonus_health_regen"			"5"
+			"bonus_damage"					"40"
 			"bonus_mana_regen_percentage"	"200"
-			"bonus_attack_speed"	"10"
-			"bonus_intellect"		"6"
+			"bonus_attack_speed"			"10"
+			"bonus_intellect"				"6"
+		}
+
+		"Modifiers"
+		{
+			"modifier_refresher_datadriven"
+			{
+				"Passive"					"1"
+				"IsHidden"					"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_intellect"
+				}
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_refresher.lua"
+				"Function"		"handleSpellStart"
+			}
 		}
 	}
 	//=================================================================================================================
