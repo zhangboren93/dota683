@@ -112,7 +112,8 @@ all_heroes = {
 	"npc_dota_hero_spectre"				,
 	"npc_dota_hero_undying"				,
 	"npc_dota_hero_ursa"				,
-	"npc_dota_hero_monkey_king"
+	"npc_dota_hero_monkey_king",
+	"npc_dota_hero_marci"
 }
 
 same_ability_heroes = {}

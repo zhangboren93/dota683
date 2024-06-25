@@ -27,3 +27,4 @@ hero_innate_abilities["npc_dota_hero_wisp"] = "wisp_tether_charge_checker_datadr
 hero_innate_abilities["npc_dota_hero_troll_warlord"] = "troll_warload_berserkers_rage_bash_datadriven"
 hero_innate_abilities["npc_dota_hero_tiny"] = "tiny_grow_checker_datadriven"
 hero_innate_abilities["npc_dota_hero_legion_commander"] = "legion_commander_press_the_attack_as_datadriven"
+hero_innate_abilities["npc_dota_hero_marci"] = "marci_am_particle_effects_datadriven"
