@@ -159,7 +159,7 @@
 							{
 								"Target"			"TARGET"
 								"ModifierName"		"modifier_torrent_slow_debuff_datadriven"
-								"Duration"			"total_duration"
+								"Duration"			"%total_duration"
 							}						
 						}
 					}				
@@ -197,11 +197,11 @@
 			"modifier_torrent_slow_debuff_datadriven"
 			{
 				"IsDebuff"					"1"
-				"Duration"					"total_duration"
+				"Duration"					"%total_duration"
 		
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"movespeed_bonus"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movespeed_bonus"
 				}
 			}
 		}
