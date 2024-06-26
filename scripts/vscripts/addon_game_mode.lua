@@ -2272,7 +2272,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				and inflictor:GetName() ~= "magnataur_empower" 
 				and inflictor:GetName() ~= "sven_great_cleave"
 				and inflictor:GetName() ~= "gyrocopter_rocket_barrage"
-				and inflictor:GetName() ~= "gyrocopter_flak_cannon"	then
+				and inflictor:GetName() ~= "gyrocopter_flak_cannon"
+				and inflictor:GetName() ~= "beastmaster_wild_axes" then
 				event.damage = 0
 			end
 		end
