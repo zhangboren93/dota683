@@ -1,0 +1,49 @@
+// Abilities for Clinkz
+"DOTAAbilities"
+{
+    "Version"       "1"
+
+	//=================================================================================================================
+	// Beastmaster: Inner Beast
+	//=================================================================================================================
+	"beastmaster_inner_beast_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"AbilityTextureName"			"beastmaster_inner_beast"
+
+		// Casting
+		"AbilityValues"
+		{
+			"radius"				"900"
+			"bonus_attack_speed"	"15 25 35 45"
+		}
+
+		"Modifiers"
+		{
+			"modifier_inner_beast"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+	
+				"Aura"          	"modifier_inner_beast_buff_datadriven"
+				"Aura_Radius"   	"%radius"
+				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+			}
+
+			"modifier_inner_beast_buff_datadriven"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+				}
+			}
+		}
+	}
+}

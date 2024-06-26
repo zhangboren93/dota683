@@ -3,6 +3,7 @@
 #base "heroes/alchemist.txt"
 #base "heroes/arc_warden.txt"
 #base "heroes/batrider.txt"
+#base "heroes/beastmaster.txt"
 #base "heroes/broodmother.txt"
 #base "heroes/brewmaster.txt"
 #base "heroes/clinkz.txt"
@@ -4098,8 +4099,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1300"
 		"AbilityCastPoint"				"0.5"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AnimationPlaybackRate"			"0.6"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -4112,7 +4111,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"radius"					"175"
+			"radius"					"140"
 			"spread"					"353"
 			"range"						"1300"
 			"axe_damage"				"0"
@@ -4123,41 +4122,7 @@
 			"min_throw_duration"		"0.4"
 			"max_throw_duration"		"1.0"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
-	// Beastmaster: Inner Beast
-	//=================================================================================================================
-	"beastmaster_inner_beast"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5172"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"Innate"						"0"
-		"RequiredLevel"					"1"
-		"MaxLevel"						"4"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"radius"				"900"
-			"bonus_attack_speed"	"15 25 35 45"
-			"attack_speed_per_unit"			"0"
-			"berserk_duration"				"0"		
-			"berserk_bonus_attack_speed"	"0"
-			"AbilityCooldown"				"0"
-			"AbilityManaCost"				"0"
-			"magic_resist"					"0"
-			"bonus_damage"					"0"
-		}
+		"AbilityCastAnimation"			"ACT_DOTA_CAST1_STATUE"
 	}
 	//=================================================================================================================
 	// Beastmaster: Call of the Wild Boar
@@ -32593,6 +32558,22 @@
 			"hero_damage_penalty"			"-25"
 			"basic_armor_damage_bonus"		"50"
 			"strong_armor_damage_bonus"		"25"
+		}
+	}
+	"creep_piercing_alter"
+	{
+		"BaseClass"						"ability_lua"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
+		"AbilityTextureName"			"creep_piercing"
+		"ScriptFile"					"units/attack_types.lua"
+		"AbilityValues"
+		{
+			"weak_armor_damage_bonus"	"100"
+			"basic_damage_penalty"		"-25"
+			"hero_damage_penalty"		"-50"
+			"heavy_damage_penalty"		"-50"
+			"creep_damage_bonus"		"50"
 		}
 	}
 	"necronomicon_warrior_mana_burn"

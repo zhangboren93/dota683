@@ -6,7 +6,15 @@
 	{
 		"Ability2"					"glyph_datadriven"			// Ability 2.
 		"Ability1"					"creep_siege_alter"			// Ability 1.
-	}	
+	}
+	"npc_dota_badguys_fort"
+	{
+		"Ability2"					"creep_siege_alter"			// Ability 2.
+	}
+	"npc_dota_goodguys_fort"
+	{
+		"Ability2"					"creep_siege_alter"			// Ability 2.
+	}
 	"npc_dota_neutral_kobold"
 	{
 		"Ability1"					"creep_irresolute"			// Ability 1
@@ -2996,8 +3004,8 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"beastmaster_boar_poison_datadriven"			// Ability 1
-		"Ability2"					"creep_basic"			// Ability 2
-		"Ability3"					""			// Ability 3
+		"Ability2"					"creep_piercing_alter"			// Ability 2
+		"Ability3"					"creep_basic"			// Ability 3
 		"Ability4"					""			// Ability 4
 
 		// Armor

@@ -205,6 +205,7 @@ function Activate()
 	LinkLuaModifier( "modifier_creep_irresolute_extra",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_light",					"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_irresolute_alter",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_piercing_alter",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -1288,6 +1289,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:HasAbility("creep_irresolute_alter") then
 		entity:FindAbilityByName("creep_irresolute_alter"):SetLevel(1)
 	end
+	if entity:HasAbility("creep_piercing_alter") then
+		entity:FindAbilityByName("creep_piercing_alter"):SetLevel(1)
+	end
 	if entity:HasAbility("twin_gate_portal_warp") then -- 移除双生门传送
 		entity:RemoveAbility("twin_gate_portal_warp")
 	end
@@ -2273,7 +2277,8 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				and inflictor:GetName() ~= "magnataur_empower" 
 				and inflictor:GetName() ~= "sven_great_cleave"
 				and inflictor:GetName() ~= "gyrocopter_rocket_barrage"
-				and inflictor:GetName() ~= "gyrocopter_flak_cannon"	then
+				and inflictor:GetName() ~= "gyrocopter_flak_cannon"
+				and inflictor:GetName() ~= "beastmaster_wild_axes" then
 				event.damage = 0
 			end
 		end
@@ -2281,9 +2286,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		--print(victim:GetName())
         if attacker:HasModifier("modifier_ember_spirit_sleight_of_fist_in_progress") and victim:IsCreep() then
             event.damage = event.damage / 2
-		elseif attacker:IsBuilding() and victim:GetName() == "npc_dota_creep_siege" then
-			-- It takes 4 hits for t1 tower to kill a siege creep.
-			event.damage = event.damage  * 2 / 3
         end
 	end
 	-- No damage to glyphed towers

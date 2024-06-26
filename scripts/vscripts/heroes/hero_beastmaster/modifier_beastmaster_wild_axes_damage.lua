@@ -12,11 +12,10 @@ function modifier_beastmaster_wild_axes_damage_lua:OnIntervalThink()
 	local caster = self:GetCaster()
 	local ability = self:GetAbility()
 	local damage = ability:GetSpecialValueFor("axe_damage_physical")
-	--TODO apply physical damage
 	local units = FindUnitsInRadius(caster:GetTeam(),
 		parent:GetAbsOrigin(),
 		nil,
-		175,
+		140,
 		DOTA_UNIT_TARGET_TEAM_ENEMY,
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
 		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
@@ -25,7 +24,7 @@ function modifier_beastmaster_wild_axes_damage_lua:OnIntervalThink()
 	for i=1,#units do
 		local unit = units[i]
 		if self.damaged_units[unit:GetEntityIndex()] == nil then
-			ApplyDamage({victim = unit, attacker = caster, damage_type = DAMAGE_TYPE_PHYSICAL, damage = damage})
+			ApplyDamage({victim = unit, attacker = caster, damage_type = DAMAGE_TYPE_PHYSICAL, damage = damage, ability = ability})
 			self.damaged_units[unit:GetEntityIndex()] = true
 		end
 	end
