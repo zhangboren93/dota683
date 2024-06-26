@@ -24,15 +24,15 @@ function getKDA(playerId) {
 
 function fillExtraSummaryInfo(players, slot) {
 	for (var i = 0; i < players.length; i++) {
-		let heroDamage = Players.extraPlayerStats.heroDamage[i + slot]
+		let heroDamage = Players.extraPlayerStats.psm[players[i].toString()].hd
 		if (heroDamage) {
 			$("#hero-damage-" + (i+slot)).text = formatDamage(heroDamage)
 		}
-		let netWorth = Players.extraPlayerStats.netWorth[i + slot]
+		let netWorth = Players.extraPlayerStats.psm[players[i].toString()].nw
 		if (netWorth) {
 			$("#networth-" + (i+slot)).text = formatDamage(netWorth);
 		}
-		let buildingDamage = Players.extraPlayerStats.buildingDamage[i + slot];
+		let buildingDamage = Players.extraPlayerStats.psm[players[i].toString()].bd
 		if (buildingDamage) {
 			$("#building-damage-" + (i+slot)).text = formatDamage(buildingDamage);
 		}

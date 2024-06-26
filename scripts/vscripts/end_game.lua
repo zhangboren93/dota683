@@ -1,8 +1,6 @@
 function sendEndGameStats(player2BuildingDamage)
 	print("sendEndGameStats")
-	local playerSlot2HeroDamage = {}
-	local playerNetWorth = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
-	local playerBuildingDamage = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+	local playerStatMap = {}
 
 	local radiantPlayers = getTeamPlayerIds(DOTA_TEAM_GOODGUYS)
 	local direPlayers = getTeamPlayerIds(DOTA_TEAM_BADGUYS)
@@ -14,12 +12,11 @@ function sendEndGameStats(player2BuildingDamage)
 			heroDamage = heroDamage + PlayerResource:GetDamageDoneToHero(
 				mainPlayerId, victimPlayerId)
 		end
-		playerSlot2HeroDamage[slot] = heroDamage
-		playerNetWorth[slot] = PlayerResource:GetNetWorth(mainPlayerId)
-		local building_damage = player2BuildingDamage[mainPlayerId]
-		if building_damage ~= nil then
-			playerBuildingDamage[slot] = building_damage
-		end
+		playerStatMap[mainPlayerId] = {
+			hd = heroDamage,
+			nw = PlayerResource:GetNetWorth(mainPlayerId),
+			bd = player2BuildingDamage[mainPlayerId]
+		}
 	end
 	for i=1,#direPlayers do
 		local slot = i + 4
@@ -29,21 +26,13 @@ function sendEndGameStats(player2BuildingDamage)
 			heroDamage = heroDamage + PlayerResource:GetDamageDoneToHero(
 				mainPlayerId, victimPlayerId)
 		end
-		playerSlot2HeroDamage[slot] = heroDamage
-		playerNetWorth[slot] = PlayerResource:GetNetWorth(mainPlayerId)
-		local building_damage = player2BuildingDamage[mainPlayerId]
-		if building_damage ~= nil then
-			playerBuildingDamage[slot] = building_damage
-		end
+		playerStatMap[mainPlayerId] = {
+			hd = heroDamage,
+			nw = PlayerResource:GetNetWorth(mainPlayerId),
+			bd = player2BuildingDamage[mainPlayerId]
+		}
 	end
-	DeepPrintTable(playerSlot2HeroDamage)
-	CustomGameEventManager:Send_ServerToAllClients(
-		"end_game_summary_stats", 
-		{ 
-			heroDamage = playerSlot2HeroDamage,
-		  	netWorth = playerNetWorth,
-			buildingDamage = playerBuildingDamage
-		})	
+	CustomGameEventManager:Send_ServerToAllClients("end_game_summary_stats", { psm = playerStatMap })	
 end
 
 function getTeamPlayerIds(team) 

@@ -472,6 +472,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 --	if text == "-test" then
+--		Entities:FindByName(nil, "dota_goodguys_fort"):Kill(nil, PlayerResource:GetPlayer(playerid):GetAssignedHero())
 --		calculateLadderScoreLose(DOTA_TEAM_GOODGUYS, playerId2LadderScore, LADDER_HOST)
 --		hasGameEnded = true
 --	end
