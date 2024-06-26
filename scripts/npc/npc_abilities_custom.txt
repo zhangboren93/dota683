@@ -12,6 +12,7 @@
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
 #base "heroes/drow_ranger.txt"
+#base "heroes/ember_spirit.txt"
 #base "heroes/faceless_void.txt"
 #base "heroes/furion.txt"
 #base "heroes/enchantress.txt"
@@ -28715,38 +28716,6 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%mana_regen"
 				}
 			}
-		}
-	}
-	//=================================================================================================================
-	// Ember Spirit: Flame Guard
-	//=================================================================================================================
-	"ember_spirit_flame_guard"
-	{
-		"MaxLevel"						"4"
-		"RequiredLevel"					"1"
-		"Innate"						"0"
-
-		"AbilityCooldown"				"35.0"
-		"AbilityManaCost"				"80 90 100 110"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"duration"						"8 12 16 20"
-			"passive_radius"				"0"
-			"passive_damage_per_second"		"0"
-			"active_radius"					"400"
-			"absorb_amount"					
-			{
-				"value"					"50 200 350 500"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_MAGICAL"
-			}				
-			"tick_interval"					"0.2"
-			"active_damage_per_second"		"30 40 50 60"
-			"blind_pct"				"0"
-			"shield_pct_absorb"		"100"
-			"linger_duration"		"0.5"
 		}
 	}
 	//=================================================================================================================

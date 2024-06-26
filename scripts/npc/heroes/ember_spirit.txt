@@ -1,0 +1,95 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+// Rewrite of the Ember Spirit Flame Guard ability
+// Author: kritth
+// Date: February 13, 2016
+// Version: 6.86
+// Type: Datadriven
+// NOTE: This ability will only absorb damage whose AbilityUnitDamageType field is marked as DAMAGE_TYPE_MAGICAL
+//
+// ----- FILE REQUIREMENTS -----
+// Script files:
+// scripts/vscripts/heroes/hero_ember_spirit/flame_guard.lua
+"ember_spirit_flame_guard_datadriven"
+{
+	// General
+	//-------------------------------------------------------------------------------------------------------------
+	"BaseClass"						"ability_datadriven"
+	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+	"AbilityTextureName"			"ember_spirit_flame_guard"
+	
+	// Casting
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCastRange"				"400"
+	"AbilityCastPoint"				"0"
+	
+	// Time		
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityCooldown"				"35.0"
+
+	// Cost
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityManaCost"				"80 90 100 110"
+
+	// Special
+	//-------------------------------------------------------------------------------------------------------------
+	"AbilityValues"
+	{
+			"duration"						"8.0 12.0 16.0 20.0"
+			"radius"						"400"
+			"absorb_amount"					"50 200 350 500"
+			"tick_interval"					"0.2"
+			"damage_per_second"				"30 40 50 60"
+	}
+	
+	// Data driven
+	//-------------------------------------------------------------------------------------------------------------
+	"precache"
+	{
+		"soundfile"							"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+		"particle"							"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+	}
+	
+	"OnSpellStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"					"heroes/hero_ember_spirit/flame_guard.lua"
+			"Function"						"handleSpellStart"
+		}
+	}
+	
+	"Modifiers"
+	{
+		"modifier_flame_guard_buff_datadriven"
+		{
+			"OnIntervalThink"
+			{
+				"ActOnTargets"
+				{
+					"Target"
+					{
+						"Center"			"TARGET"
+						"Radius"			"%radius"
+						"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+						"Types"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+					}
+					
+					"Action"
+					{
+						"Damage"
+						{
+							"Target"		"TARGET"
+							"Damage"		"%damage_per_second * %tick_interval"
+							"Type"			"DAMAGE_TYPE_MAGICAL"
+						}
+					}
+				}
+			}
+		}
+	}
+}
+}
