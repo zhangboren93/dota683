@@ -4099,8 +4099,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1300"
 		"AbilityCastPoint"				"0.5"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AnimationPlaybackRate"			"0.6"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -4113,7 +4111,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"radius"					"175"
+			"radius"					"140"
 			"spread"					"353"
 			"range"						"1300"
 			"axe_damage"				"0"
@@ -4124,7 +4122,7 @@
 			"min_throw_duration"		"0.4"
 			"max_throw_duration"		"1.0"
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST1_STATUE"
 	}
 	//=================================================================================================================
 	// Beastmaster: Call of the Wild Boar
