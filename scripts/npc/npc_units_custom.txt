@@ -2995,8 +2995,8 @@
 		// Abilities
 		//----------------------------------------------------------------
 		"Ability1"					"beastmaster_boar_poison_datadriven"			// Ability 1
-		"Ability2"					"creep_basic"			// Ability 2
-		"Ability3"					""			// Ability 3
+		"Ability2"					"creep_piercing_alter"			// Ability 2
+		"Ability3"					"creep_basic"			// Ability 3
 		"Ability4"					""			// Ability 4
 
 		// Armor

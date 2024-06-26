@@ -32597,6 +32597,22 @@
 			"strong_armor_damage_bonus"		"25"
 		}
 	}
+	"creep_piercing_alter"
+	{
+		"BaseClass"						"ability_lua"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 
+		"AbilityTextureName"			"creep_piercing"
+		"ScriptFile"					"units/attack_types.lua"
+		"AbilityValues"
+		{
+			"weak_armor_damage_bonus"	"100"
+			"basic_damage_penalty"		"-25"
+			"hero_damage_penalty"		"-50"
+			"heavy_damage_penalty"		"-50"
+			"creep_damage_bonus"		"50"
+		}
+	}
 	"necronomicon_warrior_mana_burn"
 	{
 		// General

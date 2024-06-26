@@ -201,3 +201,46 @@ function modifier_creep_irresolute_alter:GetModifierDamageOutgoing_Percentage(ev
 		return 0
 	end
 end
+
+creep_piercing_alter = class({})
+
+function creep_piercing_alter:GetIntrinsicModifierName()
+	return "modifier_creep_piercing_alter"
+end
+
+modifier_creep_piercing_alter = class({ 
+	IsPurgable			= function(self) return false end,
+	IsHidden			= function(self) return true end,
+	DeclareFunctions	= function(self) return 
+		{
+			MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
+		}
+	end,
+})
+
+function modifier_creep_piercing_alter:OnCreated()
+	local ability = self:GetAbility()
+	self.creep_bonus = ability:GetSpecialValueFor("creep_damage_bonus")
+	self.weak_bonus = ability:GetSpecialValueFor("weak_armor_damage_bonus")
+	self.armor_penalty = ability:GetSpecialValueFor("basic_penalty")
+	self.hero_penalty = ability:GetSpecialValueFor("hero_damage_penalty")
+	self.siege_penalty = ability:GetSpecialValueFor("heavy_damage_penalty")
+end
+
+function modifier_creep_piercing_alter:GetModifierDamageOutgoing_Percentage(event)
+	local target = event.target
+	if target ~= self:GetParent() then return 0 end
+	if target:IsRealHero() then
+		return self.hero_penalty
+	elseif target:HasAbility("creep_weak") then
+		return self.weak_bonus
+	elseif target:HasAbility("creep_basic") or target:HasAbility("creep_strong") then
+		return self.armor_penalty
+	elseif target:HasAbility("creep_siege_alter") then
+		return self.siege_penalty
+	elseif target:IsNeutralUnitType() or target:IsCreep() then
+		return self.creep_bonus
+	else
+		return 0
+	end
+end

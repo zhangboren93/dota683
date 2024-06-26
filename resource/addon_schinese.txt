@@ -2593,6 +2593,13 @@
 		"DOTA_Tooltip_Ability_creep_irresolute_alter_hero_damage_penalty"		"%对英雄伤害减少："
 		"DOTA_Tooltip_Ability_creep_irresolute_alter_basic_armor_damage_bonus"	"%对基础护甲额外伤害："
 		"DOTA_Tooltip_Ability_creep_irresolute_alter_strong_armor_damage_bonus"	"%对重甲额外伤害："
+		"DOTA_Tooltip_Ability_creep_piercing_alter"								"穿刺"
+		"DOTA_Tooltip_Ability_creep_piercing_alter_Description"					"穿刺单位对英雄、坚锐、中甲、重甲单位造成的伤害减少，但对其他单位造成额外伤害。"
+		"DOTA_Tooltip_Ability_creep_piercing_alter_weak_armor_damage_bonus"		"%对脆弱护甲额外伤害："
+		"DOTA_Tooltip_Ability_creep_piercing_alter_creep_damage_bonus"			"%对其他单位额外伤害："
+		"DOTA_Tooltip_Ability_creep_piercing_alter_basic_damage_penalty"		"%对中甲/重甲伤害降低："
+		"DOTA_Tooltip_Ability_creep_piercing_alter_hero_damage_penalty"			"%对英雄伤害降低："
+		"DOTA_Tooltip_Ability_creep_piercing_alter_heavy_damage_penalty"		"%对坚锐伤害降低："
 		
 		"DOTA_Tooltip_Ability_creep_weak"								"脆弱"
 		"DOTA_Tooltip_Ability_creep_weak_Description"					"这个单位具有脆弱的护甲。"
