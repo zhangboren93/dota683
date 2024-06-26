@@ -2285,9 +2285,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		--print(victim:GetName())
         if attacker:HasModifier("modifier_ember_spirit_sleight_of_fist_in_progress") and victim:IsCreep() then
             event.damage = event.damage / 2
-		elseif attacker:IsBuilding() and victim:GetName() == "npc_dota_creep_siege" then
-			-- It takes 4 hits for t1 tower to kill a siege creep.
-			event.damage = event.damage  * 2 / 3
         end
 	end
 	-- No damage to glyphed towers
