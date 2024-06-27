@@ -3459,7 +3459,6 @@
 		{
 			"Passive"			"0"
 			"IsHidden"			"1"
-			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
 			
 			"OnDeath"
 			{

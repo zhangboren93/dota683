@@ -12,22 +12,23 @@ function modifier_item_urn_of_shadows_datadriven_aura_on_death(keys)
 		print("Reincarnating, no urn charges")
 		return
 	end
-	--Search for an Urn of Shadows in the aura creator's inventory.  If there are multiple Urns in the player's inventory,
-	--the one with the least charges receives a charge (this may work differently in the standard Dota 2 mode).
+	-- Search of a urn carrier in range
+	local potential_urn_carriers = FindUnitsInRadius(
+		keys.unit:GetTeam(),
+		keys.unit:GetAbsOrigin(),
+		nil,
+		1400,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+		FIND_CLOSEST,
+		false)
 	local urn_with_least_charges = nil
-	
-	for i=0, 5, 1 do
-		local current_item = keys.caster:GetItemInSlot(i)
-		if current_item ~= nil then
-			local item_name = current_item:GetName()
-			
-			if item_name == "item_urn_of_shadows_datadriven" then
-				if urn_with_least_charges == nil then
-					urn_with_least_charges = current_item
-				elseif current_item:GetCurrentCharges() < urn_with_least_charges:GetCurrentCharges() then
-					urn_with_least_charges = current_item
-				end
-			end
+	for i=1,#potential_urn_carriers do
+		local item = potential_urn_carriers[i]:FindItemInInventory("item_urn_of_shadows_datadriven")
+		if item ~= nil and item:GetItemState() == 1 then
+			urn_with_least_charges = item
+			break;
 		end
 	end
 
