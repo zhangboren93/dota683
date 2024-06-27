@@ -1158,8 +1158,10 @@
 		//Tidehunter
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven"						"锚击"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_Description"			"潮汐猎人挥动他巨大的锚，对附近敌人造成伤害，同时降低他们的攻击力。"
-		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_damage_reduction_pct"	"%攻击力降低："
+		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_damage_reduction_pct"	"%基础攻击力降低："
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_AbilityDuration"		"持续时间："
+		"DOTA_Tooltip_modifier_tidehunter_anchor_smash_datadriven"						"锚击"
+		"DOTA_Tooltip_modifier_tidehunter_anchor_smash_datadriven_Description" 			"攻击力降低"
 		//Tiny
 		"DOTA_Tooltip_ability_tiny_toss_datadriven"								"投掷"
 		"DOTA_Tooltip_ability_tiny_toss_datadriven_Description"					"抓起小小身旁%grab_radius%范围内最近的单位，不论敌友，扔向目标单位，落地时将造成伤害。对抛起的单位造成额外20%%伤害。"

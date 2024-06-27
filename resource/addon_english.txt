@@ -1102,8 +1102,10 @@
 		//Tidehunter
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven"						"Anchor Smash"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_Description"			"Tidehunter swings his mighty anchor to deal damage to nearby enemies and reduce their attack damage."
-		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_damage_reduction_pct"	"%Attack Damage Reduction: "
+		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_damage_reduction_pct"	"%Base Attack Damage Reduction: "
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_AbilityDuration"		"Duration: "
+		"DOTA_Tooltip_modifier_tidehunter_anchor_smash_datadriven"						"Anchor Smash"
+		"DOTA_Tooltip_modifier_tidehunter_anchor_smash_datadriven_Description" 			"Damage reduced"
 		//Tiny
 		"DOTA_Tooltip_ability_tiny_toss_datadriven"								"Toss"
 		"DOTA_Tooltip_ability_tiny_toss_datadriven_Description"					"Grabs the nearest unit in a %grab_radius% radius around Tiny, ally or enemy, and launches it at the target unit to deal damage where they land. Deals 20%% more damage to unit tossed."
