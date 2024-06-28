@@ -539,7 +539,16 @@
 		"DOTA_Tooltip_modifier_inner_beast_buff_datadriven_Description"					"%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% increased attack speed"
 		"DOTA_Tooltip_Ability_beastmaster_primal_roar_Scepter_Description"			"+350 cast range, CD 45 seconds"
 		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven"					"Poison"
-		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_Description"		"-%movement_speed% move speed, -%attack_speed% attack speed, lasts 3s"
+		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_Description"		"Inflicts a poison that slows attack and movement speeds."
+		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_AbilityDuration"	"DURATION:"
+		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_movement_speed"	"%MOVEMENT SLOW:"
+		"DOTA_Tooltip_Ability_beastmaster_boar_poison_datadriven_attack_speed"		"ATTACK SLOW:"
+		"DOTA_Tooltip_Ability_beastmaster_hawk_invisibility_datadriven"				"Invisibility"
+		"DOTA_Tooltip_Ability_beastmaster_hawk_invisibility_datadriven_Description"	"If motionless for some time, the hawk whose ability level higher than 3 becomes invisible."
+		"DOTA_Tooltip_Ability_beastmaster_hawk_invisibility_datadriven_idle_invis_delay"	"FADE TIME:"
+		"DOTA_Tooltip_modifier_boar_poison_datadriven_debuff"						"Boar Poison"
+		"DOTA_Tooltip_modifier_boar_poison_datadriven_debuff_Description"			"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+
 		//brewmaster
 		"DOTA_Tooltip_ability_brewmaster_thunder_clap_duration_creep"					"DURATION(CREEP):"
 		"DOTA_Tooltip_modifier_brewmaster_thunder_clap_creep_lua"						"Thunder Clap"
