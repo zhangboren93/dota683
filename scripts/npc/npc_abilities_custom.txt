@@ -36,6 +36,7 @@
 #base "heroes/rattletrap.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
+#base "heroes/shredder.txt"
 #base "heroes/silencer.txt"
 #base "heroes/skywrath_mage.txt"
 #base "heroes/spectre.txt"
@@ -29521,115 +29522,6 @@
 			}
 		}
 	}	
-	//=================================================================================================================
-	// Shredder: Chakram
-	//=================================================================================================================
-	"shredder_chakram"
-	{
-		"MaxLevel"              		"3"
-		"RequiredLevel"         		"6"
-		"LevelsBetweenUpgrades" 		"5"
-		"AbilityManaCost"				"100 150 200"
-		"AbilityCastPoint"				"0.3"
-		"HasScepterUpgrade"				"1"
-		"AbilityValues"
-		{
-			"speed"						"900.0"
-			"radius"					"200"
-			"pass_damage"				"100 140 180"
-			"damage_per_second"			"50 75 100"
-			"slow"						"5"
-			"damage_interval"			"0.5"
-			"break_distance"			"2000.0"
-			"mana_per_second"			"20 25 30"
-			"pass_slow_duration"		"0.5"
-			"slow_health_percentage"	"5"	
-			"castpoint_scepter"		
-			{
-				"value"					"0.3"
-				"RequiresScepter"		"1"
-			}
-			"second_chakram"
-			{
-				"value"					"0"
-				"special_bonus_scepter"	"+1"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Shredder: Chakram 2
-	//=================================================================================================================
-	"shredder_chakram_2"
-	{
-		"IsGrantedByScepter"			"1"
-		"AbilityManaCost"				"100 150 200"
-		"AbilityValues"
-		{
-				"speed"					
-				{
-					"value"				"900.0"
-					"RequiresScepter"	"1"
-				}
-				"radius"				
-				{
-					"value"		"200"
-					"RequiresScepter"	"1"
-				}
-				"pass_damage"
-				{
-					"value"				"100 140 180"
-					"RequiresScepter"	"1"
-				}
-				"damage_per_second"		
-				{
-					"value"			"50 75 100"
-					"RequiresScepter"	"1"
-				}
-				"slow"					
-				{
-					"value"			"5"
-					"LinkedSpecialBonus"	"special_bonus_unique_timbersaw_4"
-					"RequiresScepter"	"1"
-				}
-				"damage_interval"		
-				{
-					"value"			"0.5"
-					"RequiresScepter"	"1"
-				}
-				"break_distance"		
-				{
-					"value"			"2000.0"
-					"RequiresScepter"	"1"
-				}
-				"mana_per_second"		
-				{
-					"value"				"20 25 30"
-					"RequiresScepter"	"1"
-				}
-				"pass_slow_duration"	
-				{
-					"value"		"0.5"
-					"RequiresScepter"	"1"
-				}
-				"slow_health_percentage"	
-				{
-					"value"		"5"
-					"RequiresScepter"	"1"
-				}
-				"scepter_bonus_damage"	
-				{
-					"value"		"0"
-					"RequiresScepter"		"1"
-				}		
-				"second_chakram"
-				{
-					"value"			"0"
-					"special_bonus_scepter"	"+1"
-				}
-				"damage_penalty_tooltip"		"0"
-		}
-	}
 	"shredder_reactive_armor_datadriven"
 	{
 		"BaseClass"						"ability_datadriven"
