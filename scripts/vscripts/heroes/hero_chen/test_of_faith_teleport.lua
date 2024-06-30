@@ -83,14 +83,3 @@ function TestOfFaithTeleport( keys )
 	end
 	target:AddNewModifier(caster, nil, "modifier_phased", {Duration = 0.03})
 end
-
--- Deprecated
-
-function handleIntervalThink(event)
-	local caster = event.caster
-	local test_of_faith = caster:FindAbilityByName("chen_test_of_faith")
-	local test_of_faith_teleport = caster:FindAbilityByName("chen_test_of_faith_teleport_datadriven")
-	if test_of_faith ~= nil and test_of_faith_teleport ~= nil and test_of_faith_teleport:GetLevel() ~= test_of_faith:GetLevel() then
-		test_of_faith_teleport:SetLevel(test_of_faith:GetLevel())
-	end
-end

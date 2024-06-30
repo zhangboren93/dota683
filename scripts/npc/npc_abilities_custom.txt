@@ -7340,30 +7340,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
-	// Deprecated
-	"chen_penitence_incoming_dmg_checker"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"Modifiers"
-		{
-			"modifier_test_of_faith_teleport_levelup"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_chen/test_of_faith_teleport.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-			}
-		}
-	}
 	//=================================================================================================================
 	// Chen: Test of Faith
 	//=================================================================================================================
