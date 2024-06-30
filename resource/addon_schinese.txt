@@ -773,8 +773,6 @@
 		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_damage_bonus"			"攻击力加成："
 		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_cleave_damage"			"%分裂伤害："
 		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_cleave_distance"		"分裂距离："
-		"DOTA_Tooltip_modifier_torrent_slow_lua"									"洪流减速"
-		"DOTA_Tooltip_modifier_torrent_slow_lua_Description"						"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 		"DOTA_Tooltip_ability_kunkka_x_marks_the_spot_Facet_kunkka_grog"			""
 		"DOTA_Tooltip_Facet_kunkka_grog"											""
 		"DOTA_Tooltip_Facet_kunkka_high_tide"										""
