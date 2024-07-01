@@ -28114,6 +28114,7 @@
 	}
 	//=================================================================================================================
 	// Omniknight: Purification
+	// Same animation length as statue one (in ACT_DOTA_CAST_STATUE)
 	//=================================================================================================================
 	"omniknight_purification"
 	{
@@ -28121,7 +28122,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.5"
-		"AnimationPlaybackRate"			"0.4"
+		"AnimationPlaybackRate"			"0.85"
 		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"100 120 140 160"
 		"AbilityValues"
@@ -28177,6 +28178,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.5 0.5 0.5 0.5"
+		"AnimationPlaybackRate"			"0.967" // 1.77 div 1.83
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------

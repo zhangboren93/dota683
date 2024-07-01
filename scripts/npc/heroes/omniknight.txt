@@ -45,11 +45,6 @@
 				"value"					"600"
 				"special_bonus_scepter"	"+20000"
 			}
-			"health_regen"
-			{
-				"value"					"0"
-				"special_bonus_scepter"	"+25"
-			}
 		}
 	
 		"precache"
@@ -134,7 +129,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL"	"1"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%health_regen"
 				}
 			}
 		}
