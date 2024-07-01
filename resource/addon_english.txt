@@ -891,7 +891,6 @@
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_Lore"						"The All Seeing One casts down his protection over those that Purist calls friend."
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_duration"					"DURATION:"
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_radius"					"RADIUS:"
-		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_health_regen"				"HEALTH REGEN:"
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_scepter_description"		"Increases duration, radius becomes global and affects buildings."
 		"DOTA_Tooltip_modifier_guardian_angel"												"Guardian Angel"
 		"DOTA_Tooltip_modifier_guardian_angel_Description"									"Immune to physical damage."
