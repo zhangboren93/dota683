@@ -1,0 +1,50 @@
+criterion "Isclinkz" "classname" "npc_dota_hero_clinkz" weight 5 required
+criterion "IsDeathPact" "abilityname" "clinkz_death_pact_datadriven" weight 5 required
+
+Response clinkz_CastExecuteIsDeathPactChance_50%
+{
+    scene "scenes/clinkz/clinkz_clinkz_ability_pact_01.vcd" nodelay noscene 
+    scene "scenes/clinkz/clinkz_clinkz_ability_pact_02.vcd" nodelay noscene 
+    scene "scenes/clinkz/clinkz_clinkz_ability_pact_03.vcd" nodelay noscene 
+    scene "scenes/clinkz/clinkz_clinkz_ability_pact_04.vcd" nodelay noscene 
+    scene "scenes/clinkz/clinkz_clinkz_ability_pact_06.vcd" nodelay noscene 
+}
+
+Rule clinkz_CastExecuteIsDeathPactChance_50%_Rule
+{
+    criteria CastExecute Isclinkz IsDeathPact Chance_50%
+    response clinkz_CastExecuteIsDeathPactChance_50%
+}
+
+Response clinkz_PurchaseIsMonkeyKingBar
+{
+    scene "scenes/clinkz/clinkz_clinkz_item_01.vcd" nodelay noscene speakonce
+}
+
+Rule clinkz_PurchaseIsMonkeyKingBar_Rule
+{
+    criteria Custom CustomPurchase Isclinkz IsMonkeyKingBar
+    response clinkz_PurchaseIsMonkeyKingBar
+}
+
+Response clinkz_PurchaseIsSkadi
+{
+    scene "scenes/clinkz/clinkz_clinkz_item_02.vcd" nodelay noscene speakonce
+}
+
+Rule clinkz_PurchaseIsSkadi_Rule
+{
+    criteria Custom CustomPurchase Isclinkz IsSkadi
+    response clinkz_PurchaseIsSkadi
+}
+
+Response clinkz_PurchaseIsButterfly
+{
+    scene "scenes/clinkz/clinkz_clinkz_item_06.vcd" nodelay noscene speakonce
+}
+
+Rule clinkz_PurchaseIsButterfly_Rule
+{
+    criteria Custom CustomPurchase Isclinkz IsButterfly
+    response clinkz_PurchaseIsButterfly
+}
