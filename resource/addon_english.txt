@@ -737,8 +737,6 @@
 		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_damage_bonus"			"DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_cleave_damage"			"%CLEAVE DAMAGE:"
 		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_cleave_distance"		"CLEAVE RANGE:"
-		"DOTA_Tooltip_modifier_torrent_slow_lua"									"Torrent Slow"
-		"DOTA_Tooltip_modifier_torrent_slow_lua_Description"						"Movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 		// Legion Commander
 		"DOTA_Tooltip_Ability_legion_commander_overwhelming_odds_datadriven"					"Overwhelming Odds"
 		"DOTA_Tooltip_Ability_legion_commander_overwhelming_odds_datadriven_Description"		"Turns the enemies' numbers against them, dealing damage per unit or per hero and granting you bonus movement speed. Deals bonus damage to illusions and summoned units as a percent of their current health."

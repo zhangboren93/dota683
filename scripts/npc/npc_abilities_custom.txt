@@ -7340,30 +7340,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
-	// Deprecated
-	"chen_penitence_incoming_dmg_checker"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"Modifiers"
-		{
-			"modifier_test_of_faith_teleport_levelup"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_chen/test_of_faith_teleport.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-			}
-		}
-	}
 	//=================================================================================================================
 	// Chen: Test of Faith
 	//=================================================================================================================
@@ -28138,6 +28114,7 @@
 	}
 	//=================================================================================================================
 	// Omniknight: Purification
+	// Same animation length as statue one (in ACT_DOTA_CAST_STATUE)
 	//=================================================================================================================
 	"omniknight_purification"
 	{
@@ -28145,7 +28122,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.5"
-		"AnimationPlaybackRate"			"0.4"
+		"AnimationPlaybackRate"			"0.85"
 		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"100 120 140 160"
 		"AbilityValues"
@@ -28201,6 +28178,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.5 0.5 0.5 0.5"
+		"AnimationPlaybackRate"			"0.967" // 1.77 div 1.83
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
