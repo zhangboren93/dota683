@@ -110,21 +110,6 @@
 					}
 				}
 			}
-			// Deprecated
-			"modifier_dragon_knight_corrosive_breath_dot_datadriven"
-			{
-				"IsDebuff"			"1"
-				"ThinkInterval"		"1"
-				"Duration"			"5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_dragon_knight/elder_dragon_form.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-			}
 			"lich_chain_frost_ministun_checker" 
 			{
 				"Passive"		"1"
@@ -413,39 +398,6 @@
 				"States"
 				{
 					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			// Deprecated
-			"modifier_torrent_damage_datadriven"
-			{
-				"IsHidden"		"1"
-				"ThinkInterval"	"0.15"
-				"Duration"		"1.6"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_kunkka/torrent.lua"
-						"Function"		"handleCreated"
-					}
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_kunkka/torrent.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-			}
-			// Deprecated
-			"modifier_doom_bringer_scorched_earth_regen_datadriven"
-			{
-				"IsHidden"		"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"6"
 				}
 			}
 			"modifier_vendetta_physical_damage_active"
