@@ -1301,18 +1301,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:AddAbility("unit_intrinstic_mechanism_datadriven"):SetLevel(1)
 	end
 
-	-- deprecated
-	if entity:IsRealHero() and is_respawn == 1 and entity.loseIntOnRespawn then
-		print("Losing int at respawn")
-		entity.silencerAbility:ApplyDataDrivenModifier(entity, entity, "modifier_int_steal_debuf_datadriven", {})
-		if not entity:HasModifier("modifier_int_steal_debuf_stacks_datadriven") then
-			entity.silencerAbility:ApplyDataDrivenModifier(entity, entity, "modifier_int_steal_debuf_stacks_datadriven", {})
-		end
-		local modifier = entity:FindModifierByName("modifier_int_steal_debuf_stacks_datadriven")
-		modifier:IncrementStackCount()
-		entity.loseIntOnRespawn = false
-	end
-
 	if entity:GetModelName() == "models/creeps/roshan/roshan.vmdl" then
 		if self.roshanCount == nil then
 			self.roshanCount = 1
