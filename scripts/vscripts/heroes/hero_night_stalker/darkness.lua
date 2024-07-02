@@ -37,32 +37,6 @@ function Darkness( keys )
 
 end
 
--- deprecated
-
---[[Author: Pizzalol
-	Date: 11.01.2015.
-	Saves the original vision of the target and then reduces it]]
-function ReduceVision( keys )
-	local target = keys.target
-	local ability = keys.ability
-	local blind_percentage = ability:GetLevelSpecialValueFor("blind_percentage", (ability:GetLevel() - 1)) / -100
-
-	target.original_vision = target:GetBaseNightTimeVisionRange()
-
-	target:SetNightTimeVisionRange(target.original_vision * (1 - blind_percentage))
-end
-
---[[Author: Pizzalol
-	Date: 11.01.2015.
-	Reverts the vision back to what it was]]
-function RevertVision( keys )
-	local target = keys.target
-
-	target:SetNightTimeVisionRange(target.original_vision)
-end
-
--- undeprecated
-
 function handleIntervalThink(event)
 	local caster = event.caster
 	local ability = event.ability

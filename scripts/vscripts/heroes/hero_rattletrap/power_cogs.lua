@@ -31,20 +31,6 @@ function handleSpellStart(keys)
 		})
 	end
 
-	local units = FindUnitsInRadius(caster:GetTeam(), 
-		vOrigin, 
-		nil, 
-		radius + 60,
-		DOTA_UNIT_TARGET_TEAM_BOTH,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
-		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-		FIND_ANY_ORDER, 
-	false)
-
-	for k,v in pairs(units) do
-		FindClearSpaceForUnit(v, vOrigin, false)
-	end 
-
 	local nfx = ParticleManager:CreateParticle('particles/units/heroes/hero_rattletrap/rattletrap_cog_deploy.vpcf', PATTACH_ABSORIGIN, caster)
 	ParticleManager:ReleaseParticleIndex(nfx)
 end
