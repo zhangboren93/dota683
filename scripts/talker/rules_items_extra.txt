@@ -19,9 +19,9 @@ criterion "IsMekansm"				"itemname"		"item_mekansm_2"						required
 criterion "IsVladmirs"				"itemname"		"item_vladmir_2"						required
 
 criterion "IsVeilofDiscord"			"itemname"		"item_veil_of_discord_datadriven"		required
-criterion "IsRefresher"				"itemname"		"item_dagon_datadriven"					required
+criterion "IsDagon"					"itemname"		"item_dagon_datadriven"					required
 criterion "IsRodofAtos"				"itemname"		"item_rod_of_atos_datadriven"			required
-criterion "IsDagon"					"itemname"		"item_refresher_datadriven"				required
+criterion "IsRefresher"				"itemname"		"item_refresher_datadriven"				required
 
 criterion "IsHoodOfDefiance"		"itemname"		"item_hood_of_defiance_datadriven"		required
 criterion "IsVanguard"				"itemname"		"item_vanguard_lua"						required
