@@ -24,30 +24,6 @@ function IntToDamage( keys )
 
 end
 
-function stealInt(event)
-	local unit = event.unit
-	local ability = event.ability
-	print(unit:GetName())
-	print(ability:GetName())
-	if unit:IsRealHero() then 
-		print("Losing int when respawned")
-		unit.loseIntOnRespawn = true
-		unit.silencerAbility = ability
-	end
-end
-
-function stealIntBuffCount(event)
-	local ability = event.ability
-	local unit = event.target
-	print(ability:GetName())
-	print(unit:GetName())
-	if not unit:HasModifier("modifier_int_steal_bonus_stacks_datadriven") then
-		ability:ApplyDataDrivenModifier(unit, unit, "modifier_int_steal_bonus_stacks_datadriven", {})
-	end
-	local modifier = unit:FindModifierByName("modifier_int_steal_bonus_stacks_datadriven")
-	modifier:IncrementStackCount()
-end
-
 silencer_glaives_of_wisdom_datadriven = class({})
 function silencer_glaives_of_wisdom_datadriven:GetIntrinsicModifierName()
 	return "modifier_generic_orb_effect_lua"

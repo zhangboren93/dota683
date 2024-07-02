@@ -1034,7 +1034,7 @@
  		"AttributeAgilityGain"   	"2.9"
  		"AttributeBaseIntelligence" "18"
  		"AttributeIntelligenceGain" "2"  
-		"MovementSpeed"				"315"
+		"MovementSpeed"				"305"
 		"MovementTurnRate"			"1"
 		"ArmorPhysical"				"-1.53"
 		"AttackRate"				"1.7"

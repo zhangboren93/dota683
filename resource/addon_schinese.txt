@@ -934,7 +934,6 @@
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_Lore"					"全知之主对那些被普利斯特称为“朋友”的人降下保护结界。"
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_duration"				"持续时间："
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_radius"					"作用范围："
-		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_health_regen"			"回血："
 		"DOTA_Tooltip_ability_omniknight_guardian_angel_datadriven_scepter_description"		"提升持续时间，作用范围变为全地图，对建筑有效。"
 		"DOTA_Tooltip_modifier_guardian_angel"												"守护天使"
 		"DOTA_Tooltip_modifier_guardian_angel_Description"									"对物理攻击免疫。"
