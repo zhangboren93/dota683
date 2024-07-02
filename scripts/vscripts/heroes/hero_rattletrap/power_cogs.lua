@@ -246,7 +246,7 @@ function modifier_rattletrap_cog_push_lua:OnDestroy()
 		damage 			= self.damage,
 		damage_type		= ability:GetAbilityDamageType(),
 		damage_flags 	= DOTA_DAMAGE_FLAG_NONE,
-		attacker 		= self:GetCaster(),
+		attacker 		= self:GetCaster():GetOwner(),
 		ability 		= ability
 	}
 
