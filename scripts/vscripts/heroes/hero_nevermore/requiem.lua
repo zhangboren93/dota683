@@ -20,6 +20,7 @@ end
 function handleDeath(event)
 	if not IsServer() then return end
 	local caster = event.caster
+	if caster:IsReincarnating() then return end
 	local necromastery = caster:FindModifierByName("modifier_necromastery")
 	if necromastery == nil then return end
 	local stacks = necromastery:GetStackCount()

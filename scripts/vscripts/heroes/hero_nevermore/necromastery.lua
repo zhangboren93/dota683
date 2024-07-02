@@ -10,6 +10,7 @@ function NecromasteryDeath( event )
 	local modifier = event.modifier
 	local necromastery_soul_release = ability:GetLevelSpecialValueFor( "necromastery_soul_release", ability:GetLevel() - 1 )
 
+	if caster:IsReincarnating() then return	end
 	local current_stack = caster:GetModifierStackCount( modifier, ability )
 	if current_stack then
 		caster:SetModifierStackCount( modifier, ability, math.ceil(current_stack * necromastery_soul_release) )
