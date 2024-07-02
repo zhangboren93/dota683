@@ -2113,8 +2113,23 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		else
 			caster.power_cogs_cnt = caster.power_cogs_cnt % 8 + 1
 		end
+		if caster.power_cogs_cnt == 8 then
+			local vOrigin = caster:GetAbsOrigin()
+			local units = FindUnitsInRadius(caster:GetTeam(), 
+				vOrigin, 
+				nil, 
+				ability:GetSpecialValueFor("cogs_radius") + 60,
+				DOTA_UNIT_TARGET_TEAM_BOTH,
+				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+				DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+				FIND_ANY_ORDER,
+			false)
+
+			for k,v in pairs(units) do
+				FindClearSpaceForUnit(v, vOrigin, false)
+			end 
+		end
 		local new_position = caster:GetAbsOrigin() + cog_vector[caster.power_cogs_cnt]
-		print(new_position)
 
 		parent:SetThink(function()
 			parent:SetAbsOrigin(new_position)
@@ -2145,7 +2160,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_tombstone_hp" then return false
 	elseif event.name_const == "modifier_courier_passive_bonus" then return false
 	elseif event.name_const == "modifier_beastmaster_call_of_the_wild_hawk" then return false
---	elseif event.name_const == "modifier_dragon_knight_corrosive_breath_dot" then return false
 	elseif event.name_const == "modifier_undying_tombstone_zombie_aura" then return false
 	elseif event.name_const == "modifier_spirit_bear_attack_damage" then return false
 	elseif event.name_const == "modifier_lone_druid_spirit_bear_attack_check" then return false
