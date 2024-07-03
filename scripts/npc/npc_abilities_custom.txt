@@ -18607,7 +18607,7 @@
 		"AbilityValues"
 		{
 			"damage_cleanse"		"999999 600 550 500 450"
-			"damage_reset_interval"	"6.0"
+			"damage_reset_interval"	"0.01 6.0 6.0 6.0 6.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
