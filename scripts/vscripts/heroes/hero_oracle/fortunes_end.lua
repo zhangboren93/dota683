@@ -89,26 +89,32 @@ function oracle_fortunes_end_lua:ApplyFortunesEnd(target, target_sound, aoe_part
 		ParticleManager:SetParticleControl(self.aoe_particle, 2, Vector(radius, radius, radius))
 		ParticleManager:ReleaseParticleIndex(self.aoe_particle)
 	end
-	
-	-- "Fortune's End first applies the dispel, then the debuff, then the damage."
-	target:Purge(true, false, false, false, false)
-	
-	-- "Always removes Fate's Edict on affected targets."
-	if target:HasModifier("modifier_oracle_fates_edict") then
-		target:RemoveModifierByName("modifier_oracle_fates_edict")
-	end
-	
-	if target:HasModifier("modifier_oracle_fates_edict_alter") then
-		target:RemoveModifierByName("modifier_oracle_fates_edict_alter")
-	end
 
-	for _, enemy in pairs(FindUnitsInRadius(self:GetCaster():GetTeamNumber(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)) do
+	for _, enemy in pairs(FindUnitsInRadius(
+		self:GetCaster():GetTeamNumber(),
+		target:GetAbsOrigin(),
+		nil,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS + DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO,
+		FIND_ANY_ORDER,
+		false))
+		do
 		self.damage_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_oracle/oracle_fortune_dmg.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
 		ParticleManager:SetParticleControl(self.damage_particle, 1, target:GetAbsOrigin())
 		ParticleManager:SetParticleControl(self.damage_particle, 3, enemy:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(self.damage_particle)
 	
 		enemy:Purge(true, false, false, false, false)
+
+		if enemy:HasModifier("modifier_oracle_fates_edict") then
+			enemy:RemoveModifierByName("modifier_oracle_fates_edict")
+		end
+	
+		if enemy:HasModifier("modifier_oracle_fates_edict_alter") then
+			enemy:RemoveModifierByName("modifier_oracle_fates_edict_alter")
+		end
 		
 		enemy:AddNewModifier(self:GetCaster(), self, modifier_name,
 			{duration = math.max(math.min(charge_pct, 1) * self:GetSpecialValueFor("maximum_purge_duration"), self:GetSpecialValueFor("minimum_purge_duration"))
