@@ -45,6 +45,7 @@
 #base "heroes/terrorblade.txt"
 #base "heroes/tiny.txt"
 #base "heroes/tusk.txt"
+#base "heroes/vengefulspirit.txt"
 #base "heroes/viper.txt"
 #base "heroes/visage.txt"
 #base "heroes/warlock.txt"
@@ -25953,53 +25954,6 @@
 			"bounce_range_pct"		"0"
 			"damage_per_lasthit"	"0"
 		}
-	}
-	//=================================================================================================================
-	// Ability: Vengefulspirit Wave of Terror
-	//=================================================================================================================
-	"vengefulspirit_wave_of_terror"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5124"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"Hero_VengefulSpirit.WaveOfTerror"
-
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1400"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20"
-		"AbilityDuration"				"15"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"30 50 70 90"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"40"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"wave_speed"		"2000.0"
-				"wave_width"		"325"
-				"armor_reduction"	"-3 -4 -5 -6"
-				"vision_aoe"		"350"
-				"vision_duration"	"3"
-				"attack_reduction"	"0"
-				"damage"			"30 50 70 90"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	"witch_doctor_paralyzing_cask"
 	{

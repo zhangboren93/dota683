@@ -1848,6 +1848,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability2"					"vengefulspirit_wave_of_terror_datadriven"
 		"Ability3"					"vengefulspirit_command_aura_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
