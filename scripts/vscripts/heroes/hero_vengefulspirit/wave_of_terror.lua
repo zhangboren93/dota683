@@ -1,3 +1,4 @@
+require("../../items/item_magic_stick")
 --[[Author: Pizzalol, kritth
 	Date: 12.07.2015.
 	Provides vision along the way of the projectile]]
@@ -18,6 +19,8 @@ function WaveOfTerrorVision( keys )
 	-- Vision variables
 	local vision_aoe = ability:GetLevelSpecialValueFor("vision_aoe", (ability:GetLevel() - 1))
 	local vision_duration = ability:GetLevelSpecialValueFor("vision_duration", (ability:GetLevel() - 1))
+
+	ProcsMagicStick(event)
 
 	-- Creating the projectile
 	local projectileTable =
