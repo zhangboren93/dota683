@@ -82,7 +82,7 @@ function handleReturnSpellStart(event)
 		is_scepter_chakram = true
 	end
 	if not IsValidEntity(chakram_dummy_unit) then return end
-	chakram_dummy_unit:AddNewModifier(caster, ability, "modifier_shredder_chakram_return_lua", {})
+	chakram_dummy_unit:AddNewModifier(caster, ability, "modifier_shredder_chakram_return_lua", { })
 	caster:EmitSound("Hero_Shredder.Chakram.Return")
 	local chakram_ability = caster:FindAbilityByName("shredder_chakram_datadriven")
 	if is_scepter_chakram then
