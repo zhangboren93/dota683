@@ -5,6 +5,7 @@ function handleProjectileHit(event)
 	local ability = event.ability
 	local caster = event.caster
 	local bolt_aoe = ability:GetSpecialValueFor("bolt_aoe")
+	local bolt_stun_duration = ability:GetSpecialValueFor("bolt_stun_duration")
 	local units = FindUnitsInRadius(caster:GetTeam(),
 									target:GetAbsOrigin(), nil,
 									bolt_aoe,
@@ -13,6 +14,6 @@ function handleProjectileHit(event)
 									0,0,false)
 	for i=1,#units do
 		ApplyDamage({ victim = units[i], attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL })
-		ability:ApplyDataDrivenModifier(caster, units[i], "modifier_storm_bolt_datadriven", {})
+		units[i]:AddNewModifier(caster, ability, "modifier_stunned", { duration = bolt_stun_duration })
 	end
 end
