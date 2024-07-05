@@ -72,7 +72,7 @@ function infest_start( keys )
 		control:SetHidden(false)
 	end
 
-    -- Remove the abilities.
+    -- Hide the abilities.
     for i = 0, 2 do
         local ability_slot = caster:GetAbilityByIndex(i)
         if ability_slot ~= nil and ability_slot:GetAbilityName() ~= "life_stealer_infest_datadriven" and ability_slot:GetAbilityName() ~= "life_stealer_consume_datadriven" then
