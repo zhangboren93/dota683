@@ -126,6 +126,7 @@ function Activate()
 	LinkLuaModifier( "modifier_frost_arrows_slow_datadriven",		"heroes/hero_drow_ranger/frost_arrow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_ability_elder_dragon_form",			"heroes/hero_dragon_knight/elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_ability_elder_dragon_form_corrosive", "heroes/hero_dragon_knight/elder_dragon_form.lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_earth_spirit_boulder_smash_stun_lua", "heroes/hero_earth_spirit/modifier_earth_spirit_boulder_smash_stun.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_lycan_shapeshift_attackrange",		"heroes/hero_lycan/shapeshift.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_dream_coil_lua",						"heroes/hero_puck/dream_coil.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_dream_coil_thinker_lua",				"heroes/hero_puck/dream_coil.lua", LUA_MODIFIER_MOTION_NONE )
@@ -1763,10 +1764,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local burn_datadriven = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		burn_datadriven:ApplyDataDrivenModifier(caster, parent, "modifier_underlord_firestorm_burn_active_datadriven", {})
-	elseif event.name_const == "modifier_earth_spirit_boulder_smash_debuff" then
+	elseif event.name_const == "modifier_earth_spirit_boulder_smash" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
-		parent:AddNewModifier(caster, ability, "modifier_stunned", {duration = ability:GetSpecialValueFor("duration")})
+		parent:AddNewModifier(caster, ability, "modifier_earth_spirit_boulder_smash_stun_lua", {duration = event.duration})
 	elseif event.name_const == "modifier_elder_titan_earth_splitter" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		if caster:HasScepter() then
@@ -2162,6 +2163,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_lone_druid_spirit_bear_attack_check" then return false
 	elseif event.name_const == "modifier_fountain_fury_swipes_damage_increase" then return false
 	elseif event.name_const == "modifier_lion_finger_of_death_kill_counter" then return false
+	elseif event.name_const == "modifier_earth_spirit_boulder_smash_debuff" then return false
 --	elseif event.name_const == "modifier_nevermore_requiem_slow" then return false
 --	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
