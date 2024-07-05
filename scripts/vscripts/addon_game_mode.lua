@@ -1844,9 +1844,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		print("Applying magic resist to stoned units")
 		caster:FindAbilityByName("hero_ability_executed_hook_datadriven"):ApplyDataDrivenModifier(
 			caster, parent, "modifier_stone_gaze_magic_resist_datadriven", {})
-	elseif event.name_const == "modifier_ember_spirit_fire_remnant_thinker" then
-		parent:SetDayTimeVisionRange(400)
-		parent:SetNightTimeVisionRange(400)
 	elseif event.name_const == "modifier_slark_pounce_leash" then 
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
