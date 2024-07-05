@@ -1778,6 +1778,9 @@
 		"DOTA_Tooltip_ability_spectre_dispersion_lua_damage_reflection_pct"		"%DAMAGE REFLECTED:"
 		"DOTA_Tooltip_ability_spectre_dispersion_lua_min_radius"				"MIN RADIUS:"
 		"DOTA_Tooltip_ability_spectre_dispersion_lua_max_radius"				"MAX RADIUS:"
+		"DOTA_Tooltip_ability_spectre_reality_datadriven"						"Reality"
+		"DOTA_Tooltip_ability_spectre_reality_datadriven_Description"			"Spectre replaces a chosen Haunt."
+		"DOTA_Tooltip_ability_spectre_reality_datadriven_Lore"					"The scattered shadows unite into the one true Spectre."
 		
 		// Templar Assassin
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"Refraction"

@@ -84,4 +84,25 @@
 			"particle"	"particles/units/heroes/hero_spectre/spectre_dispersion_b_fallback_low.vpcf"
 		}
 	}
+
+	"spectre_reality_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"						"1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+		"AbilityTextureName"			"spectre_reality"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"0"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_spectre/reality.lua"
+				"Function"				"handleSpellStart"
+				"Target"				"POINT"
+			}
+		}
+	}
 }

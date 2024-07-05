@@ -1856,6 +1856,9 @@
 		"DOTA_Tooltip_ability_spectre_dispersion_lua_damage_reflection_pct"		"%伤害反弹："
 		"DOTA_Tooltip_ability_spectre_dispersion_lua_min_radius"				"最小范围："
 		"DOTA_Tooltip_ability_spectre_dispersion_lua_max_radius"				"最大范围："
+		"DOTA_Tooltip_ability_spectre_reality_datadriven"						"空降"
+		"DOTA_Tooltip_ability_spectre_reality_datadriven_Description"			"幽鬼替换选中的鬼影。"
+		"DOTA_Tooltip_ability_spectre_reality_datadriven_Lore"					"分散的幽影重聚成真正的幽鬼。"
 		
 		// Templar Assassin
 		"DOTA_Tooltip_Ability_templar_assassin_refraction_datadriven"				"折光"

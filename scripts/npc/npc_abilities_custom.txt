@@ -7665,32 +7665,6 @@
 				"destroy_if_target_is_dead"	"1"
 		}
 	}
-	//=================================================================================================================
-	// Spectre: Reality
-	//=================================================================================================================
-	"spectre_reality"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5338"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"MaxLevel"						"1"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"0"
-		"AbilityValues"
-		{
-			"cast_dagger_on_target"		"0"
-			"AbilityCooldown"				"0"
-		}
-	}
 	"spectre_reality_levelup_with_haunt_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
