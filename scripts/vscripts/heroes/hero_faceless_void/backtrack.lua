@@ -1,24 +1,14 @@
---[[Author: Pizzalol
-	Date: 14.02.2016.
-	Keeps track of the casters health]]
-function BacktrackHealth( keys )
-	local caster = keys.caster
-	local ability = keys.ability
-
-	ability.caster_hp_old = ability.caster_hp_old or caster:GetMaxHealth()
-	ability.caster_hp = ability.caster_hp or caster:GetMaxHealth()
-
-	ability.caster_hp_old = ability.caster_hp
-	ability.caster_hp = caster:GetHealth()
-end
-
---[[Author: Pizzalol
-	Date: 14.02.2016.
-	Negates incoming damage]]
-function BacktrackHeal( keys )
-	print("BacktrackHeal")
-	local caster = keys.caster
-	local ability = keys.ability
-
-	caster:SetHealth(ability.caster_hp_old)
+function handleDamageTaken(event)
+	local caster = event.caster
+	local damage = event.Damage
+	local ability = event.ability 
+	local dodge_chance_pct = ability:GetSpecialValueFor("dodge_chance_pct")
+	if RandomInt(1, 100) <= dodge_chance_pct then
+		local particleId = ParticleManager:CreateParticle(
+			"particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf",
+			PATTACH_ABSORIGIN_FOLLOW,
+			caster)
+		ParticleManager:ReleaseParticleIndex(particleId)
+		caster:Heal(damage, ability)
+	end
 end

@@ -43,38 +43,13 @@
 				"Passive"	"1"
 				"IsHidden"	"1"
 	
-				"ThinkInterval"		"0.03"
-	
-				"OnIntervalThink"
+				"OnTakeDamage"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_faceless_void/backtrack.lua"
-						"Function"		"BacktrackHealth"
-					}
-				}
-	
-				"OnTakeDamage"
-				{
-					"Random"
-					{
-						"Chance"	"%dodge_chance_pct"
-	
-						"OnSuccess"
-						{
-							"FireEffect"
-							{
-								"EffectName"	"particles/units/heroes/hero_faceless_void/faceless_void_backtrack.vpcf"
-								"EffectAttachType"	"follow_origin"
-								"Target"		"CASTER"
-							}
-	
-							"RunScript"
-							{
-								"ScriptFile"	"scripts/vscripts/heroes/hero_faceless_void/backtrack.lua"
-								"Function"		"BacktrackHeal"
-							}
-						}
+						"ScriptFile"	"heroes/hero_faceless_void/backtrack.lua"
+						"Function"		"handleDamageTaken"
+						"Damage"		"%attack_damage"
 					}
 				}
 			}			
