@@ -2172,7 +2172,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_undying_tombstone_zombie_aura" then return false
 	elseif event.name_const == "modifier_spirit_bear_attack_damage" then return false
 	elseif event.name_const == "modifier_lone_druid_spirit_bear_attack_check" then return false
---	elseif event.name_const == "modifier_kunkka_torrent_slow" then return false
+	elseif event.name_const == "modifier_fountain_fury_swipes_damage_increase" then return false
 	elseif event.name_const == "modifier_lion_finger_of_death_kill_counter" then return false
 --	elseif event.name_const == "modifier_nevermore_requiem_slow" then return false
 --	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
