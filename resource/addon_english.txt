@@ -2508,6 +2508,7 @@
 		"DOTA_Tooltip_Ability_creep_piercing_alter_basic_damage_penalty"		"%DAMAGE PENALTY TO BASIC-ARMOR / STRONG-ARMOR UNITS:"
 		"DOTA_Tooltip_Ability_creep_piercing_alter_hero_damage_penalty"			"%DAMAGE PENALTY TO HEROES:"
 		"DOTA_Tooltip_Ability_creep_piercing_alter_heavy_damage_penalty"		"%DAMAGE PENALTY TO REINFORCED:"
+		"DOTA_Tooltip_Ability_creep_hero_attack"								"Hero Attack Type"
 		
 		"DOTA_Tooltip_Ability_creep_weak"								"Weak"
 		"DOTA_Tooltip_Ability_creep_weak_Description"					"This unit has weak armor."

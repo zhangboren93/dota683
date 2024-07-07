@@ -32339,6 +32339,13 @@
 			"building_damage_tooltip"		"40"
 		}
 	}
+	"creep_hero_attack"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"primal_beast_trample"
+	}
 	"creep_weak"
 	{
 		"BaseClass"						"ability_datadriven"

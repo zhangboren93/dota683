@@ -2607,6 +2607,7 @@
 		"DOTA_Tooltip_Ability_creep_piercing_alter_basic_damage_penalty"		"%对中甲/重甲伤害降低："
 		"DOTA_Tooltip_Ability_creep_piercing_alter_hero_damage_penalty"			"%对英雄伤害降低："
 		"DOTA_Tooltip_Ability_creep_piercing_alter_heavy_damage_penalty"		"%对坚锐伤害降低："
+		"DOTA_Tooltip_Ability_creep_hero_attack"								"英雄攻击类型"
 		
 		"DOTA_Tooltip_Ability_creep_weak"								"脆弱"
 		"DOTA_Tooltip_Ability_creep_weak_Description"					"这个单位具有脆弱的护甲。"
