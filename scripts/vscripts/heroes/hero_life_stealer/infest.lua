@@ -72,15 +72,15 @@ function infest_start( keys )
 		control:SetHidden(false)
 	end
 
-    -- Remove the abilities.
+    -- Hide the abilities.
     for i = 0, 2 do
         local ability_slot = caster:GetAbilityByIndex(i)
         if ability_slot ~= nil and ability_slot:GetAbilityName() ~= "life_stealer_infest_datadriven" and ability_slot:GetAbilityName() ~= "life_stealer_consume_datadriven" then
             print(ability_slot, ability_slot:GetAbilityName() )
-            caster.removed_spells[i] = { ability_slot:GetAbilityName(), ability_slot:GetLevel() }
+            caster.removed_spells[i] = ability_slot
 
-            print(caster.removed_spells[i][1], caster.removed_spells[i][2])
-            caster:RemoveAbility(ability_slot:GetAbilityName())
+            print(caster.removed_spells[i])
+            ability_slot:SetHidden(true)
         end
     end
     --Timers:CreateTimer(10, function() reset(keys) end)
@@ -151,9 +151,8 @@ function infest_consume(keys)
 
     for i = 0, 2 do
         if caster.removed_spells[i] ~= nil then
-            print(caster.removed_spells[i][1], caster.removed_spells[i][2])
-            caster:AddAbility(caster.removed_spells[i][1])
-            caster:GetAbilityByIndex(i):SetLevel(caster.removed_spells[i][2])
+            print(caster.removed_spells[i])
+            caster.removed_spells[i]:SetHidden(false)
         end
     end
 

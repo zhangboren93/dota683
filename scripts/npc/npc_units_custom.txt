@@ -5681,5 +5681,12 @@
 
 		"BountyGoldMin"				"1"		// Gold earned min.
 		"BountyGoldMax"				"1"		// Gold earned max.
-	}	
+	}
+	"npc_dota_ember_spirit_remnant"
+	{
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"400"		// Range of vision during day light.
+		"VisionNighttimeRange"		"400"		// Range of vision at night time.
+	}
 }
