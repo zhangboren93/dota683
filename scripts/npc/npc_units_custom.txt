@@ -2008,11 +2008,20 @@
 	{
 		"Ability2"					"neutral_spell_immunity"
 		"Ability3"					"brewmaster_earth_pulverize_datadriven"
-		"Ability4"					"brewmaster_thunder_clap"
+		"Ability4"					"creep_piercing_alter"
+		"Ability5"					"creep_strong"
+		"Ability6"					"generic_hidden"
 		"ArmorPhysical"				"5"			// Physical protection.
+		"MagicalResistance"			"100"		// Magical protection.  
 		"AttackDamageMin"			"37"		// Damage range min.
 		"AttackDamageMax"			"43"		// Damage range max.	
+		"AttackRate"				"1.35"		// Speed of attack.
+		"BountyXP"					"196"		// Experience earn.
+		"BountyGoldMin"				"11"		// Gold earned min.
+		"BountyGoldMax"				"15"		// Gold earned max.
+		"MovementSpeed"				"325"		// Speed.
 		"StatusHealth"				"1500"		// Base health.
+		"StatusHealthRegen"			"1"			// Health regeneration rate.
 		"StatusMana"				"400"		// Base mana.
 		"AttackRange"				"128"		// Range within a target can be attacked.
 	}
@@ -2020,11 +2029,15 @@
 	{
 		"Ability2"					"neutral_spell_immunity"
 		"Ability3"					"brewmaster_earth_pulverize_datadriven"
-		"Ability4"					"brewmaster_thunder_clap"
 		"ArmorPhysical"				"5"			// Physical protection.
 		"AttackDamageMin"			"75"		// Damage range min.
 		"AttackDamageMax"			"84"		// Damage range max.	
+		"BountyXP"					"242"		// Experience earn.
+		"BountyGoldMin"				"11"		// Gold earned min.
+		"BountyGoldMax"				"15"		// Gold earned max.
+		"MovementSpeed"				"325"		// Speed.
 		"StatusHealth"				"2200"		// Base health.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
 		"StatusMana"				"500"		// Base mana.
 		"AttackRange"				"128"		// Range within a target can be attacked.
 	}
@@ -2032,11 +2045,15 @@
 	{
 		"Ability2"					"neutral_spell_immunity"
 		"Ability3"					"brewmaster_earth_pulverize_datadriven"
-		"Ability4"					"brewmaster_thunder_clap"
 		"ArmorPhysical"				"5"			// Physical protection.
 		"AttackDamageMin"			"159"		// Damage range min.
 		"AttackDamageMax"			"171"		// Damage range max.	
+		"BountyXP"					"242"		// Experience earn.
+		"BountyGoldMin"				"31"		// Gold earned min.
+		"BountyGoldMax"				"35"		// Gold earned max.
+		"MovementSpeed"				"325"		// Speed.
 		"StatusHealth"				"3000"		// Base health.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
 		"StatusMana"				"600"		// Base mana.
 		"AttackRange"				"128"		// Range within a target can be attacked.
 	}
