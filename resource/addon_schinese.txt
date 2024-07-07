@@ -708,6 +708,7 @@
 		"DOTA_Tooltip_Facet_earthshaker_tectonic_buildup_Description"							""
         //Earth Spirit
 		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					    "眩晕"
+		"DOTA_Tooltip_modifier_earth_spirit_boulder_smash_stun_lua"							"巨石冲击"
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven"						"巨石翻滚"
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Description"			"大地之灵化身为巨石，经过%delay%秒延迟后沿目标位置翻滚，对经过的敌人造成伤害，伤害值为%damage%。如果撞到敌方英雄或自身被眩晕，翻滚都会中止。如果翻滚过程中经过残岩将会大幅提高翻滚距离和速度。"
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Lore"					"大地之灵将自己与大地紧密结合，使松散的石块吸附到身上，从而组成一个防护圆球向前滚动。"

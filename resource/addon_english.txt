@@ -686,6 +686,7 @@
 		"DOTA_Tooltip_Ability_earthshaker_echo_slam_datadriven_Scepter_Description"				"Heroes cause two echoes."
         //Earth Spirit
 		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					    "Stuns"
+		"DOTA_Tooltip_modifier_earth_spirit_boulder_smash_stun_lua"							"Boulder Smash"
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven"						"Rolling Boulder"
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Description"			"Earth Spirit gathers himself into a boulder and, after a %delay%s delay, rolls toward the target location, dealing %damage% damage and slowing enemy units. He will stop if he collides with an enemy hero or is stunned. If he rolls over a Stone Remnant, he will travel further and faster."
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Lore"					"Calling upon his connection to the land, the Earth Spirit draws loose stone to him, which forms a protective ball that he can use to roll short distances."
