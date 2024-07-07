@@ -2059,28 +2059,40 @@
 	}
 	"npc_dota_brewmaster_storm_1"
 	{										
-		"Ability4"					"brewmaster_drunken_haze_datadriven"
+		"Ability4"					"creep_piercing_alter"
+		"Ability5"					"creep_strong"
+		"Ability6"					"generic_hidden"
 		"ArmorPhysical"				"2"			// Physical protection.
+		"MagicalResistance"			"0"			// Magical protection.
 		"AttackDamageMin"			"37"		// Damage range min.
 		"AttackDamageMax"			"43"		// Damage range max.	
+		"BountyXP"					"196"		// Experience earn.
+		"BountyGoldMin"				"11"		// Gold earned min.
+		"BountyGoldMax"				"15"		// Gold earned max.
 		"StatusHealth"				"1000"		// Base health.
+		"StatusHealthRegen"			"1"			// Health regeneration rate.
 		"StatusMana"				"500"		// Base mana.
 	}
 	"npc_dota_brewmaster_storm_2"
 	{										
-		"Ability4"					"brewmaster_drunken_haze_datadriven"
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"75"		// Damage range min.
 		"AttackDamageMax"			"84"		// Damage range max.	
+		"BountyXP"					"242"		// Experience earn.
+		"BountyGoldMin"				"11"		// Gold earned min.
+		"BountyGoldMax"				"15"		// Gold earned max.
 		"StatusHealth"				"1500"		// Base health.
+		"StatusHealthRegen"			"2"			// Health regeneration rate.
 		"StatusMana"				"750"		// Base mana.
 	}
 	"npc_dota_brewmaster_storm_3"
 	{										
-		"Ability4"					"brewmaster_drunken_haze_datadriven"
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"159"		// Damage range min.
 		"AttackDamageMax"			"171"		// Damage range max.	
+		"BountyXP"					"242"		// Experience earn.
+		"BountyGoldMin"				"31"		// Gold earned min.
+		"BountyGoldMax"				"35"		// Gold earned max.
 		"StatusHealth"				"1900"		// Base health.
 		"StatusMana"				"750"		// Base mana.
 	}
