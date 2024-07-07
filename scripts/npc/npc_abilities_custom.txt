@@ -26977,6 +26977,7 @@
 			}
 		}
 	}
+	// Deprecated.
 	// Rewrite of Brewmaster Primal Split
 	// Author: Noya
 	// Date: 21.01.2015.

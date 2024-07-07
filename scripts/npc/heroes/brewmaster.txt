@@ -163,4 +163,48 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Brewmaster: Primal Split
+	//=================================================================================================================
+	"brewmaster_primal_split"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		
+		"HasScepterUpgrade"				"1"
+		"HasShardUpgrade"				"0"
+		"MaxLevel"						"3"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"140 120 100"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.65"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"125 150 175"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"					"15 17 19"			
+			"split_duration"			"0.6"
+			"tooltip_earth_brewling_hp"	"1500 2200 3000"
+			"tooltip_storm_brewling_hp"	"1000 1500 1900"	
+			"tooltip_fire_brewling_hp"	"1200"
+			"tooltip_void_brewling_hp"	"0"
+			"bonus_brewling_hp"			"0"
+			"bonus_damage"				"0"
+		}
+	}
 }
