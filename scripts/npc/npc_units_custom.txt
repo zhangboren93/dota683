@@ -2014,7 +2014,7 @@
 		"ArmorPhysical"				"5"			// Physical protection.
 		"MagicalResistance"			"100"		// Magical protection.  
 		"AttackDamageMin"			"37"		// Damage range min.
-		"AttackDamageMax"			"43"		// Damage range max.	
+		"AttackDamageMax"			"43"		// Damage range max.
 		"AttackRate"				"1.35"		// Speed of attack.
 		"BountyXP"					"196"		// Experience earn.
 		"BountyGoldMin"				"11"		// Gold earned min.
@@ -2031,7 +2031,7 @@
 		"Ability3"					"brewmaster_earth_pulverize_datadriven"
 		"ArmorPhysical"				"5"			// Physical protection.
 		"AttackDamageMin"			"75"		// Damage range min.
-		"AttackDamageMax"			"84"		// Damage range max.	
+		"AttackDamageMax"			"84"		// Damage range max.
 		"BountyXP"					"242"		// Experience earn.
 		"BountyGoldMin"				"11"		// Gold earned min.
 		"BountyGoldMax"				"15"		// Gold earned max.
@@ -2047,7 +2047,7 @@
 		"Ability3"					"brewmaster_earth_pulverize_datadriven"
 		"ArmorPhysical"				"5"			// Physical protection.
 		"AttackDamageMin"			"159"		// Damage range min.
-		"AttackDamageMax"			"171"		// Damage range max.	
+		"AttackDamageMax"			"171"		// Damage range max.
 		"BountyXP"					"242"		// Experience earn.
 		"BountyGoldMin"				"31"		// Gold earned min.
 		"BountyGoldMax"				"35"		// Gold earned max.
@@ -2065,7 +2065,7 @@
 		"ArmorPhysical"				"2"			// Physical protection.
 		"MagicalResistance"			"0"			// Magical protection.
 		"AttackDamageMin"			"37"		// Damage range min.
-		"AttackDamageMax"			"43"		// Damage range max.	
+		"AttackDamageMax"			"43"		// Damage range max.
 		"BountyXP"					"196"		// Experience earn.
 		"BountyGoldMin"				"11"		// Gold earned min.
 		"BountyGoldMax"				"15"		// Gold earned max.
@@ -2077,7 +2077,7 @@
 	{										
 		"ArmorPhysical"				"2"			// Physical protection.
 		"AttackDamageMin"			"75"		// Damage range min.
-		"AttackDamageMax"			"84"		// Damage range max.	
+		"AttackDamageMax"			"84"		// Damage range max.
 		"BountyXP"					"242"		// Experience earn.
 		"BountyGoldMin"				"11"		// Gold earned min.
 		"BountyGoldMax"				"15"		// Gold earned max.
@@ -2098,33 +2098,59 @@
 	}
 	"npc_dota_brewmaster_fire_1"
 	{
-		"Ability2"					"brewmaster_drunken_brawler_datadriven"
+		"Ability2"					"creep_hero_attack"
+		"Ability3"					"creep_strong"
+		"Ability6"					"generic_hidden"
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"72"		// Damage range min.
 		"AttackDamageMax"			"82"		// Damage range max.	
 		"StatusHealth"				"1200"		// Base health.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.
 		"AttackRange"				"128"		// Range within a target can be attacked.
+		"BountyXP"					"196"		// Experience earn.
+		"BountyGoldMin"				"11"		// Gold earned min.
+		"BountyGoldMax"				"15"		// Gold earned max.
 		"MovementSpeed"				"522"		// Speed.
 	}
 	"npc_dota_brewmaster_fire_2"
 	{
-		"Ability2"					"brewmaster_drunken_brawler_datadriven"
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"115"		// Damage range min.
 		"AttackDamageMax"			"130"		// Damage range max.	
 		"StatusHealth"				"1200"		// Base health.
+		"BountyXP"					"242"		// Experience earn.
+		"BountyGoldMin"				"11"		// Gold earned min.
+		"BountyGoldMax"				"15"		// Gold earned max.
 		"AttackRange"				"128"		// Range within a target can be attacked.
 		"MovementSpeed"				"522"		// Speed.
 	}
 	"npc_dota_brewmaster_fire_3"
 	{
-		"Ability2"					"brewmaster_drunken_brawler_datadriven"
 		"ArmorPhysical"				"0"			// Physical protection.
 		"AttackDamageMin"			"144"		// Damage range min.
 		"AttackDamageMax"			"164"		// Damage range max.	
 		"StatusHealth"				"1200"		// Base health.
+		"StatusHealthRegen"			"4"			// Health regeneration rate.
+		"BountyXP"					"242"		// Experience earn.
+		"BountyGoldMin"				"31"		// Gold earned min.
+		"BountyGoldMax"				"35"		// Gold earned max.
 		"AttackRange"				"128"		// Range within a target can be attacked.
 		"MovementSpeed"				"522"		// Speed.
+	}
+	"npc_dota_brewmaster_void_1"
+	{
+		"Ability1"					"generic_hidden"		// Ability 1
+		"Ability6"					"generic_hidden"		// Ability 6
+		"StatusHealth"				"0"		// Base health.
+	}
+	"npc_dota_brewmaster_void_2"
+	{
+		"StatusHealth"				"0"		// Base health.
+	}
+	"npc_dota_brewmaster_void_3"
+	{
+		"StatusHealth"				"0"		// Base health.
 	}
 	"npc_dota_broodmother_spiderling"
 	{
