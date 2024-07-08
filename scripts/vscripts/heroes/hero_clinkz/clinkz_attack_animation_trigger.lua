@@ -1,5 +1,5 @@
 HERO_2_ASP = {
-	npc_dota_hero_clinkz = -58,
+	npc_dota_hero_clinkz = -57,
 	npc_dota_hero_axe = -20,
 	npc_dota_hero_crystal_maiden = -19,
 	npc_dota_hero_drow_ranger = -29,

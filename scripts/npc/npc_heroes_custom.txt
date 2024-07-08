@@ -2186,7 +2186,7 @@
 		"MovementSpeed"				"300"
 		"MovementTurnRate"			"0.4"
 		"ArmorPhysical"				"-1.58"
-		"AttackRate"				"0.726"
+		"AttackRate"				"0.728"
 		//"AttackAnimationPoint"		"0.7"
 		"AttackDamageMin"			"15"
 		"AttackDamageMax"			"21"
