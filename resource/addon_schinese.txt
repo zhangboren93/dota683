@@ -567,6 +567,7 @@
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"酒仙分裂成元素，产生3个各有所长的战士，生存能力极强。只要其中任何一个在召唤时间结束后存活下来，酒仙就能重生。"
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_duration"				"持续时间："
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_scepter_description"	"大地战士获得当前等级雷霆一击，狂风战士获得当前等级醉酒云雾，烈火战士获得当前等级醉拳。"
+		"DOTA_Tooltip_Ability_brewmaster_primal_split_scepter_description"				"大地战士获得当前等级雷霆一击，狂风战士获得当前等级醉酒云雾，烈火战士获得当前等级醉拳。"
 		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven"					"粉碎击"
 		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven_Description"		"20%%几率攻击150范围造成40伤害，250范围造成20伤害。"
 		"DOTA_Tooltip_Facet_brewmaster_roll_out_the_barrel"								"空"
@@ -2646,6 +2647,7 @@
 		"DOTA_Tooltip_Ability_creep_piercing_alter_basic_damage_penalty"		"%对中甲/重甲伤害降低："
 		"DOTA_Tooltip_Ability_creep_piercing_alter_hero_damage_penalty"			"%对英雄伤害降低："
 		"DOTA_Tooltip_Ability_creep_piercing_alter_heavy_damage_penalty"		"%对坚锐伤害降低："
+		"DOTA_Tooltip_Ability_creep_hero_attack"								"英雄攻击类型"
 		
 		"DOTA_Tooltip_Ability_creep_weak"								"脆弱"
 		"DOTA_Tooltip_Ability_creep_weak_Description"					"这个单位具有脆弱的护甲。"

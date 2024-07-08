@@ -1328,6 +1328,41 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end, "remove flag bearer bonus", 1)
 	end
 
+	if string.find(entity:GetName(), "npc_dota_brewmaster_earth") ~= nil then
+		entity:SetThink(function()
+			local owner = entity:GetOwner()
+			if owner:HasScepter() then
+				local ability = entity:AddAbility("brewmaster_thunder_clap")
+				ability:SetLevel(owner:FindAbilityByName("brewmaster_thunder_clap"):GetLevel())
+			end
+		end, "Add brewmaster ability", 0.1)
+	end
+
+	if string.find(entity:GetName(), "npc_dota_brewmaster_fire") ~= nil then
+		entity:SetThink(function()
+			local owner = entity:GetOwner()
+			if owner:HasScepter() then
+				local ability = entity:AddAbility("brewmaster_drunken_brawler_datadriven")
+				ability:SetLevel(owner:FindAbilityByName("brewmaster_drunken_brawler_datadriven"):GetLevel())
+			end
+		end, "Add brewmaster ability", 0.1)
+	end
+
+	if string.find(entity:GetName(), "npc_dota_brewmaster_storm") ~= nil then
+		entity:SetThink(function()
+			local owner = entity:GetOwner()
+			if owner:HasScepter() then
+				local ability = entity:AddAbility("brewmaster_drunken_haze_datadriven")
+				ability:SetLevel(owner:FindAbilityByName("brewmaster_drunken_haze_datadriven"):GetLevel())
+			end
+		end, "Add brewmaster ability", 0.1)
+	end
+
+	if string.find(entity:GetName(), "npc_dota_brewmaster_void") ~= nil then
+		entity:AddNoDraw()
+		entity:ForceKill(false)
+	end
+
 	if entity:GetName() == "npc_dota_lone_druid_bear" then
 		entity:FindAbilityByName("lone_druid_bear_damage_return_cd"):SetLevel(1)
 	end

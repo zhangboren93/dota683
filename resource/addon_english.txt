@@ -577,6 +577,7 @@
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_Description"			"Splits Brewmaster into elements, forming 3 specialized warriors, adept at survival, each with their own abilities. If any of them survive until the end of their summoned timer, the Brewmaster is reborn."
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_duration"				"Duration: "
 		"DOTA_Tooltip_Ability_brewmaster_primal_split_datadriven_scepter_description"	"Grants Earth warrior Thunder Clap.<br>Grants Storm warrior Drunken Haze.<br>Grants Brewmaster Fire warrior Drunken Brawler."
+		"DOTA_Tooltip_Ability_brewmaster_primal_split_scepter_description"				"Grants Earth warrior Thunder Clap.<br>Grants Storm warrior Drunken Haze.<br>Grants Brewmaster Fire warrior Drunken Brawler."
 		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven"							"Pulverize"
 		"DOTA_Tooltip_ability_brewmaster_earth_pulverize_datadriven_Description"				"20%% chance to do 40 damage in 150 radius, 20 damage in 250 radius."
 		//Bristleback
@@ -2547,6 +2548,7 @@
 		"DOTA_Tooltip_Ability_creep_piercing_alter_basic_damage_penalty"		"%DAMAGE PENALTY TO BASIC-ARMOR / STRONG-ARMOR UNITS:"
 		"DOTA_Tooltip_Ability_creep_piercing_alter_hero_damage_penalty"			"%DAMAGE PENALTY TO HEROES:"
 		"DOTA_Tooltip_Ability_creep_piercing_alter_heavy_damage_penalty"		"%DAMAGE PENALTY TO REINFORCED:"
+		"DOTA_Tooltip_Ability_creep_hero_attack"								"Hero Attack Type"
 		
 		"DOTA_Tooltip_Ability_creep_weak"								"Weak"
 		"DOTA_Tooltip_Ability_creep_weak_Description"					"This unit has weak armor."
