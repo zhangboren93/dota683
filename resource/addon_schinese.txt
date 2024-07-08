@@ -1882,10 +1882,8 @@
 		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_shock_radius"			"作用范围："
 		"DOTA_Tooltip_ability_ursa_overpower_Description"						"乌尔萨的战斗技巧提升他接下来几次攻击的攻击速度。"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"狂怒"
-		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"乌尔萨进入狂暴，将当前生命值一定百分比的数值转化为额外伤害。持续15秒。"
-		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_damage_health_pct"			"%百分比："
-		"DOTA_Tooltip_modifier_enrage_buff_datadriven"							"激怒"
-		"DOTA_Tooltip_modifier_enrage_buff_datadriven_Description"				"正在造成基于当前生命值的额外伤害"
+		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"乌尔萨进入狂暴，将当前生命值一定百分比的数值转化为额外攻击力。持续15秒。"
+		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_health_as_damage_pct"		"%百分比："
 		// Vengeful Spirit	
 		"DOTA_Tooltip_ability_vengefulspirit_nether_swap_scepter_description"			"-CD"
 		"DOTA_Tooltip_ability_vengefulspirit_command_aura_datadriven" 					"复仇光环"

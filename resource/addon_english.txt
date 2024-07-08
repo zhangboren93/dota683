@@ -1804,9 +1804,7 @@
 		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_shock_radius"								"RADIUS:"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"Enrage"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"Ursa goes into a frenzy, gaining a percentage of his current health as bonus damage. Lasts 15 seconds."
-		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_damage_health_pct"			"%HEALTH TO DAMAGE:"
-		"DOTA_Tooltip_modifier_enrage_buff_datadriven"				"Enrage"
-		"DOTA_Tooltip_modifier_enrage_buff_datadriven_Description"	"Doing extra damage based on current health"
+		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_health_as_damage_pct"		"%HEALTH TO DAMAGE:"
 		// Vengeful Spirit
 		"DOTA_Tooltip_ability_vengefulspirit_nether_swap_scepter_description" 			"-CD"
 		"DOTA_Tooltip_ability_vengefulspirit_command_aura_datadriven" 					"Comand Aura"
