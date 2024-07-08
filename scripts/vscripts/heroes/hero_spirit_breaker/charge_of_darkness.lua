@@ -9,5 +9,4 @@ function handleSpellStart(event)
 	local caster = event.caster
 	caster:EmitSound("Hero_Spirit_Breaker.ChargeOfDarkness")
 	caster:AddNewModifier(caster, ability, "modifier_spirit_breaker_charge_of_darkness_lua", { target = target:GetEntityIndex() })
-	caster:StartGesture(ACT_RUN)
 end

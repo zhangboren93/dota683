@@ -172,5 +172,5 @@ function modifier_spirit_breaker_charge_of_darkness_lua:CheckState(event)
 end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:GetOverrideAnimation()
-	return ACT_DOTA_SPIRIT_BREAKER_ULT_RUN
+	return ACT_DOTA_RUN
 end
