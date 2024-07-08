@@ -19261,6 +19261,15 @@
 			
 			"EffectName"		"particles/units/heroes/hero_gyrocopter/gyro_guided_missile_target.vpcf"
 			"EffectAttachType"	"follow_overhead"
+			"ThinkInterval"		"1"
+			"OnIntervalThink"
+			{
+				"RunScript"
+				{
+					"ScriptFile"		"heroes/hero_gyrocopter/homing_missile.lua"
+					"Function"			"handleTargetIntervalThink"
+				}
+			}
 		}
 	}
 }

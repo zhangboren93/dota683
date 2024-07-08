@@ -171,3 +171,9 @@ function MissileAttacked(keys)
 		EmitSoundOn(keys.sound4, caster.missile)
 	end
 end
+
+function handleTargetIntervalThink(event)
+	if event.caster.missile == nil or not IsValidEntity(event.caster.missile) or not event.caster.missile:IsAlive() then
+		event.target:RemoveModifierByName("modifier_homing_missile_target")
+	end
+end
