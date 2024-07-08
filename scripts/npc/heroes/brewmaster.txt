@@ -58,6 +58,7 @@
 	
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityCastPoint"				"0.4"
 	
 		// Time		
