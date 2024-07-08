@@ -2865,18 +2865,7 @@
 					{
 						"ScriptFile"	"items/item_vladmir.lua"
 						"Function"		"VladmirAuraApply"
-					}
-				}
-			}
-		    "modifier_item_vladmir_datadriven_lifesteal"
-		    {
-		    	"IsHidden"		"1"
-		    	"OnDealDamage"
-				{
-					"Lifesteal"
-					{
-						"Target" 				"ATTACKER"
-						"LifestealPercent"		"%lifesteal_aura_percent"
+						"Damage"		"%attack_damage"
 					}
 				}
 			}
