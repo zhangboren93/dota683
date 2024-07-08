@@ -283,6 +283,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:SetHeroSelectionTime(80)
 	GameRules:SetCreepSpawningEnabled(true)
 	GameRules:SetRuneSpawnTime(120)
+	GameRules:SetMaximumAttackSpeed(600)
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 
