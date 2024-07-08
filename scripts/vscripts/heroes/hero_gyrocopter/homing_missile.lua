@@ -88,7 +88,7 @@ function MoveMissile(keys)
 					damage = min_damage
 				end
 				
-				if not is_spell_blocked_by_linkens_sphere(target) then
+				if not is_spell_blocked_by_linkens_sphere(target) and not target:IsMagicImmune() then
 					-- Applies the stun to the target
 					target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = stun_duration})
 					-- Applies the damage to the target
