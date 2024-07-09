@@ -1,17 +1,17 @@
 HERO_2_ASP = {
 	npc_dota_hero_clinkz = -57,
 	npc_dota_hero_axe = -20,
-	npc_dota_hero_crystal_maiden = -19,
-	npc_dota_hero_drow_ranger = -29,
-	npc_dota_hero_lina = -14,
+	npc_dota_hero_crystal_maiden = -18,
+	npc_dota_hero_drow_ranger = -28.6,
+	npc_dota_hero_lina = -13.3,
 	npc_dota_hero_luna = -24,
 	npc_dota_hero_visage = -13,
 	npc_dota_hero_weaver = -14,
-	npc_dota_hero_death_prophet = -9,
+	npc_dota_hero_death_prophet = -10.7,
 	npc_dota_hero_huskar = -25,
-	npc_dota_hero_tiny = -18,
-	npc_dota_hero_necrolyte = -43,
-	npc_dota_hero_zuus = -44,
+	npc_dota_hero_tiny = -18.4,
+	npc_dota_hero_necrolyte = -43.4,
+	npc_dota_hero_zuus = -44.7,
 	npc_dota_hero_monkey_king = -10 
 }
 hero_attack_point_adjust_lua = class({})
