@@ -1,3 +1,4 @@
+require("cleave_units_check")
 if modifier_tidebringer_cleave == nil then
 	modifier_tidebringer_cleave = class({})
 end
@@ -37,7 +38,7 @@ function modifier_tidebringer_cleave:OnProcessCleave(event)
 	if attacker ~= self:GetParent() then
 		return
 	end
-	if target:IsBuilding() or attacker:IsIllusion() then
+	if target:IsBuilding() or attacker:IsIllusion() or target:IsWard() or IsCleaveDisablingUnit(target) then
 		ability:StartCooldown(-1)
 		self:Destroy()
 		return

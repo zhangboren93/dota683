@@ -1,3 +1,4 @@
+require("cleave_units_check")
 
 if modifier_magnataur_empower_cleave_lua == nil then
 	modifier_magnataur_empower_cleave_lua = class({})
@@ -30,7 +31,7 @@ function modifier_magnataur_empower_cleave_lua:OnProcessCleave(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = self:GetAbility()
-	if attacker == self:GetParent() and not target:IsBuilding() and attacker:GetTeam() ~= target:GetTeam() then
+	if attacker == self:GetParent() and passCleaveUnitCheck(attacker, target) then
 		local pct = ability:GetSpecialValueFor("cleave_radius_damage")
 		local radius = ability:GetSpecialValueFor("cleave_radius")
 		local damage = event.damage * pct /100
