@@ -182,6 +182,7 @@ function Activate()
 	LinkLuaModifier( "modifier_shredder_chakram_lua", 					"heroes/hero_shredder/modifier_shredder_chakram.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_shredder_chakram_slow_lua", 				"heroes/hero_shredder/modifier_shredder_chakram.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_spectre_haunt_fix_movespeed_lua", 		"heroes/hero_spectre/modifier_spectre_haunt_fix_movespeed.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_techies_stasis_trap_explode_sound_lua", 	"heroes/hero_techies/modifier_techies_stasis_trap_explode_sound.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1839,6 +1840,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_techies_stasis_trap" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(parent, nil, "modifier_kill", { duration = ability:GetSpecialValueFor("duration") })
+		parent:AddNewModifier(parent, nil, "modifier_techies_stasis_trap_explode_sound_lua", {})
 	elseif event.name_const == "modifier_techies_stasis_trap_stunned" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)

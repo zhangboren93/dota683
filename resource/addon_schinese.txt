@@ -2467,6 +2467,7 @@
 		"DOTA_Tooltip_ability_techies_stasis_trap_stun_duration"				"眩晕持续时间："
 		"DOTA_Tooltip_ability_techies_stasis_trap_stun_radius"		    		"眩晕作用范围："
 		"DOTA_Tooltip_ability_techies_stasis_trap_duration"		    			"陷阱持续时间："
+		"DOTA_Tooltip_ability_techies_stasis_trap_explode_delay"	   			"爆炸延时："
 		"DOTA_Tooltip_ability_techies_stasis_trap_scepter_description"	"提升施法距离。"
 		"DOTA_Tooltip_ability_techies_stasis_trap_Note0"				"静滞陷阱触发后将摧毁作用范围内的其他静滞陷阱。"
 		"DOTA_Tooltip_ability_techies_stasis_trap_Note1"				"隐形单位不会触发静滞陷阱。"

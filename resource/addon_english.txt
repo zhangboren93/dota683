@@ -2375,6 +2375,7 @@
 		"DOTA_Tooltip_ability_techies_stasis_trap_stun_duration"				"STUN DURATION:"
 		"DOTA_Tooltip_ability_techies_stasis_trap_stun_radius"		    		"STUN RADIUS:"
 		"DOTA_Tooltip_ability_techies_stasis_trap_duration"		    			"TRAP DURATION:"
+		"DOTA_Tooltip_ability_techies_stasis_trap_explode_delay"				"EXPLODE DELAY:"
 		"DOTA_Tooltip_ability_techies_stasis_trap_scepter_description"	"Increases cast range."
 		"DOTA_Tooltip_ability_techies_stasis_trap_Note0"				"Stasis Traps destroy all other Stasis Traps in their area of effect when they detonate."
 		"DOTA_Tooltip_ability_techies_stasis_trap_Note1"				"Stasis Traps are not triggered by invisible units."

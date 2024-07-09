@@ -21927,7 +21927,7 @@
 		"AbilityValues"
 		{		
 				"activation_radius"			"450"
-				"explode_delay"				"0"
+				"explode_delay"				"2.0"
 				"stun_radius"				"450"
 				"stun_duration"				"2.5 3 3.5 4"
 				"activation_time"			"2.0"
