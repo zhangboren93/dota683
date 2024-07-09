@@ -9,30 +9,21 @@ function torrent_bubble_allies( keys )
 	local caster = keys.caster
 	
 	ProcsMagicStick(keys)
-	local allHeroes = HeroList:GetAllHeroes()
 	local delay = keys.ability:GetLevelSpecialValueFor( "delay", keys.ability:GetLevel() - 1 )
 	local particleName = "particles/units/heroes/hero_kunkka/kunkka_spell_torrent_bubbles.vpcf"
 	local target = keys.target_points[1]
 	
-	for k, v in pairs( allHeroes ) do
-		if v:GetPlayerID() and v:GetTeam() == caster:GetTeam() then
-			local fxIndex = ParticleManager:CreateParticleForPlayer( particleName, PATTACH_ABSORIGIN, v, PlayerResource:GetPlayer( v:GetPlayerID() ) )
-			ParticleManager:SetParticleControl( fxIndex, 0, target )
-			
-			EmitSoundOnClient( "Ability.pre.Torrent", PlayerResource:GetPlayer( v:GetPlayerID() ) )
-			
-			-- Destroy particle after delay
-			v:SetThink(function()
-				ParticleManager:DestroyParticle( fxIndex, false )
-			end, "torrent invis fade", delay)
+	local fxIndex = ParticleManager:CreateParticleForTeam( particleName, PATTACH_ABSORIGIN, caster, caster:GetTeam() )
+	ParticleManager:SetParticleControl( fxIndex, 0, target )
+	
+	EmitSoundOnLocationForAllies(target, "Ability.pre.Torrent", caster)
+	
+	-- Destroy particle after delay
+	caster:SetThink(function()
+		ParticleManager:DestroyParticle( fxIndex, false )
+	end, "torrent invis fade", delay)
 
---[[		Timers:CreateTimer( delay, function()
-				ParticleManager:DestroyParticle( fxIndex, false )
-				return nil
-			end 
-			)	]]
-		end
-	end
+	
 end
 
 --[[
