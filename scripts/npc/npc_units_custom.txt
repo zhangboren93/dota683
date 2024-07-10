@@ -5744,4 +5744,11 @@
 		"VisionDaytimeRange"		"400"		// Range of vision during day light.
 		"VisionNighttimeRange"		"400"		// Range of vision at night time.
 	}
+	"npc_dota_troll_warlord_axe"
+	{
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"500"		// Range of vision during day light.
+		"VisionNighttimeRange"		"500"		// Range of vision at night time.
+	}
 }
