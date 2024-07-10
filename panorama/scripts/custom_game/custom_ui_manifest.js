@@ -75,6 +75,18 @@ function OnEndGameStats(event) {
     GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false);
     GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false);
  
+    let LowerTalentArea = PanelHUD.FindChildTraverse("LowerTalentArea");
+    let oldStatOption = LowerTalentArea.FindChildTraverse("StatUpgradeOption");
+    oldStatOption.style.visibility = "collapse";
+
+    let hero = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+    let ability = Entities.GetAbilityByName(hero, "special_bonus_attributes");
+    if(ability != null && ability != undefined)
+    {
+        let newStatOption = $.CreatePanel("Panel", LowerTalentArea, "StatUpgradeOption");
+        newStatOption.BLoadLayout("file://{resources}/layout/custom_game/custom_talent_tree.xml", false, false);
+        LowerTalentArea.MoveChildBefore(newStatOption, LowerTalentArea.GetChild(1));
+    }
     //let backpack_list = PanelHUD.FindChildTraverse("inventory_backpack_list");
     //backpack_list.visible = false;
 })();

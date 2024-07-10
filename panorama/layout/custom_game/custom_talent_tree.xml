@@ -1,0 +1,29 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/hudstyles.vcss_c" />
+		<include src="s2r://panorama/styles/hud/dota_hud_ability_panel.vcss_c" />
+		<include src="s2r://panorama/styles/hud/dota_hud_stat_branch.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/custom_talent_tree.js" />
+	</scripts>
+	<Panel>
+		<Button id="UpgradeStat" class="StatChoice StatBranchActive could_level_up" onactivate="DOTAHUDBonusAttributeUpgrade();">
+			<Panel id="UpgradeStatBG" />
+			<Panel id="UpgradeStatLevelContainer" hittest="false">
+				<Panel id="StatUp0" class="LevelPanel" />
+				<Panel id="StatUp1" class="LevelPanel" />
+				<Panel id="StatUp2" class="LevelPanel" />
+				<Panel id="StatUp3" class="LevelPanel" />
+				<Panel id="StatUp4" class="LevelPanel" />
+				<Panel id="StatUp5" class="LevelPanel" />
+				<Panel id="StatUp6" class="LevelPanel" />
+				<Panel id="StatUp7" class="LevelPanel" />
+				<Panel id="StatUp8" class="LevelPanel" />
+				<Panel id="StatUp9" class="LevelPanel" />
+			</Panel>
+			<Label id="UpgradeStatName" class="StatBonusLabel" html="true" text="#DOTA_LevelUpAttributes" />
+		</Button>
+	</Panel>
+</root>
