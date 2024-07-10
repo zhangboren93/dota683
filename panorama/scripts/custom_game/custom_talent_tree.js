@@ -18,7 +18,7 @@ function IntervalCheck(panel, isConst)
 				panel.FindChildTraverse("StatUp" + lvl).AddClass("next_level");
 				panel.RemoveClass("StatBranchComplete");
 				panel.AddClass("StatBranchActive");
-				if(lvl * 2 + 1 <= Entities.GetLevel(hero))
+				if(lvl * 2 + 1 <= Entities.GetLevel(hero) && Entities.GetAbilityPoints(hero) > 0)
 					panel.AddClass("could_level_up");
 				else
 					panel.RemoveClass("could_level_up");
