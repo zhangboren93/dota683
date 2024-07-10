@@ -5100,6 +5100,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS" "phantom_attack"
 				}
 			}
 		}
