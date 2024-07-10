@@ -16,6 +16,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"vengefulspirit_wave_of_terror"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityProcsMagicStick"		"1"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
