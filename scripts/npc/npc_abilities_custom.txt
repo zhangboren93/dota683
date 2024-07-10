@@ -25832,7 +25832,7 @@
 		"AbilityManaCost"				"110 120 130 140"
 		"AbilityValues"
 		{
-			"magic_missile_speed"	"1350"
+			"magic_missile_speed"	"1250"
 			"magic_missile_stun"	"1.45 1.55 1.65 1.75"
 			"magic_missile_damage"	"100 175 250 325"
 			"AbilityCastRange"		"500"
