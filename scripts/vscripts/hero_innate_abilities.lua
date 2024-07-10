@@ -6,6 +6,7 @@ hero_innate_abilities["npc_dota_hero_crystal_maiden"] = "hero_attack_point_adjus
 hero_innate_abilities["npc_dota_hero_death_prophet"]  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_drow_ranger"]	  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_huskar"]		  = "hero_attack_point_adjust_lua"
+hero_innate_abilities["npc_dota_hero_muerta"]		  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_necrolyte"]	  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_lina"]			  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_luna"]			  = "hero_attack_point_adjust_lua"

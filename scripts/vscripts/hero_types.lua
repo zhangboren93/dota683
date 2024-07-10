@@ -113,7 +113,8 @@ all_heroes = {
 	"npc_dota_hero_undying"				,
 	"npc_dota_hero_ursa"				,
 	"npc_dota_hero_monkey_king",
-	"npc_dota_hero_marci"
+	"npc_dota_hero_marci",
+	"npc_dota_hero_muerta"
 }
 
 same_ability_heroes = {}
@@ -139,3 +140,5 @@ same_ability_heroes["npc_dota_hero_snapfire"] = "npc_dota_hero_mirana"
 same_ability_heroes["npc_dota_hero_mirana"] = "npc_dota_hero_snapfire"
 same_ability_heroes["npc_dota_hero_pangolier"] = "npc_dota_hero_juggernaut"
 same_ability_heroes["npc_dota_hero_juggernaut"] = "npc_dota_hero_pangolier"
+same_ability_heroes["npc_dota_hero_medusa"] = "npc_dota_hero_muerta"
+same_ability_heroes["npc_dota_hero_muerta"] = "npc_dota_hero_medusa"
