@@ -87,6 +87,7 @@ function LandMinesDeath( keys )
 	ability:ApplyDataDrivenModifier(dummy, dummy, "modifier_dummy_detonate_effect_datadriven", {})
 	local pid = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_land_mine_explode.vpcf",
 		PATTACH_ABSORIGIN_FOLLOW, dummy)
+	ParticleManager:SetParticleControl(pid, 1, Vector(0, 0, 200))
 	dummy:AddNewModifier(caster, ability, "modifier_kill", {duration = 0.1})
 
 	-- apply damange

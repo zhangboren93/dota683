@@ -98,6 +98,7 @@ function RemoteMinesDeath( keys )
 			})
 		end
 		local particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_remote_mines_detonate.vpcf", PATTACH_ABSORIGIN, target)
+		ParticleManager:SetParticleControl(particleId, 1, Vector(425, 425, 425))
 		ParticleManager:ReleaseParticleIndex(particleId)
 	end, "Detonate Sound", 0.03)
 end
