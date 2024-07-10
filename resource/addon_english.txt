@@ -960,6 +960,7 @@
 		"DOTA_Tooltip_ability_rattletrap_battery_assault_Description"				"Discharges high-powered shrapnel at random nearby enemy units, dealing minor magical damage and ministun."
 		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven"						"Power Cogs"
 		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_Description"			"Forms a barrier of energized cogs around Clockwerk, trapping any units that are near.  Enemies outside the trap that touch a cog are knocked back, losing health and mana. Once a cog has delivered a shock, it will power down.  Cogs can be destroyed by enemy attacks, but Clockwerk can destroy them with just one."
+		"DOTA_Tooltip_ability_rattletrap_power_cogs_Description"					"Forms a barrier of energized cogs around Clockwerk, trapping any units that are near.  Enemies outside the trap that touch a cog are knocked back, losing health and mana. Once a cog has delivered a shock, it will power down.  Cogs can be destroyed by enemy attacks, but Clockwerk can destroy them with just one.\n<font color=\"#00CC00\">Cogs from this ability will destroy trees, which is NOT the same as 6.83 version.</font>"
 		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_Note0"				"Cogs can shock invisible units."
 		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_Lore"				"#DOTA_Tooltip_ability_rattletrap_power_cogs_Lore"
 		"DOTA_Tooltip_ability_rattletrap_power_cogs_datadriven_duration"			"DURATION:"

@@ -96,6 +96,8 @@
 			"bonus_armor"			"0"
 			"leash"					"0"
 			"AbilityCooldown"		"15"
+			"projectile_distance"	"0"
+			"projectile_speed"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
