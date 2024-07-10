@@ -1687,6 +1687,12 @@
 		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_Lore"						"神圣的一击，茉崔蒂通过赐予对手死亡来向他们致以敬意。"
 		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_crit_chance"				"%致命一击概率："
 		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_crit_bonus"				"%致命一击伤害："
+
+		"DOTA_Tooltip_Facet_phantom_assassin_veiled_one_Description"		"使用幻影刺客技能图标。"
+		"DOTA_Tooltip_Facet_phantom_assassin_methodical"					"无双诡魅"
+		"DOTA_Tooltip_Facet_phantom_assassin_methodical_Description"		"使用幻影刺客至宝技能图标。"
+		"DOTA_Tooltip_Facet_phantom_assassin_persona"						"漂泊绝影"
+		"DOTA_Tooltip_Facet_phantom_assassin_persona_Description"			"使用幻影刺客身心技能图标。"
 		//Phantom lancer
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2"								"灵魂之矛"
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_Description"					"对敌方目标单位投出一支有魔力的灵魂之矛，造成伤害并减速，同时召唤一个幻象攻击该单位。"
