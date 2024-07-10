@@ -5054,6 +5054,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS" "phantom_attack"
 				}
 			}
 		}
@@ -18533,6 +18534,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"ursa_enrage"
 		"MaxLevel"              		"3"
@@ -18561,7 +18563,7 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"damage_health_pct" 		"5 6 7"
+				"health_as_damage_pct" 		"5 6 7"
 			}
 			"02"
 			{
@@ -18586,10 +18588,18 @@
 				"EffectName"				"Hero_Ursa.Enrage"
 			}
 		
-			"ApplyModifier"
+			"RunScript"
 			{
-				"Target"					"CASTER"
-				"ModifierName"				"modifier_enrage_buff_datadriven"
+				"ScriptFile"				"heroes/hero_ursa/enrage.lua"
+				"Function"					"ApplyModifiers"
+			}
+			
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/units/animation.lua"
+				"Function"		"Animate"
+				"OriNPC"		"npc_dota_hero_ursa"
+				"animation"		"1519" //ACT_DOTA_OVERRIDE_ABILITY_4
 			}
 		}
 		
@@ -18597,8 +18607,8 @@
 		{
 			"modifier_enrage_buff_datadriven"
 			{
-				"IsHidden"					"0"
-				"IsPurgable"				"0"
+				"IsHidden"					"1"
+				"IsPurgable"				"1"
 				"IsBuff"					"1"
 				
 				"OnCreated"
@@ -18623,15 +18633,6 @@
 						{
 							"CASTER"				"attach_attack2"
 						}
-					}
-				}
-				
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"				"heroes/hero_ursa/enrage.lua"
-						"Function"					"BonusDamage"
 					}
 				}
 				"Duration"					"%duration"
@@ -30834,7 +30835,8 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"7"
-		"AbilityCastPoint"				"0.25"
+		"AbilityCastPoint"				"0.4"
+		"AnimationPlaybackRate"			"0.85"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------

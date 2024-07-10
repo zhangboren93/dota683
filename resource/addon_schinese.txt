@@ -1709,6 +1709,12 @@
 		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_Lore"						"神圣的一击，茉崔蒂通过赐予对手死亡来向他们致以敬意。"
 		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_crit_chance"				"%致命一击概率："
 		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_crit_bonus"				"%致命一击伤害："
+
+		"DOTA_Tooltip_Facet_phantom_assassin_veiled_one_Description"		"使用幻影刺客技能图标。"
+		"DOTA_Tooltip_Facet_phantom_assassin_methodical"					"无双诡魅"
+		"DOTA_Tooltip_Facet_phantom_assassin_methodical_Description"		"使用幻影刺客至宝技能图标。"
+		"DOTA_Tooltip_Facet_phantom_assassin_persona"						"漂泊绝影"
+		"DOTA_Tooltip_Facet_phantom_assassin_persona_Description"			"使用幻影刺客身心技能图标。"
 		//Phantom lancer
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2"								"灵魂之矛"
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_Description"					"对敌方目标单位投出一支有魔力的灵魂之矛，造成伤害并减速，同时召唤一个幻象攻击该单位。"
@@ -1907,10 +1913,8 @@
 		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_shock_radius"			"作用范围："
 		"DOTA_Tooltip_ability_ursa_overpower_Description"						"乌尔萨的战斗技巧提升他接下来几次攻击的攻击速度。"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"狂怒"
-		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"乌尔萨进入狂暴，将当前生命值一定百分比的数值转化为额外伤害。持续15秒。"
-		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_damage_health_pct"			"%百分比："
-		"DOTA_Tooltip_modifier_enrage_buff_datadriven"							"激怒"
-		"DOTA_Tooltip_modifier_enrage_buff_datadriven_Description"				"正在造成基于当前生命值的额外伤害"
+		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"乌尔萨进入狂暴，将当前生命值一定百分比的数值转化为额外攻击力。持续15秒。"
+		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_health_as_damage_pct"		"%百分比："
 		// Vengeful Spirit	
 		"DOTA_Tooltip_ability_vengefulspirit_wave_of_terror_datadriven"							"恐怖波动"
 		"DOTA_Tooltip_ability_vengefulspirit_wave_of_terror_datadriven_Description"				"复仇之魂放出邪恶的嚎叫，削弱敌人的护甲并打开前方经过路径的视野。"

@@ -1654,6 +1654,11 @@
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_damage"		"%ILLUSION DAMAGE:"
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_total_damage_in_pct"		"%ILLUSION DAMAGE TAKEN:"
 
+		"DOTA_Tooltip_Facet_phantom_assassin_veiled_one_Description"		"Use Phantom Assassin ability icons."
+		"DOTA_Tooltip_Facet_phantom_assassin_methodical"					"Manifold Paradox"
+		"DOTA_Tooltip_Facet_phantom_assassin_methodical_Description"		"Use Phantom Assassin Arcana ability icons."
+		"DOTA_Tooltip_Facet_phantom_assassin_persona"						"Exile Unveiled"
+		"DOTA_Tooltip_Facet_phantom_assassin_persona_Description"			"Use Phantom Assassin Persona ability icons."
 		// Razor
 		"DOTA_Tooltip_ability_razor_static_link_datadriven"									"Static Link"
 		"DOTA_Tooltip_ability_razor_static_link_datadriven_Description"						"Creates a charged link between Razor and an enemy Hero, stealing damage from the target and giving it to Razor."
@@ -1829,9 +1834,7 @@
 		"DOTA_Tooltip_ability_ursa_earthshock_datadriven_shock_radius"								"RADIUS:"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven"							"Enrage"
 		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_Description"				"Ursa goes into a frenzy, gaining a percentage of his current health as bonus damage. Lasts 15 seconds."
-		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_damage_health_pct"			"%HEALTH TO DAMAGE:"
-		"DOTA_Tooltip_modifier_enrage_buff_datadriven"				"Enrage"
-		"DOTA_Tooltip_modifier_enrage_buff_datadriven_Description"	"Doing extra damage based on current health"
+		"DOTA_Tooltip_Ability_ursa_enrage_datadriven_health_as_damage_pct"		"%HEALTH TO DAMAGE:"
 		// Vengeful Spirit
 		"DOTA_Tooltip_ability_vengefulspirit_wave_of_terror_datadriven"							"Wave of Terror"
 		"DOTA_Tooltip_ability_vengefulspirit_wave_of_terror_datadriven_Description"				"Vengeful Spirit lets loose a wicked cry, weakening the armor of enemies and giving vision of the path ahead."
