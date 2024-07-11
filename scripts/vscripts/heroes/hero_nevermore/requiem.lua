@@ -10,13 +10,6 @@ function handleAbilityStart(event)
 	releaseNumberOfSouls(souls, ability, caster)
 end
 
-function handleIntervalThink(event)
-	if not IsServer() then return end
-	local unit = event.target
-	if unit.requiem_velocity == nil then return end
-	unit:SetAbsOrigin(unit:GetAbsOrigin() + unit.requiem_velocity * 0.03)
-end
-
 function handleDeath(event)
 	if not IsServer() then return end
 	local caster = event.caster
@@ -61,8 +54,7 @@ function releaseNumberOfSouls(souls, ability, caster)
 		})
 		local dummy = CreateUnitByName("npc_dummy_unit", 
 			caster:GetAbsOrigin(), false, caster, caster, caster:GetTeam())
-		dummy.requiem_velocity = velocity
-		ability:ApplyDataDrivenModifier(dummy, dummy, "modifier_requiem_head_datadriven", {})
+		dummy:AddNewModifier(caster, ability, "modifier_requiem_head_lua", { vx = velocity.x, vy = velocity.y })
 		dummy:AddNewModifier(caster, ability, "modifier_kill", { duration = requiem_radius / requiem_line_speed })
 	end
 end

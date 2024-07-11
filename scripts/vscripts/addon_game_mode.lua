@@ -207,6 +207,7 @@ function Activate()
 	LinkLuaModifier( "modifier_tusk_snowball_moving_lua", 				"heroes/hero_tusk/modifier_tusk_snowball_moving.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_shredder_chakram_move_lua",				"heroes/hero_shredder/modifier_shredder_chakram_move.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_shredder_chakram_return_lua", 			"heroes/hero_shredder/modifier_shredder_chakram_return.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+	LinkLuaModifier( "modifier_requiem_head_lua",				"heroes/hero_nevermore/modifier_requiem_head.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 	-- attack type & armor type
 	LinkLuaModifier( "modifier_creep_siege_alter",				"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
