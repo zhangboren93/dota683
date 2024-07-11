@@ -32,3 +32,4 @@ hero_innate_abilities["npc_dota_hero_troll_warlord"] = "troll_warload_berserkers
 hero_innate_abilities["npc_dota_hero_tiny"] = "tiny_grow_checker_datadriven"
 hero_innate_abilities["npc_dota_hero_legion_commander"] = "legion_commander_press_the_attack_as_datadriven"
 hero_innate_abilities["npc_dota_hero_marci"] = "marci_am_particle_effects_datadriven"
+hero_innate_abilities["npc_dota_hero_dark_willow"]	  = {"darkwillow_puck_particle_effects_datadriven", "hero_attack_point_adjust_lua"}

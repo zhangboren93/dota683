@@ -17651,6 +17651,17 @@
 			"particle"		"particles/units/heroes/hero_antimage/antimage_manavoid.vpcf"
 		}
 	}
+	"darkwillow_puck_particle_effects_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_puck/puck_illusory_orb_blink_out.vpcf"
+			"particle"		"particles/units/heroes/hero_puck/puck_waning_rift.vpcf"
+			"particle"		"particles/units/heroes/hero_puck/puck_phase_shift.vpcf"
+		}
+	}
 	//=================================================================================================================
 	// Slark: Dark Pact
 	//=================================================================================================================
