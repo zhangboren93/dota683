@@ -13,7 +13,8 @@ HERO_2_ASP = {
 	npc_dota_hero_necrolyte = -43.4,
 	npc_dota_hero_zuus = -44.7,
 	npc_dota_hero_monkey_king = -10,
-	npc_dota_hero_muerta = -30
+	npc_dota_hero_muerta = -30,
+	npc_dota_hero_mars = -20
 }
 hero_attack_point_adjust_lua = class({})
 function hero_attack_point_adjust_lua:GetIntrinsicModifierName()

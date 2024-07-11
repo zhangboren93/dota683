@@ -114,7 +114,8 @@ all_heroes = {
 	"npc_dota_hero_ursa"				,
 	"npc_dota_hero_monkey_king",
 	"npc_dota_hero_marci",
-	"npc_dota_hero_muerta"
+	"npc_dota_hero_muerta",
+	"npc_dota_hero_mars"
 }
 
 same_ability_heroes = {}
