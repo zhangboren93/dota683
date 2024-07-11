@@ -12,7 +12,7 @@ function replaceLadderScoreboard(player2score) {
     let mapName = Game.GetMapInfo().map_display_name;
     if (mapName == "rank") {
         let scoreboard = PanelHUD.FindChildTraverse("scoreboard");
-		let radiantPlayers = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)
+        let radiantPlayers = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)
         for(let i = 0;i < 5;i++) {
             let playerScore = scoreboard.FindChildTraverse("RadiantPlayer" + i);
             if (playerScore == null) {
@@ -27,10 +27,10 @@ function replaceLadderScoreboard(player2score) {
                 if (!playerScore.FindChildTraverse(lsid)) {
                     let newChildPanel = $.CreatePanel( "Panel", playerScore, lsid);
                     newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/ladder_score.xml", false, false);
-					let score = 0
+                    let score = 0
 					if (i < radiantPlayers.length) {
-						score = player2score[radiantPlayers[i].toString()]
-					}
+                        score = player2score[radiantPlayers[i].toString()]
+                    }
                     if (score >= 0) {
                         newChildPanel.FindChildTraverse("ladder_score_label").text = score;
                     }
@@ -38,7 +38,7 @@ function replaceLadderScoreboard(player2score) {
                 }
             }
         }
-		let direPlayers = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS)
+        let direPlayers = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS)
         for(let i = 0;i < 5;i++) {
             let playerScore = scoreboard.FindChildTraverse("DirePlayer" + i);
             if (playerScore) {
@@ -47,10 +47,10 @@ function replaceLadderScoreboard(player2score) {
                 if (!playerScore.FindChildTraverse(lsid)) {
                     let newChildPanel = $.CreatePanel( "Panel", playerScore, lsid);
                     newChildPanel.BLoadLayout("file://{resources}/layout/custom_game/ladder_score.xml", false, false);
-					let score = 0;
+                    let score = 0;
 					if (i < direPlayers.length) {
-                    	score = player2score[direPlayers[i].toString()]
-					}
+                        score = player2score[direPlayers[i].toString()]
+                    }
                     if (score >= 0) {
                         newChildPanel.FindChildTraverse("ladder_score_label").text = score;
                     }
@@ -74,19 +74,14 @@ function OnEndGameStats(event) {
     CenterBlock.FindChildTraverse("inventory_composition_layer_container").style.visibility = "collapse";
     GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false);
     GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false);
- 
+
     let LowerTalentArea = PanelHUD.FindChildTraverse("LowerTalentArea");
     let oldStatOption = LowerTalentArea.FindChildTraverse("StatUpgradeOption");
     oldStatOption.style.visibility = "collapse";
 
-    let hero = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
-    let ability = Entities.GetAbilityByName(hero, "special_bonus_attributes");
-    if(ability != null && ability != undefined)
-    {
-        let newStatOption = $.CreatePanel("Panel", LowerTalentArea, "StatUpgradeOption");
-        newStatOption.BLoadLayout("file://{resources}/layout/custom_game/custom_talent_tree.xml", false, false);
-        LowerTalentArea.MoveChildBefore(newStatOption, LowerTalentArea.GetChild(1));
-    }
+    let newStatOption = $.CreatePanel("Panel", LowerTalentArea, "StatUpgradeOption");
+    newStatOption.BLoadLayout("file://{resources}/layout/custom_game/custom_talent_tree.xml", false, false);
+    LowerTalentArea.MoveChildBefore(newStatOption, LowerTalentArea.GetChild(1));
     //let backpack_list = PanelHUD.FindChildTraverse("inventory_backpack_list");
     //backpack_list.visible = false;
 })();

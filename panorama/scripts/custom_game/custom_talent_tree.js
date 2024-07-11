@@ -1,4 +1,4 @@
-function IntervalCheck(panel, isConst)
+function IntervalCheck(panel)
 {
 	let hero = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
 	let ability = Entities.GetAbilityByName(hero, "special_bonus_attributes")
@@ -36,5 +36,5 @@ function IntervalCheck(panel, isConst)
 
 (function ()
 {
-	IntervalCheck($("#UpgradeStat"), 1);
+	IntervalCheck($("#UpgradeStat"));
 })();
