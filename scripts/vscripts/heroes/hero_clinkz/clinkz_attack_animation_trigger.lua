@@ -17,7 +17,8 @@ HERO_2_ASP = {
 	npc_dota_hero_mars = -20,
 	npc_dota_hero_snapfire = 16.7,
 	npc_dota_hero_grimstroke = 31.4,
-	npc_dota_hero_dark_willow = 66.7
+	npc_dota_hero_dark_willow = 66.7,
+	npc_dota_hero_primal_beast = 66.7
 }
 hero_attack_point_adjust_lua = class({})
 function hero_attack_point_adjust_lua:GetIntrinsicModifierName()

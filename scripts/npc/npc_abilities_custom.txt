@@ -17676,6 +17676,31 @@
 			"particle"		"particles/units/heroes/hero_windrunner/windrunner_focusfire.vpcf"
 		}
 	}
+	"snapfire_mirana_particle_effect_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_mirana/mirana_moonlight_cast.vpcf"
+			"particle"		"particles/units/heroes/hero_mirana/mirana_moonlight_owner.vpcf"
+			"particle"		"particles/units/heroes/hero_mirana/mirana_moonlight_recipient.vpcf"
+			"particle"		"particles/units/heroes/hero_mirana/mirana_moonlight_recipient_timer.vpcf"
+		}
+	}
+	"primal_beast_slardar_particle_effect_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_slardar/slardar_crush_entity.vpcf"
+			"particle"		"particles/status_fx/status_effect_slardar_crush.vpcf"
+			"particle"		"particles/units/heroes/hero_slardar/slardar_crush_start.vpcf"
+			"particle"		"particles/units/heroes/hero_slardar/slardar_crush.vpcf"
+			"particle"		"particles/units/heroes/hero_slardar/slardar_water_puddle_test.vpcf"
+		}
+	}
 	//=================================================================================================================
 	// Slark: Dark Pact
 	//=================================================================================================================

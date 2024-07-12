@@ -119,7 +119,8 @@ all_heroes = {
 	"npc_dota_hero_snapfire",
 	"npc_dota_hero_grimstroke",
 	"npc_dota_hero_dark_willow",
-	"npc_dota_hero_hoodwink"
+	"npc_dota_hero_hoodwink",
+	"npc_dota_hero_primal_beast"
 }
 
 same_ability_heroes = {}
