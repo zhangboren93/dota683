@@ -3,6 +3,7 @@ hero_innate_abilities["npc_dota_hero_broodmother"] = "broodmother_incapacitating
 hero_innate_abilities["npc_dota_hero_axe"] 			  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_clinkz"] 		  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_crystal_maiden"] = "hero_attack_point_adjust_lua"
+hero_innate_abilities["npc_dota_hero_dawnbreaker"]	  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_death_prophet"]  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_drow_ranger"]	  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_grimstroke"]	  = "hero_attack_point_adjust_lua"
