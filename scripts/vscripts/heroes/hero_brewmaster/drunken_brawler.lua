@@ -23,8 +23,13 @@ end
 
 -- Resets the Drunken Brawler Evasion timer
 function DrunkenBrawlerDodgeReset( event )
-	local caster = event.caster
+	local caster = event.target
 	local ability = event.ability
+	if ability:GetName() ~= "brewmaster_drunken_brawler_datadriven" then
+		ability = caster:FindAbilityByName("brewmaster_drunken_brawler_datadriven")
+	end
+	if ability == nil then return end
+
 	local last_proc = ability:GetLevelSpecialValueFor( "last_proc" , ability:GetLevel() - 1 )
 	
 	-- Keep track of the time of this attack

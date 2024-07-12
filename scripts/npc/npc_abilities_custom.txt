@@ -32029,6 +32029,25 @@
 					}
 				}
 			}
+			"modifier_drunken_brawler_miss_clear"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"OnAttackFailed"
+				{
+					"RunScript"
+			    	{
+			    		"ScriptFile"	"heroes/hero_brewmaster/drunken_brawler.lua"
+			    		"Function"		"DrunkenBrawlerDodgeReset"
+			    	}
+	
+			    	"RemoveModifier"
+			    	{
+			    		"ModifierName"	"modifier_drunken_brawler_guaranteed_dodge"
+			    		"Target" 		"TARGET" // <- attacked unit
+			    	}
+				}
+			}	
 		}
 	}
 	"creep_piercing_extra"
