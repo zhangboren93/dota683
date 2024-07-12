@@ -25832,7 +25832,7 @@
 		"AbilityManaCost"				"110 120 130 140"
 		"AbilityValues"
 		{
-			"magic_missile_speed"	"1350"
+			"magic_missile_speed"	"1250"
 			"magic_missile_stun"	"1.45 1.55 1.65 1.75"
 			"magic_missile_damage"	"100 175 250 325"
 			"AbilityCastRange"		"500"
@@ -31857,7 +31857,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"730"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"              "6"
+		"MaxLevel"              "10"
 		"RequiredLevel"         "1"
 		"LevelsBetweenUpgrades" "2"
 		
@@ -31865,7 +31865,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"value"		"2 4 6 8 10 12 14"
+			"value"		"2 4 6 8 10 12 14 16 18 20"
 		}
 	}
     "minimap_camp_icon_datadriven"
