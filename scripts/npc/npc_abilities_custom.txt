@@ -17662,6 +17662,20 @@
 			"particle"		"particles/units/heroes/hero_puck/puck_phase_shift.vpcf"
 		}
 	}
+	"hoodwink_wr_particle_effects_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_windrunner/windrunner_spell_powershot_channel.vpcf"
+			"particle"		"particles/units/heroes/hero_windrunner/windrunner_powershot_dmg.vpcf"
+			"particle"		"particles/units/heroes/hero_windrunner/windrunner_focusfire_attack.vpcf"
+			"particle"		"particles/units/heroes/hero_windrunner/windrunner_focusfire_hit.vpcf"
+			"particle"		"particles/units/heroes/hero_windrunner/windrunner_focusfire_start.vpcf"
+			"particle"		"particles/units/heroes/hero_windrunner/windrunner_focusfire.vpcf"
+		}
+	}
 	//=================================================================================================================
 	// Slark: Dark Pact
 	//=================================================================================================================
