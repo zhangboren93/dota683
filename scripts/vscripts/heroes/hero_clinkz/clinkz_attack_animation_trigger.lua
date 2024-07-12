@@ -26,13 +26,22 @@ end
 
 function modifier_clinkz_attack_animation:DeclareFunctions()
 	local funcs = {
-		MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE
+		MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE,
+		MODIFIER_PROPERTY_BASE_ATTACK_TIME_PERCENTAGE
 	}
 	return funcs
 end
 
 function modifier_clinkz_attack_animation:GetModifierAttackSpeedPercentage()
-	return HERO_2_ASP[self:GetParent():GetName()]
+	if IsServer() then
+		return HERO_2_ASP[self:GetParent():GetName()]
+	end
+end
+
+function modifier_clinkz_attack_animation:GetModifierBaseAttackTimePercentage()
+	if IsServer() then
+		return HERO_2_ASP[self:GetParent():GetName()]
+	end
 end
 
 function modifier_clinkz_attack_animation:IsHidden()
