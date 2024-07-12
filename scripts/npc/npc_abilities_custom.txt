@@ -17719,6 +17719,17 @@
 			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf"
 		}
 	}
+	"pangolier_jugg_particle_effects_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_juggernaut/juggernaut_crit_tgt.vpcf"
+			"particle"		"particles/units/heroes/hero_juggernaut/juggernaut_omni_slash_tgt.vpcf"
+			"particle"		"particles/units/heroes/hero_juggernaut/juggernaut_omni_slash_trail.vpcf"
+		}
+	}
 	//=================================================================================================================
 	// Slark: Dark Pact
 	//=================================================================================================================

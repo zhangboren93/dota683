@@ -36,3 +36,4 @@ hero_innate_abilities["npc_dota_hero_legion_commander"] = "legion_commander_pres
 hero_innate_abilities["npc_dota_hero_marci"] = "marci_am_particle_effects_datadriven"
 hero_innate_abilities["npc_dota_hero_hoodwink"]	= "hoodwink_wr_particle_effects_datadriven"
 hero_innate_abilities["npc_dota_hero_void_spirit"]	  = "void_spirit_es_particle_effect_datadriven"
+hero_innate_abilities["npc_dota_hero_pangolier"]	  = "pangolier_jugg_particle_effects_datadriven"
