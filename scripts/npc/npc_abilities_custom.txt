@@ -17701,6 +17701,24 @@
 			"particle"		"particles/units/heroes/hero_slardar/slardar_water_puddle_test.vpcf"
 		}
 	}
+	"void_spirit_es_particle_effect_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_cast.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_caster.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_tgt.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_searing_chains_cast.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_searing_chains_debuff.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_searing_chains_start.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_remnant_dash.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf"
+		}
+	}
 	//=================================================================================================================
 	// Slark: Dark Pact
 	//=================================================================================================================
