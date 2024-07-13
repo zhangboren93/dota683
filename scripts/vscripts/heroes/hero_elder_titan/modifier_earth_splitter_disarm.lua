@@ -4,10 +4,6 @@ function modifier_elder_titan_earth_splitter_disarm:OnCreated(kv)
     self.kv = kv
 end
 
-function modifier_elder_titan_earth_splitter_disarm:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
 function modifier_elder_titan_earth_splitter_disarm:CheckState()
 	local state = 
     {
@@ -17,6 +13,10 @@ function modifier_elder_titan_earth_splitter_disarm:CheckState()
 end
 
 function modifier_elder_titan_earth_splitter_disarm:IsDebuff()
+    return true
+end
+
+function modifier_elder_titan_earth_splitter_disarm:IsPurgable()
     return true
 end
 

@@ -12035,7 +12035,7 @@
 		//-------------------------------------------------------------------------------------------------------------
  		"AbilityCastAnimation"			"ACT_INVALID"
 		"AbilityCastPoint"				"0.4"
- 		"AbilityCastRange"				"500"
+ 		"AbilityCastRange"				"475"
 		"AbilityChannelTime"			"1.4"
 
 		// Stats
@@ -12047,7 +12047,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"cast_time"						"1.4"
+				"cast_time"						"1.8"
 				"radius"						"475"
 				"sleep_duration"				"2 3 4 5"
 				"stomp_damage"					"80 90 100 110"
@@ -12079,13 +12079,13 @@
 		"AbilityCooldown"				"15"
 		"AbilityChannelTime"			"1.4"
 		"AbilityManaCost"				"0 0 0 0"
-		"AbilityCastRange"				"500"
+		"AbilityCastRange"				"475"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"cast_time"						"1.4"
+				"cast_time"						"1.8"
 				"radius"						"475"
 				"sleep_duration"				"2 3 4 5"
 				"stomp_damage"					"80 90 100 110"
@@ -12115,7 +12115,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastAnimation"			"ACT_DOTA_ANCESTRAL_SPIRIT"
 		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
 		
 		// Time		
@@ -12130,11 +12129,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCastRange"				"1200"
 			"radius"						"275"
 			"pass_damage"					"60 90 120 150"
 			"spirit_duration"				"8.0"
 			"buff_duration"					"9.0"
-			"speed"							"900"
+			"speed"							"600"
+			"controllable"					"1"
 			"move_pct_creeps"				"1"
 			"move_pct_heroes"				
 			{
@@ -12196,10 +12197,10 @@
 			"modifier_elder_titan_natural_order_aura"
 			{
 				"Passive" 			"1"
-				"IsHidden" 			"0"
+				"IsHidden" 			"1"
 				"IsBuff"			"1"
 	
-				"Aura" 				"modifier_elder_titan_natural_order_debuff"
+				"Aura" 				"modifier_elder_titan_natural_order_debuff_datadriven"
 				"Aura_Radius" 		"%radius"
 				"Aura_Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -12213,7 +12214,7 @@
 					}
 				}
 			}
-			"modifier_elder_titan_natural_order_debuff"
+			"modifier_elder_titan_natural_order_debuff_datadriven"
 			{
 				"Passive" 			"0"
 				"IsHidden" 			"0"
@@ -12302,7 +12303,7 @@
 					"value"					"3.0 4.0 5.0"
 					"special_bonus_scepter" "+1.0"
 				}
-				"speed"						"1100"
+				"speed"						"910"
 				"damage_pct"				"35"
 				"vision_width"				"500"
 				"vision_interval"			"0.22"
@@ -32082,6 +32083,25 @@
 					}
 				}
 			}
+			"modifier_drunken_brawler_miss_clear"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"OnAttackFailed"
+				{
+					"RunScript"
+			    	{
+			    		"ScriptFile"	"heroes/hero_brewmaster/drunken_brawler.lua"
+			    		"Function"		"DrunkenBrawlerDodgeReset"
+			    	}
+	
+			    	"RemoveModifier"
+			    	{
+			    		"ModifierName"	"modifier_drunken_brawler_guaranteed_dodge"
+			    		"Target" 		"TARGET" // <- attacked unit
+			    	}
+				}
+			}	
 		}
 	}
 	"creep_piercing_extra"
