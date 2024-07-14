@@ -12095,6 +12095,7 @@
 		"AbilitySound"					"Hero_ElderTitan.AncestralSpirit.Cast"
 		"Innate"						"0"
 		"RequiredLevel"					"1"
+		"MaxLevel"						"4"
 
 		"HasScepterUpgrade"			"0"
 
