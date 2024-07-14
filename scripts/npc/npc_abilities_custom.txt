@@ -12,6 +12,7 @@
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
 #base "heroes/drow_ranger.txt"
+#base "heroes/earth_spirit.txt"
 #base "heroes/ember_spirit.txt"
 #base "heroes/faceless_void.txt"
 #base "heroes/furion.txt"
@@ -468,7 +469,7 @@
 		
 		// Cast Range
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"900"
+		"AbilityCastRange"				"750"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -549,7 +550,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"cooldown"					"0.65 0.6 0.55 0.5"
+				"cooldown"					"0.45 0.4 0.35 0.3"
 			}
 			// Extra
 			"04"
@@ -638,26 +639,12 @@
 						}
 					}
 	
-					"ApplyModifier"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_counter_helix_rotate_datadriven"
-						"Target" 		"CASTER"
-						"Duration"		"0.15"
-					}
-				}
-			}
-	
-			"modifier_counter_helix_rotate_datadriven"
-			{
-				"IsHidden"	"1"
-	
-				"ThinkInterval"  "0.03"
-				"OnIntervalThink"
-				{
-					"Rotate"
-					{
-						"Target"	"CASTER"
-						"PitchYawRoll"	"0 72 0"
+						"ScriptFile"	"scripts/vscripts/units/animation.lua"
+						"Function"		"Animate"
+						"OriNPC"		"npc_dota_hero_axe"
+						"animation"		"1512" //ACT_DOTA_CAST_ABILITY_3
 					}
 				}
 			}
@@ -12108,6 +12095,7 @@
 		"AbilitySound"					"Hero_ElderTitan.AncestralSpirit.Cast"
 		"Innate"						"0"
 		"RequiredLevel"					"1"
+		"MaxLevel"						"4"
 
 		"HasScepterUpgrade"			"0"
 

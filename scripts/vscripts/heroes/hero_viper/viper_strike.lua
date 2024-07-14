@@ -3,7 +3,7 @@ function handleIntervalThink(event)
 	local ability = caster:FindAbilityByName("viper_viper_strike")
 	local target = event.target
 	local damage = ability:GetSpecialValueFor("damage_tooltip")
-	if not target:HasModifier("modifier_viper_viper_strike_slow_lua") then
+	if not target:HasModifier("modifier_viper_viper_strike_slow") then
 		target:RemoveModifierByName("modifier_viper_viper_strike_damage_datadriven")
 		return
 	end
@@ -17,6 +17,7 @@ function handleIntervalThink(event)
 	SendOverheadEventMessage(target, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, damage, nil )
 end
 
+-- Deprecated
 if modifier_viper_viper_strike_slow_lua == nil then
     modifier_viper_viper_strike_slow_lua = class({ 
 		IsPurgable              = function(self) return false end,
