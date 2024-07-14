@@ -723,12 +723,12 @@
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_slow_duration_tooltip"	"减速时间："
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_slow_tooltip"			"%减速："
 		"DOTA_Tooltip_ability_earth_spirit_stone_caller_Description"						"在指定位置召唤一枚巨石残岩。残岩没有视野，不能被摧毁，残岩可以加强大地之灵的技能效果。召唤残岩需要消耗能量，能量将慢慢恢复。"
-		"DOTA_Tooltip_ability_earth_spirit_stone_caller_Facet_earth_spirit_stepping_stone"	""
-		"DOTA_Tooltip_ability_earth_spirit_magnetize_Facet_earth_spirit_resonance"			""
-		"DOTA_Tooltip_Facet_earth_spirit_resonance"											""
-		"DOTA_Tooltip_Facet_earth_spirit_resonance_Description"								""
-		"DOTA_Tooltip_Facet_earth_spirit_stepping_stone"									""
-		"DOTA_Tooltip_Facet_earth_spirit_stepping_stone_Description"						""
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven"								"残岩魔咒"
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven_Description"					"大地之灵对一名英雄施法，使其暂时获得残岩的属性。经过%duration%秒后残岩就会碎裂，释放出英雄，并对周围单位造成伤害。"
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven_Lore"							"#DOTA_Tooltip_ability_earth_spirit_petrify_Lore"
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven_duration"						"残岩持续时间："
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven_damage"						"碎裂伤害："
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven_aoe"							"碎裂作用范围："
 
 		// Elder Titan
 		"DOTA_Tooltip_ability_elder_titan_echo_stomp_wake_damage_limit"							""

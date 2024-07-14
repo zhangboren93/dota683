@@ -701,6 +701,12 @@
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_slow_tooltip"				"%SLOW AMOUNT:"
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Note0"					"Rolling over a Stone Remnant will destroy the Remnant."
 		"DOTA_Tooltip_ability_earth_spirit_rolling_boulder_datadriven_Note1"					"The boulder has a radius of 160."
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven"								"Enchant Remnant"
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven_Description"					"Earth Spirit temporarily enchants a hero, granting them the properties of a Stone Remnant. After %duration% seconds the remnant shatters, releasing the hero and damaging nearby enemies."
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven_Lore"							"#DOTA_Tooltip_ability_earth_spirit_petrify_Lore"
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven_duration"						"REMNANT DURATION:"
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven_damage"						"SHATTER DAMAGE:"
+		"DOTA_Tooltip_ability_earth_spirit_petrify_datadriven_aoe"							"SHATTER RADIUS:"
 		// Elder Titan
 		"DOTA_Tooltip_ability_elder_titan_echo_stomp_wake_damage_limit"						""
 		"DOTA_Tooltip_ability_elder_titan_echo_stomp_spirit_wake_damage_limit"				""

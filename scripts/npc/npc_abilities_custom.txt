@@ -12,6 +12,7 @@
 #base "npc_abilities_hero_doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
 #base "heroes/drow_ranger.txt"
+#base "heroes/earth_spirit.txt"
 #base "heroes/ember_spirit.txt"
 #base "heroes/faceless_void.txt"
 #base "heroes/furion.txt"
