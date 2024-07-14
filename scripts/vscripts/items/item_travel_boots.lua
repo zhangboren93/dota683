@@ -36,6 +36,7 @@ function handleChannelSucceeded(event)
     ability.teleportUnit:StopSound("Portal.Loop_Appear")
     if ability.teleportUnit:IsAlive() then
         FindClearSpaceForUnit(caster, ability.teleportUnit:GetAbsOrigin(), false)
+        caster:StartGesture(ACT_DOTA_TELEPORT_END)
     end
     caster:SetThink(function()
         caster:EmitSound("Portal.Hero_Appear")
