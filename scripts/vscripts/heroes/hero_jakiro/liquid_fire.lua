@@ -39,7 +39,7 @@ function jakiro_liquid_fire_lua:OnOrbImpact( params )
 	)
 
 	for _,enemy in pairs(enemies) do
-		enemy:AddNewModifier(caster, self, "modifier_jakiro_liquid_fire_burn", { duration = duration })
+		enemy:AddNewModifier(caster, self, "modifier_jakiro_liquid_fire_burn_lua", { duration = duration })
 	end
 
 	-- play effects

@@ -2178,6 +2178,8 @@
 		"DOTA_Tooltip_ability_Jakiro_liquid_fire_lua_AbilityDuration"		"持续时间："
 		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_radius"				"作用范围："
 		"DOTA_Tooltip_ability_jakiro_liquid_fire_lua_abilitycastrange"		"施法距离："
+		"DOTA_Tooltip_modifier_jakiro_liquid_fire_burn_lua"					"液态火"
+		"DOTA_Tooltip_modifier_jakiro_liquid_fire_burn_lua_Description"		"正受到杰奇洛的液态火伤害，并被减速"
 		"DOTA_Tooltip_ability_jakiro_macropyre_scepter_description"			"提高施法距离，火焰长度，持续时间和伤害。"
 		//Invoker
 		"DOTA_Tooltip_ability_invoker_forge_spirit_spirit_mana"									"魔法值(<font color='#cabe68'>火</font>):\n"
