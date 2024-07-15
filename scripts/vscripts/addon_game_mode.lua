@@ -610,6 +610,9 @@ function CAddonTemplateGameMode:OnThink()
 				if v < 2 then
 					print("Adding hero to whitelist " .. i)
 					GameRules:RemoveHeroFromBlacklist(i)
+					if same_ability_heroes[i] ~= nil then
+						GameRules:RemoveHeroFromBlacklist(same_ability_heroes[i])
+					end
 				end
 			end
 			CustomGameEventManager:Send_ServerToAllClients("ladder_pick_start", {})
