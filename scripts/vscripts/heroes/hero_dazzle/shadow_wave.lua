@@ -1,6 +1,16 @@
 require("../../items/item_magic_stick")
 --------------------------------------------------------------------------------
 -- Ability Start
+--
+local function targetNotHealed(target, healedUnits)
+	for i = 1,#healedUnits do
+		if target:GetEntityIndex() == healedUnits[i]:GetEntityIndex() then
+			return false
+		end
+	end
+	return true
+end
+
 function ShadowWave(keys)
 	local caster = keys.caster
 	local target = keys.target
@@ -63,7 +73,7 @@ function ShadowWave(keys)
 
 		-- next target
 		local nextTarget = nil
-		if target and target ~= source then
+		if target and target ~= source and targetNotHealed(target, healedUnits) then
 			nextTarget = target
 		else
 			-- Find ally nearby
