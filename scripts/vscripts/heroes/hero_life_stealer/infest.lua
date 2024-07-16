@@ -97,9 +97,7 @@ function infest_move_unit( keys )
     --return the abilities
     for i = 0, 2 do
         if caster.removed_spells[i] ~= nil then
-            print(caster.removed_spells[i][1], caster.removed_spells[i][2])
-            caster:AddAbility(caster.removed_spells[i][1])
-            caster:GetAbilityByIndex(i):SetLevel(caster.removed_spells[i][2])
+            caster.removed_spells[i]:SetHidden(false)
         end
     end
     -- if the unit is not a hero, the unit dies
