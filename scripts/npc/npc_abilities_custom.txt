@@ -20246,7 +20246,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"attack_count"					"5000"
+				"attack_count"					"0"
 				"bonus_damage"					"0"				
 				"bonus_damage_buildings"		"75"
 				"attack_range"					"235"
