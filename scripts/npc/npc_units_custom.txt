@@ -5751,4 +5751,9 @@
 		"VisionDaytimeRange"		"500"		// Range of vision during day light.
 		"VisionNighttimeRange"		"500"		// Range of vision at night time.
 	}
+	"npc_dota_phoenix_sun"
+	{
+		"HealthBarOffset"			"100"
+	}
+
 }

@@ -16,7 +16,7 @@ function modifier_supernova_sun_form_egg_datadriven:DeclareFunctions()
 		MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
 		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
 		MODIFIER_EVENT_ON_ATTACKED,
-		MODIFIER_PROPERTY_OVERRIDE_ANIMATION
+		MODIFIER_PROPERTY_VISUAL_Z_DELTA
 	}
 end
 
@@ -165,6 +165,6 @@ function modifier_supernova_sun_form_egg_datadriven:OnDestroy()
 	egg:AddNoDraw()
 end
 
-function modifier_supernova_sun_form_egg_datadriven:GetOverrideAnimation()
-	return ACT_DOTA_IDLE 
+function modifier_supernova_sun_form_egg_datadriven:GetVisualZDelta()
+	return self:GetRemainingTime() * 60 + 100
 end

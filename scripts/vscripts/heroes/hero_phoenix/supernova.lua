@@ -37,8 +37,12 @@ function phoenix_supernova_datadriven:OnSpellStart()
 	local egg = CreateUnitByName("npc_dota_phoenix_sun", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeam())
 	egg:EmitSound("Hero_Phoenix.SuperNova.Begin")
 	egg:AddNewModifier(caster, self, "modifier_supernova_sun_form_egg_datadriven", { duration = 6 })
+	local unit = CreateUnitByName("npc_dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeam())
+	unit:AddNewModifier(caster, self, "modifier_kill", { duration = 6 })
+	unit:AddNewModifier(caster, self, "modifier_supernova_effect_dummy_lua", {})
+	egg.particle_unit = unit
 	particle = ParticleManager:CreateParticle("particles/units/heroes/hero_phoenix/phoenix_supernova_egg.vpcf",
 											  PATTACH_ABSORIGIN_FOLLOW,
-											  egg)
+											  unit)
 	ParticleManager:ReleaseParticleIndex(particle)
 end
