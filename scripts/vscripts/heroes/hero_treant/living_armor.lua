@@ -17,9 +17,16 @@ function ApplyLivingArmor(keys)
 	ability:ApplyDataDrivenModifier(caster,target, "modifier_living_armor_datadriven", {duration = ability:GetSpecialValueFor("duration")})
 	ability:ApplyDataDrivenModifier(caster,target, "modifier_living_armor_datadriven_stacks", {duration = ability:GetSpecialValueFor("duration")})
 	target:SetModifierStackCount("modifier_living_armor_datadriven_stacks", caster, ability:GetSpecialValueFor("damage_count"))
+	if target.LivingArmorParticle ~= nil then
+		RemoveParticle(keys)
+	end
 	target.LivingArmorParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_livingarmor.vpcf", PATTACH_POINT_FOLLOW, target)
-			ParticleManager:SetParticleControlEnt(target.LivingArmorParticle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControlEnt(target.LivingArmorParticle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(target.LivingArmorParticle, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(target.LivingArmorParticle, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	target:EmitSound("Hero_Treant.LivingArmor.Target")
+	if caster ~= target then
+		caster:EmitSound("Hero_Treant.LivingArmor.Cast")
+	end
 end
 
 function HandleLivingArmor(keys)
@@ -50,4 +57,5 @@ end
 
 function RemoveParticle(keys)
 	ParticleManager:DestroyParticle(keys.target.LivingArmorParticle, false)
+	keys.target.LivingArmorParticle = nil
 end

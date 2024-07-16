@@ -1237,12 +1237,16 @@
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_bonus_move_speed"	"%移速加成："
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_duration"			"持续时间："
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_fade_time"		"渐隐时间："
+		"DOTA_Tooltip_modifier_treant_natures_guise_lua"						"自然蔽护"
+		"DOTA_Tooltip_modifier_treant_natures_guise_lua_Description"			"在树木附近时隐身。\n获得%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度加成。"
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven"				"树甲"
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_Description"	"将友方英雄或建筑笼罩在保护性外壳中，获得额外生命恢复速率。同时为英雄提供所有类型的伤害格挡。在受到若干次攻击后护甲将会消失。"
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_damage_count"	"伤害格挡次数："
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_health_regen"	"生命恢复加成："
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_damage_block"	"伤害格挡："
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_duration"		"持续时间："
+		"DOTA_Tooltip_modifier_living_armor_datadriven_stacks"					"活体护甲"
+		"DOTA_Tooltip_modifier_living_armor_datadriven_stacks_Description"		"治疗中，格挡伤害。"
 
 		// Tusk
 		"DOTA_Tooltip_ability_tusk_snowball_datadriven"							"雪球"
