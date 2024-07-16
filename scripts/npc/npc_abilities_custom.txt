@@ -21227,6 +21227,7 @@
 				"max_health_as_damage_pct"	"0"
 				"damage_threshold"		"50000"
 				"spread_radius"			"0"
+				"slow_step_pct_of_max"	"100"
 				"slow_tooltip"			"70"
 		}
 	}
