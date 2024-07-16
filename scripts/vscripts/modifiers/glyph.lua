@@ -1,5 +1,9 @@
 function enableGlyph(event)
     local team = event.caster:GetTeam()
+    local gameEvent = {}
+	gameEvent["teamnumber"] = team
+	FireGameEvent("dota_glyph_used", gameEvent) -- combat event
+
     local goodTeamTowerNames = {
         "dota_goodguys_tower4_top",
         "dota_goodguys_tower3_mid",
@@ -40,7 +44,6 @@ function enableGlyph(event)
         "bad_rax_range_bot",
         "dota_badguys_fort"
     }
-
     local towerNames = {}
     if team == DOTA_TEAM_GOODGUYS then
         GameRules:GetAnnouncer(team):SpeakConcept({

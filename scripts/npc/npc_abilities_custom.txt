@@ -11768,7 +11768,7 @@
 			"base_move_slow"		"20"
 			"move_slow_per_stack"	"3 6 9 12"
 			"stack_limit"			"4"
-			"goo_duration_creep"	"5.0"
+			"goo_duration_creep"	"10.0"
 			"AbilityCastRange"		"600"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
@@ -20165,7 +20165,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"attack_count"					"5000"
+				"attack_count"					"0"
 				"bonus_damage"					"0"				
 				"bonus_damage_buildings"		"75"
 				"attack_range"					"235"
@@ -21146,6 +21146,7 @@
 				"max_health_as_damage_pct"	"0"
 				"damage_threshold"		"50000"
 				"spread_radius"			"0"
+				"slow_step_pct_of_max"	"100"
 				"slow_tooltip"			"70"
 		}
 	}
