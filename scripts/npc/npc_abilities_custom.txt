@@ -9894,7 +9894,7 @@
 				"damage_per_unit"			"18 22 26 30"
 				"max_units"					"10 12 14 16"
 				"radius"					"1300"
-				"tombstone_heal"			"0"
+				"tombstone_heal"			"1"
 				"strength_share_percent"	"0"
 				"strength_share_duration"	"0"
 				"strength_share_model_scale"	"0"
