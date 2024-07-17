@@ -2340,6 +2340,7 @@
 			}
 			"modifier_sven_gods_strength_aghs_aura"
 			{
+				"IsHidden"	"1"
 				"Duration"				"25"
 				"Aura" 					"modifier_sven_gods_strength_ally_buff"
 				"Aura_Radius" 			"900"
