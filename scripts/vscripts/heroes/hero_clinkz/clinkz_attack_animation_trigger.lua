@@ -26,27 +26,34 @@ function hero_attack_point_adjust_lua:GetIntrinsicModifierName()
 	return "modifier_clinkz_attack_animation"
 end
 
+local hero_kv = LoadKeyValues('scripts/npc/npc_heroes_custom.txt')
+
 if modifier_clinkz_attack_animation == nil then
 	modifier_clinkz_attack_animation = class({})
 end
 
+function modifier_clinkz_attack_animation:OnCreated()
+	self.hero_name = self:GetParent():GetName()
+	self.base_BAT = hero_kv[self.hero_name .. '_683']["AttackRate"]
+end
+
 function modifier_clinkz_attack_animation:DeclareFunctions()
 	local funcs = {
-		MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE,
-		MODIFIER_PROPERTY_BASE_ATTACK_TIME_PERCENTAGE
+		MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
+		MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE
 	}
 	return funcs
 end
 
 function modifier_clinkz_attack_animation:GetModifierAttackSpeedPercentage()
 	if IsServer() then
-		return HERO_2_ASP[self:GetParent():GetName()]
+		return HERO_2_ASP[self.hero_name]
 	end
 end
 
-function modifier_clinkz_attack_animation:GetModifierBaseAttackTimePercentage()
+function modifier_clinkz_attack_animation:GetModifierBaseAttackTimeConstant()
 	if IsServer() then
-		return HERO_2_ASP[self:GetParent():GetName()]
+		return (1 + HERO_2_ASP[self.hero_name] / 100.0) * self.base_BAT 
 	end
 end
 
