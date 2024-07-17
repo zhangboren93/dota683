@@ -26,3 +26,10 @@ end
 function modifier_sentry_ward_reveal_invis_aura_lua:IsHidden()
 	return true
 end
+
+function modifier_sentry_ward_reveal_invis_aura_lua:OnCreated()
+	self.parent = self:GetParent()
+	if self.parent.SetSkin ~= nil then
+		self.parent:SetSkin(1)
+	end
+end
