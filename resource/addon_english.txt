@@ -485,6 +485,8 @@
 		"DOTA_Tooltip_ability_alchemist_goblins_greed_datadriven_bonus_gold"		"BASE BONUS GOLD:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed_datadriven_bonus_bonus_gold"	"EXTRA BONUS GOLD:"		
 		"DOTA_Tooltip_ability_alchemist_goblins_greed_datadriven_bonus_gold_cap"	"MAX BONUS GOLD PER KILL:"
+		"DOTA_Tooltip_modifier_goblins_greed"										"Greevil's Greed"
+		"DOTA_Tooltip_modifier_goblins_greed_Description"							"Grants bonus gold when you kill units."
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven"							"Chemical Rage"
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_Description"				"Alchemist causes his Ogre to enter a chemically induced rage, reducing base attack cooldown and increasing movement speed, health and mana regeneration."
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_Lore"						"The brew Razzil gave to the Ogre during their prison bust has become a useful potion in the midst of combat."
@@ -494,7 +496,7 @@
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_bonus_mana_regen"			"BONUS MANA REGEN:"
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_datadriven_bonus_movespeed"			"BONUS MOVE SPEED:"
 		"DOTA_Tooltip_modifier_chemical_rage"												"Chemical Rage"
-		"DOTA_Tooltip_modifier_chemical_rage_Description"									"Reducing attack time, increasing health regeneration, increasing movement speed."
+		"DOTA_Tooltip_modifier_chemical_rage_Description"									"Reducing attack time to %fMODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT%, increasing health regeneration by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%, increasing mana regen by %fMODIFIER_PROPERTY_MANA_REGEN_CONSTANT%, increasing movespeed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%."
 		// Axe
 		"DOTA_Tooltip_ability_axe_battle_hunger_Description"							"Enrages an enemy unit, causing it to take damage over time until it kills another unit or the duration ends. The enemy is also slowed"
 		"DOTA_Tooltip_ability_axe_battle_hunger_slow_tooltip"							"%MOVEMENT SLOW:"
@@ -1116,6 +1118,7 @@
 		"DOTA_Tooltip_ability_sven_great_cleave_cleave_radius"					"CLEAVE RADIUS:"
 		"DOTA_Tooltip_Ability_sven_gods_strength_Scepter_Description"			"God's Strength adds a 900-radius aura that grants %scepter_aura_damage_pct%%% attack damage bonus to allies while active."
 		"DOTA_Tooltip_modifier_sven_gods_strength_ally_buff"					"God's Strength Aura"
+		"DOTA_Tooltip_modifier_sven_gods_strength_ally_buff_Description"		"Base damage increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%."
 		
 		//Terrorblade
 		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven"								"Reflection"
