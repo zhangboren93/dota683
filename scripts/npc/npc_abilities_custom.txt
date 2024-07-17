@@ -10070,16 +10070,6 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow"
 				}
 			}
-			"modifier_undying_zombie_deathstrike_active"
-			{
-				"IsBuff"		"1"
-				"Duration"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%bonus_move_speed"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
-				}
-			}
 		}
 	}
     "undying_flesh_golem"

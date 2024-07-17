@@ -187,6 +187,7 @@ function Activate()
 	LinkLuaModifier( "modifier_techies_stasis_trap_explode_sound_lua", 	"heroes/hero_techies/modifier_techies_stasis_trap_explode_sound.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_jakiro_liquid_fire_burn_lua", 			"heroes/hero_jakiro/modifier_jakiro_liquid_fire_burn.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_treant_natures_guise_lua", 				"heroes/hero_treant/modifier_treant_natures_guise.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_undying_zombie_deathstrike_active_lua",  "heroes/hero_undying/modifier_undying_zombie_deathstrike_active.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)

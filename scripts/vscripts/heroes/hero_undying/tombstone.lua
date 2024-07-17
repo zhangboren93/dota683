@@ -37,7 +37,7 @@ function deathstrikeHandleIntervalThink(event)
 	target:MoveToTargetToAttack(attack_target)
 	if attack_target:GetHealth() * 100 < attack_target:GetMaxHealth() * threshold
 		or attack_target:GetHealth() < fixed_threshold then
-		ability:ApplyDataDrivenModifier(target, target, "modifier_undying_zombie_deathstrike_active", {})
+		target:AddNewModifier(target, ability, "modifier_undying_zombie_deathstrike_active_lua", { duration = 1 })
 	else
 		target:RemoveModifierByName("modifier_undying_zombie_deathstrike_active")
 	end
