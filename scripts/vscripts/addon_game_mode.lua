@@ -1318,6 +1318,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity.roshanNo = self.roshanCount
 		self.roshanCount = self.roshanCount + 1
 		entity:AddNewModifier(entity, nil, "modifier_roshan_cancel_status_resistance_lua", {})
+		entity:AddNewModifier(entity, nil, "modifier_counter_healthbar", {})
 	end
 
 	if entity:GetName() == "npc_dota_creep_lane" then

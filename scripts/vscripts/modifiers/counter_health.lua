@@ -15,5 +15,5 @@ function modifier_counter_healthbar:IsHidden() return true end
 function modifier_counter_healthbar:IsPurgable() return false end
 
 function modifier_counter_healthbar:GetModifierHealthBarPips()
-	return math.ceil(self:GetParent():GetMaxHealth() / 4)
+	return math.min(math.ceil(self:GetParent():GetMaxHealth() / 4), 200)
 end
