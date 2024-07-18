@@ -28,8 +28,13 @@ function modifier_sentry_ward_reveal_invis_aura_lua:IsHidden()
 end
 
 function modifier_sentry_ward_reveal_invis_aura_lua:OnCreated()
-	self.parent = self:GetParent()
+	self:StartIntervalThink(FrameTime())
+end
+
+function modifier_sentry_ward_reveal_invis_aura_lua:OnIntervalThink()
 	if self.parent.SetSkin ~= nil then
 		self.parent:SetSkin(1)
+		self:StartIntervalThink(-1)
 	end
 end
+
