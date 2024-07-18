@@ -1330,6 +1330,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity.roshanNo = self.roshanCount
 		self.roshanCount = self.roshanCount + 1
 		entity:AddNewModifier(entity, nil, "modifier_roshan_cancel_status_resistance_lua", {})
+		entity:AddNewModifier(entity, nil, "modifier_counter_healthbar", {})
 	end
 
 	if entity:GetName() == "npc_dota_creep_lane" then
@@ -2093,6 +2094,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local new_unit_name = "npc_dota_observer_wards"
 		local lifetime = 420
 		local is_sentry = parent:GetName() == "npc_dota_ward_base_truesight"
+		local caster = EntIndexToHScript(event.entindex_caster_const)
 		if is_sentry then
 			new_unit_name = "npc_dota_sentry_wards"
 			lifetime = 240
@@ -2101,7 +2103,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		if parent:GetTeam() == DOTA_TEAM_GOODGUYS then
 			fountain = Entities:FindByName(nil, "ent_dota_fountain_good")
 		end
-		local new_ward = CreateUnitByName(new_unit_name, parent:GetAbsOrigin(), true, parent:GetOwner(), parent:GetOwner(), parent:GetTeam())
+		local new_ward = CreateUnitByName(new_unit_name, parent:GetAbsOrigin(), true, caster, caster, parent:GetTeam())
 		new_ward:AddNewModifier(fountain, nil, "modifier_kill", { duration = lifetime })
 		new_ward:AddNewModifier(fountain, nil, "modifier_invisible", {})
 		new_ward:AddNewModifier(fountain, nil, "modifier_ward_no_collusion_lua", {})
