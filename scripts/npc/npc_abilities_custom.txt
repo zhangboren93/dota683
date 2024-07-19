@@ -44,6 +44,7 @@
 #base "heroes/spirit_breaker.txt"
 #base "heroes/techies.txt"
 #base "heroes/terrorblade.txt"
+#base "heroes/tidehunter.txt"
 #base "heroes/tiny.txt"
 #base "heroes/tusk.txt"
 #base "heroes/vengefulspirit.txt"
@@ -18435,69 +18436,6 @@
 				}
 			}
 		}
-	}
-	//=================================================================================================================
-	// Tidehunter: Gush
-	//=================================================================================================================
-	"tidehunter_gush"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5118"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"			"0"
-		"AbilitySound"					"Ability.GushCast"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
-		"AbilityDuration"				"4.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"gush_damage"		"110 160 210 260"
-				"projectile_speed"	"4000"
-				"movement_speed"	"-40 -40 -40 -40"
-				"negative_armor"		"2 3 4 5"
-				"speed_scepter"		
-				{
-					"value"				"1"
-					"RequiresScepter"	"1"
-				}
-				"aoe_scepter"		
-				{
-					"value"				"0"
-					"RequiresScepter"	"1"
-				}
-				"cooldown_scepter"
-				{
-					"value"				"12"
-					"RequiresScepter"	"1"
-				}
-				"cast_range_scepter"
-				{
-					"value"				"1"
-					"RequiresScepter"	"1"
-				}
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
 	//=================================================================================================================
 	// Tidehunter: Kraken Shell

@@ -887,6 +887,7 @@
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_damage_pct"								""
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius_damage"							"%分裂伤害："
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius"									"分裂半径："
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_creep_stun_duration"					"小兵眩晕时间："
 		//Night Stalker
 		"DOTA_Tooltip_Ability_night_stalker_void_datadriven"							"虚空"
 		"DOTA_Tooltip_Ability_night_stalker_void_datadriven_Description"				"制造一个伤害性的虚空，对一个敌方单位造成短暂眩晕、减速及伤害。夜晚时减速持续时间更长。"
@@ -1177,8 +1178,7 @@
 		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_illusion_duration"				"倒影持续时间："
 		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_illusion_outgoing_tooltip"		"%倒影继承攻击力："
 		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_move_slow"						"%移动速度减缓："
-		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_attack_slow_tooltip"			"攻击速度减少："		
-		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_range"							"作用范围："
+		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_attack_slow_tooltip"			"攻击速度减少："
 		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_Note0"							"无法以倒影的幻象为目标，并且幻象为无敌，减速效果被移除后幻象将被摧毁。"
 		"DOTA_Tooltip_ability_terrorblade_reflection_datadriven_Note1"							"倒影只会攻击该技能指定的目标。"
 		"DOTA_Tooltip_modifier_reflection_slow"													"倒影"
@@ -1197,6 +1197,12 @@
 		"DOTA_Tooltip_modifier_metamorphosis_datadriven_Description"							"可怕的恶魔形态，具备远程攻击能力。"
 
 		//Tidehunter
+		"DOTA_Tooltip_ability_tidehunter_gush_datadriven"								"巨浪"
+		"DOTA_Tooltip_ability_tidehunter_gush_datadriven_Description"					"召唤一股巨浪攻击一个敌方单位，减速并削弱护甲。持续%AbilityDuration%秒。"
+		"DOTA_Tooltip_ability_tidehunter_gush_datadriven_movement_speed"				"%移动速度减缓："
+		"DOTA_Tooltip_ability_tidehunter_gush_datadriven_negative_armor"				"护甲削弱："
+		"DOTA_Tooltip_modifier_tidehunter_gush_datadriven"								"巨浪"
+		"DOTA_Tooltip_modifier_tidehunter_gush_datadriven_Description"					"速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，护甲降低%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%。"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven"						"锚击"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_Description"			"潮汐猎人挥动他巨大的锚，对附近敌人造成伤害，同时降低他们的攻击力。"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_damage_reduction_pct"	"%基础攻击力降低："
