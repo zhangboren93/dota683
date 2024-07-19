@@ -3,45 +3,48 @@ function item_vanguard_lua:GetIntrinsicModifierName()
 	return "modifier_item_vanguard_lua"
 end
 
-modifier_item_vanguard_lua = class({})
+modifier_item_vanguard_lua = class({ 
+	GetAttributes = function( self ) return MODIFIER_ATTRIBUTE_MULTIPLE end
+})
+
+function modifier_item_vanguard_lua:OnCreated()
+	local ability = self:GetAbility()
+	self.bonus_health		= ability:GetSpecialValueFor("bonus_health")
+	self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
+	self.block_damage_melee = ability:GetSpecialValueFor("block_damage_melee")
+	self.block_damage_ranged = ability:GetSpecialValueFor("block_damage_ranged")
+	self.block_chance		= ability:GetSpecialValueFor("block_chance")
+end
+
 function modifier_item_vanguard_lua:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_HEALTH_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-		MODIFIER_EVENT_ON_TAKEDAMAGE
+		MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK
 	}
 end
 
 function modifier_item_vanguard_lua:GetModifierHealthBonus()
-	return 250
+	return self.bonus_health
 end
 
 function modifier_item_vanguard_lua:GetModifierConstantHealthRegen()
-	return 6
+	return self.bonus_health_regens
 end
 
-function modifier_item_vanguard_lua:OnTakeDamage(event)
-	if event.unit ~= self:GetParent() 
-		or event.damage_type ~= DAMAGE_TYPE_PHYSICAL
-		or bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_BYPASSES_BLOCK) ~= 0 then
-		return
-	end
+function modifier_item_vanguard_lua:GetModifierPhysical_ConstantBlock(event)
+	local parent = self:GetParent()
+	if parent:IsIllusion() then return 0 end
 
-	if RandomInt(1, 100) > 67 then
-		return
+	if RollPseudoRandomPercentage(self.block_chance,
+		DOTA_PSEUDO_RANDOM_ITEM_VANGUARD, parent) then
+		
+		if parent:IsRangedAttacker() then
+			return self.block_damage_ranged
+		else
+			return self.block_damage_melee
+		end
 	end
-
-	local block_damage = 40
-	if event.unit:IsRangedAttacker() then
-		block_damage = 20
-	end
-
-	if block_damage > event.damage then
-		block_damage = event.damage
-	end
-
-	event.unit:Heal(block_damage, self:GetAbility())
-	SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCK, event.unit, block_damage, event.unit:GetPlayerOwner())
 end
 
 function modifier_item_vanguard_lua:IsHidden()
