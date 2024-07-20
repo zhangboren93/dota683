@@ -37,7 +37,6 @@ function modifier_magnataur_empower_cleave_lua:OnProcessCleave(event)
 		local damage = event.damage * pct /100
 		local pos = attacker:GetOrigin()+(target:GetOrigin()-attacker:GetOrigin()):Normalized()*radius
 		local units = FindUnitsInRadius(attacker:GetTeam(),pos,nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
-		local effect = ParticleManager:CreateParticle("particles/units/heroes/hero_kunkka/kunkka_spell_tidebringer.vpcf",PATTACH_CENTER_FOLLOW,attacker)
 		for k,v in ipairs(units) do
 			if v ~= target
                 -- cleave won't work for dragon ancient camp

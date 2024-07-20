@@ -851,6 +851,7 @@
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_damage_pct"							""
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius_damage"						"%CLEAVE DAMAGE:"
 		"DOTA_Tooltip_ability_magnataur_empower_cleave_radius"								"CLEAVE RADIUS:"
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_creep_stun_duration"				"CREEP STUN DURATION:"
 		//Night Stalker
 		"DOTA_Tooltip_Ability_night_stalker_void_datadriven"							"Void"
 		"DOTA_Tooltip_Ability_night_stalker_void_datadriven_Description"				"Creates a damaging void that mini-stuns an enemy unit, slows it and deals damage. At night, the slowing effect lasts longer."
@@ -1146,6 +1147,12 @@
 		"DOTA_Tooltip_modifier_metamorphosis_datadriven_Description"				"Powerful demon form with a ranged attack."
 
 		//Tidehunter
+		"DOTA_Tooltip_ability_tidehunter_gush_datadriven"								"Gush"
+		"DOTA_Tooltip_ability_tidehunter_gush_datadriven_Description"					"Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.  Lasts 4 seconds."
+		"DOTA_Tooltip_ability_tidehunter_gush_datadriven_movement_speed"				"%SLOW:"
+		"DOTA_Tooltip_ability_tidehunter_gush_datadriven_negative_armor"				"ARMOR REDUCTION:"
+		"DOTA_Tooltip_modifier_tidehunter_gush_datadriven"								"Gush"
+		"DOTA_Tooltip_modifier_tidehunter_gush_datadriven_Description"					"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, and armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven"						"Anchor Smash"
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_Description"			"Tidehunter swings his mighty anchor to deal damage to nearby enemies and reduce their attack damage."
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_damage_reduction_pct"	"%Base Attack Damage Reduction: "

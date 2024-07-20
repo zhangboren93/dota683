@@ -44,6 +44,7 @@
 #base "heroes/spirit_breaker.txt"
 #base "heroes/techies.txt"
 #base "heroes/terrorblade.txt"
+#base "heroes/tidehunter.txt"
 #base "heroes/tiny.txt"
 #base "heroes/tusk.txt"
 #base "heroes/vengefulspirit.txt"
@@ -11692,7 +11693,6 @@
 		"AbilityCastPoint"				"0.3 0.3 0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 
-		"AbilityCooldown"				"120 110 100"
 		"AbilityManaCost"				"200 250 300"
 		"AbilityCastRange"				"410 410 410"
 
@@ -11704,6 +11704,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"				"120 110 100"
 			"pull_radius"					"410"
 			"polarity_damage"				"50 125 200"
 			"hero_stun_duration"			"2.25 3 3.75"
@@ -18346,69 +18347,6 @@
 		}
 	}
 	//=================================================================================================================
-	// Tidehunter: Gush
-	//=================================================================================================================
-	"tidehunter_gush"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5118"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"HasScepterUpgrade"			"0"
-		"AbilitySound"					"Ability.GushCast"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12"
-		"AbilityDuration"				"4.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"gush_damage"		"110 160 210 260"
-				"projectile_speed"	"4000"
-				"movement_speed"	"-40 -40 -40 -40"
-				"negative_armor"		"2 3 4 5"
-				"speed_scepter"		
-				{
-					"value"				"1"
-					"RequiresScepter"	"1"
-				}
-				"aoe_scepter"		
-				{
-					"value"				"0"
-					"RequiresScepter"	"1"
-				}
-				"cooldown_scepter"
-				{
-					"value"				"12"
-					"RequiresScepter"	"1"
-				}
-				"cast_range_scepter"
-				{
-					"value"				"1"
-					"RequiresScepter"	"1"
-				}
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
 	// Tidehunter: Kraken Shell
 	//=================================================================================================================
 	"tidehunter_kraken_shell"
@@ -18940,7 +18878,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -18950,10 +18887,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"			"30"
 				"skewer_speed"			"950"
 				"range"					"750 900 1050 1200"
 				"slow_pct"				"40"
-				"skewer_radius"				"145"
+				"skewer_radius"				"125"
 				"slow_duration"				"2.5"
 				"skewer_damage"			"70 140 210 280"
 				"tree_radius"				"200"
@@ -18984,7 +18922,6 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
 
 		// Time		
@@ -19003,6 +18940,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCastRange"		"800"
 			"should_self_cast"		"0"
 			"empower_duration"		"40"
 			"bonus_damage_pct"		"20 30 40 50"
