@@ -1,6 +1,3 @@
-LinkLuaModifier( "modifier_ability_epicenter", "heroes/hero_sand_king/epicenter.lua", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_ability_epicenter_slow", "heroes/hero_sand_king/epicenter.lua", LUA_MODIFIER_MOTION_NONE )
-
 sandking_epicenter_lua = {}
 
 function sandking_epicenter_lua:OnSpellStart()
@@ -49,9 +46,10 @@ function modifier_ability_epicenter:RemoveOnDeath()
 end
 
 function modifier_ability_epicenter:OnCreated( kv )
-	self.pulses = self:GetAbility():GetSpecialValueFor( "epicenter_pulses" )
-	self.damage = self:GetAbility():GetSpecialValueFor( "epicenter_damage" )
-	self.slow = self:GetAbility():GetSpecialValueFor( "epicenter_slow_duration_tooltip" )
+    local ability = self:GetAbility() 
+	self.pulses = ability:GetSpecialValueFor( "epicenter_pulses" )
+	self.damage = ability:GetSpecialValueFor( "epicenter_damage" )
+	self.slow = ability::GetSpecialValueFor( "epicenter_slow_duration_tooltip" )
 
 	if IsServer() then
 		self.pulse = 0
@@ -60,8 +58,8 @@ function modifier_ability_epicenter:OnCreated( kv )
 		self.damageTable = {
 			attacker = self:GetParent(),
 			damage = self.damage,
-			damage_type = DAMAGE_TYPE_MAGICAL,
-			ability = self:GetAbility(),
+			damage_type = ability:GetAbilityDamageType(),
+			ability = ability,
 		}
 
 		self:StartIntervalThink( interval )
