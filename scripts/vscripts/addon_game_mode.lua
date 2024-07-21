@@ -479,7 +479,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	if text == "-unstuck" then
 		-- if hero hasn't move for 1 minutes or hasn't been attacked in 1 minute, move hero to base
 		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
-		hero:AddNewModifier(hero, nil, "modifier_unstuck_timer_lua", { duration = 60 })
+		hero:AddNewModifier(hero, nil, "modifier_unstuck_timer_lua", { duration = 62 })
 	end
 	if self.botEnabled then
 		if text == "-gold" then
