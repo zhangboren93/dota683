@@ -1960,12 +1960,10 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"350 450 550 650"
 		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"11"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -1977,6 +1975,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"				"11"
 			"burrow_width"		"150"
 			"burrow_duration"	"2.17"
 			"burrow_speed"		"2000"
@@ -2029,7 +2028,13 @@
 			"scepter_explosion_radius"	"0"
 			"scepter_explosion_min_dist"	"0"
 			"scepter_explosions_per_pulse"	"0"
+			"spine_tick_rate"				"0"
+			"spine_damage_pct"				"0"
 			"sand_storm_move_speed"		"0"
+
+			"sand_storm_move_speed_pct"							"0"
+			"sand_storm_max_distance_from_caster"				"0"
+			"sand_storm_move_speed_bonus_when_outside_radius"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -2177,6 +2182,7 @@
 			"epicenter_slow"			"-30"
 			"epicenter_slow_as"			"-30"
 			"epicenter_damage_interval" "0.5"
+			"epicenter_slow_duration_tooltip"	"3"
 			"AbilityCooldown"
 			{
 				"value"					"140 120 100"

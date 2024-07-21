@@ -1002,7 +1002,7 @@
 		"DOTA_Tooltip_modifier_ability_epicenter"					"Epicenter"
 		"DOTA_Tooltip_modifier_ability_epicenter_Description"		"Sending a disturbance into the earth, deals damage and slows in a radius"
 		"DOTA_Tooltip_modifier_ability_epicenter_slow"				"Epicenter Slow"
-		"DOTA_Tooltip_modifier_ability_epicenter_slow_Description"	"Movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. Attack speed slowed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_SECONDARY%."
+		"DOTA_Tooltip_modifier_ability_epicenter_slow_Description"	"Movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. Attack speed slowed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 		// Shredder
 		"DOTA_Tooltip_ability_shredder_whirling_death_datadriven"											"Whirling Death"
 		"DOTA_Tooltip_ability_shredder_whirling_death_datadriven_Description"								"Timbersaw whirls extremely sharp edges, damaging enemies and destroying trees around him in an area.  If an enemy hero is affected, it loses some of its primary attribute for a short duration.  Whirling Death will deal pure damage when tree destroyed."
