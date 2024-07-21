@@ -2772,7 +2772,7 @@ function CAddonTemplateGameMode:HandleItemPurchased(event)
 end
 
 function CAddonTemplateGameMode:HandleInventoryItemAdded(event)
-	local time = GameRules:GetDOTATime(true, true)
+	local time = GameRules:GetDOTATime(false, true)
 	print("HandleInventoryItemAdded " .. event.itemname .. " " .. event.inventory_player_id .. " " .. event.is_courier .. " " .. time)
 	if event.itemname == "item_tpscroll" or time < 0 then return end
 	local hero = PlayerResource:GetPlayer(event.inventory_player_id):GetAssignedHero()
