@@ -1049,7 +1049,7 @@
 		"DOTA_Tooltip_modifier_ability_epicenter"					"地震"
 		"DOTA_Tooltip_modifier_ability_epicenter_Description"		"向大地发出震颤，造成范围伤害和减速。"
 		"DOTA_Tooltip_modifier_ability_epicenter_slow"				"地震减速"
-		"DOTA_Tooltip_modifier_ability_epicenter_slow_Description"	"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。攻击速度降低 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT_SECONDARY%。"
+		"DOTA_Tooltip_modifier_ability_epicenter_slow_Description"	"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。攻击速度降低 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
 		// Shredder
 		"DOTA_Tooltip_ability_shredder_whirling_death_datadriven"								"死亡旋风"
 		"DOTA_Tooltip_ability_shredder_whirling_death_datadriven_Description"					"伐木机使极其锋利的刀刃飞旋，对敌人造成伤害并摧毁他周围的树木。如果敌方英雄受到了作用，他的主要属性将在短时间内降低少许。如果该技能施放过程中砍倒了树木则会造成纯粹伤害。"

@@ -131,6 +131,8 @@ function Activate()
 	LinkLuaModifier( "modifier_lycan_shapeshift_attackrange",		"heroes/hero_lycan/shapeshift.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_dream_coil_lua",						"heroes/hero_puck/dream_coil.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_dream_coil_thinker_lua",				"heroes/hero_puck/dream_coil.lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_ability_epicenter",					"heroes/hero_sand_king/epicenter.lua", LUA_MODIFIER_MOTION_NONE )
+	LinkLuaModifier( "modifier_ability_epicenter_slow",				"heroes/hero_sand_king/epicenter.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_damage_absorb_lua",					"heroes/hero_templar_assassin/modifier_refraction.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_ursa_enrage_model", 					"heroes/hero_ursa/enrage.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_viper_poison_attack_debuff_datadriven", 	"heroes/hero_viper/poison_attack.lua", LUA_MODIFIER_MOTION_NONE )
@@ -430,7 +432,7 @@ function CAddonTemplateGameMode:InitGameMode()
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
-	CustomGameEventManager:RegisterListener("hero_bar_ping_miss", CAddonTemplateGameMode.handleHeroBarPingMiss)
+	--CustomGameEventManager:RegisterListener("hero_bar_ping_miss", CAddonTemplateGameMode.handleHeroBarPingMiss) Deprecated
 	CustomGameEventManager:RegisterListener("fwd-command-issue", handleFWDCommand)
 	CustomGameEventManager:RegisterListener("game_mode_select", CAddonTemplateGameMode.handleGameModeSelect)
 
@@ -2330,8 +2332,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		elseif inflictor:GetName() == "axe_battle_hunger" then
 			-- apply magic damage instead of physical
 			event.damage = inflictor:GetSpecialValueFor("damage_per_second") / 2 * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
-		elseif inflictor:GetName() == "vengefulspirit_wave_of_terror" then
-			event.damage = inflictor:GetSpecialValueFor("damage")
 		elseif inflictor:GetName() == "tiny_avalanche" then
 			if victim:HasModifier("modifier_toss_flying_lua") then
 				event.damage = event.damage * 2
@@ -2664,13 +2664,15 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 	end
 end
 
+--[[
+-- Deprecated
 function CAddonTemplateGameMode:handleHeroBarPingMiss(event)
 	local missing_player_id = event.mpid;
 	local reporting_player_id = event.pid;
 	local missing_hero = PlayerResource:GetPlayer(missing_player_id):GetAssignedHero():GetName()
 	local team = PlayerResource:GetPlayer(reporting_player_id):GetTeam()
 	GameRules:SendCustomMessageToTeam(string.sub(missing_hero, 15) .. "_miss", team, -1, -1)
-end
+end]]--
 
 function handleFWDCommand(userid, event)
 	if GetMapName() ~= "dota" or PlayerResource:GetPlayerCount() ~= 1 then
@@ -2795,7 +2797,7 @@ function CAddonTemplateGameMode:HandleItemPurchased(event)
 end
 
 function CAddonTemplateGameMode:HandleInventoryItemAdded(event)
-	local time = GameRules:GetDOTATime(true, true)
+	local time = GameRules:GetDOTATime(false, true)
 	print("HandleInventoryItemAdded " .. event.itemname .. " " .. event.inventory_player_id .. " " .. event.is_courier .. " " .. time)
 	if event.itemname == "item_tpscroll" or time < 0 then return end
 	local hero = PlayerResource:GetPlayer(event.inventory_player_id):GetAssignedHero()

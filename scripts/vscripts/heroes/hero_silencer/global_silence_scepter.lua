@@ -13,3 +13,8 @@ function handleAbilityExecuted(keys)
         end
     end
 end
+
+function handleSound(keys)
+    local target = keys.target
+    EmitSoundOnClient("Hero_Silencer.GlobalSilence.Effect", target:GetPlayerOwner())
+end
