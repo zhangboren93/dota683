@@ -49,7 +49,7 @@ function modifier_ability_epicenter:OnCreated( kv )
     local ability = self:GetAbility() 
 	self.pulses = ability:GetSpecialValueFor( "epicenter_pulses" )
 	self.damage = ability:GetSpecialValueFor( "epicenter_damage" )
-	self.slow = ability::GetSpecialValueFor( "epicenter_slow_duration_tooltip" )
+	self.slow = ability:GetSpecialValueFor( "epicenter_slow_duration_tooltip" )
 
 	if IsServer() then
 		self.pulse = 0
