@@ -366,6 +366,7 @@ function CAddonTemplateGameMode:InitGameMode()
 				GameRules:GetGameModeEntity():SetThink(function()
 					if isValidRankedGame and not hasGameEnded then
 						shouldCalcuateScore = true
+						uploadGameToServer(LADDER_HOST)
 					end
 				end, "validate rank game after 5 minutes", 300)
 			end
@@ -491,9 +492,6 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 --	if text == "-test" then
---		Entities:FindByName(nil, "dota_goodguys_fort"):Kill(nil, PlayerResource:GetPlayer(playerid):GetAssignedHero())
---		calculateLadderScoreLose(DOTA_TEAM_GOODGUYS, playerId2LadderScore, LADDER_HOST)
---		hasGameEnded = true
 --	end
 end
 
@@ -839,17 +837,11 @@ function CAddonTemplateGameMode:OnThink()
 			-- if all players from one team has disconnected from the game, call other team the winner.
 			if isValidRankedGame and not hasGameEnded then
 				if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
-					if shouldCalcuateScore then
-						calculateLadderScoreLose(DOTA_TEAM_GOODGUYS, playerId2LadderScore, LADDER_HOST)
-					end
 					sendEndGameStats(player2BuildingDamage)
 					GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
 					hasGameEnded = true
 					GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 				elseif getConnectedPlayerCount(DOTA_TEAM_BADGUYS) == 0 then
-					if shouldCalcuateScore then
-						calculateLadderScoreLose(DOTA_TEAM_BADGUYS, playerId2LadderScore, LADDER_HOST)
-					end
 					sendEndGameStats(player2BuildingDamage)
 					GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
 					hasGameEnded = true
@@ -1610,9 +1602,6 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 	end
 	if entity:IsFort() then
 		--End game, send player status to clients
-		if isValidRankedGame and not hasGameEnded and shouldCalcuateScore then
-			calculateLadderScoreLose(entity:GetTeam(), playerId2LadderScore, LADDER_HOST)
-		end
         if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
             GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
         else
@@ -2855,6 +2844,7 @@ function CAddonTemplateGameMode:handleFirstBlood()
 	self.firstBlood = true
 	if isMapRanked() and isValidRankedGame and not hasGameEnded then
 		shouldCalcuateScore = true
+		uploadGameToServer(LADDER_HOST)
 	end
 end
 

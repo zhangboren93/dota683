@@ -195,10 +195,6 @@ function isMapRanked()
 	return GetMapName() == RANK_MAP_NAME 
 end
 
-function calculateLadderScoreLose(losing_team, player_2_score, host)
-    uploadGameToServer(host)
-end
-
 function uploadGameToServer(host)
 	CreateHTTPRequest("POST", "http://" .. host .. "/ladder_game/" .. CDOTAGameRules:Script_GetMatchID()):Send(
         function(response)
