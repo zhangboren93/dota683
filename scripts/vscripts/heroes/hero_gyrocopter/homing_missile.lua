@@ -44,7 +44,7 @@ function MoveMissile(keys)
 	local ability = keys.ability
 	local target = ability.target
 	-- The interval on which this function is called (every 0.02 seconds)
-	local interval = 0.02
+	local interval = 0.033
 	
 	-- Checks whether the missile has hit the target already
 	if ability.hit == false then

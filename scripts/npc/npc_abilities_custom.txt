@@ -19153,7 +19153,7 @@
 				}
 			}
 		
-			"ThinkInterval"		"0.02"
+			"ThinkInterval"		"0.033"
 			"OnIntervalThink"
 			{
 				"RunScript"
