@@ -39,6 +39,13 @@ function fillExtraSummaryInfo(players, slot) {
 	}
 }
 
+function fillExtraSummaryInfoForAll() {
+	let radiant_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)
+	fillExtraSummaryInfo(radiant_players, 0);
+	let dire_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS)
+	fillExtraSummaryInfo(dire_players, 5);
+}
+
 (function () {
 	var radiant_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)
 	$.Msg("Radiant player count " + radiant_players.length)
@@ -85,6 +92,9 @@ function fillExtraSummaryInfo(players, slot) {
 	}
 
 	$.Msg("Global player stat is " + Players.extraPlayerStats);
-	fillExtraSummaryInfo(radiant_players, 0);
-	fillExtraSummaryInfo(dire_players, 5);
+	if (Players.extraPlayerStats == undefined) {
+		$.Schedule(3, fillExtraSummaryInfoForAll);
+	} else {
+		fillExtraSummaryInfoForAll()
+	}
 })();

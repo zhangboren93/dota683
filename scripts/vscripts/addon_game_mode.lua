@@ -1605,7 +1605,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
         if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
             GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
         else
-            GameRules.SetGameWinner(DOTA_TEAM_GOODGUYS)
+            GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
         end
 
 		sendEndGameStats(player2BuildingDamage)
