@@ -110,7 +110,7 @@ function arc_warden_tempest_double_modifier:GetModifierIllusionLabel()
 end
 
 function arc_warden_tempest_double_modifier:OnTakeDamage( event )
-	if event.unit:IsAlive() == false then
+	if event.unit == self:GetParent() and event.unit:IsAlive() == false then
 		event.unit:MakeIllusion()
 	end
 end
