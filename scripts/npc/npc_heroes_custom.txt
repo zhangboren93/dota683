@@ -2317,8 +2317,8 @@
 			"hoodwink_treebounce_trickshot" 
 			{
 				"Icon"				"speed"
-				"Color"				"Gray"
-				"GradientID"		"0"
+				"Color"				"Green"
+				"GradientID"		"4"
 			}
 		}
 	}
