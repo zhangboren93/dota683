@@ -2551,6 +2551,12 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 				return true
 			end
 		end
+	elseif ability:GetName() == "pudge_dismember" and event.value_name_const == "AbilityChannelTime" then
+		local target = ability:GetCursorTarget()
+		if target ~= nil and target:IsCreep() then
+			event.value = ability:GetSpecialValueFor("creep_dismember_duration_tooltip")
+			return true
+		end
 	end
 end
 
