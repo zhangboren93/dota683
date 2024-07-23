@@ -31,6 +31,7 @@ fwdnocdenabled = 0
 sameHeroPickEnabled = false
 shufflePlayersEnabled = false
 RandomDraftHeroPool = {} -- RANDOM PICK HERO POOL
+custom_game_first_pick = "random"
 
 function Precache( context )
 	--[[
@@ -606,7 +607,7 @@ function CAddonTemplateGameMode:OnThink()
  	   			CustomGameEventManager:Send_ServerToAllClients("captain_draft_start", {})
 			elseif self.game_mode == "CD" then
 				self.hero_selection_state = "CDD_RAD_BAN_1"
-				initCaptainDraft()
+				initCaptainDraft(custom_game_first_pick)
 			else
 				print("[WARN] unhandled hero selection state: "..self.hero_selection_state)
 			end
@@ -2879,6 +2880,19 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 				GameRules:SendCustomMessage("关闭随机阵营", -1, -1)
 			end
 			CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, sf = data.sf})
+			return
+		elseif data.fp ~= nil then
+			if data.fp ~= custom_game_first_pick then
+				if data.fp == 'random' then
+					GameRules:SendCustomMessage("随机阵营先选", -1, -1)
+				elseif data.fp == 'rad' then
+					GameRules:SendCustomMessage("近卫先选", -1, -1)
+				elseif data.fp == "dire" then
+					GameRules:SendCustomMessage("天灾先选", -1, -1)
+				end
+				custom_game_first_pick = data.fp
+				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.PlayerID, fp = data.fp})
+			end
 			return
 		end
 		GameRules.AddonTemplate.botEnabled = false

@@ -49,6 +49,11 @@ function OnCaptainDraftStart(data) {
 	for (let i=1; i <=27; i++) {
 		$("#hero-image-str-"+i).heroname = data.sh[i.toString()]
 	}
+	if (data.st == DOTATeam_t.DOTA_TEAM_BADGUYS) {
+		draft_start_team = DOTATeam_t.DOTA_TEAM_BADGUYS;
+		$("#pick-phase-radiant").visible = false
+		$("#pick-phase-dire").visible = true
+	}
 	$.GetContextPanel().RemoveClass("captain_draft_panel_hide")
 	draft_state = 1
 	$.Schedule(1, countDownTimer)
@@ -72,7 +77,7 @@ function handleBanButtonClicked() {
 	let my_player = Players.GetLocalPlayer()
 	let my_team = Players.GetTeam(my_player)
 	let is_my_team_ban_phase = false
-	if (my_team == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
+	if (my_team == draft_start_team) {
 		if (draft_state == 1 || draft_state == 3 || draft_state == 5) {
 			is_my_team_ban_phase = true
 		}

@@ -18,7 +18,7 @@ local function removeFromTable(heroname)
 	end
 end
 
-function initCaptainDraft()
+function initCaptainDraft(custom_game_first_pick)
 	local heroes = str_heroes
 	-- shuffles
 	for i=1,9 do
@@ -39,8 +39,12 @@ function initCaptainDraft()
 		table.insert(captain_draft_hero_pool, heroes[i])
 	end
 	--send all heroes backed up to the clients
-	-- TODO pick start team
-	CustomGameEventManager:Send_ServerToAllClients("captain_ddraft_start", {sh = captain_draft_hero_pool})
+	if custom_game_first_pick == "dire" then
+		captain_draft_start_team = DOTA_TEAM_BADGUYS
+	elseif custom_game_first_pick == "random" and RandomInt(1, 2) == 1 then
+		captain_draft_start_team = DOTA_TEAM_BADGUYS
+	end
+	CustomGameEventManager:Send_ServerToAllClients("captain_ddraft_start", { sh = captain_draft_hero_pool, st = captain_draft_start_team })
 end
 
 local function getTeamToPickFromPickPhase(pick_phase)

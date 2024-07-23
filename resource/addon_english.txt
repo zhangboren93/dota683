@@ -2626,6 +2626,10 @@
 		"683modeselect_gamemode"							"GAME MODE:"
 		"683modeselect_gamemode_samepick"					"SAME PICK"
 		"683modeselect_gamemode_shuffle_players"			"SHUFFLE PLAYERS"
+		"683modeselect_first_pick_team"						"FRIST PICK(CD): "
+		"683modeselect_first_pick_random"					"Random"
+		"683modeselect_first_pick_rad"						"Radiant"
+		"683modeselect_first_pick_dire"						"Dire"
 		"your_turn_to_pick_at_time"							"Your turn to pick at:"
 
 		"DOTA_HUD_BackpackHint"			"Backpack has been disabled."

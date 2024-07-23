@@ -5,6 +5,11 @@ function handleModeSelect(mode) {
 	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), gm: mode})
 }
 
+function handleFirstPick(team) {
+	$.Msg("handle first pick " + team)
+	GameEvents.SendCustomGameEventToServer("game_mode_select", { fp: team })
+}
+
 function OnGameModeSelectedFromServer(data) {
 	$.Msg("OnGameModeSelectedFromServer")
 	$.Msg(data)
@@ -23,6 +28,16 @@ function OnGameModeSelectedFromServer(data) {
 				$("#sf").SetSelected(true)
 			} else {
 				$("#sf").SetSelected(false)
+			}
+			return 
+		} else if (data.fp != null) {
+			$.Msg("Other Client changed fp option " + data.fp)
+			if (data.fp == "random") {
+				$("#random").checked = true
+			} else if (data.fp == "rad") {
+				$("#rad").checked = true
+			} else {
+				$("#dire").checked = true
 			}
 			return 
 		}
@@ -64,5 +79,6 @@ function handleShufflePlayers() {
 	if (mapname == 'maps/custom.vpk') {
 		$("#ModeSelect").visible = true
 		$("#ap").checked = true
+		$("#random").checked = true
 	}
 })()
