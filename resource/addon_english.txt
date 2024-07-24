@@ -1434,6 +1434,8 @@
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven_Description"					"Drow's experiences in battle improve her accuracy and effectiveness in combat, providing a passive bonus to Agility. Grants no bonus if there are enemy heroes within 400 range."
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven_marksmanship_agility_bonus"	"BONUS AGILITY:"
 		//Ember Spirit
+		"DOTA_Tooltip_modifier_ember_spirit_searing_chains_lua"							"Searing Chains"
+		"DOTA_Tooltip_modifier_ember_spirit_searing_chains_lua_Description"				"Locked in place by Searing Chains.  Cannot blink or move, taking damage per second."
 		"DOTA_Tooltip_ability_ember_spirit_sleight_of_fist_creep_damage_penalty"			"%CREEP DAMAGE:"
 		"DOTA_Tooltip_ability_ember_spirit_flame_guard_datadriven"						"Flame Guard"
 		"DOTA_Tooltip_ability_ember_spirit_flame_guard_datadriven_Description"			"Ember Spirit surrounds himself with a ring of fire that creates a magic damage barrier, absorbing damage.  Flame Guard deals damage per second in an area around Ember Spirit while Flame Guard is active.  If the barrier is broken, the damage is also lost."

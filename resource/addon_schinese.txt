@@ -1494,6 +1494,8 @@
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven_Description"					"卓尔游侠的战斗经验提高了她的精确度和战斗效率，被动增加敏捷。如果400范围内有敌方英雄，敏捷加成消失。"
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven_marksmanship_agility_bonus"	"敏捷提升："
         //Ember Spirit
+		"DOTA_Tooltip_modifier_ember_spirit_searing_chains_lua"							"炎阳索"
+		"DOTA_Tooltip_modifier_ember_spirit_searing_chains_lua_Description"				"被炎阳索困于原地。无法闪烁或移动，每秒持续受到伤害。"
 		"DOTA_Tooltip_ability_ember_spirit_sleight_of_fist_creep_damage_penalty"			    "%小兵伤害："
 		"DOTA_Tooltip_ability_ember_spirit_flame_guard_datadriven"						"烈火罩"
 		"DOTA_Tooltip_ability_ember_spirit_flame_guard_datadriven_Description"			"灰烬之灵用火焰之环将自己包裹起来，创造一个魔法伤害护盾，受到的魔法伤害会被吸收。烈火罩对灰烬之灵周围的敌人造成持续伤害。护盾吸收的伤害超过上限后将失去伤害效果。"

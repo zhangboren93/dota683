@@ -185,6 +185,7 @@ function Activate()
 	LinkLuaModifier( "modifier_legion_commander_duel_ignore_ethreal_lua", "heroes/hero_legion_commander/modifier_legion_commander_duel_ignore_ethreal.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_blur_enemy_lua", 						"heroes/hero_phantom_assassin/modifier_blur_enemy.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_ember_spirit_flame_guard_lua", 			"heroes/hero_ember_spirit/modifier_ember_spirit_flame_guard.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_ember_spirit_searing_chains_lua", 		"heroes/hero_ember_spirit/modifier_ember_spirit_searing_chains.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_shredder_chakram_lua", 					"heroes/hero_shredder/modifier_shredder_chakram.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_shredder_chakram_slow_lua", 				"heroes/hero_shredder/modifier_shredder_chakram.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_spectre_haunt_fix_movespeed_lua", 		"heroes/hero_spectre/modifier_spectre_haunt_fix_movespeed.lua", LUA_MODIFIER_MOTION_NONE)
@@ -2216,6 +2217,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_spectre_haunt_fix_movespeed_lua", {})
+	elseif event.name_const == "modifier_ember_spirit_searing_chains" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local duration = ability:GetSpecialValueFor("duration")
+		parent:AddNewModifier(caster, ability, "modifier_ember_spirit_searing_chains_lua", { duration = duration })
+		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

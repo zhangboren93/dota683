@@ -1,6 +1,6 @@
 root_modifiers = {}
 root_modifiers["modifier_crystal_maiden_frostbite"] = true
-root_modifiers["modifier_ember_spirit_searing_chains"] = true
+root_modifiers["modifier_ember_spirit_searing_chains_lua"] = true
 root_modifiers["modifier_dark_troll_warlord_ensnare"] = true
 root_modifiers["modifier_meepo_earthbind"] = true
 root_modifiers["modifier_ensnare_datadriven"] = true
