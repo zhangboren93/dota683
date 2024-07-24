@@ -23,6 +23,10 @@ function item_bfury_cleave_lua:OnProcessCleave(event)
 		local radius = ability:GetSpecialValueFor("cleave_radius")
 		local damage = event.damage * pct /100
 		local pos = attacker:GetOrigin()+(target:GetOrigin()-attacker:GetOrigin()):Normalized()*radius
+		-- If ember's cleaves a random direction
+		if attacker:HasModifier("modifier_ember_spirit_sleight_of_fist_in_progress") then
+			pos = target:GetOrigin() + RandomVector(radius - 128)
+		end
 		local units = FindUnitsInRadius(attacker:GetTeam(),pos,nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
 
 		local effect = ParticleManager:CreateParticle("particles/items_fx/battlefury_cleave.vpcf",PATTACH_CENTER_FOLLOW,attacker)
