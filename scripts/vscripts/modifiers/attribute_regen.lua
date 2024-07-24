@@ -42,6 +42,8 @@ function modifier_attribute_regen_adjust:GetModifierMoveSpeed_Limit()
         return self:GetParent():FindAbilityByName("spirit_breaker_charge_of_darkness"):GetSpecialValueFor("movement_speed")
     elseif parent:HasModifier("modifier_lycan_shapeshift_speed") then
         return 650
+    elseif parent:HasModifier("modifier_faceless_void_chronosphere_speed") then
+        return 1000
     end
     return 522
 end
