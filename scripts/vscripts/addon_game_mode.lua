@@ -321,6 +321,8 @@ function CAddonTemplateGameMode:InitGameMode()
 		Dynamic_Wrap(CAddonTemplateGameMode, "DamageFilter"), self)
 	GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(
 		Dynamic_Wrap(CAddonTemplateGameMode, "AbilityTuningValueFilter"), self)
+	GameRules:GetGameModeEntity():SetTrackingProjectileFilter(
+		Dynamic_Wrap(CAddonTemplateGameMode, "TrackingProjectileFilter"), self)
 
 	ListenToGameEvent('npc_spawned', function(event)
 		HandleNpcSpawned(self, event.entindex, event.is_respawn)
@@ -2566,6 +2568,14 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 			return true
 		end
 	end
+end
+
+function CAddonTemplateGameMode:TrackingProjectileFilter(event)
+	local ability = EntIndexToHScript(event.entindex_ability_const)
+	if ability ~= nil and ability:GetName() == "winter_wyvern_splinter_blast" then
+		event.dodgeable = 0
+	end
+	return true
 end
 
 function CAddonTemplateGameMode:handleLadderHeroBanned(event)
