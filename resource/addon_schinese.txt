@@ -1527,6 +1527,18 @@
 		"DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_duration_creep"	"对非英雄持续时间："
 		"DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_bonus_damage"		"额外伤害："
 		"DOTA_Tooltip_Ability_faceless_void_chronosphere_scepter_Description"		"增加持续时间并减少冷却时间至60秒。"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua"						"时间结界"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_Description"			"在时空中创造一个泡状遮罩，将所有位于其中的单位定住，并使虚空假面在其内部来去自如。只有虚空假面和他控制的单位不受影响。在其中的隐身单位会显形。"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_scepter_Description"	"增加持续时间，减少冷却时间。"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_Note0"					"能够定住所有单位和建筑，不论敌我。除了虚空假面控制的单位。"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_Note1"					"虚空假面不受任何时间结界的影响。"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_Note2"					"可以显示隐身单位。"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_Lore"					"#DOTA_Tooltip_ability_faceless_void_chronosphere_Lore"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_radius"				"作用范围："
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_duration"				"持续时间："
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_AbilityCooldown"		"冷却时间："
+		"DOTA_Tooltip_modifier_faceless_void_chronosphere_freeze_lua"					"时间结界"
+		"DOTA_Tooltip_modifier_faceless_void_chronosphere_freeze_lua_Description"		"被困在时空中，无法移动和行动。"
 
 		// Gyrocopter
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven"								"导弹"

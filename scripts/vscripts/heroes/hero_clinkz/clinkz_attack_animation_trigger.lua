@@ -34,7 +34,11 @@ end
 
 function modifier_clinkz_attack_animation:OnCreated()
 	self.hero_name = self:GetParent():GetName()
-	self.base_BAT = hero_kv[self.hero_name .. '_683']["AttackRate"]
+	local hero_table = hero_kv[self.hero_name .. '_683']
+	if hero_table == nil then
+		hero_table = hero_kv[self.hero_name]
+	end
+	self.base_BAT = hero_table["AttackRate"]
 end
 
 function modifier_clinkz_attack_animation:DeclareFunctions()

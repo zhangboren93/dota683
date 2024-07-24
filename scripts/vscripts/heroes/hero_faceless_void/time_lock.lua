@@ -17,7 +17,9 @@ function handleAttackLanded(event)
 		target:EmitSound("Hero_FacelessVoid.TimeLockImpact")
 		ability:ApplyDataDrivenModifier(attacker, target, "modifier_time_lock_stun_datadriven", { duration = 1 })
 		--double damage if in chronosphere
-		if target:HasModifier("modifier_faceless_void_chronosphere_freeze") then
+		if target:HasModifier("modifier_faceless_void_chronosphere_freeze")
+			or target:HasModifier("modifier_faceless_void_chronosphere_freeze_lua")
+			then
 			bonus_damage = bonus_damage * 2
 		end
 		ApplyDamage({
