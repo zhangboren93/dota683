@@ -17,6 +17,9 @@ function modifier_tusk_snowball_moving_lua:UpdateHorizontalMotion(me, dt)
 		local caster = self:GetCaster()
 		local ability = self:GetAbility()
 		if caster:HasModifier("modifier_tusk_snowball_start_datadriven") then return end
+		if self.startMoveTime == nil then
+			self.startMoveTime = GameRules:GetGameTime()
+		end
 
 		local dist = (self.snowballTarget:GetAbsOrigin() - me:GetAbsOrigin()):Length2D()
 		if dist < 128 then
@@ -85,12 +88,27 @@ end
 
 function modifier_tusk_snowball_moving_lua:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_VISUAL_Z_DELTA
+		MODIFIER_PROPERTY_VISUAL_Z_DELTA,
+		MODIFIER_PROPERTY_MODEL_SCALE
 	}
 end
 
 function modifier_tusk_snowball_moving_lua:GetVisualZDelta()
-	return 80
+	local parent = self:GetParent()
+	if parent ~= nil and parent:HasModifier("modifier_tusk_snowball_start_datadriven") then
+		return 100
+	end
+	if self.startMoveTime == nil then return 100 end
+	return 100 + (GameRules:GetGameTime() - self.startMoveTime) * 20
+end
+
+function modifier_tusk_snowball_moving_lua:GetModifierModelScale()
+	local parent = self:GetParent()
+	if parent ~= nil and parent:HasModifier("modifier_tusk_snowball_start_datadriven") then
+		return 0
+	end
+	if self.startMoveTime == nil then return 0 end
+	return (GameRules:GetGameTime() - self.startMoveTime) * 20
 end
 
 function modifier_tusk_snowball_moving_lua:CheckState()
