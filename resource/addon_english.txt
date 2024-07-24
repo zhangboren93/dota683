@@ -1465,6 +1465,18 @@
 		"DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_duration_creep"	"NON-HERO DURATION:"
 		"DOTA_Tooltip_ability_faceless_void_time_lock_datadriven_bonus_damage"		"BONUS DAMAGE:"
 		"DOTA_Tooltip_Ability_faceless_void_chronosphere_scepter_Description"		"Increases duration and decreases cooldown to 60 seconds."
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua"						"Chronosphere"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_Description"			"Creates a blister in spacetime, trapping all units caught in its sphere of influence and causes you to move very quickly inside it. Only Faceless Void and any units he controls are unaffected. Invisible units in the sphere will be revealed."
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_scepter_Description"	"Increases duration and decreases cooldown."
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_Note0"					"Pauses all units and buildings, friendly or enemy, except those owned by Faceless Void."
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_Note1"					"Faceless Void is never affected by Chronospheres with any owner."
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_Note2"					"Reveals invisible units."
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_Lore"					"#DOTA_Tooltip_ability_faceless_void_chronosphere_Lore"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_radius"				"RADIUS:"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_faceless_void_chronosphere_lua_AbilityCooldown"		"COOLDOWN:"
+		"DOTA_Tooltip_modifier_faceless_void_chronosphere_freeze_lua"					"Chronosphere"
+		"DOTA_Tooltip_modifier_faceless_void_chronosphere_freeze_lua_Description"		"Trapped in spacetime. Unable to move or act."
 
 		// Gyrocopter
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven"								"Homing Missle"
