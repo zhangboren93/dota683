@@ -2527,6 +2527,8 @@
 		"DOTA_Tooltip_ability_winter_wyvern_arctic_burn_percent_damage_pure"	"%HEALTH BURN:"
 		"DOTA_Tooltip_modifier_winter_wyvern_arctic_burn_pure_datadriven"						"Arctic Burn Slow"
 		"DOTA_Tooltip_modifier_winter_wyvern_arctic_burn_pure_datadriven_Description"			"Slowed and losing a percentage of current health per second."
+		"DOTA_Tooltip_modifier_winter_wyvern_splinter_blast_slow_datadriven"					"Splinter Blast Slow"
+		"DOTA_Tooltip_modifier_winter_wyvern_splinter_blast_slow_datadriven_Description"		"Movement slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		//Witch Doctor
 		"DOTA_Tooltip_ability_witch_doctor_maledict_datadriven"					"Maledict"
 		"DOTA_Tooltip_ability_witch_doctor_maledict_datadriven_Description"		"Curses all enemy Heroes in a small area, causing them to take a set amount of damage each second, as well as bursts of damage every 4 seconds based on how much health they have lost since the curse began."

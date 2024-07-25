@@ -693,4 +693,14 @@
 					}
 				}
 			}
+			"modifier_winter_wyvern_splinter_blast_slow_datadriven"
+			{
+				"Duration"		"4"
+				"TextureName"	"winter_wyvern_splinter_blast"
+				"EffectName"    "particles/units/heroes/hero_winter_wyvern/wyvern_splinter_blast_slow.vpcf"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25" 
+				}
+			}
 		}}}

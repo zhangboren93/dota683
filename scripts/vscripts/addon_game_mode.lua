@@ -2225,6 +2225,12 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local duration = ability:GetSpecialValueFor("duration")
 		parent:AddNewModifier(caster, ability, "modifier_ember_spirit_searing_chains_lua", { duration = duration })
 		return false
+	elseif event.name_const == "modifier_winter_wyvern_splinter_blast_slow" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
+		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_splinter_blast_slow_datadriven", {})
+		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

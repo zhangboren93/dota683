@@ -2619,6 +2619,8 @@
 		"DOTA_Tooltip_Ability_winter_wyvern_arctic_burn_percent_damage_pure"	"%生命值灼烧："
 		"DOTA_Tooltip_modifier_winter_wyvern_arctic_burn_pure_datadriven"						"严寒烧灼减速效果"
 		"DOTA_Tooltip_modifier_winter_wyvern_arctic_burn_pure_datadriven_Description"			"移动速度被减缓，同时每秒损失当前生命值的一定百分比。"
+		"DOTA_Tooltip_modifier_winter_wyvern_splinter_blast_slow_lua"				"碎裂冲击减速效果"
+		"DOTA_Tooltip_modifier_winter_wyvern_splinter_blast_slow_lua_Description"	"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
 		"DOTA_Tooltip_ability_winter_wyvern_winters_curse_Description"			"寒冬飞龙驱散一个敌方目标并将其冻在原地，附近的其他敌人将受到癫狂诅咒，对冻住的队友进行攻击，而且攻击速度得到提升。"
 		//Witch Doctor
 		"DOTA_Tooltip_ability_witch_doctor_maledict_datadriven"					"诅咒"
