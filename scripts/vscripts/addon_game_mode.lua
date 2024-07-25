@@ -1521,6 +1521,10 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		entity:RemoveModifierByName("modifier_doom_bringer_devour")
 	end
 	if IsServer() and entity:IsRealHero() and (not entity:IsReincarnating()) then
+		if entity:HasModifier("modifier_winter_wyvern_winters_curse_aura") and attacker:GetTeam() == entity:GetTeam() then
+			print("Crediting WW on Winters curse team kill")
+			attacker = entity:FindModifierByName("modifier_winter_wyvern_winters_curse_aura"):GetCaster()
+		end
 		local ret,error = pcall(function() handleKillBonus(self, attacker, entity) end)
 		if not ret then
 			print(error)

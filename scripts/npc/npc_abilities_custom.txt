@@ -53,6 +53,7 @@
 #base "heroes/warlock.txt"
 #base "heroes/weaver.txt"
 #base "heroes/windrunner.txt"
+#base "heroes/winter_wyvern.txt"
 #base "heroes/witch_doctor.txt"
 #base "units/courier.txt"
 "DOTAAbilities"
@@ -13385,52 +13386,6 @@
 				"shard_splinter_range"			"0"	
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
-    "winter_wyvern_winters_curse"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5654"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"		
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_WinterWyvern.WintersCurse.Target"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700 750 800"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"90 80 70"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250"
-				
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"radius"			"350"
-				"damage_reduction"	"0"
-				"damage_amplification"	"0"
-				"bonus_attack_speed"	"0"
-				"duration"			"2.5 2.75 3"
-				"early_out_timer"	"2.5 2.75 3"
-				"max_duration"		"2.5 2.75 3"
-				"bonus_duration_per_hero"	"0"
-				"bonus_duration_per_creep"	"0"
-		}
 	}
 	"arc_warden_spark_wraith_lua"
 	{
