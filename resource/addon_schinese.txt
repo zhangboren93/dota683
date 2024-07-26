@@ -1538,6 +1538,15 @@
 		"DOTA_Tooltip_modifier_faceless_void_chronosphere_freeze_lua"					"时间结界"
 		"DOTA_Tooltip_modifier_faceless_void_chronosphere_freeze_lua_Description"		"被困在时空中，无法移动和行动。"
 
+		"DOTA_Tooltip_Facet_faceless_void_temporal_impunity"						"超维来客"
+		"DOTA_Tooltip_Facet_faceless_void_temporal_impunity_Description"			"使用虚空假面技能图标。"
+		"DOTA_Tooltip_Facet_faceless_void_time_zone"								"万世奇珍"
+		"DOTA_Tooltip_Facet_faceless_void_time_zone_Description"					"使用虚空假面不朽饰品技能图标。"	
+		"DOTA_Tooltip_Facet_faceless_void_arcana"									"超维逆族"
+		"DOTA_Tooltip_Facet_faceless_void_arcana_Description"						"使用虚空假面至宝技能图标，其中回到过去改用时间膨胀的图标。"	
+		"DOTA_Tooltip_Facet_faceless_void_arcana_2"									"超维神族"
+		"DOTA_Tooltip_Facet_faceless_void_arcana_2_Description"						"使用虚空假面至宝（款式二）技能图标，其中回到过去改用时间膨胀的图标。"
+		
 		// Gyrocopter
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven"								"导弹"
 		"DOTA_Tooltip_Ability_gyrocopter_homing_missile_datadriven_Description"					"发射一枚会自动搜索目标单位的追踪导弹。导弹发射后持续增加飞行速度，击中目标时造成伤害及眩晕。飞行距离越远，造成的伤害越大。敌方单位可在导弹接近前将其击落。"
