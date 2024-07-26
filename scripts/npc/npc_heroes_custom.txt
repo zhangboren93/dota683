@@ -3240,6 +3240,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability1"		"tiny_avalanche_datadriven"
 		"Ability2"		"tiny_toss_datadriven"
 		"Ability3"		"tiny_craggy_exterior_datadriven"
 		"Ability4"		"generic_hidden"

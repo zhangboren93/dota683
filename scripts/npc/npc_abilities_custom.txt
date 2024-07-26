@@ -28447,26 +28447,6 @@
 			}
 		}
 	}
-	"tiny_avalanche"
-	{
-		"AbilityCooldown"				"17"
-		"AbilityManaCost"				"120 120 120 120"
-		"AbilityValues"
-		{
-				"radius"					"275"
-				"tick_interval"				"0.25"
-				"total_duration"			"1.4"
-				"tick_count"				"4"
-				"stun_duration"				"1"
-				"projectile_speed"		"1200"
-				"avalanche_damage"			
-				{
-					"value"				"100 180 260 300"
-					"LinkedSpecialBonus"		"special_bonus_unique_tiny"
-				}
-				"toss_multiplier"		"2"
-		}
-	}
 	"tiny_toss_datadriven"
 	{
 		// General

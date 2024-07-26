@@ -1,6 +1,42 @@
 "DOTAAbilities"
 {
 	"Version"	"1"
+	"tiny_avalanche_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"tiny_avalanche"
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"17"
+		"AbilityManaCost"				"120"
+		"AOERadius"						"275"
+		"AbilityValues"
+		{
+				"radius"					"275"
+				"tick_interval"				"0.25"
+				"tick_count"				"4"
+				"stun_duration"				"1"
+				"projectile_duration"		"0.5"
+				"avalanche_damage"			"100 180 260 300"
+				"toss_multiplier"			"2"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"				"heroes/hero_tiny/avalanche.lua"
+				"Function"					"handleSpellStart"
+				"Target"					"POINT"
+			}
+		}
+		"precache"
+		{
+			"particle"						"particles/units/heroes/hero_tiny/tiny_avalanche.vpcf"
+		}
+	}
 	//=================================================================================================================
 	// Tiny: Craggy Exterior
 	//=================================================================================================================
