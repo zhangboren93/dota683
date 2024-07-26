@@ -1160,6 +1160,11 @@
 		"DOTA_Tooltip_modifier_tidehunter_anchor_smash_datadriven"						"Anchor Smash"
 		"DOTA_Tooltip_modifier_tidehunter_anchor_smash_datadriven_Description" 			"Damage reduced"
 		//Tiny
+		"DOTA_Tooltip_ability_tiny_avalanche_datadriven"								"Avalanche"
+		"DOTA_Tooltip_ability_tiny_avalanche_datadriven_Description"					"Bombards an area with rocks, continously doing small intervals of damage and stun to enemy units. Avalanche does %toss_multiplier%x damage to units being tossed."
+		"DOTA_Tooltip_ability_tiny_avalanche_datadriven_Lore"							"Inanimate rock becomes animate when called by the Stone Giant."
+		"DOTA_Tooltip_ability_tiny_avalanche_datadriven_radius"							"RADIUS:"
+		"DOTA_Tooltip_ability_tiny_avalanche_datadriven_avalanche_damage"				"AVALANCHE DAMAGE:"
 		"DOTA_Tooltip_ability_tiny_toss_datadriven"								"Toss"
 		"DOTA_Tooltip_ability_tiny_toss_datadriven_Description"					"Grabs the nearest unit in a %grab_radius% radius around Tiny, ally or enemy, and launches it at the target unit to deal damage where they land. Deals 20%% more damage to unit tossed."
 		"DOTA_Tooltip_ability_tiny_toss_datadriven_Lore"						"Tiny's gargantuan stature allows him to catapult even the sturdiest of warriors."

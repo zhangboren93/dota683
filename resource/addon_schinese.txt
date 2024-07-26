@@ -1210,6 +1210,11 @@
 		"DOTA_Tooltip_modifier_tidehunter_anchor_smash_datadriven"						"锚击"
 		"DOTA_Tooltip_modifier_tidehunter_anchor_smash_datadriven_Description" 			"攻击力降低"
 		//Tiny
+		"DOTA_Tooltip_ability_tiny_avalanche_datadriven"								"山崩"
+		"DOTA_Tooltip_ability_tiny_avalanche_datadriven_Description"					"用岩石轰炸一块区域，对敌方单位造成短间隔的伤害并眩晕。山崩对被投掷的单位造成%toss_multiplier%倍伤害。"
+		"DOTA_Tooltip_ability_tiny_avalanche_datadriven_Lore"							"当受到山岭巨人召唤时，毫无生气的石头也会很有杀伤力。"
+		"DOTA_Tooltip_ability_tiny_avalanche_datadriven_radius"							"作用范围："
+		"DOTA_Tooltip_ability_tiny_avalanche_datadriven_avalanche_damage"				"山崩伤害："
 		"DOTA_Tooltip_ability_tiny_toss_datadriven"								"投掷"
 		"DOTA_Tooltip_ability_tiny_toss_datadriven_Description"					"抓起小小身旁%grab_radius%范围内最近的单位，不论敌友，扔向目标单位，落地时将造成伤害。对抛起的单位造成额外20%%伤害。"
 		"DOTA_Tooltip_ability_tiny_toss_datadriven_Lore"						"小小那巨大的身形让他能够随意抛起最强壮的勇士。"
