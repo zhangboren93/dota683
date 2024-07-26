@@ -485,6 +485,15 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 		hero:AddNewModifier(hero, nil, "modifier_unstuck_timer_lua", { duration = 62 })
 	end
+	if string.find(text, "-yyb ") then
+		local sound_name = "MobaTimeMachine.YYB_" .. string.sub(text,6)
+		local team = PlayerResource:GetPlayer(playerid):GetTeam()
+		print("Emitting sound " .. sound_name)
+		for i=1,PlayerResource:GetPlayerCountForTeam(team) do
+			print(PlayerResource:GetNthPlayerIDOnTeam(team, i))
+			EmitSoundOnClient(sound_name, PlayerResource:GetPlayer(PlayerResource:GetNthPlayerIDOnTeam(team, i)))
+		end
+	end
 	if self.botEnabled then
 		if text == "-gold" then
 			PlayerResource:ModifyGold(playerid, 10000, true, DOTA_ModifyGold_HeroKill)
