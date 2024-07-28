@@ -494,6 +494,11 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			EmitSoundOnClient(sound_name, PlayerResource:GetPlayer(PlayerResource:GetNthPlayerIDOnTeam(team, i)))
 		end
 	end
+	if string.find(text, "-yy ") and teamonly == 0 then
+		local sound_name = "MobaTimeMachine.YYB_" .. string.sub(text,5)
+		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+		hero:EmitSound(sound_name)
+	end
 	if self.botEnabled then
 		if text == "-gold" then
 			PlayerResource:ModifyGold(playerid, 10000, true, DOTA_ModifyGold_HeroKill)
