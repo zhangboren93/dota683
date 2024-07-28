@@ -7086,10 +7086,11 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"60.0"
 		
-		"ItemKillable" "1"
-		"ItemSellable" "1"
-		"ItemPurchasable" "1"
-		"ItemDroppable" "1"
+		"ItemKillable" 					"1"
+		"ItemSellable" 					"1"
+		"ItemPurchasable" 				"1"
+		"ItemDroppable" 				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
