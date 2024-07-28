@@ -29,7 +29,7 @@ function modifier_item_vanguard_lua:GetModifierHealthBonus()
 end
 
 function modifier_item_vanguard_lua:GetModifierConstantHealthRegen()
-	return self.bonus_health_regens
+	return self.bonus_health_regen
 end
 
 function modifier_item_vanguard_lua:GetModifierPhysical_ConstantBlock(event)
