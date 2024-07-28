@@ -6,6 +6,7 @@
 	Additional parameters: keys.StatLoss
 ================================================================================================================= ]]
 function modifier_slark_essence_shift_datadriven_on_attack_landed(keys)
+	if keys.caster:IsIllusion() or keys.target:IsIllusion() then return end
 	if keys.target:IsHero() and keys.target:IsOpposingTeam(keys.caster:GetTeam()) then
 		--For the affected enemy, increment their visible counter modifier's stack count.
 		local previous_stack_count = 0
