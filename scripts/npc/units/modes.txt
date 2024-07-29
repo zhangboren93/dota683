@@ -1,0 +1,21 @@
+"DOTAAbilities"
+{
+    "Version"   "1"
+	//=================================================================================================================
+	// Doom Bringer: Devil's Bargain
+	// For ARDM mode.
+	//=================================================================================================================
+	"doom_bringer_devils_bargain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"Innate"					"1"
+		"MaxLevel"					"1"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityValues"
+		{
+			"buyback_penalty"		"0"
+			"item_sellback_percent"	"85.001"
+		}
+	}
+}

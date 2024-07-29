@@ -836,11 +836,19 @@ function CAddonTemplateGameMode:OnThink()
 			for i=1,n do
 				local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
 				PlayerResource:ModifyGold(playerid, 3, true, DOTA_ModifyGold_GameTick)
+
+				local entity = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+				local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
+				PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
 			end
 			local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
 			for i=1,n do
 				local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
 				PlayerResource:ModifyGold(playerid, 3, true, DOTA_ModifyGold_GameTick)
+
+				local entity = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+				local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
+				PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
 			end
 		end
 
@@ -1071,20 +1079,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			return false
 		end
 	end
-	if event.order_type == DOTA_UNIT_ORDER_SELL_ITEM then
-		local item = EntIndexToHScript(event.entindex_ability)
-		if self.game_mode == 'DM' then
-			local playerId = event.issuer_player_id_const
-			-- DM sell item for 85% 
-			local sell_bonus = item:GetCost() * 0.85
-			print("Giving " .. sell_bonus .. " dm sell bonus to player " .. playerId)
-			PlayerResource:ModifyGold(playerId, sell_bonus, false, DOTA_ModifyGold_SellItem)
-			item:Destroy()
-			local player = PlayerResource:GetPlayer(playerId)
-			SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, EntIndexToHScript(event.units['0']), sell_bonus, player)
-			return false
-		end
-	end
 	if event.order_type == DOTA_UNIT_ORDER_PURCHASE_ITEM then
 		if event.shop_item_name == "item_recipe_flying_courier_datadriven" then
 			local target = EntIndexToHScript(event.units["0"])
@@ -1209,6 +1203,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:RemoveItem(entity:FindItemInInventory("item_tpscroll"))
 		end, "remove tpscroll", 0.5)
 
+		if self.game_mode == 'DM' then
+			entity:AddAbility("doom_bringer_devils_bargain")
+		end
 
 		local player = entity:GetPlayerOwner()
 		if player ~= nil then
