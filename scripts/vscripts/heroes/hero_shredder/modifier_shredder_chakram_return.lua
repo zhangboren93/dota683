@@ -8,6 +8,7 @@ modifier_shredder_chakram_return_lua = class({
 			self:Destroy()
 			return
 		end
+		self:OnIntervalThink()
 	end,
 	UpdateHorizontalMotion = function(self, me, dt) 
 		if not IsServer() then return end
