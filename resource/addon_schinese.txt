@@ -2788,5 +2788,9 @@
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"这颗命石没有效果。"
 		"DOTA_Tooltip_ability_null_facet"											"空"
 		"DOTA_Tooltip_ability_null_facet_Description"								"这颗命石没有效果。"
+
+		"DOTA_Tooltip_ability_doom_bringer_devils_bargain"				"全英雄随机死亡竞赛"
+		"DOTA_Tooltip_ability_doom_bringer_devils_bargain_Description"	"能以原价的%bonus_item_sellback_percent%%%出售物品。"
+
 	}
 }
