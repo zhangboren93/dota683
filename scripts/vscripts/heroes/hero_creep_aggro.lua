@@ -8,16 +8,29 @@ function handleAttackStart(event)
 	local target = event.target
 	local attacker = event.attacker
 	local ability = event.ability
-	if target == nil 
-		or target:GetTeam() == attacker:GetTeam() 
-		or target:GetClassname() == "dota_item_drop"
-		or target:GetClassname() == "dota_item_rune"
-		or not target:IsHero()
-		or not ability:IsCooldownReady() 
-		or attacker:HasModifier("modifier_no_creep_aggro_on_attack") then
-		return
+	-- Using default creep not , disabling creep agro logic
+	--if target == nil 
+	--	or target:GetTeam() == attacker:GetTeam() 
+	--	or target:GetClassname() == "dota_item_drop"
+	--	or target:GetClassname() == "dota_item_rune"
+	--	or not target:IsHero()
+	--	or not ability:IsCooldownReady() 
+	--	or attacker:HasModifier("modifier_no_creep_aggro_on_attack") then
+	--	return
+	--end
+	--aggroCreeps(attacker, ability)
+	
+	-- attacking rosh outside pit? stop
+	if target:GetUnitName() == "npc_dota_roshan_datadriven" then
+		--[3342.108643 -1544.372314 0.000000]
+		--[3858.819580 -2365.599609 0.000000]
+		local pos = attacker:GetAbsOrigin()
+		if pos.x < 3342 or pos.y < -2365 then
+			print("Attacking roshan out of range")
+			attacker:Stop()
+			attacker:AddNewModifier(attacker, nil, "modifier_disarmed", { duration =  1 })
+		end
 	end
-	aggroCreeps(attacker, ability)
 end
 
 function handleCreepAttack(event)
