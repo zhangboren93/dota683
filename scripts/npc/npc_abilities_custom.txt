@@ -4,6 +4,7 @@
 #base "heroes/arc_warden.txt"
 #base "heroes/batrider.txt"
 #base "heroes/beastmaster.txt"
+#base "heroes/bounty_hunter.txt"
 #base "heroes/broodmother.txt"
 #base "heroes/brewmaster.txt"
 #base "heroes/clinkz.txt"
@@ -26048,15 +26049,10 @@
 	
 				"OnAbilityExecuted"
 				{
-					"RemoveModifier"
+					"RunScript"
 					{
-						"Target"	"CASTER"
-						"ModifierName"	"modifier_wind_walk_datadriven"
-					}
-					"RemoveModifier"
-					{
-						"Target"	"CASTER"
-						"ModifierName"	"modifier_invisible"
+						"ScriptFile"	"heroes/hero_bounty_hunter/wind_walk.lua"
+						"Function"		"handleAbilityExecuted"
 					}
 				}
 	
@@ -26086,102 +26082,6 @@
 				}
 	
 			}
-		}
-	}
-	//=================================================================================================================
-	// Bounty Hunter: Shuriken Toss
-	//=================================================================================================================
-	"bounty_hunter_shuriken_toss"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5285"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_BountyHunter.Shuriken"
-
-		// Unit Targeting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"650"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		"AbilityCooldown"				"10"
-		"AbilityManaCost"				"90 115 135 155"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.1"	// just a mini stun
-
-		"HasScepterUpgrade"				"0"
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"bonus_damage"			"100 200 250 325"
-			"speed"					"1000"
-			"bounce_aoe"			"900"
-			"slow_duration"			"0"
-			"scepter_cast_range"	"650"
-			"scepter_cooldown"		"10"
-			"attack_slow"			"0"
-			"passthrough_damage"	"0"
-			"passthrough_width"		"0"
-			"cast_range"			"650"
-			"slow"					"0"		
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
-	// Bounty Hunter: Track
-	//=================================================================================================================
-	"bounty_hunter_track"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5288"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"Hero_BountyHunter.Target"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-
-		// Unit Targeting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-		
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.3 0.3 0.3"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
-
-		"AbilityCooldown"				"4"
-		"AbilityManaCost"				"50"
-			
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"target_damage_amp"			"0"
-				"bonus_gold_radius"		"1200"
-				"bonus_gold_self"		"200 275 350"
-				"bonus_gold"			"50 100 150"
-				"duration"				"30.0 30.0 30.0"
-				"gold_steal"			"0"
-				"bonus_move_speed_pct"	"0"
-				"bonus_move_speed_pct_aura"	"20"
 		}
 	}
 	"ember_spirit_searing_chains"

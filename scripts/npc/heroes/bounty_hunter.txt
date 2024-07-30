@@ -1,0 +1,302 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	"bounty_hunter_shuriken_toss_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"bounty_hunter_shuriken_toss"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		 {
+		  "soundfile"   "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		  "particle"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_suriken_toss.vpcf"
+		  "particle"    "particles/units/heroes/hero_bounty_hunter/bounty_hunter_suriken_impact.vpcf"
+		 
+		 }
+		
+		
+		// Unit Targeting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"650"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"90 115 135 155"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.1"	// just a mini stun
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_damage"			"100 200 250 325"
+				"speed"					"1000"
+				"bounce_aoe"			"900"
+				"mini_stun"				"0.1"
+		}
+	
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+			    "Target"           "TARGET"
+			    "EffectName"       "particles/units/heroes/hero_bounty_hunter/bounty_hunter_suriken_toss.vpcf"
+			    "Dodgeable"        "1"
+			    "ProvidesVision"   "0"
+			    "MoveSpeed"        "%speed"
+			    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"	"Hero_BountyHunter.Shuriken"
+				"Target"	"CASTER"
+			}
+			
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_bounty_hunter/shuriken_toss.lua"
+				"Function"		"handleSpellStart"
+			}
+	
+		}
+	
+		"OnProjectileHitUnit"
+	    {
+	    	"FireEffect"
+	    	{
+	    		"EffectName"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_suriken_impact.vpcf"
+	    		"Target"		"TARGET"
+	    		"EffectAttachType"	"attach_hitloc"
+	    	}        
+	
+	        "Stun"
+	        {
+	        	"Duration"	"%mini_stun"
+	        	"Target"	"TARGET"        	
+	        }
+	
+	        "FireSound"
+	        {
+	        	"EffectName"	"Hero_BountyHunter.Shuriken.Impact"
+	        	"Target"		"TARGET"
+	        }
+	
+	        "Damage"
+	        {
+	        	"Type"		"DAMAGE_TYPE_MAGICAL"
+	        	"Damage"	"%bonus_damage"
+	        	"Target"	"TARGET"
+	        }
+
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_bounty_hunter/shuriken_toss.lua"
+				"Function"			"handleProjectileHitUnit"
+			}
+	    }
+	}
+
+	"bounty_hunter_track_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"bounty_hunter_track"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_trail.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_haste.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf"
+		}
+		
+		// Unit Targeting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"4.0"
+		"AbilityManaCost"				"50"
+			
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"aura_radius"			"900"
+				"bonus_move_speed_pct"	"20"
+				"bonus_gold_radius"		"925"
+				"bonus_gold_self"		"200 275 350"
+				"bonus_gold"			"50 100 150"
+				"duration"				"30"
+				"cast_range_tooltip"	"1200"
+		}
+	
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_bounty_hunter_track_aura_datadriven"
+				"Target"		"TARGET"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_bounty_hunter_track_datadriven"
+				"Target"		"TARGET"
+			}
+	
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_cast.vpcf"
+	   			"EffectAttachType"	"start_at_customorigin"
+	
+				"ControlPointEntities"
+				{
+				    "CASTER" "attach_attack1"
+				    "TARGET" "attach_hitloc"
+				}
+	
+			}
+			
+			"FireSound"
+			{
+				"EffectName"	"Hero_BountyHunter.Target"
+				"Target"		"TARGET"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_bounty_hunter_track_aura_datadriven"
+			{
+				"Duration"	"%duration"
+				"IsDebuff"	"1"
+	
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_trail.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "TARGET"
+	
+						"ControlPointEntities"
+						{
+							"TARGET"	"attach_origin"
+							"TARGET"	"attach_hitloc"
+						}
+					}
+	
+					"AttachEffect"
+					{
+						"EffectName"        "particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf"
+						"EffectAttachType"  "follow_overhead"
+						"Target"            "TARGET"
+					}
+				}
+	
+				"Aura" 			"modifier_bounty_hunter_track_speed_datadriven"
+				"Aura_Radius" 	"%aura_radius"
+				"Aura_Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_ApplyToCaster"	"1"
+	
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_bounty_hunter_track_reveal_datadriven"
+						"Target" 		"TARGET"
+					}
+	
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_bounty_hunter_track_reveal_datadriven"
+						"Target" 		"TARGET"
+						"Duration"		"0.5"
+					}
+				}
+	
+				"States"
+				{
+					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+	
+			"modifier_bounty_hunter_track_datadriven"
+			{
+				"Duration"	"%duration"
+				"IsHidden"	"1"
+	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_bounty_hunter/track.lua"
+						"Function"		"Track"
+						"Target"
+						{
+							"Center"	"TARGET"
+							"TargetFlags"		"DOTA_UNIT_TARGET_FLAG_DEAD"
+						}
+					}
+				}
+			}
+	
+			"modifier_bounty_hunter_track_speed_datadriven"
+			{
+				"EffectName"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_haste.vpcf"
+				"EffectAttachType"	"follow_origin"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_move_speed_pct"
+				}
+			}
+	
+			"modifier_bounty_hunter_track_reveal_datadriven"
+			{
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"Priority"		"MODIFIER_PRIORITY_HIGH"
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE" 			"MODIFIER_STATE_VALUE_DISABLED"
+				}
+			}
+		}
+	}
+}

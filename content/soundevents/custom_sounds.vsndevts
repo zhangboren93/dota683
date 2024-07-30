@@ -29,528 +29,6 @@
 		}
 	}
 }
-"MobaTimeMachine.YYB_gxg1"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg1.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg2"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg2.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg3"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg3.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg4"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg4.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg5"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg5.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg6"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg6.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg7"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg7.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg8"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg8.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg9"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg9.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg10"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg10.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg11"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg11.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_gxg12"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_gxg12.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_yyf1"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_yyf1.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_yyf2"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_yyf2.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_yyf3"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_yyf3.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_xb1"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_xb1.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_xb2"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_xb2.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
-"MobaTimeMachine.YYB_xb3"
-{
-	"operator_stacks"
-	{
-		"update_stack"
-		{
-			"reference_operator"
-			{
-				"operator"			  "sos_reference_stack"
-				"reference_stack"	   "dota_src1_3d"
-				"operator_variables"
-				{
-					"vsnd_files"
-					{
-						"value"
-						{
-							  "value0"		"sounds/yyb_xb3.vsnd"
-						}
-					}
-					"volume"			{   "value"	 "6.00000"  }
-					"pitch_rand_min"	{   "value"	 "-0.05000"  }
-					"pitch_rand_max"	{   "value"	 "0.050000"  }
-					"pitch"				{   "value"	 "1.000000"  }
-					"soundlevel"		{   "value"	 "100.0000" }
-				}
-			}
-		}
-	}
-}
 "MobaTimeMachine.YY_gxg1"
 {
 	"operator_stacks"
@@ -570,7 +48,7 @@
 							  "value0"		"sounds/yyb_gxg1.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -600,7 +78,7 @@
 							  "value0"		"sounds/yyb_gxg2.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -630,7 +108,7 @@
 							  "value0"		"sounds/yyb_gxg3.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -660,7 +138,7 @@
 							  "value0"		"sounds/yyb_gxg4.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -690,7 +168,7 @@
 							  "value0"		"sounds/yyb_gxg5.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -720,7 +198,7 @@
 							  "value0"		"sounds/yyb_gxg6.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -750,7 +228,7 @@
 							  "value0"		"sounds/yyb_gxg7.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -780,7 +258,7 @@
 							  "value0"		"sounds/yyb_gxg8.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -810,7 +288,7 @@
 							  "value0"		"sounds/yyb_gxg9.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -840,7 +318,7 @@
 							  "value0"		"sounds/yyb_gxg10.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -870,7 +348,7 @@
 							  "value0"		"sounds/yyb_gxg11.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -900,7 +378,7 @@
 							  "value0"		"sounds/yyb_gxg12.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -930,7 +408,7 @@
 							  "value0"		"sounds/yyb_yyf1.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -960,7 +438,7 @@
 							  "value0"		"sounds/yyb_yyf2.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -990,7 +468,7 @@
 							  "value0"		"sounds/yyb_yyf3.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -1020,7 +498,7 @@
 							  "value0"		"sounds/yyb_xb1.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -1050,7 +528,7 @@
 							  "value0"		"sounds/yyb_xb2.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
@@ -1080,7 +558,7 @@
 							  "value0"		"sounds/yyb_xb3.vsnd"
 						}
 					}
-					"volume"			{   "value"	 "6.00000"  }
+					"volume"			{   "value"	 "3.00000"  }
 					"pitch_rand_min"	{   "value"	 "-0.05000"  }
 					"pitch_rand_max"	{   "value"	 "0.050000"  }
 					"pitch"				{   "value"	 "1.000000"  }
