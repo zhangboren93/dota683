@@ -1327,6 +1327,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:HasAbility("creep_strong") then
 		entity:FindAbilityByName("creep_strong"):SetLevel(1)
 	end
+	if entity:HasAbility("creep_hero_armor") then
+		entity:FindAbilityByName("creep_hero_armor"):SetLevel(1)
+	end
 	if entity:HasAbility("creep_irresolute_alter") then
 		entity:FindAbilityByName("creep_irresolute_alter"):SetLevel(1)
 	end
@@ -2388,17 +2391,17 @@ function CAddonTemplateGameMode:DamageFilter(event)
 		event.damage = 0
 	end
 	-- record last attacked by hero time
-	if attacker:IsHero() and event.damage > 0 then
-		victim.lastAttackedByHeroTime = GameRules:GetGameTime()
-	end
-	if attacker:IsCreep() and event.damage > 0 then
-		victim.damagedByCreepTime = GameRules:GetGameTime()
-	elseif attacker:IsConsideredHero() and event.damage > 0 then
-		victim.damagedByHeroTime = GameRules:GetGameTime()
-		victim.damagedByHero = attacker
-	elseif attacker:IsBuilding() then
-		victim.damagedByTowerTime = GameRules:GetGameTime()
-	end
+	--if attacker:IsHero() and event.damage > 0 then
+	--	victim.lastAttackedByHeroTime = GameRules:GetGameTime()
+	--end
+	--if attacker:IsCreep() and event.damage > 0 then
+	--	victim.damagedByCreepTime = GameRules:GetGameTime()
+	--elseif attacker:IsConsideredHero() and event.damage > 0 then
+	--	victim.damagedByHeroTime = GameRules:GetGameTime()
+	--	victim.damagedByHero = attacker
+	--elseif attacker:IsBuilding() then
+	--	victim.damagedByTowerTime = GameRules:GetGameTime()
+	--end
 
 	return true
 end

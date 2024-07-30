@@ -2334,8 +2334,8 @@
 		
 		"Ability1"					"necronomicon_warrior_mana_burn"			// Ability 1.
 		"Ability2"					"necronomicon_warrior_last_will"			// Ability 2.
-		"Ability3"					""			// Ability 3.
-		"Ability4"					""			// Ability 4.
+		"Ability3"					"creep_irresolute_alter"			// Ability 3.
+		"Ability4"					"creep_hero_armor"			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
@@ -2430,8 +2430,8 @@
 		
 		"Ability1"					"necronomicon_warrior_mana_burn"			// Ability 1.
 		"Ability2"					"necronomicon_warrior_last_will"			// Ability 2.
-		"Ability3"					""			// Ability 3.
-		"Ability4"					""			// Ability 4.
+		"Ability3"					"creep_irresolute_alter"			// Ability 3.
+		"Ability4"					"creep_hero_armor"			// Ability 4.
 		"Ability5"					""			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
@@ -2523,8 +2523,8 @@
 		"Ability1"					"necronomicon_warrior_mana_burn"			// Ability 1.
 		"Ability2"					"necronomicon_warrior_last_will"			// Ability 2.
 		"Ability3"					"necronomicon_warrior_sight"			// Ability 3.
-		"Ability4"					""			// Ability 4.
-		"Ability5"					""			// Ability 5.
+		"Ability4"					"creep_irresolute_alter"			// Ability 4.
+		"Ability5"					"creep_hero_armor"			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
 		"Ability8"					""			// Ability 8 - Extra.
@@ -2615,7 +2615,7 @@
 		"Ability2"					"necronomicon_archer_aoe_datadriven"			// Ability 1.
 		"Ability3"					"creep_piercing"			// Ability 3.
 		"Ability4"					"creep_piercing_extra"			// Ability 4.
-		"Ability5"					""			// Ability 5.
+		"Ability5"					"creep_hero_armor"			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
 		"Ability8"					""			// Ability 8 - Extra.
@@ -2707,7 +2707,7 @@
 		"Ability2"					"necronomicon_archer_aoe_datadriven"			// Ability 1.
 		"Ability3"					"creep_piercing"			// Ability 3.
 		"Ability4"					"creep_piercing_extra"			// Ability 4.
-		"Ability5"					""			// Ability 5.
+		"Ability5"					"creep_hero_armor"			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
 		"Ability8"					""			// Ability 8 - Extra.
@@ -2799,7 +2799,7 @@
 		"Ability2"					"necronomicon_archer_aoe_datadriven"			// Ability 2.
 		"Ability3"					"creep_piercing"			// Ability 3.
 		"Ability4"					"creep_piercing_extra"			// Ability 4.
-		"Ability5"					""			// Ability 5.
+		"Ability5"					"creep_hero_armor"			// Ability 5.
 		"Ability6"					""			// Ability 6 - Extra.
 		"Ability7"					""			// Ability 7 - Extra.
 		"Ability8"					""			// Ability 8 - Extra.

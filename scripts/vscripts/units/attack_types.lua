@@ -92,6 +92,8 @@ function modifier_creep_piercing_extra:GetModifierPreAttack_BonusDamage(event)
 		if target:IsRealHero() then
 			damage_pct = 50
 		end
+	elseif target:HasAbility("creep_hero_armor") then
+		damage_pct = -75
 	end
 	return attacker:GetAverageTrueAttackDamage(nil) * damage_pct / 100.0
 end
@@ -197,6 +199,8 @@ function modifier_creep_irresolute_alter:GetModifierDamageOutgoing_Percentage(ev
 		return self.basic_bonus
 	elseif target:HasAbility("creep_strong") then
 		return self.strong_bonus
+	elseif target:HasAbility("creep_hero_armor") then
+		return -25
 	else
 		return 0
 	end
