@@ -495,7 +495,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 	if string.find(text, "-yy ") and teamonly == 0 then
-		local sound_name = "MobaTimeMachine.YYB_" .. string.sub(text,5)
+		local sound_name = "MobaTimeMachine.YY_" .. string.sub(text,5)
 		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 		hero:EmitSound(sound_name)
 	end
