@@ -2432,7 +2432,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"AttackAnimationPoint"		"0.450000"
-		"Ability4"		"generic_hidden"
+		"Ability4"		"abyssal_underlord_cancel_dark_rift"
 		"Ability6"		"abyssal_underlord_dark_rift"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
