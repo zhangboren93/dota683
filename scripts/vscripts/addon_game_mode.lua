@@ -198,6 +198,7 @@ function Activate()
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_take_stash_items_lua", 		"units/courier_take_stash_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_take_stash_return_to_base", 	"units/courier_take_stash_items.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_courier_minimap_icon_follow_lua", 	"units/courier_minimap_icon_follow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_roshan_cancel_status_resistance_lua",	"units/modifier_roshan_cancel_statresist.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_unstuck_timer_lua",					"modifiers/modifier_unstuck_timer.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -1424,6 +1425,17 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			CustomGameEventManager:Send_ServerToTeam(entity:GetTeam(), "courier_spawned", { id = tostring(entity:GetEntityIndex()), respawn = 1 })
 		end
 		entity:FindAbilityByName("courier_use_clarity_datadriven"):SetLevel(1)
+		-- Creates another minimap icon unit that moves with the courier
+		if is_respawn == 0 then
+			entity:SetThink(function()
+				CreateUnitByNameAsync("npc_dummy_unit_courier", 
+					entity:GetAbsOrigin(),
+					true, nil, nil, entity:GetTeam(),
+					function(unit)
+						unit:AddNewModifier(entity, nil, "modifier_courier_minimap_icon_follow_lua", {})
+					end)
+			end, "spawn team minimap icon", 0.1)
+		end
 	elseif entity:GetName() == "npc_dota_beastmaster_hawk" then
 		--print("owned by " .. entity:GetPlayerOwnerID())
 		entity:SetControllableByPlayer(entity:GetPlayerOwnerID(), false)

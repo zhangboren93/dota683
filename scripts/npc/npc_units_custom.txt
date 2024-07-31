@@ -5417,7 +5417,7 @@
 		//----------------------------------------------------------------
 		"AttackDesire" "1.5" // How much bots want to attack them vs other non-hero things
 		"MinimapIcon"			"minimap_courier"
-		"MinimapIconSize"		"400"
+		"MinimapIconSize"		"320"
 		"MinimapDisableTint"	"1"
 	}
 	"npc_dota_invoker_forged_spirit"
