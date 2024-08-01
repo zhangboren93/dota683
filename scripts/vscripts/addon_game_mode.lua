@@ -838,8 +838,10 @@ function CAddonTemplateGameMode:OnThink()
 				PlayerResource:ModifyGold(playerid, 3, true, DOTA_ModifyGold_GameTick)
 
 				local entity = PlayerResource:GetPlayer(playerid):GetAssignedHero()
-				local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
-				PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
+				if entity ~= nil then
+					local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
+					PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
+				end
 			end
 			local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
 			for i=1,n do
@@ -847,8 +849,10 @@ function CAddonTemplateGameMode:OnThink()
 				PlayerResource:ModifyGold(playerid, 3, true, DOTA_ModifyGold_GameTick)
 
 				local entity = PlayerResource:GetPlayer(playerid):GetAssignedHero()
-				local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
-				PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
+				if entity ~= nil then
+					local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
+					PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
+				end
 			end
 		end
 
