@@ -48,6 +48,7 @@
 #base "heroes/terrorblade.txt"
 #base "heroes/tidehunter.txt"
 #base "heroes/tiny.txt"
+#base "heroes/troll_warlord.txt"
 #base "heroes/tusk.txt"
 #base "heroes/vengefulspirit.txt"
 #base "heroes/viper.txt"
@@ -2731,6 +2732,7 @@
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Ability.Ghostship"
 		"AbilityDraftUltShardAbility"		"kunkka_tidal_wave"
+		"HasScepterUpgrade"				"0"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -2769,6 +2771,22 @@
 				"value"					"60 50 40"
 				"special_bonus_unique_kunkka_ghostship_cooldown"	"-15"
 			}
+
+			"fleet_interval"			"0"
+			"fleet_count"				"0"
+			"fire_cannons"				"0"
+
+			"cannon_ball_damage_pct"	"0"
+			"cannon_ball_distance"		"0"
+			"cannon_ball_speed"			"0"
+			"cannon_count"				"0"
+			"cannon_ball_radius"		"0"
+			"num_cannon_volleys"		"0"
+			"cannon_fire_interval"		"0"
+			"base_cannon_rotation"		"0"
+			"rotation_per_cannon"		"0"
+			"initial_cannon_offset"		"0"
+			"distance_between_cannons"	"0"
 		}
 	}
 	// Rewrite of the Lina Fiery Soul ability
@@ -15056,8 +15074,8 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"					"5508"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilitySound"					"Hero_TrollWarlord.BerserkersRage.Toggle"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"DependentOnAbility"			"troll_warlord_switch_stance"
 		"MaxLevel"						"4"
 		"Innate"						"0"
 		"RequiredLevel"					"1"
@@ -15072,7 +15090,7 @@
 				"bonus_hp"				"100"
 				"bonus_move_speed"		"10 20 30 40"
 				"bonus_armor"			"3"
-				"bonus_range"			"350"
+				"bonus_range"			"372"
 				"base_attack_time"		"1.55"
 				"ensnare_chance"		"0"
 				"ensnare_duration"		"0"
@@ -15080,6 +15098,12 @@
 				"bash_duration"			"0.8 1.2 1.6 2.0"
 				"bonus_damage"			"15"
 				"bash_damage"			"20 30 40 50"
+
+				"maim_chance"			"0"
+				"maim_duration"			"0"
+				"maim_slow"				"0"	
+				"maim_attack_slow"		"0"
+				"maim_damage"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -15230,18 +15254,10 @@
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"trance_duration"		"7.0"		
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_speed"		"60 120 180"
-			}
+			"trance_duration"		"7.0"
+			"attack_speed"		"60 120 180"
 		}
 	
 		"OnSpellStart"

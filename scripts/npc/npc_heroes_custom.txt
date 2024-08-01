@@ -277,6 +277,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability4"		"beastmaster_inner_beast_datadriven"
 		"Ability5"		"generic_hidden"
+		"Ability7"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -313,6 +314,7 @@
 		"Ability3"		"brewmaster_drunken_brawler_datadriven"
 		"Ability4"		"generic_hidden"
 		//"Ability6"		"brewmaster_primal_split_datadriven"
+		"Ability7"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -598,6 +600,7 @@
 		"Ability2"		"earthshaker_enchant_totem_datadriven"
 		"Ability3"		"earthshaker_aftershock_datadriven"
 		"Ability6"		"earthshaker_echo_slam_datadriven"
+		"Ability7"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -648,6 +651,7 @@
 				"Icon"				"movement"
 				"Color"				"Blue"
 				"GradientID"		"2"
+				"Deprecated"		"false"
 			}
 
 			"faceless_void_time_zone"
@@ -661,7 +665,6 @@
 					"Ability1"
 					{
 						"AbilityName"		"null_facet"
-						"ReplaceAbility"   	"null_facet"
 						"AutoLevelAbility" 	"false"
 					}
 				}
@@ -696,6 +699,10 @@
 					"faceless_void_time_lock_datadriven"	"faceless_void/arcana/faceless_void_time_lock_arcana_alt1"
 					"faceless_void_chronosphere_lua"		"faceless_void/arcana/faceless_void_chronosphere_arcana_alt1"
 				}
+			}
+			"faceless_void_chronosphere"
+			{
+				"Deprecated"		"true"
 			}
 		}
 	}
@@ -941,6 +948,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability3"		"lina_fiery_soul_datadriven"
 		"Ability4"		"hero_attack_point_adjust_lua"
+		"Ability5"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -2059,8 +2067,9 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
-		"Ability5"		"troll_warload_berserkers_rage_bash_datadriven"
+		"Ability5"		"troll_warlord_berserkers_rage"
 		"Ability6"		"troll_warlord_battle_trance_datadriven"
+		"Ability7"		"troll_warload_berserkers_rage_bash_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -2207,6 +2216,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability5"		"hero_attack_point_adjust_lua"
+		"Ability8"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -2273,6 +2283,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability3"		"weaver_geminate_attack_datadriven"
 		"Ability4"		"hero_attack_point_adjust_lua"
+		"Ability7"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -2681,6 +2692,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability3"		"elder_titan_natural_order_datadriven"
+		"Ability8"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -3323,6 +3335,7 @@
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"venomancer_poison_nova_datadriven"
+		"Ability7"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -3387,6 +3400,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability3"		"bristleback_bristleback_datadriven"
 		"Ability4"		"generic_hidden"
+		"Ability7"		"generic_hidden"
 		"Ability10"		"generic_hidden"
 		"Ability11"		"generic_hidden"
 		"Ability12"		"generic_hidden"
@@ -3524,6 +3538,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability2"		"lone_druid_rabid"
 		"Ability3"		"lone_druid_synergy_datadriven"
+		"Ability4"		"generic_hidden"
 		"Ability7"		"lone_druid_true_form_druid"
 		"Ability8"		"lone_druid_true_form_checker_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
@@ -3915,6 +3930,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"templar_assassin_refraction_datadriven"
 		"Ability5"		"generic_hidden"
+		"Ability7"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
@@ -4338,6 +4354,7 @@
 		"StatusHealthRegen"			"0.75"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
