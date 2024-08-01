@@ -1,7 +1,7 @@
 function handleIntervalThink(event)
 	local caster = event.caster
 	local ability = event.ability
-	if caster:HasModifier("modifier_troll_warlord_berserkers_rage") then
+	if caster:HasModifier("modifier_troll_warlord_melee") then
 		if not caster:HasModifier("modifier_berserkers_rage_active_datadriven") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_berserkers_rage_active_datadriven", {})
 		end
