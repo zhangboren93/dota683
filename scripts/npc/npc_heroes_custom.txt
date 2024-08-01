@@ -651,6 +651,7 @@
 				"Icon"				"movement"
 				"Color"				"Blue"
 				"GradientID"		"2"
+				"Deprecated"		"false"
 			}
 
 			"faceless_void_time_zone"
@@ -664,7 +665,6 @@
 					"Ability1"
 					{
 						"AbilityName"		"null_facet"
-						"ReplaceAbility"   	"null_facet"
 						"AutoLevelAbility" 	"false"
 					}
 				}
@@ -699,6 +699,10 @@
 					"faceless_void_time_lock_datadriven"	"faceless_void/arcana/faceless_void_time_lock_arcana_alt1"
 					"faceless_void_chronosphere_lua"		"faceless_void/arcana/faceless_void_chronosphere_arcana_alt1"
 				}
+			}
+			"faceless_void_chronosphere"
+			{
+				"Deprecated"		"true"
 			}
 		}
 	}
