@@ -15,28 +15,12 @@
 
 	// Special
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilitySpecial"
+	"AbilityValues"
 	{
-		"01"
-		{
-			"var_type"						"FIELD_INTEGER"
 			"necromastery_damage_per_soul"	"2"
-		}
-		"02"
-		{
-			"var_type"						"FIELD_INTEGER"
 			"necromastery_max_souls"	"15 22 29 36"
-		}
-		"03"
-		{
-			"var_type"						"FIELD_FLOAT"
 			"necromastery_soul_release"		"0.5"
-		}
-		"04"
-		{
-			"var_type"						"FIELD_INTEGER"
 			"necromastery_souls_hero_bonus"	"11"
-		}		
 	}
 
 	"precache"

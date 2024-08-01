@@ -64,18 +64,10 @@
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"bonus_health_regen"		"2 3 4 5"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"bonus_armor"				"3 6 9 12"
-			}
 		}
 		"Modifiers"
 		{

@@ -195,13 +195,9 @@
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"radius"					"700"
-			}		
 		}
 	
 		"OnSpellStart"

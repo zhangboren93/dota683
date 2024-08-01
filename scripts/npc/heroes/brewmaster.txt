@@ -71,33 +71,13 @@
 	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"radius"					"200"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"duration"					"8"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
 				"duration_creeps"			"12"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"movement_slow"				"-14 -18 -22 -26"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_INTEGER"
 				"miss_chance"				"45 55 65 75"
-			}
 		}
 	
 		"precache"

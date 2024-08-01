@@ -54,36 +54,25 @@
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
+			"duration"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.0 3.5 4.0 4.5 5.0 5.5 6.0"
+				"value"				"3.0 3.5 4.0 4.5 5.0 5.5 6.0"
 				"levelkey"				"quaslevel"	
 			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"freeze_duration"		"0.4"
-			}
-			"03"
+			"freeze_cooldown"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"freeze_cooldown"		"0.77 0.74 0.71 0.69 0.66 0.63 0.60"
+				"value"		"0.77 0.74 0.71 0.69 0.66 0.63 0.60"
 				"levelkey"				"quaslevel"	
 			}
-			"04"
+			"freeze_damage"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"freeze_damage"			"7 14 21 28 35 42 49"
+				"value"			"7 14 21 28 35 42 49"
 				"levelkey"				"quaslevel"	
 			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
 				"damage_trigger"		"10.0"
-			}
 		}
 	
 		"OnSpellStart"
