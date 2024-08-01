@@ -1,0 +1,44 @@
+"DOTAAbilities"
+{
+    "Version"       "1"
+    "huskar_berserkers_blood_datadriven"
+	{
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"DependentOnAbility"	"huskar_berserkers_blood"
+	
+		"AbilityTextureName"	"huskar_berserkers_blood"
+		"AbilityValues"
+		{
+			"attack_speed_bonus_per_stack"	"14 16 18 20"
+			"resistance_per_stack"			"4 5 6 7"
+		}
+		"Modifiers"
+		{
+			"modifier_huskar_berserkers_blood_tick_datadriven"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"ThinkInterval"		"0.033"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_huskar/berserkers_blood.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+			}
+			"modifier_huskar_berserkers_blood_datadriven"
+			{
+				"Passive"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus_per_stack"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%resistance_per_stack"
+				}
+			}
+		}
+	}
+}
