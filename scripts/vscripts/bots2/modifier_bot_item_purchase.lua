@@ -5,8 +5,8 @@ ItemsToBuyHeroes["npc_dota_hero_axe"] = {
 	"item_tango",
 	"item_flask_datadriven",
 	"item_stout_shield",
-	"item_bracer",
-	"item_bracer",
+	"item_bracer_datadriven",
+	"item_bracer_datadriven",
 	"item_tranquil_boots_datadriven", --相位
     "item_ring_of_health",
     "item_vitality_booster",
@@ -49,7 +49,7 @@ ItemsToBuyHeroes["npc_dota_hero_bristleback"] = {
 	"item_tango",
 	"item_flask_datadriven",
 	"item_stout_shield",
-	"item_bracer",
+	"item_bracer_datadriven",
     "item_ring_of_health",
     "item_vitality_booster",
 	"item_phase_boots", --相位
@@ -170,7 +170,7 @@ function modifier_bot_item_purchase:OnIntervalThink()
     --print(ItemsToBuy[self.progression] .. " " .. cost .. " " .. self:GetParent():GetGold())
 	if itemName ~= "item_wraith_band_datadriven" 
 		and itemName ~= "item_null_talisman_datadriven"
-		and itemName ~= "item_bracer"
+		and itemName ~= "item_bracer_datadriven"
 		and itemName ~= "item_tango"
 		and self:GetParent():HasItemInInventory(itemName) then
 		self.progression = self.progression + 1

@@ -71,7 +71,7 @@ ITEM_RECIPE_RULES = {
 	{"item_abyssal_blade", "item_basher", "item_relic"},
 	{"item_heavens_halberd_datadriven", "item_sange_datadriven", "item_talisman_of_evasion"},
 	{"item_tranquil_boots_datadriven", "item_boots", "item_ring_of_regen", "item_ring_of_protection"},
-	{"item_ancient_janggo_datadriven", "item_recipe_ancient_janggo_datadriven", "item_bracer", "item_robe"},
+	{"item_ancient_janggo_datadriven", "item_recipe_ancient_janggo_datadriven", "item_bracer_datadriven", "item_robe"},
 	{"item_ancient_janggo_datadriven", "item_recipe_ancient_janggo_datadriven", "item_ancient_janggo_datadriven"},
 	{"item_power_treads", "item_boots", "item_gloves", "item_belt_of_strength"},
 	{"item_power_treads", "item_boots", "item_gloves", "item_boots_of_elves"},
@@ -80,7 +80,7 @@ ITEM_RECIPE_RULES = {
 	{"item_soul_booster", "item_energy_booster", "item_vitality_booster", "item_point_booster"},
 	{"item_greater_crit", "item_recipe_greater_crit", "item_lesser_crit", "item_demon_edge"},
 	{"item_rapier", "item_demon_edge", "item_relic"},
-	{"item_bracer", "item_recipe_bracer", "item_circlet", "item_gauntlets"}
+	{"item_bracer_datadriven", "item_recipe_bracer_datadriven", "item_circlet", "item_gauntlets"}
 }
 
 local function isWardItem(item)

@@ -1115,6 +1115,7 @@
 		"Ability2"		"medusa_mystic_snake_datadriven"
 		"Ability3"		"medusa_mana_shield_datadriven"
 		"Ability4"		"generic_hidden"
+		"Ability5"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"
 		"Ability12"		"special_bonus_all_stats_6"
