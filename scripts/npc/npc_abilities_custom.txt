@@ -4761,7 +4761,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.0"
 		
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -4771,11 +4770,17 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"			"5.0"
+			"can_target"				"0"
+			"gold_bounty_pct"			"100"
+			"max_charges"				"0"
 				"duration"				"40.0"
 				"ward_hp_tooltip"		"75 200 325 450"
 				"ward_damage_tooltip"	"10 19 29 38"
 				"ward_hp"		"75 200 325 450"
 				"ward_damage"	"10 19 29 38"
+
+			"threshold_max_hp_pct"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -5179,8 +5184,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"5.5"
-
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -5190,6 +5193,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"				"5.5"
 				"structure_damage_mod"		"50"
 				"delay"						"0.9"
 				"radius"					"400"
@@ -5566,6 +5570,7 @@
 		{
 				"bonus_damage"				"50 100 150 200"
 				"bonus_armor"				"-2 -4 -6 -8"
+			"bash_duration"					"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -5601,6 +5606,7 @@
 				"attack_spill_width"		"68"
 				"attack_spill_pct"			"100"
 				"attack_spill_penalty"			"0"
+				"meld_strike_spills"		"0"
 				"spill_slow_duration"		"0"
 				"spill_movement_slow_pct"	"0"
 		}
@@ -9477,6 +9483,7 @@
 				"bonus_bear_armor"			"0"
 				"damage_gain_per_druid_level"	"0"
 				"hp_gain_per_druid_level"		"0"
+				"bear_attack_leash_range"	"1100"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -10764,6 +10771,7 @@
 				"special_bonus_unique_disruptor_9"				"250"
 			}
 			"max_distance"					"1400"
+			"damage_to_distance_pct"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
@@ -11399,6 +11407,10 @@
 			"bolt_speed"				"1000"
 			"soul_base_damage"			"20"
 			"soul_charge_damage"		"65"
+			"soul_charge_gold"			"0"
+			"gold_creep_pct"			"0"
+			"gold_grace_period_hero"	"0"
+			"gold_max_tooltip"			"0"
 			"stack_limit"				"3 4 5 6"
 			"stack_duration"			"6.0"
 			"damage_limit"				
@@ -12289,7 +12301,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"100"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -12299,6 +12310,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"				"100"
 				"crack_time"				"3.14"
 				"crack_width"				"300"
 				"crack_distance"			"2400"
@@ -14763,6 +14775,8 @@
 				"maximum_magic_resist"			"0"
 			"attack_speed_bonus_per_stack"		"14 16 18 20"
 			"resistance_per_stack"				"4 5 6 7"
+			"aura_radius"						"0"
+			"aura_effectiveness"				"0"
 				"hp_threshold_max"				"3"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
@@ -19886,7 +19900,6 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60.0 60.0 60.0 60.0"
 		"AbilityDuration"				"25.0"
 	
 		// Cost
@@ -19897,6 +19910,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"				"60.0 60.0 60.0 60.0"
 				"healing_ward_heal_amount"	"2 3 4 5"
 				"healing_ward_aura_radius"	"500"
 				"healing_ward_movespeed_tooltip"	
@@ -21466,6 +21480,7 @@
 			"wolf_hp"					"200 240 280 320"
 			"bonus_health"				"0"
 			"bonus_damage"				"0"
+			"bonus_armor"				"0"
 			"bash_chance"				"0"
 			"bash_duration"				"0"
 			"wolf_count"				"2"
@@ -21477,6 +21492,7 @@
 			"health_per_wolf"			"0"
 			"damage_per_wolf"			"0"
 			"death_fx_time"				"0"
+			"max_level"					"4"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -22581,6 +22597,9 @@
 					"special_bonus_unique_antimage_3"	"+250"
 				}
 				"min_blink_range"		"200"
+				"empowered_mana_break_duration"					"0"
+				"empowered_max_burn_pct_tooltip"				"0"
+				"empowered_mana_break_debuff_duration_tooltip"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -24833,6 +24852,7 @@
 				"break_distance"			"1200"
 				"tick_interval"				"0.1"
 				"movespeed"				"0"
+				"movespeed_bonus_when_empty_pct"		"0"
 				"shard_bonus_break_distance"			//OBSOLETE
 				{
 					"value"	"400"
@@ -27700,12 +27720,15 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.5"
 		"AnimationPlaybackRate"			"0.85"
-		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"100 120 140 160"
+		"HasShardUpgrade"				"0"
 		"AbilityValues"
 		{
-				"heal"					"90 180 270 360"
-				"radius"				"260"
+			"AbilityCooldown"			"10"
+			"heal"						"90 180 270 360"
+			"radius"					"260"
+			"recast_delay"				"0"
+			"recast_effectiveness_pct"	"0"
 		}
 	}
 	"omniknight_purification_2"
