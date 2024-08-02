@@ -2904,11 +2904,6 @@
 		//----------------------------------------------------------------
 		"StatusHealth"				"550"		// Base health.
 		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
-
-		// Vision
-		//----------------------------------------------------------------
-		"VisionDaytimeRange"		"1200"		// Range of vision during day light.
-		"VisionNighttimeRange"		"800"		// Range of vision at night time.
 	}
 	"npc_dota_lesser_eidolon"
 	{
