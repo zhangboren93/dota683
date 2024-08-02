@@ -22,8 +22,8 @@
 			"treant_health"					"550"
 			"treant_damage_min"				"21"
 			"treant_damage_max"				"23"
-			"treant_vision_day"				"500"
-			"treant_vision_night"			"500"
+			"treant_vision_day"				"1200"
+			"treant_vision_night"			"800"
 			"AbilityCooldown"			"37"
 		}
 	}
