@@ -46,6 +46,7 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_elder_titan/elder_titan_scepter_disarm.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf", context)
 	PrecacheResource( "soundfile", "soundevents/custom_sounds.vsndevts", context)
+	PrecacheResource( "particle", "particles/spray_syf1.vpcf", context)
 	if GetMapName() == "vsbot" then
 		-- cache sound for all bot heroes
 		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts", context)
@@ -499,6 +500,15 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		local sound_name = "MobaTimeMachine.YY_" .. string.sub(text,5)
 		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 		hero:EmitSound(sound_name)
+	end
+	if string.find(text, "-pq ") and teamonly == 0 then
+		local particle = "particles/spray_" .. string.sub(text, 5) .. ".vpcf"
+		print("Creating particle " .. particle)
+		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+		local pid = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN, hero)
+		local hero_location = hero:GetAbsOrigin() + hero:GetForwardVector() * 200
+		hero_location.z = hero_location.z + 20
+		ParticleManager:SetParticleControl(pid, 0, hero_location)
 	end
 	if self.botEnabled then
 		if text == "-gold" then
