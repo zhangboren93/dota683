@@ -1,95 +1,312 @@
 "DOTAAbilities"
 {
 	"Version"	"1"
-// Rewrite of the Ember Spirit Flame Guard ability
-// Author: kritth
-// Date: February 13, 2016
-// Version: 6.86
-// Type: Datadriven
-// NOTE: This ability will only absorb damage whose AbilityUnitDamageType field is marked as DAMAGE_TYPE_MAGICAL
-//
-// ----- FILE REQUIREMENTS -----
-// Script files:
-// scripts/vscripts/heroes/hero_ember_spirit/flame_guard.lua
-"ember_spirit_flame_guard_datadriven"
-{
-	// General
-	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-	"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-	"AbilityTextureName"			"ember_spirit_flame_guard"
-	
-	// Casting
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCastRange"				"400"
-	"AbilityCastPoint"				"0"
-	
-	// Time		
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCooldown"				"35.0"
-
-	// Cost
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityManaCost"				"80 90 100 110"
-
-	// Special
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilityValues"
+	// Rewrite of the Ember Spirit Flame Guard ability
+	// Author: kritth
+	// Date: February 13, 2016
+	// Version: 6.86
+	// Type: Datadriven
+	// NOTE: This ability will only absorb damage whose AbilityUnitDamageType field is marked as DAMAGE_TYPE_MAGICAL
+	//
+	// ----- FILE REQUIREMENTS -----
+	// Script files:
+	// scripts/vscripts/heroes/hero_ember_spirit/flame_guard.lua
+	"ember_spirit_flame_guard_datadriven"
 	{
-			"duration"						"8.0 12.0 16.0 20.0"
-			"radius"						"400"
-			"absorb_amount"					"50 200 350 500"
-			"tick_interval"					"0.2"
-			"damage_per_second"				"30 40 50 60"
-	}
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"ember_spirit_flame_guard"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"35.0"
 	
-	// Data driven
-	//-------------------------------------------------------------------------------------------------------------
-	"precache"
-	{
-		"soundfile"							"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
-		"particle"							"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
-	}
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"80 90 100 110"
 	
-	"OnSpellStart"
-	{
-		"RunScript"
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
 		{
-			"ScriptFile"					"heroes/hero_ember_spirit/flame_guard.lua"
-			"Function"						"handleSpellStart"
+				"duration"						"8.0 12.0 16.0 20.0"
+				"radius"						"400"
+				"absorb_amount"					"50 200 350 500"
+				"tick_interval"					"0.2"
+				"damage_per_second"				"30 40 50 60"
 		}
-	}
-	
-	"Modifiers"
-	{
-		"modifier_flame_guard_buff_datadriven"
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
 		{
-			"OnIntervalThink"
+			"soundfile"							"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+			"particle"							"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
 			{
-				"ActOnTargets"
+				"ScriptFile"					"heroes/hero_ember_spirit/flame_guard.lua"
+				"Function"						"handleSpellStart"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_flame_guard_buff_datadriven"
+			{
+				"OnIntervalThink"
 				{
-					"Target"
+					"ActOnTargets"
 					{
-						"Center"			"TARGET"
-						"Radius"			"%radius"
-						"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-						"Types"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-					}
-					
-					"Action"
-					{
-						"Damage"
+						"Target"
 						{
-							"Target"		"TARGET"
-							"Damage"		"%damage_per_second * %tick_interval"
-							"Type"			"DAMAGE_TYPE_MAGICAL"
+							"Center"			"TARGET"
+							"Radius"			"%radius"
+							"Teams"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+						}
+						
+						"Action"
+						{
+							"Damage"
+							{
+								"Target"		"TARGET"
+								"Damage"		"%damage_per_second * %tick_interval"
+								"Type"			"DAMAGE_TYPE_MAGICAL"
+							}
 						}
 					}
 				}
 			}
 		}
 	}
-}
+	// Rewrite of the Ember Spirit Fire Remnant ability
+	// Author: kritth
+	// Date: February 13, 2016
+	// Version: 6.86
+	// Type: Datadriven
+	// NOTE: Particles for remnant is wrong
+	//
+	// ----- FILE REQUIREMENTS -----
+	// Script files:
+	// scripts/vscripts/heroes/hero_ember_spirit/fire_remnant.lua
+	//
+	// KV files:
+	// scripts/npc/abilities/ember_spirit/activate_fire_remnant_datadriven.txt
+	"ember_spirit_fire_remnant_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"ember_spirit_fire_remnant"
+		"MaxLevel"						"3"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"5"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0.0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+	
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"speed_multiplier"		"2.5"
+				"max_charges"			"3"
+				"charge_restore_time"	"35"
+				"damage"				"100 150 200"
+				"radius"				"450"
+				"duration"				"45"
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"
+		}
+		
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_ember_spirit/fire_remnant.lua"
+				"Function"				"fire_remnant_upgrade"
+				"ability_name"			"ember_spirit_activate_fire_remnant_datadriven"
+			}
+		
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_ember_spirit/fire_remnant.lua"
+				"Function"				"fire_remnant_charge"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_ember_spirit/fire_remnant.lua"
+				"Function"				"fire_remnant_add_location"
+				"Target"				"POINT"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_fire_remnant_counter_datadriven"
+			{
+				"Purgable"				"0"
+			}
+			
+			"modifier_fire_remnant_counter_cooldown_datadriven"
+			{
+				"Purgable"				"0"
+				"Duration"				"%duration"
+				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
+			}
+		
+			// Modifiers for remnant
+			"modifier_fire_remnant_dummy_animation_override_datadriven"
+			{
+				"OverrideAnimation"		"ACT_DOTA_RUN"
+			}
+		
+			"modifier_fire_remnant_dummy_buff_datadriven"
+			{
+				"Duration"				"%duration"
+				
+			//	"EffectName"			"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"
+			//	"EffectAttachType"		"follow_origin"
+			
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_FLYING"							"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"						"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	// Rewrite of the Ember Spirit Fire Remnant ability
+	// Author: kritth
+	// Date: February 13, 2016
+	// Version: 6.86
+	// Type: Datadriven
+	//
+	// ----- FILE REQUIREMENTS -----
+	// Script files:
+	// scripts/vscripts/heroes/hero_ember_spirit/fire_remnant.lua
+	//
+	// KV files:
+	// scripts/npc/abilities/ember_spirit/fire_remnant_datadriven.txt
+	"ember_spirit_activate_fire_remnant_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"MaxLevel"						"3"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"ember_spirit_activate_fire_remnant"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"99999"
+		"AbilityCastPoint"				"0.0"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150"
+	
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"speed_multiplier"		"250"
+				"max_charges"			"3"
+				"charge_restore_time"	"35"
+				"damage"				"100 150 200"
+				"radius"				"450"
+				"speed"					"1300"
+				"timer_upper_bound"		"0.4"
+				"tree_radius"			"200"
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_ember_spirit/ember_spirit_remnant_dash.vpcf"
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_ember_spirit/fire_remnant.lua"
+				"Function"				"fire_remnant_activate"
+				"Target"				"POINT"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_activate_fire_remnant_buff_datadriven"
+			{
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+				
+				"EffectName"			"particles/units/heroes/hero_ember_spirit/ember_spirit_remnant_dash.vpcf"
+				"EffectAttachType"		"follow_origin"
+				
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_FLYING"							"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"						"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"							"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
 }
