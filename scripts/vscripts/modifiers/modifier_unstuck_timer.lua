@@ -1,6 +1,7 @@
 modifier_unstuck_timer_lua = class({})
 
-function modifier_unstuck_timer_lua:OnCreated()
+function modifier_unstuck_timer_lua:OnCreated(data)
+	self.suicide = data.suicide
 	self:StartIntervalThink(1)
 end
 
@@ -10,6 +11,10 @@ function modifier_unstuck_timer_lua:OnIntervalThink()
 	print("time_passed " .. time_passed)
 	if time_passed >= 60 and IsServer() then
 		local parent = self:GetParent()
+		if self.suicide == 1 then
+			parent:Kill(nil, parent)
+			return
+		end
 		if parent:GetTeam() == DOTA_TEAM_GOODGUYS then
 			FindClearSpaceForUnit(parent, Vector(-7093, -6542), false)
 		else

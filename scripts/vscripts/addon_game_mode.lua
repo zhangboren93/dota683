@@ -470,7 +470,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 				return
 			end
 			if PlayerResource:GetGold(playerid) < 100 then
-				GameRules:SendCustomMessage("金钱小于250时无法重新选择英雄")
+				GameRules:SendCustomMessage("金钱小于250时无法重新选择英雄", -1, -1)
 				return
 			end
 			local player = PlayerResource:GetPlayer(playerid)
@@ -485,7 +485,23 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	if text == "-unstuck" then
 		-- if hero hasn't move for 1 minutes or hasn't been attacked in 1 minute, move hero to base
 		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
-		hero:AddNewModifier(hero, nil, "modifier_unstuck_timer_lua", { duration = 62 })
+		hero:AddNewModifier(hero, nil, "modifier_unstuck_timer_lua", { duration = 62, suicide = 0 })
+	end
+	if text == "-suicide1" then
+		-- if hero hasn't move for 1 minutes or hasn't been attacked in 1 minute, move hero to base
+		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+		hero:AddNewModifier(hero, nil, "modifier_unstuck_timer_lua", { duration = 62, suicide = 1 })
+	end
+	if text == "-respawn1" then
+		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+		local current_time = GameRules:GetGameTime()
+		if not hero:IsAlive() then
+			if current_time - hero.last_alive_time > 150 then
+				hero:RespawnHero(false, false)
+			else
+				GameRules:SendCustomMessage("手动复活需要死亡150秒。当前死亡时长：" .. math.floor(current_time - hero.last_alive_time), -1, -1)
+			end
+		end
 	end
 	--if string.find(text, "-yyb ") then
 	--	local sound_name = "MobaTimeMachine.YYB_" .. string.sub(text,6)
@@ -520,8 +536,11 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			end
 		end
 	end
---	if text == "-test" then
---	end
+	--if text == "-test" then
+	--	local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+	--	hero:SetRespawnsDisabled(true)
+	--	hero:ForceKill(false)
+	--end
 end
 
 function swapLocation(e1, e2)
@@ -888,6 +907,15 @@ function CAddonTemplateGameMode:OnThink()
 					hasGameEnded = true
 					GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 				end
+			end
+		end
+		
+		local heroes = HeroList:GetAllHeroes()
+		local currentTime = GameRules:GetGameTime()
+		for i = 1,#heroes do
+			local hero = heroes[i]
+			if hero:IsRealHero() and hero:IsAlive() then
+				hero.last_alive_time = currentTime
 			end
 		end
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
