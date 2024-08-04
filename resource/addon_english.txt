@@ -768,6 +768,13 @@
 		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_damage_bonus"			"DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_cleave_damage"			"%CLEAVE DAMAGE:"
 		"DOTA_Tooltip_ability_kunkka_tidebringer_datadriven_cleave_distance"		"CLEAVE RANGE:"
+
+		"DOTA_Tooltip_Facet_kunkka_standard_icon"									"Admiral of the Fleet"
+		"DOTA_Tooltip_Facet_kunkka_standard_icon_Description"						"Use Kunkka ability icons."
+		"DOTA_Tooltip_Facet_kunkka_divine_anchor"									"Divine Anchor"
+		"DOTA_Tooltip_Facet_kunkka_divine_anchor_Description"						"Use Divine Anchor ability icons."
+		"DOTA_Tooltip_Facet_kunkka_divine_anchor_immortal"							"Divine Anchor - Immortal"
+		"DOTA_Tooltip_Facet_kunkka_divine_anchor_immortal_Description"				"Use Divine Anchor ability icons, as well as immortal equipment ones."
 		// Legion Commander
 		"DOTA_Tooltip_Ability_legion_commander_overwhelming_odds_datadriven"					"Overwhelming Odds"
 		"DOTA_Tooltip_Ability_legion_commander_overwhelming_odds_datadriven_Description"		"Turns the enemies' numbers against them, dealing damage per unit or per hero and granting you bonus movement speed. Deals bonus damage to illusions and summoned units as a percent of their current health."

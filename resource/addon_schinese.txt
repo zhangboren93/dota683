@@ -799,6 +799,13 @@
 		"DOTA_Tooltip_Facet_kunkka_high_tide"										""
 		"DOTA_Tooltip_Facet_kunkka_grog_Description"								""
 		"DOTA_Tooltip_Facet_kunkka_high_tide_Description"							""
+
+		"DOTA_Tooltip_Facet_kunkka_standard_icon"									"舰队统帅"
+		"DOTA_Tooltip_Facet_kunkka_standard_icon_Description"						"使用昆卡技能图标。"
+		"DOTA_Tooltip_Facet_kunkka_divine_anchor"									"圣锚之赐"
+		"DOTA_Tooltip_Facet_kunkka_divine_anchor_Description"						"使用圣锚之赐饰品技能图标。"
+		"DOTA_Tooltip_Facet_kunkka_divine_anchor_immortal"							"圣锚之赐 - 不朽"
+		"DOTA_Tooltip_Facet_kunkka_divine_anchor_immortal_Description"				"使用圣锚之赐饰品和昆卡不朽饰品技能图标。"
 		// Legion Commander
 		"DOTA_Tooltip_Ability_legion_commander_overwhelming_odds_datadriven"					"压倒性优势"
 		"DOTA_Tooltip_Ability_legion_commander_overwhelming_odds_datadriven_Description"		"用敌人的数量反抗他们，造成伤害并提升军团指挥官的移动速度。根据作用单位和英雄的数量决定造成的伤害数值，以及移速加成的数值。对幻象和召唤单位额外造成相当于其生命值一定百分比的伤害。"
