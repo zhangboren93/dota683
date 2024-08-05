@@ -21291,7 +21291,8 @@
 		{
 			"modifier_last_word_datadriven"
 			{
-				"IsDebuff"	"1"
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
 				"Duration"	"%debuff_duration"
 				"ThinkInterval"	"%debuff_duration"
 				"EffectName"	"particles/units/heroes/hero_silencer/silencer_last_word_status.vpcf"
@@ -21373,7 +21374,8 @@
 	
 			"modifier_last_word_silence_datadriven"
 			{
-				"IsDebuff"	"1"
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
 				"Duration"	"%duration"
 				"EffectName"	"particles/generic_gameplay/generic_silence.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -21386,7 +21388,8 @@
 	
 			"modifier_last_word_disarm_datadriven"
 			{
-				"IsDebuff"	"1"
+				"IsDebuff"		"1"
+				"IsPurgable"	"1"
 				"Duration"	"%duration"
 				"EffectName"	"particles/units/heroes/hero_silencer/silencer_last_word_disarm.vpcf"
 				"EffectAttachType"	"follow_overhead"
