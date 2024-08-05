@@ -32,9 +32,8 @@ function modifier_sentry_ward_reveal_invis_aura_lua:OnCreated()
 end
 
 function modifier_sentry_ward_reveal_invis_aura_lua:OnIntervalThink()
-	if self.parent.SetSkin ~= nil then
-		self.parent:SetSkin(1)
-		self:StartIntervalThink(-1)
+	if self:GetParent().SetSkin ~= nil then
+		self:GetParent():SetSkin(1)
 	end
 end
 

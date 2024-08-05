@@ -9,15 +9,15 @@ function handleAttackStart(event)
 	local attacker = event.attacker
 	local ability = event.ability
 	-- Using default creep not , disabling creep agro logic
-	--if target == nil 
+	if target == nil 
 	--	or target:GetTeam() == attacker:GetTeam() 
-	--	or target:GetClassname() == "dota_item_drop"
-	--	or target:GetClassname() == "dota_item_rune"
+		or target:GetClassname() == "dota_item_drop"
+		or target:GetClassname() == "dota_item_rune" then
 	--	or not target:IsHero()
 	--	or not ability:IsCooldownReady() 
 	--	or attacker:HasModifier("modifier_no_creep_aggro_on_attack") then
-	--	return
-	--end
+		return
+	end
 	--aggroCreeps(attacker, ability)
 	
 	-- attacking rosh outside pit? stop
