@@ -194,6 +194,7 @@ function Activate()
 	LinkLuaModifier( "modifier_jakiro_liquid_fire_burn_lua", 			"heroes/hero_jakiro/modifier_jakiro_liquid_fire_burn.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_treant_natures_guise_lua", 				"heroes/hero_treant/modifier_treant_natures_guise.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_undying_zombie_deathstrike_active_lua",  "heroes/hero_undying/modifier_undying_zombie_deathstrike_active.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_skeleton_king_alt_model_lua", 			"heroes/hero_skeleton_king/modifier_skeleton_king_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -536,6 +537,20 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			for i=1,24 do
 				hero:HeroLevelUp(false)
 			end
+		end
+	end
+	if text == "-alt" and teamonly == 0 and GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
+		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+		if hero:GetName() == "npc_dota_hero_skeleton_king" and not hero:HasModifier("modifier_skeleton_king_alt_model_lua") then
+			hero:SetOriginalModel("models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl")
+			hero:SetModel("models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl")
+			hero:ManageModelChanges()
+			hero:AddNewModifier(hero, nil, "modifier_skeleton_king_alt_model_lua", {})
+			local ability = hero:FindAbilityByName("skeleton_king_hellfire_blast")
+			local ability_level = ability:GetLevel()
+			hero:RemoveAbility("skeleton_king_hellfire_blast")
+			local ability = hero:AddAbility("skeleton_king_hellfire_blast_2")
+			ability:SetLevel(ability_level)
 		end
 	end
 	--if text == "-test" then
