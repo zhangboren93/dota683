@@ -562,6 +562,10 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			hero:RemoveAbility("centaur_double_edge")
 			ability = hero:AddAbility("centaur_double_edge_2")
 			ability:SetLevel(ability_level)
+		elseif hero:GetName() == "npc_dota_hero_earth_spirit" then
+			hero:SetOriginalModel("models/heroes/brewmaster/brewmaster_earthspirit.vmdl")
+			hero:SetModel("models/heroes/brewmaster/brewmaster_earthspirit.vmdl")
+			hero:ManageModelChanges()
 		end
 	end
 	--if text == "-test" then
