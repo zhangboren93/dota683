@@ -607,6 +607,11 @@
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stun_duration"					"STUN DURATION:"
 		"DOTA_Tooltip_ability_centaur_hoof_stomp_datadriven_stomp_damage"					"STOMP DAMAGE:"
+		"DOTA_Tooltip_ability_centaur_double_edge_2"								"Double Edge"
+		"DOTA_Tooltip_ability_centaur_double_edge_2_Description"					"Centaur strikes a mighty blow at melee range, damaging both himself and a small area around the target. Centaur cannot die from Double Edge."
+		"DOTA_Tooltip_ability_centaur_double_edge_2_Lore"							"In the spurs of combat, Bradwarden's vicious strikes sometimes cause self-inflicted collateral damage."
+		"DOTA_Tooltip_ability_centaur_double_edge_2_Note0"							"Double Edge deals magic type damage to both the targets and himself."
+		"DOTA_Tooltip_ability_centaur_double_edge_2_edge_damage"					"DAMAGE:"
 		"DOTA_Tooltip_ability_centaur_return_Description"									"Centaur immediately counters every attack, damaging the attacker based on a percentage of Centaur's strength."
 		"DOTA_Tooltip_modifier_hoof_stomp"													"#DOTA_Tooltip_modifier_stunned"
 		//Chaos Knight
