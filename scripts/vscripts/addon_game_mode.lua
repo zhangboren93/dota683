@@ -196,6 +196,7 @@ function Activate()
 	LinkLuaModifier( "modifier_undying_zombie_deathstrike_active_lua",  "heroes/hero_undying/modifier_undying_zombie_deathstrike_active.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_skeleton_king_alt_model_lua", 			"heroes/hero_skeleton_king/modifier_skeleton_king_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_centaur_alt_model_lua", 					"heroes/hero_centaur/modifier_centaur_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_riki_alt_model_lua", 					"heroes/hero_riki/modifier_riki_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -566,6 +567,11 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			hero:SetOriginalModel("models/heroes/brewmaster/brewmaster_earthspirit.vmdl")
 			hero:SetModel("models/heroes/brewmaster/brewmaster_earthspirit.vmdl")
 			hero:ManageModelChanges()
+		elseif hero:GetName() == "npc_dota_hero_riki" and not hero:HasModifier("modifier_riki_alt_model_lua") then
+			hero:SetOriginalModel("models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl")
+			hero:SetModel("models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl")
+			hero:ManageModelChanges()
+			hero:AddNewModifier(hero, nil, "modifier_riki_alt_model_lua", {})
 		end
 	end
 	--if text == "-test" then
