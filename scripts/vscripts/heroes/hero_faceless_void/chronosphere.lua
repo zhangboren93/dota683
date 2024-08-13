@@ -1,5 +1,9 @@
 faceless_void_chronosphere_lua = class({})
 
+function faceless_void_chronosphere_lua:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
 function faceless_void_chronosphere_lua:OnSpellStart()
 	-- unit identifier
 	local caster = self:GetCaster()
@@ -106,4 +110,19 @@ function modifier_faceless_void_chronosphere_freeze_lua:CheckState()
 		[MODIFIER_STATE_INVISIBLE] = false,
 	}
 	return state
+end
+
+function modifier_faceless_void_chronosphere_freeze_lua:OnCreated()
+	local parent = self:GetParent()
+	if parent.GetUnitName ~= nil and parent:GetUnitName() == "npc_dota_weaver_swarm" and parent:HasModifier("modifier_weaver_swarm") then
+		parent:Kill(self:GetAbility(), self:GetCaster())
+	end
+	if parent.GetUnitName ~= nil and parent:GetUnitName() == "npc_dota_gyrocopter_homing_missile" then
+		local damageTable = {victim = parent, attacker = self:GetCaster(), damage = 6000, damage_type = DAMAGE_TYPE_PURE, ability = self:GetAbility()}
+		ApplyDamage(damageTable)
+		ApplyDamage(damageTable)
+		ApplyDamage(damageTable)
+		ApplyDamage(damageTable)
+		ApplyDamage(damageTable)
+	end
 end
