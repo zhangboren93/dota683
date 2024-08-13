@@ -22811,7 +22811,14 @@
 		"AbilityValues"
 		{
 				"damage_per_mana"		"1.6 1.9 2.2 2.5"
+			"damage_per_mana_per_level"		"0"
 				"absorption_tooltip"		"60"
+			"illusion_percentage"			"100"
+			"absorption_pct"				"60"
+			"damage_per_mana_total"
+			{
+				"dynamic_value"			"true"
+			}
 		}
 	
 		"OnToggleOn"
@@ -22831,7 +22838,7 @@
 	
 			"ApplyModifier"
 			{
-				"ModifierName"	"modifier_mana_shield_datadriven"
+				"ModifierName"	"modifier_medusa_mana_shield"
 				"Target" 		"CASTER"
 			}
 		}
@@ -22853,7 +22860,7 @@
 	
 			"RemoveModifier"
 			{
-				"ModifierName"	"modifier_mana_shield_datadriven"
+				"ModifierName"	"modifier_medusa_mana_shield"
 				"Target"
 				{
 					"Center"	"CASTER"
