@@ -567,11 +567,11 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			hero:SetOriginalModel("models/heroes/brewmaster/brewmaster_earthspirit.vmdl")
 			hero:SetModel("models/heroes/brewmaster/brewmaster_earthspirit.vmdl")
 			hero:ManageModelChanges()
-		elseif hero:GetName() == "npc_dota_hero_riki" and not hero:HasModifier("modifier_riki_alt_model_lua") then
-			hero:SetOriginalModel("models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl")
-			hero:SetModel("models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl")
-			hero:ManageModelChanges()
-			hero:AddNewModifier(hero, nil, "modifier_riki_alt_model_lua", {})
+	--	elseif hero:GetName() == "npc_dota_hero_riki" and not hero:HasModifier("modifier_riki_alt_model_lua") then
+	--		hero:SetOriginalModel("models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl")
+	--		hero:SetModel("models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl")
+	--		hero:ManageModelChanges()
+	--		hero:AddNewModifier(hero, nil, "modifier_riki_alt_model_lua", {})
 		end
 	end
 	--if text == "-test" then
