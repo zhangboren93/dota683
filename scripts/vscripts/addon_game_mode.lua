@@ -12,6 +12,7 @@ require("end_game")
 require("death_match")
 require("heroes/hero_respawn_time")
 require("game_mode/captain_draft")
+require("alt_model")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
@@ -545,10 +546,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	if text == "-alt" and teamonly == 0 and GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
 		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 		if hero:GetName() == "npc_dota_hero_skeleton_king" and not hero:HasModifier("modifier_skeleton_king_alt_model_lua") then
-			hero:SetOriginalModel("models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl")
-			hero:SetModel("models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl")
-			hero:ManageModelChanges()
-			hero:AddNewModifier(hero, nil, "modifier_skeleton_king_alt_model_lua", {})
+			setAltModel(hero)
 			local ability = hero:FindAbilityByName("skeleton_king_hellfire_blast")
 			local ability_level = ability:GetLevel()
 			hero:RemoveAbility("skeleton_king_hellfire_blast")
@@ -1976,6 +1974,8 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			if modifiers[i]:GetName() == "modifier_chemical_rage" then
 				caster:FindAbilityByName("alchemist_chemical_rage_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_chemical_rage", { }) 
 				break
+			elseif modifiers[i]:GetName() == "modifier_skeleton_king_alt_model_lua" then
+				setAltModel(parent)
 			end
 		end
 	elseif event.name_const == "modifier_techies_stasis_trap" then
