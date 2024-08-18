@@ -22838,7 +22838,7 @@
 	
 			"ApplyModifier"
 			{
-				"ModifierName"	"modifier_medusa_mana_shield"
+				"ModifierName"	"modifier_medusa_mana_shield" // Dota2 Original Modifier
 				"Target" 		"CASTER"
 			}
 		}
@@ -22860,7 +22860,7 @@
 	
 			"RemoveModifier"
 			{
-				"ModifierName"	"modifier_medusa_mana_shield"
+				"ModifierName"	"modifier_medusa_mana_shield" // Dota2 Original Modifier
 				"Target"
 				{
 					"Center"	"CASTER"
@@ -29044,7 +29044,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"speed"					"900"
+			"speed"					"1050"
 			"radius_start"
 			{
 				"value"								"180"
