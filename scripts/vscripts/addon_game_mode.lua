@@ -1420,6 +1420,12 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:HasAbility("twin_gate_portal_warp") then -- 移除双生门传送
 		entity:RemoveAbility("twin_gate_portal_warp")
 	end
+
+	entity:SetThink(function() -- 狼人小狼致残
+		if entity:HasAbility("lycan_summon_wolves_critical_strike") then
+			entity:RemoveAbility("lycan_summon_wolves_critical_strike")
+		end
+	end, "Disable original critical strike", 0.1)
 	
 	if not entity:IsWard() and not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
 		entity:AddAbility("unit_intrinstic_mechanism_datadriven"):SetLevel(1)

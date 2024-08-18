@@ -3585,7 +3585,6 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"lycan_summon_wolves_invisibility"			// Ability 1
 		"Ability2"					"lycan_summon_wolves_critical_strike_datadriven"			// Ability 2
 
 
@@ -3622,7 +3621,6 @@
 
 		// Abilities
 		//----------------------------------------------------------------
-		"Ability1"					"lycan_summon_wolves_invisibility"			// Ability 1
 		"Ability2"					"lycan_summon_wolves_critical_strike_datadriven"			// Ability 2
 
 		// Attack
