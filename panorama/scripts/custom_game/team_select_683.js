@@ -80,5 +80,8 @@ function handleShufflePlayers() {
 		$("#ModeSelect").visible = true
 		$("#ap").checked = true
 		$("#random").checked = true
+	} else if (mapname == 'maps/rank.vpk') {
+		$('#ShuffleTeamAssignmentButton').visible = false
+		$('#UnassignedPlayerPanel').visible = false
 	}
 })()

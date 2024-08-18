@@ -394,7 +394,7 @@ function CAddonTemplateGameMode:InitGameMode()
 					GameRules:SendCustomMessage("天梯比赛需要10名玩家，本次对局不记录天梯分数!", -1, -1)
 				--	GameRules:SetGameWinner(DOTA_TEAM_NOTEAM)
 					hasGameEnded = true
-					isValidRankedGame = true
+					isValidRankedGame = false
 				else
 					GameRules:GetGameModeEntity():SetThink(function()
 						getAllPlayerScores()
