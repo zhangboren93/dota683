@@ -587,6 +587,8 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	--	local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 	--	hero:SetRespawnsDisabled(true)
 	--	hero:ForceKill(false)
+	--	local ladder_url = "http://" .. LADDER_HOST .. "/ladder_game/" .. GameRules:Script_GetMatchID():__tostring()
+	--	print(ladder_url)
 	--end
 end
 

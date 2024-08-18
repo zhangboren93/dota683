@@ -196,7 +196,7 @@ function isMapRanked()
 end
 
 function uploadGameToServer(host)
-	CreateHTTPRequest("POST", "http://" .. host .. "/ladder_game/" .. GameRules:Script_GetMatchID()):Send(
+	CreateHTTPRequest("POST", "http://" .. host .. "/ladder_game/" .. GameRules:Script_GetMatchID():__tostring()):Send(
         function(response)
             print("Post game status " .. response.StatusCode)
         end);
