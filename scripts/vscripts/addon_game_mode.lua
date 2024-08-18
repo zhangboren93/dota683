@@ -914,8 +914,9 @@ function CAddonTemplateGameMode:OnThink()
 				local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
 				PlayerResource:ModifyGold(playerid, 3, true, DOTA_ModifyGold_GameTick)
 
-				local entity = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+				local entity = PlayerResource:GetPlayer(playerid)
 				if entity ~= nil then
+					entity = entity:GetAssignedHero()
 					local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
 					PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
 				end
@@ -925,8 +926,9 @@ function CAddonTemplateGameMode:OnThink()
 				local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
 				PlayerResource:ModifyGold(playerid, 3, true, DOTA_ModifyGold_GameTick)
 
-				local entity = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+				local entity = PlayerResource:GetPlayer(playerid)
 				if entity ~= nil then
+					entity = entity:GetAssignedHero()
 					local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
 					PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
 				end
@@ -1429,6 +1431,12 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	if entity:HasAbility("twin_gate_portal_warp") then -- 移除双生门传送
 		entity:RemoveAbility("twin_gate_portal_warp")
 	end
+
+	entity:SetThink(function() -- 狼人小狼致残
+		if entity:HasAbility("lycan_summon_wolves_critical_strike") then
+			entity:RemoveAbility("lycan_summon_wolves_critical_strike")
+		end
+	end, "Disable original critical strike", 0.1)
 	
 	if not entity:IsWard() and not entity:HasAbility("unit_intrinstic_mechanism_datadriven") then
 		entity:AddAbility("unit_intrinstic_mechanism_datadriven"):SetLevel(1)
@@ -2230,7 +2238,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		end
 		local new_ward = CreateUnitByName(new_unit_name, parent:GetAbsOrigin(), true, caster, caster, parent:GetTeam())
 		new_ward:AddNewModifier(fountain, nil, "modifier_kill", { duration = lifetime })
-		new_ward:AddNewModifier(fountain, nil, "modifier_invisible", {})
+		new_ward:AddNewModifier(fountain, nil, "modifier_invisible", { duration = lifetime })
 		new_ward:AddNewModifier(fountain, nil, "modifier_ward_no_collusion_lua", {})
 		if is_sentry then
 			new_ward:AddNewModifier(fountain, nil, "modifier_sentry_ward_reveal_invis_aura_lua", {})

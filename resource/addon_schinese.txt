@@ -871,6 +871,7 @@
 		"DOTA_Tooltip_ability_life_stealer_consume_datadriven"									"吞灭"
 		"DOTA_Tooltip_ability_life_stealer_consume_datadriven_Description"						"噬魂鬼从宿主身体内部吃掉宿主，同时突然现身。"
 		// Lycan
+		"DOTA_Tooltip_ability_lycan_summon_wolves_Description"							"召唤两头狼为狼人而战。等级2-4的狼拥有致命一击技能，等级3和4的狼还拥有永久隐身技能。等级4的狼还拥有15点/秒的生命回复速率。"
 		"DOTA_Tooltip_Ability_lycan_howl_datadriven"									"嗥叫"
 		"DOTA_Tooltip_Ability_lycan_howl_datadriven_Description"						"给予狼人、所有友方英雄及所有玩家控制的单位攻击力加成。"
 		"DOTA_Tooltip_Ability_lycan_howl_datadriven_unit_bonus_damage"					"非英雄攻击力加成："
@@ -890,12 +891,14 @@
 		"DOTA_Tooltip_Ability_lycan_feral_impulse_datadriven_bonus_attack_speed"		"攻速加成："
 		"DOTA_Tooltip_Ability_lycan_feral_impulse_datadriven_bonus_damage"				"%攻击力加成："
 		"DOTA_Tooltip_ability_lycan_shapeshift_Description"								"狼人展现出他的凶狼形态，提升夜间视野，并获得致命一击的能力。在变形持续时间中，狼人和他控制的所有单位达到超高移动速度，并且不能被减速。"
+		"DOTA_Tooltip_ability_lycan_shapeshift_facet_lycan_pack_leader"					"移动速度加成效果也会施加给狼人控制下的所有单位。"
 		"DOTA_Tooltip_ability_lycan_shapeshift_crit_chance"								""
 		"DOTA_Tooltip_ability_lycan_shapeshift_crit_chance_tooltip"						"%致命一击概率："
 		"DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_datadriven"				"致命一击"
 		"DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_datadriven_Description"	"有一定概率造成额外伤害。"
 		"DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_datadriven_crit_chance"	"%致命一击概率："
 		"DOTA_Tooltip_ability_lycan_summon_wolves_critical_strike_datadriven_crit_damage"	"%致命一击伤害："
+		"DOTA_Tooltip_facet_lycan_pack_leader_Description" 								"移动速度加成效果也会施加给狼人控制下的所有单位。"
 		//Magnus
 		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven"							"震荡波"
 		"DOTA_Tooltip_ability_magnataur_shockwave_datadriven_Description"				"马格纳斯放出一道能量波，对一条直线上的敌方单位造成伤害。"
