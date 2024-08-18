@@ -2227,7 +2227,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		end
 		local new_ward = CreateUnitByName(new_unit_name, parent:GetAbsOrigin(), true, caster, caster, parent:GetTeam())
 		new_ward:AddNewModifier(fountain, nil, "modifier_kill", { duration = lifetime })
-		new_ward:AddNewModifier(fountain, nil, "modifier_invisible", {})
+		new_ward:AddNewModifier(fountain, nil, "modifier_invisible", { duration = lifetime })
 		new_ward:AddNewModifier(fountain, nil, "modifier_ward_no_collusion_lua", {})
 		if is_sentry then
 			new_ward:AddNewModifier(fountain, nil, "modifier_sentry_ward_reveal_invis_aura_lua", {})
