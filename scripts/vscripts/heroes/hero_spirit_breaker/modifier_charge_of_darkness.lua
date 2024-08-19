@@ -50,7 +50,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
         if (self.target:GetAbsOrigin() - me:GetAbsOrigin()):Length2D() <= 150 then
             parent:EmitSound("Hero_Spirit_Breaker.Charge.Impact")
             local bash = parent:FindAbilityByName("spirit_breaker_greater_bash")
-            if bash:GetLevel() > 0 then
+            if bash ~= nil and bash:GetLevel() > 0 then
                 local damage = bash:GetSpecialValueFor("damage") * parent:GetMoveSpeedModifier(parent:GetBaseMoveSpeed(), false) / 100 + ability:GetSpecialValueFor("damage")
     	        ApplyDamage({
     	            victim = self.target,
@@ -171,4 +171,8 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:GetOverrideAnimation()
 	return ACT_DOTA_RUN
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua:OnHorizontalMotionInterrupted()
+	self:Destroy()
 end
