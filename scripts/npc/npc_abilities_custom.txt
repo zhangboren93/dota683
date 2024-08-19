@@ -3043,6 +3043,7 @@
 		{
 			"particle"  "particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
+			"model"		"models/heroes/shadowshaman/shadowshaman_totem.vmdl"
 		}
 	
 		"OnSpellStart"
