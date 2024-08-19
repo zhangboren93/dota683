@@ -8,8 +8,10 @@ function modifier_item_mask_of_madness_datadriven_on_orb_impact(keys)
 	if not keys.target:IsIllusion() 
 		and not keys.target:IsBuilding()
 		and keys.target:GetTeam() ~= keys.caster:GetTeam() then
-		keys.caster:FindAbilityByName("hero_intrinstic_mechanism_datadriven"):
-					ApplyDataDrivenModifier(keys.attacker, keys.attacker, "modifier_item_mask_of_madness_datadriven_lifesteal", {duration = 0.03})
+		keys.caster:AddNewModifier(
+			keys.caster, keys.ability, 
+			"modifier_item_lifesteal_lua", 
+			{ lifesteal = 20, duration = 0.03 })
 	end
 end
 

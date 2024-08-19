@@ -13962,7 +13962,7 @@
 	
 			"modifier_vampiric_aura_buff"
 	   		{	
-	   			"OnAttackLanded"    	
+	   			"OnAttack"    	
 	   			{
 	   				"RunScript"
 					{
