@@ -34,10 +34,7 @@ function item_bfury_cleave_lua:OnProcessCleave(event)
 		ParticleManager:SetParticleControlEnt(effect,1,target,PATTACH_POINT_FOLLOW,"attach_hitloc",target:GetAbsOrigin(),false)
 
 		for k,v in ipairs(units) do
-			if v ~= target
-				-- cleave won't work for dragon ancient camp
-				and string.find(v:GetModelName(), "black_dragon") == nil
-				and string.find(v:GetModelName(), "black_drake") == nil then
+			if v ~= target then
 				ApplyDamage({
 					attacker = attacker,
 					victim = v,
