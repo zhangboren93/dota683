@@ -2,8 +2,7 @@ function attack_landed(event)
     if not event.target:IsIllusion() 
 		and not event.target:IsBuilding() 
 		and event.target:GetTeam() ~= event.caster:GetTeam() then
-		event.caster:FindAbilityByName("hero_intrinstic_mechanism_datadriven"):
-					 ApplyDataDrivenModifier(event.caster, event.caster, "modifier_item_lifesteal_datadriven", { duration = 0.03 })
+		event.caster:AddNewModifier(event.caster, event.ability, "modifier_item_lifesteal_lua", { duration = 0.03 })
     end
 end
 
