@@ -991,6 +991,13 @@ function CAddonTemplateGameMode:OnThink()
 				randomBonusGranted[playerid] = true
 			end
 		end
+		-- if has randomed hero, remove its arcana
+		for i=0,PlayerResource:GetPlayerCount() - 1 do
+			local hero_name = PlayerResource:GetSelectedHeroName(i)
+			if same_ability_heroes[hero_name] ~= nil then
+				GameRules:AddHeroToBlacklist(same_ability_heroes[hero_name])
+			end
+		end
 	end
 
 	-- send times to UI
