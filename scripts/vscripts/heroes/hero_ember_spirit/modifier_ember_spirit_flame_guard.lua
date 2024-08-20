@@ -1,7 +1,5 @@
 modifier_ember_spirit_flame_guard_lua = class({
 	DeclareFunctions = function() return { MODIFIER_EVENT_ON_TAKEDAMAGE } end,
-	GetEffectName = function() return "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf" end,
-	GetEffectAttachType = function() return PATTACH_ABSORIGIN_FOLLOW end,
 	IsPurgable = function() return true end,
 	OnDestroy = function(self) if IsServer() then self:GetParent():StopSound("Hero_EmberSpirit.FlameGuard.Loop") end end,
 	OnCreated = function(self)
@@ -10,6 +8,9 @@ modifier_ember_spirit_flame_guard_lua = class({
 		self.damage = ability:GetSpecialValueFor("damage_per_second") * tick_interval
 		self.radius = ability:GetSpecialValueFor("radius")
 		self:StartIntervalThink(tick_interval)
+		self.particleId = ParticleManager:CreateParticle(
+			"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		ParticleManager:SetParticleControl(self.particleId, 2, Vector(400, 0, 0))
 	end,
 	OnIntervalThink = function(self)
 		if not IsServer() then return end
@@ -51,6 +52,12 @@ modifier_ember_spirit_flame_guard_lua = class({
 		else
 			parent:Heal(self.flame_guard_absorb_amount, ability)
 			self:Destroy()
+		end
+	end,
+	OnDestroy = function(self)
+		if self.particleId ~= nil then
+			ParticleManager:DestroyParticle(self.particleId, false)
+			self.particleId = nil
 		end
 	end
 })
