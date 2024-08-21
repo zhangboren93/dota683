@@ -11,12 +11,18 @@ end
 function modifier_magnataur_empower_cleave_lua:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_PROCESS_CLEAVE,
+		MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE
 	}
 	return funcs
 end
 
+function modifier_magnataur_empower_cleave_lua:GetModifierBaseDamageOutgoing_Percentage()
+    return self:GetAbility():GetSpecialValueFor("bonus_damage_pct")
+end
+
+
 function modifier_magnataur_empower_cleave_lua:IsHidden()
-	return true
+	return false
 end
 
 function modifier_magnataur_empower_cleave_lua:IsDebuff()
@@ -27,12 +33,16 @@ function modifier_magnataur_empower_cleave_lua:IsPurgable()
 	return true
 end
 
+function modifier_magnataur_empower_cleave_lua:GetEffectName()
+	return "particles/units/heroes/hero_magnataur/magnataur_empower.vpcf"
+end
+
 function modifier_magnataur_empower_cleave_lua:OnProcessCleave(event)
 	local attacker = event.attacker
 	local target = event.target
 	local ability = self:GetAbility()
 	if attacker == self:GetParent() and passCleaveUnitCheck(attacker, target) then
-		local pct = ability:GetSpecialValueFor("cleave_radius_damage")
+		local pct = ability:GetSpecialValueFor("cleave_damage_pct")
 		local radius = ability:GetSpecialValueFor("cleave_radius")
 		local damage = event.damage * pct /100
 		local pos = attacker:GetOrigin()+(target:GetOrigin()-attacker:GetOrigin()):Normalized()*radius
@@ -49,15 +59,5 @@ function modifier_magnataur_empower_cleave_lua:OnProcessCleave(event)
 				})
 			end
 		end
-	end
-end
-
-function handleAbilityExecuted(event)
-	local event_ability = event.event_ability
-	if event_ability:GetName() == "magnataur_empower" then
-		event.target:AddNewModifier(
-			event.caster, event_ability, 
-			"modifier_magnataur_empower_cleave_lua", 
-			{ duration = event_ability:GetSpecialValueFor("empower_duration") })
 	end
 end

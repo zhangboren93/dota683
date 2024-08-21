@@ -2493,7 +2493,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 				and inflictor:GetName() ~= "medusa_split_shot" 
 				and inflictor:GetName() ~= "axe_counter_helix_datadriven" 
 				and inflictor:GetName() ~= "item_bfury_datadriven" 
-				and inflictor:GetName() ~= "magnataur_empower" 
+				and inflictor:GetName() ~= "magnataur_empower_datadriven" 
 				and inflictor:GetName() ~= "sven_great_cleave"
 				and inflictor:GetName() ~= "gyrocopter_rocket_barrage"
 				and inflictor:GetName() ~= "gyrocopter_flak_cannon"

@@ -1096,6 +1096,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"magnataur_shockwave_datadriven"
+		"Ability2"		"magnataur_empower_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability10"		"generic_hidden"
