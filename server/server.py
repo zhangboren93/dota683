@@ -1,4 +1,4 @@
-from http.server import BaseHTTPRequestHandler, HTTPServer
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from datetime import datetime
 import queue
 import threading 
@@ -6,13 +6,13 @@ import time
 import subprocess
 import sys
 
-hostName = "192.168.1.4"
+hostName = "192.168.0.168"
 serverPort = 80
 userLastUpdateDate = {}
 gameInsertDate = {}
 q = queue.SimpleQueue()
 process_game_interval = 60 * 60
-process_game_buffer = 30 * 60
+process_game_buffer = 90 * 60
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -87,16 +87,26 @@ class ParseGameThread(threading.Thread):
 
             if len(valid_game_ids) == 0:
                 continue
-            commands = ['python', 'process_game_result.py', ','.join(valid_game_ids)]
+            commands = ['python3', 'process_game_result.py', ','.join(valid_game_ids)]
             print(f"Executing command {commands})")
-            process = subprocess.run(commands, capture_output = True)
-            print(process)
+            process_timedout = False
+            try:
+                process = subprocess.run(commands, capture_output = True, timeout = 60)
+                print(process)
+            except TimeoutExpired:
+                process_timedout = True
+            #TODO if process failed, put game_ids back to queue
+            if process_timedout or not 'All games processed' in process.stdout:
+                print('Processing game failed, putting game ids back to queue.')
+                for i in valid_game_ids:
+                    q.put(i)
+                print(q)
 
 if __name__ == "__main__":
 
     t = ParseGameThread()
     t.start()
-    webServer = HTTPServer((hostName, serverPort), MyServer)
+    webServer = ThreadingHTTPServer((hostName, serverPort), MyServer)
     print("Server started http://%s:%s" % (hostName, serverPort))
 
     try:
