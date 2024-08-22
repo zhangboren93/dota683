@@ -47,8 +47,10 @@ function modifier_magnataur_empower_cleave_lua:OnProcessCleave(event)
 		local damage = event.damage * pct /100
 		local pos = attacker:GetOrigin()+(target:GetOrigin()-attacker:GetOrigin()):Normalized()*radius
 		local units = FindUnitsInRadius(attacker:GetTeam(),pos,nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY,DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,0,false)
+		local damaged_units = {}
 		for k,v in ipairs(units) do
 			if v ~= target then
+				table.insert(damaged_units, v)
 				ApplyDamage({
 					attacker = attacker,
 					victim = v,
@@ -57,6 +59,13 @@ function modifier_magnataur_empower_cleave_lua:OnProcessCleave(event)
 					damage_flags = DOTA_DAMAGE_FLAG_IGNORES_PHYSICAL_ARMOR,
 					ability = ability
 				})
+			end
+		end
+		if #damaged_units > 0 then
+			for i=1,#damaged_units do
+				local particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_magnataur/magnataur_empower_cleave_secondary_hit.vpcf", PATTACH_ABSORIGIN, damaged_units[i])
+				ParticleManager:SetParticleControlEnt(particleId, 1, damaged_units[i] ,PATTACH_POINT_FOLLOW,"attach_hitloc",damaged_units[i]:GetAbsOrigin(),false)
+				ParticleManager:ReleaseParticleIndex(particleId)
 			end
 		end
 	end

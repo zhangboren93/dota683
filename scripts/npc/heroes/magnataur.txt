@@ -19,6 +19,7 @@
 		"precache"
 		{
 			"particle"					"particles/units/heroes/hero_magnataur/magnataur_empower.vpcf"
+			"particle"					"particles/units/heroes/hero_magnataur/magnataur_empower_cleave_secondary_hit.vpcf"
 		}
 		"AbilityValues"
 		{
