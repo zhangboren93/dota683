@@ -125,6 +125,7 @@ function deathMatchGameRulesUpdate()
 	GameRules:AddHeroToBlacklist("npc_dota_hero_lone_druid")			
 	GameRules:AddHeroToBlacklist("npc_dota_hero_meepo")		
 	GameRules:AddHeroToBlacklist("npc_dota_hero_invoker")			
+	GameRules:AddHeroToBlacklist("npc_dota_hero_ringmaster")			
 	GameRules:SetHeroRespawnEnabled(false)
 	GameRules:SetUseUniversalShopMode(true)
 end

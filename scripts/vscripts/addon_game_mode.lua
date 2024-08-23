@@ -1366,7 +1366,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_silencer" then
 			local ability = entity:FindAbilityByName("silencer_global_silence_aghs_datadriven")
 			ability:SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_invoker" then
+		elseif entity:GetName() == "npc_dota_hero_invoker" or entity:GetName() == "npc_dota_hero_ringmaster" then
 			entity:SetThink(function()
 				entity:FindAbilityByName("invoker_invoke"):SetLevel(0)
 			end, "reset invoker invoke", 0.5)

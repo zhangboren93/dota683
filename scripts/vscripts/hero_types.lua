@@ -123,7 +123,8 @@ all_heroes = {
 	"npc_dota_hero_primal_beast",
 	"npc_dota_hero_void_spirit",
 	"npc_dota_hero_dawnbreaker",
-	"npc_dota_hero_pangolier"
+	"npc_dota_hero_pangolier",
+	"npc_dota_hero_ringmaster"
 }
 
 same_ability_heroes = {}
@@ -151,3 +152,5 @@ same_ability_heroes["npc_dota_hero_pangolier"] = "npc_dota_hero_juggernaut"
 same_ability_heroes["npc_dota_hero_juggernaut"] = "npc_dota_hero_pangolier"
 same_ability_heroes["npc_dota_hero_medusa"] = "npc_dota_hero_muerta"
 same_ability_heroes["npc_dota_hero_muerta"] = "npc_dota_hero_medusa"
+same_ability_heroes["npc_dota_hero_invoker"] = "npc_dota_hero_ringmaster"
+same_ability_heroes["npc_dota_hero_ringmaster"] = "npc_dota_hero_invoker"
