@@ -17101,26 +17101,17 @@
 			"particle"		"particles/units/heroes/hero_juggernaut/juggernaut_omni_slash_trail.vpcf"
 		}
 	}
-	"ringmaster_invoker_particle_effects_datadriven"
+	"ringmaster_rubick_particle_effects_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"precache"
 		{
-			"particle"		"particles/units/heroes/hero_invoker/invoker_quas_orb.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_wex_orb.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_exort_orb.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_invoke.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_ice_wall.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_ice_wall_b.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_wex_sphere.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_alacrity.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_alacrity_buff.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_alacrity_cast.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_sun_strike.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_chaos_meteor_fly.vpcf"
-			"particle"		"particles/units/heroes/hero_invoker/invoker_emp.vpcf"
-			"particle"		"particles/status_fx/status_effect_alacrity.vpcf"
+			"particle"		"particles/units/heroes/hero_rubick/rubick_telekinesis_land.vpcf"
+			"particle"		"particles/units/heroes/hero_rubick/rubick_telekinesis.vpcf"
+			"particle"		"particles/units/heroes/hero_rubick/rubick_fade_bolt_head.vpcf"
+			"particle"		"particles/units/heroes/hero_rubick/rubick_fade_bolt_debuff.vpcf"
+			"particle"		"particles/units/heroes/hero_rubick/rubick_spell_steal.vpcf"
 		}
 	}
 	//=================================================================================================================

@@ -1366,14 +1366,14 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_silencer" then
 			local ability = entity:FindAbilityByName("silencer_global_silence_aghs_datadriven")
 			ability:SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_invoker" or entity:GetName() == "npc_dota_hero_ringmaster" then
+		elseif entity:GetName() == "npc_dota_hero_invoker" then
 			entity:SetThink(function()
 				entity:FindAbilityByName("invoker_invoke"):SetLevel(0)
 			end, "reset invoker invoke", 0.5)
 		elseif entity:GetName() == "npc_dota_hero_earth_spirit" then
 			entity:AddItemByName("item_aghanims_shard")
 			entity:AddAbility("special_bonus_unique_earth_spirit_2"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_rubick" then
+		elseif entity:GetName() == "npc_dota_hero_rubick" or entity:GetName() == "npc_dota_hero_ringmaster" then
 			--  TODO move following abilities to hooks
 			entity:AddAbility("obsidian_destroyer_imprison_int_steal_datadriven"):SetLevel(1)
 			entity:AddAbility("slark_shadow_dance_heal_datadriven"):SetLevel(1)

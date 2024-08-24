@@ -1287,7 +1287,7 @@
 		"DOTA_Tooltip_ability_tiny_tree_grab_cleave_radius_damage"			    "%分裂伤害："
 		"DOTA_Tooltip_ability_tiny_tree_grab_cleave_radius"					    "分裂半径："
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven"					"自然蔽护"
-		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_Description"		"使目标单位融入树林之中，在树木附近时进入隐身并获得移动速度加成。如果该单位远离树木，或施放于一个周围没有树木的单位，自然蔽护将失效。树精卫士可以在自然蔽护下施放技能并保持隐身状态。
+		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_Description"		"使目标单位融入树林之中，在树木附近时进入隐身并获得移动速度加成。如果该单位远离树木，或施放于一个周围没有树木的单位，自然蔽护将失效。树精卫士可以在自然蔽护下施放技能并保持隐身状态。"
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_bonus_move_speed"	"%移速加成："
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_duration"			"持续时间："
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_fade_time"		"渐隐时间："
