@@ -10,7 +10,7 @@
 		<CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/random_draft_hero_selection.xml"/>
 		<CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/captain_draft_hero_selection.xml"/>
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/glyph.xml" />
-		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hero_bar_block.xml" />
+		<!--CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/hero_bar_block.xml" /-->
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/courier.xml" />
 		<CustomUIElement type="Hud"	layoutfile="file://{resources}/layout/custom_game/combat_events.xml" />
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/fwd.xml"/>
