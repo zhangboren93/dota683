@@ -20,7 +20,7 @@ function ArcaneOrb( keys )
 	damage_table.victim = target
 
 
-	if not target:IsRealHero() or target:IsSummoned() then
+	if not target:IsRealHero() and target:IsSummoned() then
 		damage_table.damage = mana * extra_damage + summon_damage
 	else
 		damage_table.damage = mana * extra_damage
