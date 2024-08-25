@@ -15,7 +15,7 @@ function handleProjectileHitUnit(event)
 		FIND_ANY_ORDER,
 		false)
 	for i=1,#units do
-		if units[i] ~= target and units[i]:HasModifier("modifier_bounty_hunter_track_aura_datadriven") then
+		if units[i] ~= target and units[i]:HasModifier("modifier_bounty_hunter_track_lua") then
 			ProjectileManager:CreateTrackingProjectile({
 				Target = units[i],
 				iMoveSpeed = 1000,

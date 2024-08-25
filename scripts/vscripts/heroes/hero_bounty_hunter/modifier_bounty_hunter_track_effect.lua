@@ -20,10 +20,15 @@ end
 function modifier_bounty_hunter_track_effect_lua:GetModifierMoveSpeedBonus_Percentage()
     return 20
 end
+
 function modifier_bounty_hunter_track_effect_lua:GetTexture()
     return "bounty_hunter_track"
 end
 
 function modifier_bounty_hunter_track_effect_lua:IsDebuff()
     return false
+end
+
+function modifier_bounty_hunter_track_effect_lua:GetStatusEffectName()
+	return "particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_haste.vpcf"
 end

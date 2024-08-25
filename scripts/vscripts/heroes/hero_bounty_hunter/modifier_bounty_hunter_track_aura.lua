@@ -1,13 +1,12 @@
 modifier_bounty_hunter_track_aura_lua = class({})
 
-function modifier_bounty_hunter_track_aura_lua:OnCreate()
-	self:StartIntervalThink(1)
+function modifier_bounty_hunter_track_aura_lua:OnCreated()
+	self:StartIntervalThink(0.1)
 end
 
 function modifier_bounty_hunter_track_aura_lua:OnIntervalThink()
-	if not self:GetParent():HasModifier("modifier_bounty_hunter_track") then
-		self:Destroy()
-	end
+	if not IsServer() then return end
+	if not self:GetParent():HasModifier("modifier_bounty_hunter_track_lua") then self:Destroy() end
 end
 
 function modifier_bounty_hunter_track_aura_lua:GetAuraDuration()
@@ -43,5 +42,9 @@ function modifier_bounty_hunter_track_aura_lua:IsHidden()
 end
 
 function modifier_bounty_hunter_track_aura_lua:IsPurgable()
+	return true
+end
+
+function modifier_bounty_hunter_track_aura_lua:IsDebuff()
 	return true
 end
