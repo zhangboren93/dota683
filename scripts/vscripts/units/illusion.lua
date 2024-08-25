@@ -9,6 +9,9 @@ function handleTakeDamage(event)
 		if unit:HasModifier("modifier_phantom_lancer_juxtapose_illusion") then
 			illusion_bounty = 5
 		end
+		if unit:FindModifierByName("modifier_illusion"):GetAbility():GetName() == "chaos_knight_phantasm_datadriven" then
+			illusion_bounty = 0
+		end
 		attacker:ModifyGold(-1 * illusion_bounty, false, DOTA_ModifyGold_Unspecified)
 	end
 end
