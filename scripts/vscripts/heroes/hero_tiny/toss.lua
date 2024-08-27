@@ -21,7 +21,13 @@ function tiny_toss_datadriven:OnAbilityPhaseStart()
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
 		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
 		FIND_ANY_ORDER, false)
-	if #units <= 1 then
+	local filtered_units = {}
+	for i=1,#units do
+		if units[i]:GetUnitName() ~= "npc_dota_roshan_datadriven" then
+			table.insert(filtered_units, units[i])
+		end
+	end
+	if #filtered_units <= 1 then
 		return false
 	else
 		return true
@@ -41,14 +47,13 @@ function tiny_toss_datadriven:OnSpellStart()
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
 		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
 		FIND_ANY_ORDER, false)
+	filtered_units = {}
 	for i=1,#units do
-		if units[i] == caster then
-			table.remove(units, i)
-			break
+		if units[i] ~= caster and units[i]:GetUnitName() ~= "npc_dota_roshan_datadriven" then
+			table.insert(filtered_units, units[i])
 		end
 	end
-	print(#units)
-	local toss_unit = units[RandomInt(1, #units)]
+	local toss_unit = filtered_units[RandomInt(1, #filtered_units)]
 	print("Tossing unit " .. toss_unit:GetName())
 	
 	toss_unit.toss_to_target = target
@@ -77,7 +82,13 @@ function tiny_toss_datadriven:CastFilterResultTarget(target)
 			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
 			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
 			FIND_ANY_ORDER, false)
-		if #units <= 1 then
+		local filtered_units = {}
+		for i=1,#units do
+			if units[i]:GetUnitName() ~= "npc_dota_roshan_datadriven" then
+				table.insert(filtered_units, units[i])
+			end
+		end
+		if #filtered_units <= 1 then
 			return UF_FAIL_CUSTOM
 		end
 	end
@@ -101,7 +112,13 @@ function tiny_toss_datadriven:GetCustomCastErrorTarget( target )
 		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
 		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
 		FIND_ANY_ORDER, false)
-	if #units <= 1 then
+	local filtered_units = {}
+	for i=1,#units do
+		if units[i]:GetUnitName() ~= "npc_dota_roshan_datadriven" then
+			table.insert(filtered_units, units[i])
+		end
+	end
+	if #filtered_units <= 1 then
 		return "#dota_hud_error_no_units_to_grab"
 	end
 
