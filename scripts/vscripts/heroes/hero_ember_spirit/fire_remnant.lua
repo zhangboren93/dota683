@@ -179,6 +179,8 @@ function fire_remnant_activate( keys )
 	local max_distance = 0
 	if caster.fire_remnant_entities == nil then
 		print("No remnant. Skipping.")
+		caster:Stop()
+		caster:GiveMana(150)
 		return
 	end
 	for k, v in pairs( caster.fire_remnant_entities ) do
@@ -193,7 +195,11 @@ function fire_remnant_activate( keys )
 			end
 		end
 	end
-	if index == -1 then return end
+	if index == -1 then
+		caster:Stop()
+		caster:GiveMana(150)
+		return
+	end
 	-- Inherit variables
 	local ability = keys.ability
 	
