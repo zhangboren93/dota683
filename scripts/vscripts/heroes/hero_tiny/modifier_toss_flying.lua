@@ -10,7 +10,11 @@ end
 
 function modifier_toss_flying_lua:OnCreated()
 	if IsServer() then
-		if self:ApplyHorizontalMotionController() == false then
+		if not self:ApplyHorizontalMotionController() then
+			self:Destroy()
+			return
+		end
+		if not self:ApplyVerticalMotionController() then
 			self:Destroy()
 			return
 		end
@@ -79,13 +83,18 @@ function modifier_toss_flying_lua:UpdateHorizontalMotion(me, dt)
 	end
 end
 
-function modifier_toss_flying_lua:DeclareFunctions()
-	local funcs = {
-		MODIFIER_PROPERTY_VISUAL_Z_DELTA
-	}
-	return funcs
+function modifier_toss_flying_lua:UpdateVerticalMotion(me, dt)
+	if IsServer() then
+		local height = self:GetRemainingTime() / 0.6
+		if height > 2 then return 0 end
+		if height > 1 then
+			height = 2 - height
+		end
+		height = (2 - height) * height * 1000
+		local groundLocation = GetGroundPosition(me:GetAbsOrigin(), me)
+		me:SetAbsOrigin(Vector(groundLocation.x, groundLocation.y, groundLocation.z + height))
+	end
 end
- 
 
 function modifier_toss_flying_lua:CheckState()
 	local state = {
@@ -93,13 +102,4 @@ function modifier_toss_flying_lua:CheckState()
 		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 	}
 	return state
-end
-
-function modifier_toss_flying_lua:GetVisualZDelta()
-	local height = self:GetRemainingTime() / 0.6
-	if height > 2 then return 0 end
-	if height > 1 then
-		height = 2 - height
-	end
-	return (2 - height) * height * 1000
 end

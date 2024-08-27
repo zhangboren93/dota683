@@ -216,7 +216,6 @@ function Activate()
 	LinkLuaModifier( "modifier_hero_attack_point_adjust_lua", 	"heroes/modifier_hero_attack_point_adjust.lua", LUA_MODIFIER_MOTION_NONE)
  
 	-- horizontal motion controllers
-	LinkLuaModifier( "modifier_toss_flying_lua", 				"heroes/hero_tiny/modifier_toss_flying.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_elder_titan_echo_stomp_lua", 	"heroes/hero_elder_titan/modifier_elder_titan_echo_stomp.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_flamebreak_knockback_lua", 		"heroes/hero_batrider/modifier_flamebreak_knockback.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_nether_bash_motion_lua", 		"heroes/hero_spirit_breaker/modifier_nether_bash_motion.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
@@ -228,6 +227,9 @@ function Activate()
 	LinkLuaModifier( "modifier_requiem_head_lua",				"heroes/hero_nevermore/modifier_requiem_head.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_ember_spirit_fire_remnant_add_location_lua", "heroes/hero_ember_spirit/modifier_ember_spirit_fire_remnant_add_location.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_ember_spirit_fire_remnant_activate_lua", 	"heroes/hero_ember_spirit/modifier_ember_spirit_fire_remnant_activate.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+
+	-- both motion modifier
+	LinkLuaModifier( "modifier_toss_flying_lua", 				"heroes/hero_tiny/modifier_toss_flying.lua", LUA_MODIFIER_MOTION_BOTH)
 
 	-- attack type & armor type
 	LinkLuaModifier( "modifier_creep_siege_alter",				"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
