@@ -6,7 +6,7 @@ function tiny_toss_datadriven:OnAbilityPhaseStart()
 	local ability = self
 	local grab_radius = self:GetSpecialValueFor("grab_radius")
 
-	if ability:GetCursorTarget() == caster then
+	if ability:GetCursorTarget() == caster or ability:GetCursorTarget():IsMagicImmune() then
 		return false
 	end
 	if ability:GetCursorTarget():IsBuilding() then
@@ -68,6 +68,9 @@ function tiny_toss_datadriven:CastFilterResultTarget(target)
 
 	if target == caster then
 		return UF_FAIL_CUSTOM
+	end
+	if target:IsMagicImmune() then
+		return UF_FAIL_MAGIC_IMMUNE_ENEMY
 	end
 	if target:IsBuilding() then
 		return UF_FAIL_BUILDING
