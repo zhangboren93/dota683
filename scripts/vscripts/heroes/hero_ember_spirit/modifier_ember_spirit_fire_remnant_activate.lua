@@ -6,6 +6,7 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 		self.speed = ability:GetSpecialValueFor("speed")
 		self.radius = ability:GetSpecialValueFor("radius")
 		self.damage = ability:GetSpecialValueFor("damage")
+		self.time_upper_bound = GameRules:GetGameTime() + 0.4
 		self.target_point = Vector(data.target_x, data.target_y, 0)
 		if self:ApplyHorizontalMotionController() == false then
 			self:Destroy()
@@ -16,7 +17,7 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 		if not IsServer() then return end
 		local dest_loc = self.destination:GetAbsOrigin()
 		local me_loc = me:GetAbsOrigin()
-		if (me_loc - dest_loc):Length2D() > 50 then
+		if (me_loc - dest_loc):Length2D() > 50 and GameRules:GetGameTime() < self.time_upper_bound then
 			me:SetAbsOrigin(me_loc + (dest_loc - me_loc):Normalized() * self.speed * dt)
 		else 
 			-- Destroy Remnant
@@ -64,8 +65,12 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 				return true
 			else
 				-- move to another remnant
+				if GameRules:GetGameTime() >= self.time_upper_bound then
+					me:SetAbsOrigin(dest_loc)
+				end
 				me.fire_remnant_entities[furthestRemnantIndex] = nil
 				self.destination = EntIndexToHScript(furthestRemnantIndex)
+				self.time_upper_bound = GameRules:GetGameTime() + 0.4
 				print("Move to another remnent located at (" .. self.destination:GetAbsOrigin().x .. ", " .. self.destination:GetAbsOrigin().y .. ")") 
 				me:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
 			end
