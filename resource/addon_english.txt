@@ -1515,9 +1515,9 @@
 		"DOTA_Tooltip_ability_ember_spirit_fire_remnant_datadriven_duration"				"DURATION:"
 		"DOTA_Tooltip_ability_ember_spirit_fire_remnant_datadriven_Note0"					"Starts with 3 charges (maximum)."
 		"DOTA_Tooltip_ability_ember_spirit_fire_remnant_datadriven_Lore"					"By the spirit's power are Xin's teachings spread anew."
-		"DOTA_Tooltip_modifier_fire_remnant_counter_datadriven"								"Fire Remnant Charges"
-		"DOTA_Tooltip_modifier_fire_remnant_counter_cooldown_datadriven"					"Fire Remnant Duration"
-		"DOTA_Tooltip_modifier_fire_remnant_counter_cooldown_datadriven_Description"		"Fire Remnants expire after 45 seconds."
+		"DOTA_Tooltip_modifier_fire_remnant_counter_lua"									"Fire Remnant Charges"
+		"DOTA_Tooltip_modifier_fire_remnant_counter_cooldown_lua"							"Fire Remnant Duration"
+		"DOTA_Tooltip_modifier_fire_remnant_counter_cooldown_lua_Description"				"Fire Remnants expire after 45 seconds."
 		// Faceless Void
 		"DOTA_Tooltip_Ability_faceless_void_time_walk_datadriven"						"Time Walk"
 		"DOTA_Tooltip_Ability_faceless_void_time_walk_datadriven_Description"			"Rushes to a target location while slowing the movement of all enemies along its path for 3 seconds."

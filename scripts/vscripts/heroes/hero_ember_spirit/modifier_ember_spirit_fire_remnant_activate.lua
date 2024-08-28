@@ -21,7 +21,7 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 			me:SetAbsOrigin(me_loc + (dest_loc - me_loc):Normalized() * self.speed * dt)
 		else 
 			-- Destroy Remnant
-			me:RemoveModifierByName( "modifier_fire_remnant_counter_cooldown_datadriven" )
+			me:RemoveModifierByName( "modifier_fire_remnant_counter_cooldown_lua" )
 			
 			-- Do damage in area
 			local units = FindUnitsInRadius( me:GetTeam(), dest_loc, me, self.radius,
@@ -57,7 +57,7 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 			if furthestRemnantIndex == -1 then
 				-- put the unit at destination
 				FindClearSpaceForUnit(me, dest_loc, true)
-				me:RemoveModifierByName("modifier_activate_fire_remnant_buff_datadriven")
+				me:RemoveModifierByName("modifier_activate_fire_remnant_buff_lua")
 				GridNav:DestroyTreesAroundPoint(me:GetAbsOrigin(), 200, false)
 				me:EmitSound("Hero_EmberSpirit.FireRemnant.Stop")
 		    	me:RemoveHorizontalMotionController(self)

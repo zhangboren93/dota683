@@ -109,7 +109,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_ember_spirit/fire_remnant.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -144,78 +145,9 @@
 				"radius"				"450"
 				"duration"				"45"
 		}
-		
-		// Data driven
-		//-------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
 			"particle"					"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"
-		}
-		
-		"OnUpgrade"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"heroes/hero_ember_spirit/fire_remnant.lua"
-				"Function"				"fire_remnant_upgrade"
-				"ability_name"			"ember_spirit_activate_fire_remnant_datadriven"
-			}
-		
-			"RunScript"
-			{
-				"ScriptFile"			"heroes/hero_ember_spirit/fire_remnant.lua"
-				"Function"				"fire_remnant_charge"
-			}
-		}
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"heroes/hero_ember_spirit/fire_remnant.lua"
-				"Function"				"fire_remnant_add_location"
-				"Target"				"POINT"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"modifier_fire_remnant_counter_datadriven"
-			{
-				"Purgable"				"0"
-			}
-			
-			"modifier_fire_remnant_counter_cooldown_datadriven"
-			{
-				"Purgable"				"0"
-				"Duration"				"%duration"
-				"Attributes"			"MODIFIER_ATTRIBUTE_MULTIPLE"
-			}
-		
-			// Modifiers for remnant
-			"modifier_fire_remnant_dummy_animation_override_datadriven"
-			{
-				"OverrideAnimation"		"ACT_DOTA_RUN"
-			}
-		
-			"modifier_fire_remnant_dummy_buff_datadriven"
-			{
-				"Duration"				"%duration"
-				
-			//	"EffectName"			"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"
-			//	"EffectAttachType"		"follow_origin"
-			
-				"States"
-				{
-					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_FLYING"							"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_UNSELECTABLE"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"						"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 		}
 	}
 	// Rewrite of the Ember Spirit Fire Remnant ability
@@ -234,7 +166,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_ember_spirit/fire_remnant.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"						"3"
@@ -256,7 +189,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150"
 	
-	
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -276,37 +208,6 @@
 		"precache"
 		{
 			"particle"					"particles/units/heroes/hero_ember_spirit/ember_spirit_remnant_dash.vpcf"
-		}
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"heroes/hero_ember_spirit/fire_remnant.lua"
-				"Function"				"fire_remnant_activate"
-				"Target"				"POINT"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"modifier_activate_fire_remnant_buff_datadriven"
-			{
-				"IsHidden"				"0"
-				"IsPurgable"			"0"
-				
-				"EffectName"			"particles/units/heroes/hero_ember_spirit/ember_spirit_remnant_dash.vpcf"
-				"EffectAttachType"		"follow_origin"
-				
-				"States"
-				{
-					"MODIFIER_STATE_INVULNERABLE"					"MODIFIER_STATE_VALUE_ENABLED"
-					//"MODIFIER_STATE_FLYING"							"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"						"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ROOTED"							"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 		}
 	}
 }

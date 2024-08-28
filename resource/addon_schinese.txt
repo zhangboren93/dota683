@@ -1564,9 +1564,9 @@
 		"DOTA_Tooltip_ability_ember_spirit_fire_remnant_datadriven_duration"				"残焰持续时间："
 		"DOTA_Tooltip_ability_ember_spirit_fire_remnant_datadriven_Note0"					"学习后马上拥有3个残焰（上限数量）。"
 		"DOTA_Tooltip_ability_ember_spirit_fire_remnant_datadriven_Lore"					"身怀灵力，重焕教义。"
-		"DOTA_Tooltip_modifier_fire_remnant_counter_datadriven"								"残焰点数"
-		"DOTA_Tooltip_modifier_fire_remnant_counter_cooldown_datadriven"					"残焰持续时间"
-		"DOTA_Tooltip_modifier_fire_remnant_counter_cooldown_datadriven_Description"		"残焰经过45秒后将会消失。"
+		"DOTA_Tooltip_modifier_fire_remnant_counter_lua"									"残焰点数"
+		"DOTA_Tooltip_modifier_fire_remnant_counter_cooldown_lua"							"残焰持续时间"
+		"DOTA_Tooltip_modifier_fire_remnant_counter_cooldown_lua_Description"				"残焰经过45秒后将会消失。"
 		// Faceless Void
 		"DOTA_Tooltip_Ability_faceless_void_time_walk_datadriven"						"时间漫游"
 		"DOTA_Tooltip_Ability_faceless_void_time_walk_datadriven_Description"			"冲到目标位置，降低路径上所有的敌人的移动速度，持续3秒。"
