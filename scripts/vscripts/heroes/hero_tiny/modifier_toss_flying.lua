@@ -54,7 +54,9 @@ function modifier_toss_flying_lua:OnDestroy()
 			if parent:GetTeam() ~= caster:GetTeam() and not parent:IsMagicImmune() and not parent:TriggerSpellAbsorb(ability) then
 				local bonus_damage_pct = ability:GetSpecialValueFor("bonus_damage_pct")
 				local grow = caster:FindAbilityByName("tiny_grow")
-				bonus_damage_pct = bonus_damage_pct + grow:GetLevel() * 15
+				if grow ~= nil then
+					bonus_damage_pct = bonus_damage_pct + grow:GetLevel() * 15
+				end
 				if caster:HasScepter() then
 					bonus_damage_pct = bonus_damage_pct + 15
 				end
