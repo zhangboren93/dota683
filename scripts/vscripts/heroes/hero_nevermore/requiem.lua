@@ -3,9 +3,12 @@ function handleAbilityStart(event)
 	local caster = event.caster
 	local ability = event.ability
 	ProcsMagicStick(event)
+	local stacks = caster.necromastery_count
 	local necromastery = caster:FindModifierByName("modifier_necromastery")
-	if necromastery == nil then return end
-	local stacks = necromastery:GetStackCount()
+	if necromastery ~= nil then
+		stacks = necromastery:GetStackCount()
+	end
+	if stacks == nil then return end
 	local souls = math.ceil(stacks / 2)
 	releaseNumberOfSouls(souls, ability, caster)
 end
@@ -14,9 +17,12 @@ function handleDeath(event)
 	if not IsServer() then return end
 	local caster = event.caster
 	if caster:IsReincarnating() then return end
+	local stacks = caster.necromastery_count
 	local necromastery = caster:FindModifierByName("modifier_necromastery")
-	if necromastery == nil then return end
-	local stacks = necromastery:GetStackCount()
+	if necromastery ~= nil then
+		stacks = necromastery:GetStackCount()
+	end
+	if stacks == nil then return end
 	-- release half the amount of souls
 	local souls = math.ceil(stacks / 2)
 	caster:EmitSound("Hero_Nevermore.RequiemOfSouls")
