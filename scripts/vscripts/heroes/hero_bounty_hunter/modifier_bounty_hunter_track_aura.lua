@@ -26,7 +26,7 @@ function modifier_bounty_hunter_track_aura_lua:GetAuraSearchTeam()
 end
 
 function modifier_bounty_hunter_track_aura_lua:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_HERO 
+	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP
 end
 
 function modifier_bounty_hunter_track_aura_lua:GetModifierAura()
