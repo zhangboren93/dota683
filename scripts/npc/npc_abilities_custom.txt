@@ -24586,7 +24586,8 @@
 		  "soundfile"   "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
 		  "particle"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_jinda_slow.vpcf"
 		  "particle"	"particles/units/heroes/hero_bounty_hunter/status_effect_bounty_hunter_jinda_slow.vpcf"
-		 
+			"particle"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_hand_l.vpcf"
+			"particle"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_hand_r.vpcf"
 		 }
 	
 		// Stats
@@ -24609,6 +24610,15 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
+				"ThinkInterval"	"0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/hero_bounty_hunter/jinada.lua"	
+						"Function"		"handleIntervalThink"
+					}
+				}
 				"OnAttackStart"
 				{
 					"RunScript"
