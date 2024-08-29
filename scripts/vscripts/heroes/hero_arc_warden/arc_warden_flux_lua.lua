@@ -9,6 +9,10 @@ function arc_warden_flux_lua:OnSpellStart()
 	caster:EmitSound("Hero_ArcWarden.Flux.Cast")
 	target:EmitSound("Hero_ArcWarden.Flux.Target")
 	target:AddNewModifier(caster, self, "arc_warden_flux_modifier", { duration = debuff_duraiton }) 
+	local particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf", PATTACH_ABSORIGIN, caster)
+	ParticleManager:SetParticleControlEnt(particleId, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
+	ParticleManager:SetParticleControlEnt(particleId, 2, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
+	ParticleManager:ReleaseParticleIndex(particleId)
 end
 
 

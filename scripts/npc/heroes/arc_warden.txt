@@ -29,6 +29,7 @@
 		"precache"
 		{
 			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_flux_tgt.vpcf"
+			"particle"	"particles/units/heroes/hero_arc_warden/arc_warden_flux_cast.vpcf"
 		}
    	}
 
