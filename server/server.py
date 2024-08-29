@@ -82,7 +82,7 @@ class ParseGameThread(threading.Thread):
                 if now < gameInsertDate[str(game_id)] + process_game_buffer:
                     print(f"Game {game_id} back in queue")
                     q.put(game_id)
-                else:
+                elif game_id not in valid_game_ids:
                     valid_game_ids.append(game_id)
 
             if len(valid_game_ids) == 0:
@@ -93,7 +93,7 @@ class ParseGameThread(threading.Thread):
             try:
                 process = subprocess.run(commands, capture_output = True, timeout = 60)
                 print(process)
-            except TimeoutExpired:
+            except subprocess.TimeoutExpired:
                 process_timedout = True
             #TODO if process failed, put game_ids back to queue
             if process_timedout or not 'All games processed' in process.stdout:
