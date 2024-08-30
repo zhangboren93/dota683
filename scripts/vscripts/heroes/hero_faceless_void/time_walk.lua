@@ -26,6 +26,12 @@ function TimeWalk( keys )
 	-- Apply the invlunerability modifier to the caster
 	ability:ApplyDataDrivenModifier(caster, caster, modifier, {duration = duration})
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_time_walk_slow_aura_datadriven", {duration = duration})
+
+	local pid = ParticleManager:CreateParticle("particles/units/heroes/hero_faceless_void/faceless_void_time_walk_preimage.vpcf", PATTACH_ABSORIGIN, caster)
+	ParticleManager:SetParticleControl(pid, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(pid, 1, target_point)
+	ParticleManager:SetParticleControlEnt(pid, 2, caster, PATTACH_ABSORIGIN, nil, Vector(0, 0, 1), false)
+	ParticleManager:ReleaseParticleIndex(pid)
 end
 
 --[[Author: Pizzalol

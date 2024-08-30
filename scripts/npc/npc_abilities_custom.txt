@@ -18448,6 +18448,7 @@
 		"precache"
 		{
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
+			"particle"			"particles/units/heroes/hero_faceless_void/faceless_void_time_walk_preimage.vpcf"
 		}
 		
 		// Casting
