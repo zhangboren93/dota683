@@ -43,3 +43,15 @@ function modifier_bounty_hunter_track_lua:OnDestroy()
 	target:RemoveModifierByName("modifier_bounty_hunter_track_lua")
 	target:RemoveModifierByName("modifier_bounty_hunter_track_aura_lua")
 end
+
+function modifier_bounty_hunter_track_lua:OnCreated()
+	self:StartIntervalThink(1)
+end
+
+function modifier_bounty_hunter_track_lua:OnIntervalThink()
+	local vision_radius = 800
+	if GameRules:IsDaytime() then
+		vision_radius = 1800
+	end
+	self:GetAbility():CreateVisibilityNode(self:GetParent():GetAbsOrigin(), vision_radius, 1)
+end

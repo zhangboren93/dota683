@@ -29,6 +29,13 @@ function modifier_bounty_hunter_track_effect_lua:IsDebuff()
     return false
 end
 
-function modifier_bounty_hunter_track_effect_lua:GetStatusEffectName()
-	return "particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_haste.vpcf"
+function modifier_bounty_hunter_track_effect_lua:OnCreated()
+	local parent = self:GetParent()
+	self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_haste.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+	ParticleManager:SetParticleControlEnt(self.particleId, 0, parent, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
+	ParticleManager:SetParticleControl(self.particleId, 1, Vector(1, 0, 0))
+end
+
+function modifier_bounty_hunter_track_effect_lua:OnDestroy()
+	ParticleManager:DestroyParticle(self.particleId, false)
 end
