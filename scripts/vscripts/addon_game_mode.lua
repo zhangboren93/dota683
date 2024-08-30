@@ -201,6 +201,7 @@ function Activate()
 	LinkLuaModifier( "modifier_jakiro_liquid_fire_burn_lua", 			"heroes/hero_jakiro/modifier_jakiro_liquid_fire_burn.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_treant_natures_guise_lua", 				"heroes/hero_treant/modifier_treant_natures_guise.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_undying_zombie_deathstrike_active_lua",  "heroes/hero_undying/modifier_undying_zombie_deathstrike_active.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_slardar_amplify_damage_vision_lua", 		"heroes/hero_slardar/modifier_slardar_amplify_damage_vision.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_skeleton_king_alt_model_lua", 			"heroes/hero_skeleton_king/modifier_skeleton_king_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_centaur_alt_model_lua", 					"heroes/hero_centaur/modifier_centaur_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_riki_alt_model_lua", 					"heroes/hero_riki/modifier_riki_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
@@ -2372,6 +2373,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_splinter_blast_slow_datadriven", {})
 		return false
+	elseif event.name_const == "modifier_slardar_amplify_damage" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_slardar_amplify_damage_vision_lua", { duration = 25 })
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
