@@ -2294,6 +2294,12 @@
 		"DOTA_Tooltip_modifier_fiery_soul_buff_stack_datadriven_Description"			"Attack Speed and Movement Speed increased."
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Scepter_Description"					"Increases Laguna Blade's range, changes its damage type to Pure, and allows it to slice through spell immunity."
 		//Lion
+		"DOTA_Tooltip_ability_lion_impale_datadriven"									"Earth Spike"
+		"DOTA_Tooltip_ability_lion_impale_datadriven_Description"						"Rock spikes burst from the earth along a straight path. Enemy units are hurled into the air, then are stunned and take damage when they fall.\n TRIGGERS spell block"
+		"DOTA_Tooltip_ability_lion_impale_datadriven_Lore"								"The Demon Witch exercises his demonic covenant, opening a fissure from hell."
+		"DOTA_Tooltip_ability_lion_impale_datadriven_Note0"								"The spikes move at %speed% units per second."
+		"DOTA_Tooltip_ability_lion_impale_datadriven_duration"							"DURATION:"
+		"DOTA_Tooltip_ability_lion_impale_datadriven_length"							"LENGTH:"
 		"DOTA_Tooltip_ability_lion_finger_of_death_Description"							"Rips at an enemy unit, trying to turn it inside-out. Deals massive damage."
 		"DOTA_Tooltip_ability_lion_finger_of_death_damage_per_kill"						""
 

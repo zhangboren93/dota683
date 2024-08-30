@@ -2368,6 +2368,12 @@
 		"DOTA_Tooltip_modifier_fiery_soul_buff_stack_datadriven_Description"			"攻击速度和移动速度提升。"
 		"DOTA_Tooltip_Ability_lina_laguna_blade_Scepter_Description"			"+300施放距离，伤害类型变为纯粹，并且可以对技能免疫状态下的单位施放神灭斩。"
 		//Lion
+		"DOTA_Tooltip_ability_lion_impale_datadriven"									"裂地尖刺"
+		"DOTA_Tooltip_ability_lion_impale_datadriven_Description"						"岩石尖刺在地上沿一条直线穿刺而出。敌方单位被抛向空中，落地时被眩晕并受到伤害。\n会触发法术抵抗。"
+		"DOTA_Tooltip_ability_lion_impale_datadriven_Lore"								"恶魔巫师使用他的恶魔契约，打开一条来自地狱的裂缝。"
+		"DOTA_Tooltip_ability_lion_impale_datadriven_Note0"								"尖刺的移动速度是每秒%speed%码。"
+		"DOTA_Tooltip_ability_lion_impale_datadriven_duration"							"眩晕持续时间："
+		"DOTA_Tooltip_ability_lion_impale_datadriven_length"							"长度："
 		"DOTA_Tooltip_ability_lion_mana_drain_Description"								"持续施法 - 从一个敌方单位吸取魔法能量，每秒回复自己一定的魔法值。"
 		"DOTA_Tooltip_ability_lion_finger_of_death_Description"							"撕裂一个敌方单位，将其折磨得死去活来，并造成巨大伤害。"
 		"DOTA_Tooltip_ability_lion_finger_of_death_damage_per_kill"						""
