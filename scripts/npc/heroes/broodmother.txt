@@ -109,8 +109,9 @@
 	"broodmother_incapacitating_bite_orb"
 	{
 		"BaseClass"				"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN" 
-		"MaxLevel"				"1"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"DependentOnAbility"	"broodmother_incapacitating_bite"
+		"MaxLevel"				"4"
 		"Modifiers"
 		{
 			"modifier_broodmother_orb_checker"
@@ -123,8 +124,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/disable_orb.lua"
-						"Function"		"CheckOrb"
-						"CheckAbility"	"broodmother_incapacitating_bite"
+						"Function"		"CheckOrbPrime"
 					}
 				}
 			}
