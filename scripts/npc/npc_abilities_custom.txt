@@ -19849,6 +19849,7 @@
 				"miss_chance"			"30 40 50 60"
 				"bonus_movespeed"		"-10 -20 -30 -40"
 				"duration"			"2.0 2.0 2.0 2.0"
+			"attack_damage"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
