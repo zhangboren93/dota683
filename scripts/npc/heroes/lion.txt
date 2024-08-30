@@ -1,0 +1,92 @@
+"DOTAAbilities"
+{
+    //=================================================================================================================
+    // Lion: impale
+    //=================================================================================================================
+	"lion_impale_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"lion_impale"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.3"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 120 145 170"
+	
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"80 140 200 260"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"width"				"125"
+			"duration"			"1.02 1.52 2.02 2.52"
+			"length"			"825"
+			"speed"				"1600"
+		}
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+			"particle"				"particles/units/heroes/hero_lion/lion_spell_impale.vpcf"
+			"particle"				"particles/units/heroes/hero_lion/lion_spell_impale_hit_spikes.vpcf"
+		}
+	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"			"CASTER"
+				"EffectName"		"Hero_Lion.Impale"
+			}
+	
+			"LinearProjectile"
+			{
+				"Target"			"POINT"
+				"EffectName"		"particles/units/heroes/hero_lion/lion_spell_impale.vpcf"
+				"FixedDistance"		"%length"
+				"StartRadius"		"%width"
+				"EndRadius"			"%width"
+				"HasFrontalCone"	"0"
+				"ReplaceExisting"	"0"
+				"TargetTeams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"MoveSpeed"			"%speed"
+				"ProvidesVision"	"0"
+			}
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"			"0"
+
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_lion/impale.lua"
+				"function"		"handleProjectileHitUnit"
+			}
+		}
+	}
+}
