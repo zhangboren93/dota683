@@ -1,5 +1,4 @@
 hero_innate_abilities = {}
-hero_innate_abilities["npc_dota_hero_broodmother"] = "broodmother_incapacitating_bite_orb"
 hero_innate_abilities["npc_dota_hero_axe"] 			  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_clinkz"] 		  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_crystal_maiden"] = "hero_attack_point_adjust_lua"
