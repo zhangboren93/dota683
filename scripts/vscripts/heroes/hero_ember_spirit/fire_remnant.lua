@@ -181,8 +181,10 @@ ember_spirit_activate_fire_remnant_datadriven = class({
 		caster:AddNewModifier(caster, ability, "modifier_ember_spirit_fire_remnant_activate_lua", {
 			destination = index,
 			target_x = target.x,
-			target_y = target.y })
-		caster:AddNewModifier(caster, ability, "modifier_activate_fire_remnant_buff_lua", {})
+			target_y = target.y,
+			duration = 2
+		})
+		caster:AddNewModifier(caster, ability, "modifier_activate_fire_remnant_buff_lua", { duration = 2 })
 			
 		caster:EmitSound("Hero_EmberSpirit.FireRemnant.Activate")
 	end
