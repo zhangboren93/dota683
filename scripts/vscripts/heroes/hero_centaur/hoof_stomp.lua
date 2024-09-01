@@ -18,7 +18,7 @@ function handleSpellStart(event)
 		false)
 	for i=1,#units do
 		ApplyDamage({
-			victim = units[1],
+			victim = units[i],
 			attacker = caster, 
 			damage = damage,
 			damage_type = DAMAGE_TYPE_MAGICAL,
