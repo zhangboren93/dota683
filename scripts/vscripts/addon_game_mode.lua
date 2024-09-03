@@ -2411,6 +2411,12 @@ end
 function CAddonTemplateGameMode:DamageFilter(event)
 	local attacker = EntIndexToHScript(event.entindex_attacker_const)
 	local victim = EntIndexToHScript(event.entindex_victim_const)
+
+	-- No damage to glyphed towers
+	if victim:HasModifier("modifier_glyph_active_datadriven") then
+		return true
+	end
+
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
 		if inflictor:GetName() == "bounty_hunter_shuriken_toss" then
@@ -2513,10 +2519,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
         if attacker:HasModifier("modifier_ember_spirit_sleight_of_fist_in_progress") and victim:IsCreep() then
             event.damage = event.damage / 2
         end
-	end
-	-- No damage to glyphed towers
-	if victim:HasModifier("modifier_glyph_active_datadriven") then
-		event.damage = 0
 	end
 	-- record last attacked by hero time
 	--if attacker:IsHero() and event.damage > 0 then

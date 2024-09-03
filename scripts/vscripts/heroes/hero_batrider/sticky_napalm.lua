@@ -54,6 +54,22 @@ modifier_batrider_sticky_napalm_debuff_lua = class({})
 function modifier_batrider_sticky_napalm_debuff_lua:IsPurgable()
 	return true
 end
+function modifier_batrider_sticky_napalm_debuff_lua:GetEffectName()
+	return "particles/units/heroes/hero_batrider/batrider_napalm_damage_debuff.vpcf"
+end
+
+function modifier_batrider_sticky_napalm_debuff_lua:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_batrider_sticky_napalm_debuff_lua:GetStatusEffectName()
+	return "particles/status_fx/status_effect_stickynapalm.vpcf"
+end
+
+function modifier_batrider_sticky_napalm_debuff_lua:StatusEffectPriority()
+	return 10
+end
+
 function modifier_batrider_sticky_napalm_debuff_lua:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,

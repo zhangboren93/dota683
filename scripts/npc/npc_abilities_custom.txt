@@ -107,8 +107,7 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"1000"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"100"
+					"MODIFIER_PROPERTY_AVOID_DAMAGE"	"1"
 				}
 			}
 		}
@@ -6912,7 +6911,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1300"
+		"AbilityCastRange"				"1500"
 		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
 
 		// Time		
@@ -6927,8 +6926,6 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityModifierSupportValue"	"1.0"
 
-
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -6939,15 +6936,15 @@
 			"explosion_radius"		"375"
 			"collision_radius"		"100 100 100 100"
 			"stun_duration"			"0.5 0.5 0.5 0.5"
-			"speed"					"1200"
+			"speed"					"900"
 			"knockback_distance"	"400"
 			"knockback_height"		"100 100 100 100"
-			"knockback_duration"	"0.4"
+			"knockback_duration"	"0.25"
 			"napalm_stacks"			"0"
 			"AbilityCharges"		"0"
 			"slow"	"0"			
 		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST2_STATUE"
 	}
 	//=================================================================================================================
 	// Batrider: Firefly
