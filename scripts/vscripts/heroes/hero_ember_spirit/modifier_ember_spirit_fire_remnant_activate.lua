@@ -17,6 +17,9 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 	UpdateHorizontalMotion = function(self, me, dt)
 		if not IsServer() then return end
 		local dest_loc = self.destination
+		if self.destination_entity:IsAlive() then
+			dest_loc = self.destination_entity:GetAbsOrigin()
+		end
 		local me_loc = me:GetAbsOrigin()
 		if (me_loc - dest_loc):Length2D() > 50 and GameRules:GetGameTime() < self.time_upper_bound then
 			me:SetAbsOrigin(me_loc + (dest_loc - me_loc):Normalized() * self.speed * dt)
@@ -38,6 +41,10 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 				ApplyDamage( damageTable )
 			end
 			local particle_id = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_hit.vpcf", PATTACH_ABSORIGIN, me)
+			if self.destination_entity.fire_remnant_particle ~= nil then
+				ParticleManager:DestroyParticle(self.destination_entity.fire_remnant_particle, false)
+				self.destination_entity.fire_remnant_particle = nil
+			end
 			self.destination_entity:ForceKill(false)
 			self.destination_entity = nil
 			self.destination = nil

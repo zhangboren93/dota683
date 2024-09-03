@@ -108,6 +108,17 @@ ember_spirit_fire_remnant_datadriven = class({
 		dummy:SetHullRadius( 0 )
 		dummy:SetForwardVector( forwardVec )
 		
+		dummy.fire_remnant_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, dummy)
+		ParticleManager:SetParticleControl(dummy.fire_remnant_particle, 1, (target - dummy:GetAbsOrigin()):Normalized() * movespeed)
+		dummy:SetThink(
+			function()
+				if dummy.fire_remnant_particle ~= nil then
+					ParticleManager:DestroyParticle(dummy.fire_remnant_particle, false)
+					dummy.fire_remnant_particle = nil
+				end
+			end, 
+			"remnant particle expires.",
+			dummyDuration)
 		-- Add dummy to table
 		-- NOTE: This is based on the assumption that the maximum will be at certain amount only
 		if not caster.fire_remnant_entities then caster.fire_remnant_entities = {} end

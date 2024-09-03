@@ -10,5 +10,7 @@ modifier_fire_remnant_dummy_buff_lua = class({
 			[ MODIFIER_STATE_DISARMED ] = true,
 			[ MODIFIER_STATE_SILENCED ] = true
 		}
-	end
+	end,
+	DeclareFunctions = function() return { MODIFIER_PROPERTY_VISUAL_Z_DELTA } end,
+	GetVisualZDelta = function() return -300 end
 })

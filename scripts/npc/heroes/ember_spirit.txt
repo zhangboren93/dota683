@@ -147,7 +147,8 @@
 		}
 		"precache"
 		{
-			"particle"					"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"
+			"particle"					"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_image_b.vpcf"
+			"particle"					"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf"
 		}
 	}
 	// Rewrite of the Ember Spirit Fire Remnant ability
