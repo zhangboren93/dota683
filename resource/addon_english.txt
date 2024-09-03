@@ -522,9 +522,9 @@
 		"DOTA_Tooltip_modifier_culling_blade_sprint_datadriven_Description"				"Axe releases a war cry, giving all nearby allies bonus movement and attack speed."
 		// Batrider
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven"						"Sticky Napalm"
-		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Description"			"Drenches an area in sticky oil, amplifying damage from Batrider's attacks and abilities and slowing the movement speed and turn rate of enemies in the area.  Additional casts of Sticky Napalm continue to increase damage, up to %max_stacks% stacks."
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Description"			"Drenches an area in sticky oil, amplifying damage from Batrider's attacks and abilities and slowing the movement speed and turn rate of enemies in the area.  Additional casts of Sticky Napalm continue to increase damage, up to %max_stacks% stacks.Sticky Napalm deals %creep_damage_pct%%% damage to creeps."
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Lore"					"It's not uncommon to hear the Rider cackle while he increases the flammability of his opponents."
-		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Note2"					"Sticky Napalm deals %creep_damage_pct%%% damage to creeps."
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_Note0"					"All damage from Batrider gets amplified, except for Radiance, Urn of Shadows and Orb of Venom."
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_damage"					"DAMAGE PER STACK:"
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_duration"				"DURATION:"
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_movement_speed_pct"		"%MOVEMENT SLOW:"
