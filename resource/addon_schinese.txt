@@ -512,6 +512,7 @@
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_radius"					"作用范围："
 		"DOTA_Tooltip_modifier_batrider_sticky_napalm_debuff_lua"						"粘性燃油"
 		"DOTA_Tooltip_modifier_batrider_sticky_napalm_debuff_lua_Description"			"施法者造成的伤害提高。\n转身速率降低%dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%。\n移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
+		"DOTA_Tooltip_ability_batrider_flaming_lasso_Note1"								"如果蝙蝠骑士在0.05秒内移动距离超过%break_distance%码枷锁将会断裂。"
 		// Beastmaster
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_Description"						"兽王投出他的斧头然后召回它们，切开飞过的敌人和树木。每把飞斧只对同一个敌人攻击一次。"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_Lore"								"在独自学习野外生存时，兽王也掌握了飞斧的运用技巧，使他能够熟练地砍下树木，或者敌人的脑袋。"
