@@ -6988,6 +6988,7 @@
 			"tick_interval"			"0.5 0.5 0.5 0.5"
 			"tree_radius"			"100 100 100 100"
 			"bonus_vision"			"0"
+			"bonus_slow_resistance"		"0"
 		}
 	}
     "batrider_flaming_lasso"
