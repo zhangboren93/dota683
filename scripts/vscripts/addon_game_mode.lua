@@ -1112,7 +1112,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		or event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 		for i,v in pairs(event.units) do
 			local unit = EntIndexToHScript(v)
-			if unit:HasModifier("modifier_item_travel_boots_caster_effect") then
+			if unit:HasModifier("modifier_item_travel_boots_caster_effect") and event.queue == 0 then
 				print("Moving when teleporting")
 				return false
 			end
@@ -1129,7 +1129,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		if bit.band(ability:GetBehaviorInt(), DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_CHANNEL + DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL) == 0 then
 			for i,v in pairs(event.units) do
 				local unit = EntIndexToHScript(v)
-				if unit:HasModifier("modifier_item_travel_boots_caster_effect") then
+				if unit:HasModifier("modifier_item_travel_boots_caster_effect") and event.queue == 0 then
 					return false
 				end
 			end

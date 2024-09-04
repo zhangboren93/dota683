@@ -1617,7 +1617,7 @@
 			}
 			"modifier_item_travel_boots_caster_effect"
 			{
-				"Duration"			"3"
+				"Duration"			"2.9"
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
