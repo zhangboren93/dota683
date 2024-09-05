@@ -1,13 +1,13 @@
 sandking_epicenter_lua = {}
 
 function sandking_epicenter_lua:OnSpellStart()
-	EmitSoundOn( "Ability.SandKing_Epicenter.spell", self:GetCaster() )
+	self:GetCaster():EmitSound( "Ability.SandKing_Epicenter.spell")
 end
 
 function sandking_epicenter_lua:OnChannelFinish( bInterrupted )
 	if bInterrupted then 
-		StopSoundOn( "Ability.SandKing_Epicenter.spell", self:GetCaster() )
-		return
+		self:GetCaster():StopSound( "Ability.SandKing_Epicenter.spell" )
+		return 
 	end
 
 	local caster = self:GetCaster()
