@@ -76,7 +76,7 @@ function handleShufflePlayers() {
 (function() {
 	let mapname = Game.GetMapInfo().map_name
 	$.Msg("Map name: " + mapname)
-	if (mapname == 'maps/custom.vpk') {
+	if (mapname == 'maps/dota.vpk') {
 		$("#ModeSelect").visible = true
 		$("#ap").checked = true
 		$("#random").checked = true

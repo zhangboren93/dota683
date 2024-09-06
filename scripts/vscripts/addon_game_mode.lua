@@ -3029,7 +3029,7 @@ end
 function CAddonTemplateGameMode:handleGameModeSelect(data)
 	print("handleGameModeSelect")
 	DeepPrintTable(data)
-	if GetMapName() == "custom" and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+	if GetMapName() == "dota" and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		if data.sp ~= nil then
 			if data.sp == 1 and not sameHeroPickEnabled then
 				GameRules:SetSameHeroSelectionEnabled(true)
