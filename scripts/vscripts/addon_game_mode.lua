@@ -13,20 +13,17 @@ require("death_match")
 require("heroes/hero_respawn_time")
 require("game_mode/captain_draft")
 require("alt_model")
+require("game_event_handler")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
 
 RANK_PLAYER_COUNT_REQ = 10
-LADDER_HOST = "123.60.19.83"
 
 playerRepicked = {}
 randomBonusGranted = {}
-isValidRankedGame = true
-hasGameEnded = false
 playerId2LadderScore = {}
-shouldCalcuateScore = false
 player2BuildingDamage = {}
 fwdnocdenabled = 0
 sameHeroPickEnabled = false
@@ -48,18 +45,6 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf", context)
 	PrecacheResource( "soundfile", "soundevents/custom_sounds.vsndevts", context)
 	PrecacheResource( "particle", "particles/spray_syf1.vpcf", context)
-	if GetMapName() == "vsbot" then
-		-- cache sound for all bot heroes
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts", context)
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_bristleback.vsndevts", context)
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts", context)
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_luna.vsndevts", context)
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts", context)
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts", context)
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts", context)
-		PrecacheResource( "soundfile", "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts", context)
-	end
 end
 
 -- Create the game mode when we activate
@@ -117,7 +102,6 @@ function Activate()
 	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_familiar_attack_damage_lua",		"modifiers/familiar_attack_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_kill_tree_on_death", 			"modifiers/kill_tree_on_death.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_no_creep_aggro_on_cast_orb_lua", "modifiers/no_creep_aggro_on_cast_orb.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bounty_hunter_track_lua",		"heroes/hero_bounty_hunter/modifier_bounty_hunter_track.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bounty_hunter_track_aura_lua", 	"heroes/hero_bounty_hunter/modifier_bounty_hunter_track_aura.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",	"heroes/hero_bounty_hunter/modifier_bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
@@ -167,7 +151,6 @@ function Activate()
 	LinkLuaModifier( "modifier_rattletrap_cog_buff_lua",		"heroes/hero_rattletrap/power_cogs.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_electric_vortex_self_slow_lua",  "heroes/hero_storm_spirit/modifier_electric_vortex_self_slow.lua", LUA_MODIFIER_MOTION_NONE)
 	--LinkLuaModifier( "modifier_torrent_slow_lua", 				"heroes/hero_kunkka/modifier_torrent_slow.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_reset_visual_z", 				"heroes/hero_tiny/modifier_reset_visual_z.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_venomancer_venomous_gale_lua", 	"heroes/hero_venomancer/modifier_venomancer_venomous_gale.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_luna_moon_glaive_lua", 			"heroes/hero_luna/modifier_luna_moon_glaive.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_abyssal_underlord_pit_of_malice_thinker_lua",	"heroes/hero_abyssal_underlord/modifier_abyssal_underlord_pit_of_malice_thinker.lua", LUA_MODIFIER_MOTION_NONE)
@@ -247,6 +230,8 @@ end
 
 function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
+	self.isValidRankedGame = isMapRanked()
+	self.hasGameEnded = false
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	
 	GameRules:SetStartingGold(625)
@@ -369,41 +354,18 @@ function CAddonTemplateGameMode:InitGameMode()
 	end, nil)
 	ListenToGameEvent("dota_game_state_change", function(event)
 		print("dota_game_state_change " .. event.old_state .. " to " .. event.new_state) 
-		local first_creep_spawned = false
-		if event.new_state == 5 then
-			GameRules:GetGameModeEntity():SetThink(function()
-				-- first spawn find all trigger, find its spawner, trigger spawn with block
-				if first_creep_spawned then
-					SpawnNeutralCreepSecondTime("neutralcamp_good_")
-					SpawnNeutralCreepSecondTime("neutralcamp_evil_")
-					return 60
-				else
-					first_creep_spawned = true
-					SpawnNeutralCreepFirstTime("neutralcamp_good_")
-					SpawnNeutralCreepFirstTime("neutralcamp_evil_")
-					return 30
-				end
-			end, "spawn neutral creep", 30)
-			if isMapRanked() and isValidRankedGame and not hasGameEnded then
-				GameRules:GetGameModeEntity():SetThink(function()
-					if isValidRankedGame and not hasGameEnded then
-						shouldCalcuateScore = true
-						uploadGameToServer(LADDER_HOST)
-					end
-				end, "validate rank game after 5 minutes", 300)
-			end
-		elseif event.new_state == 4 then
-			CustomGameEventManager:Send_ServerToAllClients("player_ladder_scores", playerId2LadderScore)
-		elseif event.new_state == DOTA_GAMERULES_STATE_SCENARIO_SETUP then
-			if isMapRanked() then
+		if event.new_state == 5 or event.new_state == 4 then
+			HandleGameStateChange(self, event, playerId2LadderScore)
+			return
+		end
+		if event.new_state == DOTA_GAMERULES_STATE_SCENARIO_SETUP then
+			if self.isValidRankedGame then
 				local playerCount = PlayerResource:NumPlayers()
 				print("Number of players is " .. playerCount)
-				--verify number of players is 10
 				if playerCount ~= RANK_PLAYER_COUNT_REQ then
 					GameRules:SendCustomMessage("天梯比赛需要10名玩家，本次对局不记录天梯分数!", -1, -1)
-				--	GameRules:SetGameWinner(DOTA_TEAM_NOTEAM)
-					hasGameEnded = true
-					isValidRankedGame = false
+					self.hasGameEnded = true
+					self.isValidRankedGame = false
 				else
 					GameRules:GetGameModeEntity():SetThink(function()
 						getAllPlayerScores()
@@ -415,7 +377,8 @@ function CAddonTemplateGameMode:InitGameMode()
 				self.game_mode = "LD"
 			end
 		elseif event.new_state == 2 then
-			if (isMapRanked() and isValidRankedGame) or shufflePlayersEnabled then
+			-- TODO disable shuffle player option
+			if self.isValidRankedGame or shufflePlayersEnabled then
 				local players = getAllPlayerIds()
 				-- randomly assign player team start from either side
 				local startTeam = DOTA_TEAM_GOODGUYS
@@ -955,16 +918,16 @@ function CAddonTemplateGameMode:OnThink()
 		-- respawn base trees in rank map
 		if isMapRanked() then
 			-- if all players from one team has disconnected from the game, call other team the winner.
-			if isValidRankedGame and not hasGameEnded then
+			if self.isValidRankedGame and not self.hasGameEnded then
 				if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
 					sendEndGameStats(player2BuildingDamage)
 					GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
-					hasGameEnded = true
+					self.hasGameEnded = true
 					GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 				elseif getConnectedPlayerCount(DOTA_TEAM_BADGUYS) == 0 then
 					sendEndGameStats(player2BuildingDamage)
 					GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
-					hasGameEnded = true
+					self.hasGameEnded = true
 					GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 				end
 			end
@@ -2991,7 +2954,7 @@ function getPlayerScore(playerIds)
 				GameRules:SendCustomMessage("玩家"..pid..PlayerResource:GetPlayerName(pid).."排位分:"..score, -1, -1);
 			else
 				GameRules:SendCustomMessage("获取天梯分数失败，本次比赛将不会计算天梯分数！", -1, -1);
-				isValidRankedGame = false
+				GameRules.AddonTemplate.isValidRankedGame = false
 			end
 			table.remove(playerIds, 1)
 			getPlayerScore(playerIds)
@@ -3020,8 +2983,7 @@ end
 
 function CAddonTemplateGameMode:handleFirstBlood()
 	self.firstBlood = true
-	if isMapRanked() and isValidRankedGame and not hasGameEnded then
-		shouldCalcuateScore = true
+	if isMapRanked() and self.isValidRankedGame and not self.hasGameEnded then
 		uploadGameToServer(LADDER_HOST)
 	end
 end

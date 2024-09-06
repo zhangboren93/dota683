@@ -1,3 +1,5 @@
+LADDER_HOST = "123.60.19.83"
+
 ladder_heroes_2_ban = {}
 slot_2_heroes = {}
 -- 37 strength heroes

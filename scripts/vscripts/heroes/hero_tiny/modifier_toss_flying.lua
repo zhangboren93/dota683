@@ -70,7 +70,6 @@ function modifier_toss_flying_lua:OnDestroy()
 			ParticleManager:ReleaseParticleIndex(ParticleManager:CreateParticle("particles/units/heroes/hero_tiny/tiny_toss_impact.vpcf", PATTACH_ABSORIGIN, parent))
 			parent:EmitSound("Hero_Tiny.CraggyExterior")
 			FindClearSpaceForUnit(parent, parent:GetAbsOrigin(), true)
-			parent:AddNewModifier(caster, ability, "modifier_reset_visual_z", { duration = 0.1 })
 		end
 	end
 end
