@@ -15980,7 +15980,7 @@
 				}
 				"tree_respawn_seconds"		
 				{
-					"value"		"10"
+					"value"		"300"
 					"RequiresScepter"				"1"
 				}
 		}
