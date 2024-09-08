@@ -1298,7 +1298,7 @@
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_duration"		"持续时间："
 		"DOTA_Tooltip_modifier_living_armor_datadriven_stacks"					"活体护甲"
 		"DOTA_Tooltip_modifier_living_armor_datadriven_stacks_Description"		"治疗中，格挡伤害。"
-
+		"DOTA_Tooltip_ability_treant_eyes_in_the_forest_Description"		"树精卫士对目标树木灌注魔力。注魔后树木将拥有周围的顺畅视野。如果树精卫士施放了疯狂生长，这些树木附近%overgrowth_aoe%范围内的单位将会被困住，并受到伤害。"
 		// Tusk
 		"DOTA_Tooltip_ability_tusk_snowball_datadriven"							"雪球"
 		"DOTA_Tooltip_ability_tusk_snowball_datadriven_Description"				"巨牙海民开始卷成雪球。%snowball_grab_radius%范围内的友方英雄能使其加入雪球。发动雪球后，雪球经过的单位将会被眩晕并受到伤害。雪球每卷入一个英雄，它的伤害都会得到提升。"
