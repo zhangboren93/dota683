@@ -335,7 +335,8 @@ function modifier_courier_transfer_items_active_lua:OnOrder(event)
 		-- order executed by ability itself
 		return
 	end
-	if event.ability == nil or event.ability:GetName() ~= "courier_transfer_items_lua" then
+	if event.ability == nil or not (event.ability:GetName() == "courier_transfer_items_lua" 
+							     or event.ability:GetName() == "courier_burst_datadriven") then
 		CustomGameEventManager:Send_ServerToTeam(
 			event.unit:GetTeam(), "courier_end_transfer", { id = tostring(event.unit:GetEntityIndex()) })
 		self:GetParent():RemoveModifierByName("modifier_courier_transfer_items_active_lua")
