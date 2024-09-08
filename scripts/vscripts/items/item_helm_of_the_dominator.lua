@@ -7,16 +7,15 @@ function dominateCreep(event)
 	if item.dominatedCreep ~= nil and IsValidEntity(item.dominatedCreep) then
 		item.dominatedCreep:ForceKill(false)
 	end
-	local name = target:GetUnitName()
-	local spawn_location = target:GetAbsOrigin()
-	target:ForceKill(false)
 
-	local double = CreateUnitByName( name, spawn_location, true, caster, caster, caster:GetTeamNumber())
-	double:SetControllableByPlayer(caster:GetPlayerID(), true)
-	double:SetMaxHealth(double:GetMaxHealth() + 500)
-	double:SetBaseMaxHealth(double:GetBaseMaxHealth() + 500)
-	double:Heal(500, caster)
-	item.dominatedCreep = double
+	target:AddNewModifier(caster, item, "modifier_life_stealer_infest_creep", {}) -- Dota2 Original modifier
+	target:RemoveModifierByName("modifier_life_stealer_infest_creep")
+	target:RemoveAbility("life_stealer_consume")
+
+	target:SetMaxHealth(target:GetMaxHealth() + 500)
+	target:SetBaseMaxHealth(target:GetBaseMaxHealth() + 500)
+	target:Heal(500, caster)
+	item.dominatedCreep = target
 end
 
 item_helm_of_the_dominator_datadriven = class({})
