@@ -22,7 +22,9 @@ end
 function modifier_bounty_hunter_track_lua:OnDestroy()
 	if self.particleId ~= nil then
 		ParticleManager:DestroyParticle(self.particleId, false)
+		ParticleManager:DestroyParticle(self.particleId2, false)
 		self.particleId = nil
+		self.particleId2 = nil
 	end
 	if not IsServer() then return end
 	local target = self:GetParent()

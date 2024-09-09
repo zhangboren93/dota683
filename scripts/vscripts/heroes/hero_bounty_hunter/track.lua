@@ -11,5 +11,6 @@ function handleSpellStart(event)
 		ParticleManager:SetParticleControlEnt(modifier.particleId, 0, target, PATTACH_ABSORIGIN_FOLLOW, "", Vector(0, 0, 0), false)
 		ParticleManager:SetParticleControlEnt(modifier.particleId, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
 		target:AddNewModifier(caster, ability, "modifier_bounty_hunter_track_aura_lua", { duration = duration })
+		modifier.particleId2 = ParticleManager:CreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_shield.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
 	end
 end
