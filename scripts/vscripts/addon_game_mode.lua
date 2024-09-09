@@ -352,43 +352,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	end, nil)
 	ListenToGameEvent("dota_game_state_change", function(event)
 		print("dota_game_state_change " .. event.old_state .. " to " .. event.new_state) 
-		if event.new_state == 5 or event.new_state == 4 or event.new_state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
-			HandleGameStateChange(self, event)
-			return
-		end
-		if event.new_state == 2 then
-			-- TODO disable shuffle player option
-			if self.isValidRankedGame or shufflePlayersEnabled then
-				local players = getAllPlayerIds()
-				-- randomly assign player team start from either side
-				local startTeam = DOTA_TEAM_GOODGUYS
-				while #players > 0 do
-					local randomIndex = RandomInt(1, #players)
-					local randomPlayer = players[randomIndex][1]
-					print("Assigning " .. randomPlayer .. " to team " .. startTeam)
-					PlayerResource:SetCustomTeamAssignment(randomPlayer, startTeam)
-					table.remove(players, randomIndex)
-					if startTeam == DOTA_TEAM_BADGUYS then
-						startTeam = DOTA_TEAM_GOODGUYS
-					else
-						startTeam = DOTA_TEAM_BADGUYS
-					end
-				end
-			end
-			if self.game_mode == 'DM' then
-				deathMatchGameRulesUpdate()
-				-- randoms all player's hero selection
-				local players = getAllPlayerIds()
-				for i=1,#players do
-					PlayerResource:GetPlayer(players[i][1]):MakeRandomHeroSelection()
-					removeHeroFromDMPool(PlayerResource:GetSelectedHeroName(players[i][1]))
-				end
-			elseif self.game_mode == "LD" then
-				for i=1,#all_heroes do
-					GameRules:AddHeroToBlacklist(all_heroes[i])
-				end
-			end
-		end
+		HandleGameStateChange(self, event)
 	end, nil)
 	ListenToGameEvent("dota_item_picked_up", function(event) HandleItemPickedUp(event.itemname, event.PlayerID)	end, nil)
 	ListenToGameEvent("dota_item_physical_destroyed", function(event) HandleItemDestroyed(event.itemname, event.HeroEntityIndex)	end, nil)
@@ -398,14 +362,8 @@ function CAddonTemplateGameMode:InitGameMode()
 
 	CustomGameEventManager:RegisterListener("ladder_hero_banned", CAddonTemplateGameMode.handleLadderHeroBanned)
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
-	--CustomGameEventManager:RegisterListener("hero_bar_ping_miss", CAddonTemplateGameMode.handleHeroBarPingMiss) Deprecated
 	CustomGameEventManager:RegisterListener("fwd-command-issue", handleFWDCommand)
 	CustomGameEventManager:RegisterListener("game_mode_select", CAddonTemplateGameMode.handleGameModeSelect)
-
-	--local spawners = Entities:FindAllByClassname("npc_dota_neutral_spawner")
-	--for i=1,#spawners do
-	--	spawners[i]:Destroy()
-	--end
 end
 
 function HandlePlayerChat(self, teamonly, text, playerid)

@@ -1,5 +1,7 @@
 require('ladder_game_mode')
 require('creepspawn')
+require('death_match')
+require('hero_types')
 
 RANK_PLAYER_COUNT_REQ = 10
 
@@ -74,7 +76,7 @@ function HandleGameStateChange(game_mode, event)
 		end
 	elseif event.new_state == 4 then
 		CustomGameEventManager:Send_ServerToAllClients("player_ladder_scores", game_mode.playerId2LadderScore)
-	elseif event.new_state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+	elseif event.new_state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then -- 2
 		if game_mode.isValidRankedGame then
 			local playerCount = PlayerResource:NumPlayers()
 			print("Number of players is " .. playerCount)
@@ -91,6 +93,29 @@ function HandleGameStateChange(game_mode, event)
 				GameRules:AddHeroToBlacklist(all_heroes[i])
 			end
 			game_mode.game_mode = "LD"
+			local players = getAllPlayerIds()
+			-- randomly assign player team start from either side
+			local startTeam = DOTA_TEAM_GOODGUYS
+			while #players > 0 do
+				local randomIndex = RandomInt(1, #players)
+				local randomPlayer = players[randomIndex][1]
+				print("Assigning " .. randomPlayer .. " to team " .. startTeam)
+				PlayerResource:SetCustomTeamAssignment(randomPlayer, startTeam)
+				table.remove(players, randomIndex)
+				if startTeam == DOTA_TEAM_BADGUYS then
+					startTeam = DOTA_TEAM_GOODGUYS
+				else
+					startTeam = DOTA_TEAM_BADGUYS
+				end
+			end
+		elseif game_mode.game_mode == 'DM' then
+			deathMatchGameRulesUpdate()
+			-- randoms all player's hero selection
+			local players = getAllPlayerIds()
+			for i=1,#players do
+				PlayerResource:GetPlayer(players[i][1]):MakeRandomHeroSelection()
+				removeHeroFromDMPool(PlayerResource:GetSelectedHeroName(players[i][1]))
+			end
 		end
 	end
 end
