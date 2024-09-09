@@ -45,13 +45,14 @@ function modifier_bounty_hunter_track_lua:OnDestroy()
 end
 
 function modifier_bounty_hunter_track_lua:OnCreated()
-	self:StartIntervalThink(1)
+	self:StartIntervalThink(0.1)
 end
 
 function modifier_bounty_hunter_track_lua:OnIntervalThink()
 	local vision_radius = 800
+	if not IsServer() then return end
 	if GameRules:IsDaytime() then
 		vision_radius = 1800
 	end
-	self:GetAbility():CreateVisibilityNode(self:GetParent():GetAbsOrigin(), vision_radius, 1)
+	self:GetAbility():CreateVisibilityNode(self:GetParent():GetAbsOrigin(), vision_radius, 0.1)
 end

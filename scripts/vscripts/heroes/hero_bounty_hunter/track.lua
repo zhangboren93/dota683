@@ -6,8 +6,10 @@ function handleSpellStart(event)
 	if target:TriggerSpellAbsorb(ability) then return end
 	local modifier = target:AddNewModifier(caster, ability, "modifier_bounty_hunter_track_lua", { duration = duration })
 	target:EmitSound("Hero_BountyHunter.Target")
-	modifier.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-	ParticleManager:SetParticleControlEnt(modifier.particleId, 0, target, PATTACH_ABSORIGIN_FOLLOW, "", Vector(0, 0, 0), false)
-	ParticleManager:SetParticleControlEnt(modifier.particleId, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
-	target:AddNewModifier(caster, ability, "modifier_bounty_hunter_track_aura_lua", { duration = duration })
+	if modifier.particleId == nil then
+		modifier.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_trail.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+		ParticleManager:SetParticleControlEnt(modifier.particleId, 0, target, PATTACH_ABSORIGIN_FOLLOW, "", Vector(0, 0, 0), false)
+		ParticleManager:SetParticleControlEnt(modifier.particleId, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
+		target:AddNewModifier(caster, ability, "modifier_bounty_hunter_track_aura_lua", { duration = duration })
+	end
 end
