@@ -19,11 +19,8 @@ if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
 
-RANK_PLAYER_COUNT_REQ = 10
-
 playerRepicked = {}
 randomBonusGranted = {}
-playerId2LadderScore = {}
 player2BuildingDamage = {}
 fwdnocdenabled = 0
 sameHeroPickEnabled = false
@@ -232,6 +229,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	print( "Template addon is loaded." )
 	self.isValidRankedGame = isMapRanked()
 	self.hasGameEnded = false
+	self.playerId2LadderScore = {}
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	
 	GameRules:SetStartingGold(625)
@@ -354,29 +352,11 @@ function CAddonTemplateGameMode:InitGameMode()
 	end, nil)
 	ListenToGameEvent("dota_game_state_change", function(event)
 		print("dota_game_state_change " .. event.old_state .. " to " .. event.new_state) 
-		if event.new_state == 5 or event.new_state == 4 then
-			HandleGameStateChange(self, event, playerId2LadderScore)
+		if event.new_state == 5 or event.new_state == 4 or event.new_state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+			HandleGameStateChange(self, event)
 			return
 		end
-		if event.new_state == DOTA_GAMERULES_STATE_SCENARIO_SETUP then
-			if self.isValidRankedGame then
-				local playerCount = PlayerResource:NumPlayers()
-				print("Number of players is " .. playerCount)
-				if playerCount ~= RANK_PLAYER_COUNT_REQ then
-					GameRules:SendCustomMessage("天梯比赛需要10名玩家，本次对局不记录天梯分数!", -1, -1)
-					self.hasGameEnded = true
-					self.isValidRankedGame = false
-				else
-					GameRules:GetGameModeEntity():SetThink(function()
-						getAllPlayerScores()
-					end, "Fetching player scores", 1)
-				end
-				for i=1,#all_heroes do
-					GameRules:AddHeroToBlacklist(all_heroes[i])
-				end
-				self.game_mode = "LD"
-			end
-		elseif event.new_state == 2 then
+		if event.new_state == 2 then
 			-- TODO disable shuffle player option
 			if self.isValidRankedGame or shufflePlayersEnabled then
 				local players = getAllPlayerIds()
@@ -655,7 +635,7 @@ function CAddonTemplateGameMode:OnThink()
 				self.hero_selection_state = "RD_PICK_RAD_1"
 			elseif self.game_mode == "LD" then
 				pickLadderHeroes(self)
-				CustomGameEventManager:Send_ServerToAllClients("hero_select_player_ladder_scores", playerId2LadderScore)
+				CustomGameEventManager:Send_ServerToAllClients("hero_select_player_ladder_scores", self.playerId2LadderScore)
 				self.hero_selection_state = "BAN"
 			elseif self.game_mode == "SP" then
 				local heroes = all_heroes
@@ -2937,30 +2917,6 @@ function CAddonTemplateGameMode:HandleInventoryItemAdded(event)
 	}, nil, hero, nil)
 end
 
-function getPlayerScore(playerIds)
-	DeepPrintTable(playerIds)
-	if #playerIds > 0 then
-		local pid = playerIds[1][1]
-		local accountId = playerIds[1][2]
-		CreateHTTPRequest("GET", "http://"..LADDER_HOST.."/" .. accountId):Send(function(response)
-			print("status code " .. response.StatusCode)
-			if response.StatusCode == 200 then
-				print("response " .. response.Body)
-				local seperator_index = string.find(response.Body, ":")
-				local score = string.sub(response.Body, seperator_index + 1)
-				print("score " .. score)
-				playerId2LadderScore[pid] = tonumber(score)
-				DeepPrintTable(playerId2LadderScore)
-				GameRules:SendCustomMessage("玩家"..pid..PlayerResource:GetPlayerName(pid).."排位分:"..score, -1, -1);
-			else
-				GameRules:SendCustomMessage("获取天梯分数失败，本次比赛将不会计算天梯分数！", -1, -1);
-				GameRules.AddonTemplate.isValidRankedGame = false
-			end
-			table.remove(playerIds, 1)
-			getPlayerScore(playerIds)
-		end)
-	end
-end
 function getAllPlayerIds() 
 	local playerIds = {}
 	for i=1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) do
@@ -2976,9 +2932,6 @@ function getAllPlayerIds()
 		table.insert(playerIds, {player, PlayerResource:GetSteamAccountID(player)})
 	end
 	return playerIds
-end
-function getAllPlayerScores()
-	getPlayerScore(getAllPlayerIds())
 end
 
 function CAddonTemplateGameMode:handleFirstBlood()
