@@ -13,6 +13,7 @@ require("death_match")
 require("heroes/hero_respawn_time")
 require("game_mode/all_pick")
 require("game_mode/captain_draft")
+require("game_mode/captain_mode")
 require("game_mode/random_draft")
 require("game_mode/single_pick")
 require("alt_model")
@@ -232,6 +233,10 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.playerId2LadderScore = {}
 	self.playerRepicked = {}
 	self.RandomDraftHeroPool = {}
+	self.captain_pick_phase = 0
+	self.captain_normal_time = 40;
+	self.captain_radiant_extra_time = 110;
+	self.captain_dire_extra_time = 110;
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	
 	GameRules:SetStartingGold(625)
@@ -519,39 +524,7 @@ function CAddonTemplateGameMode:OnThink()
 			self.hero_selection_state = "PIC"
 		end
 		if self.hero_selection_state == "CD_RAD_BAN_1" then
-			if captain_pick_phase == 0
-				or captain_pick_phase == 2
-				or captain_pick_phase == 4
-				or captain_pick_phase == 6
-				or captain_pick_phase == 8
-				or captain_pick_phase == 10
-				or captain_pick_phase == 12
-				or captain_pick_phase == 14
-				or captain_pick_phase == 17
-				or captain_pick_phase == 18
-			then
-				if captain_normal_time >= 2 then
-					captain_normal_time = captain_normal_time - 2
-				elseif captain_radiant_extra_time >= 2 then
-					captain_radiant_extra_time = captain_radiant_extra_time - 2
-				else
-					captain_normal_time = 0
-					captain_radiant_extra_time = 0
-				end
-				CustomGameEventManager:Send_ServerToAllClients("captain_pick_timer", 
-					{nt = captain_normal_time, et = captain_radiant_extra_time });
-			else
-				if captain_normal_time >= 2 then
-					captain_normal_time = captain_normal_time - 2
-				elseif captain_dire_extra_time >= 2 then
-					captain_dire_extra_time = captain_dire_extra_time - 2
-				else
-					captain_normal_time = 0
-					captain_dire_extra_time = 0
-				end
-				CustomGameEventManager:Send_ServerToAllClients("captain_pick_timer", 
-					{nt = captain_normal_time, et = captain_dire_extra_time });
-			end
+			captainModeCountTime(self)
 		end
 		if self.hero_selection_state == "RD_PICK_RAD_1" then
 			local time = GameRules:GetDOTATime(true, true)
@@ -2481,20 +2454,18 @@ function CAddonTemplateGameMode:handleLadderHeroBanned(event)
 	CustomGameEventManager:Send_ServerToAllClients("ladder_hero_ban_s2c", {id_suffix = event.hero_id_suffix})
 end
 
-captain_pick_phase = 0
 captain_radiant_pick = {}
 captain_radiant_ban = {}
 captain_dire_pick = {}
 captain_dire_ban = {}
-captain_normal_time = 40;
-captain_radiant_extra_time = 110;
-captain_dire_extra_time = 110;
+
 function CAddonTemplateGameMode:handleCaptainClientPick(event)
 	DeepPrintTable(event)
 	if GameRules.AddonTemplate.game_mode == "CD" then
 		handleCaptainDraftPickEvent(event)
 		return
 	end
+	local captain_pick_phase = GameRules.AddonTemplate.captain_pick_phase
 	if captain_pick_phase == event.pp then
 		if captain_pick_phase == 0 
 			or captain_pick_phase == 2 
@@ -2568,8 +2539,8 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 		end
 		CustomGameEventManager:Send_ServerToAllClients(
 			"captain_hero_pick_s2c", { pp = captain_pick_phase, sh = event.sh })
-		captain_pick_phase = captain_pick_phase + 1
-		captain_normal_time = 40
+		GameRules.AddonTemplate.captain_pick_phase = captain_pick_phase + 1
+		GameRules.AddonTemplate.captain_normal_time = 40
 	end
 end
 
