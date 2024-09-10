@@ -442,44 +442,6 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	--end
 end
 
-function swapLocation(e1, e2)
-	local tmpLoc = e1:GetAbsOrigin()
-	e1:SetAbsOrigin(e2:GetAbsOrigin())
-	e2:SetAbsOrigin(tmpLoc)
-end
-
-local function RDPlayerPicksNext(team, idx)
-	local direPlayerCount = PlayerResource:GetPlayerCountForTeam(team)
-	if direPlayerCount >= idx then
-		local playerId = PlayerResource:GetNthPlayerIDOnTeam(team, idx)
-		for i=1,#GameRules.AddonTemplate.RandomDraftHeroPool do
-			local heroid = DOTAGameManager:GetHeroIDByName(GameRules.AddonTemplate.RandomDraftHeroPool[i])
-			print("Opening hero " .. heroid .. " to player " .. playerId)
-			GameRules:AddHeroToPlayerAvailability(playerId, DOTAGameManager:GetHeroIDByName(GameRules.AddonTemplate.RandomDraftHeroPool[i]))
-			CustomGameEventManager:Send_ServerToAllClients("random_draft_player_start", {spid = playerId})
-		end
-	end
-end
-
-local function RDPlayerRandomPick(team, idx)
-	local radiantPlayerCount = PlayerResource:GetPlayerCountForTeam(team)
-	if radiantPlayerCount >= idx then
-		local playerId = PlayerResource:GetNthPlayerIDOnTeam(team, idx)
-		local heroName = PlayerResource:GetSelectedHeroName(playerId)
-		if heroName == "" then
-			PlayerResource:GetPlayer(playerId):MakeRandomHeroSelection()
-		 	heroName = PlayerResource:GetSelectedHeroName(playerId)
-		end
-		-- remove heroName from current pool
-		for i = 1,#GameRules.AddonTemplate.RandomDraftHeroPool do
-			if heroName == GameRules.AddonTemplate.RandomDraftHeroPool[i] then
-				table.remove(GameRules.AddonTemplate.RandomDraftHeroPool, i)
-				break
-			end
-		end
-	end
-end
-
 -- Evaluate the state of the game
 function CAddonTemplateGameMode:OnThink()
 	local ret,error = pcall(function()
@@ -526,56 +488,8 @@ function CAddonTemplateGameMode:OnThink()
 		if self.hero_selection_state == "CD_RAD_BAN_1" then
 			captainModeCountTime(self)
 		end
-		if self.hero_selection_state == "RD_PICK_RAD_1" then
-			local time = GameRules:GetDOTATime(true, true)
-			if time > -101 then
-				RDPlayerRandomPick(DOTA_TEAM_GOODGUYS, 1)
-				RDPlayerPicksNext(DOTA_TEAM_BADGUYS, 1)
-				RDPlayerPicksNext(DOTA_TEAM_BADGUYS, 2)
-				self.hero_selection_state = "RD_PICK_DIR_1_2"
-			end
-		elseif self.hero_selection_state == "RD_PICK_DIR_1_2" then
-			local time = GameRules:GetDOTATime(true, true)
-			if time > -81 then
-				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 1)
-				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 2)
-				RDPlayerPicksNext(DOTA_TEAM_GOODGUYS, 2)
-				RDPlayerPicksNext(DOTA_TEAM_GOODGUYS, 3)
-				self.hero_selection_state = "RD_PICK_RAD_2_3"
-			end
-		elseif self.hero_selection_state == "RD_PICK_RAD_2_3" then
-			local time = GameRules:GetDOTATime(true, true)
-			if time > -61 then
-				RDPlayerRandomPick(DOTA_TEAM_GOODGUYS, 2)
-				RDPlayerRandomPick(DOTA_TEAM_GOODGUYS, 3)
-				RDPlayerPicksNext(DOTA_TEAM_BADGUYS, 3)
-				RDPlayerPicksNext(DOTA_TEAM_BADGUYS, 4)
-				self.hero_selection_state = "RD_PICK_DIR_3_4"
-			end
-		elseif self.hero_selection_state == "RD_PICK_DIR_3_4" then
-			local time = GameRules:GetDOTATime(true, true)
-			if time > -41 then
-				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 3)
-				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 4)
-				RDPlayerPicksNext(DOTA_TEAM_GOODGUYS, 4)
-				RDPlayerPicksNext(DOTA_TEAM_GOODGUYS, 5)
-				self.hero_selection_state = "RD_PICK_RAD_4_5"
-			end
-		elseif self.hero_selection_state == "RD_PICK_RAD_4_5" then
-			local time = GameRules:GetDOTATime(true, true)
-			if time > -21 then
-				RDPlayerRandomPick(DOTA_TEAM_GOODGUYS, 4)
-				RDPlayerRandomPick(DOTA_TEAM_GOODGUYS, 5)
-				RDPlayerPicksNext(DOTA_TEAM_BADGUYS, 5)
-				self.hero_selection_state = "RD_PICK_DIR_5"
-			end
-		elseif self.hero_selection_state == "RD_PICK_DIR_5" then
-			local time = GameRules:GetDOTATime(true, true)
-			if time > -1 then
-				RDPlayerRandomPick(DOTA_TEAM_BADGUYS, 5)
-				self.hero_selection_state = "RD_PICK_ENDS"
-			end
-		end
+
+		handleRDHeroTime(self)
 
 		if self.hero_selection_state == "CDD_RAD_BAN_1" then
 			--Check if time has run out for team
