@@ -11,8 +11,10 @@ require("ladder_game_mode")
 require("end_game")
 require("death_match")
 require("heroes/hero_respawn_time")
-require("game_mode/ap")
+require("game_mode/all_pick")
 require("game_mode/captain_draft")
+require("game_mode/random_draft")
+require("game_mode/single_pick")
 require("alt_model")
 require("game_event_handler")
 
@@ -24,8 +26,6 @@ randomBonusGranted = {}
 player2BuildingDamage = {}
 fwdnocdenabled = 0
 sameHeroPickEnabled = false
-shufflePlayersEnabled = false
-RandomDraftHeroPool = {} -- RANDOM PICK HERO POOL
 custom_game_first_pick = "random"
 
 function Precache( context )
@@ -231,6 +231,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.hasGameEnded = false
 	self.playerId2LadderScore = {}
 	self.playerRepicked = {}
+	self.RandomDraftHeroPool = {}
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	
 	GameRules:SetStartingGold(625)
@@ -446,10 +447,10 @@ local function RDPlayerPicksNext(team, idx)
 	local direPlayerCount = PlayerResource:GetPlayerCountForTeam(team)
 	if direPlayerCount >= idx then
 		local playerId = PlayerResource:GetNthPlayerIDOnTeam(team, idx)
-		for i=1,#RandomDraftHeroPool do
-			local heroid = DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[i])
+		for i=1,#GameRules.AddonTemplate.RandomDraftHeroPool do
+			local heroid = DOTAGameManager:GetHeroIDByName(GameRules.AddonTemplate.RandomDraftHeroPool[i])
 			print("Opening hero " .. heroid .. " to player " .. playerId)
-			GameRules:AddHeroToPlayerAvailability(playerId, DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[i]))
+			GameRules:AddHeroToPlayerAvailability(playerId, DOTAGameManager:GetHeroIDByName(GameRules.AddonTemplate.RandomDraftHeroPool[i]))
 			CustomGameEventManager:Send_ServerToAllClients("random_draft_player_start", {spid = playerId})
 		end
 	end
@@ -465,25 +466,10 @@ local function RDPlayerRandomPick(team, idx)
 		 	heroName = PlayerResource:GetSelectedHeroName(playerId)
 		end
 		-- remove heroName from current pool
-		for i = 1,#RandomDraftHeroPool do
-			if heroName == RandomDraftHeroPool[i] then
-				table.remove(RandomDraftHeroPool, i)
+		for i = 1,#GameRules.AddonTemplate.RandomDraftHeroPool do
+			if heroName == GameRules.AddonTemplate.RandomDraftHeroPool[i] then
+				table.remove(GameRules.AddonTemplate.RandomDraftHeroPool, i)
 				break
-			end
-		end
-	end
-end
-
-local function add3heoresToPlayerOfTeam(team) 
-	local radiantPlayerCount = PlayerResource:GetPlayerCountForTeam(team)
-	if radiantPlayerCount > 0 then
-		for i=1,radiantPlayerCount do
-			local playerId = PlayerResource:GetNthPlayerIDOnTeam(team, i)
-			for i=1,3 do
-				local heroid = DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[1])
-				print("Opening hero " .. heroid .. " to player " .. playerId)
-				GameRules:AddHeroToPlayerAvailability(playerId, DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[i]))
-				table.remove(RandomDraftHeroPool, 1)
 			end
 		end
 	end
@@ -495,52 +481,18 @@ function CAddonTemplateGameMode:OnThink()
 	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION and IsServer() then
 		if self.hero_selection_state == nil then
 			self.hero_selection_state = "INI"
-			-- Wait for team to be reassigned then start
-			if shufflePlayersEnabled then
-				return 2
-			end
 		end
 		if self.hero_selection_state == "INI" then
 			if self.game_mode == "RD" then
-				local heroes = all_heroes
-				-- shuffles
-				for i=1,24 do
-					local j=RandomInt(i,#heroes)
-					local tmp = heroes[i];
-					heroes[i] = heroes[j];
-					heroes[j] = tmp;
-					table.insert(RandomDraftHeroPool, heroes[i])
-				end
-				--add all heroes to radiant 1st player's availability
-				local radiantPlayerCount = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-				local playerId = -1
-				if radiantPlayerCount > 0 then
-					playerId = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, 1)
-					for i=1,#RandomDraftHeroPool do
-						local heroid = DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[i])
-						print("Opening hero " .. heroid .. " to player " .. playerId)
-						GameRules:AddHeroToPlayerAvailability(playerId, DOTAGameManager:GetHeroIDByName(RandomDraftHeroPool[i]))
-					end
-				end
-				--send all heroes backed up to the clients
- 	   			CustomGameEventManager:Send_ServerToAllClients("random_draft_start", {sh = RandomDraftHeroPool, spid = playerId})
-				self.hero_selection_state = "RD_PICK_RAD_1"
+				initRDHeroSelection(self)
 			elseif self.game_mode == "LD" then
 				pickLadderHeroes(self)
-				CustomGameEventManager:Send_ServerToAllClients("hero_select_player_ladder_scores", self.playerId2LadderScore)
+				if self.isValidRankedGame then
+					CustomGameEventManager:Send_ServerToAllClients("hero_select_player_ladder_scores", self.playerId2LadderScore)
+				end
 				self.hero_selection_state = "BAN"
 			elseif self.game_mode == "SP" then
-				local heroes = all_heroes
-				-- shuffles
-				for i=1,30 do
-					local j=RandomInt(i,#heroes)
-					local tmp = heroes[i];
-					heroes[i] = heroes[j];
-					heroes[j] = tmp;
-					table.insert(RandomDraftHeroPool, heroes[i])
-				end
-				add3heoresToPlayerOfTeam(DOTA_TEAM_GOODGUYS)
-				add3heoresToPlayerOfTeam(DOTA_TEAM_BADGUYS)
+				initSPHeroSelection(self)
 				self.hero_selection_state = "SP_PICK"
 			elseif self.game_mode == "CM" then
 				self.hero_selection_state = "CD_RAD_BAN_1"
@@ -657,50 +609,6 @@ function CAddonTemplateGameMode:OnThink()
 			countDownRDTeamTimer(2)
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME and (self.botEnabled or GetMapName() == "vsbot") and self.botInitialized == nil then
-		if GetMapName() == "vsbot" then
-			local botHeroPool = {
-				"npc_dota_hero_abaddon",
-				"npc_dota_hero_bristleback",
-				"npc_dota_hero_crystal_maiden",
-				"npc_dota_hero_luna",
-				"npc_dota_hero_necrolyte",
-				"npc_dota_hero_ogre_magi",
-				"npc_dota_hero_phantom_assassin",
-				"npc_dota_hero_skeleton_king",
-				"npc_dota_hero_sniper"
-			}
-			Tutorial:StartTutorialMode()	
-			GameRules:SetSameHeroSelectionEnabled(true)
-			-- pick 5 random hero to play
-
-			--local botHero = GameRules:AddBotPlayerWithEntityScript(
-			--	"npc_dota_hero_necrolyte", "Dire Bot 0", DOTA_TEAM_BADGUYS, 
-			--	"ai/bot_necrolyte.lua", true)
-			--botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
-			--FindClearSpaceForUnit(botHero, Vector(7022, 6346, 512), true)
-
-			local player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-
-			for i=1, 5 - player_count do
-				local heroNumber = RandomInt(1, #botHeroPool)	
-    	        local botHero = GameRules:AddBotPlayerWithEntityScript(
-					botHeroPool[heroNumber], "Rad Bot " .. i, DOTA_TEAM_GOODGUYS, 
-					"ai/bot_" .. string.sub(botHeroPool[heroNumber], 15) .. ".lua", true)
-				botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
-    	        FindClearSpaceForUnit(botHero, Vector(-7111, -6618, 520), true)
-				table.remove(botHeroPool, heroNumber)
-			end
-			player_count = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
-			for i=1, 5 - player_count do
-				local heroNumber = RandomInt(1, #botHeroPool)	
-    	        local botHero = GameRules:AddBotPlayerWithEntityScript(
-					botHeroPool[heroNumber], "Dire Bot " .. i, DOTA_TEAM_BADGUYS, 
-					"ai/bot_" .. string.sub(botHeroPool[heroNumber], 15) .. ".lua", true)
-				botHero:GetPlayerOwner():SetAssignedHeroEntity(botHero)
-    	        FindClearSpaceForUnit(botHero, Vector(7022, 6346, 512), true)
-				table.remove(botHeroPool, heroNumber)
-			end
-		else
 		local botHeroPool = {
 			"npc_dota_hero_axe",
 			--"npc_dota_hero_ogre_magi",
@@ -731,7 +639,6 @@ function CAddonTemplateGameMode:OnThink()
 		end
 		GameRules:GetGameModeEntity():SetBotThinkingEnabled(true)
 		GameRules:SetCreepSpawningEnabled(true)
-		end -- experimental_bot
 		self.botInitialized = true
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		local time = GameRules:GetDOTATime(true, true) 
@@ -2848,16 +2755,6 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 				GameRules:SendCustomMessage("关闭相同英雄选择", -1, -1)
 			end
 			CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, sp = data.sp })
-			return
-		elseif data.sf ~= nil then
-			if data.sf == 1 and not shufflePlayersEnabled then
-				shufflePlayersEnabled = true
-				GameRules:SendCustomMessage("开启随机阵营", -1, -1)
-			elseif data.sf == 0 and shufflePlayersEnabled then
-				shufflePlayersEnabled = false
-				GameRules:SendCustomMessage("关闭随机阵营", -1, -1)
-			end
-			CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, sf = data.sf})
 			return
 		elseif data.fp ~= nil then
 			if data.fp ~= custom_game_first_pick then
