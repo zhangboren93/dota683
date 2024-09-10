@@ -11,6 +11,7 @@ require("ladder_game_mode")
 require("end_game")
 require("death_match")
 require("heroes/hero_respawn_time")
+require("game_mode/ap")
 require("game_mode/captain_draft")
 require("alt_model")
 require("game_event_handler")
@@ -19,7 +20,6 @@ if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
 end
 
-playerRepicked = {}
 randomBonusGranted = {}
 player2BuildingDamage = {}
 fwdnocdenabled = 0
@@ -230,6 +230,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.isValidRankedGame = isMapRanked()
 	self.hasGameEnded = false
 	self.playerId2LadderScore = {}
+	self.playerRepicked = {}
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	
 	GameRules:SetStartingGold(625)
@@ -369,34 +370,17 @@ end
 function HandlePlayerChat(self, teamonly, text, playerid)
 	if teamonly == 0 and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		if not isMapRanked() then
-			if text == '-ap' then
-				self.botEnabled = false
-				self.game_mode = "AP"
-				GameRules:SendCustomMessage("AP模式开启", -1, -1)
-			elseif text == '-vsbot' then
+			if text == '-vsbot' then
 				self.botEnabled = true
 				GameRules:SendCustomMessage("Bot模式开启", -1, -1)
 				GameRules:SetCustomGameDifficulty(2) -- 2 for hard as default
 			end
 		end
 	end
-	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION or GameRules:State_Get() == DOTA_GAMERULES_STATE_STRATEGY_TIME then
+	if GameRules:State_Get() == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		if (self.game_mode == nil or self.game_mode == "AP") and text == '-repick' then
-			if PlayerResource:GetSelectedHeroName(playerid) == "" or playerRepicked[playerid] then
-				GameRules:SendCustomMessage("无法重新选择英雄", -1, -1)
-				return
-			end
-			if PlayerResource:GetGold(playerid) < 100 then
-				GameRules:SendCustomMessage("金钱小于250时无法重新选择英雄", -1, -1)
-				return
-			end
-			local player = PlayerResource:GetPlayer(playerid)
-			player:SetSelectedHero("")
-			PlayerResource:ModifyGold(playerid, -100, false, DOTA_ModifyGold_SelectionPenalty)
-			if PlayerResource:HasRandomed(playerid) then
-				PlayerResource:ModifyGold(playerid, -250, false, DOTA_ModifyGold_SelectionPenalty)
-			end
-			playerRepicked[playerid] = true
+			handleAPRepick(self, playerid)
+			return
 		end
 	end
 	if text == "-unstuck" then
@@ -404,12 +388,12 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 		hero:AddNewModifier(hero, nil, "modifier_unstuck_timer_lua", { duration = 62, suicide = 0 })
 	end
-	if text == "-suicide1" then
+	if text == "-suicide" then
 		-- if hero hasn't move for 1 minutes or hasn't been attacked in 1 minute, move hero to base
 		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 		hero:AddNewModifier(hero, nil, "modifier_unstuck_timer_lua", { duration = 62, suicide = 1 })
 	end
-	if text == "-respawn1" then
+	if text == "-respawn" then
 		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 		local current_time = GameRules:GetGameTime()
 		if not hero:IsAlive() then
@@ -420,15 +404,6 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			end
 		end
 	end
-	--if string.find(text, "-yyb ") then
-	--	local sound_name = "MobaTimeMachine.YYB_" .. string.sub(text,6)
-	--	local team = PlayerResource:GetPlayer(playerid):GetTeam()
-	--	print("Emitting sound " .. sound_name)
-	--	for i=1,PlayerResource:GetPlayerCountForTeam(team) do
-	--		print(PlayerResource:GetNthPlayerIDOnTeam(team, i))
-	--		EmitSoundOnClient(sound_name, PlayerResource:GetPlayer(PlayerResource:GetNthPlayerIDOnTeam(team, i)))
-	--	end
-	--end
 	if string.find(text, "-yy ") and teamonly == 0 then
 		local sound_name = "MobaTimeMachine.YY_" .. string.sub(text,5)
 		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
@@ -454,51 +429,10 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 	end
 	if text == "-alt" and teamonly == 0 and GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
-		local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
-		if hero:GetName() == "npc_dota_hero_skeleton_king" and not hero:HasModifier("modifier_skeleton_king_alt_model_lua") then
-			setAltModel(hero)
-			local ability = hero:FindAbilityByName("skeleton_king_hellfire_blast")
-			local ability_level = ability:GetLevel()
-			hero:RemoveAbility("skeleton_king_hellfire_blast")
-			ability = hero:AddAbility("skeleton_king_hellfire_blast_2")
-			ability:SetLevel(ability_level)
-		elseif hero:GetName() == "npc_dota_hero_centaur" and not hero:HasModifier("modifier_centaur_alt_model_lua") then
-			hero:SetOriginalModel("models/creeps/neutral_creeps/n_creep_centaur_lrg/n_creep_centaur_lrg.vmdl")
-			hero:SetModel("models/creeps/neutral_creeps/n_creep_centaur_lrg/n_creep_centaur_lrg.vmdl")
-			hero:ManageModelChanges()
-			hero:AddNewModifier(hero, nil, "modifier_centaur_alt_model_lua", {})
-			local ability = hero:FindAbilityByName("centaur_double_edge")
-			local ability_level = ability:GetLevel()
-			hero:RemoveAbility("centaur_double_edge")
-			ability = hero:AddAbility("centaur_double_edge_2")
-			ability:SetLevel(ability_level)
-		elseif hero:GetName() == "npc_dota_hero_earth_spirit" then
-			hero:SetOriginalModel("models/heroes/brewmaster/brewmaster_earthspirit.vmdl")
-			hero:SetModel("models/heroes/brewmaster/brewmaster_earthspirit.vmdl")
-			hero:ManageModelChanges()
-		elseif hero:GetName() == "npc_dota_hero_ursa" and not hero:HasModifier("modifier_ursa_alt_model_lua") then
-			hero:SetOriginalModel("models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl")
-			hero:SetModel("models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl")
-			hero:ManageModelChanges()
-			hero:AddNewModifier(hero, nil, "modifier_ursa_alt_model_lua", {})
-			local ability = hero:FindAbilityByName("ursa_earthshock_datadriven")
-			local ability_level = ability:GetLevel()
-			hero:RemoveAbility("ursa_earthshock_datadriven")
-			ability = hero:AddAbility("ursa_earthshock_datadriven_2")
-			ability:SetLevel(ability_level)
-	--	elseif hero:GetName() == "npc_dota_hero_riki" and not hero:HasModifier("modifier_riki_alt_model_lua") then
-	--		hero:SetOriginalModel("models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl")
-	--		hero:SetModel("models/creeps/neutral_creeps/n_creep_satyr_b/n_creep_satyr_b.vmdl")
-	--		hero:ManageModelChanges()
-	--		hero:AddNewModifier(hero, nil, "modifier_riki_alt_model_lua", {})
-		end
+		handleAltText(playerid)
+		return
 	end
 	--if text == "-test" then
-	--	local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
-	--	hero:SetRespawnsDisabled(true)
-	--	hero:ForceKill(false)
-	--	local ladder_url = "http://" .. LADDER_HOST .. "/ladder_game/" .. GameRules:Script_GetMatchID():__tostring()
-	--	print(ladder_url)
 	--end
 end
 
@@ -888,7 +822,7 @@ function CAddonTemplateGameMode:OnThink()
 		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
-			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] and not playerRepicked[playerid] then
+			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] and not self.playerRepicked[playerid] then
 				PlayerResource:ModifyGold(playerid, 200, false, DOTA_ModifyGold_Unspecified)
 				randomBonusGranted[playerid] = true
 			end
@@ -896,7 +830,7 @@ function CAddonTemplateGameMode:OnThink()
 		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
 		for i=1,n do
 			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
-			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] and not playerRepicked[playerid] then
+			if PlayerResource:HasRandomed(playerid) and not randomBonusGranted[playerid] and not self.playerRepicked[playerid] then
 				PlayerResource:ModifyGold(playerid, 200, false, DOTA_ModifyGold_Unspecified)
 				randomBonusGranted[playerid] = true
 			end
