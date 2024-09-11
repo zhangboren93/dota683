@@ -119,3 +119,68 @@ function HandleGameStateChange(game_mode, event)
 		end
 	end
 end
+
+function handleGameInProgressTimer(game_mode, player2BuildingDamage)
+	local time = GameRules:GetDOTATime(false, false) 
+
+	-- give each player passive gold
+	if time > 0 and IsServer() then
+		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
+		for i=1,n do
+			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
+			PlayerResource:ModifyGold(playerid, 3, true, DOTA_ModifyGold_GameTick)
+
+			local entity = PlayerResource:GetPlayer(playerid)
+			if entity ~= nil then
+				entity = entity:GetAssignedHero()
+				local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
+				PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
+			end
+		end
+		local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
+		for i=1,n do
+			local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
+			PlayerResource:ModifyGold(playerid, 3, true, DOTA_ModifyGold_GameTick)
+
+			local entity = PlayerResource:GetPlayer(playerid)
+			if entity ~= nil then
+				entity = entity:GetAssignedHero()
+				local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
+				PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
+			end
+		end
+	end
+
+	if game_mode.nextRoshanTime ~= nil and time > game_mode.nextRoshanTime then
+		print("Spawn next rosh")
+		CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
+		game_mode.nextRoshanTime = nil
+	end
+
+	-- respawn base trees in rank map
+	if isMapRanked() then
+		-- if all players from one team has disconnected from the game, call other team the winner.
+		if game_mode.isValidRankedGame and not game_mode.hasGameEnded then
+			if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
+				sendEndGameStats(player2BuildingDamage)
+				GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
+				game_mode.hasGameEnded = true
+				GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+			elseif getConnectedPlayerCount(DOTA_TEAM_BADGUYS) == 0 then
+				sendEndGameStats(player2BuildingDamage)
+				GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
+				game_mode.hasGameEnded = true
+				GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+			end
+		end
+	end
+	
+	local heroes = HeroList:GetAllHeroes()
+	local currentTime = GameRules:GetGameTime()
+	for i = 1,#heroes do
+		local hero = heroes[i]
+		if hero:IsRealHero() and hero:IsAlive() then
+			hero.last_alive_time = currentTime
+		end
+	end
+end

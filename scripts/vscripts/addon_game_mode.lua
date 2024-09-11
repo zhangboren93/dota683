@@ -545,68 +545,7 @@ function CAddonTemplateGameMode:OnThink()
 			self.first_roshan_spawned = true
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
-		local time = GameRules:GetDOTATime(false, false) 
-
-		-- give each player passive gold
-		if time > 0 and IsServer() then
-			local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS)
-			for i=1,n do
-				local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_GOODGUYS, i)
-				PlayerResource:ModifyGold(playerid, 3, true, DOTA_ModifyGold_GameTick)
-
-				local entity = PlayerResource:GetPlayer(playerid)
-				if entity ~= nil then
-					entity = entity:GetAssignedHero()
-					local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
-					PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
-				end
-			end
-			local n = PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS)
-			for i=1,n do
-				local playerid = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_BADGUYS, i)
-				PlayerResource:ModifyGold(playerid, 3, true, DOTA_ModifyGold_GameTick)
-
-				local entity = PlayerResource:GetPlayer(playerid)
-				if entity ~= nil then
-					entity = entity:GetAssignedHero()
-					local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
-					PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
-				end
-			end
-		end
-
-		if self.nextRoshanTime ~= nil and time > self.nextRoshanTime then
-			print("Spawn next rosh")
-			CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
-			self.nextRoshanTime = nil
-		end
-
-		-- respawn base trees in rank map
-		if isMapRanked() then
-			-- if all players from one team has disconnected from the game, call other team the winner.
-			if self.isValidRankedGame and not self.hasGameEnded then
-				if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
-					sendEndGameStats(player2BuildingDamage)
-					GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
-					self.hasGameEnded = true
-					GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
-				elseif getConnectedPlayerCount(DOTA_TEAM_BADGUYS) == 0 then
-					sendEndGameStats(player2BuildingDamage)
-					GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
-					self.hasGameEnded = true
-					GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-				end
-			end
-		end
-		
-		local heroes = HeroList:GetAllHeroes()
-		local currentTime = GameRules:GetGameTime()
-		for i = 1,#heroes do
-			local hero = heroes[i]
-			if hero:IsRealHero() and hero:IsAlive() then
-				hero.last_alive_time = currentTime
-			end
-		end
+		handleGameInProgressTimer(self, player2BuildingDamage)
 	elseif GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
 		return nil
 	end
@@ -763,19 +702,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				end
 			end
 		end
-		if ability:GetName() == "doom_bringer_doom" then
-			local target = EntIndexToHScript(event.entindex_target)
-			if target:IsRealHero() and target:GetName() == "npc_dota_hero_doom_bringer" then
-				GameRules:SendCustomMessage("末日无法大自己", -1, -1)
-				return false
-			end
-		elseif ability:GetName() == "doom_bringer_devour" then
-			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
-			if player_hero:HasModifier("modifier_doom_bringer_devour") then
-				GameRules:SendCustomMessage("#dota_hud_error_doom_already_devouring", -1, -1) -- 消化期间无法吞噬
-				return false
-			end
-		elseif ability:GetName() == "kunkka_ghostship" then
+		if ability:GetName() == "kunkka_ghostship" then
 			-- Always land ghost ship at 1000 range
 			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
 			local target_position = Vector(event.position_x, event.position_y, event.position_z)
