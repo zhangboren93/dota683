@@ -203,7 +203,8 @@ function Activate()
  
 	-- horizontal motion controllers
 	LinkLuaModifier( "modifier_elder_titan_echo_stomp_lua", 	"heroes/hero_elder_titan/modifier_elder_titan_echo_stomp.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
-	LinkLuaModifier( "modifier_flamebreak_knockback_lua", 		"heroes/hero_batrider/modifier_flamebreak_knockback.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+	LinkLuaModifier( "modifier_batrider_flamebreak_projectile_lua", 	"heroes/hero_batrider/modifier_batrider_flamebreak_projectile.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+	LinkLuaModifier( "modifier_flamebreak_knockback_lua", 				"heroes/hero_batrider/modifier_flamebreak_knockback.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_nether_bash_motion_lua", 		"heroes/hero_spirit_breaker/modifier_nether_bash_motion.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_rattletrap_cog_push_lua",		"heroes/hero_rattletrap/power_cogs.lua", LUA_MODIFIER_MOTION_HORIZONTAL	)
 	LinkLuaModifier( "modifier_spirit_breaker_charge_of_darkness_lua", 	"heroes/hero_spirit_breaker/modifier_charge_of_darkness.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
@@ -711,9 +712,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			event.position_x = new_target_position.x
 			event.position_y = new_target_position.y
 			return true
-		elseif ability:GetName() == "batrider_flamebreak" then
-			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
-			ability:GetCaster().flamebreak_position = Vector(event.position_x, event.position_y, event.position_z)
 		elseif ability:GetName() == "enigma_black_hole" then
 			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
 			ability:GetCaster().black_hole_position = Vector(event.position_x, event.position_y, event.position_z)
@@ -1644,11 +1642,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_elder_titan_echo_stomp_lua", { duration = ability:GetSpecialValueFor("sleep_duration") })
-		return false
-	elseif event.name_const == "modifier_flamebreak_knockback" then
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		parent:AddNewModifier(caster, ability, "modifier_flamebreak_knockback_lua", { duration = ability:GetSpecialValueFor("knockback_duration") })
 		return false
 	elseif event.name_const == "modifier_invoker_deafening_blast_knockback" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)

@@ -512,6 +512,12 @@
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_radius"					"作用范围："
 		"DOTA_Tooltip_modifier_batrider_sticky_napalm_debuff_lua"						"粘性燃油"
 		"DOTA_Tooltip_modifier_batrider_sticky_napalm_debuff_lua_Description"			"施法者造成的伤害提高。\n转身速率降低%dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%。\n移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven"							"烈焰破击"
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven_Description"				"投掷一瓶爆炸性的混合物，到达目标地点时爆炸，击退区域内的敌人并造成伤害。"
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven_Lore"						"蝙蝠骑士选择用燃烧弹作为武器。"
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven_damage"					"冲击伤害："
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven_explosion_radius"			"作用范围："
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven_knockback_distance"		"击退距离："
 		"DOTA_Tooltip_ability_batrider_flaming_lasso_Note1"								"如果蝙蝠骑士在0.05秒内移动距离超过%break_distance%码枷锁将会断裂。"
 		// Beastmaster
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_Description"						"兽王投出他的斧头然后召回它们，切开飞过的敌人和树木。每把飞斧只对同一个敌人攻击一次。"

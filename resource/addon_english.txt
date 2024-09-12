@@ -532,6 +532,12 @@
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_datadriven_radius"					"RADIUS:"
 		"DOTA_Tooltip_modifier_batrider_sticky_napalm_debuff_lua"						"Sticky Napalm"
 		"DOTA_Tooltip_modifier_batrider_sticky_napalm_debuff_lua_Description"			"Increasing napalm-caster's damage.\nSlowing turn rate by %dMODIFIER_PROPERTY_TURN_RATE_PERCENTAGE%%%.\nSlowing movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven"							"Flamebreak"
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven_Description"				"Hurls an explosive cocktail that explodes when it reaches the target location, knocking back, dealing damage to enemies in the area."
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven_Lore"						"A molotov cocktail is the weapon of choice for Batrider."
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven_damage"					"IMPACT DAMAGE:"
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven_explosion_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_batrider_flamebreak_datadriven_knockback_distance"		"KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_batrider_flaming_lasso_Note1"								"If Batrider moves more than %break_distance% units in 0.05 seconds the lasso breaks."
 		// Beastmaster
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_Description"						"Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path. Each axe can hit an enemy once."
