@@ -15,6 +15,7 @@
 #base "heroes/drow_ranger.txt"
 #base "heroes/earth_spirit.txt"
 #base "heroes/ember_spirit.txt"
+#base "heroes/enigma.txt"
 #base "heroes/faceless_void.txt"
 #base "heroes/furion.txt"
 #base "heroes/enchantress.txt"
@@ -3540,75 +3541,6 @@
 				"duration"					"11"
 				"base_damage"				"0"
 				"tick_rate"					"1"
-		}
-	}
-    "enigma_black_hole"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5149"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"2"
-		"MaxLevel"             			"3"
-		"RequiredLevel"         		"6"
-		"LevelsBetweenUpgrades" 		"5"
-
-		"HasScepterUpgrade"				"1"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"250"
-		"AbilityCastPoint"				"0.3 0.3 0.3"
-		"AbilityChannelTime"			"4.0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"200 190 180"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"275 350 425"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"damage"				"50 100 150"
-			"radius"				"400"
-			"pull_speed"			"40"
-			"tick_rate"				"0.1 0.1 0.1"
-			"duration"				"4.0 4.0 4.0"
-			"vision_radius"			"800 800 800"
-			"pull_rotate_speed"		"0.0"
-			"animation_rate"		"0.2"
-			//TODO center damage
-			"close_radius"			"200"
-			"close_damage_tooltip"	"50 100 150"
-			"scepter_pct_damage"
-			{
-				"value"					"0"
-				"RequiresScepter"		"1"
-			}
-			"scepter_radius"	
-			{
-				"value"					"400"
-				"RequiresScepter"			"1"
-			}
-			"scepter_drag_speed"			
-			{
-				"value"					"0"
-				"RequiresScepter"			"1"
-			}
-			"scepter_pull_rotate_speed"	
-			{
-				"value"					"0"
-				"RequiresScepter"			"1"
-			}
 		}
 	}
 	//=================================================================================================================

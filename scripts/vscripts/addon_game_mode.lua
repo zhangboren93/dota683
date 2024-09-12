@@ -139,6 +139,7 @@ function Activate()
 	LinkLuaModifier( "modifier_magnataur_empower_cleave_lua",	"heroes/hero_magnataur/empower_cleave.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_melting_strike_debuff_lua",		"heroes/hero_invoker/modifier_melting_strike_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_eidelon_check_attacks_lua", 		"heroes/hero_enigma/modifier_eidelon_check_attacks.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_enigma_black_hole_aura_lua", 	"heroes/hero_enigma/modifier_enigma_black_hole_aura.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tempest_spawn_hide_from_map_lua","heroes/hero_arc_warden/modifier_tempest_spawn_hide_from_map.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_clinkz_searing_arrow_lua", 		"heroes/hero_clinkz/modifier_clinkz_searing_arrows.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_death_ward_attack_scepter_lua",	"heroes/hero_witch_doctor/modifier_death_ward_attack_scepter.lua", LUA_MODIFIER_MOTION_NONE)
@@ -214,6 +215,7 @@ function Activate()
 	LinkLuaModifier( "modifier_requiem_head_lua",				"heroes/hero_nevermore/modifier_requiem_head.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_ember_spirit_fire_remnant_add_location_lua", "heroes/hero_ember_spirit/modifier_ember_spirit_fire_remnant_add_location.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_ember_spirit_fire_remnant_activate_lua", 	"heroes/hero_ember_spirit/modifier_ember_spirit_fire_remnant_activate.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+	LinkLuaModifier( "modifier_enigma_black_hole_pull_lua", 				"heroes/hero_enigma/modifier_enigma_black_hole_pull.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 	-- both motion modifier
 	LinkLuaModifier( "modifier_toss_flying_lua", 				"heroes/hero_tiny/modifier_toss_flying.lua", LUA_MODIFIER_MOTION_BOTH)
@@ -663,17 +665,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 					end
 				end
 		end
-		for i,v in pairs(event.units) do
-			local unit = EntIndexToHScript(v)
-			local ability = unit:FindAbilityByName("hero_creep_aggro_datadriven")
-			if ability ~= nil then
-				if target:IsHero() and target:GetTeam() ~= unit:GetTeam() and ability ~= nil and ability:IsCooldownReady() then
-					aggroCreeps(unit, ability)
-				elseif target:GetTeam() == unit:GetTeam() then
-					ability:ApplyDataDrivenModifier(unit, unit, "modifier_creep_aggro_move_datadriven", {})
-				end
-			end
-		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION 
 		or event.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET 
@@ -712,9 +703,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			event.position_x = new_target_position.x
 			event.position_y = new_target_position.y
 			return true
-		elseif ability:GetName() == "enigma_black_hole" then
-			local player_hero = PlayerResource:GetPlayer(event.issuer_player_id_const):GetAssignedHero()
-			ability:GetCaster().black_hole_position = Vector(event.position_x, event.position_y, event.position_z)
 		elseif ability:GetName() == "item_diffusal_blade_datadriven" or
 			ability:GetName() == "item_diffusal_blade_2_datadriven" then
 			-- Diffusal blade can purge omni's repel but cannot cast on other magic immune targets
@@ -2004,19 +1992,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			local original_damage = inflictor:GetSpecialValueFor("damage")
 			if event.damage > original_damage then
 				event.damage = original_damage
-			end
-		elseif inflictor:GetName() == "enigma_black_hole" then
-			-- black hole's damage is magical instead of pure
-			-- if further away from center (200), half damage 
-			event.damage = event.damage * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
-			if attacker.black_hole_position ~= nil and (victim:GetAbsOrigin() - attacker.black_hole_position):Length2D() > 200 then
-				event.damage = event.damage / 2
-			end
-			if attacker:HasScepter() then
-				local enigma_midnight_pulse = attacker:FindAbilityByName("enigma_midnight_pulse")
-				if enigma_midnight_pulse:GetLevel() > 0 then
-					event.damage = event.damage + victim:GetMaxHealth() * enigma_midnight_pulse:GetSpecialValueFor("damage_percent") / 100
-				end
 			end
 		elseif inflictor:GetName() == "mirana_arrow" and victim:IsCreep() then
 			local original_damage = inflictor:GetAbilityDamage()
