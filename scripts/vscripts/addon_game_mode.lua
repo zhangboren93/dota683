@@ -81,6 +81,9 @@ function Activate()
 	LinkLuaModifier( "modifier_item_soul_booster_health_regen_lua", 	"items/modifier_item_soul_booster_health_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_heavens_halberd_datadriven_disarm", "items/modifier_item_heavens_halberd_datadriven_disarm.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_lifesteal_lua",						"items/modifier_item_lifesteal.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_diffusal_lua", 						"items/modifier_item_diffusal.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_diffusal_2_lua", 					"items/modifier_item_diffusal.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_diffusal_purge_slow_datadriven", 		"items/modifier_item_diffusal_slow.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
@@ -703,13 +706,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			event.position_x = new_target_position.x
 			event.position_y = new_target_position.y
 			return true
-		elseif ability:GetName() == "item_diffusal_blade_datadriven" or
-			ability:GetName() == "item_diffusal_blade_2_datadriven" then
-			-- Diffusal blade can purge omni's repel but cannot cast on other magic immune targets
-			local target = EntIndexToHScript(event.entindex_target)
-			if target:IsMagicImmune() and not target:HasModifier("modifier_repel_datadriven") then
-				return false
-			end
 		elseif ability:GetName() == "item_ultimate_scepter" then
 			-- alchemist cannot give aghs to friendly
 			return false

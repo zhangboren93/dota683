@@ -6,8 +6,7 @@
 	maps = 
 	[
 		"dota",
-		"rank",
-		"custom"
+		"rank"
 	]
 	Default_Keys = 
 	[
@@ -28,9 +27,6 @@
 		},
 		{
 			map = "rank"
-		},
-		{
-			map = "custom"
 		}
 	]
 	PenaltiesEnabled = false

@@ -1,43 +1,38 @@
-require("items/item_sphere")
+item_diffusal_blade_datadriven = class({
+	OnSpellStart = function(self)
+		local target = self:GetCursorTarget()
+		if target:TriggerSpellAbsorb(self) then return end
+		target:EmitSound("DOTA_Item.DiffusalBlade.Activate")
+		self:SpendCharge(0)
 
-function manaBurn(event)
-	local target = event.target
-	local ability = event.ability
-	local feedback_mana_burn = event.feedback_mana_burn
-	if event.attacker:IsIllusion() and event.attacker:IsRangedAttacker() then
-		return
-	elseif event.target:IsMagicImmune() then
-		return 
+		local caster = self:GetParent()
+		local RemovePositiveBuffs = not (target:GetTeam() == caster:GetTeam())
+		local RemoveDebuffs = target:GetTeam() == caster:GetTeam()
+		local BuffsCreatedThisFrameOnly = false
+		local RemoveStuns = false
+		local RemoveExceptions = false
+		target:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
+
+		if target:GetTeam() ~= caster:GetTeam() then
+			local duration = self:GetSpecialValueFor("purge_slow_duration")
+			target:AddNewModifier(caster, self, "modifier_diffusal_purge_slow_datadriven", { duration = duration })
+		end
+	end,
+	GetIntrinsicModifierName = function(self)
+		return "modifier_item_diffusal_lua"
+	end,
+	CastFilterResultTarget = function(self, target)
+		if target:HasModifier("modifier_repel_datadriven") then
+			return UF_SUCCESS
+		end
+		if target:IsMagicImmune() and target:GetTeam() ~= self:GetParent():GetTeam() then
+			return UF_FAIL_MAGIC_IMMUNE_ENEMY 
+		end
+		return UF_SUCCESS
 	end
-	local mana_burn_avail = target:GetMana()
-	if mana_burn_avail > feedback_mana_burn then
-		mana_burn_avail = feedback_mana_burn
-	end 
-	target:Script_ReduceMana(feedback_mana_burn, ability)
-	ApplyDamage({
-		victim = target,
-		attacker = event.attacker,
-		damage = mana_burn_avail,
-		damage_type = DAMAGE_TYPE_PHYSICAL,
-		ability = event.ability
-	})
-end
+})
 
-function purge(event)
-	local target = event.target
-	local caster = event.caster
-
-	if is_spell_blocked_by_linkens_sphere_a(target, caster) then return end
-
-	local RemovePositiveBuffs = not (target:GetTeam() == caster:GetTeam())
-	local RemoveDebuffs = target:GetTeam() == caster:GetTeam()
-	local BuffsCreatedThisFrameOnly = false
-	local RemoveStuns = false
-	local RemoveExceptions = false
-	target:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
-
-	if target:GetTeam() ~= caster:GetTeam() then
-		local ability = event.ability
-		ability:ApplyDataDrivenModifier(caster, target, event.ModifierName, {})
-	end
+item_diffusal_blade_2_datadriven = item_diffusal_blade_datadriven
+function item_diffusal_blade_2_datadriven:GetIntrinsicModifierName()
+	return "modifier_item_diffusal_2_lua"
 end

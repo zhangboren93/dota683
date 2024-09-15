@@ -7476,7 +7476,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_diffusal.lua"
 		"ID"							"1374"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityTextureName"			"item_diffusal_blade"
 
@@ -7512,26 +7513,8 @@
 		"UpgradeRecipe"					"item_recipe_diffusal_blade"
 		"ShouldBeSuggested"				"1"
 		
-	    "OnEquip"
-	    {
-		    "RunScript"
-		    {
-			    "ScriptFile"			"items/item_permanent_with_charge.lua"
-			    "Function"				"handleEquip"
-		    }
-	    }
-
 		"OnSpellStart"
 		{
-		    "FireSound"
-		    {
-		    	"EffectName"			"DOTA_Item.DiffusalBlade.Activate"
-		    	"Target"				"TARGET"
-		    }
-			"SpendCharge"
-			{
-				
-			}	
 			"RunScript"
 			{
     			"Target"		"TARGET"
@@ -7547,62 +7530,18 @@
 			"bonus_agility"							"20"
 			"bonus_intellect"						"6"
 			"feedback_mana_burn"					"25"
-			"feedback_mana_burn_illusion_melee"		"25"
-			"feedback_mana_burn_illusion_ranged"	"25"
 			"purge_movespeed"						"-80"
-			"purge_slow_duration"					"4.0"
+			"purge_slow_duration"					"4"
 		    "initial_equip_charges"					"8"
 		}
-    	"Modifiers"
-    	{
-    		"modifier_item_difussal_datadriven"
-    		{
-    			"Passive"			"1"
-    			"IsHidden"			"1"
-    			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-    			
-    			"Properties"
-    			{
-    				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agility"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
-    			}
-    			
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-    					"Target"		"TARGET"
-    					"ScriptFile"	"items/item_diffusal.lua"
-						"Function"		"manaBurn"
-						"feedback_mana_burn"	"%feedback_mana_burn"
-					}
-				}
-    		}
-			"modifier_diffusal_purge_slow_datadriven"
-			{
-			    "Duration"				"%purge_slow_duration"
-			    "Passive"				"0"
-			    "IsHidden"				"0"
-			    "IsBuff"				"0"
-			    "IsDebuff"				"1"
-			    "IsPurgable"			"1"
-			
-		    	"EffectName"            "particles/items_fx/diffusal_slow.vpcf"
-		    	"EffectAttachType"      "PATTACH_ABSORIGIN"
-				
-			    "Properties"
-			    {
-			    	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%purge_movespeed"
-			    }
-			}
-    	}
 	}
 	
 	"item_diffusal_blade_2_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_diffusal.lua"
 		"ID"							"2374"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityTextureName"			"item_diffusal_blade_2"
 
@@ -7628,7 +7567,7 @@
 		"ItemCost"						"3850"
 		"ItemShopTags"					"agi;int;unique;hard_to_tag"
 		"ItemQuality"					"artifact"
-		"ItemAliases"					"diffusal blade 1"
+		"ItemAliases"					"diffusal blade 2"
 		"ItemPermanent"					"1"
 		"ItemInitialCharges" 			"0" //How many charges should the item start with - Tango x3
 		"ItemDisplayCharges" 			"1" //Hide the charges of the item - Aegis
@@ -7637,35 +7576,7 @@
 		"UpgradesItems"					"item_diffusal_blade_2_datadriven"
 		"UpgradeRecipe"					"item_recipe_diffusal_blade_datadriven"
 		"ShouldBeSuggested"				"1"
-		
-	    "OnEquip"
-	    {
-		    "RunScript"
-		    {
-			    "ScriptFile"			"items/item_permanent_with_charge.lua"
-			    "Function"				"handleEquip"
-		    }
-	    }
 
-		"OnSpellStart"
-		{
-		    "FireSound"
-		    {
-		    	"EffectName"			"DOTA_Item.DiffusalBlade.Activate"
-		    	"Target"				"TARGET"
-		    }
-			"SpendCharge"
-			{
-				
-			}	
-			"RunScript"
-			{
-    			"Target"		"TARGET"
-    			"ScriptFile"	"items/item_diffusal.lua"
-				"Function"		"purge"
-				"ModifierName"	"modifier_diffusal_2_purge_slow_datadriven"
-			}
-		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -7679,50 +7590,6 @@
 			"purge_slow_duration"					"4.0"
 		    "initial_equip_charges"					"8"
 		}
-    	"Modifiers"
-    	{
-    		"modifier_item_difussal_2_datadriven"
-    		{
-    			"Passive"			"1"
-    			"IsHidden"			"1"
-    			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-    			
-    			"Properties"
-    			{
-    				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agility"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
-    			}
-    			
-    			"OnAttackLanded"
-    			{
-    				"RunScript"
-    				{
-    					"Target"		"TARGET"
-    					"ScriptFile"	"items/item_diffusal.lua"
-						"Function"		"manaBurn"
-						"feedback_mana_burn"	"%feedback_mana_burn"
-    				}
-    			}
-    		}
-			"modifier_diffusal_2_purge_slow_datadriven"
-			{
-			    "Duration"				"%purge_slow_duration"
-			    "Passive"				"0"
-			    "IsHidden"				"0"
-			    "IsBuff"				"0"
-			    "IsDebuff"				"1"
-			    "IsPurgable"			"1"
-
-		    	"EffectName"            "particles/items_fx/diffusal_slow.vpcf"
-		    	"EffectAttachType"      "PATTACH_ABSORIGIN"
-				
-			
-			    "Properties"
-			    {
-			    	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%purge_movespeed"
-			    }
-			}
-    	}
 	}
 	
 
