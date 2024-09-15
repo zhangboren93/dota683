@@ -38,7 +38,7 @@ function TestOfFaithTeleportTarget( keys )
 	elseif target == caster then
 		-- Targeting variables
 		local target_teams = DOTA_UNIT_TARGET_TEAM_FRIENDLY
-		local target_types = DOTA_UNIT_TARGET_BASIC
+		local target_types = DOTA_UNIT_TARGET_CREEP
 		local target_flags = DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
 
 		local units = FindUnitsInRadius(caster_team, caster_location, nil, 9000, target_teams, target_types, target_flags, FIND_CLOSEST, false)

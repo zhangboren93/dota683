@@ -89,7 +89,7 @@ ember_spirit_fire_remnant_datadriven = class({
 		local maximum_charges = ability:GetSpecialValueFor("max_charges")
 		local charge_replenish_time = ability:GetSpecialValueFor("charge_restore_time" )
 		local movespeed_multiplier = ability:GetSpecialValueFor("speed_multiplier")
-		local dummyVisionRadius = ability:GetSpecialValueFor("vision_radius")
+		local dummyVisionRadius = 400
 		local dummyDuration = ability:GetSpecialValueFor("duration")
 		
 		local intervals_per_second = 33.0
