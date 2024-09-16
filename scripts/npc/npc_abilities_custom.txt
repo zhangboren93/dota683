@@ -15806,16 +15806,14 @@
     // General
     //-------------------------------------------------------------------------------------------------------------
     "BaseClass"                "ability_datadriven"
-    "AbilityBehavior"                "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
-    "AbilityUnitTargetTeam"            "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-    "AbilityUnitTargetType"            "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"            
-    "AbilityUnitTargetFlags"        "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 	"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-    "SpellImmunityType"                "SPELL_IMMUNITY_ALLIES_NO"
+    "SpellImmunityType"             "SPELL_IMMUNITY_ALLIES_YES"
         
     "AbilityCastRange"                	"0"
-    "AbilityCastPoint"                	"0.5"
-	"AnimationPlaybackRate"				"0.6"
+    "AbilityCastPoint"                	"0.5" // No need to change playback rate.
     "FightRecapLevel"                	"1"
     "AbilityTextureName"            "treant_living_armor"
 
@@ -15847,6 +15845,9 @@
             "Function"        "ApplyLivingArmor"
         }
     }
+
+	// Deprecated
+
     "Modifiers"
     {
         "modifier_living_armor_datadriven_stacks"
