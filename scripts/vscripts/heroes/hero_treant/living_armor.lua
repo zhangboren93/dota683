@@ -14,20 +14,62 @@ function ApplyLivingArmor(keys)
 			end
 		end
 	end
-	ability:ApplyDataDrivenModifier(caster,target, "modifier_living_armor_datadriven", {duration = ability:GetSpecialValueFor("duration")})
-	ability:ApplyDataDrivenModifier(caster,target, "modifier_living_armor_datadriven_stacks", {duration = ability:GetSpecialValueFor("duration")})
-	target:SetModifierStackCount("modifier_living_armor_datadriven_stacks", caster, ability:GetSpecialValueFor("damage_count"))
-	if target.LivingArmorParticle ~= nil then
-		RemoveParticle(keys)
-	end
-	target.LivingArmorParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_livingarmor.vpcf", PATTACH_POINT_FOLLOW, target)
-			ParticleManager:SetParticleControlEnt(target.LivingArmorParticle, 0, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControlEnt(target.LivingArmorParticle, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+
+	target:AddNewModifier(caster, ability, "modifier_treant_living_armor_lua", {duration = ability:GetSpecialValueFor("duration")})
+	
 	target:EmitSound("Hero_Treant.LivingArmor.Target")
 	if caster ~= target then
 		caster:EmitSound("Hero_Treant.LivingArmor.Cast")
 	end
 end
+
+modifier_treant_living_armor_lua = class({ 
+	IsPurgable				= function(self) return true end,
+	RemoveOnDeath           = function(self) return true end,
+	DeclareFunctions        = function(self) return 
+	{
+		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+		MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
+		MODIFIER_PROPERTY_TOOLTIP
+	}
+	end,
+	GetModifierConstantHealthRegen = function(self) return self.health_regen end,
+	OnTooltip					   = function(self) return self.damage_block end,
+})
+
+LinkLuaModifier( "modifier_treant_living_armor_lua", 		"heroes/hero_treant/living_armor.lua", LUA_MODIFIER_MOTION_NONE)
+
+function modifier_treant_living_armor_lua:OnCreated()
+	local ability = self:GetAbility()
+	self.health_regen		= ability:GetSpecialValueFor("health_regen")
+	self.damage_block		= ability:GetSpecialValueFor("damage_block")
+	self:SetStackCount(ability:GetSpecialValueFor("damage_count"))
+
+	if not IsServer() then return end
+
+	local parent = self:GetParent()
+
+	self.armor_particle = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_livingarmor.vpcf", PATTACH_POINT_FOLLOW, parent)
+	ParticleManager:SetParticleControlEnt(self.armor_particle, 0, parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(self.armor_particle, 1, parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+	self:AddParticle(self.armor_particle, false, false, -1, false, false)
+end
+
+function modifier_treant_living_armor_lua:GetModifierTotal_ConstantBlock(event)
+	if event.damage == nil or event.damage < 5
+		or bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == DOTA_DAMAGE_FLAG_HPLOSS then
+			return 0
+	end
+
+	local block_cnt = self.damage_block
+	self:DecrementStackCount()
+	if self:GetStackCount() == 0 then
+		self:Destroy()
+	end
+	return block_cnt
+end
+
+-- Deprecated
 
 function HandleLivingArmor(keys)
 	-- init --
