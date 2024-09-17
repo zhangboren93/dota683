@@ -1,3 +1,25 @@
+local function forceKillRemnantEntity(entity, me, radius, damage)
+	GridNav:DestroyTreesAroundPoint(entity:GetAbsOrigin(), 200, false)
+	local units = FindUnitsInRadius( me:GetTeam(), entity:GetAbsOrigin(), me, radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, 0, 0, false )
+	for k, v in pairs( units ) do
+		local damageTable =
+		{
+			victim = v,
+			attacker = me,
+			damage = damage,
+			damage_type = DAMAGE_TYPE_MAGICAL
+		}
+		ApplyDamage( damageTable )
+	end
+	particle_id = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/ember_spirit_hit.vpcf", PATTACH_ABSORIGIN, me)
+	if entity.fire_remnant_particle ~= nil then
+		ParticleManager:DestroyParticle(entity.fire_remnant_particle, false)
+		entity.fire_remnant_particle = nil
+	end
+	entity:ForceKill(false)
+end
+
 modifier_ember_spirit_fire_remnant_activate_lua = class({
 	OnCreated = function(self, data) 
 		if not IsServer() then return end
@@ -5,6 +27,10 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 		self.destination = self.destination_entity:GetAbsOrigin()
 		local ability = self:GetAbility()
 		self.speed = ability:GetSpecialValueFor("speed")
+		local travel_distance = (self.destination - self:GetParent():GetAbsOrigin()):Length2D()
+		if travel_distance > 400 then
+			self.speed = travel_distance / 0.4
+		end
 		self.radius = ability:GetSpecialValueFor("radius")
 		self.damage = ability:GetSpecialValueFor("damage")
 		self.time_upper_bound = GameRules:GetGameTime() + 0.4
@@ -87,5 +113,19 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 				me:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
 			end
 		end
+	end,
+	OnHorizontalMotionInterrupted = function(self)
+		local me = self:GetParent()
+		me:RemoveModifierByName( "modifier_fire_remnant_counter_cooldown_lua" )
+		me:RemoveModifierByName("modifier_activate_fire_remnant_buff_lua")
+		forceKillRemnantEntity(self.destination_entity, me, self.radius, self.damage)
+		for k, v in pairs(me.fire_remnant_entities) do
+			local entity = EntIndexToHScript(k)
+			if IsValidEntity(EntIndexToHScript(k)) then
+				forceKillRemnantEntity(entity, me, self.radius, self.damage)
+			end
+		end
+		--FindClearSpaceForUnit(me, dest_loc, true)
+		--me:EmitSound("Hero_EmberSpirit.FireRemnant.Stop")
 	end
 })
