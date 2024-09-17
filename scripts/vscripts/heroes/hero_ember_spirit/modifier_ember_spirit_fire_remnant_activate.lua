@@ -118,14 +118,26 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 		local me = self:GetParent()
 		me:RemoveModifierByName( "modifier_fire_remnant_counter_cooldown_lua" )
 		me:RemoveModifierByName("modifier_activate_fire_remnant_buff_lua")
+		if self.destination_entity == nil then
+			return
+		end
+		local land_point = self.destination_entity:GetAbsOrigin()
 		forceKillRemnantEntity(self.destination_entity, me, self.radius, self.damage)
 		for k, v in pairs(me.fire_remnant_entities) do
 			local entity = EntIndexToHScript(k)
+			if (entity:GetAbsOrigin() - self.target_point):Length2D() <= (land_point - self.target_point):Length2D() then
+				land_point = entity:GetAbsOrigin()
+			end
 			if IsValidEntity(EntIndexToHScript(k)) then
 				forceKillRemnantEntity(entity, me, self.radius, self.damage)
 			end
 		end
-		--FindClearSpaceForUnit(me, dest_loc, true)
-		--me:EmitSound("Hero_EmberSpirit.FireRemnant.Stop")
+		me:SetThink(function()
+			if me:HasModifier("modifier_ember_spirit_sleight_of_fist_caster_invulnerability") then
+				return 0.1
+			end
+			FindClearSpaceForUnit(me, land_point, false)
+			me:EmitSound("Hero_EmberSpirit.FireRemnant.Stop")
+		end, "move to land_point", 0.1)
 	end
 })
