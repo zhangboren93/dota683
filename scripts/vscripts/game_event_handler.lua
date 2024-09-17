@@ -53,7 +53,7 @@ local function getAllPlayerScores(game_mode)
 end
 
 function HandleGameStateChange(game_mode, event)
-	if event.new_state == 5 then
+	if event.new_state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		local first_creep_spawned = false
 		GameRules:GetGameModeEntity():SetThink(function()
 			if first_creep_spawned then
@@ -74,41 +74,9 @@ function HandleGameStateChange(game_mode, event)
 				end
 			end, "validate rank game after 5 minutes", 300)
 		end
-	elseif event.new_state == 4 then
+	elseif event.new_state == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		CustomGameEventManager:Send_ServerToAllClients("player_ladder_scores", game_mode.playerId2LadderScore)
-	elseif event.new_state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then -- 2
-		if game_mode.isValidRankedGame then
-			local playerCount = PlayerResource:NumPlayers()
-			print("Number of players is " .. playerCount)
-			if playerCount ~= RANK_PLAYER_COUNT_REQ then
-				GameRules:SendCustomMessage("天梯比赛需要10名玩家，本次对局不记录天梯分数!", -1, -1)
-				game_mode.hasGameEnded = true
-				game_mode.isValidRankedGame = false
-			else
-				GameRules:GetGameModeEntity():SetThink(function()
-					getAllPlayerScores(game_mode)
-				end, "Fetching player scores", 1)
-			end
-			for i=1,#all_heroes do
-				GameRules:AddHeroToBlacklist(all_heroes[i])
-			end
-			game_mode.game_mode = "LD"
-			local players = getAllPlayerIds()
-			-- randomly assign player team start from either side
-			local startTeam = DOTA_TEAM_GOODGUYS
-			while #players > 0 do
-				local randomIndex = RandomInt(1, #players)
-				local randomPlayer = players[randomIndex][1]
-				print("Assigning " .. randomPlayer .. " to team " .. startTeam)
-				PlayerResource:SetCustomTeamAssignment(randomPlayer, startTeam)
-				table.remove(players, randomIndex)
-				if startTeam == DOTA_TEAM_BADGUYS then
-					startTeam = DOTA_TEAM_GOODGUYS
-				else
-					startTeam = DOTA_TEAM_BADGUYS
-				end
-			end
-		elseif game_mode.game_mode == 'DM' then
+		if game_mode.game_mode == 'DM' then
 			deathMatchGameRulesUpdate()
 			-- randoms all player's hero selection
 			local players = getAllPlayerIds()
@@ -116,6 +84,39 @@ function HandleGameStateChange(game_mode, event)
 				PlayerResource:GetPlayer(players[i][1]):MakeRandomHeroSelection()
 				removeHeroFromDMPool(PlayerResource:GetSelectedHeroName(players[i][1]))
 			end
+		end
+	elseif event.new_state == DOTA_GAMERULES_STATE_SCENARIO_SETUP then -- 2
+		if game_mode.isValidRankedGame then
+			local playerCount = PlayerResource:NumPlayers()
+			print("Number of players is " .. playerCount)
+			if playerCount ~= RANK_PLAYER_COUNT_REQ then
+				GameRules:SendCustomMessage("天梯比赛需要10名玩家，本次对局不记录天梯分数!", -1, -1)
+				game_mode.hasGameEnded = true
+				game_mode.isValidRankedGame = false
+				return
+			end
+			for i=1,#all_heroes do
+				GameRules:AddHeroToBlacklist(all_heroes[i])
+			end
+			game_mode.game_mode = "LD"
+			GameRules:GetGameModeEntity():SetThink(function()
+				-- randomly assign player team start from either side
+				local players = getAllPlayerIds()
+				local startTeam = DOTA_TEAM_GOODGUYS
+				while #players > 0 do
+					local randomIndex = RandomInt(1, #players)
+					local randomPlayer = players[randomIndex][1]
+					GameRules:SendCustomMessage("Assigning " .. randomPlayer .. " to team " .. startTeam, -1, -1)
+					PlayerResource:SetCustomTeamAssignment(randomPlayer, startTeam)
+					table.remove(players, randomIndex)
+					if startTeam == DOTA_TEAM_BADGUYS then
+						startTeam = DOTA_TEAM_GOODGUYS
+					else
+						startTeam = DOTA_TEAM_BADGUYS
+					end
+				end
+				getAllPlayerScores(game_mode)
+			end, "Fetching player scores", 1)
 		end
 	end
 end
