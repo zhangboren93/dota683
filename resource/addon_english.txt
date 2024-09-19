@@ -2754,6 +2754,7 @@
 		"dota_hud_error_cant_cast_on_self"					"Cannot cast on self"
 		"dota_hud_error_demonic_conversion_creep_level"		"Creep level too high"
 		"dota_hud_error_demonic_conversion_beast_master"	"Cannot target boar or hawk"
+		"dota_hud_error_ember_no_remnant"					"Cannot find remnant"
 		"683modeselect_gamemode"							"GAME MODE:"
 		"683modeselect_gamemode_samepick"					"SAME PICK"
 		"683modeselect_gamemode_shuffle_players"			"SHUFFLE PLAYERS"

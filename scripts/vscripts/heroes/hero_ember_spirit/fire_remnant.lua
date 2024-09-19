@@ -153,6 +153,17 @@ ember_spirit_fire_remnant_datadriven = class({
 
 ember_spirit_activate_fire_remnant_datadriven = class({
 	GetAssociatedSecondaryAbilities = function() return "ember_spirit_fire_remnant_datadriven" end,
+	CastFilterResultLocation = function(self, location)
+		local caster = self:GetCaster()
+		if caster:HasModifier("modifier_fire_remnant_counter_cooldown_lua") then
+			return UF_SUCCESS
+		else
+			return UF_FAIL_CUSTOM
+		end
+	end,
+	GetCustomCastErrorLocation = function(self, location)
+		return "#dota_hud_error_ember_no_remnant"
+	end,
 	OnSpellStart = function(self)
 		if not IsServer() then return end
 		local caster = self:GetCaster()	

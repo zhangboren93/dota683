@@ -2836,6 +2836,7 @@
 		"dota_hud_error_cant_cast_on_self"		"不能对自身释放"
 		"dota_hud_error_demonic_conversion_creep_level"		"单位等级太高"
 		"dota_hud_error_demonic_conversion_beast_master"	"不能吃猪和鹰"
+		"dota_hud_error_ember_no_remnant"		"没有魂"
 		"683modeselect_gamemode"				"模式："
 		"683modeselect_gamemode_samepick"			"可以选择相同英雄"
 		"683modeselect_gamemode_shuffle_players"	"随机阵营"
