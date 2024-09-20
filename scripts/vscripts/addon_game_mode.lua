@@ -760,6 +760,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			end
 		end
 	end
+	-- Remave meepo ult
 	if event.order_type == DOTA_UNIT_ORDER_TRAIN_ABILITY then
 		local unit = EntIndexToHScript(event.units['0'])
 		local ability = EntIndexToHScript(event.entindex_ability)
@@ -817,9 +818,6 @@ end
 function HandleNpcSpawned(self, entityIndex, is_respawn)
 	local entity = EntIndexToHScript(entityIndex)
 	if entity:IsHero() and is_respawn == 0 then
-		if not entity:HasAbility("hero_creep_aggro_datadriven") then
-			entity:AddAbility("hero_creep_aggro_datadriven"):SetLevel(1)
-		end
 		if not entity:HasAbility("hero_intrinstic_mechanism_datadriven") then
 			entity:AddAbility("hero_intrinstic_mechanism_datadriven"):SetLevel(1)
 		end

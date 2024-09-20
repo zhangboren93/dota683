@@ -57,7 +57,7 @@ ITEM_RECIPE_RULES = [
     ["item_lesser_crit", "item_broadsword", "item_blades_of_attack", "item_recipe_lesser_crit"],
     ["item_greater_crit", "item_lesser_crit", "item_demon_edge", "item_recipe_greater_crit"],
     ["item_armlet", "item_helm_of_iron_will", "item_gloves", "item_blades_of_attack", "item_recipe_armlet"],
-    ["item_invis_sword", "item_shadow_amulet", "item_claymore"],
+    ["item_invis_sword", "item_shadow_amulet_datadriven", "item_claymore"],
     ["item_sange_datadriven", "item_ogre_axe", "item_belt_of_strength", "item_recipe_sange_datadriven"],
 	["item_yasha", "item_blade_of_alacrity", "item_boots_of_elves", "item_recipe_yasha"],
     ["item_manta", "item_yasha", "item_ultimate_orb", "item_recipe_manta"],
@@ -194,7 +194,7 @@ ITEMNAME_2_ITEMID = {
 	"item_recipe_medallion_of_courage"		:186,
 	"item_smoke_of_deceit"		:188,
 	"item_recipe_veil_of_discord_datadriven"		:1389,
-	"item_shadow_amulet"		:215
+	"item_shadow_amulet_datadriven"		:1415
 }
 
 SIDE_SHOP_ITEMS = ["item_ring_of_health", "item_energy_booster"]

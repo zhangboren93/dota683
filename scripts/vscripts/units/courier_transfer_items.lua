@@ -50,7 +50,7 @@ ITEM_RECIPE_RULES = {
 	{"item_manta", "item_recipe_manta", "item_yasha", "item_ultimate_orb"},
 	{"item_lesser_crit", "item_recipe_lesser_crit", "item_broadsword", "item_blades_of_attack"},
 	{"item_armlet", "item_recipe_armlet", "item_helm_of_iron_will", "item_gloves", "item_blades_of_attack"},
-	{"item_invis_sword", "item_shadow_amulet", "item_claymore"},
+	{"item_invis_sword", "item_shadow_amulet_datadriven", "item_claymore"},
 	{"item_sange_and_yasha_datadriven", "item_yasha", "item_sange_datadriven"},
 	{"item_satanic_datadriven", "item_recipe_satanic_datadriven", "item_helm_of_the_dominator_datadriven", "item_reaver"},
 	{"item_mjollnir_datadriven", "item_recipe_mjollnir_datadriven", "item_maelstrom_datadriven", "item_hyperstone"},

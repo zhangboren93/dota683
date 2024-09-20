@@ -19,7 +19,6 @@ item2pctregen["item_soul_booster"] = 100
 function handleIntervalThink(event)
 	local caster = event.caster
 	local ability = event.ability
-	item2modifier("item_shadow_amulet", 	"modifier_item_shadow_amulet_attack_speed", caster, ability)
 	item2modifier("item_soul_ring", 		"modifier_item_soul_ring_health_regen", caster, ability)
 	item2modifier("item_crimson_guard", 	"modifier_crimson_guard_attribute_bonus", caster, ability)
 	item2modifier("item_necronomicon", 		"modifier_necronomicon_intellect_bonus", caster, ability)

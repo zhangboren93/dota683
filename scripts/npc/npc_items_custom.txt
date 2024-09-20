@@ -6357,7 +6357,7 @@
 		"ItemResult"					"item_invis_sword"
 		"ItemRequirements"
 		{
-			"01"						"item_shadow_amulet*;item_claymore"
+			"01"						"item_shadow_amulet_datadriven*;item_claymore"
 		}
 	}
 	
@@ -6404,32 +6404,72 @@
 	//=================================================================================================================
 	"item_shadow_amulet"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"215"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ItemPurchasable"	"0"
+	}
+	"item_shadow_amulet_datadriven"
+	{
+		"ID"							"1415"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"FightRecapLevel"				"1"
-
-
-		// Stats		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
+		"AbilityTextureName"			"item_shadow_amulet"
+		"AbilityCastRange"				"600"
 		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"0"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1400"
 		"ItemShopTags"					""
 		"ItemAliases"					"shadow amulet"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
             "fade_time"             "1.5"
-			"fade_duration"			"999"
             "bonus_attackspeed"     "30"
+		}
+		"precache"
+		{
+			"particle"				"particles/items2_fx/shadow_amulet.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_shadow_amulet_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attackspeed"
+				}
+			}
+			"modifier_item_shadow_amulet_fade_datadriven"
+			{
+				"IsPurgable"		"1"
+				"ThinkInterval"		"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_shadow_amulet.lua"
+						"Function"		"handleFade"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_shadow_amulet.lua"
+						"Function"		"handleDestroy"
+					}
+				}
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_shadow_amulet.lua"
+				"Function"		"handleSpellStart"
+			}
 		}
 	}
 	//=================================================================================================================

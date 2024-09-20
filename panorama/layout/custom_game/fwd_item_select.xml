@@ -59,7 +59,7 @@
 			<Button onactivate="OnItemSelectItemPressed('item_cloak')"><DOTAItemImage itemname="item_cloak"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_gem')"><DOTAItemImage itemname="item_gem"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_lifesteal_datadriven')"><DOTAItemImage itemname="item_lifesteal_datadriven"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_shadow_amulet')"><DOTAItemImage itemname="item_shadow_amulet"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_shadow_amulet_datadriven')"><DOTAItemImage itemname="item_shadow_amulet_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_ghost')"><DOTAItemImage itemname="item_ghost"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_blink')"><DOTAItemImage itemname="item_blink"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_talisman_of_evasion')"><DOTAItemImage itemname="item_talisman_of_evasion"/></Button>
