@@ -84,7 +84,7 @@
 			<Button onactivate="OnItemSelectItemPressed('item_wraith_band_datadriven')"><DOTAItemImage itemname="item_wraith_band_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_poor_mans_shield')"><DOTAItemImage itemname="item_poor_mans_shield"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_bracer_datadriven')"><DOTAItemImage itemname="item_bracer_datadriven"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_soul_ring')"><DOTAItemImage itemname="item_soul_ring"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_soul_ring_datadriven')"><DOTAItemImage itemname="item_soul_ring_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_phase_boots')"><DOTAItemImage itemname="item_phase_boots"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_power_treads')"><DOTAItemImage itemname="item_power_treads"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_oblivion_staff_datadriven')"><DOTAItemImage itemname="item_oblivion_staff_datadriven"/></Button>

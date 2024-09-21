@@ -71,7 +71,7 @@
 		"item"		"item_wraith_band_datadriven"
 		"item"		"item_poor_mans_shield"
 		"item"		"item_bracer_datadriven"
-		"item"		"item_soul_ring"
+		"item"		"item_soul_ring_datadriven"
 		"item"		"item_phase_boots"
 		"item"		"item_power_treads"
 		"item"		"item_oblivion_staff_datadriven"

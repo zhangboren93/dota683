@@ -84,6 +84,7 @@ function Activate()
 	LinkLuaModifier( "modifier_item_diffusal_lua", 						"items/modifier_item_diffusal.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_diffusal_2_lua", 					"items/modifier_item_diffusal.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_diffusal_purge_slow_datadriven", 		"items/modifier_item_diffusal_slow.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_soul_ring_buff_lua",				"items/modifier_item_soul_ring_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)

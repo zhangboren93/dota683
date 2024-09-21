@@ -1,6 +1,6 @@
 item2pctregen = {}
 item2pctregen["item_medallion_of_courage"] = 50
-item2pctregen["item_soul_ring"] = 50
+item2pctregen["item_soul_ring_datadriven"] = 50
 item2pctregen["item_bfury"] = 150
 item2pctregen["item_bfury_datadriven"] = 150
 item2pctregen["item_sphere"] = 150
@@ -19,7 +19,6 @@ item2pctregen["item_soul_booster"] = 100
 function handleIntervalThink(event)
 	local caster = event.caster
 	local ability = event.ability
-	item2modifier("item_soul_ring", 		"modifier_item_soul_ring_health_regen", caster, ability)
 	item2modifier("item_crimson_guard", 	"modifier_crimson_guard_attribute_bonus", caster, ability)
 	item2modifier("item_necronomicon", 		"modifier_necronomicon_intellect_bonus", caster, ability)
 	item2modifier("item_necronomicon_2", 	"modifier_necronomicon_2_intellect_bonus", caster, ability)

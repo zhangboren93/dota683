@@ -5056,7 +5056,7 @@
 		"ItemResult"					"item_bloodstone_datadriven"
 		"ItemRequirements"
 		{
-			"01"						"item_soul_ring;item_soul_booster"
+			"01"						"item_soul_ring_datadriven;item_soul_booster"
 		}
 	}
 	// Rewrite of Bloodstone
@@ -7717,10 +7717,16 @@
 	//=================================================================================================================
 	"item_recipe_soul_ring"
 	{
+		"ItemPurchasable"				"0"
+	}	
+	"item_recipe_soul_ring_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"177"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1377"
+		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7730,29 +7736,26 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_soul_ring"
+		"ItemResult"					"item_soul_ring_datadriven"
 		"ItemRequirements"
 		{
 			"01"						"item_ring_of_regen;item_sobi_mask_datadriven"
 		}
-	}	
-
+	}
 	//=================================================================================================================
 	// Soul Ring
 	//=================================================================================================================
 	"item_soul_ring"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"178"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ItemPurchasable"	"0"
+	}
+	"item_soul_ring_datadriven"
+	{
+		"ID"							"1378"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_soul_ring"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-
-		// Stats		
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"30.0"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityHealthCost"				"150"
 		"AbilityManaCost"				"0"
 		"ItemCost"						"800"
@@ -7761,24 +7764,40 @@
 		"ItemAliases"					"soul ring"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		
-		// Sound
-		//-------------------------------------------------------------------------------------------------------------			
 		"UIPickupSound"					"Item.PickUpRingShop"
 		"UIDropSound"					"Item.DropRingShop"
 		"WorldDropSound"				"Item.DropRingWorld"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"		"0"
-			"bonus_armor"			"0"
 			"health_sacrifice"		"150"
 			"mana_gain"				"150"
 			"duration"				"10"
 			"bonus_health_regen"	"3"
 			"bonus_mana_regen_percentage"	"50"
+		}
+		"precache"
+		{
+			"particle"	"particles/items2_fx/soul_ring.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_soul_ring_datadriven"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
+				}
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_soul_ring.lua"
+				"Function"		"handleSpellStart"
+			}
 		}
 	}
 	//=================================================================================================================

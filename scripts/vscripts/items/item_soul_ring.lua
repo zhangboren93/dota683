@@ -1,47 +1,14 @@
-if item_soul_ring_bonus_modifier == nil then
-    item_soul_ring_bonus_modifier = class({})
-end
-
-function item_soul_ring_bonus_modifier:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
-function item_soul_ring_bonus_modifier:OnCreated(kv)
---    print("item_orchid_regen_percentage_modifier:OnCreated")
-    self:StartIntervalThink(0.5)
-end
-
-function item_soul_ring_bonus_modifier:IsHidden()
-    return true
-end
-
-function item_soul_ring_bonus_modifier:OnIntervalThink()
-    --print("interval think")
-    local hParent = self:GetParent() --the unit.
-    if hParent == nil or hParent.FindItemInInventory == nil then
-        return
-    end
-    local item = hParent:FindItemInInventory("item_soul_ring")
-    if item ~= nil and item:GetItemState() == 1 then
-        --print("sheepstick state: " .. item:GetItemState())
-        
-        local mana_gen = hParent:GetManaRegen();
-        local mana_gen_bonus = item:GetSpecialValueFor("bonus_mana_regen_percentage")
-        local bonus_mana = mana_gen * mana_gen_bonus / 100
-        -- think interval is 0.5s
-        bonus_mana = bonus_mana / 2
-        -- print("orchid bonus mana " .. bonus_mana)
-        hParent:GiveMana(bonus_mana)
-
-        -- add strength bonus modifier
-        if not hParent:HasModifier("modifier_soul_ring_health_regen_lua") then
-             print("adding health regen bonus modifier")
-             hParent:AddNewModifier(
-                hParent, nil, 
-                "modifier_soul_ring_health_regen_lua",
-                { bonus_health_regen = item:GetSpecialValueFor("bonus_health_regen")})
-         end
-    else
-        hParent:RemoveModifierByNameAndCaster("modifier_soul_ring_health_regen_lua", hParent)
-    end
+function handleSpellStart(event)
+	local caster = event.caster
+	local ability = event.ability
+	local mana_gain = ability:GetSpecialValueFor("mana_gain")
+	local mana = caster:GetMana()
+	local max_mana = caster:GetMaxMana()
+	local extra_max_mana = mana_gain + mana - max_mana 
+	local duration = ability:GetSpecialValueFor("duration")
+	if extra_max_mana < 0 then extra_max_mana = 0 end
+	caster:AddNewModifier(caster, ability, "modifier_item_soul_ring_buff_lua", { duration = duration, extra = extra_max_mana })
+	caster:GiveMana(mana_gain)
+	caster:EmitSound("DOTA_Item.SoulRing.Activate")
+	ParticleManager:CreateParticle("particles/items2_fx/soul_ring.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 end

@@ -28236,16 +28236,6 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"30"
 				}
 			}
-			"modifier_item_soul_ring_health_regen"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"3"
-				}
-			}
 			"modifier_crimson_guard_attribute_bonus"
 			{
 				"Passive"		"0"
