@@ -2596,14 +2596,3 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 		end
 	end
 end
-
-function getConnectedPlayerCount(team)
-	local ret = 0
-	for i=1,PlayerResource:GetPlayerCountForTeam(team) do
-		local state = PlayerResource:GetConnectionState(PlayerResource:GetNthPlayerIDOnTeam(team, i))
-		if state == DOTA_CONNECTION_STATE_CONNECTED or state == DOTA_CONNECTION_STATE_NOT_YET_CONNECTED then
-			ret = ret + 1
-		end
-	end
-	return ret
-end
