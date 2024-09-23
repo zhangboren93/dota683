@@ -22,7 +22,7 @@ function StartBrewing( event )
 
 	-- Play the sound, which will be stopped when the sub ability fires
 	caster:EmitSound("Hero_Alchemist.UnstableConcoction.Fuse")
-
+	caster:StartGesture(ACT_DOTA_ALCHEMIST_CONCOCTION)
 end	
 
 --[[
@@ -103,6 +103,7 @@ function EndBrewing( event )
 
 	-- Remove the brewing modifier
 	caster:RemoveModifierByName("modifier_unstable_concoction_brewing")
+	caster:RemoveGesture(ACT_DOTA_ALCHEMIST_CONCOCTION)
 
 end	
 
@@ -128,6 +129,7 @@ function CheckSelfStun( event )
 
 		-- Plays the Concoction Stun sound
 		caster:EmitSound("Hero_Alchemist.UnstableConcoction.Stun")
+		caster:RemoveGesture(ACT_DOTA_ALCHEMIST_CONCOCTION)
 
 		-- Swap the sub_ability back to normal
 		local main_ability_name = ability:GetAbilityName()
