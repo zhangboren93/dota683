@@ -79,10 +79,11 @@ function OnEndGameStats(event) {
     let oldStatOption = LowerTalentArea.FindChildTraverse("StatUpgradeOption");
     oldStatOption.style.visibility = "collapse";
 
-    let newStatOption = $.CreatePanel("Panel", LowerTalentArea, "StatUpgradeOption");
-    newStatOption.BLoadLayout("file://{resources}/layout/custom_game/custom_talent_tree.xml", false, false);
-    LowerTalentArea.MoveChildBefore(newStatOption, LowerTalentArea.GetChild(1));
-    //let backpack_list = PanelHUD.FindChildTraverse("inventory_backpack_list");
-    //backpack_list.visible = false;
+    var ShardBlock = PanelHUD.FindChildTraverse("AghsStatusShard");
+    ShardBlock.visible = false;
+    ShardBlock = PanelHUD.FindChildTraverse("AghsStatusShardScene");
+    ShardBlock.visible = false;
+    ShardBlock = PanelHUD.FindChildTraverse("AghsShardStatusConversion");
+    ShardBlock.visible = false;
 })();
 
