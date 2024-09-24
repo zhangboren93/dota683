@@ -26,6 +26,7 @@
 #base "heroes/keeper_of_the_light.txt"
 #base "heroes/kunkka.txt"
 #base "heroes/legion_commander.txt"
+#base "heroes/leshrac.txt"
 #base "heroes/lion.txt"
 #base "heroes/lone_druid.txt"
 #base "heroes/luna.txt"
@@ -23368,52 +23369,6 @@
 				"radius"			"150 175 200 225"
 				"duration"			"2"
 		}
-	}
-	//=================================================================================================================
-	// Leshrac: Diabolic Edict
-	//=================================================================================================================
-	"leshrac_diabolic_edict"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5242"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Leshrac.Diabolic_Edict"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.5"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22 22 22 22"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"95 120 135 155"
-		
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"9 18 27 36"
-		"AbilityDuration"				"10"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"num_explosions"		"40"
-				"radius"				"500"
-				"tower_bonus"			"40"
-				"affects_buildings"		"1"
-				"AbilityDuration"		"10"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	//=================================================================================================================
 	// Lion: Impale

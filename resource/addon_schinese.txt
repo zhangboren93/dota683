@@ -2348,7 +2348,15 @@
 		"DOTA_Tooltip_ability_keeper_of_the_light_spirit_form_Facet_keeper_of_the_light_facet_solar_bind"	"这颗命石没有效果。"
 		"DOTA_Tooltip_ability_keeper_of_the_light_spirit_form_Facet_keeper_of_the_light_facet_recall"		"这颗命石没有效果。"
 		// Leshrac
-		"DOTA_Tooltip_Ability_leshrac_diabolic_edict_Description"	"使拉席克周围的区域充满魔法爆炸，对敌方单位和建筑造成物理伤害。范围内的敌人越少，他们受到的伤害就越大。对防御塔额外造成%tower_bonus%%%的伤害。持续%abilityduration%秒。"
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven"							"恶魔敕令"
+		"DOTA_Tooltip_Ability_leshrac_diabolic_edict_datadriven_Description"				"使拉席克周围的区域充满魔法爆炸，对敌方单位和建筑造成物理伤害。范围内的敌人越少，他们受到的伤害就越大。对防御塔额外造成%tower_bonus%%%的伤害。持续%abilityduration%秒。"
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven_Lore"						"古老的能量从一个位面向另一个位面爆发，将触碰到的一切化为灰烬。"
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven_Note0"						"即使拉席克死亡，爆炸还是会在原地继续。"
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven_Note2"						"可以伤害建筑，减益免疫单位和隐身单位。"
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven_radius"						"作用范围："
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven_num_explosions"				"爆炸次数："
+		"DOTA_Tooltip_modifier_leshrac_diabolic_edict_datadriven"							"恶魔敕令"
+		"DOTA_Tooltip_modifier_leshrac_diabolic_edict_datadriven_Description"				"对周围的敌方单位造成伤害"
 		"DOTA_Tooltip_Ability_leshrac_pulse_nova_Scepter_Description"			"提高每秒伤害。"
 		//Lich
 		"DOTA_Tooltip_ability_lich_frost_armor_2"								"霜冻护甲"

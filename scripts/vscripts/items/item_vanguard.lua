@@ -36,6 +36,8 @@ function modifier_item_vanguard_lua:GetModifierPhysical_ConstantBlock(event)
 	local parent = self:GetParent()
 	if parent:IsIllusion() then return 0 end
 
+	if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK) ~= 0 then return end
+
 	if RollPseudoRandomPercentage(self.block_chance,
 		DOTA_PSEUDO_RANDOM_ITEM_VANGUARD, parent) then
 		

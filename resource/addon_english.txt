@@ -431,7 +431,7 @@
 		"DOTA_Tooltip_ability_item_vanguard_lua_Note0"								"Multiple sources of damage block do not stack."
 		"DOTA_Tooltip_ability_item_vanguard_lua_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_vanguard_lua_bonus_health_regen"					"+$hp_regen"
-		
+
 		"DOTA_Tooltip_Ability_item_soul_booster_bonus_mana_regen_pct"						"%+$mana_regen"
 		"DOTA_Tooltip_ability_item_soul_booster_bonus_health_regen"						"+$hp_regen"
 
@@ -636,7 +636,7 @@
 		"DOTA_Tooltip_modifier_hoof_stomp"													"#DOTA_Tooltip_modifier_stunned"
 		//Chaos Knight
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven"							"Reality Rift"
-		"DOTA_Tooltip_Ability_chaos_knight_reality_rift	_datadriven_Description"				"Teleports you, any images you have and the target unit to a point along the line between the two of you. Chaos Knight gains attack power bonus."
+		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven_Description"				"Teleports you, any images you have and the target unit to a point along the line between the two of you. Chaos Knight gains attack power bonus."
 		"DOTA_Tooltip_ability_chaos_knight_reality_rift_datadriven_Note0"					"Chaos Knight and the target unit are made to face each other, and Chaos Knight and his phantasms are issued an attack order against the target."
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven_Lore"					"#DOTA_Tooltip_Ability_chaos_knight_reality_rift_Lore"	
 		"DOTA_Tooltip_Ability_chaos_knight_reality_rift_datadriven_bonus_damage"			"Bonus Damage:"
@@ -873,9 +873,9 @@
 		"DOTA_Tooltip_modifier_howl_unit_datadriven"					"Howl"
 		"DOTA_Tooltip_modifier_howl_unit_datadriven_Description"		"Gaining %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% bonus damage."
 		"DOTA_Tooltip_modifier_feral_impulse_datadriven"								"Feral Impulse"
-		"DOTA_Tooltip_modifier_feral_impulse_datadriven_Description"					"Gaining %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% bonus damage
+		"DOTA_Tooltip_modifier_feral_impulse_datadriven_Description"					"Gaining %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% bonus damage"
 		"DOTA_Tooltip_modifier_feral_impulse_unit_datadriven"							"Feral Impulse"
-		"DOTA_Tooltip_modifier_feral_impulse_unit_datadriven_Description"				"Gaining %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% bonus damage
+		"DOTA_Tooltip_modifier_feral_impulse_unit_datadriven_Description"				"Gaining %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed and %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%% bonus damage"
 		"DOTA_Tooltip_Ability_lycan_feral_impulse_datadriven"							"Feral Impulse"
 		"DOTA_Tooltip_Ability_lycan_feral_impulse_datadriven_Description"				"Increases the attack speed and damage of Lycan and all units under his control."
 		"DOTA_Tooltip_Ability_lycan_feral_impulse_datadriven_radius"					"Raduis: "
@@ -1264,7 +1264,7 @@
 		"DOTA_Tooltip_ability_tiny_tree_grab_cleave_radius_damage"		        "%CLEAVE DAMAGE:"
 		"DOTA_Tooltip_ability_tiny_tree_grab_cleave_radius"				        "CLEAVE RADIUS:"
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven"					"Nature's Guise"
-		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_Description"		"Causes the targeted unit to blend in with the forest, becoming invisible to enemies and gaining a movement speed bonus when near a tree. If the unit moves away from a tree or the spell is cast on a unit with no nearby trees, Nature's Guise is lost. Treant Protector can cast spells and remain invisible under Nature's Guise.
+		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_Description"		"Causes the targeted unit to blend in with the forest, becoming invisible to enemies and gaining a movement speed bonus when near a tree. If the unit moves away from a tree or the spell is cast on a unit with no nearby trees, Nature's Guise is lost. Treant Protector can cast spells and remain invisible under Nature's Guise."
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_bonus_move_speed"	"%Move Speed Bonus: "
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_duration"			"Duration: "
 		"DOTA_Tooltip_Ability_treant_natures_guise_datadriven_fade_time"		"Fade Time: "
@@ -2274,7 +2274,15 @@
 		"DOTA_Tooltip_ability_keeper_of_the_light_spirit_form_Facet_keeper_of_the_light_facet_solar_bind"	"This facet is of NO effect."
 		"DOTA_Tooltip_ability_keeper_of_the_light_spirit_form_Facet_keeper_of_the_light_facet_recall"		"This facet is of NO effect."
 		// Leshrac
-		"DOTA_Tooltip_Ability_leshrac_diabolic_edict_Description"	"Saturates the area around Leshrac with magical explosions that deal physical damage to enemy units and structures.  The fewer units available to attack, the more damage those units will take.  Deals %tower_bonus%%% more damage to towers. Lasts %abilityduration% seconds."
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven"				"Diabolic Edict"
+		"DOTA_Tooltip_Ability_leshrac_diabolic_edict_datadriven_Description"	"Saturates the area around Leshrac with magical explosions that deal physical damage to enemy units and structures.  The fewer units available to attack, the more damage those units will take.  Deals %tower_bonus%%% more damage to towers. Lasts %abilityduration% seconds."
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven_Lore"			"Chronoptic energy bursts from one plane to the other, evaporating anything it touches."
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven_Note0"			"The explosions will continue even if Leshrac is killed."
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven_Note2"			"Can damage buildings, Spell Immune units, and invisible units."
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_leshrac_diabolic_edict_datadriven_num_explosions"	"EXPLOSIONS:"
+		"DOTA_Tooltip_modifier_leshrac_diabolic_edict_datadriven" 				"Diabolic Edict"
+		"DOTA_Tooltip_modifier_leshrac_diabolic_edict_datadriven_Description" 	"Inflicting Damage to nearby enemy units"
 		"DOTA_Tooltip_Ability_leshrac_pulse_nova_Scepter_Description"			"Increases damage per second."
 		//Lich
 		"DOTA_Tooltip_ability_lich_frost_armor_2"							"Ice Armor"
