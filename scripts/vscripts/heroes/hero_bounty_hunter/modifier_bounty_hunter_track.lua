@@ -51,10 +51,9 @@ function modifier_bounty_hunter_track_lua:OnCreated()
 end
 
 function modifier_bounty_hunter_track_lua:OnIntervalThink()
-	local vision_radius = 800
 	if not IsServer() then return end
-	if GameRules:IsDaytime() then
-		vision_radius = 1800
-	end
-	self:GetAbility():CreateVisibilityNode(self:GetParent():GetAbsOrigin(), vision_radius, 0.1)
+	local parent = self:GetParent()
+	local vision_radius = parent:GetCurrentVisionRange()
+	local ability = self:GetAbility()
+	ability:CreateVisibilityNode(parent:GetAbsOrigin(), vision_radius, 0.1)
 end
