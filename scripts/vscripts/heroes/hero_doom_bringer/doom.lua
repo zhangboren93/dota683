@@ -66,7 +66,7 @@ function handleIntervalThink(event)
 	local target = event.target
 	if caster:HasScepter() then
 		-- if target is within caster's range, increase modifier's duration by 1s
-		if (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D() <= 900 then
+		if (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D() <= 900 and caster:IsAlive() then
 			local modifier = target:FindModifierByName("modifier_doom_datadriven")
 			if modifier ~= nil then
 				modifier:SetDuration(modifier:GetRemainingTime() + 1, true)
