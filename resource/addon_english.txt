@@ -5,6 +5,10 @@
 		"DOTA_Tooltip_modifier_attribute_regen_adjust"		"Attribute gains reduction"
 		"DOTA_Tooltip_modifier_attribute_regen_adjust_Description"	"Reduce health regen per strength, mana regen per intellect, base health and mana"
 
+		"DOTA_ToolTip_ability_special_bonus_attributes_datadriven"				"Attribute Bonus"
+		"DOTA_ToolTip_ability_special_bonus_attributes_datadriven_Description"	"Improves all attributes per point spent."
+		"DOTA_ToolTip_ability_special_bonus_attributes_datadriven_value"		"ALL ATTRIBUTE BONUS:"
+
 		"DOTA_Tooltip_Ability_item_dust_datadriven"								"Dust of Appearance"
 		"DOTA_Tooltip_ability_item_dust_datadriven_Description"					"<h1>Use: Reveal</h1>Reveals and slows invisible heroes by %movespeed%%% in a %radius% radius where the caster was standing. <br><br> The debuff effect on enemies lingers for %linger_duration%s."
 		"DOTA_Tooltip_ability_item_dust_datadriven_Lore"						"One may hide visage, but never volume."
@@ -1273,8 +1277,8 @@
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_health_regen"	"HEALTH REGENERATION BONUS: "
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_damage_block"	"DAMAGE BLOCK: "
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_duration"		"DURATION: "
-		"DOTA_Tooltip_modifier_living_armor_datadriven_stacks"				"Living Armor"
-		"DOTA_Tooltip_modifier_living_armor_datadriven_stacks_Description"	"Health regen increased by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%.\nBlocking %dMODIFIER_PROPERTY_TOOLTIP% damage."
+		"DOTA_Tooltip_modifier_treant_living_armor_lua"				"Living Armor"
+		"DOTA_Tooltip_modifier_treant_living_armor_lua_Description"	"Health regen increased by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%.\nBlocking %dMODIFIER_PROPERTY_TOOLTIP% damage."
 		"DOTA_Tooltip_ability_treant_eyes_in_the_forest_Description"			"Treant Protector enchants a tree, which grants him unobstructed vision in that location. If Overgrowth is cast, units within an %overgrowth_aoe% radius of an enchanted tree will be entangled and damaged."
 		// Tusk
 		"DOTA_Tooltip_Ability_tusk_frozen_sigil_Description"				"Tusk summons a Frozen Sigil by calling upon the deepest cold of winter. The Sigil creates a snowstorm which slows all enemy units within 600 range."

@@ -1,3 +1,4 @@
+// Deprecated
 function IntervalCheck(panel)
 {
 	let hero = Players.GetLocalPlayerPortraitUnit(); // Which unit am I watching?

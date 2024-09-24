@@ -44,6 +44,11 @@ end
 function modifier_huskar_berserkers_blood_lua:OnIntervalThink()
 	local parent = self:GetParent()
 
+	if parent:PassivesDisabled() then
+		self:SetStackCount(0)
+		return
+	end
+
 	local stack_cnt = math.floor((101 - parent:GetHealthPercent()) / 7)	
 	if stack_cnt < 1 then stack_cnt = 1 end
 

@@ -5,6 +5,10 @@
 		"DOTA_Tooltip_modifier_attribute_regen_adjust"		"属性削弱"
 		"DOTA_Tooltip_modifier_attribute_regen_adjust_Description"	"减少力量生命恢复，智力魔法恢复，基础生命魔法"
 
+		"DOTA_ToolTip_ability_special_bonus_attributes_datadriven"				"属性附加"
+		"DOTA_ToolTip_ability_special_bonus_attributes_datadriven_Description"	"消耗技能点提升所有属性。"
+		"DOTA_ToolTip_ability_special_bonus_attributes_datadriven_value"		"全属性提升："
+
 		"DOTA_Tooltip_Ability_item_dust_datadriven"								"显影之尘"
 		"DOTA_Tooltip_ability_item_dust_datadriven_Description"					"<h1>使用：现形</h1>在施法者站立位置的%radius%范围内创造一片区域，使其中的隐身单位现形，并减速%movespeed%%%。<br><br>负面状态会在敌方英雄粘滞%linger_duration%秒。"
 		"DOTA_Tooltip_ability_item_dust_datadriven_Lore"						"容颜易藏，音声难隐。"
@@ -1313,8 +1317,8 @@
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_health_regen"	"生命恢复加成："
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_damage_block"	"伤害格挡："
 		"DOTA_Tooltip_Ability_treant_living_armor_datadriven_duration"		"持续时间："
-		"DOTA_Tooltip_modifier_living_armor_datadriven_stacks"					"活体护甲"
-		"DOTA_Tooltip_modifier_living_armor_datadriven_stacks_Description"		"生命回复速率提升%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%。\n格挡%dMODIFIER_PROPERTY_TOOLTIP%点伤害。"
+		"DOTA_Tooltip_modifier_treant_living_armor_lua"					"活体护甲"
+		"DOTA_Tooltip_modifier_treant_living_armor_lua_Description"		"生命回复速率提升%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%。\n格挡%dMODIFIER_PROPERTY_TOOLTIP%点伤害。"
 		"DOTA_Tooltip_ability_treant_eyes_in_the_forest_Description"		"树精卫士对目标树木灌注魔力。注魔后树木将拥有周围的顺畅视野。如果树精卫士施放了疯狂生长，这些树木附近%overgrowth_aoe%范围内的单位将会被困住，并受到伤害。"
 		// Tusk
 		"DOTA_Tooltip_ability_tusk_snowball_datadriven"							"雪球"
