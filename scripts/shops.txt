@@ -117,7 +117,7 @@
 		"item"		"item_hood_of_defiance_datadriven"
 		"item"		"item_vanguard_lua"
 		"item"		"item_blade_mail"
-		"item"		"item_soul_booster"
+		"item"		"item_soul_booster_datadriven"
 		"item"		"item_crimson_guard"
 		"item"		"item_black_king_bar_datadriven"
 		"item"		"item_shivas_guard"

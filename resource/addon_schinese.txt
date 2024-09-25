@@ -412,6 +412,8 @@
 		"DOTA_Tooltip_ability_item_radiance_Description"							"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害。<br><br>作用范围：%aura_radius%"	
 		"DOTA_Tooltip_ability_item_rapier_Description"								"<h1>被动：永恒</h1> <font color='#e03e2e'>死亡后掉落，而且无法被摧毁。</font> <br><br>当拥有者的队友拾取后，仅在返还给拥有者后才会有效。一旦被敌人拾取，圣剑将不再受此限制，信使无法拾取掉落的圣剑。"
 		"DOTA_Tooltip_ability_item_abyssal_blade_Description"						"<h1>主动：强击</h1>击晕一个敌方目标，持续%stun_duration%秒。<br><br>无视技能免疫。<br><br>施法距离：%abilitycastrange%\n\n<h1>被动：重击</h1>近战英雄攻击时有%bash_chance_melee%%%的概率击晕目标%bash_duration%秒。远程英雄的击晕概率为%bash_chance_ranged%%%。"
+		"DOTA_Tooltip_Ability_item_soul_booster_datadriven"							"振魂石"
+		"DOTA_Tooltip_ability_item_soul_booster_datadriven_Lore"					"再次鼓起丧失的勇气。"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"

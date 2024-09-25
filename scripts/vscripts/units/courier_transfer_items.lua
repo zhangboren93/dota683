@@ -35,7 +35,7 @@ ITEM_RECIPE_RULES = {
 	{"item_heart_datadriven", "item_recipe_heart_datadriven", "item_vitality_booster", "item_reaver"},
 	{"item_black_king_bar_datadriven", "item_recipe_black_king_bar_datadriven", "item_ogre_axe", "item_mithril_hammer"},
 	{"item_shivas_guard", "item_recipe_shivas_guard", "item_platemail", "item_mystic_staff"},
-	{"item_bloodstone_datadriven", "item_recipe_bloodstone_datadriven", "item_soul_ring_datadriven", "item_soul_booster"},
+	{"item_bloodstone_datadriven", "item_recipe_bloodstone_datadriven", "item_soul_ring_datadriven", "item_soul_booster_datadriven"},
 	{"item_sphere", "item_recipe_sphere", "item_ultimate_orb", "item_pers_datadriven"},
 	{"item_vanguard_lua", "item_ring_of_health", "item_vitality_booster", "item_stout_shield"},
 	{"item_crimson_guard", "item_recipe_crimson_guard", "item_vanguard_lua", "item_buckler_2"},
@@ -77,7 +77,7 @@ ITEM_RECIPE_RULES = {
 	{"item_power_treads", "item_boots", "item_gloves", "item_boots_of_elves"},
 	{"item_power_treads", "item_boots", "item_gloves", "item_robe"},
 	{"item_ultimate_scepter", "item_point_booster", "item_ogre_axe", "item_blade_of_alacrity", "item_staff_of_wizardry"},
-	{"item_soul_booster", "item_energy_booster", "item_vitality_booster", "item_point_booster"},
+	{"item_soul_booster_datadriven", "item_energy_booster", "item_vitality_booster", "item_point_booster"},
 	{"item_greater_crit", "item_recipe_greater_crit", "item_lesser_crit", "item_demon_edge"},
 	{"item_rapier", "item_demon_edge", "item_relic"},
 	{"item_bracer_datadriven", "item_recipe_bracer_datadriven", "item_circlet", "item_gauntlets"}

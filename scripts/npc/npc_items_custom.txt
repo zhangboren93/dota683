@@ -5056,7 +5056,7 @@
 		"ItemResult"					"item_bloodstone_datadriven"
 		"ItemRequirements"
 		{
-			"01"						"item_soul_ring_datadriven;item_soul_booster"
+			"01"						"item_soul_ring_datadriven;item_soul_booster_datadriven"
 		}
 	}
 	// Rewrite of Bloodstone
@@ -9040,15 +9040,36 @@
 				"bonus_mana"			"150"
 		}
 	}
+	"item_recipe_soul_booster"
+	{
+		"ItemPurchasable"	"0"
+		"IsObsolete"		"1"
+	}
 	"item_soul_booster"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_soul_booster_datadriven"
+	{
+		"BaseClass"			"item_datadriven"
+		"ItemCost"			"0"
+		"ItemShopTags"		""
+		"ItemRecipe"		"1"
+		"ItemResult"		"item_soul_booster_datadriven"
+		"ItemRequirements"
+		{
+			"01"			"item_vitality_booster;item_energy_booster;item_point_booster"
+		}
+	}
+	"item_soul_booster_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"item_soul_booster"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3000"
+		"ItemCost"						"3300"
 		"ItemShopTags"					"regen_health;regen_mana;health_pool;mana_pool"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"soul booster"
@@ -9057,10 +9078,24 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_health"			"450"
-				"bonus_mana"			"400"
-				"bonus_mana_regen_pct"	"100"
-				"bonus_health_regen"	"4"
+			"bonus_health"			"450"
+			"bonus_mana"			"400"
+			"bonus_mana_regen_pct"	"100"
+			"bonus_health_regen"	"4"
+		}
+		"Modifiers"
+		{
+			"modifier_item_soul_booster_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health"
+					"MODIFIER_PROPERTY_MANA_BONUS"				"%bonus_mana"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
+				}
+			}
 		}
 	}
 	//=================================================================================================================

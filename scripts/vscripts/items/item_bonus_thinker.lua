@@ -14,7 +14,7 @@ item2pctregen["item_oblivion_staff_datadriven"] = 75
 item2pctregen["item_pers_datadriven"] = 125 
 item2pctregen["item_urn_of_shadows_datadriven"] = 50 
 item2pctregen["item_bloodstone_datadriven"] = 200 
-item2pctregen["item_soul_booster"] = 100
+item2pctregen["item_soul_booster_datadriven"] = 100
 
 function handleIntervalThink(event)
 	local caster = event.caster
@@ -24,7 +24,6 @@ function handleIntervalThink(event)
 	item2modifier("item_necronomicon_2", 	"modifier_necronomicon_2_intellect_bonus", caster, ability)
 	item2modifier("item_necronomicon_3", 	"modifier_necronomicon_3_intellect_bonus", caster, ability)
 	item2modifier("item_force_staff", 		"modifier_item_force_staff_health_regen", caster, ability)
-	item2modifier("item_soul_booster", 		"modifier_item_soul_booster_health_regen_lua", caster, ability)
 	itemPctManaRegen(caster)
 
 	-- apply gem effect
