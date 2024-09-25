@@ -41,7 +41,7 @@ function TestOfFaithTeleportTarget( keys )
 		local target_types = DOTA_UNIT_TARGET_CREEP
 		local target_flags = DOTA_UNIT_TARGET_FLAG_PLAYER_CONTROLLED
 
-		local units = FindUnitsInRadius(caster_team, caster_location, nil, 9000, target_teams, target_types, target_flags, FIND_CLOSEST, false)
+		local units = FindUnitsInRadius(caster_team, caster_location, nil, 30000, target_teams, target_types, target_flags, FIND_CLOSEST, false)
 
 		for _,unit in ipairs(units) do
 			-- Check if the found unit is under the casters control
