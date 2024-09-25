@@ -230,6 +230,7 @@ function Activate()
 	LinkLuaModifier( "modifier_creep_light",					"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_irresolute_alter",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_piercing_alter",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_creep_move_after_reach_t1_lua",  "units/modifier_creep_move_after_reach_t1.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -1012,8 +1013,13 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
 			entity:SetBaseMagicalResistanceValue(0)
 			if (entity:GetAbsOrigin()[2] < -5460 or entity:GetAbsOrigin()[2] > 4745) 
-				and not entity:HasModifier("modifier_creep_safe_lane_move_speed_bonus") and entity:IsAlive() then
-				entity:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", {}):SetDuration(25, true)
+				and not entity:HasModifier("modifier_creep_safe_lane_move_speed_bonus") 
+				and not entity:HasModifier("modifier_creep_move_after_reach_t1_lua")
+				and entity:IsAlive()
+			then
+				local current_time = GameRules:GetDOTATime(false, true)
+				local time_fraction = 30 - current_time % 30
+				entity:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", {}):SetDuration(25 + time_fraction, true)
 			end
 		end, "remove flag bearer bonus", 1)
 	end
