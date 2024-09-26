@@ -4,7 +4,7 @@ function item_vanguard_lua:GetIntrinsicModifierName()
 end
 
 modifier_item_vanguard_lua = class({ 
-	GetAttributes = function( self ) return MODIFIER_ATTRIBUTE_MULTIPLE end
+	GetAttributes = function( self ) return MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 })
 
 function modifier_item_vanguard_lua:OnCreated()
