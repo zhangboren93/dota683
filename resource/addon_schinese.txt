@@ -1838,8 +1838,8 @@
 		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_crit_bonus"				"%致命一击伤害："
 
 		"DOTA_Tooltip_Facet_phantom_assassin_veiled_one_Description"		"使用幻影刺客技能图标。"
-		"DOTA_Tooltip_Facet_phantom_assassin_methodical"					"无双诡魅"
-		"DOTA_Tooltip_Facet_phantom_assassin_methodical_Description"		"使用幻影刺客至宝技能图标。"
+		"DOTA_Tooltip_Facet_phantom_assassin_arcana"						"无双诡魅"
+		"DOTA_Tooltip_Facet_phantom_assassin_arcana_Description"			"使用幻影刺客至宝技能图标。"
 		"DOTA_Tooltip_Facet_phantom_assassin_persona"						"漂泊绝影"
 		"DOTA_Tooltip_Facet_phantom_assassin_persona_Description"			"使用幻影刺客身心技能图标。"
 		//Phantom lancer
