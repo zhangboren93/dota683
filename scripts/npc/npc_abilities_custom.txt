@@ -26633,7 +26633,7 @@
 				"shard_width"				"200"
 				"shard_damage"				"70 140 210 280"
 				"shard_count"				"7"
-				"shard_speed"				"1200.0"
+				"shard_speed"				"1100.0"
 				"shard_duration"			"7"
 				"shard_angle_step"			"40.0"
 				"shard_distance"			"200"
@@ -26737,6 +26737,11 @@
 				"Aura_Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				
+				"States"
+				{
+		        	"MODIFIER_STATE_FORCED_FLYING_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 	
 			"modifier_sigil_aura_effect"
