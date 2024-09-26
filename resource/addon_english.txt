@@ -717,6 +717,7 @@
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven"									"Echo Slam"
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_Description"						"Shockwaves travel through the ground, damaging enemy units.  Each enemy hit causes an echo to damage nearby units."
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_Lore"							"Tectonic plates crack, mountains fold, and foes are crushed by the Echo Slam."
+		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_Note0"							"Units creating echoes also take damage from the wave they produced."
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_echo_slam_echo_damage"			"ECHO DAMAGE:"
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_echo_slam_damage_range"			"RADIUS:"
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_echo_slam_abilitydamage"			"INITIAL DAMAGE:"

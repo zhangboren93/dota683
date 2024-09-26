@@ -23340,15 +23340,22 @@
 	"earthshaker_fissure"
 	{
 		"HasShardUpgrade"				"0"
-		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"125 140 155 170"		
 		"AbilityValues"
 		{
+			"AbilityCastRange"				"1400"
+			"AbilityCooldown"				"15"
 				"fissure_range"				"1400"
 				"fissure_duration"			"8.0"
 				"fissure_radius"				"225"
 				"stun_duration"				"1.0 1.25 1.5 1.75"
 				"fissure_damage"			"125 175 225 275"
+
+			"shard_aftershock_stun_duration_pct"	"0"
+			"free_pathing_linger_duration"			"0"
+			"free_pathing_application_radius"		"0"
+			"fissure_movement_speed"				"0"
+			"fissure_max_distance_moved"			"0"
 		}
 	}
 	//=================================================================================================================
