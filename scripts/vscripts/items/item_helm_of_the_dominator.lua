@@ -11,6 +11,7 @@ function dominateCreep(event)
 	target:AddNewModifier(caster, item, "modifier_life_stealer_infest_creep", {}) -- Dota2 Original modifier
 	target:RemoveModifierByName("modifier_life_stealer_infest_creep")
 	target:RemoveAbility("life_stealer_consume")
+	target:AddNewModifier(caster, item, "modifier_dominated", {})
 
 	target:SetMaxHealth(target:GetMaxHealth() + 500)
 	target:SetBaseMaxHealth(target:GetBaseMaxHealth() + 500)
