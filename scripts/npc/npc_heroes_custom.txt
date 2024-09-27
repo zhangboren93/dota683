@@ -3041,6 +3041,10 @@
 			}
 			"phantom_assassin_methodical"
 			{
+				"Deprecated"		"true"
+			}
+			"phantom_assassin_arcana"
+			{
 				"Icon"				"overshadow"
 				"Color"				"Purple"
 				"GradientID"		"1"

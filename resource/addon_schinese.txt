@@ -734,14 +734,11 @@
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven"									"回音击"
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_Description"						"穿过地面的冲击波，伤害敌方单位。每个受到攻击的敌人都会引起伤害附近单位的反射波。"
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_Lore"							"地壳开裂，山岳折叠，敌人遭回音击尽数碾压。"
+		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_Note0"							"产生回音的单位也会受到他们生成的声波造成的伤害。"
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_echo_slam_echo_damage"			"回音伤害："
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_echo_slam_damage_range"			"作用范围："
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_echo_slam_abilitydamage"			"初始伤害："
 		"DOTA_Tooltip_Ability_earthshaker_echo_slam_datadriven_Scepter_Description"				"英雄将引起两次反射。"
-		"DOTA_Tooltip_Facet_earthshaker_tectonic_buildup"										""
-		"DOTA_Tooltip_Facet_earthshaker_slugger_Description"									""
-		"DOTA_Tooltip_Facet_earthshaker_slugger"												""
-		"DOTA_Tooltip_Facet_earthshaker_tectonic_buildup_Description"							""
         //Earth Spirit
 		"DOTA_Tooltip_Ability_earth_spirit_boulder_smash_Lore"					    "眩晕"
 		"DOTA_Tooltip_modifier_earth_spirit_boulder_smash_stun_lua"							"巨石冲击"
@@ -1843,8 +1840,8 @@
 		"DOTA_Tooltip_ability_phantom_assassin_coup_de_grace_datadriven_crit_bonus"				"%致命一击伤害："
 
 		"DOTA_Tooltip_Facet_phantom_assassin_veiled_one_Description"		"使用幻影刺客技能图标。"
-		"DOTA_Tooltip_Facet_phantom_assassin_methodical"					"无双诡魅"
-		"DOTA_Tooltip_Facet_phantom_assassin_methodical_Description"		"使用幻影刺客至宝技能图标。"
+		"DOTA_Tooltip_Facet_phantom_assassin_arcana"						"无双诡魅"
+		"DOTA_Tooltip_Facet_phantom_assassin_arcana_Description"			"使用幻影刺客至宝技能图标。"
 		"DOTA_Tooltip_Facet_phantom_assassin_persona"						"漂泊绝影"
 		"DOTA_Tooltip_Facet_phantom_assassin_persona_Description"			"使用幻影刺客身心技能图标。"
 		//Phantom lancer

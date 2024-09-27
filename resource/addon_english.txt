@@ -721,6 +721,7 @@
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven"									"Echo Slam"
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_Description"						"Shockwaves travel through the ground, damaging enemy units.  Each enemy hit causes an echo to damage nearby units."
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_Lore"							"Tectonic plates crack, mountains fold, and foes are crushed by the Echo Slam."
+		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_Note0"							"Units creating echoes also take damage from the wave they produced."
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_echo_slam_echo_damage"			"ECHO DAMAGE:"
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_echo_slam_damage_range"			"RADIUS:"
 		"DOTA_Tooltip_ability_earthshaker_echo_slam_datadriven_echo_slam_abilitydamage"			"INITIAL DAMAGE:"
@@ -1805,8 +1806,8 @@
 		"DOTA_Tooltip_ability_phantom_lancer_spirit_lance_2_tooltip_illusion_total_damage_in_pct"		"%ILLUSION DAMAGE TAKEN:"
 
 		"DOTA_Tooltip_Facet_phantom_assassin_veiled_one_Description"		"Use Phantom Assassin ability icons."
-		"DOTA_Tooltip_Facet_phantom_assassin_methodical"					"Manifold Paradox"
-		"DOTA_Tooltip_Facet_phantom_assassin_methodical_Description"		"Use Phantom Assassin Arcana ability icons."
+		"DOTA_Tooltip_Facet_phantom_assassin_arcana"						"Manifold Paradox"
+		"DOTA_Tooltip_Facet_phantom_assassin_arcana_Description"			"Use Phantom Assassin Arcana ability icons."
 		"DOTA_Tooltip_Facet_phantom_assassin_persona"						"Exile Unveiled"
 		"DOTA_Tooltip_Facet_phantom_assassin_persona_Description"			"Use Phantom Assassin Persona ability icons."
 		// Razor
