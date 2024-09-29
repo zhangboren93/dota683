@@ -30116,12 +30116,11 @@
 	//=================================================================================================================
 	// Ability: Attribute Bonus
 	//=================================================================================================================
-	"special_bonus_attributes_datadriven"
+	"special_bonus_attributes"
 	{
-        "BaseClass"             "ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"HotKeyOverride"		"U"
 		"MaxLevel"              "10"
+		"RequiredLevel"         "1"
+		"LevelsBetweenUpgrades" "2"
 		
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -30129,20 +30128,6 @@
 		{
 			"value"		"2 4 6 8 10 12 14 16 18 20"
 		}
-		"Modifiers"
-        {
-            "modifier_all_attribute_bonus_datadriven"
-            {
-                "Passive"       "1"
-				"IsHidden"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%value"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%value"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%value"
-				}
-            }
-        }
 	}
     "minimap_camp_icon_datadriven"
     {
