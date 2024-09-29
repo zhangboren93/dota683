@@ -507,7 +507,6 @@
 		"ItemRequirements"
 		{
 			"01"	"item_wraith_band_datadriven;item_ring_of_basilius_datadriven"
-			"02"	"item_wraith_band_datadriven;item_ring_of_basilius_inactive_datadriven"
 		}
 	}
 
@@ -2803,7 +2802,6 @@
 		"ItemRequirements"
 		{
 			"01"						"item_ring_of_regen;item_ring_of_basilius_datadriven;item_lifesteal_datadriven"
-			"02"						"item_ring_of_regen;item_ring_of_basilius_inactive_datadriven;item_lifesteal_datadriven"
 		}
 	}
 
@@ -3102,8 +3100,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
 		"ID"							"1288"  //Valve's version of this item uses the ID "88".
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_ring_of_basilius.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"Model"							"models/props_gameplay/red_box.vmdl" 
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
@@ -3131,138 +3130,6 @@
 			"aura_radius"			"900"
 			"aura_mana_regen"		"0.65"  //This variable is unused due to an obscure engine bug.
 			"aura_bonus_armor"		"2"
-		}
-		
-		"OnSpellStart"  //Switch to the inactive version of Ring of Basilius.
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"items/item_ring_of_basilius.lua"
-				"Function"				"item_ring_of_basilius_datadriven_on_spell_start"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"modifier_item_ring_of_basilius_datadriven"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
-				}
-			}
-			"modifier_item_ring_of_basilius_datadriven_aura_emitter"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				
-				"Aura" 					"modifier_item_ring_of_basilius_datadriven_aura"
-				"Aura_Radius" 			"%aura_radius"
-				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Aura_ApplyToCaster" 	"1"
-			}
-			"modifier_item_ring_of_basilius_datadriven_aura"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE"				"%aura_bonus_armor"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"						"0.65"  //This is hardcoded due to an obscure engine bug.
-				}
-			}
-		}
-	}
-	
-	"item_ring_of_basilius_inactive_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_datadriven"
-		"ID"							"2004"  //Valve's version of this item uses the ID "88".
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"Model"							"models/props_gameplay/red_box.vmdl" 
-		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"AbilityTextureName"			"item_ring_of_basilius_inactive"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"525"
-		"ItemShopTags"					"damage;regen_mana;armor"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"rob;ring of basilius"
-		//"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemPurchasable"				"0"
-		
-		// Sound
-		//-------------------------------------------------------------------------------------------------------------			
-		"UIPickupSound"					"Item.PickUpRingShop"
-		"UIDropSound"					"Item.DropRingShop"
-		"WorldDropSound"				"Item.DropRingWorld"
-			
-		"AbilityValues"
-		{
-			"bonus_damage"			"6"
-			"bonus_armor"			"1"
-			"aura_radius"			"900"
-			"aura_mana_regen"		"0.65"  //This variable is unused due to an obscure engine bug.
-			"aura_bonus_armor"		"2"
-		}
-		
-		"OnSpellStart"  //Switch to the active version of Ring of Basilius.
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"items/item_ring_of_basilius.lua"
-				"Function"				"item_ring_of_basilius_inactive_datadriven_on_spell_start"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"modifier_item_ring_of_basilius_inactive_datadriven"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
-				}
-			}
-			"modifier_item_ring_of_basilius_inactive_datadriven_aura_emitter"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				
-				"Aura" 					"modifier_item_ring_of_basilius_inactive_datadriven_aura"
-				"Aura_Radius" 			"%aura_radius"
-				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO"
-				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Aura_ApplyToCaster" 	"1"
-			}
-			"modifier_item_ring_of_basilius_inactive_datadriven_aura"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS_UNIQUE"				"%aura_bonus_armor"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"						"0.65"  //This is hardcoded due to an obscure engine bug.
-				}
-			}
 		}
 	}
 
