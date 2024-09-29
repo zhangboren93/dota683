@@ -7,8 +7,11 @@ function growPassive(event)
 			if not caster:HasAbility("tiny_tree_grab") then
 				local ability = caster:AddAbility("tiny_tree_grab")
 				ability:SetLevel(1)
-				caster:AddNewModifier(caster, ability, "modifier_tiny_tree_grab", {})
 				print("added tiny scepter ability")
+			end
+			if not caster:HasModifier("modifier_tiny_tree_grab") then
+				local ability = caster:FindAbilityByName("tiny_tree_grab")
+				caster:AddNewModifier(caster, ability, "modifier_tiny_tree_grab", {})
 			end
 			if not caster:HasModifier("modifier_sven_great_cleave_radius") then
 				local ability = caster:FindAbilityByName("tiny_tree_grab")
