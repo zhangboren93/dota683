@@ -38,7 +38,7 @@ ITEM_RECIPE_RULES = {
 	{"item_bloodstone_datadriven", "item_recipe_bloodstone_datadriven", "item_soul_ring_datadriven", "item_soul_booster_datadriven"},
 	{"item_sphere", "item_recipe_sphere", "item_ultimate_orb", "item_pers_datadriven"},
 	{"item_vanguard_lua", "item_ring_of_health", "item_vitality_booster", "item_stout_shield"},
-	{"item_crimson_guard", "item_recipe_crimson_guard", "item_vanguard_lua", "item_buckler_2"},
+	{"item_crimson_guard_lua", "item_recipe_crimson_guard_lua", "item_vanguard_lua", "item_buckler_2"},
 	{"item_blade_mail", "item_broadsword", "item_chainmail", "item_robe"},
 	{"item_hood_of_defiance_datadriven", "item_ring_of_health", "item_cloak", "item_ring_of_regen", "item_ring_of_regen"},
 	{"item_monkey_king_bar_datadriven", "item_demon_edge", "item_javelin_datadriven", "item_javelin_datadriven"},

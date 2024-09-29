@@ -1,38 +1,23 @@
-if item_crimson_guard_bonus_modifier == nil then
-    item_crimson_guard_bonus_modifier = class({})
-end
-
-function item_crimson_guard_bonus_modifier:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
-function item_crimson_guard_bonus_modifier:OnCreated(kv)
---    print("item_orchid_regen_percentage_modifier:OnCreated")
-    self:StartIntervalThink(0.5)
-end
-
-function item_crimson_guard_bonus_modifier:IsHidden()
-    return true
-end
-
-function item_crimson_guard_bonus_modifier:OnIntervalThink()
-    --print("interval think")
-    local hParent = self:GetParent() --the unit.
-    if hParent == nil or hParent.FindItemInInventory == nil then
-        return
-    end
-    local item = hParent:FindItemInInventory("item_crimson_guard")
-    if item ~= nil and item:GetItemState() == 1 then
-        --print("sheepstick state: " .. item:GetItemState())
-        -- add all stats bonus modifier
-        if not hParent:HasModifier("modifier_crimson_guard_stats_lua") then
-             print("adding all stats modifier")
-             hParent:AddNewModifier(
-                hParent, nil, 
-                "modifier_crimson_guard_stats_lua",
-                { bonus_all_stats = item:GetSpecialValueFor("bonus_all_stats")})
-        end
-    else
-        hParent:RemoveModifierByNameAndCaster("modifier_crimson_guard_stats_lua", hParent)
-    end
-end
+item_crimson_guard_lua = class({
+	GetIntrinsicModifierName = function()
+		return "modifier_item_crimson_guard_lua"
+	end,
+	OnSpellStart = function(self)
+		local caster = self:GetCaster()
+		local units = FindUnitsInRadius(caster:GetTeam(),
+			caster:GetAbsOrigin(), nil,
+			750,
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+			DOTA_UNIT_TARGET_HERO, 0, 0, false)
+		for i=1,#units do
+			if not units[i]:HasModifier("modifier_item_crimson_guard_nostack_lua") then
+				local modifier = units[i]:AddNewModifier(caster, self, "modifier_item_crimson_guard_extra_lua", { duration = 10 })
+				modifier.particleId = ParticleManager:CreateParticle("particles/items2_fx/vanguard_active.vpcf", PATTACH_OVERHEAD_FOLLOW, units[i])
+				ParticleManager:SetParticleControlEnt(modifier.particleId, 0, units[i], PATTACH_OVERHEAD_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
+				ParticleManager:SetParticleControlEnt(modifier.particleId, 1, units[i], PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
+				units[i]:AddNewModifier(caster, self, "modifier_item_crimson_guard_nostack_lua", { duration = 70 })
+			end
+		end
+		caster:EmitSound("Item.CrimsonGuard.Cast")
+	end
+})

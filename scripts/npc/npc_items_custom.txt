@@ -5380,61 +5380,54 @@
 	//=================================================================================================================
 	"item_recipe_crimson_guard"
 	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_crimson_guard_lua"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"243"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1443"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityTextureName"			"item_recipe"
 		"ItemCost"						"825"	
 		"ItemShopTags"					""
-		
-		
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_crimson_guard"
+		"ItemResult"					"item_crimson_guard_lua"
 		"ItemRequirements"
 		{
 			"01"						"item_vanguard_lua;item_buckler_2"
 		}
 	}
-	
-	//=================================================================================================================
-	// Crimson Guard
-	//=================================================================================================================
 	"item_crimson_guard"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_crimson_guard_lua"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"242"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1442"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_crimson_guard.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-
-		// Stats		
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityTextureName"			"item_crimson_guard"
 		"AbilityCooldown"				"70.0"
 		"AbilityCastRange"				"750"
 		"AbilityManaCost"				"0"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"3850"
 		"ItemShopTags"					"armor;boost_armor;regen_health;block;health_pool"
 		"ItemQuality"					"epic"
 		"ItemAlertable"					"1"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"bonus_health"					"250"
 			"bonus_health_regen"			"6"
 			"bonus_armor"					"5"
+			"all_stats_bonus"				"2"
 			"block_damage_melee"			"40"
 			"block_damage_ranged"			"20"
 			"block_chance"					"67"
@@ -5442,12 +5435,11 @@
 			"bonus_aoe_radius"				"750"
 			"bonus_aoe_armor"				"2" // unused
 			"block_damage_active"			"50" 				
-			"block_chance_active"			"100"
 			"tooltip_reapply_time"			"70"
-			"bonus_strength"				"0"
-			"strength_pct"					"0"
-			"all_stats_bonus"				"2"
-			"max_hp_pct"					"0"
+		}
+		"precache"
+		{
+			"particle"						"particles/items2_fx/vanguard_active.vpcf"
 		}
 	}
 

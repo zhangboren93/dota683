@@ -126,7 +126,7 @@
 			<Button onactivate="OnItemSelectItemPressed('item_vanguard_lua')"><DOTAItemImage itemname="item_vanguard"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_blade_mail')"><DOTAItemImage itemname="item_blade_mail"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_soul_booster_datadriven')"><DOTAItemImage itemname="item_soul_booster_datadriven"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_crimson_guard')"><DOTAItemImage itemname="item_crimson_guard"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_crimson_guard_lua')"><DOTAItemImage itemname="item_crimson_guard_lua"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_black_king_bar_datadriven')"><DOTAItemImage itemname="item_black_king_bar_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_shivas_guard')"><DOTAItemImage itemname="item_shivas_guard"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_bloodstone_datadriven')"><DOTAItemImage itemname="item_bloodstone_datadriven"/></Button>

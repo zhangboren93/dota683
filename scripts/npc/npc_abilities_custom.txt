@@ -28193,28 +28193,6 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-30" 
 				}
 			}
-			"modifier_item_shadow_amulet_attack_speed"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"30"
-				}
-			}
-			"modifier_crimson_guard_attribute_bonus"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"2"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"2"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"2"
-				}
-			}
 			"modifier_refresher_attr_as_bonus"
 			{
 				"Passive"		"0"
