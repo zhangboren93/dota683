@@ -6,8 +6,7 @@ function handleAbilityExecuted(event)
     if event_ability:GetName() == "item_sheepstick" then
         ability:ApplyDataDrivenModifier(caster, target, "modifier_sheep_apply_break_active", {}):SetDuration(
             event_ability:GetSpecialValueFor("sheep_duration"), true)
-    elseif event_ability:GetName() == "lion_voodoo" 
-        or event_ability:GetName() == "shadow_shaman_voodoo" then
+    elseif event_ability:GetName() == "lion_voodoo" then
         ability:ApplyDataDrivenModifier(caster, target, "modifier_sheep_apply_break_active", {}):SetDuration(
             event_ability:GetSpecialValueFor("duration"), true)
     end

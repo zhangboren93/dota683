@@ -85,31 +85,11 @@
 				"IsHidden"		"1"
 				"OnAttackStart"
 				{
-					"Random"
+					"RunScript"
 					{
-						"Chance"	"%stun_chance"
-	
-						"OnSuccess"
-						{
-							"FireSound"
-							{
-								"EffectName"	"Hero_Tiny.CraggyExterior.Stun"
-								"Target"		"ATTACKER"
-							}
-	
-							"Stun"
-							{
-								"Target"		"ATTACKER"
-								"Duration"		"%stun_duration"
-							}
-			
-							"Damage"
-							{
-								"Target"		"ATTACKER"
-								"Type"			"DAMAGE_TYPE_MAGICAL"
-								"Damage"		"%damage"
-							}
-						}
+						"ScriptFile"				"heroes/hero_tiny/craggy_exterior.lua"
+						"Function"					"handleAttackStart"
+						"Target"					"POINT"
 					}
 				}
 			}

@@ -75,24 +75,21 @@ function OnEndGameStats(event) {
     GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false);
     GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false);
 
-    //let LowerTalentArea = PanelHUD.FindChildTraverse("LowerTalentArea");
-    //let oldStatOption = LowerTalentArea.FindChildTraverse("StatUpgradeOption");
-    //oldStatOption.visible = false;
+    let LowerTalentArea = PanelHUD.FindChildTraverse("LowerTalentArea");
+    let oldStatOption = LowerTalentArea.FindChildTraverse("StatUpgradeOption");
+    oldStatOption.visible = false;
 
-    //let newStatOption = $.CreatePanel("Panel", LowerTalentArea, "StatUpgradeOption");
-    //newStatOption.BLoadLayout("file://{resources}/layout/custom_game/custom_talent_tree.xml", false, false);
-    //LowerTalentArea.MoveChildBefore(newStatOption, LowerTalentArea.GetChild(1));
-
-    var TalentDialog = PanelHUD.FindChildTraverse("statbranchdialog");
-    TalentDialog.visible = false;
+    let newStatOption = $.CreatePanel("Panel", LowerTalentArea, "StatUpgradeOption");
+    newStatOption.BLoadLayout("file://{resources}/layout/custom_game/custom_talent_tree.xml", false, false);
+    LowerTalentArea.MoveChildBefore(newStatOption, LowerTalentArea.GetChild(1));
 
     let backpack_list = PanelHUD.FindChildTraverse("inventory_backpack_list");
     backpack_list.visible = false;
 
-    var TalentTree = PanelHUD.FindChildTraverse("StatBranch");
-    TalentTree.visible = false;
-    TalentTree = PanelHUD.FindChildTraverse("level_stats_frame");
-    TalentTree.visible = false;
+    var StatBranch = PanelHUD.FindChildTraverse("StatBranchColumn");
+    StatBranch.visible = false;
+    StatBranch = PanelHUD.FindChildTraverse("LevelColumn");
+    StatBranch.visible = false;
 
     var ShardBlock = PanelHUD.FindChildTraverse("AghsStatusShard");
     ShardBlock.visible = false;
