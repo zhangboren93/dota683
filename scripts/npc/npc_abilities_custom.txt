@@ -42,6 +42,7 @@
 #base "heroes/rattletrap.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
+#base "heroes/shadow_shaman.txt"
 #base "heroes/shredder.txt"
 #base "heroes/silencer.txt"
 #base "heroes/skywrath_mage.txt"
