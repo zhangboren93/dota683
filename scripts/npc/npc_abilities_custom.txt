@@ -13312,6 +13312,7 @@
 		"MaxLevel"              		"3"
 		"RequiredLevel"         		"6"
 		"LevelsBetweenUpgrades" 		"5"
+		"AbilityProcsMagicStick"		"1"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -13378,37 +13379,10 @@
 		
 		"OnSpellStart"
 		{
-			"FireSound"
-			{
-				"Target"				"CASTER"
-				"EffectName"			"Ability.Assassinate"
-			}
-		
-			"TrackingProjectile"
-			{
-				"Target"				{
-					"Center"	"TARGET"
-					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-					"Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-					"Types"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				}
-				"EffectName"			"particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
-				"Dodgeable"				"1"
-				"ProvidesVision"		"0"
-				"MoveSpeed"				"%projectile_speed"
-				"SourceAttachment"		"DOTA_PROJECTILE_ATTACHMENT_HITLOCATION"
-			}
-			
-			"FireSound"
-			{
-				"Target"				"CASTER"
-				"EffectName"			"Hero_Sniper.AssassinateProjectile"
-			}
-
 			"RunScript"
 			{
-				"ScriptFile"	"items/item_magic_stick.lua"
-				"Function"		"ProcsMagicStick"
+				"ScriptFile"			"heroes/hero_sniper/assassinate.lua"
+				"Function"				"handleSpellStart"
 			}
 		}
 		
@@ -13418,12 +13392,6 @@
 			{
 				"ScriptFile"			"heroes/hero_sniper/assassinate.lua"
 				"Function"				"handleProjectileHitUnit"
-			}
-			
-			"RemoveModifier"
-			{
-				"Target"				"TARGET"
-				"ModifierName"			"modifier_assassinate_target_datadriven"
 			}
 		}
 		
@@ -13457,13 +13425,19 @@
 				"IsDebuff"				"1"
 				"Duration"				"%debuff_duration"
 				
-				"EffectName"			"particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"
-				"EffectAttachType"		"follow_overhead"
-				
 				"States"
 				{
 					"MODIFIER_STATE_INVISIBLE" 			"MODIFIER_STATE_VALUE_DISABLED"
 					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_sniper/assassinate.lua"
+						"Function"		"handle_target_destroy"
+					}
 				}
 			}
 		}
