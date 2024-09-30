@@ -19,11 +19,14 @@ function handleSpellStart(event)
         print(unit:GetName())
         ability.teleportUnit = unit
         unit:EmitSound("Portal.Loop_Appear")
-        local culling_kill_particle = ParticleManager:CreateParticle("particles/items2_fx/teleport_end.vpcf", PATTACH_POINT_FOLLOW, unit)
-        ParticleManager:SetParticleControlEnt(culling_kill_particle, 0, unit, PATTACH_POINT_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
-        ParticleManager:SetParticleControlEnt(culling_kill_particle, 1, unit, PATTACH_POINT_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
+        ability.particleId = ParticleManager:CreateParticle("particles/items2_fx/teleport_end.vpcf", PATTACH_POINT_FOLLOW, unit)
+        ParticleManager:SetParticleControlEnt(ability.particleId, 0, unit, PATTACH_POINT_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
+        ParticleManager:SetParticleControlEnt(ability.particleId, 1, unit, PATTACH_POINT_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
         unit:SetThink(function()
-            ParticleManager:DestroyParticle(culling_kill_particle, true)
+			if ability.particleId ~= nil then
+            	ParticleManager:DestroyParticle(ability.particleId, true)
+				ability.particleId = nil
+			end
         end, "StopParticalEffect", 3)
     end
 end
@@ -48,4 +51,8 @@ function handleChannelInterrupted(event)
     local caster = event.caster
     caster:StopSound("Portal.Loop_Disappear")
     ability.teleportUnit:StopSound("Portal.Loop_Appear")
+	if ability.particleId ~= nil then
+		ParticleManager:DestroyParticle(ability.particleId, true)
+		ability.particleId = nil
+	end
 end
