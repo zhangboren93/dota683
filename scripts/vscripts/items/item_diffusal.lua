@@ -28,6 +28,12 @@ item_diffusal_blade_datadriven = class({
 		if target:IsMagicImmune() and target:GetTeam() ~= self:GetParent():GetTeam() then
 			return UF_FAIL_MAGIC_IMMUNE_ENEMY 
 		end
+		if target:HasModifier("modifier_eul_cyclone_datadriven") then
+			return UF_SUCCESS
+		end
+		if target:IsInvulnerable() then
+			return UF_FAIL_INVULNERABLE
+		end
 		return UF_SUCCESS
 	end
 })

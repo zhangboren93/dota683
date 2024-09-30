@@ -30,9 +30,11 @@ function handleDestroy(event)
 			damage_type = DAMAGE_TYPE_MAGICAL,
 			ability = ability })
 	end
+	target:StopThink("cyclone height move")
     target:SetThink(function()
 	    FindClearSpaceForUnit(target, target:GetAbsOrigin(), true)
     end, "cyclone find space", 0.1)
+	target:StopSound("DOTA_Item.Cyclone.Activate")
 end
 
 --[[ ============================================================================================================
