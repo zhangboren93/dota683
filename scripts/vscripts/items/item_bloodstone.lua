@@ -18,7 +18,7 @@ function modifier_item_bloodstone_datadriven_aura_on_death(keys)
 	 --Search for a Bloodstone in the aura creator's inventory.  If there are multiple Bloodstones in the player's inventory,
 	 --the one in the highest inventory slot gains a charge.
 	local target = keys.unit
-	if target:IsIllusion() then return end
+	if target:IsIllusion() or target:IsReincarnating() then return end
 	local bloodstone_in_highest_slot = nil
 	for i=0, 5, 1 do
 		local current_item = keys.caster:GetItemInSlot(i)
@@ -108,6 +108,7 @@ end
 ================================================================================================================= ]]
 function modifier_item_bloodstone_datadriven_aura_emitter_on_death(keys)
 	--Reduce the hero's time spent dead for each charge on all Bloodstones in the player's inventory.
+	if keys.caster:IsReincarnating() then return end
 	local total_charge_count = 0
 	for i=0, 5, 1 do
 		local current_item = keys.caster:GetItemInSlot(i)
