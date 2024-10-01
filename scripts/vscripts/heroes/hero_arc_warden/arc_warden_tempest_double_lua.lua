@@ -14,7 +14,7 @@ function arc_warden_tempest_double_lua:OnSpellStart()
 	caster:SetHealth(health_after_cast)
 	caster:SetMana(mana_after_cast)
 
-	if caster.double ~= nil and caster.double:IsAlive() then
+	if caster.double ~= nil and IsValidEntity(caster.double) and caster.double:IsAlive() then
 		caster.double:ForceKill(false)
 	end
 	local double = CreateUnitByName( caster:GetUnitName(), spawn_location, true, caster, caster:GetOwner(), caster:GetTeamNumber())

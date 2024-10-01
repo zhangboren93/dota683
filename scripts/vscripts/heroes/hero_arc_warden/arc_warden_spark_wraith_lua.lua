@@ -91,6 +91,7 @@ function arc_warden_spark_wraith_thinker_lua:OnDestroy()
 	if self.particle then
 		ParticleManager:DestroyParticle(self.particle, false)
 	end
+	UTIL_Remove(self:GetParent())
 end
 
 function arc_warden_spark_wraith_thinker_lua:CheckState()
