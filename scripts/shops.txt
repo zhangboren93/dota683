@@ -99,7 +99,7 @@
 
 	"magics"
 	{
-		"item"		"item_force_staff"
+		"item"		"item_force_staff_datadriven"
 		"item"		"item_veil_of_discord_datadriven"
 		"item"		"item_necronomicon_datadriven"
 		"item"		"item_dagon_datadriven"

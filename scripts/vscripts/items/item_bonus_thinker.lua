@@ -16,7 +16,6 @@ item2pctregen["item_soul_booster_datadriven"] = 100
 function handleIntervalThink(event)
 	local caster = event.caster
 	local ability = event.ability
-	item2modifier("item_force_staff", 		"modifier_item_force_staff_health_regen", caster, ability)
 	itemPctManaRegen(caster)
 
 	-- apply gem effect
@@ -28,18 +27,6 @@ function handleIntervalThink(event)
 	else
 		caster:RemoveModifierByName("modifier_gem_visual_effect_datadriven")
 	end 
-end
-
-function item2modifier(itemname, modifier, caster, ability)
-	local item = caster:FindItemInInventory(itemname)	
-	if item ~= nil and item:GetItemState() == 1  then
-		if not caster:HasModifier(modifier) then
-			print("Applying item bonus modifier " .. modifier)
-			ability:ApplyDataDrivenModifier(caster, caster, modifier, {})
-		end
-	else
-		caster:RemoveModifierByName(modifier)
-	end
 end
 
 function itemPctManaRegen(caster)

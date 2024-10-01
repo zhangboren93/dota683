@@ -108,7 +108,7 @@
 			<Button onactivate="OnItemSelectItemPressed('item_pipe')"><DOTAItemImage itemname="item_pipe"/></Button>
 		</Panel>
 		<Panel class="fwd-item-select-attribute-row">
-			<Button onactivate="OnItemSelectItemPressed('item_force_staff')"><DOTAItemImage itemname="item_force_staff"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_force_staff_datadriven')"><DOTAItemImage itemname="item_force_staff_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_veil_of_discord_datadriven')"><DOTAItemImage itemname="item_veil_of_discord_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_necronomicon_datadriven')"><DOTAItemImage itemname="item_necronomicon_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_recipe_necronomicon_datadriven')"><DOTAItemImage itemname="item_recipe_necronomicon_datadriven"/></Button>

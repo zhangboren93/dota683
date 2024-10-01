@@ -22,7 +22,7 @@ ITEM_RECIPE_RULES = {
 	{"item_sheepstick", "item_mystic_staff", "item_ultimate_orb", "item_void_stone_datadriven"},
 	{"item_orchid", "item_recipe_orchid", "item_oblivion_staff_datadriven", "item_oblivion_staff_datadriven"},
 	{"item_cyclone", "item_recipe_cyclone", "item_staff_of_wizardry", "item_void_stone_datadriven", "item_sobi_mask_datadriven"},
-	{"item_force_staff", "item_recipe_force_staff", "item_staff_of_wizardry", "item_ring_of_regen"},
+	{"item_force_staff_datadriven", "item_recipe_force_staff_datadriven", "item_staff_of_wizardry", "item_ring_of_regen"},
 	{"item_dagon_datadriven", "item_recipe_dagon_datadriven", "item_staff_of_wizardry", "item_null_talisman_datadriven"},
 	{"item_dagon_2_datadriven", "item_recipe_dagon_datadriven", "item_dagon_datadriven"},
 	{"item_dagon_3_datadriven", "item_recipe_dagon_datadriven", "item_dagon_2_datadriven"},

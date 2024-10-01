@@ -3701,10 +3701,16 @@
 	//=================================================================================================================
 	"item_recipe_force_staff"
 	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_force_staff_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"101"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1301"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -3714,7 +3720,7 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_force_staff"
+		"ItemResult"					"item_force_staff_datadriven"
 		"ItemRequirements"
 		{
 			"01"						"item_staff_of_wizardry;item_ring_of_regen"
@@ -3725,13 +3731,20 @@
 	//=================================================================================================================
 	"item_force_staff"
 	{
+		"ItemPurchasable"	"0"
+	}
+	"item_force_staff_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"102"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1302"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH | DOTA_UNIT_TARGET_TEAM_CUSTOM"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CUSTOM"
 		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"item_force_staff"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -3750,15 +3763,39 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
 		
+		"precache"
+		{
+			"particle"					"particles/items_fx/force_staff.vpcf"
+		}
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 				"bonus_intellect"		"10"
 				"bonus_health_regen"	"3.0"
-				"bonus_health"			"0"
 				"push_length"			"600"
-				"enemy_cast_range"		"850"
+				"push_speed" 			"1500"
+		}
+		"Modifiers"
+		{
+			"modifier_item_force_staff_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
+				}
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_force_staff.lua"
+				"Function"		"handleSpellStart"
+			}
 		}
 	}
 	//=================================================================================================================
