@@ -6022,7 +6022,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-        "BaseClass"                     "item_datadriven"
+        "BaseClass"                     "item_lua"
+		"ScriptFile"					"items/item_bfury.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityTextureName"            "item_bfury"
 
@@ -6055,29 +6056,6 @@
 				"cleave_damage_percent"	            "35"
                 "cleave_radius"                     "250"
 		}
-
-        "Modifiers"
-        {
-            "modifier_bfury_passive_bonus_datadriven"
-            {
-                "Passive"   "1"
-                "IsHidden"  "1"
-                "Properties"
-                {
-    				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	    "%bonus_health_regen"
-                }
-                "ThinkInterval"     "1"
-                "OnIntervalThink"
-                {
-                    "RunScript"
-                    {
-                        "ScriptFile"    "items/item_bfury.lua"
-                        "Function"      "handleIntervalThink"
-                    }
-                }
-            }
-        }
 	}
 	//=================================================================================================================
 	// Recipe: Manta

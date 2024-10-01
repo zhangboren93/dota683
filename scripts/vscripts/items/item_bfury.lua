@@ -10,6 +10,9 @@ end
 function item_bfury_cleave_lua:DeclareFunctions()
 	local funcs = {
 		MODIFIER_EVENT_ON_PROCESS_CLEAVE,
+    	MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT
 	}
 	return funcs
 end
@@ -49,10 +52,20 @@ function item_bfury_cleave_lua:OnProcessCleave(event)
 	end
 end
 
+function item_bfury_cleave_lua:GetModifierPreAttack_BonusDamage()
+	return 65
+end
+function item_bfury_cleave_lua:GetModifierConstantHealthRegen()
+	return 6
+end
+function item_bfury_cleave_lua:GetModifierConstantManaRegen()
+	return (0.01 + self:GetParent():GetIntellect(false) / 25 ) * 3 / 2
+end
+
 function item_bfury_cleave_lua:IsHidden()
     return true
 end
 
-function handleIntervalThink(event)
-    event.caster:AddNewModifier(event.caster, event.ability, "item_bfury_cleave_lua", {}):SetDuration(1, true)
-end
+item_bfury_datadriven = class({
+	GetIntrinsicModifierName = function() return "item_bfury_cleave_lua" end
+})

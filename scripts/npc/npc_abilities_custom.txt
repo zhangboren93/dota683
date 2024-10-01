@@ -28168,67 +28168,6 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "-30" 
 				}
 			}
-			"modifier_refresher_attr_as_bonus"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"6"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"10"
-				}
-			}
-			"modifier_dagon_damage_bonus"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"9"
-				}
-			}
-			"modifier_dagon_2_damage_bonus"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"9"
-				}
-			}
-			"modifier_dagon_3_damage_bonus"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"9"
-				}
-			}
-			"modifier_dagon_4_damage_bonus"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"9"
-				}
-			}
-			"modifier_dagon_5_damage_bonus"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"9"
-				}
-			}
 			"modifier_item_force_staff_health_regen"
 			{
 				"Passive"		"0"
@@ -28373,10 +28312,6 @@
 				"IsDebuff"		"1"
 				"IsPurgable"	"0"
 			}
-			"modifier_no_creep_aggro_on_attack"
-			{
-				"IsHidden"		"1"
-			}
 			"modifier_gem_visual_effect_datadriven"
 			{
 				"IsHidden"			"1"
@@ -28389,61 +28324,6 @@
 					{
 						"ScriptFile"	"items/item_gem.lua"
 						"Function"		"handleIntervalThink"
-					}
-				}
-			}
-			"modifier_item_lifesteal_datadriven"
-			{
-				"Passive" "0"
-				"IsHidden" "1"
-				"OnDealDamage"
-				{
-					"Lifesteal"
-					{
-						"Target"			"ATTACKER"
-						"LifestealPercent"	"15"
-					}
-				}
-			}
-			"modifier_item_mask_of_madness_datadriven_lifesteal"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				
-				"OnDealDamage"
-				{
-					"Lifesteal"
-					{
-						"Target"			"ATTACKER"
-						"LifestealPercent"	"20"
-					}
-				}
-			}
-			"modifier_item_satanic_datadriven_lifesteal"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				
-				"OnDealDamage"
-				{
-					"Lifesteal"
-					{
-						"Target"			"ATTACKER"
-						"LifestealPercent"	"25"
-					}
-				}
-			}
-			"modifier_item_satanic_datadriven_unholy_rage_lifesteal"
-			{
-				"Passive"			"0"
-				"IsHidden"			"1"
-				
-				"OnDealDamage"
-				{
-					"Lifesteal"
-					{
-						"Target"			"ATTACKER"
-						"LifestealPercent"	"175"
 					}
 				}
 			}
