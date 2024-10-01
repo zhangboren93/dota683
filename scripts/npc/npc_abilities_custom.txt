@@ -15328,7 +15328,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
@@ -15351,106 +15351,22 @@
 		{
 				"chance"				"10 15 20 25"
 				"bonus_damage"			"60 80 100 120"
-				"duration"				"1.0"
-				"duration_creep"		"2.0"
+				"duration"				"1"
+				"duration_creep"		"2"
 		}
 		"Modifiers"
 		{
-			"modifier_bash_stun_datadriven"
-			{
-				"IsDebuff" 		"1"
-				"OverrideAnimation"		"ACT_DOTA_DISABLED"
-	
-				"EffectName" "particles/generic_gameplay/generic_stunned.vpcf"
-	        	"EffectAttachType" "follow_overhead"
-	
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-	
-			"modifier_bash_break_checker"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-				"ThinkInterval"		"0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"units/passive_disabled_by_break.lua"
-						"Function"		"handleIntervalThink"
-						"ModifierName"	"modifier_bash_datadriven"
-					}
-				}
-			}
-	
 			"modifier_bash_datadriven"		
 			{
 				"IsHidden"	"1"
-				"Passive"	"0"
+				"Passive"	"1"
 	
 				"OnAttackLanded"
 				{
-					"ActOnTargets"
+					"RunScript"
 					{
-						"Target"
-						{
-							"Center"		"TARGET"
-							"Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Types" 		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-							"Flags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-						}
-	
-						"Action"
-						{
-							"Random"
-							{
-								"Chance"	"%chance"
-								"PseudoRandom"		"DOTA_PSEUDO_RANDOM_SLARDAR_BASH"
-	
-								"OnSuccess"
-								{
-									"FireSound"
-									{
-										"EffectName"	"Hero_Slardar.Bash"
-										"Target"		"TARGET"
-									}
-	
-									"ApplyModifier"
-									{
-										"Target"
-										{
-											"Center"	"TARGET"
-											"Types"		"DOTA_UNIT_TARGET_HERO"
-											"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-										}
-										"ModifierName"	"modifier_bash_stun_datadriven"
-										"Duration"		"%duration"
-									}
-
-									"ApplyModifier"
-									{
-										"Target"
-										{
-											"Center"	"TARGET"
-											"Types"		"DOTA_UNIT_TARGET_BASIC"
-											"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-										}
-										"ModifierName"	"modifier_bash_stun_datadriven"
-										"Duration"		"%duration_creep"
-									}
-	
-									"Damage"
-									{
-										"Target"	"TARGET"
-										"Type"		"DAMAGE_TYPE_PHYSICAL"
-										"Damage"	"%bonus_damage"
-									}			
-								}
-							}
-						}
+						"ScriptFile"	"heroes/hero_slardar/bash.lua"
+						"Function"		"handleAttackLanded"
 					}
 				} 
 			}
