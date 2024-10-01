@@ -28179,36 +28179,6 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"10"
 				}
 			}
-			"modifier_necronomicon_intellect_bonus"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"15"
-				}
-			}
-			"modifier_necronomicon_2_intellect_bonus"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"21"
-				}
-			}
-			"modifier_necronomicon_3_intellect_bonus"
-			{
-				"Passive"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"24"
-				}
-			}
 			"modifier_dagon_damage_bonus"
 			{
 				"Passive"		"0"

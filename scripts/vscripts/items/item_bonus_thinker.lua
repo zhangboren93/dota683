@@ -18,9 +18,6 @@ item2pctregen["item_soul_booster_datadriven"] = 100
 function handleIntervalThink(event)
 	local caster = event.caster
 	local ability = event.ability
-	item2modifier("item_necronomicon", 		"modifier_necronomicon_intellect_bonus", caster, ability)
-	item2modifier("item_necronomicon_2", 	"modifier_necronomicon_2_intellect_bonus", caster, ability)
-	item2modifier("item_necronomicon_3", 	"modifier_necronomicon_3_intellect_bonus", caster, ability)
 	item2modifier("item_force_staff", 		"modifier_item_force_staff_health_regen", caster, ability)
 	itemPctManaRegen(caster)
 

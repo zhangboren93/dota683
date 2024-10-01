@@ -1,60 +1,29 @@
-if item_necronomicon_intellect_modifier == nil then
-    item_necronomicon_intellect_modifier = class({})
-end
+function handleSpellStart(event)
+	local ability = event.ability
+	local caster = event.caster
+	local duration = ability:GetSpecialValueFor("summon_duration")
+	if ability.necro1 ~= nil and IsValidEntity(ability.necro1) and ability.necro1:IsAlive() then
+		ability.necro1:ForceKill(false)
+		ability.necro1 = nil
+	end
+	if ability.necro2 ~= nil and IsValidEntity(ability.necro2) and ability.necro2:IsAlive() then
+		ability.necro2:ForceKill(false)
+		ability.necro2 = nil
+	end
+	ability.necro1 = CreateUnitByName("npc_dota_necronomicon_warrior_" .. ability:GetLevel(), caster:GetAbsOrigin(), true, caster, caster, caster:GetTeam())
+	ability.necro1:SetControllableByPlayer(caster:GetPlayerID(), true)
+	FindClearSpaceForUnit(ability.necro1, caster:GetAbsOrigin(), false)
+	ability.necro1:GetAbilityByIndex(0):SetLevel(ability:GetLevel())
+	ability.necro1:GetAbilityByIndex(1):SetLevel(ability:GetLevel())
+	ability.necro1:AddNewModifier(caster, ability, "modifier_kill", { duration = duration })
+	if ability:GetLevel() == 3 then
+		ability.necro1:GetAbilityByIndex(2):SetLevel(ability:GetLevel())
+	end
 
-function item_necronomicon_intellect_modifier:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
-function item_necronomicon_intellect_modifier:OnCreated(kv)
---    print("item_orchid_regen_percentage_modifier:OnCreated")
-    self:StartIntervalThink(0.5)
-end
-
-function item_necronomicon_intellect_modifier:IsHidden()
-    return true
-end
-
-function item_necronomicon_intellect_modifier:OnIntervalThink()
-    --print("interval think")
-    local hParent = self:GetParent() --the unit.
-    if hParent == nil or hParent.FindItemInInventory == nil then
-        return
-    end
-    local item = hParent:FindItemInInventory("item_necronomicon")
-    if item ~= nil and item:GetItemState() == 1 then
-        if not hParent:HasModifier("modifier_necronomicon_bonus_intellect") then
-            print("adding intellect bonus modifier")
-            hParent:AddNewModifier(
-                hParent, nil, 
-                "modifier_necronomicon_bonus_intellect",
-                { bonus_intellect = item:GetSpecialValueFor("bonus_intellect")})
-        end
-    else
-        hParent:RemoveModifierByName("modifier_necronomicon_bonus_intellect")
-    end
-    item = hParent:FindItemInInventory("item_necronomicon_2")
-    if item ~= nil and item:GetItemState() == 1 then
-        if not hParent:HasModifier("modifier_necronomicon_2_bonus_intellect") then
-            print("adding intellect bonus modifier")
-            hParent:AddNewModifier(
-                hParent, nil, 
-                "modifier_necronomicon_2_bonus_intellect", 
-                { bonus_intellect = item:GetSpecialValueFor("bonus_intellect")})
-        end
-    else
-        hParent:RemoveModifierByName("modifier_necronomicon_2_bonus_intellect")
-    end
-    item = hParent:FindItemInInventory("item_necronomicon_3")
-    if item ~= nil and item:GetItemState() == 1 then
-        if not hParent:HasModifier("modifier_necronomicon_3_bonus_intellect") then
-            print("adding intellect bonus modifier")
-            hParent:AddNewModifier(
-                hParent, nil, 
-                "modifier_necronomicon_3_bonus_intellect", 
-                { bonus_intellect = item:GetSpecialValueFor("bonus_intellect")})
-        end
-    else
-        hParent:RemoveModifierByName("modifier_necronomicon_3_bonus_intellect")
-    end
+	ability.necro2 = CreateUnitByName("npc_dota_necronomicon_archer_" .. ability:GetLevel(), caster:GetAbsOrigin(), true, caster, caster, caster:GetTeam())
+	ability.necro2:SetControllableByPlayer(caster:GetPlayerID(), true)
+	FindClearSpaceForUnit(ability.necro2, caster:GetAbsOrigin(), false)
+	ability.necro2:GetAbilityByIndex(0):SetLevel(ability:GetLevel())
+	ability.necro2:GetAbilityByIndex(1):SetLevel(ability:GetLevel())
+	ability.necro2:AddNewModifier(caster, ability, "modifier_kill", { duration = duration })
 end

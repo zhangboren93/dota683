@@ -9,9 +9,9 @@ last_select_courier_time = -1;
 courier_dead_interval = -1;
 ITEM_RECIPE_RULES = [
     ["item_poor_mans_shield", "item_slippers", "item_slippers", "item_stout_shield" ],
-    ["item_necronomicon", "item_belt_of_strength", "item_staff_of_wizardry", "item_recipe_necronomicon" ],
-    ["item_necronomicon_2", "item_recipe_necronomicon", "item_necronomicon" ],
-    ["item_necronomicon_3", "item_recipe_necronomicon", "item_necronomicon_2" ],
+    ["item_necronomicon_datadriven", "item_belt_of_strength", "item_staff_of_wizardry", "item_recipe_necronomicon_datadriven" ],
+    ["item_necronomicon_2_datadriven", "item_recipe_necronomicon_datadriven", "item_necronomicon_datadriven" ],
+    ["item_necronomicon_3_datadriven", "item_recipe_necronomicon_datadriven", "item_necronomicon_2_datadriven" ],
     ["item_magic_wand", "item_branches", "item_branches", "item_branches", "item_magic_stick", "item_recipe_magic_wand"],
     ["item_travel_boots_datadriven", "item_boots", "item_recipe_travel_boots_datadriven"],
     ["item_phase_boots", "item_boots", "item_blades_of_attack", "item_blades_of_attack"],
@@ -161,7 +161,7 @@ ITEMNAME_2_ITEMID = {
 	"item_recipe_cyclone": 99,
 	"item_recipe_force_staff": 101,
 	"item_recipe_dagon_datadriven":	1303,
-	"item_recipe_necronomicon": 105,
+	"item_recipe_necronomicon": 1305,
 	"item_recipe_refresher": 1309,
 	"item_recipe_assault": 111,
 	"item_recipe_heart_datadriven": 1313,

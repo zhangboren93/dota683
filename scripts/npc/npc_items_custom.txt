@@ -329,42 +329,6 @@
 		"ItemPurchasable"	"0"
 	}
 
-	"item_recipe_necronomicon"
-	{
-		"ItemPurchasable"	"1"
-		"IsObsolete"		"0"
-	}
-
-	"item_recipe_necronomicon_2"
-	{
-		"ItemPurchasable"	"1"
-		"IsObsolete"		"0"
-	}
-
-	"item_recipe_necronomicon_3"
-	{
-		"ItemPurchasable"	"1"
-		"IsObsolete"		"0"
-	}
-
-	"item_necronomicon"
-	{
-		"ItemPurchasable"	"1"
-		"IsObsolete"		"0"
-	}
-
-	"item_necronomicon_2"
-	{
-		"ItemPurchasable"	"1"
-		"IsObsolete"		"0"
-	}
-
-	"item_necronomicon_3"
-	{
-		"ItemPurchasable"	"1"
-		"IsObsolete"		"0"
-	}
-
 	"item_recipe_ultimate_scepter_2"
 	{
 		"ItemPurchasable"	"0"
@@ -4265,10 +4229,16 @@
 	//=================================================================================================================
 	"item_recipe_necronomicon"
 	{
+		"ItemPurchasable"				"0"
+	}
+	"item_recipe_necronomicon_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"105"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1305"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4282,22 +4252,28 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemResult"					"item_necronomicon"
+		"ItemResult"					"item_necronomicon_datadriven"
 		"ItemRequirements"
 		{
 			"01"						"item_staff_of_wizardry;item_belt_of_strength"
 		}
 	}
 
+	"item_necronomicon"
+	{
+		"ItemPurchasable"	"0"
+	}
 	//=================================================================================================================
 	// Necronomicon
 	//=================================================================================================================
-	"item_necronomicon"
+	"item_necronomicon_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"106"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1306"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"item_necronomicon"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4329,30 +4305,71 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"		"8 12 16"
-			"bonus_mana_regen"		"0"
-			"summon_duration"		"40 35 35"
-			"warrior_health_tooltip"	"400 600 800"
-			"warrior_damage_tooltip"	"25 50 75"
-			"warrior_mana_feedback"		"25 50 75"
+			"bonus_strength"				"8 12 16"
+			"summon_duration"				"40 35 35"
+			"warrior_health_tooltip"		"400 600 800"
+			"warrior_damage_tooltip"		"25 50 75"
+			"warrior_mana_feedback"			"25 50 75"
 			"warrior_mana_break_tooltip"	"25 50 75"
-			"explosion"				"550 675 800"
-			"warrior_truesight"		"0 0 1200"
-			"archer_health_tooltip"	"400 600 800"
-			"archer_damage_tooltip"	"40 80 120"
-			"archer_mana_burn"		"125 175 225"
+			"explosion"						"550 675 800"
+			"warrior_truesight"				"0 0 1200"
+			"archer_health_tooltip"			"400 600 800"
+			"archer_damage_tooltip"			"40 80 120"
+			"archer_mana_burn"				"125 175 225"
 			"archer_aura_radius_tooltip"	"900"
-			"archer_move_speed"		"3 6 9"
-			"archer_attack_speed"	"3 6 9"
-			"bonus_intellect"		"15 21 24"
+			"archer_move_speed"				"3 6 9"
+			"archer_attack_speed"			"3 6 9"
+			"bonus_intellect"				"15 21 24"
+		}
+		"Modifiers"
+		{
+			"modifier_item_necronomicon_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
+				}
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_necronomicon.lua"
+				"Function"		"handleSpellStart"
+			}
+		}
+	}
+	"item_recipe_necronomicon_2_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"ShouldBeSuggested"				"0"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_necronomicon_2_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_necronomicon_datadriven;item_recipe_necronomicon_datadriven"
 		}
 	}
 	"item_necronomicon_2"
 	{
+		"ItemPurchasable"	"0"
+	}
+	"item_necronomicon_2_datadriven"
+	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"193"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ID"							"1393"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"item_necronomicon_2"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4361,10 +4378,7 @@
 		"AbilityManaCost"				"50"
 		"AbilitySharedCooldown"			"necronomicon"
 		"FightRecapLevel"				"1"
-
 		"ShouldBeSuggested"				"0"
-		"ItemPurchasable"				"1"
-        "IsObsolete"                    "0"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4376,39 +4390,78 @@
 		"MaxUpgradeLevel"				"3"
 		"ItemBaseLevel"					"2"
 	
-		"UpgradesItems"					"item_necronomicon_2"
-		"UpgradeRecipe"					"item_recipe_necronomicon"
+		"UpgradesItems"					"item_necronomicon_2_datadriven"
+		"UpgradeRecipe"					"item_recipe_necronomicon_datadriven"
 		"ShouldBeSuggested"				"1"
 		
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"		"8 12 16"
-			"bonus_mana_regen"		"0"
-			"summon_duration"		"40 35 35"
-			"warrior_health_tooltip"	"400 600 800"
-			"warrior_damage_tooltip"	"25 50 75"
-			"warrior_mana_feedback"		"25 50 75"
+			"bonus_strength"				"8 12 16"
+			"bonus_intellect"				"15 21 24"
+			"bonus_mana_regen"				"0"
+			"summon_duration"				"40 35 35"
+			"warrior_health_tooltip"		"400 600 800"
+			"warrior_damage_tooltip"		"25 50 75"
+			"warrior_mana_feedback"			"25 50 75"
 			"warrior_mana_break_tooltip"	"25 50 75"
-			"explosion"				"550 675 800"
-			"warrior_truesight"		"0 0 1200"
-			"archer_health_tooltip"	"400 600 800"
-			"archer_damage_tooltip"	"40 80 120"
-			"archer_mana_burn"		"125 175 225"
+			"explosion"						"550 675 800"
+			"warrior_truesight"				"0 0 1200"
+			"archer_health_tooltip"			"400 600 800"
+			"archer_damage_tooltip"			"40 80 120"
+			"archer_mana_burn"				"125 175 225"
 			"archer_aura_radius_tooltip"	"900"
-			"archer_move_speed"		"3 6 9"
-			"archer_attack_speed"	"3 6 9"
-			"bonus_intellect"		"15 21 24"
+			"archer_move_speed"				"3 6 9"
+			"archer_attack_speed"			"3 6 9"
+		}
+		"Modifiers"
+		{
+			"modifier_item_necronomicon_2_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
+				}
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_necronomicon.lua"
+				"Function"		"handleSpellStart"
+			}
 		}
 	}
-
+	"item_recipe_necronomicon_3_datadriven"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		"ItemCost"						"0"	
+		"ItemShopTags"					""
+		"ShouldBeSuggested"				"0"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_necronomicon_3_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_necronomicon_2_datadriven;item_recipe_necronomicon_datadriven"
+		}
+	}
 	"item_necronomicon_3"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"194"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ItemPurchasable"	"0"
+	}
+	"item_necronomicon_3_datadriven"
+	{
+		"ID"							"1394"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"item_necronomicon_3"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -4437,22 +4490,42 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"		"8 12 16"
-			"bonus_mana_regen"		"0"
-			"summon_duration"		"40 35 35"
-			"warrior_health_tooltip"	"400 600 800"
-			"warrior_damage_tooltip"	"25 50 75"
-			"warrior_mana_feedback"		"25 50 75"
+			"bonus_strength"				"8 12 16"
+			"bonus_intellect"				"15 21 24"
+			"summon_duration"				"40 35 35"
+			"warrior_health_tooltip"		"400 600 800"
+			"warrior_damage_tooltip"		"25 50 75"
+			"warrior_mana_feedback"			"25 50 75"
 			"warrior_mana_break_tooltip"	"25 50 75"
-			"explosion"				"550 675 800"
-			"warrior_truesight"		"0 0 1200"
-			"archer_health_tooltip"	"400 600 800"
-			"archer_damage_tooltip"	"40 80 120"
-			"archer_mana_burn"		"125 175 225"
+			"explosion"						"550 675 800"
+			"warrior_truesight"				"0 0 1200"
+			"archer_health_tooltip"			"400 600 800"
+			"archer_damage_tooltip"			"40 80 120"
+			"archer_mana_burn"				"125 175 225"
 			"archer_aura_radius_tooltip"	"900"
-			"archer_move_speed"		"3 6 9"
-			"archer_attack_speed"	"3 6 9"
-			"bonus_intellect"		"15 21 24"
+			"archer_move_speed"				"3 6 9"
+			"archer_attack_speed"			"3 6 9"
+		}
+		"Modifiers"
+		{
+			"modifier_item_necronomicon_3_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
+				}
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_necronomicon.lua"
+				"Function"		"handleSpellStart"
+			}
 		}
 	}
 	"item_recipe_refresher_datadriven"

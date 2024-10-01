@@ -1,8 +1,8 @@
 ITEM_RECIPE_RULES = {
 	{"item_poor_mans_shield", "item_slippers", "item_slippers", "item_stout_shield" },
-	{"item_necronomicon", "item_recipe_necronomicon", "item_belt_of_strength", "item_staff_of_wizardry" },
-	{"item_necronomicon_2", "item_recipe_necronomicon", "item_necronomicon" },
-	{"item_necronomicon_3", "item_recipe_necronomicon", "item_necronomicon_2" },
+	{"item_necronomicon_datadriven", "item_recipe_necronomicon_datadriven", "item_belt_of_strength", "item_staff_of_wizardry" },
+	{"item_necronomicon_2_datadriven", "item_recipe_necronomicon_datadriven", "item_necronomicon_datadriven" },
+	{"item_necronomicon_3_datadriven", "item_recipe_necronomicon_datadriven", "item_necronomicon_2_datadriven" },
 	{"item_ring_of_aquila_lua", "item_wraith_band_datadriven", "item_ring_of_basilius_datadriven"},
 	{"item_magic_wand", "item_recipe_magic_wand", "item_branches", "item_branches", "item_branches", "item_magic_stick"},
 	{"item_travel_boots_datadriven", "item_recipe_travel_boots_datadriven", "item_boots"},

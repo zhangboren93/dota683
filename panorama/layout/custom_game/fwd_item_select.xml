@@ -110,8 +110,8 @@
 		<Panel class="fwd-item-select-attribute-row">
 			<Button onactivate="OnItemSelectItemPressed('item_force_staff')"><DOTAItemImage itemname="item_force_staff"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_veil_of_discord_datadriven')"><DOTAItemImage itemname="item_veil_of_discord_datadriven"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_necronomicon')"><DOTAItemImage itemname="item_necronomicon"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_recipe_necronomicon')"><DOTAItemImage itemname="item_recipe_necronomicon"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_necronomicon_datadriven')"><DOTAItemImage itemname="item_necronomicon_datadriven"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_recipe_necronomicon_datadriven')"><DOTAItemImage itemname="item_recipe_necronomicon_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_dagon_datadriven')"><DOTAItemImage itemname="item_dagon"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_recipe_dagon_datadriven')"><DOTAItemImage itemname="item_recipe_dagon"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_cyclone')"><DOTAItemImage itemname="item_cyclone"/></Button>
