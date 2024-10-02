@@ -1,6 +1,7 @@
 // Dota Heroes File
 #base "npc_abilities_hero_ability_executed_hook.txt"
 #base "heroes/alchemist.txt"
+#base "heroes/antimage.txt"
 #base "heroes/arc_warden.txt"
 #base "heroes/batrider.txt"
 #base "heroes/beastmaster.txt"
@@ -338,60 +339,6 @@
 			{
 				"value"				"2"
 			}
-		}
-	}
-    "antimage_mana_void"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5006"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"		
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_Antimage.ManaVoid"
-		"HasScepterUpgrade"			"0"
-		"AbilityDraftUltScepterAbility"		"antimage_mana_overload"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125 200 275"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.0"	// damage only
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"AbilityCooldown"				"70"
-			"mana_void_damage_per_mana"		"0.6 0.85 1.1"
-			"mana_void_ministun"			"0.1 0.2 0.3"
-			"mana_void_aoe_radius"			"500"
-			"thirst_enabled"				"0"
-			"thirst_range"					"0"
-			"threshold_pct"					"0"
-			"min_bonus_pct"					"0"
-			"max_bonus_pct"					"0"
-			"bonus_attack_damage"			"0"
-			"linger_duration"				"0"
 		}
 	}
 	//=================================================================================================================

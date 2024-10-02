@@ -11,23 +11,6 @@
 		}
 		"Modifiers"
 		{
-			"antimage_manavoid_ministun_checker" 
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"IsDebuff"		"0"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"units/ministun_target_on_cast.lua"
-						"Function"		"handleAbilityExecuted"
-						"TargetAbility"	"antimage_mana_void"
-						"DurationName"	"mana_void_ministun"
-					}
-				}
-			}
 			"modifier_battle_hunger_slow_checker"
 			{
 				"Passive"	"1"

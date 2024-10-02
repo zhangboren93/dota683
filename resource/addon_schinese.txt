@@ -1446,6 +1446,13 @@
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"	"每次攻击损毁目标一定量的魔法值，并额外造成相当于损毁魔法值60%%的伤害。\n<font color=\"#ff0000\">法球效果无法叠加。</font>"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"	"每次攻击损毁魔法："
 		"DOTA_Tooltip_ability_antimage_counterspell_Description"			"被动提升魔法抗性。"
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven"								"法力虚空"
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_Description"					"根据目标损失的魔法值，对目标和其周围的敌人造成伤害。所有受到伤害的单位都会被短暂眩晕。"
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_Lore"							"敌人倒下之后，将因使用奥术而受到敌法师的惩戒。"
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_Note0"							"伤害的计算根据主目标失去的魔法，但是对作用范围内所有敌人均有效。"
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_mana_void_damage_per_mana"		"伤害系数："
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_mana_void_ministun"				"眩晕时间："
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_mana_void_aoe_radius"			"作用范围："
 
 		//Arc Warden
 		"DOTA_Tooltip_ability_arc_warden_flux_lua"							"乱流"

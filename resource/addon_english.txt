@@ -1414,6 +1414,13 @@
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven"					"Mana Break"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_Description"		"Burns an opponent's mana on each attack. Mana Break deals 60%% of the mana burned as damage to the target.\n<font color=\"#ff0000\">Orb effects don't stack.</font>"
 		"DOTA_Tooltip_Ability_antimage_mana_break_datadriven_mana_per_hit"		"Mana Burned per Hit: "
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven"								"Mana Void"
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_Description"					"For each point of mana missing by the target unit, damage is dealt to it and surrounding enemies.  The main target is also mini-stunned."
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_Lore"							"After bringing enemies to their knees, Anti-Mage punishes them for their use of the arcane arts."
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_Note0"							"Damage is calculated based on the primary target's mana, but applied to all enemies within the area of effect."
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_mana_void_damage_per_mana"		"DAMAGE:"
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_mana_void_ministun"				"STUN DURATION:"
+		"DOTA_Tooltip_ability_antimage_mana_void_datadriven_mana_void_aoe_radius"			"RADIUS:"
 
 		//Arc Warden
 		"DOTA_Tooltip_ability_arc_warden_flux_lua"								"Flux"
