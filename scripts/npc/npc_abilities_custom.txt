@@ -1566,7 +1566,7 @@
 				"value"					"0"
 				"special_bonus_scepter"	"+1"
 			}
-			"ticks"						"6"
+			"ticks"						"3"
 			"pull_units_per_second"		"1"
 			"pull_distance_limit"		"125"
 			"animation_rate"			"1.5"
@@ -22214,7 +22214,7 @@
 				"vision_radius"							"500"
 				"vision_duration"						"4"
 				"hook_followthrough_constant"			"0.65"
-				"hook_damage"							"150 220 290 360"
+				"hook_damage"							"90 180 270 360"
 		}
 	}
 	// Rewrite of Abaddon Death Coil
