@@ -205,6 +205,7 @@
 		"StatusHealthRegen"			"3"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability2"		"axe_battle_hunger_datadriven"
 		"Ability3"		"axe_counter_helix_datadriven"
 		"Ability4"		"hero_attack_point_adjust_lua"
 		"Ability6"		"axe_culling_blade_datadriven"

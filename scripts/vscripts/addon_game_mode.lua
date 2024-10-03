@@ -2004,9 +2004,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			if victim:IsMagicImmune() then
 				event.damage = 0
 			end
-		elseif inflictor:GetName() == "axe_battle_hunger" then
-			-- apply magic damage instead of physical
-			event.damage = inflictor:GetSpecialValueFor("damage_per_second") / 2 * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
 		elseif inflictor:GetName() == "tiny_avalanche" then
 			if victim:HasModifier("modifier_toss_flying_lua") then
 				event.damage = event.damage * 2

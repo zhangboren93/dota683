@@ -3,6 +3,7 @@
 #base "heroes/alchemist.txt"
 #base "heroes/antimage.txt"
 #base "heroes/arc_warden.txt"
+#base "heroes/axe.txt"
 #base "heroes/batrider.txt"
 #base "heroes/beastmaster.txt"
 #base "heroes/bounty_hunter.txt"
@@ -387,68 +388,6 @@
 			"applies_battle_hunger"			"0"
 			"bonus_attack_speed"	"0"
 		}
-	}
-	//=================================================================================================================
-	// Ability: Axe Battle Hunger
-	//=================================================================================================================
-	"axe_battle_hunger"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5008"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Axe.Battle_Hunger"
-		"HasShardUpgrade"				"0"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
- 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_2"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20 15 10 5"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"		
-		
-		// Cast Range
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"750"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.1"	// Primarily about the damage
-
-		"HasScepterUpgrade" 			"0"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"duration"					"10.0"
-				"slow"						"0"
-				"damage_per_second"			"16 24 32 40"
-				"armor_multiplier"			"0"
-				"scepter_armor_change"
-				{
-					"special_bonus_scepter"				"+0"
-				}
-				"speed_bonus"
-				{
-					"value"			"12"
-					"special_bonus_unique_axe_8"	"+10"
-				}
-				"slow_tooltip"		"-12"
-		}		
 	}
 	// Rewrite of the Axe Counter Helix ability
 	// Author: Pizzalol

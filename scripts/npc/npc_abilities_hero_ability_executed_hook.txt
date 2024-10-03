@@ -11,44 +11,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_battle_hunger_slow_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"units/ability_target_debuff.lua"
-						"Function"		"handleAbilityExecuted"
-						"TargetAbility"	"axe_battle_hunger"
-						"Modifier"		"modifier_battle_hunger_slow_debuff_active"
-						"Duration"		"10"
-					}
-				}
-			}
-			"modifier_battle_hunger_slow_debuff_active"
-			{
-				"IsHidden"		"1"
-				"IsPurgable"	"1"
-				"IsDebuff"		"1"
-				"Duration"		"10"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-12" 
-				}
-				"ThinkInterval"	"0.5"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"units/ability_target_debuff.lua"
-						"Function"		"handleIntervalThink"
-						"MainModifier"	"modifier_axe_battle_hunger"
-						"Modifier"		"modifier_battle_hunger_slow_debuff_active"
-					}
-				}
-			}
 			"modifier_bane_nightmare_damage_active"
 			{
 				"Passive"		"0"
