@@ -56,20 +56,6 @@ function handleSpellStart(event)
 	end
 	caster:EmitSound("Hero_Shredder.Chakram.Cast")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shredder_chakram_disarm_datadriven", {})
-	original_ability.chakram_projectile = ProjectileManager:CreateLinearProjectile({
-		vSpawnOrigin = caster:GetAbsOrigin(),
-		vVelocity = velocity,
-		fStartRadius = radius,
-		fEndRadius = radius,
-		fDistance = (target_point - caster:GetAbsOrigin()):Length2D(),
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
-		Ability = ability,
-		Source = caster,
-		bProvidesVision = true,
-		iVisionRadius = 200,
-		iVisionTeamNumber = caster:GetTeam()
-	})
 end
 
 function handleReturnSpellStart(event)

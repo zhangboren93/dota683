@@ -51,9 +51,19 @@ modifier_shredder_chakram_lua = class({
 
 modifier_shredder_chakram_slow_lua = class({
 	OnCreated = function(self) 
+		if not IsServer() then return end
 		local ability = self:GetAbility()
 		self.damage = ability:GetSpecialValueFor("damage_per_second") / 2
 		self:StartIntervalThink(0.5)
+		-- Apply pass damage
+		ApplyDamage({
+			victim = self:GetParent(),
+			attacker = self:GetCaster(),
+			damage = ability:GetSpecialValueFor("pass_damage"),
+			damage_type = DAMAGE_TYPE_PURE,
+			ability = ability
+		})
+		self:GetParent():EmitSound("Hero_Shredder.Chakram.Target")
 	end,
 	OnIntervalThink = function(self)
 		if not IsServer() then return end

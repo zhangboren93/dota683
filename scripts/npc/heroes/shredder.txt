@@ -46,14 +46,6 @@
 				"Target"			"POINT"
 			}
 		}
-		"OnProjectileHitUnit" 
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"heroes/hero_shredder/chakram.lua"
-				"Function"			"handleProjectileHitUnit"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_shredder_chakram_disarm_datadriven"
