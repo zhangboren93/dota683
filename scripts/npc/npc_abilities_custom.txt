@@ -8376,8 +8376,13 @@
 		{
 			"modifier_silencer_global_silence_aghs_datadriven"
 			{
-				"Passive"	"1"
-				"IsHidden"	"1"
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Aura"					"modifier_silencer_brain_drain_datadriven"
+				"Aura_Radius"			"925"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
 				"OnAbilityExecuted"
 				{
 					"RunScript"
@@ -8385,6 +8390,35 @@
 						"ScriptFile"	"scripts/vscripts/heroes/hero_silencer/global_silence_scepter.lua"
 						"Function"		"handleAbilityExecuted"
 					}
+				}
+			}
+			"modifier_silencer_brain_drain_datadriven"
+			{
+				"IsHidden"				"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_silencer/brain_drain.lua"
+						"Function"		"handleDeath"
+					}
+				}
+			}
+			"modifier_silencer_brain_drain_debuff_datadriven"
+			{
+				"IsDebuff"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"-2"
+				}
+			}
+			"modifier_silencer_brain_drain_buff_datadriven"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"2"
 				}
 			}
 		}

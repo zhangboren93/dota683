@@ -3209,7 +3209,7 @@
  		"Ability2"		"silencer_glaives_of_wisdom_datadriven"
  		"Ability3"		"silencer_last_word_datadriven"
 		"Ability4"		"silencer_global_silence_aghs_datadriven"
-		"Ability5"		"silencer_brain_drain"
+		"Ability5"		"generic_hidden"
 		"Ability6"		"silencer_global_silence_datadriven"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"

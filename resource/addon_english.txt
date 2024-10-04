@@ -2573,6 +2573,9 @@
 		"DOTA_Tooltip_Ability_silencer_global_silence_datadriven_Scepter_Description"		"Applies the current level of Curse of the Silent to all enemy Heroes."
 		"DOTA_Tooltip_modifier_global_silence_datadriven"									"Global Silence"
 		"DOTA_Tooltip_modifier_global_silence_datadriven_Description"						"All heroes are silenced."
+		"DOTA_Tooltip_modifier_silencer_brain_drain_debuff_datadriven"						"Permanent Intelligence Stolen"
+		"DOTA_Tooltip_modifier_silencer_brain_drain_buff_datadriven"						"Permanent Intelligence Stolen"
+
 		// Skywrath Mage
 		"DOTA_Tooltip_ability_skywrath_mage_concussive_shot_datadriven"						"Concussive Shot"
 		"DOTA_Tooltip_ability_skywrath_mage_concussive_shot_datadriven_Description"			"Skywrath Mage sets off a long range shot that hits the closest hero within a long range.  Upon impact, it deals damage and slows in an area of effect."

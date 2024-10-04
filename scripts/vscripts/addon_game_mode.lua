@@ -453,8 +453,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		handleAltText(playerid)
 		return
 	end
-	--if text == "-test" then
-	--end
+	if text == "-test" then
+		--local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+	end
 end
 
 -- Evaluate the state of the game
@@ -916,9 +917,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("undying_flesh_golem_aura_datadriven"):SetLevel(1)
 --		elseif entity:GetName() == "npc_dota_hero_chen" then
 --			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_silencer" then
-			local ability = entity:FindAbilityByName("silencer_global_silence_aghs_datadriven")
-			ability:SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_invoker" then
 			entity:SetThink(function()
 				entity:FindAbilityByName("invoker_invoke"):SetLevel(0)
@@ -1150,6 +1148,21 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			FindClearRandomPositionAroundUnit(entity, main_dog, 64)
 			entity:Stop()
 		end, "tempest move to other", 0.03)
+	end
+	if entity.intStealOnRespawn ~= nil then
+		local debuff = entity:FindModifierByName("modifier_silencer_brain_drain_debuff_datadriven")
+		if debuff ~= nil then
+			local stack = debuff:GetStackCount()
+			if stack == 0 then
+				stack = 2
+			else
+				stack = stack + 1
+			end
+			debuff:SetStackCount(stack)
+		else
+			entity.intStealOnRespawn:ApplyDataDrivenModifier(entity.intStealOnRespawn:GetCaster(), entity, "modifier_silencer_brain_drain_debuff_datadriven", {})
+		end
+		entity.intStealOnRespawn = nil
 	end
 end
 
