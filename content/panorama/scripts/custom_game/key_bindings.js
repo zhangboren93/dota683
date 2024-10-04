@@ -243,20 +243,22 @@ function OnCustomGameCourierSend()
 	if (current_courier_id == -1) {
 		return;
 	}
+
 	let courier = parseInt(current_courier_id)
-    GameUI.SelectUnit(courier, false);
 	// if hero has item from inventory, trigger take stash, else transferitem
 	if (heroHasItemInStash()) {
-    	let sendItemAbility = Entities.GetAbilityByName(courier, "courier_take_stash_items_lua")
-    	Abilities.ExecuteAbility(sendItemAbility, courier, false)
-		$.Schedule(0.03, function() { 
-    		GameUI.SelectUnit(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), false);
+		Game.PrepareUnitOrders({
+			"OrderType": dotaunitorder_t.DOTA_UNIT_ORDER_CAST_NO_TARGET,
+			"OrderIssuer": PlayerOrderIssuer_t.DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+			"UnitIndex": courier,
+			"AbilityIndex": Entities.GetAbilityByName(courier, "courier_take_stash_items_lua")
 		});
 	} else {
-    	let sendItemAbility2 = Entities.GetAbilityByName(courier, "courier_transfer_items_lua")
-    	Abilities.ExecuteAbility(sendItemAbility2, courier, false)
-		$.Schedule(0.03, function() { 
- 	   		GameUI.SelectUnit(Players.GetPlayerHeroEntityIndex(Players.GetLocalPlayer()), false);
+		Game.PrepareUnitOrders({
+			"OrderType": dotaunitorder_t.DOTA_UNIT_ORDER_CAST_NO_TARGET,
+			"OrderIssuer": PlayerOrderIssuer_t.DOTA_ORDER_ISSUER_PASSED_UNIT_ONLY,
+			"UnitIndex": courier,
+			"AbilityIndex": Entities.GetAbilityByName(courier, "courier_transfer_items_lua")
 		});
 	}
 }
