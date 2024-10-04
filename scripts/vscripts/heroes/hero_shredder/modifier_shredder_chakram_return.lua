@@ -26,7 +26,23 @@ modifier_shredder_chakram_return_lua = class({
 				me.particle_id = nil
 			end
 			me:StopSound("Hero_Shredder.Chakram")
-			caster:RemoveModifierByName("modifier_shredder_chakram_disarm_datadriven")
+			local disarms = caster:FindAllModifiersByName("modifier_disarmed")
+			print("Number of disarms " .. #disarms)
+			for i=1,#disarms do
+				print("Comparing ability " .. disarms[i]:GetAbility():GetName() .. " " .. ability:GetName())
+				if disarms[i]:GetAbility():GetName() == "shredder_chakram_datadriven" and ability:GetName() == "shredder_return_chakram_datadriven" then
+					disarms[i]:Destroy()
+					break
+				end
+				if disarms[i]:GetAbility():GetName() == "shredder_chakram_datadriven" and ability:GetName() == "shredder_return_chakram_2_datadriven" then
+					disarms[i]:Destroy()
+					break
+				end
+				if disarms[i]:GetAbility():GetName() == "shredder_chakram_2_datadriven" and ability:GetName() == "shredder_return_chakram_2_datadriven" then
+					disarms[i]:Destroy()
+					break
+				end
+			end
 			me:RemoveModifierByName("modifier_shredder_chakram_lua")
 			me:ForceKill(false)
 		else
@@ -43,6 +59,13 @@ modifier_shredder_chakram_return_lua = class({
 		local ability = self:GetAbility()
 		local destination = caster:GetAbsOrigin()
 		local chakram_ability = caster:FindAbilityByName("shredder_chakram_datadriven")
+		if caster:GetName() == "npc_dota_hero_rubick" then
+			local shredder = Entities:FindAllByName("npc_dota_hero_shredder")
+			if #shredder > 0 then
+				shredder = shredder[1]
+			end
+			chakram_ability = shredder:FindAbilityByName("shredder_chakram_datadriven")
+		end
 		local units = FindUnitsInRadius(caster:GetTeam(),
 			parent:GetAbsOrigin(),
 			nil,

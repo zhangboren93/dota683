@@ -53,13 +53,25 @@ modifier_shredder_chakram_slow_lua = class({
 	OnCreated = function(self) 
 		if not IsServer() then return end
 		local ability = self:GetAbility()
-		self.damage = ability:GetSpecialValueFor("damage_per_second") / 2
+		local caster = self:GetCaster()
+		local pass_damage = ability:GetSpecialValueFor("pass_damage")
+		if caster:GetName() == "npc_dota_hero_rubick" and ability:GetName() == "shredder_chakram_2_datadriven" then
+			local shredder = Entities:FindAllByName("npc_dota_hero_shredder")
+			if #shredder > 0 then
+				shredder = shredder[1]
+			end
+			local chakram_ability = shredder:FindAbilityByName("shredder_chakram_datadriven")
+			self.damage =chakram_ability:GetSpecialValueFor("damage_per_second") / 2
+			pass_damage = chakram_ability:GetSpecialValueFor("pass_damage")
+		else
+			self.damage = ability:GetSpecialValueFor("damage_per_second") / 2
+		end
 		self:StartIntervalThink(0.5)
 		-- Apply pass damage
 		ApplyDamage({
 			victim = self:GetParent(),
 			attacker = self:GetCaster(),
-			damage = ability:GetSpecialValueFor("pass_damage"),
+			damage = pass_damage,
 			damage_type = DAMAGE_TYPE_PURE,
 			ability = ability
 		})

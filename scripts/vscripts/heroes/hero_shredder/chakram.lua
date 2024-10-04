@@ -4,12 +4,25 @@ function handleSpellStart(event)
 	local caster = event.caster
 	local is_scepter_chakram = false
 	local ability = event.ability
-	if ability:GetName() == "shredder_chakram_2_datadriven" then
-		ability = caster:FindAbilityByName("shredder_chakram_datadriven")
-		is_scepter_chakram = true
-	end
 	local speed = ability:GetSpecialValueFor("speed")
 	local radius = ability:GetSpecialValueFor("radius")
+	if ability:GetName() == "shredder_chakram_2_datadriven" then
+		print(caster:GetName())
+		if caster:GetName() == "npc_dota_hero_shredder" then
+			ability = caster:FindAbilityByName("shredder_chakram_datadriven")
+			speed = ability:GetSpecialValueFor("speed")
+			radius = ability:GetSpecialValueFor("radius")
+		elseif caster:GetName() == "npc_dota_hero_rubick" then
+			local shredder = Entities:FindAllByName("npc_dota_hero_shredder")
+			if #shredder > 0 then
+				shredder = shredder[1]
+			end
+			local origin_ability = shredder:FindAbilityByName("shredder_chakram_datadriven")
+			speed = origin_ability:GetSpecialValueFor("speed")
+			radius = origin_ability:GetSpecialValueFor("radius")
+		end
+		is_scepter_chakram = true
+	end
 	
 	local velocity = target_point - caster:GetAbsOrigin()
 	velocity = Vector(velocity.x, velocity.y, 0):Normalized() * speed
@@ -46,7 +59,7 @@ function handleSpellStart(event)
 	else
 		return_ability = caster:FindAbilityByName("shredder_return_chakram_datadriven")
 	end
-	if return_ability:GetLevel() == 0 then
+	if return_ability ~= nil and return_ability:GetLevel() == 0 then
 		return_ability:SetLevel(1)
 	end
 	if is_scepter_chakram then
@@ -55,30 +68,7 @@ function handleSpellStart(event)
 		caster:SwapAbilities("shredder_chakram_datadriven", "shredder_return_chakram_datadriven", false, true)
 	end
 	caster:EmitSound("Hero_Shredder.Chakram.Cast")
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_shredder_chakram_disarm_datadriven", {})
-end
-
-function handleReturnSpellStart(event)
-	local caster = event.caster
-	local chakram_dummy_unit = caster.chakram_dummy_unit
-	local ability = event.ability
-	local is_scepter_chakram = false
-	if ability:GetName() == "shredder_return_chakram_2_datadriven" then
-		chakram_dummy_unit = caster.chakram_2_dummy_unit
-		is_scepter_chakram = true
-	end
-	if not IsValidEntity(chakram_dummy_unit) then return end
-	chakram_dummy_unit:AddNewModifier(caster, ability, "modifier_shredder_chakram_return_lua", { })
-	caster:EmitSound("Hero_Shredder.Chakram.Return")
-	local chakram_ability = caster:FindAbilityByName("shredder_chakram_datadriven")
-	if is_scepter_chakram then
-		chakram_ability = caster:FindAbilityByName("shredder_chakram_2_datadriven")
-	end
-	local chakram_projectile = chakram_ability.chakram_projectile
-	if chakram_projectile ~= nil then
-		ProjectileManager:DestroyLinearProjectile(chakram_projectile)
-	end
-	chakram_dummy_unit:RemoveModifierByName("modifier_shredder_chakram_move_lua")
+	caster:AddNewModifier(caster, ability, "modifier_disarmed", {})
 end
 
 function handleProjectileHitUnit(event)
@@ -100,23 +90,29 @@ function handleDeath(event)
 	local caster = event.caster
 	local ability = event.ability
 	local chakram_dummy_unit = caster.chakram_dummy_unit
-	chakram_dummy_unit:StopSound("Hero_Shredder.Chakram")
-	if chakram_dummy_unit.particle_id ~= nil then
-		ParticleManager:DestroyParticle(chakram_dummy_unit.particle_id, false)
-		chakram_dummy_unit.particle_id = nil
+	if chakram_dummy_unit ~= nil then
+		chakram_dummy_unit:StopSound("Hero_Shredder.Chakram")
+		if chakram_dummy_unit.particle_id ~= nil then
+			ParticleManager:DestroyParticle(chakram_dummy_unit.particle_id, false)
+			chakram_dummy_unit.particle_id = nil
+		end
+		chakram_dummy_unit:ForceKill(false)
+		caster.chakram_dummy_unit = nil
 	end
-	chakram_dummy_unit:ForceKill(false)
 	if ability:IsHidden() then
 		caster:SwapAbilities("shredder_chakram_datadriven", "shredder_return_chakram_datadriven", true, false)
 	end
 	-- clean scepter chakram
 	chakram_dummy_unit = caster.chakram_2_dummy_unit
-	chakram_dummy_unit:StopSound("Hero_Shredder.Chakram")
-	if chakram_dummy_unit.particle_id ~= nil then
-		ParticleManager:DestroyParticle(chakram_dummy_unit.particle_id, false)
-		chakram_dummy_unit.particle_id = nil
+	if chakram_2_dummy_unit ~= nil then
+		chakram_dummy_unit:StopSound("Hero_Shredder.Chakram")
+		if chakram_dummy_unit.particle_id ~= nil then
+			ParticleManager:DestroyParticle(chakram_dummy_unit.particle_id, false)
+			chakram_dummy_unit.particle_id = nil
+		end
+		chakram_dummy_unit:ForceKill(false)
+		caster.chakram_2_dummy_unit = nil
 	end
-	chakram_dummy_unit:ForceKill(false)
 	ability = caster:FindAbilityByName("shredder_chakram_2_datadriven")
 	if ability:IsHidden() and ability:GetLevel() > 0 then
 		caster:SwapAbilities("shredder_chakram_2_datadriven", "shredder_return_chakram_2_datadriven", true, false)
@@ -133,3 +129,101 @@ function handleIntervalThink(event)
 		end
 	end
 end
+
+function handleRemoveAbility(parent)
+	local chakram_dummy_unit = parent.chakram_dummy_unit
+	if chakram_dummy_unit ~= nil then
+		chakram_dummy_unit:StopSound("Hero_Shredder.Chakram")
+		if chakram_dummy_unit.particle_id ~= nil then
+			ParticleManager:DestroyParticle(chakram_dummy_unit.particle_id, false)
+			chakram_dummy_unit.particle_id = nil
+		end
+		chakram_dummy_unit:ForceKill(false)
+		parent.chakram_dummy_unit = nil
+	end
+	-- clean scepter chakram
+	chakram_dummy_unit = parent.chakram_2_dummy_unit
+	if chakram_dummy_unit ~= nil then
+		chakram_dummy_unit:StopSound("Hero_Shredder.Chakram")
+		if chakram_dummy_unit.particle_id ~= nil then
+			ParticleManager:DestroyParticle(chakram_dummy_unit.particle_id, false)
+			chakram_dummy_unit.particle_id = nil
+		end
+		chakram_dummy_unit:ForceKill(false)
+		parent.chakram_2_dummy_unit = nil
+	end
+	local disarms = parent:FindAllModifiersByName("modifier_disarmed")
+	for i=1,#disarms do
+		if     disarms[i]:GetAbility():GetName() == "shredder_chakram_datadriven" 
+		  	or disarms[i]:GetAbility():GetName() == "shredder_chakram_2_datadriven" then
+			disarms[i]:Destroy()
+		end
+	end
+end
+
+shredder_chakram_datadriven = class({
+	OnSpellStart = function(self)
+		handleSpellStart({
+			target_points = {self:GetCursorPosition()},
+			ability = self,
+			caster = self:GetCaster()
+		})
+	end,
+	GetAssociatedSecondaryAbilities = function() return "shredder_return_chakram_datadriven" end,
+	GetIntrinsicModifierName = function() return "modifier_shredder_chakram_death_lua" end,
+	GetAOERadius = function() return 200 end
+})
+
+shredder_chakram_2_datadriven = class({
+	OnSpellStart = function(self)
+		handleSpellStart({
+			target_points = {self:GetCursorPosition()},
+			ability = self,
+			caster = self:GetCaster()
+		})
+	end,
+	GetAssociatedSecondaryAbilities = function() return "shredder_return_chakram_2_datadriven" end,
+	GetAOERadius = function() return 200 end,
+	GetIntrinsicModifierName = function() return "modifier_shredder_chakram_remove_rubick_lua" end
+})
+
+modifier_shredder_chakram_death_lua = class({
+	IsHidden = function() return true end,
+	OnCreated = function(self) 
+		self:StartIntervalThink(1)
+	end,
+	OnIntervalThink = function(self)
+		handleIntervalThink({
+			caster = self:GetCaster()
+		})
+	end,
+	DeclareFunctions = function(self)
+		return { MODIFIER_EVENT_ON_DEATH }
+	end,
+	OnDeath = function(self, event)
+		if event.unit ~= self:GetParent() then return end
+		if not IsServer() then return end
+		handleDeath({
+			caster = self:GetCaster(),
+			ability = self
+		})
+	end,
+	OnDestroy = function(self)
+		if not IsServer() then return end
+		local parent = self:GetParent()
+		if parent:GetName() == "npc_dota_hero_rubick" then
+			handleRemoveAbility(parent)
+		end
+	end
+})
+
+modifier_shredder_chakram_remove_rubick_lua = class({
+	IsHidden = function() return true end,
+	OnDestroy = function(self)
+		if not IsServer() then return end
+		local parent = self:GetParent()
+		if parent:GetName() == "npc_dota_hero_rubick" then
+			handleRemoveAbility(parent)
+		end
+	end
+})
