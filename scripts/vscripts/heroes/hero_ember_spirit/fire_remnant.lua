@@ -116,6 +116,12 @@ ember_spirit_fire_remnant_datadriven = class({
 					ParticleManager:DestroyParticle(dummy.fire_remnant_particle, false)
 					dummy.fire_remnant_particle = nil
 				end
+				for i=1,#caster.fire_remnant_entities do
+					if caster.fire_remnant_entities[i] == dummy:entindex() then
+						table.remove(caster.fire_remnant_entities, i)
+						break
+					end
+				end
 			end, 
 			"remnant particle expires.",
 			dummyDuration)
@@ -123,7 +129,7 @@ ember_spirit_fire_remnant_datadriven = class({
 		-- NOTE: This is based on the assumption that the maximum will be at certain amount only
 		if not caster.fire_remnant_entities then caster.fire_remnant_entities = {} end
 		
-		caster.fire_remnant_entities[ dummy:entindex() ] = target
+		table.insert(caster.fire_remnant_entities, dummy:entindex())
 		
 		-- Check if it should start cooldown timer
 		if caster.fire_remnant_charges + 1 == maximum_charges then
@@ -141,7 +147,7 @@ ember_spirit_fire_remnant_datadriven = class({
 		end
 		
 		-- Start the duration on the dummy
-		caster:AddNewModifier(caster, ability, modifierCounterCooldownName, { duration = 45 } )
+		caster:AddNewModifier(caster, ability, modifierCounterCooldownName, { duration = dummyDuration } )
 		
 		-- Move to location at multiplier * speed
 		dummy:StartGesture(ACT_DOTA_RUN )
@@ -171,19 +177,19 @@ ember_spirit_activate_fire_remnant_datadriven = class({
 		
 		local index = -1
 		local max_distance = 0
-		if caster.fire_remnant_entities == nil then
+		if #caster.fire_remnant_entities == 0 then
 		    caster:Stop()
             caster:GiveMana(150)
 			return 
 		end
-		for k, v in pairs( caster.fire_remnant_entities ) do
-			local dummy = EntIndexToHScript( k )
+		-- TODO remember all remnant's position before they expires
+		for i=1,#caster.fire_remnant_entities do
+			local dummy = EntIndexToHScript( caster.fire_remnant_entities[i] )
 			if dummy == nil or not dummy:IsAlive() then
-				caster.fire_remnant_entities[k] = nil
 			else
-				local distance = ( target - v ):Length2D()
+				local distance = ( target - dummy:GetAbsOrigin() ):Length2D()
 				if distance > max_distance then
-					index = k
+					index = i
 					max_distance = distance
 				end
 			end
@@ -195,17 +201,21 @@ ember_spirit_activate_fire_remnant_datadriven = class({
 		end
 		-- Inherit variables
 		local ability = self
-		
-		-- Remove the entity from the list, in cast multiple activate is triggered so it will move to next unit instantly
-		-- Set up variables
-		caster.fire_remnant_entities[index] = nil
+		print("Adding activate modifier " .. index)
+		DeepPrintTable(caster.fire_remnant_entities)
 		
 		caster:AddNewModifier(caster, ability, "modifier_ember_spirit_fire_remnant_activate_lua", {
-			destination = index,
+			destination = caster.fire_remnant_entities[index],
 			target_x = target.x,
 			target_y = target.y,
 			duration = 2
 		})
+
+		-- Remove the entity from the list, in cast multiple activate is triggered so it will move to next unit instantly
+		-- Set up variables
+		print("fire_remnant removing index " .. index .. " from " .. #caster.fire_remnant_entities)
+		table.remove(caster.fire_remnant_entities, index)
+
 		caster:AddNewModifier(caster, ability, "modifier_activate_fire_remnant_buff_lua", { duration = 2 })
 			
 		caster:EmitSound("Hero_EmberSpirit.FireRemnant.Activate")

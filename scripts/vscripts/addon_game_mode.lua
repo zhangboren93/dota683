@@ -481,7 +481,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		end
 		return
 	end
-	if string.find(text,'-kickafk') >= 0 then
+	if string.find(text,'-kickafk') ~= nil then
 		local kick_player_id = tonumber(string.sub(text, string.len('-kickafk') + 2))
 		if playerid == kick_player_id then return end
 		local kick_player = PlayerResource:GetPlayer(kick_player_id)

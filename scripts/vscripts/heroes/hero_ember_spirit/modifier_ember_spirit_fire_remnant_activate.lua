@@ -77,20 +77,23 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 			-- Find the most far remnant from the target point
 			local furthestRemnantIndex = -1
 			local furthest_distance = 0
-			for k, v in pairs(me.fire_remnant_entities) do
-				if IsValidEntity(EntIndexToHScript(k)) then
+			for i=1,#me.fire_remnant_entities do
+				local entity = EntIndexToHScript(me.fire_remnant_entities[i])
+				if entity ~= nil and entity:IsAlive() then
 					if furthestRemnantIndex == -1 then
-						furthestRemnantIndex = k
-						furthest_distance = (EntIndexToHScript(k):GetAbsOrigin() - self.target_point):Length2D()
+						furthestRemnantIndex = i
+						furthest_distance = (entity:GetAbsOrigin() - self.target_point):Length2D()
 					else
-						local my_distance = (EntIndexToHScript(k):GetAbsOrigin() - self.target_point):Length2D()
+						local my_distance = (entity:GetAbsOrigin() - self.target_point):Length2D()
 						if my_distance > furthest_distance then
-							furthestRemnantIndex = k
+							furthestRemnantIndex = i
 							furthest_distance = my_distance
 						end
 					end
 				end
 			end
+			print("furthestRemnantIndex " .. furthestRemnantIndex .. " " .. #me.fire_remnant_entities)
+			DeepPrintTable(me.fire_remnant_entities)
 			if furthestRemnantIndex == -1 then
 				-- put the unit at destination
 				FindClearSpaceForUnit(me, dest_loc, true)
@@ -105,12 +108,12 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 				if GameRules:GetGameTime() >= self.time_upper_bound then
 					me:SetAbsOrigin(dest_loc)
 				end
-				me.fire_remnant_entities[furthestRemnantIndex] = nil
-				self.destination_entity = EntIndexToHScript(furthestRemnantIndex)
+				self.destination_entity = EntIndexToHScript(me.fire_remnant_entities[furthestRemnantIndex])
 				self.destination = self.destination_entity:GetAbsOrigin()
 				self.time_upper_bound = GameRules:GetGameTime() + 0.4
 				print("Move to another remnent located at (" .. self.destination.x .. ", " .. self.destination.y .. ")") 
 				me:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
+				table.remove(me.fire_remnant_entities, furthestRemnantIndex)
 			end
 		end
 	end,
@@ -123,12 +126,12 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 		end
 		local land_point = self.destination_entity:GetAbsOrigin()
 		forceKillRemnantEntity(self.destination_entity, me, self.radius, self.damage)
-		for k, v in pairs(me.fire_remnant_entities) do
-			local entity = EntIndexToHScript(k)
-			if (entity:GetAbsOrigin() - self.target_point):Length2D() <= (land_point - self.target_point):Length2D() then
-				land_point = entity:GetAbsOrigin()
-			end
+		for i=1,#me.fire_remnant_entities do
+			local entity = EntIndexToHScript(me.fire_remnant_entities[i])
 			if IsValidEntity(EntIndexToHScript(k)) then
+				if (entity:GetAbsOrigin() - self.target_point):Length2D() <= (land_point - self.target_point):Length2D() then
+					land_point = entity:GetAbsOrigin()
+				end
 				forceKillRemnantEntity(entity, me, self.radius, self.damage)
 			end
 		end
