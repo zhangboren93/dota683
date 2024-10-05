@@ -26,7 +26,7 @@
 	"precache"
 	{
 		"particle"  "particles/units/heroes/hero_nevermore/nevermore_souls.vpcf"
-		"particle"  "particles/units/heroes/hero_nevermore/nevermore_necro_souls.vpcf"
+		//"particle"  "particles/units/heroes/hero_nevermore/nevermore_necro_souls.vpcf"
 		"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
 	}
 
@@ -47,8 +47,8 @@
 			"Passive"			"1"
 			"IsHidden"			"1"
 	
-			"EffectName"		"particle_name"
-			"EffectAttachType"	"follow_origin"
+		//	"EffectName"		"particles/units/heroes/hero_nevermore/nevermore_necro_souls.vpcf"
+		//	"EffectAttachType"	"follow_origin"
 
 			"OnKill"
 			{
