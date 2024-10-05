@@ -4,12 +4,15 @@
 	Register target
 ]]
 function assassinate_register_target( keys )
-	keys.caster.assassinate_target = keys.target
 	local target = keys.target
 	local ability = keys.ability
 	local caster = keys.caster
+	caster.assassinate_target = target
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_assassinate_target_datadriven", { duration = 4 })
 	target:AddNewModifier(caster, ability, "modifier_truesight", { duration = 4 })
+	if ability.particleId ~= nil then
+		ParticleManager:DestroyParticle(ability.particleId, false)
+	end
 	ability.particleId = ParticleManager:CreateParticleForTeam("particles/units/heroes/hero_sniper/sniper_crosshair.vpcf", PATTACH_OVERHEAD_FOLLOW, target, caster:GetTeam())
 end
 
@@ -53,7 +56,7 @@ function handle_target_destroy(event)
 	local ability = event.ability
 	if ability.particleId ~= nil then
 		ParticleManager:DestroyParticle(ability.particleId, false)
-		ability.particleId = ni
+		ability.particleId = nil
 	end
 end
 
