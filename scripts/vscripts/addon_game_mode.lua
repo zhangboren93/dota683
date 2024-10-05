@@ -28,6 +28,7 @@ player2BuildingDamage = {}
 fwdnocdenabled = 0
 sameHeroPickEnabled = false
 custom_game_first_pick = "random"
+player_last_order_time = {}
 
 function Precache( context )
 	--[[
@@ -389,6 +390,7 @@ function CAddonTemplateGameMode:InitGameMode()
 end
 
 function HandlePlayerChat(self, teamonly, text, playerid)
+	--print("HandlePlayerChat " .. teamonly .. " " .. text .. " " .. playerid)
 	if teamonly == 0 and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		if not isMapRanked() then
 			if text == '-vsbot' then
@@ -455,6 +457,59 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	end
 	if text == "-test" then
 		--local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+	end
+	local time = GameRules:GetDOTATime(false, false)
+	if text == "-afk" then
+		local player = PlayerResource:GetPlayer(playerid)
+		local team = player:GetTeam()
+		local team_pc = PlayerResource:GetPlayerCountForTeam(team)
+		for i=1,team_pc do
+			local player_id = PlayerResource:GetNthPlayerIDOnTeam(team, i)
+			local player = PlayerResource:GetPlayer(player_id)
+			local hero = player:GetAssignedHero()
+			if player_last_order_time[player_id] == nil then
+				player_last_order_time[player_id] = 0
+			end
+			if hero ~= nil and player_last_order_time[player_id] ~= nil then
+				local hero_name = string.sub(hero:GetName(), string.len("npc_dota_hero")+2)
+				local afk_time = time - player_last_order_time[player_id]
+				GameRules:SendCustomMessageToTeam("Player "..player_id.." "..hero_name.." afk for "..math.floor(afk_time).."s.", -1, -1, team)
+				if afk_time > 300 then
+					GameRules:SendCustomMessageToTeam("Type '-kickafk "..player_id.."' to kick player.", -1, -1, team)
+				end
+			end
+		end
+		return
+	end
+	if string.find(text,'-kickafk') >= 0 then
+		local kick_player_id = tonumber(string.sub(text, string.len('-kickafk') + 2))
+		if playerid == kick_player_id then return end
+		local kick_player = PlayerResource:GetPlayer(kick_player_id)
+		local player = PlayerResource:GetPlayer(playerid)
+		if kick_player:GetTeam() ~= player:GetTeam() then return end
+		if player_last_order_time[kick_player_id] == nil then
+			player_last_order_time[kick_player_id] = 0
+		end
+		local afk_time = player_last_order_time[kick_player_id] - time
+		if time <= 300 then return end
+		local hero = kick_player:GetAssignedHero()
+		if hero == nil then return end
+		local hero_name = string.sub(hero:GetName(), string.len("npc_dota_hero")+2)
+		GameRules:SendCustomMessage("Kicking player "..kick_player_id.." "..hero_name, -1, -1)
+		local team = kick_player:GetTeam()
+		local team_pc = PlayerResource:GetPlayerCountForTeam(team)
+		for i=1,team_pc do
+			local controllable_player = PlayerResource:GetNthPlayerIDOnTeam(team, i)
+			if controllable_player ~= kick_player_id then
+				hero:SetControllableByPlayer(controllable_player, false)
+			end
+		end
+		for i=0,DOTA_STASH_SLOT_6 do 
+			local item = hero:GetItemInSlot(i)
+			if item ~= nil and item:GetPurchaser() == hero then
+				item:SetShareability(ITEM_FULLY_SHAREABLE)
+			end
+		end
 	end
 end
 
@@ -668,18 +723,18 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		if target:GetClassname() == "dota_item_drop" or target:GetClassname() == "dota_item_rune" then
 			return true
 		end
-		if target:GetClassname() == 'npc_dota_templar_assassin_psionic_trap'
-			and target:GetHealth() * 100.0 / target:GetMaxHealth() > 50 then
-				for i,v in pairs(event.units) do
-					local unit = EntIndexToHScript(v)
-					if unit:GetTeam() == target:GetTeam() then
-						print("cannot deny psionic trap more than 50% HP.")
-						return false
-					end
+		if	    target:GetClassname() == 'npc_dota_templar_assassin_psionic_trap'
+		  	and target:GetHealth() * 100.0 / target:GetMaxHealth() > 50 then
+			for i,v in pairs(event.units) do
+				local unit = EntIndexToHScript(v)
+				if unit:GetTeam() == target:GetTeam() then
+					print("cannot deny psionic trap more than 50% HP.")
+					return false
 				end
+			end
 		end
 	end
-	if event.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION 
+	if     event.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION 
 		or event.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET 
 		or event.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE 
 		or event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
@@ -786,6 +841,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			end
 		end
 	end
+	player_last_order_time[event.issuer_player_id_const] = GameRules:GetDOTATime(false, false)
 	return true
 end
 
