@@ -171,18 +171,6 @@
 				"ScriptFile"	"heroes/hero_bounty_hunter/track.lua"
 				"Function"		"handleSpellStart"
 			}
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_cast.vpcf"
-	   			"EffectAttachType"	"start_at_customorigin"
-	
-				"ControlPointEntities"
-				{
-				    "CASTER" "attach_attack1"
-				    "TARGET" "attach_hitloc"
-				}
-	
-			}
 		}
 	}
 }
