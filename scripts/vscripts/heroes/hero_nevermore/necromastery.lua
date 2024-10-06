@@ -51,4 +51,8 @@ function NecromasteryStack( event )
 	else
 		caster:SetModifierStackCount( modifier, ability, max_souls )
 	end
+
+	local particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_nevermore/nevermore_necro_souls.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControlEnt(particleId, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
+	ParticleManager:SetParticleControlEnt(particleId, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), false)
 end
