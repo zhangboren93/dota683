@@ -22,12 +22,8 @@ function handleSpellStart(event)
         ability.particleId = ParticleManager:CreateParticle("particles/items2_fx/teleport_end.vpcf", PATTACH_POINT_FOLLOW, unit)
         ParticleManager:SetParticleControlEnt(ability.particleId, 0, unit, PATTACH_POINT_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(ability.particleId, 1, unit, PATTACH_POINT_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
-        unit:SetThink(function()
-			if ability.particleId ~= nil then
-            	ParticleManager:DestroyParticle(ability.particleId, true)
-				ability.particleId = nil
-			end
-        end, "StopParticalEffect", 3)
+		-- remove particle when the unit is killed
+		unit:AddNewModifier(caster, ability, "modifier_item_travel_boots_target_lua", { duration = 3 })
     end
 end
 
