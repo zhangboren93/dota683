@@ -199,6 +199,10 @@ function infest_control(event)
 	local caster = event.caster
 	local host = caster.host
 	local ability = event.ability
+
+    host:AddNewModifier(caster, ability, "modifier_life_stealer_infest_creep", {}) -- Dota2 Original modifier
+	host:RemoveAbility("life_stealer_consume")
+
 	host:AddNewModifier(caster, ability, "modifier_dominated", {})
 	host:SetTeam(caster:GetTeam())
 	host:SetControllableByPlayer(caster:GetPlayerID(), true)
