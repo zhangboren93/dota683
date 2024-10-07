@@ -4,7 +4,7 @@ function handleAttackLanded(event)
 	local ability = event.ability
 	local chance = ability:GetSpecialValueFor("chance")
 	local bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-	if caster:IsIllusion() or caster:PassivesDisabled() then return end
+	if caster:IsIllusion() or caster:PassivesDisabled() or target:IsBuilding() then return end
 	if RollPseudoRandomPercentage(chance, DOTA_PSEUDO_RANDOM_SLARDAR_BASH, caster) then
 		target:EmitSound("Hero_Slardar.Bash")
 		if target:IsCreep() then
