@@ -78,13 +78,19 @@
 				"IsPurgable"		"1"
 				"Duration"			"%duration"
 
-				"EffectName"		"particles/units/heroes/hero_legion_commander/legion_commander_press.vpcf"
-				"EffectAttachType"	"follow_origin"
-
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"			"%hp_regen"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%attack_speed"
+				}
+				
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_legion_commander/press_the_attack.lua"
+						"Function"			"handleDestroy"
+					}
 				}
 			}
 		}
