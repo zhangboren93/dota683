@@ -32,8 +32,8 @@ function handleAttackLanded(event)
 	    	damage_table.damage_type = DAMAGE_TYPE_PHYSICAL 
 	    	damage_table.damage = bashDamage
 	    	target:AddNewModifier(attacker, ability, "modifier_stunned", {Duration = bashDuration})
-	    	EmitSoundOn("soundevents/game_sounds_heroes/game_sounds_troll_warlord.vsndevts", target)
 	    	ApplyDamage(damage_table)
+			target:EmitSound("Hero_TrollWarlord.BerserkersRage.Stun")
         end
     end
 end
