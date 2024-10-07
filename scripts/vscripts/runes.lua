@@ -15,7 +15,7 @@ function handleRuneRegenTakeDamage(event)
 	local damage = event.Damage
 	local attacker = event.attacker
 	local target = event.unit
-	if damage <= 20 then return end
+	if damage < 20 and event.inflictor ~= nil then return end
 	if attacker == target then return end
 	target:RemoveModifierByName("modifier_rune_regen_datadriven")
 end

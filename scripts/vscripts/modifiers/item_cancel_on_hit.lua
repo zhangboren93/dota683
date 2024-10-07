@@ -18,7 +18,7 @@ end
 
 function modifier_cancels_item_on_hit:OnTakeDamage(event)
     local entity = self:GetParent()
-    if entity == event.unit then
+    if entity == event.unit and (event.original_damage >= 20 or event.inflictor == nil) then
         entity:RemoveModifierByName("modifier_clarity_potion")
         entity:RemoveModifierByName("modifier_bottle_regeneration")
         entity:RemoveModifierByName("modifier_rune_regen")
