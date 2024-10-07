@@ -105,6 +105,7 @@ function chen_holy_persuasion_lua:OnSpellStart()
 		"particles/units/heroes/hero_chen/chen_holy_persuasion.vpcf",
 		PATTACH_ABSORIGIN_FOLLOW, 
 		target)
+	ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
 	ParticleManager:ReleaseParticleIndex(particle)
 end
 
