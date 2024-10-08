@@ -28,6 +28,7 @@ player2BuildingDamage = {}
 fwdnocdenabled = 0
 sameHeroPickEnabled = false
 custom_game_first_pick = "random"
+custom_game_meta_version = "683"
 player_last_order_time = {}
 
 function Precache( context )
@@ -97,6 +98,7 @@ function Activate()
 	LinkLuaModifier( "modifier_fountain_aura_buff_lua", "modifiers/modifier_fountain_aura_buff.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_attribute_regen_adjust", "modifiers/attribute_regen.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_attribute_regen_688_lua", "modifiers/modifier_attribute_regen_688.lua", LUA_MODIFIER_MOTION_NONE)
 	--LinkLuaModifier( "modifier_troll_warlord_bash", "modifiers/troll_bash.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_safe_lane_move_speed_bonus", "modifiers/creep.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_cancels_item_on_hit", "modifiers/item_cancel_on_hit.lua", LUA_MODIFIER_MOTION_NONE)
@@ -896,6 +898,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		-- modifiers
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
 		entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
+		if custom_game_meta_version == "688" then
+			entity:AddNewModifier(entity, nil, "modifier_attribute_regen_688_lua", {})
+		end
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
 		entity:AddNewModifier(entity, nil, "item_tpscroll_clear_tree_modifier", {})
 		entity:AddNewModifier(entity, nil, "modifier_no_creep_aggro_on_cast_orb_lua", {})
@@ -2610,6 +2615,17 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 				end
 				custom_game_first_pick = data.fp
 				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.PlayerID, fp = data.fp})
+			end
+			return
+		elseif data.mv ~= nil then
+			if data.mv ~= custom_game_meta_version then
+				if data.mv == '683' then
+					GameRules:SendCustomMessage("启用683版本", -1, -1)
+				elseif data.mv == '688' then
+					GameRules:SendCustomMessage("启用688版本", -1, -1)
+				end
+				custom_game_meta_version = data.mv
+				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.PlayerID, mv = data.mv})
 			end
 			return
 		end

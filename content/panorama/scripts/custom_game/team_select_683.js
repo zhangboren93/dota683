@@ -40,6 +40,14 @@ function OnGameModeSelectedFromServer(data) {
 				$("#dire").checked = true
 			}
 			return 
+		} else if (data.mv != null) {
+			$.Msg("Other Client changed mv option " + data.mv)
+			if (data.mv == "683") {
+				$("#683").checked = true
+			} else if (data.mv == "688") {
+				$("#688").checked = true
+			}
+			return;
 		}
 		if (data.gm == "ap") {
 			$("#ap").checked = true
@@ -73,6 +81,11 @@ function handleShufflePlayers() {
 	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), sf: sf})
 }
 
+function handleMetaVersion(version) {
+	$.Msg("handle meta version " + version)
+	GameEvents.SendCustomGameEventToServer("game_mode_select", { mv: version })
+}
+
 (function() {
 	let mapname = Game.GetMapInfo().map_name
 	$.Msg("Map name: " + mapname)
@@ -80,6 +93,7 @@ function handleShufflePlayers() {
 		$("#ModeSelect").visible = true
 		$("#ap").checked = true
 		$("#random").checked = true
+		$("#683").checked = true
 	} else if (mapname == 'maps/rank.vpk') {
 		$('#ShuffleTeamAssignmentButton').visible = false
 		$('#UnassignedPlayerPanel').visible = false

@@ -39,6 +39,13 @@
 				<Panel id="ModelSelectToggleOptions" style="flow-children: down;">
 					<ToggleButton id="sp" checked="false" text="#683modeselect_gamemode_samepick" onactivate="handleSamePickToggle()" />
 				</Panel>
+				<Panel style="flow-children: right;">
+					<Label text="#683modeselect_meta_version"/>
+					<Panel id="MetaVersionRadio" style="flow-children: down;">
+						<RadioButton group="meta_version" id="683" text="#683modeselect_meta_version_683" onactivate="handleMetaVersion('683')"/>
+						<RadioButton group="meta_version" id="688" text="#683modeselect_meta_version_688" onactivate="handleMetaVersion('688')"/>
+					</Panel>
+				</Panel>
 			</Panel>
 			<!--Teams List, left hand panel-->
 			<Panel id="TeamsList" >
