@@ -1277,10 +1277,10 @@
 				
 				"OnTakeDamage"
 				{
-					"RemoveModifier"
+					"RunScript"
 					{
-						"Target"			"UNIT"
-						"ModifierName"		"modifier_item_flask_datadriven_active"
+						"ScriptFile"			"items/item_flask.lua"
+						"Function"				"handleTakeDamage"
 					}
 				}
 			}

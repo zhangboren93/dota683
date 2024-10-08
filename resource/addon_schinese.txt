@@ -1525,6 +1525,8 @@
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_bonus_movespeed"		"%移速降低："
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_bonus_attackspeed"	"攻速降低："
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_duration"				"减速时间："
+		"DOTA_Tooltip_modifier_jinada_slow_datadriven"									"忍术"
+		"DOTA_Tooltip_modifier_jinada_slow_datadriven_Description"						"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven"				"暗影步"
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_Description"	"赏金猎人进入隐身，并能够穿越其它单位，直到他攻击或使用技能。破隐一击会造成额外伤害。"
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_duration"		"持续时间："
