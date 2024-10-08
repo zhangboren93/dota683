@@ -1493,6 +1493,8 @@
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_bonus_movespeed"		"%MOVE SPEED SLOW:"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_bonus_attackspeed"	"ATTACK SPEED SLOW:"
 		"DOTA_Tooltip_ability_bounty_hunter_jinada_datadriven_duration"				"SLOW DURATION:"
+		"DOTA_Tooltip_modifier_jinada_slow_datadriven"									"Jinada"
+		"DOTA_Tooltip_modifier_jinada_slow_datadriven_Description"						"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven"				"Shadow walk"
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_Description"	"Bounty Hunter becomes invisible and gains the ability to move through other units until he attacks or uses an ability. If he breaks the invisibility with an attack, that attack will deal bonus damage."
 		"DOTA_Tooltip_Ability_bounty_hunter_wind_walk_datadriven_duration"		"Duration:"
