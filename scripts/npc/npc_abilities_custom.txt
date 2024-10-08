@@ -34,6 +34,7 @@
 #base "heroes/luna.txt"
 #base "heroes/lycan.txt"
 #base "heroes/magnataur.txt"
+#base "heroes/morphling.txt"
 #base "heroes/naga_siren.txt"
 #base "heroes/necrolyte.txt"
 #base "heroes/nevermore.txt"
