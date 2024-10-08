@@ -4,7 +4,7 @@ modifier_attribute_regen_688_lua = class({
 		MODIFIER_PROPERTY_HEALTH_BONUS,
 		MODIFIER_PROPERTY_MANA_BONUS
 	} end,
-	GetModifierHealthBonus = function() return 50 end,
-	GetModifierManaBonus = function() return 50 end,
+	GetModifierHealthBonus = function(self) return 50 + self:GetParent():GetStrength() end,
+	GetModifierManaBonus = function(self) return 50 - self:GetParent():GetIntellect(false) end,
 	IsHidden = function() return true end
 })
