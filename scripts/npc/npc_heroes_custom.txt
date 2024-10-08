@@ -2082,6 +2082,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability4"		"troll_warlord_fervor_datadriven"
 		"Ability5"		"troll_warlord_berserkers_rage"
 		"Ability6"		"troll_warlord_battle_trance_datadriven"
 		"Ability7"		"troll_warload_berserkers_rage_bash_datadriven"
