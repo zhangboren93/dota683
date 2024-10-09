@@ -7505,6 +7505,12 @@
 		"UpgradesItems"					"item_diffusal_blade_2_datadriven"
 		"UpgradeRecipe"					"item_recipe_diffusal_blade"
 		"ShouldBeSuggested"				"1"
+
+		"precache"
+		{
+			"particle"					"particles/items_fx/diffusal_slow.vpcf"
+			"particle"					"particles/generic_gameplay/generic_purge.vpcf"
+		}
 		
 		"OnSpellStart"
 		{
@@ -7569,6 +7575,12 @@
 		"UpgradesItems"					"item_diffusal_blade_2_datadriven"
 		"UpgradeRecipe"					"item_recipe_diffusal_blade_datadriven"
 		"ShouldBeSuggested"				"1"
+
+		"precache"
+		{
+			"particle"					"particles/items_fx/diffusal_slow.vpcf"
+			"particle"					"particles/generic_gameplay/generic_purge.vpcf"
+		}
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

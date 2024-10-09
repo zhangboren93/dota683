@@ -15,7 +15,10 @@ item_diffusal_blade_datadriven = class({
 
 		if target:GetTeam() ~= caster:GetTeam() then
 			local duration = self:GetSpecialValueFor("purge_slow_duration")
-			target:AddNewModifier(caster, self, "modifier_diffusal_purge_slow_datadriven", { duration = duration })
+			local modifier = target:AddNewModifier(caster, self, "modifier_diffusal_purge_slow_datadriven", { duration = duration })
+			modifier:SetStackCount(5)
+		else
+			ParticleManager:CreateParticle("particles/generic_gameplay/generic_purge.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		end
 	end,
 	GetIntrinsicModifierName = function(self)
