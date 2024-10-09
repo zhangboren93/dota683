@@ -1291,7 +1291,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			print("Crediting WW on Winters curse team kill")
 			attacker = entity:FindModifierByName("modifier_winter_wyvern_winters_curse_aura"):GetCaster()
 		end
-		local ret,error = pcall(function() handleKillBonus(self, attacker, entity) end)
+		local ret,error = pcall(function() handleKillBonus(self, attacker, entity, custom_game_meta_version) end)
 		if not ret then
 			print(error)
 			GameRules:SendCustomMessage(error, -1, -1)

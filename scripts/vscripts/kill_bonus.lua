@@ -16,7 +16,7 @@ local function sendPlayerKillStreakEvent(entity_player_id)
 	end
 end
 
-function handleKillBonus(self, attacker, entity)
+function handleKillBonus(self, attacker, entity, meta_version)
 	local entity_player_id = entity:GetPlayerOwnerID()
 	if attacker:GetTeam() == entity:GetTeam() then
 		print("Denied, no gold/XP bonus")
@@ -149,6 +149,9 @@ function handleKillBonus(self, attacker, entity)
 	if assisterCount > 0 then
 		local baseGold = assistGoldBase(assisterCount)
 		local goldPerLevel = assistGoldPerLevel(assisterCount)
+		if meta_version == '688' then
+			goldPerLevel = assistGoldPerLevel688(assisterCount)
+		end
 		local level = entity:GetLevel()
 		local cbFactor = GetAssistGoldComebackFactor(entity:GetTeam())
 		local cbfFactor = assistGoldCBFactor(assisterCount)
@@ -219,7 +222,11 @@ function handleKillBonus(self, attacker, entity)
 	end
 	DeepPrintTable(exp_entity_ids)
 	print(tablen)
-	local assist_exp = playerKillXPBase(entity:GetLevel()) / tablen +  -- base experience to split
+	local player_kill_xp_base = playerKillXPBase(entity:GetLevel())
+	if meta_version == "688" then
+		player_kill_xp_base = playerKillXPBase688(entity:GetLevel())
+	end
+	local assist_exp = player_kill_xp_base / tablen +  -- base experience to split
 					   playerXPBase(tablen) * entity:GetLevel() + -- base assist experience
 					   cbXPRate(tablen) * GetAssistXPComebackFactor(entity:GetTeam()) * entity:GetCurrentXP() -- assist experience comback factor
 	print("Granting assist experience " .. assist_exp .. " to " .. tablen .. " players.")
@@ -268,6 +275,16 @@ function assistGoldPerLevel(count)
 		return 8 - count
 	else
 		return 4
+	end
+end
+
+function assistGoldPerLevel688(count)
+	if count < 1 then
+		return 0
+	elseif count < 4 then
+		return 6 - count
+	else
+		return 3
 	end
 end
 
@@ -349,6 +366,22 @@ function playerKillXPBase(lvl)
 		return 300
 	else
 		return 100 * lvl - 200
+	end
+end
+
+function playerKillXPBase688(lvl)
+	if lvl <= 1 then
+		return 100
+	elseif lvl == 2 then
+		return 120
+	elseif lvl == 3 then
+		return 140
+	elseif lvl == 4 then
+		return 160
+	elseif lvl == 5 then
+		return 180
+	else
+		return 100 * lvl - 320
 	end
 end
 
