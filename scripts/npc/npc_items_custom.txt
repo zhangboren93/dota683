@@ -5824,6 +5824,10 @@
     	"ItemAliases"					"bfly;butterfly"
     	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
     		
+		"precache"
+		{
+			"particle"					"particles/items2_fx/butterfly_buff.vpcf"
+		}
     	// Special	
     	//-------------------------------------------------------------------------------------------------------------
     	"AbilityValues"
@@ -5894,6 +5898,8 @@
     			"Duration"			"%duration"
     			"Passive"			"0"
     			"IsHidden"			"0"
+
+				"EffectName"		"particles/items2_fx/butterfly_buff.vpcf"
     			
     			"Properties"
     			{
