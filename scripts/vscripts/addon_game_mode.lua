@@ -1327,6 +1327,9 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 	if entity:IsBuilding() and building2teambounty[entity:GetName()] ~= nil then
 		-- grant team bounty
 		local team_bounty = building2teambounty[entity:GetName()]
+		if custom_game_meta_version == "688" and entity:IsBarracks() then
+			team_bounty = team_bounty + 150
+		end
 		local is_deny = false
 		if attacker:GetTeam() == entity:GetTeam() then
 			is_deny = true
