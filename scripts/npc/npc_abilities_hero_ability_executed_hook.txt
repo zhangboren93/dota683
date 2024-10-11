@@ -77,11 +77,6 @@
 						"TargetAbility"	"lich_chain_frost_2"
 						"DurationName"	"stun_duration"
 					}
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_lich/frost_armor.lua"
-						"Function"		"handleAbilityExecuted"
-					}
 				}
 			}
 			"modifier_empower_cleave_radius_checker"

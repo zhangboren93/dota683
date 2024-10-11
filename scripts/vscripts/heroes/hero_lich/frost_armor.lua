@@ -1,13 +1,3 @@
-function handleAbilityExecuted(event)
-	if event.event_ability:GetName() == "lich_dark_ritual_datadriven" or
-		event.event_ability:GetName() == "lich_dark_ritual_datadriven_2" then
-		event.caster:EmitSound("Hero_Lich.SinisterGaze.Cast")
-		event.caster:SetThink(function()
-			event.caster:StopSound("Hero_Lich.SinisterGaze.Cast")
-		end, "stop sound", 1)
-	end
-end
-
 --[[
 	Handles the AutoCast Logic
 	Author: Noya

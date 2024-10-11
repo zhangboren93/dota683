@@ -42,4 +42,9 @@ function DarkRitual( event )
 	for _,v in pairs(heroes) do
 		v:AddExperience(split_XP, DOTA_ModifyXP_CreepKill, false, false)
 	end
+
+	caster:EmitSound("Hero_Lich.SinisterGaze.Cast")
+	caster:SetThink(function()
+		caster:StopSound("Hero_Lich.SinisterGaze.Cast")
+	end, "stop sound", 1)
 end
