@@ -2891,6 +2891,7 @@
 		"time_second"						"s"
 		"button_ban_hero"					"Ban"
 		"button_select_hero"				"Pick"
+		"courier_inventory_panel"			"Courier Inventory"
 
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction"								"Null"
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"This facet is of NO effect."

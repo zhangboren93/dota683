@@ -1,16 +1,13 @@
 .courier-panel {
     horizontal-align: right;
     vertical-align: bottom;
-	height: 40px;
+	height: 135px;
+	width: 290px;
     margin-bottom: 10px;
-    flow-children: right;
-/*	border: 2px solid #0000FFFF; */
-	padding-right: 10px;
 }
 
 .HUDFlipped .courier-panel {
 	horizontal-align: left;
-	margin-left: 120px;
 }
 
 .panel-hidden {
@@ -107,4 +104,64 @@ Button .disabled {
     width: 24px;
     vertical-align: center;
     horizontal-align: center;
+}
+
+.courier-panel-sub {
+    horizontal-align: right;
+    vertical-align: bottom;
+	height: 40px;
+    flow-children: right;
+	padding-right: 10px;
+}
+
+#courier-panel-inv {
+    horizontal-align: right;
+    vertical-align: top;
+	/*border: 2px solid #0000FFFF;*/
+	height: 45px;
+	width: 280px;
+	background-color: #2a333b;
+}
+
+#courier-panel-inv.inv-panel-collapsed {
+	width: 25px;
+	background-color: none;
+}
+.HUDFlipped #courier-panel-inv.inv-panel-collapsed {
+	horizontal-align: left;
+}
+
+#courier-inv-toggle-button
+{
+    border-radius: 0;
+	height: 25px;
+	width: 25px;
+}
+.HUDFlipped #courier-inv-toggle-button {
+	horizontal-align: right;
+}
+#courier-inv-toggle-label {
+	color: white;
+	font-size: 16px;
+	horizontal-align: center;
+	vertical-align: center;
+	margin-top: 2px;
+}
+#courier_inventory_panel_label {
+	color: #8a9eae;
+	font-size: 16px;
+	horizontal-align: center;
+}
+#courier-panel-inv-inner {
+	flow-children: right;
+	width: 250px;
+	height: 27px;
+	horizontal-align: right;
+	vertical-align: bottom;
+	/*border: 2px solid #0000FFFF;*/
+}
+DOTAItemImage {
+	width: 40px;
+	height: 35px;
+	margin-right: 1px;
 }

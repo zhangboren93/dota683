@@ -8,17 +8,33 @@
 	</scripts>
 
 	<Panel class="courier-panel">
-		<Label id="courier-respawn-remaining"/>
-		<Button id="courier-select-button" class="button-hidden" onactivate="OnCustomeGameSelectCourier()">
-			<Image src="file://{images}/custom_game/courier_icon.png"/>
-		</Button>
-		<Button id="courier-select-next-button" class="button-hidden" onactivate="OnCustomGameSelectNextCourier()">
-			<DOTAHeroImage id="current-courier-owner-image" heroname="npc_dota_hero_antimage" heroimagestyle="icon"/>
-		</Button>
-		<Button id="courier-send-button" class="send-button-no-send button-hidden" onactivate="OnCustomGameCourierSend()">
-			<Image id="courier-send-image" src="file://{images}/custom_game/courier_transfer_item.png" />
-			<DOTAHeroImage id="courier-target-hero" class="image-hidden" heroname="npc_dota_hero_antimage" heroimagestyle="icon"/>
-		</Button>
-		<Image id="courier-ip" class="image-hidden" src="file://{images}/custom_game/turn_rate_icon.png" />
+		<Panel class="courier-panel-sub">
+			<Label id="courier-respawn-remaining"/>
+			<Button id="courier-select-button" class="button-hidden" onactivate="OnCustomeGameSelectCourier()">
+				<Image src="file://{images}/custom_game/courier_icon.png"/>
+			</Button>
+			<Button id="courier-select-next-button" class="button-hidden" onactivate="OnCustomGameSelectNextCourier()">
+				<DOTAHeroImage id="current-courier-owner-image" heroname="npc_dota_hero_antimage" heroimagestyle="icon"/>
+			</Button>
+			<Button id="courier-send-button" class="send-button-no-send button-hidden" onactivate="OnCustomGameCourierSend()">
+				<Image id="courier-send-image" src="file://{images}/custom_game/courier_transfer_item.png" />
+				<DOTAHeroImage id="courier-target-hero" class="image-hidden" heroname="npc_dota_hero_antimage" heroimagestyle="icon"/>
+			</Button>
+			<Image id="courier-ip" class="image-hidden" src="file://{images}/custom_game/turn_rate_icon.png" />
+		</Panel>
+		<Panel id="courier-panel-inv" class="button-hidden">
+			<Button id="courier-inv-toggle-button" onactivate="OnCourierInvToggle()">
+				<Label id="courier-inv-toggle-label" text=">"/>
+			</Button>
+			<Label id="courier_inventory_panel_label" text="#courier_inventory_panel"/>
+			<Panel id="courier-panel-inv-inner">
+				<DOTAItemImage id="item_image_0" itemname=""/>
+				<DOTAItemImage id="item_image_1" itemname=""/>
+				<DOTAItemImage id="item_image_2" itemname=""/>
+				<DOTAItemImage id="item_image_3" itemname=""/>
+				<DOTAItemImage id="item_image_4" itemname=""/>
+				<DOTAItemImage id="item_image_5" itemname=""/>
+			</Panel>
+		</Panel>
     </Panel>
 </root>

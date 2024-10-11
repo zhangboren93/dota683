@@ -345,6 +345,7 @@ function OnCourierSpawned(event) {
 		$("#courier-select-button").RemoveClass("button-hidden")
 		$("#courier-send-button").RemoveClass("button-hidden")
 		$("#courier-select-next-button").RemoveClass("button-hidden")
+		$("#courier-panel-inv").RemoveClass("button-hidden")
 		$("#current-courier-owner-image").heroname = event.owner_name
 		$.Schedule(1, function() { 
 			updateCourierRespawnTimeLoop(); 
@@ -377,6 +378,18 @@ function OnCourierKilled(event) {
 function updateCourierRespawnTime() {
 	if (!my_team_couriers[current_courier_id].is_dead) {
 		$("#courier-respawn-remaining").text = "";
+		// if courier inventory panel is shown
+		if ($("#courier-inv-toggle-label").text === ">") {
+			let courierId = parseInt(current_courier_id)
+			for (let i = 0; i < 6; i++) {
+				let item = Entities.GetItemInSlot(courierId, i)
+				if (item > 0) {
+					$("#item_image_"+i).itemname = Abilities.GetAbilityName(item);
+				} else {
+					$("#item_image_"+i).itemname = "";
+				}
+			}
+		}
 		return;
 	}
 	my_team_couriers[current_courier_id].dead_time = my_team_couriers[current_courier_id].dead_time - 1
@@ -638,6 +651,22 @@ function markQuickBuyItemsAsPurchased() {
 			// Remove item from all_hero_items
 			all_hero_items.splice(item_index, 1)
 		}
+	}
+}
+
+function OnCourierInvToggle() {
+	let text = $("#courier-inv-toggle-label").text
+	$.Msg("Toggle text is " + text)
+	if (text === ">") {
+		$("#courier-inv-toggle-label").text = '<';
+		$("#courier-panel-inv").AddClass("inv-panel-collapsed");
+		$("#courier_inventory_panel_label").visible = false;
+		$("#courier-panel-inv-inner").visible = false;
+	} else {
+		$("#courier-inv-toggle-label").text = '>';
+		$("#courier-panel-inv").RemoveClass("inv-panel-collapsed");
+		$("#courier_inventory_panel_label").visible = true;
+		$("#courier-panel-inv-inner").visible = true;
 	}
 }
 
