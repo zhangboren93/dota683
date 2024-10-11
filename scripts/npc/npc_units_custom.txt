@@ -742,6 +742,14 @@
 		"BountyGoldMin"				"39"		// Gold earned min.
 		"BountyGoldMax"				"47"		// Gold earned max.
 	}
+	"npc_dota_creep_badguys_flagbearer"
+	{
+		"Ability1"					"creep_irresolute_alter"			// Ability 1.
+		"MagicalResistance"			"0"			// Magical protection.
+		"BountyXP"					"62"		// Experience earn.
+		"BountyGoldMin"				"39"		// Gold earned min.
+		"BountyGoldMax"				"47"		// Gold earned max.
+	}	
 	"npc_dota_creep_goodguys_melee"
 	{
 		"Ability1"					"creep_irresolute_alter"			// Ability 2
@@ -749,6 +757,14 @@
 		"BountyGoldMin"				"39"		// Gold earned min.
 		"BountyGoldMax"				"47"		// Gold earned max.
 	}
+	"npc_dota_creep_goodguys_flagbearer"
+	{
+		"Ability1"					"creep_irresolute_alter"			// Ability 1.
+		"MagicalResistance"			"0"			// Magical protection.
+		"BountyXP"					"62"		// Experience earn.
+		"BountyGoldMin"				"39"		// Gold earned min.
+		"BountyGoldMax"				"47"		// Gold earned max.
+	}	
 	"npc_dota_creep_badguys_ranged"
 	{
 		"Level"						"2"

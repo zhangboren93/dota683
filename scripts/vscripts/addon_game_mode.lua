@@ -1089,6 +1089,12 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				local time_fraction = 30 - current_time % 30
 				entity:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", {}):SetDuration(25 + time_fraction, true)
 			end
+			if custom_game_meta_version == "688" then
+				local current_time = GameRules:GetDOTATime(false, false)
+				local creep_level = math.floor(current_time / 450)
+				entity:SetMinimumGoldBounty(entity:GetMinimumGoldBounty() + creep_level)
+				entity:SetMaximumGoldBounty(entity:GetMaximumGoldBounty() + creep_level)
+			end
 		end, "remove flag bearer bonus", 1)
 	end
 
