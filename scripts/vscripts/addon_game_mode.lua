@@ -462,6 +462,13 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	if text == "-test" then
 		--local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 	end
+	if text == "-shuffleteam" then
+		local game_state = GameRules:State_Get()
+		if game_state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+			shuffleTeam()
+			return
+		end
+	end
 	local time = GameRules:GetDOTATime(false, false)
 	if text == "-afk" then
 		local player = PlayerResource:GetPlayer(playerid)

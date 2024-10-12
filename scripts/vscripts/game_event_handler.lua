@@ -52,6 +52,24 @@ local function getAllPlayerScores(game_mode)
 	getPlayerScore(game_mode, getAllPlayerIds())
 end
 
+function shuffleTeam()
+	print("shuffleTeam")
+	local players = getAllPlayerIds()
+	local startTeam = DOTA_TEAM_GOODGUYS
+	while #players > 0 do
+		local randomIndex = RandomInt(1, #players)
+		local randomPlayer = players[randomIndex][1]
+		GameRules:SendCustomMessage("Assigning " .. randomPlayer .. " to team " .. startTeam, -1, -1)
+		PlayerResource:SetCustomTeamAssignment(randomPlayer, startTeam)
+		table.remove(players, randomIndex)
+		if startTeam == DOTA_TEAM_BADGUYS then
+			startTeam = DOTA_TEAM_GOODGUYS
+		else
+			startTeam = DOTA_TEAM_BADGUYS
+		end
+	end
+end
+
 function HandleGameStateChange(game_mode, event)
 	if event.new_state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		local first_creep_spawned = false
@@ -102,21 +120,15 @@ function HandleGameStateChange(game_mode, event)
 			GameRules:GetGameModeEntity():SetThink(function()
 				-- randomly assign player team start from either side
 				local players = getAllPlayerIds()
-				local startTeam = DOTA_TEAM_GOODGUYS
-				while #players > 0 do
-					local randomIndex = RandomInt(1, #players)
-					local randomPlayer = players[randomIndex][1]
-					GameRules:SendCustomMessage("Assigning " .. randomPlayer .. " to team " .. startTeam, -1, -1)
-					PlayerResource:SetCustomTeamAssignment(randomPlayer, startTeam)
-					table.remove(players, randomIndex)
-					if startTeam == DOTA_TEAM_BADGUYS then
-						startTeam = DOTA_TEAM_GOODGUYS
-					else
-						startTeam = DOTA_TEAM_BADGUYS
-					end
+				for i=1,#players do
+					PlayerResource:SetCustomTeamAssignment(players[i][1], DOTA_TEAM_NOTEAM)
 				end
+			end, "unassign default player teams", 3)
+			GameRules:GetGameModeEntity():SetThink(function()
+				shuffleTeam()
+				-- randomly assign player team start from either side
 				getAllPlayerScores(game_mode)
-			end, "Fetching player scores", 1)
+			end, "Fetching player scores", 5)
 		end
 	end
 end
