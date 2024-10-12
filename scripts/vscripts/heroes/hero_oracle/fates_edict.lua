@@ -1,14 +1,11 @@
-function handleAbilityExecuted(event)
-	local event_ability = event.event_ability
-	local caster = event.caster
+function handleSpellStart(event)
 	local target = event.target
-	if event_ability:GetName() == "oracle_fates_edict" then
-		local ability = event.ability
-		local duration = event_ability:GetSpecialValueFor("duration")
-		if caster:GetTeam() == target:GetTeam() then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_oracle_fates_edict_allie_disarm", { duration = duration })
-		else
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_oracle_fates_edict_enemy_resist", { duration = duration })
-		end
+	local caster = event.caster
+	local ability = event.ability
+	caster:EmitSound("Hero_Oracle.FatesEdict.Cast")
+	if target:GetTeam() ~= caster:GetTeam() and target:TriggerSpellAbsorb(ability) then
+		return
 	end
+	local duration = ability:GetSpecialValueFor("duration")
+	target:AddNewModifier(caster, ability, "modifier_oracle_fates_edict_lua", { duration = duration })
 end

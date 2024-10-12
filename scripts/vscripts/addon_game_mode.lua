@@ -202,6 +202,7 @@ function Activate()
 	LinkLuaModifier( "modifier_centaur_alt_model_lua", 					"heroes/hero_centaur/modifier_centaur_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_riki_alt_model_lua", 					"heroes/hero_riki/modifier_riki_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_ursa_alt_model_lua", 					"heroes/hero_ursa/modifier_ursa_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_oracle_fates_edict_lua", 				"heroes/hero_oracle/modifier_oracle_fates_edict.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1736,13 +1737,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_od_imprison_int_steal", {})
 			passive_ability:ApplyDataDrivenModifier(caster, caster, "modifier_od_imprison_int_gain", {})
 	    end
-	elseif event.name_const == "modifier_oracle_fates_edict" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
-		local duration = ability:GetSpecialValueFor("duration")
-		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_oracle_fates_edict_alter", { duration = duration })
-		return(false)
 	elseif event.name_const == "modifier_oracle_false_promise_timer" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)

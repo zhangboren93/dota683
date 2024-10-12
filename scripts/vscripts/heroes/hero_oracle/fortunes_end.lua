@@ -108,14 +108,10 @@ function oracle_fortunes_end_lua:ApplyFortunesEnd(target, target_sound, aoe_part
 	
 		enemy:Purge(true, false, false, false, false)
 
-		if enemy:HasModifier("modifier_oracle_fates_edict") then
-			enemy:RemoveModifierByName("modifier_oracle_fates_edict")
+		if enemy:HasModifier("modifier_oracle_fates_edict_lua") then
+			enemy:RemoveModifierByName("modifier_oracle_fates_edict_lua")
 		end
-	
-		if enemy:HasModifier("modifier_oracle_fates_edict_alter") then
-			enemy:RemoveModifierByName("modifier_oracle_fates_edict_alter")
-		end
-		
+
 		enemy:AddNewModifier(self:GetCaster(), self, modifier_name,
 			{duration = math.max(math.min(charge_pct, 1) * self:GetSpecialValueFor("maximum_purge_duration"), self:GetSpecialValueFor("minimum_purge_duration"))
 			* (1 - enemy:GetStatusResistance())})

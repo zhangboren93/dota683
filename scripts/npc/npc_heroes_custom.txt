@@ -1530,6 +1530,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"oracle_fortunes_end_lua"
+		"Ability2"		"oracle_fates_edict_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"

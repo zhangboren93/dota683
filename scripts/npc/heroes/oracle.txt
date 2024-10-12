@@ -63,4 +63,43 @@
 			"particle"					"particles/units/heroes/hero_oracle/oracle_fortune_aoe.vpcf"
 		}
 	}
+	//=================================================================================================================
+	// Oracle: Fate's Edict
+	//=================================================================================================================
+	"oracle_fates_edict_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"AbilitySound"					"Hero_Oracle.FatesEdict.Cast"
+		"AbilityTextureName"			"oracle_fates_edict"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"50"
+		"ProcsMagicStick"				"1"
+		"precache"
+		{
+			"particle"								"particles/units/heroes/hero_oracle/oracle_fatesedict.vpcf"
+		}
+		"AbilityValues"
+		{
+			"duration"								"3 4 5 6"
+			"magic_damage_resistance_pct_tooltip"	"100"
+			"damage_amp"							"50"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_oracle/fates_edict.lua"
+				"Function"				"handleSpellStart"
+			}
+		}
+	}
 }
