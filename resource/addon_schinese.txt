@@ -704,6 +704,8 @@
 		"DOTA_Tooltip_ability_doom_bringer_devour_datadriven_bonus_gold"			"金钱奖励："
 		"DOTA_Tooltip_modifier_devour_datadriven"									"吞噬"
 		"DOTA_Tooltip_modifier_devour_datadriven_Description"						"还在消化美味的小兵。"
+		"cast_error_devour_in_progress"												"正在消化"
+		"cast_error_devour_creep_siege"												"无法吃车"
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven"					"死亡"
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven_Description"		"引爆敌方英雄的灵魂，造成伤害及短暂眩晕，当敌方英雄等级为特定数字的倍数或者25时将造成相当于其最大生命值20%的额外伤害。"
 		"DOTA_Tooltip_Ability_doom_bringer_lvl_death_datadriven_lvl_bonus_multiple"	"英雄等级倍数："

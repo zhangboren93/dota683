@@ -19,12 +19,14 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_doom_bringer/devour.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
 		"AbilityTextureName"			"doom_bringer_devour"
+		"ProcsMagicStick"				"1"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -36,12 +38,12 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3 0.3 0.3 0.3"
+		"AbilityCastPoint"				"0.3"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"300 300 300 300"
-		"AbilityCooldown"				"70.0 60.0 50.0 40.0"
+		"AbilityCastRange"				"300"
+		"AbilityCooldown"				"70 60 50 40"
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -52,47 +54,7 @@
 		"AbilityValues"
 		{
 				"bonus_gold"			"25 50 75 100"
-				"health_per_second"		"20 20 20 20"
-		}
-	
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_doom_bringer/devour.lua"
-				"Function"		"DevourCheck"
-				"modifier"		"modifier_devour_datadriven"
-			}
-		}
-	
-		"OnSpellStart"
-		{
-			"FireSound"
-			{
-				"EffectName"	"Hero_DoomBringer.DevourCast"
-				"Target" 		"TARGET"
-			}
-	
-			"FireEffect"
-			{
-				"EffectName"        "particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf"
-				"EffectAttachType"  "follow_origin"
-				
-				"ControlPointEntities"
-				{
-					"TARGET"	"attach_origin"
-					"CASTER"	"attach_origin"
-				}
-			}
-	
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_doom_bringer/devour.lua"
-				"Function"		"Devour"
-				"modifier"		"modifier_devour_datadriven"
-				"doom_empty1"	"doom_bringer_empty1"
-				"doom_empty2"	"doom_bringer_empty2"
-			}
+				"health_per_second"		"20"
 		}
 	
 		"Modifiers"

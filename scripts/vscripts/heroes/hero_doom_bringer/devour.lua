@@ -39,17 +39,16 @@ function Devour( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	local ability_level = ability:GetLevel() - 1
 
 	ProcsMagicStick(keys)
 	-- Ability variables
 	local target_hp = target:GetHealth()
-	local health_per_second = ability:GetLevelSpecialValueFor("health_per_second", ability_level)
+	local health_per_second = ability:GetSpecialValueFor("health_per_second")
 	local modifier = keys.modifier
 	local modifier_duration = target_hp/health_per_second
 
 	-- Apply the modifier and kill the target
-	ability:ApplyDataDrivenModifier(caster, caster, modifier, {duration = modifier_duration})
+	caster:AddNewModifier(caster, ability, modifier, { duration = modifier_duration })
 	target:Kill(ability, caster)
 
 	-- Setting up the table for allowed devour targets
@@ -101,38 +100,51 @@ function Devour( keys )
 	end
 end
 
---[[Author: Pizzalol
-	Date: 04.03.2015.
-	Awards the bonus gold to the modifier owner only if the modifier owner is alive]]
-function DevourGold( keys )
-	local target = keys.target
-	local ability = keys.ability
-	local ability_level = ability:GetLevel() - 1
+doom_bringer_devour_datadriven = class({
+	CastFilterResultTarget = function(self, target)
+		if not IsServer() then return end
+		local caster = self:GetCaster()
+		local modifier = "modifier_devour_datadriven"
+		local player = caster:GetPlayerOwner()
+		local pID = caster:GetPlayerOwnerID()
 
-	local bonus_gold = ability:GetLevelSpecialValueFor("bonus_gold", ability_level)
+		if caster:HasModifier(modifier) then
+			return UF_FAIL_CUSTOM 
+		end
 
-	-- Give the gold only if the target is alive
-	if target:IsAlive() then
-		target:ModifyGold(bonus_gold, false, DOTA_ModifyGold_AbilityGold)
-		SendOverheadEventMessage(target:GetPlayerOwner(), OVERHEAD_ALERT_GOLD, target, bonus_gold, target:GetPlayerOwner())
+		if string.find(target:GetName(), "siege") ~= nil then
+			return UF_FAIL_CUSTOM
+		end
+
+		return UF_SUCCESS	
+	end,
+	GetCustomCastErrorTarget = function(self, target)
+		local caster = self:GetCaster()
+		local modifier = "modifier_devour_datadriven"
+		local player = caster:GetPlayerOwner()
+		local pID = caster:GetPlayerOwnerID()
+
+		if caster:HasModifier(modifier) then
+			return "#cast_error_devour_in_progress" 
+		end
+
+		if string.find(target:GetName(), "siege") ~= nil then
+			return "#cast_error_devour_creep_siege"
+		end
+	end,
+	OnSpellStart = function(self)
+		local caster = self:GetCaster()
+		local target = self:GetCursorTarget()
+		caster:EmitSound("Hero_DoomBringer.DevourCast")
+		ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_devour.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+		Devour({
+			target = target,
+			caster = caster,
+			ability = self,
+			modifier = "modifier_devour_datadriven",
+			doom_empty1 = "doom_bringer_empty1",
+			doom_empty2	= "doom_bringer_empty2"
+		})
 	end
-end
+})
 
---[[Author: igo95862, Noya
-	Used by: Pizzalol
-	Date: 27.01.2016.
-	Disallows eating another unit while Devour is in progress]]
-function DevourCheck( keys )
-	local caster = keys.caster
-	local modifier = keys.modifier
-	local player = caster:GetPlayerOwner()
-	local pID = caster:GetPlayerOwnerID()
-	local target = keys.target
-
-	if caster:HasModifier(modifier) then
-		caster:Interrupt()
-
-		-- Play Error Sound
-		EmitSoundOnClient("General.CastFail_InvalidTarget_Hero", player)
-	end
-end

@@ -12,7 +12,7 @@
 #base "heroes/clinkz.txt"
 #base "heroes/dazzle.txt"
 #base "heroes/death_prophet.txt"
-#base "npc_abilities_hero_doom_bringer.txt"
+#base "heroes/doom_bringer.txt"
 #base "heroes/dragon_knight.txt"
 #base "heroes/drow_ranger.txt"
 #base "heroes/earth_spirit.txt"
