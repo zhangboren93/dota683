@@ -243,5 +243,22 @@
 				"ability_name"	"alchemist_unstable_concoction_datadriven"
 			}
 		}
+
+		"Modifiers"
+		{
+			"modifier_alchemist_unstable_concoction_throw_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_alchemist/unstable_concoction.lua"
+						"Function"		"handleDeath"
+					}
+				}
+			}
+		}
 	}
 }

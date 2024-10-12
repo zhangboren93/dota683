@@ -244,3 +244,14 @@ function LevelUpAbility( event )
 		ability_handle:SetLevel(this_abilityLevel)
 	end
 end
+
+function handleDeath(event)
+	local caster = event.caster
+	local ability = event.ability
+	if ability:IsHidden() then return end
+	caster:StopSound("Hero_Alchemist.UnstableConcoction.Fuse")
+	local sub_ability_name = ability:GetAbilityName()
+	local main_ability_name = "alchemist_unstable_concoction_datadriven"
+
+	caster:SwapAbilities(main_ability_name, sub_ability_name, true, false)
+end
