@@ -866,6 +866,15 @@ function CAddonTemplateGameMode:RuneSpawnFilter(event)
 		local nthRuneSpawned = math.floor((time + 10) / 60)
 		local recentRuneSpawn = self.runeSpawnedAtTime[nthRuneSpawned]
 		local runeTypes = {DOTA_RUNE_DOUBLEDAMAGE, DOTA_RUNE_HASTE, DOTA_RUNE_ILLUSION, DOTA_RUNE_INVISIBILITY, DOTA_RUNE_REGENERATION}
+		-- cannot spawn the same type of rune consecutively
+		if self.last_utility_rune_spawned ~= nil then
+			for i=1,#runeTypes do
+				if runeTypes[i] == self.last_utility_rune_spawned then
+					table.remove(runeTypes, i)
+					break
+				end
+			end
+		end
 		if nthRuneSpawned % 2 == 1 then
 			print("Cancelling first XP rune spawn event")
 			return false
@@ -875,6 +884,7 @@ function CAddonTemplateGameMode:RuneSpawnFilter(event)
 				event.rune_type = DOTA_RUNE_BOUNTY
 			else
 				event.rune_type = runeTypes[RandomInt(1, #runeTypes)]
+				self.last_utility_rune_spawned = event.rune_type
 			end
 			self.runeSpawnedAtTime[nthRuneSpawned] = event.rune_type
 		else
@@ -882,9 +892,11 @@ function CAddonTemplateGameMode:RuneSpawnFilter(event)
 				event.rune_type = DOTA_RUNE_BOUNTY
 			else
 				event.rune_type = runeTypes[RandomInt(1, #runeTypes)]
+				self.last_utility_rune_spawned = event.rune_type
 			end
 		end
 	end
+	print("RuneSpawnFilter spawning rune " .. event.rune_type)
 	return true
 end
 
