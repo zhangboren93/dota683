@@ -96,6 +96,7 @@ function Activate()
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_fountain_aura_buff_lua", "modifiers/modifier_fountain_aura_buff.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_roshan_inherent_buff_688_lua", "modifiers/modifier_roshan_inherent_buff_688.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_attribute_regen_adjust", "modifiers/attribute_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_attribute_regen_688_lua", "modifiers/modifier_attribute_regen_688.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1082,6 +1083,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		self.roshanCount = self.roshanCount + 1
 		entity:AddNewModifier(entity, nil, "modifier_roshan_cancel_status_resistance_lua", {})
 		entity:AddNewModifier(entity, nil, "modifier_counter_healthbar", {})
+		if custom_game_meta_version == "688" then
+			entity:AddNewModifier(entity, nil, "modifier_roshan_inherent_buff_688_lua", {})
+		end
 	end
 
 	if entity:GetName() == "npc_dota_creep_lane" then

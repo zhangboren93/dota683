@@ -156,35 +156,6 @@
 					"MODIFIER_STATE_UNSELECTABLE"			"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_fire_remnant_clear_tree_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/units/ability_execute_buff.lua"
-						"Function"		"handleAbilityExecuted"
-						"Modifier"		"modifier_fire_remnant_clear_tree"
-						"TargetAbility"	"ember_spirit_activate_fire_remnant"
-					}
-				}
-			}
-			"modifier_fire_remnant_clear_tree"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"ThinkInterval"	"0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_ember_spirit/fire_remnant.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-			}
 			"modifier_underlord_firestorm_burn_active_datadriven"
 			{
 				"Passive"		"0"
