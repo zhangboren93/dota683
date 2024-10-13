@@ -1,0 +1,103 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	// Rewrite of Pugna Decrepify
+	// Author: Noya
+	// Date: April 5, 2015
+	"pugna_decrepify_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_OTHER"//"DOTA_UNIT_TARGET_CUSTOM" //Awful Valve-hack to let it target Nether Ward and Tombstone
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"pugna_decrepify"
+		"ProcsMagicStick"				"1"
+		"AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_2"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.2"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12 10 8 6"
+		"AbilityDuration"				"2.0 2.5 3.0 3.5"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"60"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_spell_damage_pct_allies"	"-25"
+				"bonus_movement_speed_allies"	"-25"
+				"bonus_spell_damage_pct"		"-50"
+				"bonus_movement_speed"			"-50"
+				"tooltip_duration"				"2.0 2.5 3.0 3.5"
+		}
+	
+		"precache"
+		{
+			"particle" 	"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_pugna.vsndevts"
+		}
+	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_pugna/decrepify.lua"
+				"Function"			"handleSpellStart"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_pugna_decrepify_ally_datadriven"
+			{
+				"Purgable"			"1"
+
+				"EffectName"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+				"EffectAttachType"	"follow_origin"
+		
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE" "%bonus_spell_damage_pct_allies"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" 			"%bonus_movement_speed_allies" 
+				}
+	
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}			
+			}
+	
+			"modifier_pugna_decrepify_enemy_datadriven"
+			{
+				"IsDebuff"			"1"
+				"Purgable"			"1"
+		
+				"EffectName"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+				"EffectAttachType"	"follow_origin"
+		
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE" "%bonus_spell_damage_pct"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" 			"%bonus_movement_speed" 
+				}
+	
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ATTACK_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}			
+			}
+		}
+	}
+
+}

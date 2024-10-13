@@ -1,10 +1,14 @@
-function handleAbilityExecuted(event)
-	local event_ability = event.event_ability
-	local target = event.target
+function handleSpellStart(event)
 	local caster = event.caster
-	if event_ability:GetName() == "pugna_decrepify" and target:GetTeam() == caster:GetTeam() then
-		local ability = event.ability
-		ability:ApplyDataDrivenModifier(caster, target, "pugna_decrepify_ally_debuff_active", {}):SetDuration(
-			event_ability:GetDuration(), true)
+	caster:EmitSound("Hero_Pugna.Decrepify")
+	local ability = event.ability
+	local target = event.target
+	local same_team = caster:GetTeam() == target:GetTeam()
+	if not same_team and target:TriggerSpellAbsorb(ability) then return end
+
+	local modifier_name = "modifier_pugna_decrepify_enemy_datadriven"
+	if same_team then
+		modifier_name = "modifier_pugna_decrepify_ally_datadriven"
 	end
+	ability:ApplyDataDrivenModifier(caster, target, modifier_name, { duration = ability:GetDuration() })
 end

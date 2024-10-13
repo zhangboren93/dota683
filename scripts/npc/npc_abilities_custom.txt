@@ -44,6 +44,7 @@
 #base "heroes/phantom_assassin.txt"
 #base "heroes/phoenix.txt"
 #base "heroes/puck.txt"
+#base "heroes/pugna.txt"
 #base "heroes/rattletrap.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
@@ -4885,56 +4886,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
-	//=================================================================================================================
-	// Pugna: Decrepify
-	//=================================================================================================================
-	"pugna_decrepify"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5187"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CUSTOM"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySound"					"Hero_Pugna.Decrepify"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"12.0 10.0 8.0 6.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"bonus_spell_damage_pct_allies_tooltip"
-			{
-				"value"	"-25"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
-			}
-			"bonus_movement_speed_allies_tooltip"	"-25"
-			"bonus_heal_amp_pct_allies"			"0"
-			"bonus_spell_damage_pct"	
-			{
-				"value"		"-50"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
-			}
-			"bonus_movement_speed"		"-50"
-			"AbilityDuration"			"2 2.5 3 3.5"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
-	
 	//=================================================================================================================
 	// Pugna: Nether Ward
 	//=================================================================================================================
