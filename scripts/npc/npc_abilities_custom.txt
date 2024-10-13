@@ -12567,55 +12567,6 @@
 		}
 	}
 	//=================================================================================================================
-	// Winter Wyvern: Arctic Burn
-	//=================================================================================================================
-	"winter_wyvern_arctic_burn"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5651"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"		
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilitySound"					"Hero_WinterWyvern.ArcticBurn.Cast"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-
-        "HasScepterUpgrade"             "0"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"50 40 30 20"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 110 100 90"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"duration"				"6"
-				"attack_range_bonus"	"275 375 475 575"
-				"percent_damage"		"0"
-				"tick_rate"				"1.0"
-				"damage_duration"		"5.0"
-				"move_slow"				"25 30 35 40"
-				"night_vision_bonus"	"400"
-				"projectile_speed_bonus"	"500"
-				"tree_destruction_radius"	"175"
-				"attack_point"			"0.1"
-				"max_attacks"			"5"
-				"mana_cost_scepter"		"2000"
-				"movement_scepter"		"0"
-				"percent_damage_pure"	"6"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
 	// Winter Wyvern: Splinter Blast
 	//=================================================================================================================
 	"winter_wyvern_splinter_blast"

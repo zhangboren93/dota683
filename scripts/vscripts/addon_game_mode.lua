@@ -143,6 +143,7 @@ function Activate()
 	LinkLuaModifier( "modifier_burning_spear_datadriven_debuff", 	"heroes/hero_huskar/modifier_burning_spear_datadriven_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_burning_spear_datadriven_debuff_counter",	"heroes/hero_huskar/modifier_burning_spear_datadriven_debuff_counter", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_huskar_burning_spear_lua", 			"heroes/hero_huskar/modifier_huskar_burning_spear.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_winter_wyvern_arctic_burn_flight_datadriven", "heroes/hero_winter_wyvern/modifier_winter_wyvern_arctic_burn_flight_datadriven.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_bot_item_purchase",				"bots2/modifier_bot_item_purchase.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -2035,7 +2036,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_neutral_sleep_ai" then return false
 	elseif event.name_const == "modifier_riki_smoke_screen_ally" then return false
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then return false
-	elseif event.name_const == "modifier_winter_wyvern_arctic_burn_slow" then return false 
 	end
 
 	end

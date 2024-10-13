@@ -1,22 +1,24 @@
 function handleIntervalThink(event)
 	local caster = event.caster
 	local target = event.target
-	if target:GetModelName() ~= "models/creeps/roshan/roshan.vmdl" then
-		ApplyDamage({
-			victim = target, 
-			attacker = caster, 
-			damage = target:GetHealth() * 6 / 100,
-			damage_type = DAMAGE_TYPE_PURE })
-	end
+	local ability = event.ability
+	local percent_damage_pure = ability:GetSpecialValueFor("percent_damage_pure")
+	ApplyDamage({
+		victim = target, 
+		attacker = caster, 
+		damage = target:GetHealth() * percent_damage_pure / 100,
+		damage_type = DAMAGE_TYPE_PURE,
+		ability = ability
+	})
 end
 
-function handleAttackLanded(event)
-	local attacker = event.attacker
+function handleSpellStart(event)
+	local caster = event.caster
 	local ability = event.ability
-	local target = event.target
-	if attacker:GetName() == "npc_dota_hero_winter_wyvern"
-		and attacker:HasModifier("modifier_winter_wyvern_frost_attack")
-		and not target:IsBuilding() then
-		ability:ApplyDataDrivenModifier(attacker, target, "modifier_winter_wyvern_arctic_burn_pure_datadriven", { duration = 5 })
-	end
+	caster:AddNewModifier(caster, ability, 
+		"modifier_winter_wyvern_arctic_burn_flight_datadriven",
+		{ duration = ability:GetSpecialValueFor("duration") })
+	caster:EmitSound("Hero_Winter_Wyvern.ArcticBurn.Cast")
+	ParticleManager:CreateParticle("particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_start.vpcf",
+		PATTACH_ABSORIGIN, caster)
 end
