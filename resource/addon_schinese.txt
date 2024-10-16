@@ -445,6 +445,14 @@
 		"DOTA_Tooltip_Ability_item_soul_booster_datadriven"							"振魂石"
 		"DOTA_Tooltip_ability_item_soul_booster_datadriven_Lore"					"再次鼓起丧失的勇气。"
 
+		//688 itmes
+		"DOTA_Tooltip_Ability_item_bloodthorn_lua"									"血棘(6.88f)"
+		"DOTA_Tooltip_ability_item_bloodthorn_lua_Description"                      "<h1>主动：灵魂撕裂</h1>使目标沉默%silence_duration%秒，沉默结束后其间所受伤害的%silence_damage_percent%%%将以额外魔法伤害的形式结算。<br><br>所有对目标发动的攻击均不会落空并暴击。<br><br>施法距离：%abilitycastrange%"
+		"DOTA_Tooltip_ability_item_bloodthorn_lua_passive_proc_damage"            	"%暴击伤害："
+		"DOTA_Tooltip_ability_item_bloodthorn_lua_proc_chance"             			"%暴击几率："
+		"DOTA_Tooltip_modifier_item_bloodthorn_debuff_lua"                       	"血棘"
+		"DOTA_Tooltip_modifier_item_bloodthorn_debuff_lua_Description"          	"被沉默并受到30%%的额外伤害，伤害在效果结束时结算，类型为魔法伤害。\n所有受到的攻击均是致命一击。"
+
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_Description"			"亚巴顿以部分生命为代价，释放带有死亡气息的迷雾缠绕伤害敌方单位或治疗友方单位。"

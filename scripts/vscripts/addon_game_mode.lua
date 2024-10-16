@@ -92,6 +92,8 @@ function Activate()
 	LinkLuaModifier( "modifier_item_soul_ring_lua",						"items/item_soul_ring.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_soul_ring_buff_lua",				"items/modifier_item_soul_ring_buff.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_travel_boots_target_lua", 			"items/modifier_item_travel_boots_target.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_bloodthorn_lua", 					"items/modifier_item_bloodthorn.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_bloodthorn_debuff_lua", 			"items/modifier_item_bloodthorn_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
@@ -820,6 +822,11 @@ function CAddonTemplateGameMode:OrderFilter(event)
 						return true
 					end
 				end
+			end
+		end
+		if event.shop_item_name == "item_recipe_bloodthorn_lua" then
+			if custom_game_meta_version ~= '688' then
+				return false
 			end
 		end
 	end

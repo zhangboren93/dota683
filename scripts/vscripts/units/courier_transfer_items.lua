@@ -78,7 +78,8 @@ ITEM_RECIPE_RULES = {
 	{"item_soul_booster_datadriven", "item_energy_booster", "item_vitality_booster", "item_point_booster"},
 	{"item_greater_crit", "item_recipe_greater_crit", "item_lesser_crit", "item_demon_edge"},
 	{"item_rapier", "item_demon_edge", "item_relic"},
-	{"item_bracer_datadriven", "item_recipe_bracer_datadriven", "item_circlet", "item_gauntlets"}
+	{"item_bracer_datadriven", "item_recipe_bracer_datadriven", "item_circlet", "item_gauntlets"},
+	{"item_bloodthorn_lua", "item_recipe_bloodthorn_lua", "item_orchid", "item_lesser_crit"}
 }
 
 local function isWardItem(item)

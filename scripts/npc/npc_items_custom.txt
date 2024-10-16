@@ -9073,4 +9073,66 @@
 		}
 	}
 
+	//6.88 items
+	"item_recipe_bloodthorn_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1445"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1000"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_bloodthorn_lua"
+		"ItemRequirements"
+		{
+			"01"						"item_orchid*;item_lesser_crit"
+		}
+	}
+	"item_bloodthorn_lua"
+	{
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_bloodthorn.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityTextureName"			"item_bloodthorn"
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"11.0"
+		"AbilitySharedCooldown"			"orchid"
+		"AbilityManaCost"				"100"
+		"ItemCost"						"7055"
+		"ItemShopTags"					"int;attack_speed;damage;regen_mana;damage;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"orchid malevolence"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilityValues"
+		{
+			"bonus_intellect"			"25"
+			"bonus_attack_speed"		"30"
+			"bonus_damage"				"60"
+			"bonus_mana_regen_pct"		"150"
+			"silence_duration"			"5"
+			"silence_damage_percent"	"30"
+			"passive_proc_damage"		"175"
+			"proc_chance"				"20"
+		}
+		"precache"
+		{
+			"particle"					"particles/items2_fx/orchid.vpcf"
+		}
+	}
 }

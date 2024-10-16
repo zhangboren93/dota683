@@ -87,7 +87,8 @@ ITEM_RECIPE_RULES = [
     ["item_power_treads", "item_boots", "item_gloves", "item_boots_of_elves"],
     ["item_power_treads", "item_boots", "item_gloves", "item_robe"],
     ["item_ultimate_scepter", "item_point_booster", "item_ogre_axe", "item_blade_of_alacrity", "item_staff_of_wizardry"],
-    ["item_rapier", "item_demon_edge", "item_relic"]
+    ["item_rapier", "item_demon_edge", "item_relic"],
+	["item_bloodthorn_lua", "item_recipe_bloodthorn_lua", "item_orchid", "item_lesser_crit"]
 ]
 ITEMNAME_2_ITEMID = {
 	"item_blink": 1,
@@ -192,7 +193,8 @@ ITEMNAME_2_ITEMID = {
 	"item_recipe_medallion_of_courage"		:186,
 	"item_smoke_of_deceit"		:188,
 	"item_recipe_veil_of_discord_datadriven"		:1389,
-	"item_shadow_amulet_datadriven"		:1415
+	"item_shadow_amulet_datadriven"		:1415,
+	"item_recipe_bloodthorn_lua"	 	:1445
 }
 
 SIDE_SHOP_ITEMS = ["item_ring_of_health", "item_energy_booster"]
