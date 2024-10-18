@@ -45,3 +45,7 @@ end
 function modifier_item_maelstrom_datadriven:GetPriority()
 	return MODIFIER_PRIORITY_NORMAL
 end
+
+function modifier_item_maelstrom_datadriven:IsPurgable()
+	return false
+end
