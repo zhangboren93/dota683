@@ -1,9 +1,4 @@
 modifier_item_heavens_halberd_datadriven_disarm = class({})
-function modifier_item_heavens_halberd_datadriven_disarm:CheckState()
-	return {
-		[ MODIFIER_STATE_DISARMED ] = true
-	}
-end
 
 function modifier_item_heavens_halberd_datadriven_disarm:IsPurgable()
 	return false
@@ -29,5 +24,15 @@ function modifier_item_heavens_halberd_datadriven_disarm:OnIntervalThink()
 	local parent = self:GetParent()
 	if parent:IsMagicImmune() then
 		self:Destroy()
+	end
+end
+
+function modifier_item_heavens_halberd_datadriven_disarm:OnDestroy()
+	local parent = self:GetParent()
+	local modifiers = parent:FindAllModifiersByName("modifier_disarmed")
+	for i=1,#modifiers do
+		if modifiers[i]:GetAbility() == self:GetAbility() then
+			modifiers[i]:Destroy()
+		end
 	end
 end
