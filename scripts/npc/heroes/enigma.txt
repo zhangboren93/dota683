@@ -21,7 +21,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 		"AbilityTextureName"			"enigma_black_hole"
-		"ProcsMagicStick"				"1"
+		"AbilityProcsMagicStick"		"1"
 		"AOERadius"						"%radius"
 		"HasScepterUpgrade"				"1"
 

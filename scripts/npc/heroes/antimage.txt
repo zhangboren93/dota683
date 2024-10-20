@@ -17,7 +17,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"		
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Antimage.ManaVoid"
-		"ProcsMagicStick"				"1"
+		"AbilityProcsMagicStick"		"1"
 
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.3"

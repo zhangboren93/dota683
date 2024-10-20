@@ -23,7 +23,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.5"
-		"ProcsMagicStick"				"1"
+		"AbilityProcsMagicStick"		"1"
 		"AnimationPlaybackRate"			"0.856"
 
 		// Time		

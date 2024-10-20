@@ -26,7 +26,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
 		"AbilityTextureName"			"doom_bringer_devour"
-		"ProcsMagicStick"				"1"
+		"AbilityProcsMagicStick"		"1"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------

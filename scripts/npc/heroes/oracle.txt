@@ -31,7 +31,7 @@
 		"AbilityCastPoint"				"0.3"
 		"AbilityChannelTime"			"2.5"
 		"AOERadius"						"%radius"
-		"ProcsMagicStick"				"1"
+		"AbilityProcsMagicStick"		"1"
 	
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -82,7 +82,7 @@
 		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"12"
 		"AbilityManaCost"				"50"
-		"ProcsMagicStick"				"1"
+		"AbilityProcsMagicStick"		"1"
 		"precache"
 		{
 			"particle"								"particles/units/heroes/hero_oracle/oracle_fatesedict.vpcf"

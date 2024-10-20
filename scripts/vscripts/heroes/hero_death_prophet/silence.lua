@@ -71,11 +71,11 @@ end
 function modifier_death_prophet_silence_lua:OnCreated()
 	if IsClient() then return end
 
-	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_silence_custom.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetCaster())
+	self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_death_prophet/death_prophet_silence_custom.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControl(self.pfx, 0, self:GetParent():GetAbsOrigin())
 	--ParticleManager:SetParticleControl(self.pfx, 1, self:GetParent():GetAbsOrigin())
 
-	self.pfx2 = ParticleManager:CreateParticle("particles/generic_gameplay/generic_silenced.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent(), self:GetCaster())
+	self.pfx2 = ParticleManager:CreateParticle("particles/generic_gameplay/generic_silenced.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
 	ParticleManager:SetParticleControl(self.pfx2, 0, self:GetParent():GetAbsOrigin())
 end
 

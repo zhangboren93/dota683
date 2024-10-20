@@ -126,7 +126,7 @@
 		"RequiredLevel"         		"6"
 		"LevelsBetweenUpgrades" 		"5"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		"ProcsMagicStick"				"1"
+		"AbilityProcsMagicStick"		"1"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
