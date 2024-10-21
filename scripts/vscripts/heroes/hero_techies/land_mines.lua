@@ -2,6 +2,18 @@
 	Date: 24.03.2015.
 	Creates the land mine and keeps track of it]]
 require("items/item_magic_stick")
+
+local function filter_units_no_courier(units)
+	-- filter units, won't damage courier
+	local filtered_units = {}
+	for i=1,#units do
+		if units[i]:GetName() ~= "npc_dota_courier" then
+			table.insert(filtered_units, units[i])
+		end
+	end
+	return filtered_units
+end
+
 function LandMinesPlant( keys )
 	local caster = keys.caster
 	local target_point = keys.target_points[1]
@@ -101,10 +113,12 @@ function LandMinesDeath( keys )
 
 	-- Find the valid units in the trigger radius
 	local units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, trigger_radius, target_team, target_types, target_flags, FIND_CLOSEST, false) 
+	units = filter_units_no_courier(units)
 	for i=1,#units do
 		ApplyDamage({ victim = units[i], attacker = unit, damage = damage_half,	damage_type = DAMAGE_TYPE_PHYSICAL})
 	end
 	units = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, big_radius, target_team, target_types, target_flags, FIND_CLOSEST, false) 
+	units = filter_units_no_courier(units)
 	for i=1,#units do
 		ApplyDamage({ victim = units[i], attacker = unit, damage = damage_half,	damage_type = DAMAGE_TYPE_PHYSICAL})
 	end
@@ -139,6 +153,7 @@ function LandMinesTracker( keys )
 
 	-- Find the valid units in the trigger radius
 	local units = FindUnitsInRadius(target:GetTeamNumber(), target:GetAbsOrigin(), target, trigger_radius, target_team, target_types, target_flags, FIND_CLOSEST, true) 
+	units = filter_units_no_courier(units)
 
 	-- If there is a valid unit in range then explode the mine
 	if #units > 0 then
