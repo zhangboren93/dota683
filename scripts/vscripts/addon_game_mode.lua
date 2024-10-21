@@ -94,6 +94,7 @@ function Activate()
 	LinkLuaModifier( "modifier_item_travel_boots_target_lua", 			"items/modifier_item_travel_boots_target.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_bloodthorn_lua", 					"items/modifier_item_bloodthorn.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_bloodthorn_debuff_lua", 			"items/modifier_item_bloodthorn_debuff.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_bottle_regeneration_lua", 				"items/modifier_bottle_regeneration.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
@@ -2024,6 +2025,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_slardar_amplify_damage_vision_lua", { duration = 25 })
+	elseif event.name_const == "modifier_bottle_regeneration" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		parent:AddNewModifier(caster, ability, "modifier_bottle_regeneration_lua", { duration = 3 })
+		return false
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
