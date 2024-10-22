@@ -458,6 +458,11 @@
 		"DOTA_Tooltip_modifier_item_silver_edge_windwalk_datadriven_Description"	"隐身。移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，而且可以穿过单位。破隐一击将造成%dMODIFIER_PROPERTY_TOOLTIP%点额外伤害，必定造成致命一击，同时禁用被动技能。"
 		"DOTA_Tooltip_modifier_silver_edge_debuff_datadriven"						"暗影步攻击效果"
 		"DOTA_Tooltip_modifier_silver_edge_debuff_datadriven_Description"			"被动技能被禁用。"
+		"DOTA_Tooltip_Ability_item_octarine_core_lua"							"玲珑心(6.88f)"
+		"DOTA_Tooltip_ability_item_octarine_core_lua_Description"				"<h1>被动：冷却时间减少</h1>降低所有技能和物品的冷却时间。"
+		"DOTA_Tooltip_ability_item_octarine_core_lua_spell_lifesteal_hero"		"%+技能吸血（英雄）"
+		"DOTA_Tooltip_ability_item_octarine_core_lua_spell_lifesteal_creep"		"%+技能吸血（小兵）"
+		"DOTA_Tooltip_ability_item_octarine_core_lua_Lore"						"位于法术技艺核心的，是只有身负异能之人才能感知的光带。"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"

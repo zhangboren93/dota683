@@ -9140,7 +9140,7 @@
  	"item_recipe_silver_edge_datadriven"
 	{
 		"ID"							"1448"
-		"BaseClass"						"item_lua"
+		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_recipe"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
@@ -9277,6 +9277,60 @@
 				"ScriptFile"	"items/item_silver_edge.lua"
 				"Function"		"handleSpellStart"
 			}
+		}
+	}
+ 	"item_recipe_octarine_core_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"1"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_octarine_core_lua"
+		"ItemRequirements"
+		{
+			"01"						"item_soul_booster_datadriven;item_mystic_staff"
+		}
+	}
+	"item_octarine_core_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_lua"	
+		"ScriptFile"					"items/item_octarine_core.lua"
+		"AbilityTextureName"			"item_octarine_core"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"5900"
+		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"mana;mb;octarine core"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		//"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"SuggestLategame"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_health"			"425"
+			"bonus_mana"			"425"
+			"bonus_mana_regen_pct"	"50"
+			"bonus_intellect"		"25"
+			"bonus_cooldown"		"25"
+			"spell_lifesteal_hero"	"25"
+			"spell_lifesteal_creep"	"5"
 		}
 	}
 }
