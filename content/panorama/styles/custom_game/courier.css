@@ -1,9 +1,9 @@
 .courier-panel {
     horizontal-align: right;
     vertical-align: bottom;
-	height: 135px;
-	width: 290px;
-    margin-bottom: 10px;
+	height: 60px;
+	width: 550px;
+ /*   margin-bottom: 10px;*/
 }
 
 .HUDFlipped .courier-panel {
@@ -112,15 +112,25 @@ Button .disabled {
 	height: 40px;
     flow-children: right;
 	padding-right: 10px;
+	margin-bottom: 10px;
+}
+
+.HUDFlipped .courier-panel-sub {
+	margin-right: 290px;
 }
 
 #courier-panel-inv {
     horizontal-align: right;
     vertical-align: top;
 	/*border: 2px solid #0000FFFF;*/
-	height: 45px;
+	height: 60px;
 	width: 280px;
 	background-color: #2a333b;
+	margin-right: 290px;
+}
+
+.HUDFlipped #courier-panel-inv {
+	margin-right: 20px;
 }
 
 #courier-panel-inv.inv-panel-collapsed {
@@ -129,6 +139,7 @@ Button .disabled {
 }
 .HUDFlipped #courier-panel-inv.inv-panel-collapsed {
 	horizontal-align: left;
+	margin-left: 290px;
 }
 
 #courier-inv-toggle-button
@@ -151,6 +162,7 @@ Button .disabled {
 	color: #8a9eae;
 	font-size: 16px;
 	horizontal-align: center;
+	margin-top: 5px;
 }
 #courier-panel-inv-inner {
 	flow-children: right;
