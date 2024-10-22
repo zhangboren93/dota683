@@ -452,6 +452,12 @@
 		"DOTA_Tooltip_ability_item_bloodthorn_lua_proc_chance"             			"%暴击几率："
 		"DOTA_Tooltip_modifier_item_bloodthorn_debuff_lua"                       	"血棘"
 		"DOTA_Tooltip_modifier_item_bloodthorn_debuff_lua_Description"          	"被沉默并受到30%%的额外伤害，伤害在效果结束时结算，类型为魔法伤害。\n所有受到的攻击均是致命一击。"
+		"DOTA_Tooltip_Ability_item_silver_edge_datadriven"							"白银之锋(6.88f)"
+		"DOTA_Tooltip_ability_item_silver_edge_datadriven_Description"				"<h1>主动：暗影步</h1>进入隐身直到%windwalk_duration%秒持续时间结束、攻击或施法。隐身时，移动速度将提升%windwalk_movement_speed%%%，而且可以穿越单位。<br><br>破隐一击将额外造成%windwalk_bonus_damage%点物理伤害，同时%backstab_duration%秒内目标的被动技能无效，输出降低%backstab_damage_reduction%%%。"
+		"DOTA_Tooltip_modifier_item_silver_edge_windwalk_datadriven"				"暗影步"
+		"DOTA_Tooltip_modifier_item_silver_edge_windwalk_datadriven_Description"	"隐身。移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，而且可以穿过单位。破隐一击将造成%dMODIFIER_PROPERTY_TOOLTIP%点额外伤害，必定造成致命一击，同时禁用被动技能。"
+		"DOTA_Tooltip_modifier_silver_edge_debuff_datadriven"						"暗影步攻击效果"
+		"DOTA_Tooltip_modifier_silver_edge_debuff_datadriven_Description"			"被动技能被禁用。"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"

@@ -9136,4 +9136,147 @@
 			"particle"					"particles/items2_fx/orchid.vpcf"
 		}
 	}
+ 
+ 	"item_recipe_silver_edge_datadriven"
+	{
+		"ID"							"1448"
+		"BaseClass"						"item_lua"
+		"AbilityTextureName"			"item_recipe"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"300"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_silver_edge_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_invis_sword*;item_ultimate_orb"
+		}
+	}
+	"item_silver_edge_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"FightRecapLevel"				"1"
+
+		// Stats		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"24.0"
+		"AbilitySharedCooldown"			"shadow_blade"
+		"AbilityTextureName"			"item_silver_edge"
+
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+		"ItemCost"						"5450"
+		"ItemShopTags"					"damage;attack_speed;movespeed;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"sb;invis;shadow blade"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_damage" 					"30"
+			"bonus_attack_speed"			"30"
+			"bonus_strength"				"15"
+			"bonus_agility"					"15"
+			"bonus_intellect"				"15"
+			"windwalk_movement_speed"		"20"
+			"backstab_duration"				"5"
+			"backstab_damage_reduction"		"-50"
+			"windwalk_bonus_damage"			"225"
+			"windwalk_duration"				"14.0"
+			"windwalk_fade_time"			"0.3"
+			"visibility_radius"				"1025"
+		}
+		"precache"
+		{
+			"particle"						"particles/items3_fx/silver_edge.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_item_silver_edge_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_agility"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_intellect"
+				}
+			}
+			"modifier_item_silver_edge_windwalk_datadriven"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%windwalk_bonus_damage"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%windwalk_movement_speed"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_silver_edge.lua"
+						"Function"		"handleAttack"
+					}
+				}
+				"OnAttackFailed"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_silver_edge.lua"
+						"Function"		"handleAttackMissed"
+					}
+				}
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_silver_edge.lua"
+						"Function"		"handleAbilityExecuted"
+					}
+				}
+			}
+			"modifier_silver_edge_debuff_datadriven"
+			{
+				"IsDebuff"		"1"
+				"EffectName"	"particles/items3_fx/silver_edge.vpcf"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%backstab_damage_reduction"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_PASSIVES_DISABLED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_silver_edge.lua"
+				"Function"		"handleSpellStart"
+			}
+		}
+	}
 }
