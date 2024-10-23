@@ -28,7 +28,6 @@ player2BuildingDamage = {}
 fwdnocdenabled = 0
 sameHeroPickEnabled = false
 custom_game_first_pick = "random"
-custom_game_meta_version = "683"
 player_last_order_time = {}
 
 function Precache( context )
@@ -264,6 +263,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.captain_normal_time = 40;
 	self.captain_radiant_extra_time = 110;
 	self.captain_dire_extra_time = 110;
+	self.custom_game_meta_version = "683"
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	
 	GameRules:SetStartingGold(625)
@@ -828,7 +828,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		end
 		if 	   event.shop_item_name == "item_recipe_bloodthorn_lua" 
 			or event.shop_item_name == "item_recipe_silver_edge_datadriven" then
-			if custom_game_meta_version ~= '688' then
+			if self.custom_game_meta_version ~= '688' then
 				return false
 			end
 		end
@@ -932,7 +932,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		-- modifiers
 		entity:AddNewModifier(entity, nil, "modifier_tower_bonus_cancel_lua", {})
 		entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
-		if custom_game_meta_version == "688" then
+		if self.custom_game_meta_version == "688" then
 			entity:AddNewModifier(entity, nil, "modifier_attribute_regen_688_lua", {})
 		end
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
@@ -1107,7 +1107,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		self.roshanCount = self.roshanCount + 1
 		entity:AddNewModifier(entity, nil, "modifier_roshan_cancel_status_resistance_lua", {})
 		entity:AddNewModifier(entity, nil, "modifier_counter_healthbar", {})
-		if custom_game_meta_version == "688" then
+		if self.custom_game_meta_version == "688" then
 			entity:AddNewModifier(entity, nil, "modifier_roshan_inherent_buff_688_lua", {})
 		end
 	end
@@ -1126,7 +1126,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				local time_fraction = 30 - current_time % 30
 				entity:AddNewModifier(nil, nil, "modifier_creep_safe_lane_move_speed_bonus", {}):SetDuration(25 + time_fraction, true)
 			end
-			if custom_game_meta_version == "688" then
+			if self.custom_game_meta_version == "688" then
 				local current_time = GameRules:GetDOTATime(false, false)
 				local creep_level = math.floor(current_time / 450)
 				entity:SetMinimumGoldBounty(entity:GetMinimumGoldBounty() + creep_level)
@@ -1334,7 +1334,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			print("Crediting WW on Winters curse team kill")
 			attacker = entity:FindModifierByName("modifier_winter_wyvern_winters_curse_aura"):GetCaster()
 		end
-		local ret,error = pcall(function() handleKillBonus(self, attacker, entity, custom_game_meta_version) end)
+		local ret,error = pcall(function() handleKillBonus(self, attacker, entity, self.custom_game_meta_version) end)
 		if not ret then
 			print(error)
 			GameRules:SendCustomMessage(error, -1, -1)
@@ -1370,7 +1370,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 	if entity:IsBuilding() and building2teambounty[entity:GetName()] ~= nil then
 		-- grant team bounty
 		local team_bounty = building2teambounty[entity:GetName()]
-		if custom_game_meta_version == "688" and entity:IsBarracks() then
+		if self.custom_game_meta_version == "688" and entity:IsBarracks() then
 			team_bounty = team_bounty + 150
 		end
 		local is_deny = false
@@ -2661,13 +2661,13 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 			end
 			return
 		elseif data.mv ~= nil then
-			if data.mv ~= custom_game_meta_version then
+			if data.mv ~= GameRules.AddonTemplate.custom_game_meta_version then
 				if data.mv == '683' then
 					GameRules:SendCustomMessage("启用683版本", -1, -1)
 				elseif data.mv == '688' then
 					GameRules:SendCustomMessage("启用688版本", -1, -1)
 				end
-				custom_game_meta_version = data.mv
+				GameRules.AddonTemplate.custom_game_meta_version = data.mv
 				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.PlayerID, mv = data.mv})
 			end
 			return
