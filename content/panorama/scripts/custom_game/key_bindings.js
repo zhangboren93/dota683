@@ -90,7 +90,8 @@ ITEM_RECIPE_RULES = [
     ["item_rapier", "item_demon_edge", "item_relic"],
 	//688
 	["item_bloodthorn_lua", "item_recipe_bloodthorn_lua", "item_orchid", "item_lesser_crit"],
-	["item_silver_edge_datadriven", "item_recipe_silver_edge_datadriven", "item_invis_sword", "item_ultimate_orb"]
+	["item_silver_edge_datadriven", "item_recipe_silver_edge_datadriven", "item_invis_sword", "item_ultimate_orb"],
+	["item_iron_talon_lua", "item_recipe_iron_talon_lua", "item_quelling_blade_lua", "item_ring_of_protection"]
 ]
 ITEMNAME_2_ITEMID = {
 	"item_blink": 1,
@@ -197,7 +198,8 @@ ITEMNAME_2_ITEMID = {
 	"item_recipe_veil_of_discord_datadriven"		:1389,
 	"item_shadow_amulet_datadriven"		:1415,
 	"item_recipe_bloodthorn_lua"	 	:1445,
-	"item_recipe_silver_edge_datadriven"	:1448
+	"item_recipe_silver_edge_datadriven"	:1448,
+	"item_recipe_iron_talon_lua"	:1438
 }
 
 SIDE_SHOP_ITEMS = ["item_ring_of_health", "item_energy_booster"]

@@ -95,6 +95,7 @@ function Activate()
 	LinkLuaModifier( "modifier_item_bloodthorn_debuff_lua", 			"items/modifier_item_bloodthorn_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bottle_regeneration_lua", 				"items/modifier_bottle_regeneration.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_octarine_core_lua", 				"items/item_octarine_core.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_item_iron_talon_lua", 					"items/modifier_item_iron_talon.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
@@ -827,7 +828,8 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			end
 		end
 		if 	   event.shop_item_name == "item_recipe_bloodthorn_lua" 
-			or event.shop_item_name == "item_recipe_silver_edge_datadriven" then
+			or event.shop_item_name == "item_recipe_silver_edge_datadriven" 
+			or event.shop_item_name == "item_recipe_iron_talon_lua" then
 			if self.custom_game_meta_version ~= '688' then
 				return false
 			end

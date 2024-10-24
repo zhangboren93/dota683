@@ -9342,4 +9342,63 @@
 			"spell_lifesteal_creep"	"5"
 		}
 	}
+	"item_recipe_iron_talon_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1438"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"125"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_iron_talon_lua"
+		"ItemRequirements"
+		{
+			"01"						"item_quelling_blade_lua;item_ring_of_protection"
+		}
+	}
+	"item_iron_talon_lua"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_iron_talon.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_TREE | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_CUSTOM"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_PREFER_ENEMIES"
+		"AbilityTextureName"			"item_iron_talon"
+
+		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"14"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"500"
+		"ItemShopTags"					"damage" 
+		"ItemQuality"					"common"
+		"ItemAliases"					"quelling blade"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_armor"				"2"
+				"creep_damage_pct"			"40"
+				"alternative_cooldown"		"4"
+				"damage_bonus"				"32"
+				"damage_bonus_ranged"		"12"
+		}
+	}
+
 }

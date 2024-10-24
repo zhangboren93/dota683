@@ -81,7 +81,8 @@ ITEM_RECIPE_RULES = {
 	{"item_bracer_datadriven", "item_recipe_bracer_datadriven", "item_circlet", "item_gauntlets"},
 	-- 688
 	{"item_bloodthorn_lua", "item_recipe_bloodthorn_lua", "item_orchid", "item_lesser_crit"},
-	{"item_silver_edge_datadriven", "item_recipe_silver_edge_datadriven", "item_invis_sword", "item_ultimate_orb"}
+	{"item_silver_edge_datadriven", "item_recipe_silver_edge_datadriven", "item_invis_sword", "item_ultimate_orb"},
+	{"item_iron_talon_lua", "item_recipe_iron_talon_lua", "item_quelling_blade_lua", "item_ring_of_protection"}
 }
 
 local function isWardItem(item)

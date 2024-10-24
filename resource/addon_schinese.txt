@@ -463,6 +463,10 @@
 		"DOTA_Tooltip_ability_item_octarine_core_lua_spell_lifesteal_hero"		"%+技能吸血（英雄）"
 		"DOTA_Tooltip_ability_item_octarine_core_lua_spell_lifesteal_creep"		"%+技能吸血（小兵）"
 		"DOTA_Tooltip_ability_item_octarine_core_lua_Lore"						"位于法术技艺核心的，是只有身负异能之人才能感知的光带。"
+		"DOTA_Tooltip_Ability_item_iron_talon_lua"								"寒铁钢爪(6.88f)"
+		"DOTA_Tooltip_ability_item_iron_talon_lua_Description"					"<h1>主动：砍伐</h1>对非玩家控制的敌方单位使用，移除当前生命值的%creep_damage_pct%%%。<br><br>对树木施放会立刻将其摧毁。 <br><br>砍伐单位施法距离：%abilitycastrange%<br>砍伐树木施法距离：%abilitycastrange%"
+		"DOTA_Tooltip_ability_item_iron_talon_lua_Note0"					    "对树木使用时冷却时间为4秒。"
+		"DOTA_Tooltip_ability_item_iron_talon_lua_Lore"							"简单却有效的武器，为镇压地狱熊怪的起义而设计。"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"
