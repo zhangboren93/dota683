@@ -114,5 +114,8 @@
 				
 			</Panel>
 		</Panel>
+		<Button id="mode_select_block_button">
+			<Label text="#683modeselect_mode_selectable_by_host"/>
+		</Button>
 	</Panel>
 </root>

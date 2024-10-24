@@ -2984,6 +2984,7 @@
 		"683modeselect_first_pick_dire"				"天灾"
 		"your_turn_to_pick_at_time"					"选择英雄的时间点是："
 		"683modeselect_meta_version"				"版本："
+		"683modeselect_mode_selectable_by_host"		"房主正在选择游戏规则..."
 
 		"DOTA_HUD_BackpackHint"			"背包已被禁用。"
 		"DOTA_Hud_Pregame_Random_Tooltip"	"从经常使用的英雄中随机选择一个。在部分游戏模式中会获得 200 额外初始金钱。"

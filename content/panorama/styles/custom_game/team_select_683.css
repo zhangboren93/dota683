@@ -86,3 +86,18 @@ ToggleButton Label {
 #CancelAndUnlockButton Label {
 	font-size: 28px;
 }
+
+#mode_select_block_button {
+	border: 2px solid #FF0000FF;
+	width: 500px;
+	height: 500px;
+	vertical-align: center;
+	horizontal-align: center;
+	margin-right: 500px;
+}
+
+#mode_select_block_button Label {
+	font-size: 24px;
+	horizontal-align: center;
+	margin-top: 10px;
+}

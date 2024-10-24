@@ -94,8 +94,13 @@ function handleMetaVersion(version) {
 		$("#ap").checked = true
 		$("#random").checked = true
 		$("#683").checked = true
+		local_player_info = Game.GetLocalPlayerInfo()
+		if (local_player_info["player_has_host_privileges"]) {
+			$("#mode_select_block_button").visible = false
+		}
 	} else if (mapname == 'maps/rank.vpk') {
 		$('#ShuffleTeamAssignmentButton').visible = false
 		$('#UnassignedPlayerPanel').visible = false
+		$("#mode_select_block_button").visible = false
 	}
 })()
