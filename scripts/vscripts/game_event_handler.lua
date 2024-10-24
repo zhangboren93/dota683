@@ -130,6 +130,22 @@ function HandleGameStateChange(game_mode, event)
 				getAllPlayerScores(game_mode)
 			end, "Fetching player scores", 5)
 		end
+	elseif event.new_state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+		local mode_id = 1
+		if game_mode.game_mode == 'AP' then
+			mode_id = 1
+		elseif game_mode.game_mode == 'JS' or game_mode.game_mode == 'RD' then
+			mode_id = 3
+		elseif game_mode.game_mode == 'CM' then
+			mode_id = 2
+		elseif game_mode.game_mode == 'CD' then
+			mode_id = 16
+		elseif game_mode.game_mode == 'DM' then
+			mode_id = 20
+		end
+		GameRules:GetAnnouncer(1):SpeakConcept({
+			announce_gamemode = mode_id
+		})
 	end
 end
 
