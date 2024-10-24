@@ -254,6 +254,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.captain_radiant_extra_time = 110;
 	self.captain_dire_extra_time = 110;
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+	GameRules:GetGameModeEntity():SetAnnouncerGameModeAnnounceDisabled(true)
 	
 	GameRules:SetStartingGold(625)
 	GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 19)
