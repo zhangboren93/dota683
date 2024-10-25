@@ -5,6 +5,7 @@ function handleSpellStart(event)
 	local duration = ability:GetSpecialValueFor("duration")
 	if target:TriggerSpellAbsorb(ability) then return end
 	local modifier = target:AddNewModifier(caster, ability, "modifier_bounty_hunter_track_lua", { duration = duration })
+	target:AddNewModifier(caster, ability, "modifier_truesight", { duration = duration })
 	local team = caster:GetTeam()
 	for i=1,PlayerResource:GetPlayerCountForTeam(team) do
 		EmitSoundOnEntityForPlayer("Hero_BountyHunter.Target", target, PlayerResource:GetNthPlayerIDOnTeam(team, i))

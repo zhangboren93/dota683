@@ -3,7 +3,6 @@ modifier_bounty_hunter_track_lua = class({})
 function modifier_bounty_hunter_track_lua:CheckStates()
 	return {
 		[ MODIFIER_STATE_PROVIDES_VISION ] = true,
-		[ MODIFIER_STATE_INVISIBLE ] = false
 	}
 end
 
@@ -15,10 +14,6 @@ function modifier_bounty_hunter_track_lua:IsPurgable()
 	return true
 end
 
-function modifier_bounty_hunter_track_lua:GetLevel()
-	return MODIFIER_PRIORITY_HIGH
-end
-
 function modifier_bounty_hunter_track_lua:OnDestroy()
 	if self.particleId ~= nil then
 		ParticleManager:DestroyParticle(self.particleId, false)
@@ -28,7 +23,10 @@ function modifier_bounty_hunter_track_lua:OnDestroy()
 	end
 	if not IsServer() then return end
 	local target = self:GetParent()
-	if target:IsAlive() then return end
+	if target:IsAlive() then
+		target:RemoveModifierByNameAndCaster("modifier_truesight", self:GetCaster())
+		return
+	end
 	caster = self:GetCaster()
 	targetLocation = target:GetAbsOrigin()
 	local ability = self:GetAbility()
