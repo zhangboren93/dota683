@@ -345,53 +345,6 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Ability: Axe Berserker's Call
-	//=================================================================================================================
-	"axe_berserkers_call"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5007"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Axe.Berserkers_Call"
-
-		"HasScepterUpgrade"             "0"
-		"HasShardUpgrade"				"0"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.3"
- 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_1"
-		"AbilityCastGestureSlot"		"DEFAULT"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16 14 12 10"
-
-		// Damage.
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"0 0 0 0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"80 90 100 110"	
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"radius"				"300"
-			"bonus_armor"			"40"
-			"duration"				"2.0 2.4 2.8 3.2"
-			"scepter_cooldown_reduction"	"+0"
-			"applies_battle_hunger"			"0"
-			"bonus_attack_speed"	"0"
-		}
-	}
 	// Rewrite of the Axe Counter Helix ability
 	// Author: Pizzalol
 	// Date: October 14, 2015
