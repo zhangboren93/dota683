@@ -29,7 +29,7 @@ for file in dir_list:
     games_to_process.append(file)
 
 logger.info(f"Games to process: {games_to_process}")
-if len(games_to_process) >= 0:
+if len(games_to_process) > 0:
     commands = ['python3', 'process_game_result.py', ','.join(games_to_process)]
     logger.info(f"Executing command {commands})")
     process_timedout = False
