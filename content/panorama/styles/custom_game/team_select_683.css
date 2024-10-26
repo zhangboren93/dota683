@@ -101,3 +101,34 @@ ToggleButton Label {
 	horizontal-align: center;
 	margin-top: 10px;
 }
+
+#SpectTeamsList {
+	font-size: 20px;
+	color: white;
+	visibility: collapse;
+	border: 2px solid #00FF00FF;
+	width: 100px;
+	height: 100px;
+}
+
+#SpectTeamsListInner {
+	flow-children: down;
+	padding-left: 10px;
+}
+
+#referee_title {
+	margin-bottom: 10px;
+}
+
+.referee_empty {
+	color: grey;
+}
+
+#SpectTeamsListButton {
+	height: 100%;
+	width: 100%;
+}
+
+#referee_slot_occupied {
+	color: white;
+}

@@ -3041,6 +3041,7 @@
 		"button_ban_hero"					"禁用"
 		"button_select_hero"				"选择"
 		"courier_inventory_panel"           "信使物品栏"
+		"DOTA_CUSTOM1"						"观众"
 
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction"								"空"
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"这颗命石没有效果。"

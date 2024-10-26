@@ -2975,6 +2975,9 @@
 		"683modeselect_meta_version_683"					"6.83"
 		"683modeselect_meta_version_688"					"6.88g"
 		"683modeselect_mode_selectable_by_host"				"Host picking game modes..."
+		"683modeselect_referee"								"Referee:"
+		"683modeselect_join_referee"						"Join"
+		"683modeselect_referee_empty"						"Empty"
 
 		"DOTA_HUD_BackpackHint"			"Backpack has been disabled."
 		"DOTA_Hud_Pregame_Random_Tooltip"   "Randomly picks from a pool of heroes you frequently play. In some game modes, grants extra 200 golds."
@@ -2996,6 +2999,7 @@
 		"button_ban_hero"					"Ban"
 		"button_select_hero"				"Pick"
 		"courier_inventory_panel"			"Courier Inventory"
+		"DOTA_CUSTOM1"						"Spectator"
 
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction"								"Null"
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"This facet is of NO effect."

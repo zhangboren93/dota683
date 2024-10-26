@@ -54,6 +54,14 @@
 						<Label id="TeamListHeaderLabel" text="#custom_game_team_select" />
 						<Image id="TeamListLockedIcon" src="file://{images}/control_icons/lock_small.png" />
 					</Panel>
+					<!--Panel id="SpectTeamsList">
+						<Panel id="SpectTeamsListInner">
+							<Label text="#683modeselect_referee" id="referee_title"/>
+							<Label text="#683modeselect_referee_empty" class="referee_empty" id="referee_slot_1"/>
+							<Label text="#683modeselect_referee_empty" class="referee_empty"/>
+						</Panel>
+						<Button id="SpectTeamsListButton" onactivate="handleJoinSpectTeam()"/>
+					</Panel-->
 					<Panel id="TeamsListRoot" />
 					<Button id="ShuffleTeamAssignmentButton" onactivate="OnShufflePlayersPressed()">
 						<Label text="#custom_game_team_select_shuffle" />

@@ -220,6 +220,7 @@ function Activate()
 	LinkLuaModifier( "modifier_courier_minimap_icon_follow_lua", 	"units/courier_minimap_icon_follow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_roshan_cancel_status_resistance_lua",	"units/modifier_roshan_cancel_statresist.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_unstuck_timer_lua",					"modifiers/modifier_unstuck_timer.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_spectator_dummy_unit_lua", 			"modifiers/modifier_spectator_dummy_unit.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -339,6 +340,14 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:SetHeroSelectionTime(80)
 	GameRules:SetCreepSpawningEnabled(true)
 	GameRules:SetRuneSpawnTime(120)
+	if GetMapName() == "tour" then
+		GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_1, 2)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_GOODGUYS, 0, 255, 0)
+		SetTeamCustomHealthbarColor(DOTA_TEAM_BADGUYS, 255, 0, 0)
+		for i=1,#ARCANA_HEROES do
+			GameRules:AddHeroToBlacklist(ARCANA_HEROES[i])
+		end
+	end
 
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 
@@ -472,6 +481,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	end
 	if text == "-test" then
 		--local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
+		PlayerResource:GetPlayer(0):MakeRandomHeroSelection()
 	end
 	if text == "-shuffleteam" then
 		local game_state = GameRules:State_Get()
@@ -1056,6 +1066,11 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		--		print("null ability")
 		--	end
 		--end
+
+		if GetMapName() == "tour" and entity:GetTeam() == DOTA_TEAM_CUSTOM_1 then
+			entity:SetAbsOrigin(Vector(-100000, -100000, -100000))
+			entity:AddNewModifier(entity, nil, "modifier_spectator_dummy_unit_lua", {})
+		end
 	end
 
 	if entity:HasAbility("creep_siege_alter") then
@@ -2522,7 +2537,7 @@ function HandleBuyback(entindex, player_id)
 end
 
 function HandlePlayerPickHero(hero)
-	if same_ability_heroes[hero] ~= nil then
+	if GetMapName() ~= "tour" and same_ability_heroes[hero] ~= nil then
 		GameRules:AddHeroToBlacklist(same_ability_heroes[hero])
 	end
 end

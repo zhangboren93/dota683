@@ -146,6 +146,23 @@ function HandleGameStateChange(game_mode, event)
 		GameRules:GetAnnouncer(1):SpeakConcept({
 			announce_gamemode = mode_id
 		})
+
+		if GetMapName() == "tour" then
+			GameRules:GetGameModeEntity():SetThink(function()
+				for i=1,PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_CUSTOM_1) do
+					local player = PlayerResource:GetNthPlayerIDOnTeam(DOTA_TEAM_CUSTOM_1, i)
+					PlayerResource:GetPlayer(player):SetSelectedHero(ARCANA_HEROES[i])
+				end
+			end, "unassign spectator hero", 3)
+		end
+	elseif event.new_state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
+		if GetMapName() == "tour" then
+			CreateUnitByNameAsync("npc_dummy_unit_spectator",
+				Vector(-4000, 2026, 512), false, nil, nil, 
+				DOTA_TEAM_CUSTOM_1, function(unit)
+				unit:AddNewModifier(unit, nil, "modifier_spectator_dummy_unit_lua", {})
+			end)
+		end
 	end
 end
 

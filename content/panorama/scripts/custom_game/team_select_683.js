@@ -86,6 +86,14 @@ function handleMetaVersion(version) {
 	GameEvents.SendCustomGameEventToServer("game_mode_select", { mv: version })
 }
 
+function handleJoinSpectTeam() {
+	$.Msg("handle Join SpectTeam");
+	Game.PlayerJoinTeam(DOTATeam_t.DOTA_TEAM_CUSTOM_1)
+	$("#referee_slot_1").text = Players.GetPlayerName(Players.GetLocalPlayer())
+	$("#referee_slot_1").AddClass("referee_slot_occupied")
+	// TODO send join team event to other players
+}
+
 (function() {
 	let mapname = Game.GetMapInfo().map_name
 	$.Msg("Map name: " + mapname)
@@ -102,5 +110,8 @@ function handleMetaVersion(version) {
 		$('#ShuffleTeamAssignmentButton').visible = false
 		$('#UnassignedPlayerPanel').visible = false
 		$("#mode_select_block_button").visible = false
-	}
+	} else if (mapname == 'maps/tour.vpk') {
+		$("#mode_select_block_button").visible = false
+//		$("#SpectTeamsList").visible = true
+	} 
 })()

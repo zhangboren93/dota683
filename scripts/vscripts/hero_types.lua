@@ -269,3 +269,19 @@ same_ability_heroes["npc_dota_hero_medusa"] = "npc_dota_hero_muerta"
 same_ability_heroes["npc_dota_hero_muerta"] = "npc_dota_hero_medusa"
 same_ability_heroes["npc_dota_hero_rubick"] = "npc_dota_hero_ringmaster"
 same_ability_heroes["npc_dota_hero_ringmaster"] = "npc_dota_hero_rubick"
+
+ARCANA_HEROES = {
+	"npc_dota_hero_monkey_king",
+	"npc_dota_hero_marci",
+	"npc_dota_hero_dark_willow",
+	"npc_dota_hero_grimstroke",
+	"npc_dota_hero_mars",
+	"npc_dota_hero_void_spirit",
+	"npc_dota_hero_dawnbreaker",
+	"npc_dota_hero_hoodwink",
+	"npc_dota_hero_primal_beast",
+	"npc_dota_hero_snapfire",
+	"npc_dota_hero_pangolier",
+	"npc_dota_hero_muerta",
+	"npc_dota_hero_ringmaster"
+}
