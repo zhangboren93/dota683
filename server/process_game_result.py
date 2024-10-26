@@ -48,8 +48,8 @@ def do_dota_stuff():
         if duration < 100:
             return
         print(f"start time {response.match.startTime}")
-        if PRODUCTION and (datetime.now().timestamp() - response.match.startTime - duration > 60 * 60 * 3):
-            print("Start time more than 3 hours before, skipping")
+        if PRODUCTION and (datetime.now().timestamp() - response.match.startTime - duration > 60 * 60 * 24):
+            print("Start time more than 24 hours before, skipping")
             continue
         print(f"match outcome {response.match.match_outcome}")
         if response.match.match_outcome != 2 and response.match.match_outcome != 3:

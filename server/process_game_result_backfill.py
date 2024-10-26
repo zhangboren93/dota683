@@ -3,6 +3,7 @@ import queue
 import threading 
 
 from steam.client import SteamClient
+from steam.core.cm import CMServerList
 from dota2.client import Dota2Client
 import dota2.protobufs.dota_gcmessages_client_pb2 as dota_gcmessages_client__pb2
 
@@ -13,9 +14,19 @@ PRODUCTION = False
 
 game_ids = sys.argv[1].split(',')
 
+revert = False
+if len(sys.argv) >= 3:
+    revert = sys.argv[2] == '--revert'
+print(f"Is revert {revert}")
+
 print(f"Game_ids {game_ids}")
+ 
+class  MyCMServerList(CMServerList):
+    def bootstrap_from_webapi(*args, **kwargs):
+        return False
 
 client = SteamClient()
+#client.cm_servers = MyCMServerList()
 dota = Dota2Client(client)
 
 @client.on('logged_on')
@@ -90,14 +101,22 @@ def do_dota_stuff():
         elif diff > 50:
             diff = 50
         print(f"diff {diff}")
-        for pid in winning_player_ids:
-            playerid2score[pid] = playerid2score[pid] + diff
-            if playerid2score[pid] > 10000:
-                playerid2score[pid] = 10000
-        for pid in losing_player_ids:
-            playerid2score[pid] = playerid2score[pid] - diff
-            if playerid2score[pid] < 0:
-                playerid2score[pid] = 0
+        if revert:
+            print("Reverting winner team")
+            losing_player_ids = []
+            for pid in winning_player_ids:
+                playerid2score[pid] = playerid2score[pid] - diff
+                if playerid2score[pid] < 0:
+                    playerid2score[pid] = 0
+        else:
+            for pid in winning_player_ids:
+                playerid2score[pid] = playerid2score[pid] + diff
+                if playerid2score[pid] > 10000:
+                    playerid2score[pid] = 10000
+            for pid in losing_player_ids:
+                playerid2score[pid] = playerid2score[pid] - diff
+                if playerid2score[pid] < 0:
+                    playerid2score[pid] = 0
         print(f"New play scores {playerid2score}")
         for pid in winning_player_ids + losing_player_ids:
             with open('files/' + str(pid), 'w', encoding='utf-8') as fp:
