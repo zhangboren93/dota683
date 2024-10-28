@@ -1826,7 +1826,15 @@
 		"DOTA_Tooltip_Ability_meepo_divided_we_stand_Scepter_Description"	"+1 meepo, shares attribute bonus"
 		//Mirana
 		"DOTA_Tooltip_ability_mirana_starfall_Description"						"Calls down a wave of meteors to damage nearby enemy units. One random enemy unit in 175 range will take a second hit for 75%% of the damage."
-		"DOTA_Tooltip_ability_mirana_arrow_Description"										"Fires a long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from %arrow_min_stun% to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target."
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven"							"Sacred Arrow"
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_Description"				"Fires a long-range arrow with deadly precision, which stuns and damages the first enemy unit it strikes. The stun duration ranges from %arrow_min_stun% to %arrow_max_stun% seconds, with bonus damage up to %arrow_bonus_damage% added, based on the distance the arrow travels to its target."
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_Lore"						"Lunar energies make the Princess of the Moon's arrows more deadly than most."
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_Note0"					"For every 150 distance the arrow travels, the stun duration upon impact increases by 0.5 seconds, and the bonus damage added increases by 14."
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_Note1"					"Sacred Arrow can hit invisible units."
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_arrow_range"				"RANGE:"
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_arrow_min_stun"			"MINIMUM STUN:"
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_arrow_max_stun"			"MAXIMUM STUN:"
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_arrow_bonus_damage"		"MAXIMUM BONUS DAMAGE:"
 		"DOTA_Tooltip_ability_mirana_leap_Description"							"Mirana leaps forward into battle, empowering allied units with a ferocious roar that grants bonus attack and movement speed. Speed bonus lasts %leap_bonus_duration% seconds."
 		// Morphling
 		"DOTA_Tooltip_Ability_morphling_adaptive_strike_str"					"Adaptive Strike"

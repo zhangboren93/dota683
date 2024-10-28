@@ -2110,16 +2110,6 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			if event.damage > original_damage then
 				event.damage = original_damage
 			end
-		elseif inflictor:GetName() == "mirana_arrow" and victim:IsCreep() then
-			local original_damage = inflictor:GetAbilityDamage()
-			if attacker.arrow_start_loc ~= nil then
-				local arrow_range = (victim:GetAbsOrigin() - attacker.arrow_start_loc):Length()
-				local bonus_damage = inflictor:GetSpecialValueFor("arrow_bonus_damage")
-				original_damage = original_damage + math.min(1, arrow_range / 3000) * bonus_damage
-			end
-			if event.damage > original_damage then
-				event.damage = original_damage
-			end
 		elseif inflictor:GetName() == "enigma_midnight_pulse" then
 			-- apply damage as pure instead of magical & percentage of max health
 			event.damage = victim:GetMaxHealth() * inflictor:GetSpecialValueFor("damage_percent") / 100

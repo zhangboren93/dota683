@@ -1843,7 +1843,15 @@
 		"DOTA_Tooltip_Ability_meepo_divided_we_stand_Scepter_Description"	"+1米波，共享属性加成"
 		//Mirana
 		"DOTA_Tooltip_ability_mirana_starfall_Description"						"召唤一波流星砸向附近的敌方单位。%starfall_secondary_radius_tooltip%范围内随机一个的敌方单位将会再受到一次%secondary_starfall_damage_percent%%%伤害的冲击。"
-		"DOTA_Tooltip_ability_mirana_arrow_Description"											"射出一支绝对精准的箭矢，对第一个击中的敌人造成伤害并眩晕目标。目标距离越远，眩晕时间越长，最短%arrow_min_stun%秒，最长可达%arrow_max_stun%秒。根据箭矢飞行的距离还将对目标额外造成最多%arrow_bonus_damage%点伤害。"
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven"							"月神之箭"
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_Description"				"射出一支绝对精准的箭矢，对第一个击中的敌人造成伤害并眩晕目标。目标距离越远，眩晕时间越长，最短%arrow_min_stun%秒，最长可达%arrow_max_stun%秒。根据箭矢飞行的距离还将对目标额外造成最多%arrow_bonus_damage%点伤害。"
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_Lore"						"明月的能量让月之公主的箭矢变得愈发致命。"
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_Note0"					"神箭每飞行150码，中箭后眩晕的持续时间将提高0.5秒，额外伤害增加14点。"
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_Note1"					"月神之箭可以射中隐身单位。"
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_arrow_range"				"距离："
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_arrow_min_stun"			"最短眩晕时间："
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_arrow_max_stun"			"最长眩晕时间："
+		"DOTA_Tooltip_ability_mirana_arrow_datadriven_arrow_bonus_damage"		"最大额外伤害："
 		"DOTA_Tooltip_ability_mirana_leap_Description"							"米拉娜的坐骑向前跳跃加入战斗，着地时发出一声凶狠的咆哮鼓舞友方单位，提升攻击和移动速度。速度加成持续%leap_bonus_duration%秒。"
 		// Morphling
 		"DOTA_Tooltip_ability_morphling_waveform_Description"					"变体精灵化为波浪向前涌进，对路径上的敌人造成伤害。变体精灵在波浪形态中是无敌的。"
