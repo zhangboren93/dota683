@@ -63,7 +63,7 @@ function infest_start( keys )
     caster:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
 
     -- Hide the hero underground
-    caster:SetAbsOrigin(caster.host:GetAbsOrigin() - Vector(0, 0, 322))
+  --  caster:SetAbsOrigin(caster.host:GetAbsOrigin() - Vector(0, 0, 322))
     caster:SwapAbilities("life_stealer_infest_datadriven", "life_stealer_consume_datadriven", false, true) 
 	if not target:IsConsideredHero() and not target:IsControllableByAnyPlayer() then
 		local control = caster:FindAbilityByName("life_stealer_control_datadriven")
@@ -83,54 +83,55 @@ function infest_start( keys )
         end
     end
     --Timers:CreateTimer(10, function() reset(keys) end)
+	caster:AddNoDraw()
 end
 
 function infest_move_unit( keys )
     local caster = keys.caster
     --Check if the host still exists
     if caster.host == nil or not caster.host:IsAlive() then -- CHANGE THIS PLEASE?
-    caster:SetAbsOrigin(caster.host:GetAbsOrigin())
-    caster:RemoveModifierByName("modifier_infest_hide")
-    caster:SwapAbilities("life_stealer_infest_datadriven", "life_stealer_consume_datadriven", true, false) 
-	caster:FindAbilityByName("life_stealer_control_datadriven"):SetHidden(true)
-    --return the abilities
-    for i = 0, 2 do
-        if caster.removed_spells[i] ~= nil then
-            caster.removed_spells[i]:SetHidden(false)
-        end
-    end
-    -- if the unit is not a hero, the unit dies
-    if not caster.host:IsHero() then
-        -- heal the caster
-        caster:Heal(caster.host:GetHealth(), caster)
-
-        caster.host:Kill(ability, caster)
-    end
-    -- deal aoe damage
-    units = FindUnitsInRadius(caster:GetTeamNumber(),
-                caster:GetAbsOrigin(),
-                nil,
-                caster.ability["range"], 
-                DOTA_UNIT_TARGET_TEAM_ENEMY,
-                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
-                DOTA_UNIT_TARGET_FLAG_NONE,
-                FIND_ANY_ORDER,
-                false)
-    -- if we find units, deal the damage
-    if units ~= nil then
-        for k, unit in pairs(units) do
-            ApplyDamage({victim = unit,
-                        attacker = caster,
-                        damage = caster.ability["damage"],
-                        damage_type = DAMAGE_TYPE_MAGICAL,
-                        ability = ability}) 
-        end
-    end
-    --remove the particle
-    ParticleManager:DestroyParticle(caster.particleid, true)
-
+	    caster:SetAbsOrigin(caster.host:GetAbsOrigin())
+	    caster:RemoveModifierByName("modifier_infest_hide")
+	    caster:SwapAbilities("life_stealer_infest_datadriven", "life_stealer_consume_datadriven", true, false) 
+		caster:FindAbilityByName("life_stealer_control_datadriven"):SetHidden(true)
+	    --return the abilities
+	    for i = 0, 2 do
+	        if caster.removed_spells[i] ~= nil then
+	            caster.removed_spells[i]:SetHidden(false)
+	        end
+	    end
+	    -- if the unit is not a hero, the unit dies
+	    if not caster.host:IsHero() then
+	        -- heal the caster
+	        caster:Heal(caster.host:GetHealth(), caster)
+	
+	        caster.host:Kill(ability, caster)
+	    end
+	    -- deal aoe damage
+	    units = FindUnitsInRadius(caster:GetTeamNumber(),
+	                caster:GetAbsOrigin(),
+	                nil,
+	                caster.ability["range"], 
+	                DOTA_UNIT_TARGET_TEAM_ENEMY,
+	                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+	                DOTA_UNIT_TARGET_FLAG_NONE,
+	                FIND_ANY_ORDER,
+	                false)
+	    -- if we find units, deal the damage
+	    if units ~= nil then
+	        for k, unit in pairs(units) do
+	            ApplyDamage({victim = unit,
+	                        attacker = caster,
+	                        damage = caster.ability["damage"],
+	                        damage_type = DAMAGE_TYPE_MAGICAL,
+	                        ability = ability}) 
+	        end
+	    end
+	    --remove the particle
+	    ParticleManager:DestroyParticle(caster.particleid, true)
+		caster:RemoveNoDraw()
     else
-        caster:SetAbsOrigin(caster.host:GetAbsOrigin() - Vector(0, 0, 500))--322))
+        caster:SetAbsOrigin(caster.host:GetAbsOrigin()) -- Vector(0, 0, 500))--322))
     end
 end
 
@@ -192,6 +193,7 @@ function infest_consume(keys)
     end
     --remove the particle
     ParticleManager:DestroyParticle(caster.particleid, true)
+	caster:RemoveNoDraw()
 end
 
 function infest_control(event)
