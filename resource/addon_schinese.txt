@@ -2712,7 +2712,9 @@
 		"DOTA_Tooltip_modifier_global_silence_datadriven"									"全领域静默"
 		"DOTA_Tooltip_modifier_global_silence_datadriven_Description"						"所有英雄都被沉默。"
 		"DOTA_Tooltip_modifier_silencer_brain_drain_debuff_datadriven"						"窃取智力"
+		"DOTA_Tooltip_modifier_silencer_brain_drain_debuff_datadriven_Description"			"失去%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS%点智力"
 		"DOTA_Tooltip_modifier_silencer_brain_drain_buff_datadriven"						"窃取智力"
+		"DOTA_Tooltip_modifier_silencer_brain_drain_buff_datadriven_Description"			"获得%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS%点智力"
 		// Skywrath Mage
 		"DOTA_Tooltip_ability_skywrath_mage_concussive_shot_datadriven"						"震荡光弹"
 		"DOTA_Tooltip_ability_skywrath_mage_concussive_shot_datadriven_Description"			"天怒法师释放一个远距离的光弹，将击中超大范围内最近的英雄。被击中后英雄附近一定范围内单位将受到伤害，移动速度也会减缓。"

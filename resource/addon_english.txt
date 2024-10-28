@@ -2670,7 +2670,9 @@
 		"DOTA_Tooltip_modifier_global_silence_datadriven"									"Global Silence"
 		"DOTA_Tooltip_modifier_global_silence_datadriven_Description"						"All heroes are silenced."
 		"DOTA_Tooltip_modifier_silencer_brain_drain_debuff_datadriven"						"Permanent Intelligence Stolen"
+		"DOTA_Tooltip_modifier_silencer_brain_drain_debuff_datadriven_Description"			"Loss %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% intelligence."
 		"DOTA_Tooltip_modifier_silencer_brain_drain_buff_datadriven"						"Permanent Intelligence Stolen"
+		"DOTA_Tooltip_modifier_silencer_brain_drain_buff_datadriven_Description"			"Gain %dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% intelligence."
 
 		// Skywrath Mage
 		"DOTA_Tooltip_ability_skywrath_mage_concussive_shot_datadriven"						"Concussive Shot"
