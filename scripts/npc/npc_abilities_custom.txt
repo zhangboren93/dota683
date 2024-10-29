@@ -26769,23 +26769,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-	//=================================================================================================================
-	// Ability: Mirana Starfall
-	//=================================================================================================================
-	"mirana_starfall"
-	{
-		"AbilityCastPoint"				"0.5"
-		"AbilityCooldown"				"12"
-		"AbilityManaCost"				"100 120 140 160"
-		"AbilityValues"
-		{
-			"starfall_radius"					"625"		
-			"starfall_secondary_radius"			"0"
-			"starfall_secondary_radius_tooltip"	"175"
-			"secondary_starfall_damage_percent"	"75"
-			"damage"	 						"75 150 225 300"
-		}
-	}
 	"puck_illusory_orb"
 	{
 		"AbilityCastRange"				"3000"

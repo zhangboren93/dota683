@@ -314,20 +314,6 @@
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_mirana_secondary_datadriven"
-			{
-				"IsHidden"		"1"
-				"Duration"		"0.57"
-				"EffectName"	"particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_mirana/arrow.lua"
-						"Function"		"handleSecondaryDestroyed"
-					}
-				}
-			}
 			"modifier_treant_overgrowth_damage_datadriven"
 			{
 				"IsHidden"		"1"
