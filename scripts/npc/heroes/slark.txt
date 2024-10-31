@@ -1,0 +1,135 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	"slark_shadow_dance_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"FightRecapLevel"				"2"
+		"AbilityTextureName"			"slark_shadow_dance"
+		"AbilityProcsMagicStick"		"1"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"60.0"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"120"		
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			
+				"duration"					"4.0"
+				"fade_time"					"0.0"
+				"bonus_movement_speed"		"30 35 40"
+				"bonus_regen_pct"			"3 5 7"
+				"activation_delay"			"0.5"
+				"neutral_disable"			"2.0"
+		}
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_slark/slark_shadow_dance.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_slark/shadow_dance.lua"
+				"Function"		"handleSpellStart"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_slark_shadow_dance_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"ThinkInterval"	"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_slark/shadow_dance.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_slark/shadow_dance.lua"
+						"Function"		"handleAttacked"
+					}
+				}
+			}
+			"modifier_slark_shadow_dance_passive_active"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
+				}
+			}
+			"modifier_slark_shadow_dance_passive_active_regen"
+			{
+				"IsHidden" 	 	"1"
+				"Attributes" 	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"0.01"
+				}
+			}
+			"modifier_slark_shadow_dance_disabled_by_neutral"
+			{
+				"IsHidden"		"1"
+			}
+			"modifier_slark_shadow_dance_passive_activating"
+			{
+				"IsHidden"		"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_slark/shadow_dance.lua"
+						"Function"		"handleActivatingDestroy"
+					}
+				}
+			}
+			"modifier_slark_shadow_dance_passive_fading"
+			{
+				"IsHidden"		"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_slark/shadow_dance.lua"
+						"Function"			"handleFadingDestroy"
+					}
+				}
+			}
+			"modifier_slark_shadow_dance_active"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"	
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_slark/shadow_dance.lua"
+						"Function"			"handleActiveDestroy"
+					}
+				}
+			}
+		}
+	}
+}

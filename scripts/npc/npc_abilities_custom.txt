@@ -53,6 +53,7 @@
 #base "heroes/shredder.txt"
 #base "heroes/silencer.txt"
 #base "heroes/skywrath_mage.txt"
+#base "heroes/slark.txt"
 #base "heroes/spectre.txt"
 #base "heroes/spirit_breaker.txt"
 #base "heroes/techies.txt"
@@ -10881,44 +10882,6 @@
 				"hp_regen"							"50.0 68.7 87.5"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_5"
-	}
-    "slark_shadow_dance"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5497"							// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_Slark.ShadowDance"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-
-		"AbilityDraftUltShardAbility"		"slark_depth_shroud"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60"
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 120 120"		
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"duration"					"4"
-			"fade_time"					"0.0 0.0 0.0"
-			"bonus_movement_speed"		"30 35 40"
-			"bonus_regen"				"0"
-			"activation_delay"			"0.5 0.5 0.5"
-			"neutral_disable"			"2.0 2.0 2.0"
-			"bonus_pct_regen"			"3 5 7"
-		}
 	}
 	"slark_shadow_dance_heal_datadriven"
 	{
