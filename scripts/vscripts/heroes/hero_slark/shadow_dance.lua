@@ -63,9 +63,13 @@ function handleSpellStart(event)
 		ParticleManager:DestroyParticle(caster.shadow_dance_pid, false)
 		caster.shadow_dance_pid = nil
 	end
-	if not IsServer() then return end
-	caster.shadow_dance_pid = ParticleManager:CreateParticle("particles/units/heroes/hero_slark/slark_shadow_dance.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-	ParticleManager:SetParticleControlEnt(caster.shadow_dance_pid, 1, caster, PATTACH_ABSORIGIN_FOLLOW, "", caster:GetAbsOrigin(), false)
+	
+	CreateUnitByNameAsync("npc_dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeam(), function(unit)
+		caster.shadow_dance_pid = ParticleManager:CreateParticle("particles/units/heroes/hero_slark/slark_shadow_dance.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+		ParticleManager:SetParticleControlEnt(caster.shadow_dance_pid, 1, unit, PATTACH_ABSORIGIN_FOLLOW, "", caster:GetAbsOrigin(), false)
+		unit:AddNewModifier(caster, unit, "modifier_slark_shadow_dance_particle_lua", {})
+		unit:AddNewModifier(caster, unit, "modifier_kill", { duration = 4 })
+	end)
 end
 
 function handleActiveDestroy(event)
