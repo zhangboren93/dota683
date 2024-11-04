@@ -164,7 +164,6 @@ function Activate()
 	LinkLuaModifier( "modifier_death_ward_attack_scepter_lua",	"heroes/hero_witch_doctor/modifier_death_ward_attack_scepter.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_chen_penitence_incoming_damage_lua",	"heroes/hero_chen/modifier_chen_penitence_incoming_damage.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_warlock_fatal_bonds_lua", 		"heroes/hero_warlock/modifier_warlock_fatal_bonds.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_slark_shadow_dance_passive_regen_lua", "heroes/hero_slark/modifier_slark_shadow_dance_passive_regen.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_requiem_slow_lua", 				"heroes/hero_nevermore/modifier_requiem_slow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_rattletrap_cog_buff_lua",		"heroes/hero_rattletrap/power_cogs.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_electric_vortex_self_slow_lua",  "heroes/hero_storm_spirit/modifier_electric_vortex_self_slow.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1009,8 +1008,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
 		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then
 			entity:FindAbilityByName("keeper_of_the_light_spirit_form_checker"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_slark" then
-			entity:FindAbilityByName("slark_shadow_dance_heal_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_sand_king" then
 			entity:AddNewModifier(entity, entity, "modifier_sandstorm_channel_end", {})
 		elseif entity:GetName() == "npc_dota_hero_lone_druid" then
@@ -1029,8 +1026,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_rubick" or entity:GetName() == "npc_dota_hero_ringmaster" then
 			--  TODO move following abilities to hooks
 			entity:AddAbility("obsidian_destroyer_imprison_int_steal_datadriven"):SetLevel(1)
-			entity:AddAbility("slark_shadow_dance_heal_datadriven"):SetLevel(1)
-
 			entity:AddAbility("spirit_breaker_empowering_haste_activate_debuff_datadriven"):SetLevel(1)
 			entity:AddAbility("sven_gods_strength_aghs_datadriven"):SetLevel(1)
 			entity:AddAbility("undying_flesh_golem_aura_datadriven"):SetLevel(1)
@@ -1813,9 +1808,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		for i=1,modifier_count do
 			passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_vendetta_physical_damage_active", {})
 		end
-	elseif event.name_const == "modifier_slark_shadow_dance_passive_regen" then
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		parent:AddNewModifier(parent, ability, "modifier_slark_shadow_dance_passive_regen_lua", {})
 	elseif event.name_const == "modifier_storm_spirit_electric_vortex_pull" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)

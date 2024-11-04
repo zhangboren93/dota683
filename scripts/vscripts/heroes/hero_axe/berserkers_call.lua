@@ -11,14 +11,7 @@ function BerserkersCall( keys )
 	-- Give the attack order if the caster is alive
 	-- otherwise forces the target to sit and do nothing
 	if caster:IsAlive() then
-		local order = 
-		{
-			UnitIndex = target:entindex(),
-			OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-			TargetIndex = caster:entindex()
-		}
-
-		ExecuteOrderFromTable(order)
+		target:MoveToTargetToAttack(caster)
 	else
 		target:Stop()
 	end
