@@ -93,7 +93,7 @@ ember_spirit_fire_remnant_datadriven = class({
 		local dummyDuration = ability:GetSpecialValueFor("duration")
 		
 		local intervals_per_second = 33.0
-		local movespeed = caster:GetBaseMoveSpeed() * movespeed_multiplier
+		local movespeed = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false) * movespeed_multiplier
 		local forwardVec = ( target - caster:GetAbsOrigin() ):Normalized()
 	
 		-- Create dummy and move it to location
