@@ -26,3 +26,11 @@ function marksmanship_detection( keys )
 		caster:RemoveModifierByName( modifierName )
 	end
 end
+
+function handleUpgrade(event)
+	local caster = event.caster
+	local modifier = caster:FindModifierByName("modifier_marksmanship_effect_datadriven")
+	if modifier ~= nil then
+		modifier:ForceRefresh()
+	end
+end

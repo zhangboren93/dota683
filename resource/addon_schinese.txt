@@ -1645,6 +1645,8 @@
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven"								"射手天赋"
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven_Description"					"卓尔游侠的战斗经验提高了她的精确度和战斗效率，被动增加敏捷。如果400范围内有敌方英雄，敏捷加成消失。"
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven_marksmanship_agility_bonus"	"敏捷提升："
+		"DOTA_Tooltip_modifier_marksmanship_effect_datadriven"									"精准光环"
+		"DOTA_Tooltip_modifier_marksmanship_effect_datadriven_Description"						"获得%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点额外敏捷。"
         //Ember Spirit
 		"DOTA_Tooltip_modifier_ember_spirit_searing_chains_lua"							"炎阳索"
 		"DOTA_Tooltip_modifier_ember_spirit_searing_chains_lua_Description"				"被炎阳索困于原地。无法闪烁或移动，每秒持续受到伤害。"

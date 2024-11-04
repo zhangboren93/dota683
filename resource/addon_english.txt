@@ -1628,6 +1628,8 @@
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven"								"Marksmanship"
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven_Description"					"Drow's experiences in battle improve her accuracy and effectiveness in combat, providing a passive bonus to Agility. Grants no bonus if there are enemy heroes within 400 range."
 		"DOTA_Tooltip_Ability_drow_ranger_marksmanship_datadriven_marksmanship_agility_bonus"	"BONUS AGILITY:"
+		"DOTA_Tooltip_modifier_marksmanship_effect_datadriven"									"Precision Aura"
+		"DOTA_Tooltip_modifier_marksmanship_effect_datadriven_Description"						"Granting %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% bonus agility."
 		//Ember Spirit
 		"DOTA_Tooltip_modifier_ember_spirit_searing_chains_lua"							"Searing Chains"
 		"DOTA_Tooltip_modifier_ember_spirit_searing_chains_lua_Description"				"Locked in place by Searing Chains.  Cannot blink or move, taking damage per second."

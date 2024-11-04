@@ -13723,6 +13723,14 @@
 			"particle"							"particles/units/heroes/hero_drow/drow_marksmanship_start.vpcf"
 		}
 		
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_drow_ranger/marksmanship.lua"
+				"Function"		"handleUpgrade"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_marksmanship_passive_datadriven"
