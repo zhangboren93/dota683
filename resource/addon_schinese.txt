@@ -1546,6 +1546,11 @@
 		"DOTA_Tooltip_modifier_thirst_visual"									"焦渴"
 		"DOTA_Tooltip_modifier_thirst_debuff_datadriven"						"焦渴"
 		"DOTA_Tooltip_modifier_thirst_debuff_datadriven_Description"			"血魔感觉到了你的伤痛，对你的位置了如指掌。"
+		"DOTA_Tooltip_ability_bloodseeker_rupture_688"									"割裂"
+		"DOTA_Tooltip_ability_bloodseeker_rupture_688_Description"						"让一个敌方单位皮开肉绽，根据其当前生命值造成初始伤害。单位移动后会根据移动的距离受到伤害。"
+		"DOTA_Tooltip_ability_bloodseeker_rupture_688_Lore"								"当血魔猎杀你时，受伤就意味着死亡。"
+		"DOTA_Tooltip_ability_bloodseeker_rupture_688_duration"							"持续时间："
+		"DOTA_Tooltip_ability_bloodseeker_rupture_688_movement_damage_pct"				"%移动伤害："
 		//Bounty Hunter
 		"DOTA_Tooltip_ability_bounty_hunter_shuriken_toss_datadriven"					"投掷飞镖"
 		"DOTA_Tooltip_ability_bounty_hunter_shuriken_toss_datadriven_Description"		"向一名敌方单位掷出一枚致命的飞镖，对目标造成伤害和短暂眩晕。只要作用目标周围%bounce_aoe%范围内存在被追踪术标记的单位，飞镖就能向其弹射。"

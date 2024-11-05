@@ -1533,6 +1533,11 @@
 		"DOTA_Tooltip_modifier_thirst_visual"									"Thirst"
 		"DOTA_Tooltip_modifier_thirst_debuff_datadriven"						"Thirst"
 		"DOTA_Tooltip_modifier_thirst_debuff_datadriven_Description"			"Bloodseeker senses your injuries, and knows exactly where you are."
+		"DOTA_Tooltip_ability_bloodseeker_rupture_688"							"Rupture"
+		"DOTA_Tooltip_ability_bloodseeker_rupture_688_Description"				"Causes an enemy unit's skin to rupture, dealing initial damage based on its current health. If the unit moves, it takes damage based on the distance moved."
+		"DOTA_Tooltip_ability_bloodseeker_rupture_688_Lore"						"When the Bloodseeker hunts you, injuries become fatalities."
+		"DOTA_Tooltip_ability_bloodseeker_rupture_688_duration"					"DURATION:"
+		"DOTA_Tooltip_ability_bloodseeker_rupture_688_movement_damage_pct"		"%MOVE DAMAGE:"
 		//Bounty Hunter
 		"DOTA_Tooltip_ability_bounty_hunter_shuriken_toss_datadriven"					"Shuriken Toss"
 		"DOTA_Tooltip_ability_bounty_hunter_shuriken_toss_datadriven_Description"		"Hurls a deadly shuriken at an enemy unit, dealing damage and mini-stunning the target.  The shuriken will bounce between any Tracked units who are within a %bounce_aoe% radius of each other."
