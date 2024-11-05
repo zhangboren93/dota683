@@ -1,0 +1,12 @@
+.spectator-panel {
+	width: 245px;
+	height: 245px;
+	border: 2px solid #FF0000FF;
+	vertical-align: bottom;
+	margin-bottom: 250px;
+}
+
+.spectator-panel Image {
+	transform: scaleX(1.05) scaleY(1.05);
+}
+
