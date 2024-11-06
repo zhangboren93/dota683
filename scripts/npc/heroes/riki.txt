@@ -49,4 +49,115 @@
 			"health_regen"				"4 5 6 7"
 		}
 	}
+	// Rewrite of Smoke Screen
+	// Author: YOLOSPAGHETTI
+	// Date: February 4, 2016
+	// Version: 6.86
+	// Type: Datadriven
+	"riki_smoke_screen_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"riki_smoke_screen"
+		"AOERadius"						"%radius"
+		"AbilityProcsMagicStick"		"1"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastRange"				"550"
+	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"11.0"
+		
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75 80 85 90"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"radius"				"250 275 300 325"
+				"duration"				"6.0"
+				"linger_duration"		"0.5"
+				"move_slow"				"-25"
+				"attack_speed_slow"		"-25"
+				"miss_chance"			"40 50 60 70"
+		}
+	
+		"precache"
+		{
+			"soundfile"	"sounds/weapons/hero/riki/riki_smokescreen.vsnd"
+			"particle"  "particles/units/heroes/hero_riki/riki_smokebomb.vpcf"
+			"particle"  "particles/units/heroes/hero_riki/riki_smokebomb_b.vpcf"
+		}
+	
+		"OnSpellStart"
+		{
+		 	"CreateThinker"
+		 	{
+		 		"ModifierName"	"modifier_riki_smoke_screen_datadriven"
+		 		"Target" 		"POINT"
+		 	}
+		} 
+	
+		"Modifiers"
+		{
+			"modifier_riki_smoke_screen_datadriven"
+			{
+				"Aura"					"modifier_riki_smoke_screen_debuff_datadriven"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_MECHANICAL"
+				"Duration"				"%duration"
+	
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						//fix sound!
+						"EffectName"	"Hero_Riki.Smoke_Screen"
+						"Target"		"CASTER"
+					}
+	
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_riki/riki_smokebomb.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"00" "0 0 0"
+							"01" "%radius %radius %radius"
+						}
+					}
+				}
+			}
+	
+			"modifier_riki_smoke_screen_debuff_datadriven"
+			{
+				"IsDebuff"			"1"
+				"EffectName"		"particles/generic_gameplay/generic_silence.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Duration"			"%linger_duration"
+				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%move_slow"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_slow"
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE"				"%miss_chance"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
 }

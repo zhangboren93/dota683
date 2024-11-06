@@ -1850,10 +1850,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 				passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_fountain_aura_tp_persist_datadriven", {})
 			end
 		end
-	elseif event.name_const == "modifier_riki_smoke_screen" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
-		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_riki_smoke_screen_slow_datadriven", {})
 	elseif event.name_const == "modifier_venomancer_venomous_gale" then
 		-- replace default gale modifier to make it undispellable
 		local caster = EntIndexToHScript(event.entindex_caster_const)
@@ -2066,7 +2062,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
 	elseif event.name_const == "modifier_windrunner_windrun_invis_thinker" then return false
 	elseif event.name_const == "modifier_neutral_sleep_ai" then return false
-	elseif event.name_const == "modifier_riki_smoke_screen_ally" then return false
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then return false
 	end
 

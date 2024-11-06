@@ -259,24 +259,6 @@
 					}
 				}
 			}
-			"modifier_riki_smoke_screen_slow_datadriven"
-			{
-				"IsHidden"		"1"
-				"ThinkInterval"	"0.1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-25"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-25"
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_riki/smoke_screen.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-			}
 			"modifier_techies_minesign_datadriven"
 			{
 				"IsHidden"		"1"

@@ -3853,7 +3853,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
-		"Ability1"		"riki_smoke_screen"
+		"Ability1"		"riki_smoke_screen_datadriven"
 		"Ability2"		"riki_permanent_invisibility_datadriven"
 		"Ability3"		"riki_backstab_datadriven"
 		"Ability4"		"generic_hidden"
