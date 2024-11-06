@@ -1,0 +1,5 @@
+<root>
+	<Panel>
+		<DOTAHeroImage id="killer_hero" heroimagestyle="icon" style="height:24px;width:24px;"/>
+	</Panel>
+</root>

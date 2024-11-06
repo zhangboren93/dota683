@@ -1,0 +1,11 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/tour_spectator.css"/>	
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/tour_spectator.js"/>
+	</scripts>
+	<Panel class="tour-spectator-panel-root">
+		
+	</Panel>
+</root>
