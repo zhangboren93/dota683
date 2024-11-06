@@ -1821,14 +1821,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local duration = ability:GetSpecialValueFor("duration")
 		parent:AddNewModifier(caster, ability, "modifier_doom_bringer_scorched_earth_buff_aura_lua", { duration = duration })
-	elseif event.name_const == "modifier_nyx_assassin_vendetta" then
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
-		local modifier_count = ability:GetSpecialValueFor("bonus_damage_physical") / 50
-		for i=1,modifier_count do
-			passive_ability:ApplyDataDrivenModifier(parent, parent, "modifier_vendetta_physical_damage_active", {})
-		end
 	elseif event.name_const == "modifier_storm_spirit_electric_vortex_pull" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)

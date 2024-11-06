@@ -225,32 +225,6 @@
 					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_vendetta_physical_damage_active"
-			{
-				"IsHidden"		"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"ThinkInterval"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"50"
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_nyx_assassin/vendetta.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_nyx_assassin/vendetta.lua"
-						"Function"		"handleAttackLanded"
-					}
-				}
-			}
 			"modifier_fountain_aura_tp_persist_datadriven"
 			{
 				"IsHidden"			"1"
