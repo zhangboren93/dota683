@@ -214,6 +214,7 @@ function Activate()
 	-- 688 heroes
 	LinkLuaModifier( "modifier_arc_warden_688_attribute_bonus", 		"modifiers/688/modifier_arc_warden_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bloodseeker_688_attribute_bonus", 		"modifiers/688/modifier_bloodseeker_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_clinkz_688_attribute_bonus", 			"modifiers/688/modifier_clinkz_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1052,6 +1053,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddNewModifier(entity, nil, "modifier_bloodseeker_688_attribute_bonus", {})
 			entity:RemoveAbility("bloodseeker_rupture")
 			entity:AddAbility("bloodseeker_rupture_688")
+		elseif entity:GetName() == "npc_dota_hero_clinkz" and self.custom_game_meta_version == "688" then
+			entity:AddNewModifier(entity, nil, "modifier_clinkz_688_attribute_bonus", {})
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
