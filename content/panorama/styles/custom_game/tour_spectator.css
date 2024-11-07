@@ -2,7 +2,11 @@
 	vertical-align: bottom;
 	height: 245px;
 	width: 245px;
-	background-color: grey;
-	/*margin-bottom: 300px;*
-	opacity: 0.5;*/
+	/*background-color: grey;*/
+	/*margin-bottom: 300px;*/
+	/*opacity: 0.5;*/
+}
+
+.tour-spectator-panel-root Image {
+	transform: scaleX(1.05) scaleY(1.05);
 }

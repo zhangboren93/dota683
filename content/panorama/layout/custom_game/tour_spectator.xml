@@ -6,6 +6,6 @@
 		<include src="file://{resources}/scripts/custom_game/tour_spectator.js"/>
 	</scripts>
 	<Panel class="tour-spectator-panel-root">
-		
+		<!--Image src="file://{images}/custom_game/dota_psd_8b4a9409.png"/-->
 	</Panel>
 </root>
