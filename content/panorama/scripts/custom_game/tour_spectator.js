@@ -50,7 +50,9 @@ function customMinimapPrintInner() {
 (function() {
 	let map_name = Game.GetMapInfo().map_name
 	if (map_name !== "maps/tour.vpk" || Players.GetTeam(Players.GetLocalPlayer()) != DOTATeam_t.DOTA_TEAM_CUSTOM_1) {
-		$.GetContextPanel().visible = false
+		let rootPanel = $.GetContextPanel()
+		rootPanel.visible = false
+		rootPanel.AddClass("panel-hidden-for-real")
 	} else {
 		$.Schedule(1, customMinimapPrint);
 	}

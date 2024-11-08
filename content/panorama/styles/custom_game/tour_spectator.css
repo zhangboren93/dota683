@@ -10,3 +10,8 @@
 .tour-spectator-panel-root Image {
 	transform: scaleX(1.05) scaleY(1.05);
 }
+
+.tour-spectator-panel-root.panel-hidden-for-real {
+	width: 0;
+	height: 0;
+}
