@@ -10,6 +10,8 @@ modifier_ember_spirit_flame_guard_lua = class({
 		self:StartIntervalThink(tick_interval)
 		self.particleId = ParticleManager:CreateParticle(
 			"particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		ParticleManager:SetParticleControlEnt(self.particleId, 0, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "", Vector(0, 0, 0), false)
+		ParticleManager:SetParticleControlEnt(self.particleId, 1, self:GetParent(), PATTACH_ABSORIGIN_FOLLOW, "", Vector(0, 0, 0), false)
 		ParticleManager:SetParticleControl(self.particleId, 2, Vector(400, 0, 0))
 	end,
 	OnIntervalThink = function(self)
