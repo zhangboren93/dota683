@@ -26,6 +26,7 @@ hero_innate_abilities["npc_dota_hero_spirit_breaker"] = "spirit_breaker_empoweri
 hero_innate_abilities["npc_dota_hero_pudge"] = "pudge_rot_suicide_datadriven"
 hero_innate_abilities["npc_dota_hero_abaddon"] = "abaddon_borrowed_time_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_sven"] = "sven_gods_strength_aghs_datadriven"
+hero_innate_abilities["npc_dota_hero_kez"] = { "hero_attack_point_adjust_lua", "sven_gods_strength_aghs_datadriven" }
 hero_innate_abilities["npc_dota_hero_spectre"] = "spectre_reality_levelup_with_haunt_datadriven"
 hero_innate_abilities["npc_dota_hero_invoker"] = "invoker_orb_bonus_datadriven"
 hero_innate_abilities["npc_dota_hero_rubick"] = "rubick_spell_steal_limit_one_datadriven"

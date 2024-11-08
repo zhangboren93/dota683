@@ -124,7 +124,8 @@ all_heroes = {
 	"npc_dota_hero_void_spirit",
 	"npc_dota_hero_dawnbreaker",
 	"npc_dota_hero_pangolier",
-	"npc_dota_hero_ringmaster"
+	"npc_dota_hero_ringmaster",
+	"npc_dota_hero_kez"
 }
 
 unique_heroes = {
@@ -269,6 +270,8 @@ same_ability_heroes["npc_dota_hero_medusa"] = "npc_dota_hero_muerta"
 same_ability_heroes["npc_dota_hero_muerta"] = "npc_dota_hero_medusa"
 same_ability_heroes["npc_dota_hero_rubick"] = "npc_dota_hero_ringmaster"
 same_ability_heroes["npc_dota_hero_ringmaster"] = "npc_dota_hero_rubick"
+same_ability_heroes["npc_dota_hero_kez"] = "npc_dota_hero_sven"
+same_ability_heroes["npc_dota_hero_sven"] = "npc_dota_hero_kez"
 
 ARCANA_HEROES = {
 	"npc_dota_hero_monkey_king",
@@ -283,5 +286,6 @@ ARCANA_HEROES = {
 	"npc_dota_hero_snapfire",
 	"npc_dota_hero_pangolier",
 	"npc_dota_hero_muerta",
-	"npc_dota_hero_ringmaster"
+	"npc_dota_hero_ringmaster",
+	"npc_dota_hero_kez"
 }
