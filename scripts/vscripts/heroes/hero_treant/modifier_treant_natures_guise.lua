@@ -46,7 +46,7 @@ modifier_treant_natures_guise_lua = class({
 		if  ability:GetName() == "treant_natures_guise_datadriven" or
 			ability:GetName() == "treant_leech_seed" or
 			ability:GetName() == "treant_living_armor_datadriven" or
-			ability:GetName() == "treant_overgrowth" then
+			ability:GetName() == "treant_overgrowth_datadriven" then
 			return
 		end
 		self:Destroy()

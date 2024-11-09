@@ -3372,6 +3372,7 @@
 		"Ability1"		"treant_natures_guise_datadriven"
 		"Ability3"		"treant_living_armor_datadriven"
 		"Ability5"		"generic_hidden"
+		"Ability6"		"treant_overgrowth_datadriven"
 		"Ability7"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
 		"Ability11"		"special_bonus_all_stats_5"

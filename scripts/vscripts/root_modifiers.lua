@@ -6,7 +6,7 @@ root_modifiers["modifier_meepo_earthbind"] = true
 root_modifiers["modifier_ensnare_datadriven"] = true
 root_modifiers["modifier_oracle_fortunes_end_purge"] = true
 root_modifiers["modifier_lone_druid_spirit_bear_entangle_effect"] = true
-root_modifiers["modifier_treant_overgrowth"] = true
+root_modifiers["modifier_treant_overgrowth_datadriven"] = true
 root_modifiers["modifier_abyssal_underlord_pit_of_malice_ensare_lua"] = true
 
 ethereal_modifiers = {}
