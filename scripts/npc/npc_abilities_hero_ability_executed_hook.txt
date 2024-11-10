@@ -270,19 +270,6 @@
 					"MODIFIER_STATE_NO_UNIT_COLLISION"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-			"modifier_viper_viper_strike_damage_datadriven"
-			{
-				"IsHidden"		"1"
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_viper/viper_strike.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
-			}
 			"modifier_rune_doubledamage_datadriven"
 			{
 				"TextureName"	"rune_doubledamage"

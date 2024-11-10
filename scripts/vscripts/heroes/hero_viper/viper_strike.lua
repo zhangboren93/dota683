@@ -1,22 +1,3 @@
-function handleIntervalThink(event)
-	local caster = event.caster
-	local ability = caster:FindAbilityByName("viper_viper_strike")
-	local target = event.target
-	local damage = ability:GetSpecialValueFor("damage_tooltip")
-	if not target:HasModifier("modifier_viper_viper_strike_slow") then
-		target:RemoveModifierByName("modifier_viper_viper_strike_damage_datadriven")
-		return
-	end
-	ApplyDamage({
-		victim = target,
-		attacker = caster,
-		damage = damage,
-		damage_type = DAMAGE_TYPE_MAGICAL,
-		ability = ability
-	})
-	SendOverheadEventMessage(target, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, damage, nil )
-end
-
 -- Deprecated
 if modifier_viper_viper_strike_slow_lua == nil then
     modifier_viper_viper_strike_slow_lua = class({ 
@@ -44,16 +25,44 @@ function modifier_viper_viper_strike_slow_lua:OnCreated(kv)
     self.bonus_movement_speed = ability:GetSpecialValueFor("bonus_movement_speed")
     self.bonus_attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
 
-    self.start_time = GameRules:GetGameTime()
+	self:StartIntervalThink(1)
 end
 
 function modifier_viper_viper_strike_slow_lua:OnRefresh()
-    self:OnCreated()
+    self:OnCreated(self.kv)
 end
 
 function modifier_viper_viper_strike_slow_lua:GetModifierMoveSpeedBonus_Percentage()
-    return self.bonus_movement_speed * ( 1 - ( GameRules:GetGameTime()-self.start_time ) / self.kv.duration )
+    return self.bonus_movement_speed / 5 * self:GetStackCount()
 end
+
 function modifier_viper_viper_strike_slow_lua:GetModifierAttackSpeedBonus_Constant()
-    return self.bonus_attack_speed * ( 1 - ( GameRules:GetGameTime()-self.start_time ) / self.kv.duration )
+    return self.bonus_attack_speed / 5 * self:GetStackCount()
+end
+
+function modifier_viper_viper_strike_slow_lua:OnIntervalThink()
+	if not IsServer() then return end
+	local target = self:GetParent()
+	local caster = self:GetCaster()
+	local ability = caster:FindAbilityByName("viper_viper_strike_datadriven")
+	local damage = ability:GetSpecialValueFor("damage")
+	ApplyDamage({
+		victim = target,
+		attacker = caster,
+		damage = damage,
+		damage_type = DAMAGE_TYPE_MAGICAL,
+		ability = ability
+	})
+	SendOverheadEventMessage(target, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, damage, nil )
+	self:SetStackCount(self:GetStackCount() - 1)
+end
+
+function handleProjectileHit(event)
+	local caster = event.caster
+	local ability = event.ability
+	local target = event.target
+	local duration = ability:GetSpecialValueFor("duration")
+	if target:TriggerSpellAbsorb(ability) then return end
+	local modifier = target:AddNewModifier(caster, ability, "modifier_viper_viper_strike_slow_lua", { duration = duration })
+	modifier:SetStackCount(5)
 end

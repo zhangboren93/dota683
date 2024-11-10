@@ -157,4 +157,125 @@
 			"max_damage_tooltip"	"40 80 120 160"
 		}
 	}
+// Rewrite of the Viper Viper Strike ability
+// Author: Pizzalol
+// Date: 19.12.2014.
+// Changed: 15.01.2015.
+// NOTE: Wonky projectile particle
+// NOTE2: Edit the warmup particle and delete 3 out of 4 children for it to work properly (thanks to Noya for the info)
+	"viper_viper_strike_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"FightRecapLevel"				"2"
+		"AbilityTextureName"			"viper_viper_strike"
+		"AbilityProcsMagicStick"		"1"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_viper/viper_viper_strike.vpcf" // Wonky projectile
+			"particle"		"particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf" // ?
+			"particle"		"particles/units/heroes/hero_viper/viper_viper_strike_warmup.vpcf" //- Seems to be like a "link" meaning it needs the caster #0 and target #1
+			"particle"		"particles/status_fx/status_effect_poison_viper.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_viper.vsndevts"
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AnimationPlaybackRate"			"0.666"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"HasScepterUpgrade"				"1"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"						"5.1"
+			"damage"						"60 100 145"
+			"bonus_movement_speed"			"-40 -60 -80"
+			"bonus_attack_speed"			"-40 -60 -80"
+			"AbilityCooldown"
+			{
+				"value"						"80 50 30"
+				"special_bonus_scepter"		"-68 -38 -18"
+			}
+			"AbilityManaCost"
+			{
+				"value"						"125 175 250"
+				"special_bonus_scepter"		"-0 -50 -125"
+			}
+			"AbilityCastRange"
+			{
+				"value"						"500"
+				"special_bonus_scepter"		"+400"
+			}
+			"projectile_speed"	"1200"
+			"bonus_movement_speed_small"	"-8 -12 -16"
+			"bonus_attack_speed_small"		"-8 -12 -16"
+		}
+	
+		"OnAbilityPhaseStart"
+		{
+			"FireEffect"
+			{
+				"EffectName"		"particles/units/heroes/hero_viper/viper_viper_strike_warmup.vpcf"
+				"EffectAttachType"	"attach_origin"
+	
+				"ControlPointEntities"
+				{
+					"CASTER"	"attach_attack1"
+					"CASTER"	"attach_attack1"
+				}
+			}
+		}
+	
+		"OnSpellStart"
+		{
+			"TrackingProjectile"
+			{
+				"Target"           "TARGET"
+			    "EffectName"       "particles/units/heroes/hero_viper/viper_viper_strike.vpcf"
+			    "Dodgeable"        "1"
+			    "ProvidesVision"   "0"
+			    "MoveSpeed"        "%projectile_speed"
+			    "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+	
+			"FireSound"
+			{
+				"EffectName"	"Hero_Viper.viperStrike"
+				"Target"		"CASTER"
+			}
+	
+		}
+	
+		"OnProjectileHitUnit"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Viper.viperStrikeImpact"
+				"Target"		"TARGET"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_viper/viper_strike.lua"
+				"Function"		"handleProjectileHit"
+			}
+		}
+	}
 }
