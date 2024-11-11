@@ -1593,6 +1593,8 @@
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_count"						"MAX WEBS:"
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_heath_regen"					"HEALTH REGEN:"
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_invis_movespeed_tooltip"		"%MOVE INCREASE:"
+		"DOTA_Tooltip_modifier_broodmother_spin_web_lua"									"Spin Web"
+		"DOTA_Tooltip_modifier_broodmother_spin_web_lua_Description"						"Increasing health regen by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% and movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven"						"Insatiable Hunger"
 		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven_Description"			"A violent lust for vital fluids increases Broodmother's attack damage and gives her a vampiric attack."
 		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven_Lore"				"While most of her prey is wrapped in silken cocoons and saved for her young, the Broodmother herself has a taste for wandering heroes."

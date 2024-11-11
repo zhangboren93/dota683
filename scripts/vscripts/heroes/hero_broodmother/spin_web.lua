@@ -19,12 +19,11 @@ function spin_web( keys )
 
 	-- Modifiers and dummy abilities/modifiers
 	local stack_modifier = keys.stack_modifier
-	local dummy_modifier = keys.dummy_modifier
 	local dummy_ability = keys.dummy_ability
 
 	-- Dummy
 	local dummy = CreateUnitByName("npc_dummy_unit", target, false, caster, caster, caster:GetTeam())
-	ability:ApplyDataDrivenModifier(caster, dummy, dummy_modifier, {})
+	dummy:AddNewModifier(caster, ability, "modifier_broodmother_web_dummy_aura_lua", {})
 	dummy:SetControllableByPlayer(player, true)
 	
 	if dummy_ability ~= nil then

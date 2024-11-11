@@ -1609,6 +1609,8 @@
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_count"						"蛛网数量上限："
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_heath_regen"					"生命回复提升："
 		"DOTA_Tooltip_ability_broodmother_spin_web_datadriven_invis_movespeed_tooltip"		"%移动速度提升："
+		"DOTA_Tooltip_modifier_broodmother_spin_web_lua"									"织网"
+		"DOTA_Tooltip_modifier_broodmother_spin_web_lua_Description"						"生命恢复提升%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒，移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
 		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven"							"极度饥渴"
 		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven_Description"				"对活物体液的强烈饥渴提高了育母蜘蛛的攻击力，并使她的攻击附带吸血效果。"
 		"DOTA_Tooltip_ability_broodmother_insatiable_hunger_datadriven_Lore"						"虽然大多数猎物都被她用丝茧包裹，作为饲料留给后代，但育母蜘蛛对那些迷路的英雄情有独钟。"

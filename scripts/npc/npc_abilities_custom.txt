@@ -18766,6 +18766,7 @@
 		"AbilityCastPoint"				"0.4"
 		"AbilityCooldown"				"0.0"
 		"AbilityManaCost"				"50"
+		"AbilityProcsMagicStick"		"1"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------
@@ -18774,22 +18775,21 @@
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_broodmother.vsndevts"
 			"particle"			"particles/units/heroes/hero_broodmother/broodmother_web.vpcf"
 			"particle"			"particles/units/heroes/hero_broodmother/broodmother_spin_web_cast.vpcf"
+			"particle"			"particles/status_fx/status_effect_blur.vpcf"
 		}
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"radius"				"900"
-				"count"					"2 4 6 8"
-				"health_regen"			"2 4 6 8"
-				"bonus_movespeed"		"20 25 30 35"
-				"invis_movespeed_tooltip"		"40 50 60 70"
-				"fade_delay"			"2.0"
-				"damage_time"			"6.0"
-				"all_units"			"0"
-				"linger_time"	"0.15"
-				"aura_interval"	"0.1"
+				"radius"					"900"
+				"count"						"2 4 6 8"
+				"health_regen"				"2 4 6 8"
+				"bonus_movespeed"			"20 25 30 35"
+				"invis_movespeed_tooltip"	"40 50 60 70"
+				"fade_delay"				"2.0"
+				"damage_time"				"6.0"
+				"linger_time"				"0.15"
 		}
 	
 		"OnUpgrade"
@@ -18816,7 +18816,6 @@
 				"Function"				"spin_web"
 				"Target"				"POINT"			
 				"stack_modifier"		"modifier_web_stack_counter_datadriven"
-				"dummy_modifier"		"modifier_web_dummy_aura_datadriven"
 				"dummy_ability"			"broodmother_spin_web_destroy_datadriven"
 			}
 		}
@@ -18827,7 +18826,7 @@
 			"modifier_web_stack_counter_datadriven"
 			{
 				"Passive"				"1"
-				"IsHidden"				"0"
+				"IsHidden"				"1"
 				"IsPurgable"			"0"
 				"IsDebuff"				"0"
 			}
@@ -18838,278 +18837,17 @@
 				"IsPurgable"	"0"
 				"IsDebuff"		"0"
 			}
-	
-			// Runs a script which checks all the units in an area around the dummy
-			// checks if its the caster or any of the specified units belonging to the caster
-			// applies the aura modifier along with the other required modifiers
-			"modifier_web_dummy_aura_datadriven"
-			{			
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_broodmother/broodmother_web.vpcf"
-						"EffectAttachType"	"attach_origin"
-						"Target"		"TARGET"
-	
-						"ControlPoints"
-						{
-							"00"	"0 0 0"
-							"01"	"%radius 0 150"
-						}
-					}
-				}
-	
-				"ThinkInterval"		"%aura_interval"
-	
-				"OnIntervalThink"
-				{
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"	"TARGET"
-							"Radius"	"%radius"
-							"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-							"Teams"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-						}
-	
-						"Action"
-						{
-							"RunScript"
-							{
-								"ScriptFile"			"heroes/hero_broodmother/spin_web.lua"
-								"Function"				"spin_web_aura"
-								"unit_spiderling"		"npc_dota_broodmother_spiderling"
-								"unit_spiderite"		"npc_dota_broodmother_spiderite"
-								"aura_modifier"			"modifier_web_regen_datadriven"
-								"pathing_modifier"		"modifier_web_pathing_datadriven"
-								"pathing_fade_modifier"	"modifier_web_pathing_fade_datadriven"
-								"invis_modifier"		"modifier_web_invis_datadriven"
-								"invis_fade_modifier"	"modifier_web_invis_fade_datadriven"
-							}
-						}
-					}				
-				}
-	
-	
-				"States"
-				{
-					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_TEAM_SELECT"		"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-	
-			// Pathing
-			"modifier_web_pathing_datadriven"
-			{
-				"IsHidden"	"1"
-	
-				"OnTakeDamage"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_web_pathing_fade_datadriven"
-						"Target"		"UNIT"
-					}
-	
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_web_pathing_datadriven"
-						"Target"		"UNIT"
-					}
-				}
-	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movespeed"
-				}
-	
-				"States"
-				{
-					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
 
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_broodmother/spin_web.lua"
-						"Function"		"handlePathingDestroy"
-					}
-				}
+			"modifier_broodmother_spin_web_invis_datadriven"
+			{
+				"IsHidden"			"1"
+				"StatusEffectName"	"particles/status_fx/status_effect_blur.vpcf"
 			}
-	
-			"modifier_web_pathing_fade_datadriven"
+
+			"modifier_broodmother_spin_web_disable_datadriven"
 			{
-				"IsHidden"	"1"
-				"Duration"	"%damage_time"
-	
-				"OnTakeDamage"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_web_pathing_fade_datadriven"
-						"Target"		"UNIT"
-					}
-				}
-	
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_web_pathing_datadriven"
-						"Target"		"TARGET"	
-					}
-				}
-			}
-	
-			// The modifier which gets applied by the aura
-			"modifier_web_regen_datadriven"
-			{
-				"IsHidden"	"1"
-				"Duration"	"%linger_time"
-	
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_web_tooltip_datadriven"
-						"Target"		"TARGET"
-					}
-				}
-	
-				"OnDestroy"
-				{
-					// Remove all the modifiers
-					// Pathing
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_web_pathing_fade_datadriven"
-						"Target"		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_web_pathing_datadriven"
-						"Target"		"TARGET"
-					}
-					// Cosmetic
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_web_tooltip_datadriven"
-						"Target"		"TARGET"
-					}
-					// Invis
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_web_invis_fade_datadriven"
-						"Target"		"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_web_invis_datadriven"
-						"Target"		"TARGET"
-					}
-				}
-	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movespeed"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%health_regen"
-				}
-			}		
-	
-			// Invisibility
-			"modifier_web_invis_datadriven"
-			{
-				"IsHidden"	"1"
-	
-				"OnAttack"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_web_invis_fade_datadriven"
-						"Target"		"ATTACKER"
-					}
-				}
-	
-				"OnAbilityExecuted"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_web_invis_fade_datadriven"
-						"Target"		"UNIT"
-					}
-				}
-	
-				"OnCreated"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_invisible"
-						"Target"		"TARGET"
-					}
-				}
-	
-				"OnDestroy"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_invisible"
-						"Target"		"TARGET"
-					}
-				}
-	
-				"States"
-				{
-					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-	
-			"modifier_web_invis_fade_datadriven"
-			{
-				"Duration"	"%fade_delay"
-				"IsHidden"	"1"
-	
-				"OnAttack"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_web_invis_fade_datadriven"
-						"Target"		"ATTACKER"
-					}
-				}
-	
-				"OnAbilityExecuted"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_web_invis_fade_datadriven"
-						"Target"		"UNIT"
-					}
-				}
-	
-				"OnCreated"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_web_invis_datadriven"
-						"Target"		"TARGET"
-					}
-				}
-	
-				"OnDestroy"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_web_invis_datadriven"
-						"Target"		"TARGET"
-					}
-				}
+				"Duration"			"6"
+				"IsHidden"			"1"
 			}
 		}
 	}

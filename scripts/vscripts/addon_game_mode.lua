@@ -210,6 +210,8 @@ function Activate()
 	LinkLuaModifier( "modifier_ursa_alt_model_lua", 					"heroes/hero_ursa/modifier_ursa_alt_model.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_oracle_fates_edict_lua", 				"heroes/hero_oracle/modifier_oracle_fates_edict.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_slark_shadow_dance_particle_lua", 		"heroes/hero_slark/modifier_slark_shadow_dance_particle.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_broodmother_web_dummy_aura_lua", 		"heroes/hero_broodmother/modifier_broodmother_web_dummy_aura.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_broodmother_spin_web_lua", 				"heroes/hero_broodmother/modifier_broodmother_spin_web.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- 688 heroes
 	LinkLuaModifier( "modifier_arc_warden_688_attribute_bonus", 		"modifiers/688/modifier_arc_warden_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
