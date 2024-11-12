@@ -10,7 +10,7 @@ function modifier_item_maelstrom_datadriven_on_orb_impact(event)
     local victims = {}
     victims[new_target:GetEntityIndex()] = true
 
-    if new_target:IsBuilding() or new_target:IsMagicImmune() or target:IsIllusion() then
+    if new_target:IsBuilding() or new_target:IsMagicImmune() or target:IsIllusion() or new_target:GetName() == "npc_dota_creep_siege" then
         return
     end
 	if not caster:HasModifier("modifier_maelstrom_trigger_no_miss") then
@@ -30,7 +30,7 @@ function modifier_item_maelstrom_datadriven_on_orb_impact(event)
         new_target = nil
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, chain_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false)
         for i=1,#units do
-            if not units[i]:IsMagicImmune() and victims[units[i]:GetEntityIndex()] == nil then
+            if not units[i]:IsMagicImmune() and victims[units[i]:GetEntityIndex()] == nil and units[i]:GetName() ~= "npc_dota_creep_siege" then
                 new_target = units[i]
                 break
             end
