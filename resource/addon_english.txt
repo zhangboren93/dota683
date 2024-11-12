@@ -2253,7 +2253,17 @@
 		"DOTA_Tooltip_modifier_viper_viper_strike_slow_lua_Description"							"Movement speed reduced by %fMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %fMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 		//Ancient Apparition
-		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_damage"						"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_datadriven"							"Cold Feet"
+		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_datadriven_Description"				"Places Death Rime Stacks on an enemy that can be dispelled by moving away from the initial cast point.  If the enemy unit doesn't move outside of the given range, it will be stunned and frozen in place after 4 seconds."
+		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_datadriven_Lore"						"Kaldr's presence draws those around him into a frozen void, threatening to lock them in an icy prison for eternity."
+		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_datadriven_Note0"					"Deals damage every half second."
+		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_datadriven_stun_duration"			"STUN DURATION:"
+		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_datadriven_break_distance"			"BREAK DISTANCE:"
+		"DOTA_Tooltip_ability_ancient_apparition_cold_feet_datadriven_damage"					"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_modifier_cold_feet_debuff_datadriven"										"Cold Feet"
+		"DOTA_Tooltip_modifier_cold_feet_debuff_datadriven_Description"							"If you don't move you will be frozen in place."
+		"DOTA_Tooltip_modifier_cold_feet_stun_datadriven"										"Frozen"
+		"DOTA_Tooltip_modifier_cold_feet_stun_datadriven_Description"							"Frozen by Ancient Apparition."
 		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex_Description"						"Creates a vortex of icy energy that slows and increases magic damage done to enemies in its range."
 		"DOTA_Tooltip_ability_ancient_apparition_ice_vortex_movement_speed_pct"					"%SLOW:"
 		"DOTA_Tooltip_Ability_ancient_apparition_chilling_touch_datadriven"						"Chilling Touch"

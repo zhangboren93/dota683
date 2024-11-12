@@ -1,6 +1,7 @@
 // Dota Heroes File
 #base "npc_abilities_hero_ability_executed_hook.txt"
 #base "heroes/alchemist.txt"
+#base "heroes/ancient_apparition.txt"
 #base "heroes/antimage.txt"
 #base "heroes/arc_warden.txt"
 #base "heroes/axe.txt"
@@ -7435,55 +7436,6 @@
 					"MODIFIER_STATE_PASSIVES_DISABLED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
-		}
-	}
-	//=================================================================================================================
-	// Ancient Apparition: Cold Feet
-	//=================================================================================================================
-	"ancient_apparition_cold_feet"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5345"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Ancient_Apparition.ColdFeetCast"
-	
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastAnimation"			"ACT_DOTA_COLD_FEET"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastRange"				"700"
-		"AbilityCastPoint"				"0.01 0.01 0.01 0.01"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15 13 11 9"
-		"AbilityDuration"				"4.0 4.0 4.0 4.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Does two modifiers 
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"aoe"				"0"
-			"frost_stacks"		"0"
-			"damage"			"37.5 50 62.5 75"
-			"break_distance"	"740"
-			"stun_duration"		"1.25 2 2.75 3.5"
-			"area_of_effect"	"0"
 		}
 	}
 	//=================================================================================================================

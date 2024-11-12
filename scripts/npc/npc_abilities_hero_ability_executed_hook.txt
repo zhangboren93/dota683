@@ -333,40 +333,6 @@
 					}
 				}
 			}
-			"modifier_bot_ability_execute_tracker_datadriven"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"ai/ability_execute_tracker.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-				"OnAttack"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"ai/ability_execute_tracker.lua"
-						"Function"		"handleAttack"
-					}
-				}
-			}
-			"modifier_brewmaster_haze_sound_effect"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_brewmaster/drunken_haze.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
 			"modifier_dazzle_weave_sound_effect"
 			{
 				"IsHidden"	"1"
@@ -400,22 +366,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-40"
-				}
-			}
-			"modifier_cold_feet_damage_datadriven"
-			{
-				"IsHidden"		"1"
-				"IsPurgable" 	"1"
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/interval_think_damage.lua"
-						"Function"		"handleIntervalThink"
-						"AbilityName"	"ancient_apparition_cold_feet"
-						"DamageKey"		"damage"
-					}
 				}
 			}
 			"modifier_ice_blast_damage_datadriven"

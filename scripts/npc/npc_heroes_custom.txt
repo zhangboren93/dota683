@@ -67,6 +67,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability1"		"ancient_apparition_cold_feet_datadriven"
 		"Ability3"		"ancient_apparition_chilling_touch_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability10"		"special_bonus_all_stats_4"
