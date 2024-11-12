@@ -12622,6 +12622,49 @@
 			}			
 		}
 	}
+	"abyssal_underlord_dark_rift_target_particle_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"			"1"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/heroes_underlord/abyssal_underlord_darkrift_target.vpcf"
+			"particle"		"particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_abyssal_underlord_dark_rift_target_datadriven"
+			{
+				"IsHidden"	"1"
+				"IntervalThink"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_abyssal_underlord/dark_rift.lua"
+						"Function"		"handleCreated"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_abyssal_underlord/dark_rift.lua"
+						"Function"		"handleIntervalThink"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_abyssal_underlord/dark_rift.lua"
+						"Function"		"handleDestroy"
+					}
+				}
+			}
+		}
+	}
     "monkey_king_wukongs_command"
 	{
 		"MaxLevel"              "3"

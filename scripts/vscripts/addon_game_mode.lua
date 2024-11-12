@@ -41,9 +41,7 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/items_fx/immunity_sphere.vpcf", context )
 	PrecacheResource( "particle", "particles/items_fx/black_king_bar_avatar.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_elder_titan/elder_titan_scepter_disarm.vpcf", context )
-	PrecacheResource( "particle", "particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf", context)
 	PrecacheResource( "soundfile", "soundevents/custom_sounds.vsndevts", context)
-	PrecacheResource( "particle", "particles/spray_syf1.vpcf", context)
 end
 
 -- Create the game mode when we activate
@@ -2037,6 +2035,15 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_bottle_regeneration_lua", { duration = 3 })
 		return false
+	elseif event.name_const == "modifier_abyssal_underlord_dark_rift" then
+		-- add target particle
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local particle_ability = caster:FindAbilityByName("abyssal_underlord_dark_rift_target_particle_datadriven")
+		if particle_ability ~= nil then
+			particle_ability:ApplyDataDrivenModifier(caster, parent, "modifier_abyssal_underlord_dark_rift_target_datadriven",
+				{ duration = ability:GetSpecialValueFor("teleport_delay") })
+		end
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false
