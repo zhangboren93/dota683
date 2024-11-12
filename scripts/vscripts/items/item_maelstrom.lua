@@ -28,7 +28,11 @@ function modifier_item_maelstrom_datadriven_on_orb_impact(event)
     caster:SetThink(function()
         target = new_target
         new_target = nil
-		local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, chain_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false)
+		local units = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, chain_radius, 
+			DOTA_UNIT_TARGET_TEAM_ENEMY, 
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 
+			DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+			FIND_CLOSEST, false)
         for i=1,#units do
             if not units[i]:IsMagicImmune() and victims[units[i]:GetEntityIndex()] == nil then
                 new_target = units[i]
@@ -56,7 +60,7 @@ function handleOrbFire(event)
 	local caster = event.caster
 	local ability = event.ability
 	local chain_chance = ability:GetSpecialValueFor("chain_chance")
-	if target:IsBuilding() or caster:IsIllusion() then
+	if target:IsBuilding() or caster:IsIllusion() or target:GetTeam() == caster:GetTeam() then
 		return
 	end
 	if RandomInt(1, 100) <= chain_chance then
