@@ -1651,11 +1651,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		and string.find(event.name_const, "_lua") == nil
 		then
 
-	if event.name_const == "modifier_dark_seer_wall_slow" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		ApplyDamage({ victim = parent, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = DAMAGE_TYPE_MAGICAL })
-	elseif event.name_const == "modifier_lycan_shapeshift" then
+	if event.name_const == "modifier_lycan_shapeshift" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_lycan_shapeshift_attackrange", {duration = ability:GetSpecialValueFor("duration")})
