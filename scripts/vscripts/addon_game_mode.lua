@@ -220,6 +220,7 @@ function Activate()
 	LinkLuaModifier( "modifier_faceless_void_688_attribute_bonus", 		"modifiers/688/modifier_faceless_void_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_luna_688_attribute_bonus", 				"modifiers/688/modifier_luna_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_medusa_688_attribute_bonus", 			"modifiers/688/modifier_medusa_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_morphling_688_attribute_bonus", 			"modifiers/688/modifier_morphling_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1067,6 +1068,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif (entity:GetName() == "npc_dota_hero_medusa" or entity:GetName() == "npc_dota_hero_muerta")
 			and self.custom_game_meta_version == "688" then
 			entity:AddNewModifier(entity, nil, "modifier_medusa_688_attribute_bonus", {})
+		elseif entity:GetName() == "npc_dota_hero_morphling" and self.custom_game_meta_version == "688" then
+			entity:AddNewModifier(entity, nil, "modifier_morphling_688_attribute_bonus", {})
 		end
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
