@@ -7201,7 +7201,7 @@
 				"chain_chance"			"25"
 				"chain_damage"			"120"
 				"chain_strikes"			"4"
-				"chain_radius"			"650"
+				"chain_radius"			"900"
 				"chain_delay"			"0.25"
 				"chain_cooldown"		"0.2"
 				"bonus_attack_speed"	"25"
