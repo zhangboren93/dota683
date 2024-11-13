@@ -36,7 +36,7 @@ function modifier_fountain_aura_buff_lua:GetModifierConstantHealthRegen()
 end
 
 function modifier_fountain_aura_buff_lua:GetModifierConstantManaRegen()
-	return 14 + self:GetParent():GetMana() * 0.06
+	return 14 + self:GetParent():GetMana() / 25
 end
 
 function modifier_fountain_aura_buff_lua:OnTakeDamage(event)

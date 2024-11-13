@@ -99,6 +99,7 @@ function Activate()
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_fountain_aura_buff_lua", "modifiers/modifier_fountain_aura_buff.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_fountain_aura_buff_adjust_lua", "modifiers/modifier_fountain_aura_buff_adjust.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_roshan_inherent_buff_688_lua", "modifiers/modifier_roshan_inherent_buff_688.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_attribute_regen_adjust", "modifiers/attribute_regen.lua", LUA_MODIFIER_MOTION_NONE)
@@ -337,9 +338,10 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:GetGameModeEntity():SetTPScrollSlotItemOverride("item_dummy_tpblock_datadriven")
 	GameRules:GetGameModeEntity():SetTowerBackdoorProtectionEnabled(true)
 	GameRules:GetGameModeEntity():SetLoseGoldOnDeath(false)
-	GameRules:GetGameModeEntity():SetFountainPercentageHealthRegen(4)
-	GameRules:GetGameModeEntity():SetFountainConstantManaRegen(14)
-	GameRules:GetGameModeEntity():SetFountainPercentageManaRegen(4)
+	--fountain regen values not working
+	--GameRules:GetGameModeEntity():SetFountainPercentageHealthRegen(4)
+	--GameRules:GetGameModeEntity():SetFountainConstantManaRegen(14)
+	--GameRules:GetGameModeEntity():SetFountainPercentageManaRegen(4)
 	GameRules:GetGameModeEntity():SetHudCombatEventsDisabled(true)
 	GameRules:GetGameModeEntity():SetMaximumAttackSpeed(600)
 	GameRules:SetGoldPerTick(0)
@@ -1853,12 +1855,15 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_lone_druid_rabid_lua", {})
 	elseif event.name_const == "modifier_fountain_aura_buff" then
+		local caster = EntIndexToHScript(event.entindex_caster_const)
 		if not parent:HasModifier("modifier_fountain_aura_tp_persist_datadriven") then
 			local passive_ability = parent:FindAbilityByName("hero_ability_executed_hook_datadriven")
 			if passive_ability ~= nil then
-				local caster = EntIndexToHScript(event.entindex_caster_const)
 				passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_fountain_aura_tp_persist_datadriven", {})
 			end
+		end
+		if not parent:HasModifier("modifier_fountain_aura_buff_adjust_lua") then
+			parent:AddNewModifier(caster, nil, "modifier_fountain_aura_buff_adjust_lua", {})
 		end
 	elseif event.name_const == "modifier_venomancer_venomous_gale" then
 		-- replace default gale modifier to make it undispellable
