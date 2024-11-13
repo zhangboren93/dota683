@@ -7,10 +7,10 @@ function modifier_maelstrom_trigger_no_miss:CheckState()
 end
 function modifier_maelstrom_trigger_no_miss:DeclareFunctions()
 	return {
-		MODIFIER_EVENT_ON_ATTACK_FINISHED
+		MODIFIER_EVENT_ON_ATTACK_LANDED
 	}
 end
-function modifier_maelstrom_trigger_no_miss:OnAttackFinished(event)
+function modifier_maelstrom_trigger_no_miss:OnAttackLanded(event)
 	if event.attacker ~= self:GetParent() then return end
 	event.ability = self:GetAbility()
 	event.caster = self:GetCaster()
