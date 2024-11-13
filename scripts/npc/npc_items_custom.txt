@@ -6828,7 +6828,7 @@
 			"static_chance"			"20"
 			"static_damage"			"200"
 			"static_duration"		"15"
-			"static_count"			"4"
+			"static_count"			"5"
 			"static_range"			"900"
 		}
 	}
