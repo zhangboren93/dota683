@@ -6,23 +6,8 @@ function formatDamage(damage) {
 	return Math.floor(damage/1000) + "." + hundreds + "k";
 }
 
-function getKDA(playerId) {
-	let kill = Players.GetKills(playerId);
-	let death = Players.GetDeaths(playerId);
-	let assist = Players.GetAssists(playerId);
-	if (death == 0) {
-		return (kill + assist).toString()
-	}
-	let kda = Math.floor((kill + assist) / death)
-	let kdadecimal = Math.floor(((kill + assist) * 10 / death) % 10)
-	if (kdadecimal == 0) {
-		return kda.toString();
-	} else {
-		return kda + "." + kdadecimal;
-	}
-}
 
-function fillExtraSummaryInfo(players, slot) {
+function fillExtraSummaryInfo(players, slot, titles) {
 	for (var i = 0; i < players.length; i++) {
 		let heroDamage = Players.extraPlayerStats.psm[players[i].toString()].hd
 		if (heroDamage) {
@@ -36,18 +21,50 @@ function fillExtraSummaryInfo(players, slot) {
 		if (buildingDamage) {
 			$("#building-damage-" + (i+slot)).text = formatDamage(buildingDamage);
 		}
+
+		if (titles.mvp == players[i]) {
+			$("#kda-" + (i+slot)).text = "MVP";
+		}
 	}
 }
 
 function fillExtraSummaryInfoForAll() {
 	let radiant_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)
-	fillExtraSummaryInfo(radiant_players, 0);
 	let dire_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS)
-	fillExtraSummaryInfo(dire_players, 5);
+
+	let all_players = []
+	for (let i=0;i<radiant_players.length;i++) {
+		all_players.push(radiant_players[i])
+	}
+	for (let i=0;i<dire_players.length;i++) {
+		all_players.push(dire_players[i])
+	}
+	let mvp_player_id = -1
+	let mvp_score = -1
+	let winning_players = []
+	if (Game.GetGameWinner() == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
+		winning_players = radiant_players
+	} else {
+		winning_players = dire_players
+	}
+	for (let i=0;i<winning_players.length;i++) {
+		let kill = Players.GetKills(winning_players[i]);
+		let death = Players.GetDeaths(winning_players[i]);
+		let assist = Players.GetAssists(winning_players[i]);
+		// TODO compare kill streak if kda same
+		if (kill + assist - death > mvp_score) {
+			mvp_player_id = winning_players[i]
+			mvp_score = kill + assist - death
+		}
+	}
+	$.Msg("MVP is player " + mvp_player_id + " with score " + mvp_score)
+	
+	fillExtraSummaryInfo(radiant_players, 0, { mvp: mvp_player_id });
+	fillExtraSummaryInfo(dire_players, 5, { mvp: mvp_player_id });
 }
 
 (function () {
-	var radiant_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)
+	let radiant_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)
 	$.Msg("Radiant player count " + radiant_players.length)
 	for (var i = 0; i < radiant_players.length; i++) {
 		$("#hero-image-" + i).heroname = Players.GetPlayerSelectedHero(radiant_players[i]);
@@ -56,7 +73,6 @@ function fillExtraSummaryInfoForAll() {
 		$("#kill-" + i).text = Players.GetKills(radiant_players[i]);
 		$("#death-" + i).text = Players.GetDeaths(radiant_players[i]);
 		$("#assist-" + i).text = Players.GetAssists(radiant_players[i]);
-		$("#kda-" + i).text = getKDA(radiant_players[i]);
 		$("#last-hit-" + i).text = Players.GetLastHits(radiant_players[i]) + "/" + Players.GetDenies(radiant_players[i]);
 		$("#gxpm-" + i).text = formatDamage(Players.GetGoldPerMin(radiant_players[i])) + "/" + formatDamage(Players.GetXPPerMin(radiant_players[i]));
 		var player_hero = Players.GetPlayerHeroEntityIndex(radiant_players[i])
@@ -69,7 +85,7 @@ function fillExtraSummaryInfoForAll() {
 	}
 
 	//dire players
-	dire_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS)
+	let dire_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS)
 	$.Msg("Dire player count " + dire_players.length)
 	for (var i = 5; i < 5 + dire_players.length; i++) {
 		$("#hero-image-" + i).heroname = Players.GetPlayerSelectedHero(dire_players[i-5]);
@@ -78,7 +94,6 @@ function fillExtraSummaryInfoForAll() {
 		$("#kill-" + i).text = Players.GetKills(dire_players[i-5]);
 		$("#death-" + i).text = Players.GetDeaths(dire_players[i-5]);
 		$("#assist-" + i).text = Players.GetAssists(dire_players[i-5]);
-		$("#kda-" + i).text = getKDA(dire_players[i-5]);
 		$("#last-hit-" + i).text = Players.GetLastHits(dire_players[i-5]) + "/" + Players.GetDenies(dire_players[i-5]);
 		$("#gxpm-" + i).text = formatDamage(Players.GetGoldPerMin(dire_players[i-5])) + "/" + formatDamage(Players.GetXPPerMin(dire_players[i-5]));
 		var player_hero = Players.GetPlayerHeroEntityIndex(dire_players[i-5])
