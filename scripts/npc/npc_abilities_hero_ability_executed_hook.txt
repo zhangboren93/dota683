@@ -129,24 +129,6 @@
 					}
 				}
 			}
-			"modifier_whirling_axes_ranged_vision_checker"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"units/ability_execute_vision.lua"
-						"Function"		"handleAbilityExecuted"
-						"TargetAbility"	"troll_warlord_whirling_axes_ranged"
-						"Distance"		"750"
-						"Radius"		"800"
-						"Delay"			"0.5"
-						"Duration"		"3"
-					}
-				}
-			}
 			"modifier_dummy_unit_unselectable"
 			{
 				"States"
