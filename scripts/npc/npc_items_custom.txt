@@ -6823,7 +6823,7 @@
 			"chain_damage"			"150"
 			"chain_chance"			"25"
 			"chain_strikes"			"8"
-			"chain_radius"			"650"
+			"chain_radius"			"900"
 			"chain_delay"			"0.25"
 			"static_chance"			"20"
 			"static_damage"			"200"
