@@ -13,7 +13,7 @@ function shield_triggered(event)
 	if ability.staticTime == nil or time - ability.staticTime > 1 then
 		ability.staticTime = time
 
-		if not attacker:IsMagicImmune() then
+		if not attacker:IsMagicImmune() and (attacker:GetAbsOrigin() - target:GetAbsOrigin()):Length2D() <= 900 then
 			local particle = ParticleManager:CreateParticle( "particles/items_fx/chain_lightning.vpcf", PATTACH_POINT_FOLLOW, target )
 			ParticleManager:SetParticleControl(particle,0,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
 			ParticleManager:SetParticleControl(particle,1,Vector(attacker:GetAbsOrigin().x,attacker:GetAbsOrigin().y,attacker:GetAbsOrigin().z + attacker:GetBoundingMaxs().z ))   
