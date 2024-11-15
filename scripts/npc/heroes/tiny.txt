@@ -12,6 +12,7 @@
 		"AbilityCastPoint"				"0"
 		"AbilityCooldown"				"17"
 		"AbilityManaCost"				"120"
+		"AbilityProcsMagicStick"		"1"
 		"AOERadius"						"275"
 		"AbilityValues"
 		{
