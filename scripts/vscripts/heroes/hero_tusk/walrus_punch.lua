@@ -3,7 +3,7 @@ function handleSpellStart(event)
 	local ability = event.ability
 	local target = event.target
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tusk_walrus_punch_crit_datadriven", { duration = 1 })
-	caster:PerformAttack(target, true, true, false, false, false, false, false)
+	caster:PerformAttack(target, true, true, true, false, false, false, false)
 end
 
 function handleAttackLanded(event)
