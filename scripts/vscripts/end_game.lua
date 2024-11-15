@@ -15,7 +15,8 @@ function sendEndGameStats(player2BuildingDamage)
 		playerStatMap[mainPlayerId] = {
 			hd = heroDamage,
 			nw = PlayerResource:GetNetWorth(mainPlayerId),
-			bd = player2BuildingDamage[mainPlayerId]
+			bd = player2BuildingDamage[mainPlayerId],
+			tk = PlayerResource:GetTowerKills(mainPlayerId)
 		}
 	end
 	for i=1,#direPlayers do
@@ -29,7 +30,8 @@ function sendEndGameStats(player2BuildingDamage)
 		playerStatMap[mainPlayerId] = {
 			hd = heroDamage,
 			nw = PlayerResource:GetNetWorth(mainPlayerId),
-			bd = player2BuildingDamage[mainPlayerId]
+			bd = player2BuildingDamage[mainPlayerId],
+			tk = PlayerResource:GetTowerKills(mainPlayerId)
 		}
 	end
 	CustomGameEventManager:Send_ServerToAllClients("end_game_summary_stats", { psm = playerStatMap })	

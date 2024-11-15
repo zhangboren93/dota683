@@ -24,6 +24,10 @@ function fillExtraSummaryInfo(players, slot, titles) {
 
 		if (titles.mvp == players[i]) {
 			$("#kda-" + (i+slot)).text = "MVP";
+			$("#kda-" + (i+slot)).AddClass("title-mvp")
+		} else if (titles.po == players[i]) {
+			$("#kda-" + (i+slot)).text = "破";
+			$("#kda-" + (i+slot)).AddClass("title-po")
 		}
 	}
 }
@@ -58,9 +62,20 @@ function fillExtraSummaryInfoForAll() {
 		}
 	}
 	$.Msg("MVP is player " + mvp_player_id + " with score " + mvp_score)
+
+	let po_player_id = -1
+	let po_score = 0
+	for (let i=0;i<all_players.length;i++) {
+		let tower_kills = Players.extraPlayerStats.psm[all_players[i].toString()].tk;
+		// TODO compare kill streak if kda same
+		if (tower_kills > po_score) {
+			po_player_id = all_players[i]
+		}
+	}
+	$.Msg("Po is player " + po_player_id + " with score " + po_score)
 	
-	fillExtraSummaryInfo(radiant_players, 0, { mvp: mvp_player_id });
-	fillExtraSummaryInfo(dire_players, 5, { mvp: mvp_player_id });
+	fillExtraSummaryInfo(radiant_players, 0, { mvp: mvp_player_id, po: po_player_id });
+	fillExtraSummaryInfo(dire_players,    5, { mvp: mvp_player_id, po: po_player_id });
 }
 
 (function () {
