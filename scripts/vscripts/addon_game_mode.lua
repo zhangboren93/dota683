@@ -143,8 +143,6 @@ function Activate()
 	LinkLuaModifier( "modifier_viper_poison_attack_debuff_datadriven", 	"heroes/hero_viper/poison_attack.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_viper_nethertoxin_lua",					"heroes/hero_viper/nethertoxin.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_viper_viper_strike_slow_lua",			"heroes/hero_viper/viper_strike.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_windrunner_windrun_aura_lua",		 "heroes/hero_windrunner/windrun.lua", LUA_MODIFIER_MOTION_NONE )
-	LinkLuaModifier( "modifier_windrunner_windrun_slow_lua",		 "heroes/hero_windrunner/windrun.lua", LUA_MODIFIER_MOTION_NONE )
 	LinkLuaModifier( "modifier_burning_spear_datadriven_debuff", 	"heroes/hero_huskar/modifier_burning_spear_datadriven_debuff.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_burning_spear_datadriven_debuff_counter",	"heroes/hero_huskar/modifier_burning_spear_datadriven_debuff_counter", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_huskar_burning_spear_lua", 			"heroes/hero_huskar/modifier_huskar_burning_spear.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1672,10 +1670,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		end
 		damage = damage + (damage_min + ratio * (damage_max - damage_min)) * caster:GetAgility()
 		ApplyDamage({ victim = parent, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
-	elseif event.name_const == "modifier_windrunner_windrun" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		parent:AddNewModifier(caster, ability, "modifier_windrunner_windrun_aura_lua", {duration = ability:GetSpecialValueFor("duration")})
 	elseif event.name_const == "modifier_abyssal_underlord_firestorm_burn" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local burn_datadriven = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
@@ -2060,8 +2054,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 	elseif event.name_const == "modifier_earth_spirit_boulder_smash_debuff" then return false
 --	elseif event.name_const == "modifier_nevermore_requiem_slow" then return false
 --	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
-	elseif event.name_const == "modifier_windrunner_windrun_invis" then return false
-	elseif event.name_const == "modifier_windrunner_windrun_invis_thinker" then return false
 	elseif event.name_const == "modifier_neutral_sleep_ai" then return false
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then return false
 	end
