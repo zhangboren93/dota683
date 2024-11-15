@@ -54,9 +54,21 @@ DOTAItemImage {
 }
 
 .title-mvp {
-	color: gold;
+	color: red;
 }
 
 .title-po {
 	color: blue;
+}
+
+.title-jun {
+	color: yellow;
+}
+
+.title-fu {
+	color: gold;
+}
+
+.title-bu {
+	color: green;
 }

@@ -25,9 +25,20 @@ function fillExtraSummaryInfo(players, slot, titles) {
 		if (titles.mvp == players[i]) {
 			$("#kda-" + (i+slot)).text = "MVP";
 			$("#kda-" + (i+slot)).AddClass("title-mvp")
+		} else if (titles.hun == players[i]) {
+			$("#kda-" + (i+slot)).text = "魂";
+		} else if (titles.jun == players[i]) {
+			$("#kda-" + (i+slot)).text = "军";
+			$("#kda-" + (i+slot)).AddClass("title-jun")
 		} else if (titles.po == players[i]) {
 			$("#kda-" + (i+slot)).text = "破";
 			$("#kda-" + (i+slot)).AddClass("title-po")
+		} else if (titles.fu == players[i]) {
+			$("#kda-" + (i+slot)).text = "富";
+			$("#kda-" + (i+slot)).AddClass("title-fu")
+		} else if (titles.bu == players[i]) {
+			$("#kda-" + (i+slot)).text = "补";
+			$("#kda-" + (i+slot)).AddClass("title-bu");
 		}
 	}
 }
@@ -46,10 +57,13 @@ function fillExtraSummaryInfoForAll() {
 	let mvp_player_id = -1
 	let mvp_score = -1
 	let winning_players = []
+	let lossing_players = []
 	if (Game.GetGameWinner() == DOTATeam_t.DOTA_TEAM_GOODGUYS) {
 		winning_players = radiant_players
+		lossing_players = dire_players
 	} else {
 		winning_players = dire_players
+		lossing_players = radiant_players
 	}
 	for (let i=0;i<winning_players.length;i++) {
 		let kill = Players.GetKills(winning_players[i]);
@@ -63,19 +77,71 @@ function fillExtraSummaryInfoForAll() {
 	}
 	$.Msg("MVP is player " + mvp_player_id + " with score " + mvp_score)
 
+	let hun_player_id = -1
+	let hun_score = -1
+	for (let i=0;i<lossing_players.length;i++) {
+		let kill = Players.GetKills(lossing_players[i]);
+		let death = Players.GetDeaths(lossing_players[i]);
+		let assist = Players.GetAssists(lossing_players[i]);
+		// TODO compare kill streak if kda same
+		if (kill + assist - death > hun_score) {
+			hun_player_id = lossing_players[i]
+			hun_score = kill + assist - death
+		}
+	}
+	$.Msg("Hun is player " + hun_player_id + " with score " + hun_score)
+
 	let po_player_id = -1
 	let po_score = 0
 	for (let i=0;i<all_players.length;i++) {
 		let tower_kills = Players.extraPlayerStats.psm[all_players[i].toString()].tk;
-		// TODO compare kill streak if kda same
 		if (tower_kills > po_score) {
 			po_player_id = all_players[i]
 		}
 	}
 	$.Msg("Po is player " + po_player_id + " with score " + po_score)
 	
-	fillExtraSummaryInfo(radiant_players, 0, { mvp: mvp_player_id, po: po_player_id });
-	fillExtraSummaryInfo(dire_players,    5, { mvp: mvp_player_id, po: po_player_id });
+	let jun_player_id = -1
+	let jun_score = 0
+	for (let i=0;i<all_players.length;i++) {
+		let hero_damage = Players.extraPlayerStats.psm[all_players[i].toString()].hd;
+		if (hero_damage > jun_score) {
+			jun_player_id = all_players[i]
+			jun_score = hero_damage
+		}
+	}
+	$.Msg("Jun is player " + jun_player_id + " with score " + jun_score);
+
+	let fu_player_id = -1
+	let fu_score = 1000
+	for (let i=0;i<all_players.length;i++) {
+		let networth = Players.extraPlayerStats.psm[all_players[i].toString()].nw;
+		if (networth > po_score) {
+			fu_player_id = all_players[i]
+		}
+	}
+	$.Msg("Fu is player " + fu_player_id + " with score " + fu_score)
+
+	let bu_player_id = -1
+	let bu_score = 0
+	for (let i=0;i<all_players.length;i++) {
+		let denies = Players.GetDenies(all_players[i]);
+		if (denies > bu_score) {
+			bu_player_id = all_players[i]
+		}
+	}
+	$.Msg("Bu is player " + bu_player_id + " with score " + bu_score)
+
+	let titles = {
+		mvp: mvp_player_id,
+		po: po_player_id,
+		jun: jun_player_id,
+		fu: fu_player_id,
+		bu: bu_player_id,
+		hun: hun_player_id
+	};
+	fillExtraSummaryInfo(radiant_players, 0, titles);
+	fillExtraSummaryInfo(dire_players,    5, titles);
 }
 
 (function () {
