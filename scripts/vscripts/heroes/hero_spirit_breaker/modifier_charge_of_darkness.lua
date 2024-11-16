@@ -146,19 +146,7 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:OnOrder(event)
 	if event.unit == self:GetParent() then
-		-- ability no target won't cancel.
-		local ability = event.ability
-		if ability ~= nil and bit.band(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
-			return
-		end
-		if	event.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET or
-			event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET or
-			event.order_type == DOTA_UNIT_ORDER_CAST_TARGET or
-			event.order_type == DOTA_UNIT_ORDER_CAST_TARGET_TREE or
-			event.order_type == DOTA_UNIT_ORDER_HOLD_POSITION or
-			event.order_type == DOTA_UNIT_ORDER_STOP then
-			self:Destroy()
-		end
+		self:Destroy()
 	end
 end
 
@@ -166,7 +154,8 @@ function modifier_spirit_breaker_charge_of_darkness_lua:CheckState(event)
 	return {
 		[ MODIFIER_STATE_DISARMED ] = true,
 		[ MODIFIER_STATE_NO_UNIT_COLLISION ] = true,
-		[ MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY ] = true
+		[ MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY ] = true,
+		[ MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS ] = true
 	}
 end
 
