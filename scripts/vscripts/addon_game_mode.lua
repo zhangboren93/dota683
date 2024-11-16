@@ -111,7 +111,6 @@ function Activate()
 	LinkLuaModifier( "modifier_creep_health_bonus", "modifiers/creep_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_preparing_lua", "modifiers/modifier_creep_preparing.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_oracle_fortunes_end_purge_lua",	"heroes/hero_oracle/fortunes_end.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_pudge_flesh_magic_resist",		"modifiers/pudge_flesh_magic_resist.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",	"modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sandstorm_channel_end",			"modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -961,7 +960,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
 		entity:AddNewModifier(entity, nil, "item_tpscroll_clear_tree_modifier", {})
-		entity:AddNewModifier(entity, nil, "modifier_no_creep_aggro_on_cast_orb_lua", {})
 		if self.botEnabled and entity:GetTeam() == DOTA_TEAM_BADGUYS and GetMapName() == 'dota' then
 			entity:AddNewModifier(entity, nil, "modifier_bot_item_purchase", {})
 		elseif GetMapName() ~= 'vsbot' then
@@ -1007,8 +1005,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				entity.mainMeepo = self.mainMeepo 
 			end
 			entity:FindAbilityByName("meepo_divided_we_stand_aghs_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_pudge" then
-			entity:AddNewModifier(entity, entity:FindAbilityByName("pudge_flesh_heap"), "modifier_pudge_flesh_magic_resist", {})
 		elseif entity:GetName() == "npc_dota_hero_visage" then
 			entity:AddNewModifier(entity, entity:FindAbilityByName("visage_gravekeepers_cloak"), "modifier_cloak_bonus", {})
 			entity:SetThink(function()
