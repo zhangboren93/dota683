@@ -70,9 +70,9 @@ function fillExtraSummaryInfoForAll() {
 		let death = Players.GetDeaths(winning_players[i]);
 		let assist = Players.GetAssists(winning_players[i]);
 		// TODO compare kill streak if kda same
-		if (kill + assist - death > mvp_score) {
+		if (kill + assist / 2 - death > mvp_score) {
 			mvp_player_id = winning_players[i]
-			mvp_score = kill + assist - death
+			mvp_score = kill + assist / 2 - death
 		}
 	}
 	$.Msg("MVP is player " + mvp_player_id + " with score " + mvp_score)
@@ -103,10 +103,10 @@ function fillExtraSummaryInfoForAll() {
 	
 	let jun_player_id = -1
 	let jun_score = 0
-	for (let i=0;i<all_players.length;i++) {
-		let hero_damage = Players.extraPlayerStats.psm[all_players[i].toString()].hd;
+	for (let i=0;i<winning_players.length;i++) {
+		let hero_damage = Players.extraPlayerStats.psm[winning_players[i].toString()].hd;
 		if (hero_damage > jun_score) {
-			jun_player_id = all_players[i]
+			jun_player_id = winning_players[i]
 			jun_score = hero_damage
 		}
 	}
@@ -114,20 +114,22 @@ function fillExtraSummaryInfoForAll() {
 
 	let fu_player_id = -1
 	let fu_score = 1000
-	for (let i=0;i<all_players.length;i++) {
-		let networth = Players.extraPlayerStats.psm[all_players[i].toString()].nw;
+	for (let i=0;i<winning_players.length;i++) {
+		let networth = Players.extraPlayerStats.psm[winning_players[i].toString()].nw;
 		if (networth > po_score) {
-			fu_player_id = all_players[i]
+			fu_player_id = winning_players[i]
+			fu_score = networth
 		}
 	}
 	$.Msg("Fu is player " + fu_player_id + " with score " + fu_score)
 
 	let bu_player_id = -1
 	let bu_score = 0
-	for (let i=0;i<all_players.length;i++) {
-		let denies = Players.GetDenies(all_players[i]);
+	for (let i=0;i<winning_players.length;i++) {
+		let denies = Players.GetDenies(winning_players[i]);
 		if (denies > bu_score) {
-			bu_player_id = all_players[i]
+			bu_player_id = winning_players[i]
+			bu_score = bu_score
 		}
 	}
 	$.Msg("Bu is player " + bu_player_id + " with score " + bu_score)
