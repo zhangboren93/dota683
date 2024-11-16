@@ -3,16 +3,14 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnCreated(data)
 	if IsServer() then
 		self.target = EntIndexToHScript(data.target)
 		self.hit_targets = {}
-		if self:ApplyHorizontalMotionController() == false then
-			self:Destroy()
-		end
 		local parent = self:GetParent()
 		self.particle = ParticleManager:CreateParticleForTeam("particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_target.vpcf",
 			PATTACH_OVERHEAD_FOLLOW, self.target, parent:GetTeam())
+		self:StartIntervalThink(0.03)
 	end
 end
 
-function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(me, dt)
+function modifier_spirit_breaker_charge_of_darkness_lua:OnIntervalThink()
 	if IsServer() then
 		local parent = self:GetParent()
 		local ability = self:GetAbility()
@@ -38,7 +36,6 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
 				FIND_CLOSEST,
 				false)
 			if #units == 0 then
-				parent:RemoveHorizontalMotionController(self)
 				self:Destroy()
 				return
 			end
@@ -47,7 +44,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
 				PATTACH_OVERHEAD_FOLLOW, self.target, parent:GetTeam())
 			return
 		end
-		if (self.target:GetAbsOrigin() - me:GetAbsOrigin()):Length2D() <= 150 then
+		if (self.target:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() <= 150 then
 			parent:EmitSound("Hero_Spirit_Breaker.Charge.Impact")
 			local bash = parent:FindAbilityByName("spirit_breaker_greater_bash")
 			if bash ~= nil and bash:GetLevel() > 0 then
@@ -74,7 +71,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:UpdateHorizontalMotion(m
 		end
 
 		local speed = ability:GetSpecialValueFor("movement_speed")
-		me:SetAbsOrigin(me:GetAbsOrigin() + (self.target:GetAbsOrigin() - me:GetAbsOrigin()):Normalized() * dt * speed )
+		parent:SetAbsOrigin(GetGroundPosition(parent:GetAbsOrigin(), parent) + (self.target:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized() * 0.03 * speed )
 
 		local modifier_vision = self.target:FindModifierByName("modifier_spirit_breaker_charge_target_vision_datadriven")
 		if modifier_vision == nil or modifier_vision:GetRemainingTime() < 0.1 then
@@ -149,7 +146,6 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:OnOrder(event)
 	if event.unit == self:GetParent() then
-		
 		-- ability no target won't cancel.
 		local ability = event.ability
 		if ability ~= nil and bit.band(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
@@ -168,15 +164,12 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:CheckState(event)
 	return {
-		[MODIFIER_STATE_DISARMED] = true,
-		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+		[ MODIFIER_STATE_DISARMED ] = true,
+		[ MODIFIER_STATE_NO_UNIT_COLLISION ] = true,
+		[ MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY ] = true
 	}
 end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:GetOverrideAnimation()
 	return ACT_DOTA_RUN
-end
-
-function modifier_spirit_breaker_charge_of_darkness_lua:OnHorizontalMotionInterrupted()
-	self:Destroy()
 end
