@@ -785,11 +785,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				print("Moving when teleporting")
 				return false
 			end
-			if event.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION or event.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE then
-				if unit:HasModifier("modifier_spirit_breaker_charge_of_darkness_lua") then
-					return false
-				end
-			end
 		end
 	elseif event.order_type == DOTA_UNIT_ORDER_CAST_POSITION 
 		or event.order_type == DOTA_UNIT_ORDER_CAST_TARGET

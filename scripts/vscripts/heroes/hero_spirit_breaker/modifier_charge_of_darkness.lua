@@ -146,6 +146,9 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:OnOrder(event)
 	if event.unit == self:GetParent() then
+		if event.order_type == DOTA_UNIT_ORDER_CAST_NO_TARGET then
+			return
+		end	
 		self:Destroy()
 	end
 end
@@ -161,4 +164,12 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:GetOverrideAnimation()
 	return ACT_DOTA_RUN
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua:IsPurgable()
+	return false
+end
+
+function modifier_spirit_breaker_charge_of_darkness_lua:IsPurgeException()
+	return false
 end
