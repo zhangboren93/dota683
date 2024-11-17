@@ -84,9 +84,9 @@ function fillExtraSummaryInfoForAll() {
 		let death = Players.GetDeaths(lossing_players[i]);
 		let assist = Players.GetAssists(lossing_players[i]);
 		// TODO compare kill streak if kda same
-		if (kill + assist - death > hun_score) {
+		if (kill + assist / 2 - death > hun_score) {
 			hun_player_id = lossing_players[i]
-			hun_score = kill + assist - death
+			hun_score = kill + assist / 2 - death
 		}
 	}
 	$.Msg("Hun is player " + hun_player_id + " with score " + hun_score)
