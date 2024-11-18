@@ -218,15 +218,13 @@ function handleGameInProgressTimer(game_mode, player2BuildingDamage)
 	if isMapRanked() then
 		-- if all players from one team has disconnected from the game, call other team the winner.
 		if game_mode.isValidRankedGame and not game_mode.hasGameEnded then
+			sendEndGameStats(player2BuildingDamage, game_mode.player2assist)
+			game_mode.hasGameEnded = true
 			if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
-				sendEndGameStats(player2BuildingDamage)
 				GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
-				game_mode.hasGameEnded = true
 				GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 			elseif getConnectedPlayerCount(DOTA_TEAM_BADGUYS) == 0 then
-				sendEndGameStats(player2BuildingDamage)
 				GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
-				game_mode.hasGameEnded = true
 				GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 			end
 		end

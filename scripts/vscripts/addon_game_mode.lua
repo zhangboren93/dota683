@@ -276,6 +276,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.captain_radiant_extra_time = 110;
 	self.captain_dire_extra_time = 110;
 	self.custom_game_meta_version = "683"
+	self.player2assist = {}
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	GameRules:GetGameModeEntity():SetAnnouncerGameModeAnnounceDisabled(true)
 	
@@ -1466,7 +1467,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
             GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
         end
 
-		sendEndGameStats(player2BuildingDamage)
+		sendEndGameStats(player2BuildingDamage, self.player2assist)
 	end
 	--if IsServer() and entity:IsCreep() and not entity:IsNeutralUnitType() then
 	--	-- find creeps nearby whose target is me, preempty trigger its interval think

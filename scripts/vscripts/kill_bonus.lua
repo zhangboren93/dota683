@@ -42,6 +42,8 @@ function handleKillBonus(self, attacker, entity, meta_version)
 			end
 		end
 	end
+	-- credit assist to players
+	
 
 	local goldRecord = {0, 0, 0}
 	local teamname = "近卫"
@@ -52,9 +54,10 @@ function handleKillBonus(self, attacker, entity, meta_version)
 	local player2gold = {}
 	local entityName = string.sub(entity:GetName(), 15)
 	local credit_killer_pid = nil
+	local attacker_player_id = -1
 	if attacker:IsOwnedByAnyPlayer() and attacker:GetPlayerOwnerID() ~= nil and attacker:GetPlayerOwnerID() >= 0 then
 		print("attacker owned by player " .. attacker:GetPlayerOwnerID())
-		local attacker_player_id = attacker:GetPlayerOwnerID()
+		attacker_player_id = attacker:GetPlayerOwnerID()
 		credit_killer_pid = attacker_player_id
 
 		if self.firstBlood == nil then
@@ -234,6 +237,19 @@ function handleKillBonus(self, attacker, entity, meta_version)
 		print(EntIndexToHScript(i):GetName())
 		EntIndexToHScript(i):AddExperience(assist_exp, DOTA_ModifyXP_HeroKill, false, false)
 	end
+
+	for i=1,#assist_players do
+		if assist_players[i] ~= attacker_player_id then
+			local assist = self.player2assist[assist_players[i]]
+			if assist == nil then
+				self.player2assist[assist_players[i]] = 1
+			else
+				self.player2assist[assist_players[i]] = assist + 1
+			end
+		end
+	end
+	print("player to assists:")
+	DeepPrintTable(self.player2assist)
 end
 
 function playerStreakGold(player_id)

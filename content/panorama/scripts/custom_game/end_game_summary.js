@@ -21,6 +21,12 @@ function fillExtraSummaryInfo(players, slot, titles) {
 		if (buildingDamage) {
 			$("#building-damage-" + (i+slot)).text = formatDamage(buildingDamage);
 		}
+		let assist = Players.extraPlayerStats.psm[players[i].toString()].as;
+		if (assist) {
+			$("#assist-" + (i+slot)).text = assist;
+		} else {
+			$("#assist-" + (i+slot)).text = "0";
+		}
 
 		if (titles.mvp == players[i]) {
 			$("#kda-" + (i+slot)).text = "MVP";
@@ -68,7 +74,7 @@ function fillExtraSummaryInfoForAll() {
 	for (let i=0;i<winning_players.length;i++) {
 		let kill = Players.GetKills(winning_players[i]);
 		let death = Players.GetDeaths(winning_players[i]);
-		let assist = Players.GetAssists(winning_players[i]);
+		let assist = Players.extraPlayerStats.psm[winning_players[i].toString()].as;
 		// TODO compare kill streak if kda same
 		if (kill + assist / 2 - death > mvp_score) {
 			mvp_player_id = winning_players[i]
@@ -82,7 +88,7 @@ function fillExtraSummaryInfoForAll() {
 	for (let i=0;i<lossing_players.length;i++) {
 		let kill = Players.GetKills(lossing_players[i]);
 		let death = Players.GetDeaths(lossing_players[i]);
-		let assist = Players.GetAssists(lossing_players[i]);
+		let assist = Players.extraPlayerStats.psm[lossing_players[i].toString()].as;
 		// TODO compare kill streak if kda same
 		if (kill + assist / 2 - death > hun_score) {
 			hun_player_id = lossing_players[i]
@@ -155,7 +161,6 @@ function fillExtraSummaryInfoForAll() {
 		$("#level-" + i).text = Players.GetLevel(radiant_players[i]);
 		$("#kill-" + i).text = Players.GetKills(radiant_players[i]);
 		$("#death-" + i).text = Players.GetDeaths(radiant_players[i]);
-		$("#assist-" + i).text = Players.GetAssists(radiant_players[i]);
 		$("#last-hit-" + i).text = Players.GetLastHits(radiant_players[i]) + "/" + Players.GetDenies(radiant_players[i]);
 		$("#gxpm-" + i).text = formatDamage(Players.GetGoldPerMin(radiant_players[i])) + "/" + formatDamage(Players.GetXPPerMin(radiant_players[i]));
 		var player_hero = Players.GetPlayerHeroEntityIndex(radiant_players[i])
@@ -176,7 +181,6 @@ function fillExtraSummaryInfoForAll() {
 		$("#level-" + i).text = Players.GetLevel(dire_players[i-5]);
 		$("#kill-" + i).text = Players.GetKills(dire_players[i-5]);
 		$("#death-" + i).text = Players.GetDeaths(dire_players[i-5]);
-		$("#assist-" + i).text = Players.GetAssists(dire_players[i-5]);
 		$("#last-hit-" + i).text = Players.GetLastHits(dire_players[i-5]) + "/" + Players.GetDenies(dire_players[i-5]);
 		$("#gxpm-" + i).text = formatDamage(Players.GetGoldPerMin(dire_players[i-5])) + "/" + formatDamage(Players.GetXPPerMin(dire_players[i-5]));
 		var player_hero = Players.GetPlayerHeroEntityIndex(dire_players[i-5])

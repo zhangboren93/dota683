@@ -1,4 +1,4 @@
-function sendEndGameStats(player2BuildingDamage)
+function sendEndGameStats(player2BuildingDamage, player2assist)
 	print("sendEndGameStats")
 	local playerStatMap = {}
 
@@ -12,11 +12,16 @@ function sendEndGameStats(player2BuildingDamage)
 			heroDamage = heroDamage + PlayerResource:GetDamageDoneToHero(
 				mainPlayerId, victimPlayerId)
 		end
+		local assist = player2assist[mainPlayerId]
+		if assist == nil then
+			assist = 0
+		end
 		playerStatMap[mainPlayerId] = {
 			hd = heroDamage,
 			nw = PlayerResource:GetNetWorth(mainPlayerId),
 			bd = player2BuildingDamage[mainPlayerId],
-			tk = PlayerResource:GetTowerKills(mainPlayerId)
+			tk = PlayerResource:GetTowerKills(mainPlayerId),
+			as = assist
 		}
 	end
 	for i=1,#direPlayers do
@@ -27,11 +32,16 @@ function sendEndGameStats(player2BuildingDamage)
 			heroDamage = heroDamage + PlayerResource:GetDamageDoneToHero(
 				mainPlayerId, victimPlayerId)
 		end
+		local assist = player2assist[mainPlayerId]
+		if assist == nil then
+			assist = 0
+		end
 		playerStatMap[mainPlayerId] = {
 			hd = heroDamage,
 			nw = PlayerResource:GetNetWorth(mainPlayerId),
 			bd = player2BuildingDamage[mainPlayerId],
-			tk = PlayerResource:GetTowerKills(mainPlayerId)
+			tk = PlayerResource:GetTowerKills(mainPlayerId),
+			as = assist
 		}
 	end
 	CustomGameEventManager:Send_ServerToAllClients("end_game_summary_stats", { psm = playerStatMap })	
