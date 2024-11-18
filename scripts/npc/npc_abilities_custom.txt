@@ -10601,66 +10601,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
-
-	//=================================================================================================================
-	// Visage: Gravekeeper's Cloak
-	//=================================================================================================================
-	"visage_gravekeepers_cloak"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5482"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"HasShardUpgrade"             "0"
-		"AbilityDraftPreAbility"		"visage_summon_familiars_stone_form"
-		"Innate"						"0"
-		"RequiredLevel"					"1"
-		"MaxLevel"						"4"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"max_layers"						"4"
-				"damage_reduction"					"0"
-				"recovery_time"						"6"
-				"minimum_damage"					"2"
-				"radius"							"0"
-				"max_damage_reduction"					"80"
-				"shard_hp_restoration_pct"				"0"
-				"shard_cooldown"				"6000"
-				"shard_manacost"				"12500"
-				"bonus_armor"						"1 2 4 5"
-				"bonus_resist"						"3 6 12 16"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
-	"visage_gravekeepers_cloak_bonus_active_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"4"
-		"Modifiers"
-		{
-			"modifier_cloak_bonus_datadriven"
-			{
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Attributes" "MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Duration"	"0.3"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magic_resist"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
-				}
-			}
-		}
-		"AbilityValues"
-		{
-			"bonus_magic_resist"	"3 6 12 16"
-			"bonus_armor"			"1 2 4 5"
-		}
-	}
 	//=================================================================================================================
 	// Visage : Summon Familiars
 	//=================================================================================================================

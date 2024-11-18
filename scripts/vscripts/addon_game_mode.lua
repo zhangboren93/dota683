@@ -1003,7 +1003,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end
 			entity:FindAbilityByName("meepo_divided_we_stand_aghs_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_visage" then
-			entity:AddNewModifier(entity, entity:FindAbilityByName("visage_gravekeepers_cloak"), "modifier_cloak_bonus", {})
 			entity:SetThink(function()
 				if entity:HasScepter() and not entity:HasAbility("special_bonus_unique_visage_6") then
 					local ability = entity:AddAbility("special_bonus_unique_visage_6")
