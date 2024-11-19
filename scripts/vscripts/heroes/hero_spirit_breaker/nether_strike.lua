@@ -9,7 +9,8 @@ function handleSpellStart(event)
     target:EmitSound("Hero_Spirit_Breaker.NetherStrike.End")
     local caster = event.caster
     FindClearSpaceForUnit(caster, target:GetAbsOrigin() + 54 * (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized(), true)
-    caster:SetForwardVector((target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized())
+ 	caster:SetForwardVector((target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized())
+	caster:MoveToTargetToAttack(target)
     local bash = caster:FindAbilityByName("spirit_breaker_greater_bash")
     if bash:GetLevel() == 0 then
         return
@@ -46,5 +47,7 @@ function handleSpellStart(event)
     	})
 		targets[i]:AddNewModifier(caster, ability, "modifier_stunned", { duration = bash_duration })
 		targets[i]:AddNewModifier(caster, bash, "modifier_nether_bash_motion_lua", { duration = 0.5, directx = direction.x, directy = direction.y })
+		
+		ParticleManager:CreateParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf", PATTACH_ABSORIGIN_FOLLOW, targets[i])
 	end
 end

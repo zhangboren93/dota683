@@ -13,6 +13,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"spirit_breaker_charge_of_darkness"
 		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
+		"AbilityProcsMagicStick"		"1"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------

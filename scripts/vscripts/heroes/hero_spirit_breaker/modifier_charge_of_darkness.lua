@@ -59,12 +59,12 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnIntervalThink()
 				local direction = (self.target:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized()
 				if self.target:GetUnitName() ~= "npc_dota_roshan_datadriven" then
 					self.target:AddNewModifier(caster, bash, "modifier_nether_bash_motion_lua", { duration = 0.5, directx = direction.x, directy = direction.y })
+					ParticleManager:CreateParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.target)
 				end
 			end
 			local bash_duration = ability:GetSpecialValueFor("stun_duration")
 			self.target:AddNewModifier(parent, ability, "modifier_stunned", { duration = bash_duration })
 
-			parent:RemoveHorizontalMotionController(self)
 			parent:MoveToTargetToAttack(self.target)
 			self:Destroy()
 			return true
@@ -109,6 +109,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnIntervalThink()
 				local direction = (units[i]:GetAbsOrigin() - parent:GetAbsOrigin()):Normalized()
 				if units[i]:GetUnitName() ~= "npc_dota_roshan_datadriven" then
 					units[i]:AddNewModifier(parent, bash, "modifier_nether_bash_motion_lua", { duration = 0.5, directx = direction.x, directy = direction.y })
+					ParticleManager:CreateParticle("particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf", PATTACH_ABSORIGIN_FOLLOW, units[i])
 				end
 				units[i]:EmitSound("Hero_Spirit_Breaker.GreaterBash")
 			end
