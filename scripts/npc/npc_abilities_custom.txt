@@ -10602,56 +10602,6 @@
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
 	//=================================================================================================================
-	// Visage : Summon Familiars
-	//=================================================================================================================
-    "visage_summon_familiars"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5483"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"HasScepterUpgrade"			"1"
-
-		"AbilityDraftUltScepterAbility"		"visage_silent_as_the_grave"
-
-		"AbilitySound"					"Hero_Visage.SummonFamiliars.Cast"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0 0 0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"180 160 140"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 150 150"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"familiar_hp"				"300 450 600"
-				"familiar_armor"			"0 1 2"
-				"familiar_speed"			"380 390 400"
-				"familiar_base_movespeed"	"380 390 400"
-				"familiar_attack_damage"	"10"
-				"damage_per_charge"			"8 14 22"
-				"tooltip_familiar_count"
-				{
-					"value"					"2"
-					"special_bonus_scepter"	"+1"
-				}
-				"in_formation"				"0"
-		}
-	}
-	//=================================================================================================================
 	// Visage: Summon Familiars Stone Form
 	//=================================================================================================================
 	"visage_summon_familiars_stone_form"

@@ -96,4 +96,61 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Visage : Summon Familiars
+	//=================================================================================================================
+    "visage_summon_familiars_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"HasScepterUpgrade"				"1"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		"AbilitySound"					"Hero_Visage.SummonFamiliars.Cast"
+		"AbilityTextureName"			"visage_summon_familiars"
+		"AbilityProcsMagicStick"		"1"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"180 160 140"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"150"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"familiar_hp"				"300 450 600"
+			"familiar_armor"			"0 1 2"
+			"familiar_base_movespeed"	"380 390 400"
+			"familiar_attack_damage"	"10"
+			"damage_per_charge"			"8 14 22"
+			"max_damage_charges"		"7"
+			"tooltip_familiar_count"
+			{
+				"value"					"2"
+				"special_bonus_scepter"	"+1"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"heroes/hero_visage/summon_familiars.lua"
+				"Function"				"handleSpellStart"
+			}
+		}
+	}
 }

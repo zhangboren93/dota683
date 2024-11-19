@@ -1003,19 +1003,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				entity.mainMeepo = self.mainMeepo 
 			end
 			entity:FindAbilityByName("meepo_divided_we_stand_aghs_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_visage" then
-			entity:SetThink(function()
-				if entity:HasScepter() and not entity:HasAbility("special_bonus_unique_visage_6") then
-					local ability = entity:AddAbility("special_bonus_unique_visage_6")
-					ability:SetLevel(1)
-					print("added visage ahgs ability")
-				end
-				if not entity:HasScepter() and entity:HasAbility("special_bonus_unique_visage_6") then
-					entity:RemoveAbility("special_bonus_unique_visage_6")
-					print("removed visage ahgs ability")
-				end
-				return 1
-			end, "visage scepter", 1);
 		elseif entity:GetName() == "npc_dota_hero_enchantress" then
 			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
 		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then
@@ -1224,11 +1211,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:FindAbilityByName("pugna_nether_ward_aura_datadriven"):SetLevel(
 			entity:GetOwner():FindAbilityByName("pugna_nether_ward"):GetLevel())
 	end
-	if entity:GetName() == "npc_dota_visage_familiar" then
-		entity:FindAbilityByName("neutral_spell_immunity"):SetLevel(1)
-		local ability = entity:GetOwner():FindAbilityByName("visage_summon_familiars")
-		entity:AddNewModifier(entity, ability, "modifier_familiar_attack_damage_lua", {})
-	elseif entity:GetName() == "npc_dota_courier" then
+	if entity:GetName() == "npc_dota_courier" then
 		entity:FindAbilityByName("courier_flying_upgrade_datadriven"):SetLevel(1)
 		if is_respawn > 0 then
 			CustomGameEventManager:Send_ServerToTeam(entity:GetTeam(), "courier_spawned", { id = tostring(entity:GetEntityIndex()), respawn = 1 })
