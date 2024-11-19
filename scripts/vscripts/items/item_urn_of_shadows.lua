@@ -116,4 +116,7 @@ function item_urn_of_shadows_datadriven_on_spell_start(keys)
 	end
 	
 	keys.ability:SetCurrentCharges(keys.ability:GetCurrentCharges() - 1)  --Decrement the charges on the Urn by one.
+
+	local pid = ParticleManager:CreateParticle("particles/items2_fx/urn_of_shadows.vpcf", PATTACH_ABSORIGIN, keys.caster)
+	ParticleManager:SetParticleControlEnt(pid, 1, keys.target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", keys.target:GetAbsOrigin(), false)
 end

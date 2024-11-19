@@ -3260,6 +3260,10 @@
 			"soul_heal_duration"	"8.0"
 			"soul_damage_duration"	"8.0"
 		}
+		"precache"
+		{
+			"particle"				"particles/items2_fx/urn_of_shadows.vpcf"
+		}
 		
 		"OnSpellStart"
 		{
