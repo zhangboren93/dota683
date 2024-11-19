@@ -20191,37 +20191,11 @@
 	
 				"OnSpentMana"
 				{
-	
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/hero_silencer/last_word.lua"
 						"Function"		"LastWordStopSound"
 						"Target"		"UNIT"
-					}
-	
-					"FireSound"
-					{
-						"EffectName"	"Hero_Silencer.LastWord.Damage"
-						"Target"		"UNIT"
-					}
-	
-					"RemoveModifier"
-					{
-						"ModifierName" "modifier_last_word_datadriven"
-						"Target"	"UNIT"
-					}
-	
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_last_word_silence_datadriven"
-						"Target"	"UNIT"
-					}
-	
-					"Damage"
-					{
-						"Target" "UNIT"
-						"Type" "DAMAGE_TYPE_MAGICAL"
-						"Damage" "%damage"
 					}
 				}
 			}
