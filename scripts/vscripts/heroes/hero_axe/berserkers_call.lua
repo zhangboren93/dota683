@@ -14,6 +14,8 @@ function BerserkersCall( keys )
 		target:MoveToTargetToAttack(caster)
 	else
 		target:Stop()
+		target:RemoveModifierByName("modifier_axe_berserkers_call_datadriven")
+		return
 	end
 
 	-- Set the force attack target to be the caster
