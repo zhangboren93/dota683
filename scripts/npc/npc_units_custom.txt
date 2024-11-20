@@ -4344,7 +4344,7 @@
 		// Abilities
 		//----------------------------------------------------------------
 		
-		"Ability1"					"visage_summon_familiars_stone_form"			// Ability 1.
+		"Ability1"					"visage_summon_familiars_stone_form_datadriven"			// Ability 1.
 		"Ability2"					"neutral_spell_immunity"			// Ability 2.
 		"Ability3"					"creep_hero_attack"			// Ability 3.
 		"Ability4"					""			// Ability 4.

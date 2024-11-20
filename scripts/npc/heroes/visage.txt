@@ -153,4 +153,93 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Visage: Summon Familiars Stone Form
+	//=================================================================================================================
+	"visage_summon_familiars_stone_form_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"AbilityCastRange"				"160"
+		"AbilityCastPoint"				"0.0"
+		"MaxLevel"						"3"
+		"AbilitySound"					"Visage_Familiar.StoneForm.Cast"
+		"AbilityTextureName"			"visage_summon_familiars_stone_form"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"26.0"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"stun_radius"						"325"
+				"stun_delay"						"1"
+				"stun_damage"						"60 100 140"
+				"stun_duration"						"1 1.25 1.5"
+				"stone_duration"					"8.0"
+				"hp_regen"							"50.0 68.7 87.5"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"						"heroes/hero_visage/stone_form.lua"
+				"Function"							"handleSpellStart"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_summon_familiar_stone_form_diving"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"						"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"					"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"				"heroes/hero_visage/stone_form.lua"
+						"Function"					"handleDivingDestroy"
+					}
+				}
+			}
+			"modifier_summon_familiar_stone_form_recovering"
+			{
+				"Duration"							"%stone_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%hp_regen"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"						"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"					"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"				"heroes/hero_visage/stone_form.lua"
+						"Function"					"handleRecoveringDestroy"
+					}
+				}
+			}
+		}
+	}
 }

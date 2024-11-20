@@ -51,3 +51,15 @@ end
 function modifier_familiar_attack_damage_lua:refreshStackCount()
     self:SetStackCount(7)
 end
+
+function modifier_familiar_attack_damage_lua:CheckState()
+	local is_flying = true 
+	local parent = self:GetParent()
+	if parent:HasModifier("modifier_summon_familiar_stone_form_recovering") then
+		is_flying = false
+	end
+	return {
+		[ MODIFIER_STATE_FLYING ] = is_flying
+		--[ MODIFIER_STATE_NO_UNIT_COLLISION ] = is_flying
+	}
+end
