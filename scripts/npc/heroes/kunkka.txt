@@ -265,6 +265,14 @@
 						"Function"		"handleAttack"
 					}
 				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_kunkka/tidebringer.lua"
+						"Function"		"handleAttackStart"
+					}
+				}
 			}
 		}
 	}
