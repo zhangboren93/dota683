@@ -98,4 +98,12 @@
 			}
 		}
 	}
+	"enchantress_aghs_lua"
+	{
+		"BaseClass"				"ability_lua"
+		"ScriptFile"			"heroes/hero_enchantress/aghs.lua"
+		"Innate"				"1"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"				"1"
+	}
 }

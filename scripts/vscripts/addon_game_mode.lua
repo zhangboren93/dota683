@@ -1003,8 +1003,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				entity.mainMeepo = self.mainMeepo 
 			end
 			entity:FindAbilityByName("meepo_divided_we_stand_aghs_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_enchantress" then
-			entity:AddNewModifier(entity, nil, "modifier_enchantress_aghs_attack_range", {})
 		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then
 			entity:FindAbilityByName("keeper_of_the_light_spirit_form_checker"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_sand_king" then
