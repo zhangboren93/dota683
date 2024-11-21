@@ -28,7 +28,7 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 		local ability = self:GetAbility()
 		self.speed = ability:GetSpecialValueFor("speed")
 		local travel_distance = (self.destination - self:GetParent():GetAbsOrigin()):Length2D()
-		if travel_distance > 400 then
+		if travel_distance > self.speed then
 			self.speed = travel_distance / 0.4
 		end
 		self.radius = ability:GetSpecialValueFor("radius")
@@ -110,7 +110,7 @@ modifier_ember_spirit_fire_remnant_activate_lua = class({
 				end
 				self.destination_entity = EntIndexToHScript(me.fire_remnant_entities[furthestRemnantIndex])
 				self.destination = self.destination_entity:GetAbsOrigin()
-				self.time_upper_bound = GameRules:GetGameTime() + 0.4
+				self.time_upper_bound = GameRules:GetGameTime() + 1
 				print("Move to another remnent located at (" .. self.destination.x .. ", " .. self.destination.y .. ")") 
 				me:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
 				table.remove(me.fire_remnant_entities, furthestRemnantIndex)
