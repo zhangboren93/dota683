@@ -221,6 +221,7 @@ function Activate()
 	LinkLuaModifier( "modifier_naga_siren_688_attribute_bonus", 		"modifiers/688/modifier_naga_siren_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_phantom_assassin_688_attribute_bonus", 	"modifiers/688/modifier_phantom_assassin_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_terroblade_688_attribute_bonus", 		"modifiers/688/modifier_terroblade_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_troll_warlord_688_attribute_bonus", 		"modifiers/688/modifier_troll_warlord_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1032,6 +1033,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:SetThink(function()
 				entity:FindAbilityByName("troll_warlord_berserkers_rage"):SetLevel(0)
 			end, "troll unset 1st skill", 0.1)
+			if self.custom_game_meta_version == "688" then
+				entity:AddNewModifier(entity, nil, "modifier_troll_warlord_688_attribute_bonus", {})
+			end
 		elseif entity:GetName() == "npc_dota_hero_arc_warden" and self.custom_game_meta_version == "688"  then
 			entity:AddNewModifier(entity, nil, "modifier_arc_warden_688_attribute_bonus", {})
 		elseif entity:GetName() == "npc_dota_hero_bloodseeker" and self.custom_game_meta_version == "688" then
