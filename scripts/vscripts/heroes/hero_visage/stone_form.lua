@@ -31,6 +31,9 @@ function handleDivingDestroy(event)
 			ability = ability
 		})
 	end
+	local pid = ParticleManager:CreateParticle("particles/units/heroes/hero_visage/visage_stone_form.vpcf", PATTACH_ABSORIGIN, caster)
+	ParticleManager:SetParticleControl(pid, 0, caster:GetAbsOrigin() - Vector(0, 0, 50))
+	ParticleManager:SetParticleControl(pid, 1, Vector(radius, 0, 0))
 end
 
 function handleRecoveringDestroy(event)

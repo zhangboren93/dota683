@@ -188,6 +188,11 @@
 				"hp_regen"							"50.0 68.7 87.5"
 		}
 
+		"precache"
+		{
+			"particle"								"particles/units/heroes/hero_visage/visage_stone_form.vpcf"
+		}
+
 		"OnSpellStart"
 		{
 			"RunScript"
