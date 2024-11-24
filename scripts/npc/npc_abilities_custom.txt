@@ -52,6 +52,7 @@
 #base "heroes/rattletrap.txt"
 #base "heroes/razor.txt"
 #base "heroes/riki.txt"
+#base "heroes/sandking.txt"
 #base "heroes/shadow_shaman.txt"
 #base "heroes/shredder.txt"
 #base "heroes/silencer.txt"
@@ -1832,58 +1833,6 @@
 			"AbilityCastRange"		"350 450 550 650"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
-	// Ability: Sand King Sand Storm
-	//=================================================================================================================
-	"sandking_sand_storm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5103"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Ability.SandKing_SandStorm.start"
-		"HasScepterUpgrade"				"0"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"0"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40 30 20 10"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60 50 40 30"
-		"AbilityChannelTime"			"20 40 60 80"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"damage_tick_rate"	"0.2"
-			"AbilityDuration"	"20 40 60 80"
-			"sand_storm_radius"	"525"
-			"sand_storm_damage"	"25 50 75 100"
-			"fade_delay"			"1.5"
-			"scepter_explosion_radius"	"0"
-			"scepter_explosion_min_dist"	"0"
-			"scepter_explosions_per_pulse"	"0"
-			"spine_tick_rate"				"0"
-			"spine_damage_pct"				"0"
-			"sand_storm_move_speed"		"0"
-
-			"sand_storm_move_speed_pct"							"0"
-			"sand_storm_max_distance_from_caster"				"0"
-			"sand_storm_move_speed_bonus_when_outside_radius"	"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
 	"sandking_caustic_finale_datadriven"
 	{

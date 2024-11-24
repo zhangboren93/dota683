@@ -112,7 +112,6 @@ function Activate()
 	LinkLuaModifier( "modifier_creep_preparing_lua", "modifiers/modifier_creep_preparing.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_oracle_fortunes_end_purge_lua",	"heroes/hero_oracle/fortunes_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_enchantress_aghs_attack_range",	"modifiers/enchantress_aghs_attack_range.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_sandstorm_channel_end",			"modifiers/sandstorm_channel_end.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_drop_backpack_items",			"modifiers/drop_backpack_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_familiar_attack_damage_lua",		"modifiers/familiar_attack_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_kill_tree_on_death", 			"modifiers/kill_tree_on_death.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1006,14 +1005,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:FindAbilityByName("meepo_divided_we_stand_aghs_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_keeper_of_the_light" then
 			entity:FindAbilityByName("keeper_of_the_light_spirit_form_checker"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_sand_king" then
-			entity:AddNewModifier(entity, entity, "modifier_sandstorm_channel_end", {})
 		elseif entity:GetName() == "npc_dota_hero_lone_druid" then
 			entity:FindAbilityByName("lone_druid_true_form_checker_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_undying" then
 			entity:FindAbilityByName("undying_flesh_golem_aura_datadriven"):SetLevel(1)
---		elseif entity:GetName() == "npc_dota_hero_chen" then
---			entity:FindAbilityByName("chen_penitence_incoming_dmg_checker"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_invoker" then
 			entity:SetThink(function()
 				entity:FindAbilityByName("invoker_invoke"):SetLevel(0)
