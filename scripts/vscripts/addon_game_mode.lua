@@ -222,6 +222,7 @@ function Activate()
 	LinkLuaModifier( "modifier_terroblade_688_attribute_bonus", 		"modifiers/688/modifier_terroblade_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_troll_warlord_688_attribute_bonus", 		"modifiers/688/modifier_troll_warlord_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_vengefulspirit_688_attribute_bonus",		"modifiers/688/modifier_vengefulspirit_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_nyx_assassin_688_attribute_bonus",		"modifiers/688/modifier_nyx_assassin_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1056,6 +1057,14 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_vengefulspirit" and self.custom_game_meta_version == "688" then
 			entity:AddNewModifier(entity, nil, "modifier_vengefulspirit_688_attribute_bonus", {})
 		end
+
+		if self.custom_game_meta_version == "688" then
+			local attribute_bonus_modifier = hero_688_attribute_bonus[entity:GetName()]
+			if attribute_bonus_modifier ~= nil then
+				entity:AddNewModifier(entity, nil, attribute_bonus_modifier, {})
+			end
+		end
+
 		local innate_ability = hero_innate_abilities[entity:GetName()]
 		if innate_ability ~= nil then
 			if type(innate_ability) == "table" then
