@@ -1452,11 +1452,13 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		--End game, send player status to clients
         if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
             GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
+			self.game_winner = DOTA_TEAM_BADGUYS
         else
             GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
+			self.game_winner = DOTA_TEAM_BADGUYS
         end
 
-		sendEndGameStats(player2BuildingDamage, self.player2assist)
+		sendEndGameStats(player2BuildingDamage, self.player2assist, self.game_winner)
 	end
 	--if IsServer() and entity:IsCreep() and not entity:IsNeutralUnitType() then
 	--	-- find creeps nearby whose target is me, preempty trigger its interval think
