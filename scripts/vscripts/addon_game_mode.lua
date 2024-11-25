@@ -253,6 +253,7 @@ function Activate()
 	LinkLuaModifier( "modifier_ember_spirit_fire_remnant_add_location_lua", "heroes/hero_ember_spirit/modifier_ember_spirit_fire_remnant_add_location.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_ember_spirit_fire_remnant_activate_lua", 	"heroes/hero_ember_spirit/modifier_ember_spirit_fire_remnant_activate.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 	LinkLuaModifier( "modifier_enigma_black_hole_pull_lua", 				"heroes/hero_enigma/modifier_enigma_black_hole_pull.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
+	LinkLuaModifier( "modifier_earth_spirit_geomagnetic_grip_lua", 			"heroes/hero_earth_spirit/modifier_earth_spirit_geomagnetic_grip.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 
 	-- both motion modifier
 	LinkLuaModifier( "modifier_toss_flying_lua", 				"heroes/hero_tiny/modifier_toss_flying.lua", LUA_MODIFIER_MOTION_BOTH)
@@ -1015,9 +1016,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:SetThink(function()
 				entity:FindAbilityByName("invoker_invoke"):SetLevel(0)
 			end, "reset invoker invoke", 0.5)
-		elseif entity:GetName() == "npc_dota_hero_earth_spirit" then
-			entity:AddItemByName("item_aghanims_shard")
-			entity:AddAbility("special_bonus_unique_earth_spirit_2"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_rubick" or entity:GetName() == "npc_dota_hero_ringmaster" then
 			--  TODO move following abilities to hooks
 			entity:AddAbility("obsidian_destroyer_imprison_int_steal_datadriven"):SetLevel(1)

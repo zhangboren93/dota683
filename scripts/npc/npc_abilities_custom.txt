@@ -11682,52 +11682,6 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Earth Spirit: Geomagnetic Grip
-	//=================================================================================================================
-	"earth_spirit_geomagnetic_grip"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5610"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_EarthSpirit.GeomagneticGrip.Target"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastRange"				"1400"
-		"AbilityCastPoint"				"0.1"
-		
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"13"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"radius"				"180"	// NOTE: This radius must match the radius for boulder smash
-				"rock_damage"			"50 125 200 275"
-				"duration"			"2.5 3 3.5 4"
-				"pull_units_per_second_heroes"		"600"
-				"pull_units_per_second"		"1000"
-				"speed"					"800"
-				"total_pull_distance"		"1400"
-		}
-	}
     "earth_spirit_magnetize"
 	{
 		"MaxLevel"              "3"

@@ -69,4 +69,111 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Earth Spirit: Geomagnetic Grip
+	//=================================================================================================================
+	"earth_spirit_geomagnetic_grip_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_EarthSpirit.GeomagneticGrip.Target"
+		"AbilityProcsMagicStick"		"1"
+		"AbilityTextureName"			"earth_spirit_geomagnetic_grip"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastRange"				"1400"
+		"AbilityCastPoint"				"0.1"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"75"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"radius"						"180"	// NOTE: This radius must match the radius for boulder smash
+			"rock_damage"					"50 125 200 275"
+			"duration"						"2.5 3 3.5 4"
+			"pull_units_per_second_heroes"	"600"
+			"pull_units_per_second"			"1000"
+			"speed"							"800"
+			"total_pull_distance"			"1400"
+		}
+		"precache"
+		{
+			"particle"						"particles/units/heroes/hero_earth_spirit/espirit_geomagneticgrip_orientedmagnetic.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_earth_spirit_geomagnetic_grip_debuff_datadriven"
+			{
+				"IsPurgable"			"1"
+				"IsDebuff"				"1"
+				"Duration"				"%duration"
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"EffectName"			"particles/generic_gameplay/generic_silence.vpcf"
+				"EffectAttachType"		"follow_overhead"
+			}
+			"modifier_earth_spirit_geomagnetic_grip_aura_datadriven"
+			{
+				"IsHidden"				"1"
+				"Duration"				"2.5"
+				"Aura" 					"modifier_earth_spirit_geomagnetic_grip_aura_active_datadriven"
+				"Aura_Radius" 			"%radius"
+				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_ApplyToCaster" 	"0"
+			}
+			"modifier_earth_spirit_geomagnetic_grip_aura_active_datadriven"
+			{
+				"IsHidden"				"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_earth_spirit/geomagnetic_grip.lua"
+						"Function"		"handleAuraActiveCreated"
+					}
+				}
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_earth_spirit/geomagnetic_grip.lua"
+				"Function"			"handleAbilityPhaseStart"
+				"Target"			"POINT"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_earth_spirit/geomagnetic_grip.lua"
+				"Function"			"handleSpellStart"
+				"Target"			"POINT"
+			}
+		}
+	}
 }
