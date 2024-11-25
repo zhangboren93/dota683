@@ -44,3 +44,5 @@ hero_innate_abilities["npc_dota_hero_abyssal_underlord"] = "abyssal_underlord_da
 
 hero_688_attribute_bonus = {}
 hero_688_attribute_bonus["npc_dota_hero_nyx_assassin"] = "modifier_nyx_assassin_688_attribute_bonus"
+hero_688_attribute_bonus["npc_dota_hero_mirana"] = "modifier_mirana_688_attribute_bonus"
+hero_688_attribute_bonus["npc_dota_hero_snapfire"] = "modifier_mirana_688_attribute_bonus"
