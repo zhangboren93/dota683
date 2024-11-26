@@ -366,6 +366,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		end
 	end
 
+	GameRules:SetCustomGameAccountRecordSaveFunction(Dynamic_Wrap(CAddonTemplateGameMode, "OnAccountRecordSave"), self)
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 
 	-- rune 2 bounty at time 0 and 1 bounty & other per spawn afterwards
@@ -500,13 +501,13 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		--local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 		--PlayerResource:GetPlayer(0):MakeRandomHeroSelection()
 	end
-	if text == "-shuffleteam" then
-		local game_state = GameRules:State_Get()
-		if game_state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
-			shuffleTeam()
-			return
-		end
-	end
+	--if text == "-shuffleteam" then
+	--	local game_state = GameRules:State_Get()
+	--	if game_state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
+	--		shuffleTeam()
+	--		return
+	--	end
+	--end
 	local time = GameRules:GetDOTATime(false, false)
 	if text == "-afk" then
 		local player = PlayerResource:GetPlayer(playerid)
@@ -558,6 +559,15 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			if item ~= nil and item:GetPurchaser() == hero then
 				item:SetShareability(ITEM_FULLY_SHAREABLE)
 			end
+		end
+	end
+	if text == '-pchar' then
+		local record = GameRules:GetPlayerCustomGameAccountRecord(playerid)
+		DeepPrintTable(record)
+		if record == nil then
+			GameRules:SendCustomMessage("Custom game record nil.", PlayerResource:GetTeam(playerid), 0)
+		else
+			GameRules:SendCustomMessage(tableToString(record), PlayerResource:GetTeam(playerid), 0)
 		end
 	end
 end
@@ -2709,4 +2719,37 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 			CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.pid, gm = data.gm })
 		end
 	end
+end
+
+function CAddonTemplateGameMode:OnAccountRecordSave(player_id)
+	print("OnAccountRecordSave called with " .. player_id)
+	local last_record = GameRules:GetPlayerCustomGameAccountRecord(player_id)
+	if last_record == nil then
+		last_record = {}
+	end
+	if self.game_winner == nil then
+		print("game winner is nil.")
+		return last_record
+	end
+	print("game winner is: " .. self.game_winner)
+	local game_result = sendEndGameStatsToServer(player2BuildingDamage, self.player2assist, self.game_winner)
+	last_record['last_game'] = game_result
+	DeepPrintTable(last_record)
+	return last_record
+end
+
+function tableToString(tbl)
+	local result = "{"
+	for k, v in pairs(tbl) do
+		if type(k) == "string" then
+			k = string.format("%q", k)
+		end
+		if type(v) == "table" then
+			v = tableToString(v)
+		else
+			v = string.format("%q", v)
+		end
+			result = result .. "[" .. k .. "]=" .. v .. ","
+	end
+	return result .. "}"
 end

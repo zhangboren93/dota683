@@ -113,4 +113,5 @@ function sendEndGameStatsToServer(player2BuildingDamage, player2assist, game_win
 	game.play = players
 	print("Sending end game stats to server...")
 	DeepPrintTable(game)
+	return game
 end
