@@ -280,6 +280,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.captain_radiant_extra_time = 110;
 	self.captain_dire_extra_time = 110;
 	self.custom_game_meta_version = "683"
+	if GetMapName() == "dota_688g" then
+		self.custom_game_meta_version = "688"
+	end
 	self.player2assist = {}
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	GameRules:GetGameModeEntity():SetAnnouncerGameModeAnnounceDisabled(true)

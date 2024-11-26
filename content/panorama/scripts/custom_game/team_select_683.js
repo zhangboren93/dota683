@@ -97,11 +97,11 @@ function handleJoinSpectTeam() {
 (function() {
 	let mapname = Game.GetMapInfo().map_name
 	$.Msg("Map name: " + mapname)
-	if (mapname == 'maps/dota.vpk') {
+	if (mapname == 'maps/dota.vpk' || mapname == 'maps/dota_688g.vpk') {
 		$("#ModeSelect").visible = true
 		$("#ap").checked = true
 		$("#random").checked = true
-		$("#683").checked = true
+		//$("#683").checked = true
 		local_player_info = Game.GetLocalPlayerInfo()
 		if (local_player_info["player_has_host_privileges"]) {
 			$("#mode_select_block_button").visible = false
