@@ -280,6 +280,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.captain_radiant_extra_time = 110;
 	self.captain_dire_extra_time = 110;
 	self.custom_game_meta_version = "683"
+	self.player2account_records = {}
 	if GetMapName() == "dota_688g" then
 		self.custom_game_meta_version = "688"
 	end
@@ -1465,14 +1466,13 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 	end
 	if entity:IsFort() then
 		--End game, send player status to clients
-        if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
-            GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
-			self.game_winner = DOTA_TEAM_BADGUYS
-        else
-            GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-			self.game_winner = DOTA_TEAM_BADGUYS
-        end
-
+		if self.game_winner == nil then
+        	if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
+				self.game_winner = DOTA_TEAM_BADGUYS
+        	else
+				self.game_winner = DOTA_TEAM_BADGUYS
+        	end
+		end
 		sendEndGameStats(player2BuildingDamage, self.player2assist, self.game_winner)
 	end
 	--if IsServer() and entity:IsCreep() and not entity:IsNeutralUnitType() then
@@ -2613,9 +2613,6 @@ end
 
 function CAddonTemplateGameMode:handleFirstBlood()
 	self.firstBlood = true
-	if isMapRanked() and self.isValidRankedGame and not self.hasGameEnded then
-		uploadGameToServer(LADDER_HOST)
-	end
 end
 
 function CAddonTemplateGameMode:handleGameModeSelect(data)
@@ -2713,18 +2710,63 @@ end
 
 function CAddonTemplateGameMode:OnAccountRecordSave(player_id)
 	print("OnAccountRecordSave called with " .. player_id)
-	local last_record = nil-- GameRules:GetPlayerCustomGameAccountRecord(player_id)
+	local last_record = self.player2account_records[tostring(player_id)]
 	if last_record == nil then
 		last_record = {}
 	end
+	if not self.isValidRankedGame then
+		print("not saving record for normal games.")
+		return last_record
+	end
+	if self.firstBlood == nil then
+		print("not valid game without first blood")
+		return last_record
+	end
+	local my_mmr = last_record.mmr
+	if my_mmr == nil then
+		my_mmr = 0
+	end
+	print("my old mmr is " .. my_mmr)
 	if self.game_winner == nil then
 		print("game winner is nil.")
+		if my_mmr > 25 then
+			my_mmr = my_mmr - 25
+		else
+			my_mmr = 0
+		end
+		print("my new mmr is " .. my_mmr)
+		GameRules:SendCustomMessage("Player " .. player_id  .. " MMR change to " .. my_mmr, 0, 0)
+		last_record.mmr = my_mmr
 		return last_record
 	end
 	print("game winner is: " .. self.game_winner)
-	local game_result = sendEndGameStatsToServer(player2BuildingDamage, self.player2assist, self.game_winner)
-	last_record['last_game'] = game_result
+	--local game_result = sendEndGameStatsToServer(player2BuildingDamage, self.player2assist, self.game_winner)
+	--last_record['last_game'] = game_result
+	local winning_team_mmr_total, losing_team_mmr_total
+	if self.game_winner == DOTA_TEAM_GOODGUYS then
+		winning_team_mmr_total = self.radiant_team_mmr_total
+		losing_team_mmr_total = self.dire_team_mmr_total
+	else
+		winning_team_mmr_total = self.dire_team_mmr_total
+		losing_team_mmr_total = self.radiant_team_mmr_total
+	end
+	if winning_team_mmr_total == nil then winning_team_mmr_total = 0 end
+	if dire_team_mmr_total == nil then dire_team_mmr_total = 0 end
+	local diff = math.floor(25 - (winning_team_mmr_total - losing_team_mmr_total) / 250)
+	if diff < 0 then diff = 0 end
+	if diff > 50 then diff = 50 end
+
+	if PlayerResource:GetTeam(player_id) == self.game_winner then
+		my_mmr = my_mmr + diff
+	elseif my_mmr > diff then
+		my_mmr = my_mmr - diff
+	else
+		my_mmr = 0
+	end
+	print("my new mmr is " .. my_mmr)
+	last_record.mmr = my_mmr
 	DeepPrintTable(last_record)
+	GameRules:SendCustomMessage("Player " .. player_id  .. " MMR change to " .. my_mmr, 0, 0)
 	return last_record
 end
 

@@ -85,13 +85,6 @@ function HandleGameStateChange(game_mode, event)
 				return 30
 			end
 		end, "spawn neutral creep", 30)
-		if game_mode.isValidRankedGame and not game_mode.hasGameEnded then
-			GameRules:GetGameModeEntity():SetThink(function()
-				if game_mode.isValidRankedGame and not game_mode.hasGameEnded then
-					uploadGameToServer(LADDER_HOST)
-				end
-			end, "validate rank game after 5 minutes", 300)
-		end
 	elseif event.new_state == DOTA_GAMERULES_STATE_HERO_SELECTION then
 		CustomGameEventManager:Send_ServerToAllClients("player_ladder_scores", game_mode.playerId2LadderScore)
 		if game_mode.game_mode == 'DM' then
@@ -109,26 +102,47 @@ function HandleGameStateChange(game_mode, event)
 			print("Number of players is " .. playerCount)
 			if playerCount ~= RANK_PLAYER_COUNT_REQ then
 				GameRules:SendCustomMessage("天梯比赛需要10名玩家，本次对局不记录天梯分数!", -1, -1)
-				game_mode.hasGameEnded = true
 				game_mode.isValidRankedGame = false
-				return
-			end
-			for i=1,#all_heroes do
-				GameRules:AddHeroToBlacklist(all_heroes[i])
-			end
-			game_mode.game_mode = "LD"
-			GameRules:GetGameModeEntity():SetThink(function()
-				-- randomly assign player team start from either side
-				local players = getAllPlayerIds()
-				for i=1,#players do
-					PlayerResource:SetCustomTeamAssignment(players[i][1], DOTA_TEAM_NOTEAM)
+			else
+				for i=1,#all_heroes do
+					GameRules:AddHeroToBlacklist(all_heroes[i])
 				end
-			end, "unassign default player teams", 3)
-			GameRules:GetGameModeEntity():SetThink(function()
-				shuffleTeam()
-				-- randomly assign player team start from either side
-				getAllPlayerScores(game_mode)
-			end, "Fetching player scores", 5)
+				game_mode.game_mode = "LD"
+				GameRules:GetGameModeEntity():SetThink(function()
+					-- randomly assign player team start from either side
+					local players = getAllPlayerIds()
+					for i=1,#players do
+						PlayerResource:SetCustomTeamAssignment(players[i][1], DOTA_TEAM_NOTEAM)
+					end
+				end, "unassign default player teams", 3)
+				GameRules:GetGameModeEntity():SetThink(function()
+					shuffleTeam()
+
+					game_mode.radiant_team_mmr_total = 0
+					game_mode.dire_team_mmr_total = 0
+					for i=0,PlayerResource:GetPlayerCount() - 1 do
+						local record = game_mode.player2account_records[tostring(i)]
+						if record ~= nil and record.mmr ~= nil then
+							if PlayerResource:GetTeam(i) == DOTA_TEAM_GOODGUYS then
+								game_mode.radiant_team_mmr_total = game_mode.radiant_team_mmr_total + record.mmr
+							elseif PlayerResource:GetTeam(i) == DOTA_TEAM_BADGUYS then
+								game_mode.dire_team_mmr_total = game_mode.dire_team_mmr_total + record.mmr
+							end
+						end
+					end
+					GameRules:SendCustomMessage("MMR: r" .. game_mode.radiant_team_mmr_total .. ", d" .. game_mode.dire_team_mmr_total, 0, 0)
+
+					-- randomly assign player team start from either side
+					--getAllPlayerScores(game_mode)
+				end, "Fetching player scores", 5)
+			end
+		end
+		print("Reading game record")
+		for i=0,PlayerResource:GetPlayerCount() - 1 do
+			local record = GameRules:GetPlayerCustomGameAccountRecord(i)
+			if record ~= nil then
+				game_mode.player2account_records[tostring(i)] = record
+			end
 		end
 	elseif event.new_state == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
 		local mode_id = 1
@@ -215,20 +229,15 @@ function handleGameInProgressTimer(game_mode, player2BuildingDamage)
 	end
 
 	-- respawn base trees in rank map
-	if isMapRanked() then
-		-- if all players from one team has disconnected from the game, call other team the winner.
-		if game_mode.isValidRankedGame and not game_mode.hasGameEnded then
-			game_mode.hasGameEnded = true
-			if getConnectedPlayerCount(DOTA_TEAM_GOODGUYS) == 0 then
-				game_mode.game_winner = DOTA_TEAM_BADGUYS
-				GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
-				GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
-			elseif getConnectedPlayerCount(DOTA_TEAM_BADGUYS) == 0 then
-				GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
-				GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-				game_mode.game_winner = DOTA_TEAM_GOODGUYS
-			end
-			sendEndGameStats(player2BuildingDamage, game_mode.player2assist, game_mode.game_winner)
+	if game_mode.isValidRankedGame and game_mode.game_winner == nil and game_mode.firstBlood ~= nil then
+		local radiant_connected = getConnectedPlayerCount(DOTA_TEAM_GOODGUYS)
+		local dire_connected = getConnectedPlayerCount(DOTA_TEAM_BADGUYS)
+		if radiant_connected - dire_connected >= 4 then
+			GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
+			game_mode.game_winner = DOTA_TEAM_GOODGUYS
+		elseif dire_connected - radiant_connected >= 4 then
+			GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
+			game_mode.game_winner = DOTA_TEAM_BADGUYS
 		end
 	end
 	
