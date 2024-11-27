@@ -1031,7 +1031,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end, "reset invoker invoke", 0.5)
 		elseif entity:GetName() == "npc_dota_hero_rubick" or entity:GetName() == "npc_dota_hero_ringmaster" then
 			--  TODO move following abilities to hooks
-			entity:AddAbility("obsidian_destroyer_imprison_int_steal_datadriven"):SetLevel(1)
 			entity:AddAbility("spirit_breaker_empowering_haste_activate_debuff_datadriven"):SetLevel(1)
 			entity:AddAbility("sven_gods_strength_aghs_datadriven"):SetLevel(1)
 			entity:AddAbility("undying_flesh_golem_aura_datadriven"):SetLevel(1)
@@ -1800,15 +1799,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_stunned", { duration = ability:GetSpecialValueFor("knockback_duration") })
-	elseif event.name_const == "modifier_obsidian_destroyer_astral_imprisonment_prison" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local passive_ability = caster:FindAbilityByName("obsidian_destroyer_imprison_int_steal_datadriven")
-	    if parent:IsRealHero() and passive_ability ~= nil and caster:GetTeam() ~= parent:GetTeam() then
-			passive_ability:SetLevel(ability:GetLevel())
-			passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_od_imprison_int_steal", {})
-			passive_ability:ApplyDataDrivenModifier(caster, caster, "modifier_od_imprison_int_gain", {})
-	    end
 	elseif event.name_const == "modifier_oracle_false_promise_timer" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
@@ -2723,7 +2713,7 @@ end
 
 function CAddonTemplateGameMode:OnAccountRecordSave(player_id)
 	print("OnAccountRecordSave called with " .. player_id)
-	local last_record = GameRules:GetPlayerCustomGameAccountRecord(player_id)
+	local last_record = nil-- GameRules:GetPlayerCustomGameAccountRecord(player_id)
 	if last_record == nil then
 		last_record = {}
 	end

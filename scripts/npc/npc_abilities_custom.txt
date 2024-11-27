@@ -42,6 +42,7 @@
 #base "heroes/necrolyte.txt"
 #base "heroes/nevermore.txt"
 #base "heroes/nyx_assassin.txt"
+#base "heroes/obsidian_destroyer.txt"
 #base "heroes/omniknight.txt"
 #base "heroes/oracle.txt"
 #base "heroes/phantom_assassin.txt"
@@ -19726,102 +19727,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-	}
-	//=================================================================================================================
-	// Obsidian Destroyer: Astral Imprisonment
-	//=================================================================================================================
-	"obsidian_destroyer_astral_imprisonment"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5392"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilitySound"					"Hero_ObsidianDestroyer.AstralImprisonment"
-        "HasShardUpgrade"               "0"
-        "HasScepterUpgrade"				"0"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"18 16 14 12"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.25"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"120 140 160 180"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5" // applies multiple modifiers
-
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"AbilityCooldown"		"18 16 14 12"
-			"prison_duration"		"1 2 3 4"
-			"damage"				"0"
-			"has_mana_steal"				"0"
-			"mana_capacity_steal"	"0"
-			"mana_capacity_duration"	"50"
-			"allied_movement_speed_pct"	"0"
-			"AbilityCastRange"			"500"
-			"int_steal"				"-4 -7 -10 -13"
-			"int_gain"				"4 7 10 13"
-			"debuff_duration"		"0"
-			"percentage_damage"		"0"
-			"percentage_heal"		"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}	
-	"obsidian_destroyer_imprison_int_steal_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"Modifiers"
-		{
-			"modifier_od_imprison_int_steal"
-			{
-				"Passive"		"0"
-				"IsHidden"		"0"
-				"IsDebuff"		"1"
-				"Duration"		"50"
-				"IsPurgable"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"TextureName"	"obsidian_destroyer_astral_imprisonment"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%int_steal"
-				}
-			}
-			"modifier_od_imprison_int_gain"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
-				"Duration"	"50"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"TextureName"	"obsidian_destroyer_astral_imprisonment"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%int_gain"
-				}
-			}
-		}
-		"AbilityValues"
-		{
-			"int_steal"				"-4 -7 -10 -13"
-			"int_gain"				"4 7 10 13"
-		}
 	}
 	//=================================================================================================================
 	// Obsidian Destroyer: Essence Aura

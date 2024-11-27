@@ -19,11 +19,11 @@ function SanityEclipseDamage( keys )
 	local damageDelay = 0
 	if target:IsInvulnerable() or target:IsOutOfGame() then
 		print(target:GetName() .. " is out of the game")
-		if not target:HasModifier("modifier_obsidian_destroyer_astral_imprisonment_prison") then
+		if not target:HasModifier("modifier_astral_imprisonment_datadriven") then
 			print("not imprison")
 			return
 		end
-		damageDelay = target:FindModifierByName("modifier_obsidian_destroyer_astral_imprisonment_prison"):GetRemainingTime() + 0.1
+		damageDelay = target:FindModifierByName("modifier_astral_imprisonment_datadriven"):GetRemainingTime() + 0.1
 		print(damageDelay)
 	end
 
