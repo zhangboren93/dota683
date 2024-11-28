@@ -1,0 +1,14 @@
+<root>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/career_icon.js"/>
+	</scripts>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/menu_icon_common.css"/>
+		<include src="file://{resources}/styles/custom_game/career.css"/>
+	</styles>
+	<Panel class="career-icon">
+		<Button onactivate="OnCareerIconPressed()">
+			<Label text="A"/>
+		</Button>
+	</Panel>
+</root>

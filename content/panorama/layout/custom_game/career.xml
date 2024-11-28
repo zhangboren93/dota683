@@ -1,0 +1,20 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/menu_item_common.css"/>
+		<include src="file://{resources}/styles/custom_game/career.css"/>
+	</styles>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/career_panel.js"/>
+	</scripts>
+	<Panel class="career-panel menu-item-panel panel-hidden">
+		<Panel>
+			<Button class="fwd-panel-close-button" onactivate="careerCloseButtonPressed()">
+				<Label text="X"/>
+			</Button>
+		</Panel>
+		<Panel class="career-row"><Label class="career-row-title" text="玩家"/><Label id='local-player-name' class="carrer-row-value"/></Panel>
+		<Panel class="career-row"><Label class="career-row-title" text="MMR"/><Label id='mmr' class="carrer-row-value" text="0"/></Panel>
+		<Panel class="career-row"><Label class="career-row-title" text="比赛"/><Label id='games' class="carrer-row-value" text="0"/></Panel>
+		<Panel class="career-row"><Label class="career-row-title" text="胜率"/><Label id='wins' class="carrer-row-value" text="0"/></Panel>
+	</Panel>
+</root>

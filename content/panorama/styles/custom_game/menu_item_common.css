@@ -1,0 +1,51 @@
+.fwd-panel-close-button {
+	width: 32px;
+	height: 32px;
+}
+
+.menu-item-panel Button {
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #373d45 ), to( #4d5860 ) );
+	border-style: solid;
+	border-width: 1px;
+	border-top-color: #555555;
+	border-left-color: #494949;
+	border-bottom-color: #333333;
+	border-right-color: #404040;
+	margin-left: 10px;
+}
+
+.panel-hidden {
+	width: 0px;
+	height: 0px;
+	margin-left: -2000px;
+}
+
+Label {
+	vertical-align: center;
+	text-align: center;
+}
+
+Button Label {
+	horizontal-align: center;
+}
+
+Button:hover {
+	opacity: 1;
+}
+
+.menu-item-panel {
+	width: 300px;
+	margin-top: 150px;
+	flow-children: down;
+	background-color: gradient( linear, 0% 0%, 0% 25%, from( #232326 ), to( #1c1d20 ) );
+	border: 2px solid #32383677;
+	color: #939da0;
+	font-size: 24px;
+	padding-bottom: 20px;
+}
+
+.menu-item-panel Panel {
+	margin-top: 10px;
+	margin-left: 10px;
+	flow-children: right;
+}

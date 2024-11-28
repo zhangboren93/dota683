@@ -1,5 +1,6 @@
 <root>
 	<styles>
+		<include src="file://{resources}/styles/custom_game/menu_item_common.css"/>
 		<include src="file://{resources}/styles/custom_game/fwd.css"/>
 	</styles>
 	<scripts>

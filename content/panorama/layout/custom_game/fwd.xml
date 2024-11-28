@@ -1,11 +1,12 @@
 <root>
 	<styles>
+		<include src="file://{resources}/styles/custom_game/menu_item_common.css"/>
 		<include src="file://{resources}/styles/custom_game/fwd.css"/>
 	</styles>
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/fwd_hero_select.js"/>
 	</scripts>
-	<Panel class="fwd-panel panel-hidden">
+	<Panel class="fwd-panel menu-item-panel panel-hidden">
 		<Panel>
 			<Button class="fwd-panel-close-button" onactivate="fwdCloseButtonPressed()">
 				<Label text="X"/>

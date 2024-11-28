@@ -177,6 +177,19 @@ function HandleGameStateChange(game_mode, event)
 				unit:AddNewModifier(unit, nil, "modifier_spectator_dummy_unit_lua", {})
 			end)
 		end
+		GameRules:GetGameModeEntity():SetThink(function()
+			for i=0,PlayerResource:GetPlayerCount() - 1 do
+				local record = game_mode.player2account_records[tostring(i)]
+				if record ~= nil then
+ 	   				CustomGameEventManager:Send_ServerToAllClients("career_player_stats", {
+						pid 	= i,
+						mmr 	= record.mmr,
+						trg 	= record.trg,
+						trwg 	= record.trwg
+					})
+				end
+			end
+		end, "send ladder score to clients", 3)
 	end
 end
 

@@ -2726,10 +2726,14 @@ function CAddonTemplateGameMode:OnAccountRecordSave(player_id)
 		print("not valid game without first blood")
 		return last_record
 	end
+
 	local my_mmr = last_record.mmr
-	if my_mmr == nil then
-		my_mmr = 0
-	end
+	local total_rank_game = last_record.trg
+	local total_rank_win_game = last_record.trwg
+	if my_mmr == nil then my_mmr = 0 end
+	if total_rank_game == nil then total_rank_game = 0 end
+	if total_rank_win_game == nil then total_rank_win_game = 0 end
+
 	print("my old mmr is " .. my_mmr)
 	if self.game_winner == nil then
 		print("game winner is nil.")
@@ -2741,6 +2745,7 @@ function CAddonTemplateGameMode:OnAccountRecordSave(player_id)
 		print("my new mmr is " .. my_mmr)
 		GameRules:SendCustomMessage("Player " .. player_id  .. " MMR change to " .. my_mmr, 0, 0)
 		last_record.mmr = my_mmr
+		last_record.trg = total_rank_game + 1
 		return last_record
 	end
 	print("game winner is: " .. self.game_winner)
@@ -2762,13 +2767,16 @@ function CAddonTemplateGameMode:OnAccountRecordSave(player_id)
 
 	if PlayerResource:GetTeam(player_id) == self.game_winner then
 		my_mmr = my_mmr + diff
-	elseif my_mmr > diff then
+		total_rank_win_game = total_rank_win_game + 1
+	elseif my_mmr > diff then 
 		my_mmr = my_mmr - diff
 	else
 		my_mmr = 0
 	end
-	print("my new mmr is " .. my_mmr)
+	print("my new mmr is " .. my_mmr .. ", total game to " .. (total_rank_game + 1) .. ", totoal win game to " .. total_rank_win_game)
 	last_record.mmr = my_mmr
+	last_record.trg = total_rank_game + 1
+	last_record.trwg = total_rank_win_game
 	DeepPrintTable(last_record)
 	GameRules:SendCustomMessage("Player " .. player_id  .. " MMR change to " .. my_mmr, 0, 0)
 	return last_record
