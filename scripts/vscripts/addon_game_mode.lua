@@ -1033,7 +1033,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			end, "reset invoker invoke", 0.5)
 		elseif entity:GetName() == "npc_dota_hero_rubick" or entity:GetName() == "npc_dota_hero_ringmaster" then
 			--  TODO move following abilities to hooks
-			entity:AddAbility("spirit_breaker_empowering_haste_activate_debuff_datadriven"):SetLevel(1)
 			entity:AddAbility("sven_gods_strength_aghs_datadriven"):SetLevel(1)
 			entity:AddAbility("undying_flesh_golem_aura_datadriven"):SetLevel(1)
 			entity:AddAbility("legion_commander_press_the_attack_as_datadriven"):SetLevel(1)

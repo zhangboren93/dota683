@@ -22,7 +22,6 @@ hero_innate_abilities["npc_dota_hero_primal_beast"]	  = {"primal_beast_slardar_p
 hero_innate_abilities["npc_dota_hero_mars"]			  = {"mars_dragon_knight_particle_effects_datadriven",	"hero_attack_point_adjust_lua"}
 hero_innate_abilities["npc_dota_hero_morphling"] = "morphling_morph_attribute_datadriven"
 hero_innate_abilities["npc_dota_hero_silencer"] = "silencer_global_silence_aghs_datadriven"
-hero_innate_abilities["npc_dota_hero_spirit_breaker"] = "spirit_breaker_empowering_haste_activate_debuff_datadriven"
 hero_innate_abilities["npc_dota_hero_pudge"] = "pudge_rot_suicide_datadriven"
 hero_innate_abilities["npc_dota_hero_abaddon"] = "abaddon_borrowed_time_aghs_datadriven"
 hero_innate_abilities["npc_dota_hero_sven"] = "sven_gods_strength_aghs_datadriven"
