@@ -45,3 +45,5 @@ hero_688_attribute_bonus = {}
 hero_688_attribute_bonus["npc_dota_hero_nyx_assassin"] = "modifier_nyx_assassin_688_attribute_bonus"
 hero_688_attribute_bonus["npc_dota_hero_mirana"] = "modifier_mirana_688_attribute_bonus"
 hero_688_attribute_bonus["npc_dota_hero_snapfire"] = "modifier_mirana_688_attribute_bonus"
+hero_688_attribute_bonus["npc_dota_hero_dragon_knight"] = "modifier_dragon_knight_688_attribute_bonus"
+hero_688_attribute_bonus["npc_dota_hero_mars"] = "modifier_dragon_knight_688_attribute_bonus"

@@ -224,6 +224,7 @@ function Activate()
 	LinkLuaModifier( "modifier_vengefulspirit_688_attribute_bonus",		"modifiers/688/modifier_vengefulspirit_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_nyx_assassin_688_attribute_bonus",		"modifiers/688/modifier_nyx_assassin_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_mirana_688_attribute_bonus", 			"modifiers/688/modifier_mirana_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_dragon_knight_688_attribute_bonus", 		"modifiers/688/modifier_dragon_knight_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1049,6 +1050,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddNewModifier(entity, nil, "modifier_bloodseeker_688_attribute_bonus", {})
 			entity:RemoveAbility("bloodseeker_rupture")
 			entity:AddAbility("bloodseeker_rupture_688")
+		elseif (entity:GetName() == "npc_dota_hero_dragon_knight" or entity:GetName() == "npc_dota_hero_mars")
+			and self.custom_game_meta_version == "688" then
+			entity:RemoveAbility("dragon_knight_dragon_blood_datadriven")
+			entity:AddAbility("dragon_knight_dragon_blood_688_datadriven")
 		elseif entity:GetName() == "npc_dota_hero_clinkz" and self.custom_game_meta_version == "688" then
 			entity:AddNewModifier(entity, nil, "modifier_clinkz_688_attribute_bonus", {})
 		elseif entity:GetName() == "npc_dota_hero_faceless_void" and self.custom_game_meta_version == "688" then

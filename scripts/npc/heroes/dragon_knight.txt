@@ -84,4 +84,34 @@
 			}
 		}
 	}
+	"dragon_knight_dragon_blood_688_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"				"ability_datadriven"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"	"dragon_knight_dragon_blood"
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_health_regen"		"3 6 9 12"
+				"bonus_armor"				"3 6 9 12"
+		}
+		"Modifiers"
+		{
+			"modifier_dragon_blood_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_armor"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
+				}
+			}
+		}
+	}
 }
