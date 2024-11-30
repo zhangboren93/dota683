@@ -225,6 +225,7 @@ function Activate()
 	LinkLuaModifier( "modifier_nyx_assassin_688_attribute_bonus",		"modifiers/688/modifier_nyx_assassin_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_mirana_688_attribute_bonus", 			"modifiers/688/modifier_mirana_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_dragon_knight_688_attribute_bonus", 		"modifiers/688/modifier_dragon_knight_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_night_stalker_688_attribute_bonus", 		"modifiers/688/modifier_night_stalker_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
