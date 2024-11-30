@@ -1,0 +1,110 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	//=================================================================================================================
+	// Ability: God's Strength
+	//=================================================================================================================
+	"sven_gods_strength_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Sven.GodsStrength"
+		"MaxLevel"              		"3"
+		"RequiredLevel"         		"6"
+		"LevelsBetweenUpgrades" 		"5"
+		"HasScepterUpgrade"				"1"
+		"AbilityProcsMagicStick"		"1"
+		"AbilityTextureName"			"sven_gods_strength"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+ 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"80"
+		"AbilityDuration"				"25"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100 150 200"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"gods_strength_damage"		"100 150 200"	
+			"scepter_aura_damage_pct"	"50 75 100"
+			"scepter_aoe"				"900"		
+		}	
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Sven.GodsStrength"
+				"Target"		"CASTER"
+			}
+	
+			"FireEffect"
+			{
+				"EffectName"	"particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Target"		"CASTER"
+			}
+	
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_sven_gods_strength_datadriven"
+				"Target"		"CASTER"
+			}
+
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_sven/gods_strength.lua"
+				"Function"			"handleSpellStart"
+			}
+		}
+	
+		"Modifiers"
+		{
+			"modifier_sven_gods_strength_datadriven"
+			{
+				"IsBuff"		"1"
+				"IsPurgable"	"0"
+				"Duration"		"%AbilityDuration"
+	
+				"StatusEffectName"	"particles/status_fx/status_effect_gods_strength.vpcf"
+				"StatusEffectPriority"	"10"
+	
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%gods_strength_damage"
+				}
+			}
+			"modifier_sven_gods_strength_aghs_aura"
+			{
+				"IsHidden"	"1"
+				"Duration"				"25"
+				"Aura" 					"modifier_sven_gods_strength_ally_buff"
+				"Aura_Radius" 			"%scepter_aoe"
+				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Aura_ApplyToCaster" 	"0"
+			}
+			"modifier_sven_gods_strength_ally_buff"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%scepter_aura_damage_pct"
+				}
+			}
+		}
+	}
+}
