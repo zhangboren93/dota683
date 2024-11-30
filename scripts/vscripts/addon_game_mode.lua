@@ -30,6 +30,20 @@ sameHeroPickEnabled = false
 custom_game_first_pick = "random"
 player_last_order_time = {}
 
+local function addToGamesRecord(last_record, player2BuildingDamage, player2assist, game_winner)
+	local game = last_record.game
+	if game == nil then
+		game = {}
+	end
+	--TODO adds game duration and system time
+	local game_result = sendEndGameStatsToServer(player2BuildingDamage, player2assist, game_winner)
+	table.insert(game, game_result)
+	if #game > 20 then
+		table.remove(game, 1)
+	end
+	return game
+end
+
 function Precache( context )
 	--[[
 		Precache things we know we'll use.	Possible file types include (but not limited to):
@@ -2746,11 +2760,9 @@ function CAddonTemplateGameMode:OnAccountRecordSave(player_id)
 		GameRules:SendCustomMessage("Player " .. player_id  .. " MMR change to " .. my_mmr, 0, 0)
 		last_record.mmr = my_mmr
 		last_record.trg = total_rank_game + 1
+		last_record.game = addToGamesRecord(last_record, player2BuildingDamage, self.player2assist, nil)
 		return last_record
 	end
-	print("game winner is: " .. self.game_winner)
-	--local game_result = sendEndGameStatsToServer(player2BuildingDamage, self.player2assist, self.game_winner)
-	--last_record['last_game'] = game_result
 	local winning_team_mmr_total, losing_team_mmr_total
 	if self.game_winner == DOTA_TEAM_GOODGUYS then
 		winning_team_mmr_total = self.radiant_team_mmr_total
@@ -2779,6 +2791,9 @@ function CAddonTemplateGameMode:OnAccountRecordSave(player_id)
 	last_record.trwg = total_rank_win_game
 	DeepPrintTable(last_record)
 	GameRules:SendCustomMessage("Player " .. player_id  .. " MMR change to " .. my_mmr, 0, 0)
+
+	print("game winner is: " .. self.game_winner)
+	last_record.game = addToGamesRecord(last_record, player2BuildingDamage, self.player2assist, self.game_winner)
 	return last_record
 end
 

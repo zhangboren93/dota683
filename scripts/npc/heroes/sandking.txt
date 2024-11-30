@@ -76,16 +76,10 @@
 				"Target"				"CASTER"
 			}
 			
-			"ApplyModifier"
+			"RunScript"
 			{
-				"ModifierName"			"modifier_sand_storm_vfx_datadriven"
-				"Target"				"CASTER"
-			}
-			
-			"FireSound"
-			{
-				"EffectName"			"Ability.SandKing_SandStorm.loop"
-				"Target"				"CASTER"
+				"ScriptFile"			"heroes/hero_sand_king/sand_storm.lua"
+				"Function" 				"handleSpellStart"
 			}
 		}
 		
@@ -184,19 +178,28 @@
 					{
 						"EffectName"		"particles/units/heroes/hero_sandking/sandking_sandstorm_start.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
-						"Target"			"CASTER"
+						"Target"			"TARGET"
 					}
 				
 					"AttachEffect"
 					{
 						"EffectName"		"particles/units/heroes/hero_sandking/sandking_sandstorm.vpcf"
 						"EffectAttachType"	"start_at_customorigin"
-						"Target"			"CASTER"
+						"Target"			"TARGET"
 						"ControlPoints"
 						{
 							"01"			"%sand_storm_radius %sand_storm_radius %sand_storm_radius"
 						}
 					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP_FOR_ENEMIES"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"						"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"				"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			
@@ -223,6 +226,12 @@
 							{
 								"ModifierName"	"modifier_sand_storm_vfx_datadriven"
 								"Target"		"CASTER"
+							}
+
+							"RunScript"
+							{
+								"ScriptFile"	"heroes/hero_sand_king/sand_storm.lua"
+								"Function"		"handleDelayedRemove"
 							}
 						}
 					}
