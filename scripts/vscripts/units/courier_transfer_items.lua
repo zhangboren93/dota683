@@ -184,11 +184,11 @@ local function transferItem(courier, hero)
 	for i=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_9 do
 		local item = courier:GetItemInSlot(i)
 		if item ~= nil and item:GetPurchaser() == hero and not item:IsCombineLocked() and hasEmptyItemSlotForItem(hero, item) then
-			item = courier:TakeItem(item)
-			hero:AddItem(item)
+			courier:MoveToNPCToGiveItem(hero, item)
+            return true
 		end
 	end
-	hero:EmitSound("General.CourierGivesItem")
+    return false
 end
 
 local function needTransferItem(courier, hero)
@@ -297,7 +297,7 @@ modifier_courier_transfer_items_active_lua = class({})
 function modifier_courier_transfer_items_active_lua:OnCreated(data)
 	if IsServer() then
 		self.data = data
-		self:StartIntervalThink(0.2)
+		self:StartIntervalThink(0.1)
 	end
 end
 
@@ -312,9 +312,12 @@ end
 function modifier_courier_transfer_items_active_lua:OnIntervalThink()
 	local hero = EntIndexToHScript(self.data.target_hero)
 	local courier = self:GetParent()
-	if (hero:GetAbsOrigin() - courier:GetAbsOrigin()):Length2D() <= 400 then
-		transferItem(courier, hero)
-		go_back_to_fountain(courier)
+	if (hero:GetAbsOrigin() - courier:GetAbsOrigin()):Length2D() <= 200 then
+		local has_issue_command = transferItem(courier, hero)
+        if not has_issue_command then
+	        hero:EmitSound("General.CourierGivesItem")
+		    go_back_to_fountain(courier)
+        end
 	elseif hero:IsAlive() then
 		courier:MoveToPosition(hero:GetAbsOrigin())
 	else
