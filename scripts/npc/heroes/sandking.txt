@@ -111,16 +111,10 @@
 				
 				"OnAbilityExecuted"
 				{
-					"RemoveModifier"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_sand_storm_debuff_damage_datadriven"
-						"Target"		"CASTER"
-					}
-					
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_invisible"
-						"Target"		"CASTER"
+						"ScriptFile"	"heroes/hero_sand_king/sand_storm.lua"
+						"Function"	"handleAbilityExecuted"
 					}
 				}
 				
@@ -208,32 +202,14 @@
 				"IsHidden"			"1"
 				"IsPurgable"		"0"
 				"Duration"			"2"
+				"ThinkInterval"		"1.5"
 				
-				"OnCreated"
+				"OnIntervalThink"
 				{
-					"DelayedAction"
+					"RunScript"
 					{
-						"Delay"			"%sand_storm_invis_delay"
-						"Action"
-						{
-							"RemoveModifier"
-							{
-								"ModifierName"	"modifier_invisible"
-								"Target"		"CASTER"
-							}
-							
-							"RemoveModifier"
-							{
-								"ModifierName"	"modifier_sand_storm_vfx_datadriven"
-								"Target"		"CASTER"
-							}
-
-							"RunScript"
-							{
-								"ScriptFile"	"heroes/hero_sand_king/sand_storm.lua"
-								"Function"		"handleDelayedRemove"
-							}
-						}
+						"ScriptFile"	"heroes/hero_sand_king/sand_storm.lua"
+						"Function"		"handleDelayedRemove"
 					}
 				}
 			}
