@@ -52,6 +52,31 @@ local function getAllPlayerScores(game_mode)
 	getPlayerScore(game_mode, getAllPlayerIds())
 end
 
+local function sendPlayerStatsToUITeam(player2account_records, team)
+	local radiant_players = {}	
+	for i=1,PlayerResource:GetPlayerCountForTeam(team) do
+		local player = PlayerResource:GetNthPlayerIDOnTeam(team, i)
+		local steam_id = PlayerResource:GetSteamID(player)
+		local record = player2account_records[tostring(player)]
+		local mmr = 0
+		if record ~= nil and record.mmr ~= nil then
+			mmr = record.mmr
+		end
+		table.insert(radiant_players, {
+			sid = steam_id,
+			mmr = mmr
+		})
+	end
+	return radiant_players
+end
+	
+local function sendPlayerStatsToUI(player2account_records)
+	local radi_players = sendPlayerStatsToUITeam(player2account_records, DOTA_TEAM_GOODGUYS)
+	local dire_players = sendPlayerStatsToUITeam(player2account_records, DOTA_TEAM_BADGUYS)
+	CustomGameEventManager:Send_ServerToAllClients(
+		"team_select_player_stats", { rp = radi_players, dp = dire_players})
+end
+
 function shuffleTeam()
 	print("shuffleTeam")
 	local players = getAllPlayerIds()
@@ -134,6 +159,7 @@ function HandleGameStateChange(game_mode, event)
 
 					-- randomly assign player team start from either side
 					--getAllPlayerScores(game_mode)
+					sendPlayerStatsToUI(game_mode.player2account_records)
 				end, "Fetching player scores", 5)
 			end
 		end

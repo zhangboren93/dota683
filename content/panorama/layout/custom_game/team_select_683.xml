@@ -48,6 +48,20 @@
 				</Panel-->
 			</Panel>
 			<!--Teams List, left hand panel-->
+			<Panel id="RankTeamsList" style="visibility: collapse;">
+				<Label text="#team_radiant" style="margin-top: 10px; color: green;"/>
+				<Panel class="RankTeamListRow"><DOTAAvatarImage id="rank-team-radi-1-avatar"/><DOTAUserName id="rank-team-radi-1-name"/><Label text="MMR:"/><Label id="rank-team-radi-1-mmr" class="RankTeamRowMRR" text="0"/></Panel>
+				<Panel class="RankTeamListRow"><DOTAAvatarImage id="rank-team-radi-2-avatar"/><DOTAUserName id="rank-team-radi-2-name"/><Label text="MMR:"/><Label id="rank-team-radi-2-mmr" class="RankTeamRowMRR" text="0"/></Panel>
+				<Panel class="RankTeamListRow"><DOTAAvatarImage id="rank-team-radi-3-avatar"/><DOTAUserName id="rank-team-radi-3-name"/><Label text="MMR:"/><Label id="rank-team-radi-3-mmr" class="RankTeamRowMRR" text="0"/></Panel>
+				<Panel class="RankTeamListRow"><DOTAAvatarImage id="rank-team-radi-4-avatar"/><DOTAUserName id="rank-team-radi-4-name"/><Label text="MMR:"/><Label id="rank-team-radi-4-mmr" class="RankTeamRowMRR" text="0"/></Panel>
+				<Panel class="RankTeamListRow"><DOTAAvatarImage id="rank-team-radi-5-avatar"/><DOTAUserName id="rank-team-radi-5-name"/><Label text="MMR:"/><Label id="rank-team-radi-5-mmr" class="RankTeamRowMRR" text="0"/></Panel>
+				<Label text="#team_dire" style="margin-top: 20px; color: red;"/>
+				<Panel class="RankTeamListRow"><DOTAAvatarImage id="rank-team-dire-1-avatar"/><DOTAUserName id="rank-team-dire-1-name"/><Label text="MMR:"/><Label id="rank-team-dire-5-mmr" class="RankTeamRowMRR" text="0"/></Panel>
+				<Panel class="RankTeamListRow"><DOTAAvatarImage id="rank-team-dire-2-avatar"/><DOTAUserName id="rank-team-dire-2-name"/><Label text="MMR:"/><Label id="rank-team-dire-5-mmr" class="RankTeamRowMRR" text="0"/></Panel>
+				<Panel class="RankTeamListRow"><DOTAAvatarImage id="rank-team-dire-3-avatar"/><DOTAUserName id="rank-team-dire-3-name"/><Label text="MMR:"/><Label id="rank-team-dire-5-mmr" class="RankTeamRowMRR" text="0"/></Panel>
+				<Panel class="RankTeamListRow"><DOTAAvatarImage id="rank-team-dire-4-avatar"/><DOTAUserName id="rank-team-dire-4-name"/><Label text="MMR:"/><Label id="rank-team-dire-5-mmr" class="RankTeamRowMRR" text="0"/></Panel>
+				<Panel class="RankTeamListRow"><DOTAAvatarImage id="rank-team-dire-5-avatar"/><DOTAUserName id="rank-team-dire-5-name"/><Label text="MMR:"/><Label id="rank-team-dire-5-mmr" class="RankTeamRowMRR" text="0"/></Panel>
+			</Panel>
 			<Panel id="TeamsList" >
 				<Panel id="TeamsListGroup" >
 					<Panel id="TeamListHeader">

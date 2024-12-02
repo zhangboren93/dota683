@@ -132,3 +132,33 @@ ToggleButton Label {
 #referee_slot_occupied {
 	color: white;
 }
+
+#RankTeamsList {
+/*	border: 2px solid #00FF00FF; */
+	width: 450px; 
+	flow-children: down;
+	vertical-align: center;
+}
+
+#RankTeamsList Label {
+	color: white;
+	font-size: 24px;
+}
+
+.RankTeamListRow {
+	margin-top: 10px;
+	flow-children: right;
+}
+
+DOTAAvatarImage {
+	margin-left: 10px;
+}
+
+DOTAUserName {
+	margin-left: 10px;	
+	width: 250px;
+}
+
+.RankTeamRowMRR {
+	margin-left: 10px;
+}

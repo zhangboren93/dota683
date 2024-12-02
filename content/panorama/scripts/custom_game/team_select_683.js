@@ -1,4 +1,37 @@
 GameEvents.Subscribe("game_mode_selected_from_server", OnGameModeSelectedFromServer);
+GameEvents.Subscribe("team_select_player_stats", OnTeamSelectPlayerStats);
+
+function OnTeamSelectPlayerStats(data) {
+	$.Msg("OnTeamSelectPlayerStats")
+	$.Msg(data)
+	let radi_players = data.rp
+	let dire_players = data.dp
+	for(i=1;i<=5;i++) {
+		let player = radi_players[""+i]
+		if (player == null) {
+			break;
+		}
+		let steam_id = player.sid
+		let mmr = player.mmr
+		$("#rank-team-radi-"+i+"-avatar").steamid = steam_id
+		$("#rank-team-radi-"+i+"-name").steamid = steam_id
+		$.Msg("Setting steam id to " + steam_id)
+		$("#rank-team-radi-"+i+"-mmr").text = mmr
+	}
+	for(i=1;i<=5;i++) {
+		let player = dire_players[""+i]
+		if (player == null) {
+			break;
+		}
+		let steam_id = player.sid
+		let mmr = player.mmr
+		$("#rank-team-dire-"+i+"-avatar").steamid = steam_id
+		$("#rank-team-dire-"+i+"-name").steamid = steam_id
+		$("#rank-team-dire-"+i+"-mmr").text = mmr
+	}
+	$("#RankTeamsList").visible = true
+	$("#TeamsList").visible = false
+}
 
 function handleModeSelect(mode) {
 	$.Msg("handle mode select " + mode)
