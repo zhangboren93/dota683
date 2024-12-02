@@ -1054,38 +1054,13 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:SetThink(function()
 				entity:FindAbilityByName("troll_warlord_berserkers_rage"):SetLevel(0)
 			end, "troll unset 1st skill", 0.1)
-			if self.custom_game_meta_version == "688" then
-				entity:AddNewModifier(entity, nil, "modifier_troll_warlord_688_attribute_bonus", {})
-			end
-		elseif entity:GetName() == "npc_dota_hero_arc_warden" and self.custom_game_meta_version == "688"  then
-			entity:AddNewModifier(entity, nil, "modifier_arc_warden_688_attribute_bonus", {})
 		elseif entity:GetName() == "npc_dota_hero_bloodseeker" and self.custom_game_meta_version == "688" then
 			entity:AddNewModifier(entity, nil, "modifier_bloodseeker_688_attribute_bonus", {})
 			entity:RemoveAbility("bloodseeker_rupture")
-			entity:AddAbility("bloodseeker_rupture_688")
 		elseif (entity:GetName() == "npc_dota_hero_dragon_knight" or entity:GetName() == "npc_dota_hero_mars")
 			and self.custom_game_meta_version == "688" then
 			entity:RemoveAbility("dragon_knight_dragon_blood_datadriven")
 			entity:AddAbility("dragon_knight_dragon_blood_688_datadriven")
-		elseif entity:GetName() == "npc_dota_hero_clinkz" and self.custom_game_meta_version == "688" then
-			entity:AddNewModifier(entity, nil, "modifier_clinkz_688_attribute_bonus", {})
-		elseif entity:GetName() == "npc_dota_hero_faceless_void" and self.custom_game_meta_version == "688" then
-			entity:AddNewModifier(entity, nil, "modifier_faceless_void_688_attribute_bonus", {})
-		elseif entity:GetName() == "npc_dota_hero_luna" and self.custom_game_meta_version == "688" then
-			entity:AddNewModifier(entity, nil, "modifier_luna_688_attribute_bonus", {})
-		elseif (entity:GetName() == "npc_dota_hero_medusa" or entity:GetName() == "npc_dota_hero_muerta")
-			and self.custom_game_meta_version == "688" then
-			entity:AddNewModifier(entity, nil, "modifier_medusa_688_attribute_bonus", {})
-		elseif entity:GetName() == "npc_dota_hero_morphling" and self.custom_game_meta_version == "688" then
-			entity:AddNewModifier(entity, nil, "modifier_morphling_688_attribute_bonus", {})
-		elseif entity:GetName() == "npc_dota_hero_naga_siren" and self.custom_game_meta_version == "688" then
-			entity:AddNewModifier(entity, nil, "modifier_naga_siren_688_attribute_bonus", {})
-		elseif entity:GetName() == "npc_dota_hero_phantom_assassin" and self.custom_game_meta_version == "688" then
-			entity:AddNewModifier(entity, nil, "modifier_phantom_assassin_688_attribute_bonus", {})
-		elseif entity:GetName() == "npc_dota_hero_terrorblade" and self.custom_game_meta_version == "688" then
-			entity:AddNewModifier(entity, nil, "modifier_terroblade_688_attribute_bonus", {})
-		elseif entity:GetName() == "npc_dota_hero_vengefulspirit" and self.custom_game_meta_version == "688" then
-			entity:AddNewModifier(entity, nil, "modifier_vengefulspirit_688_attribute_bonus", {})
 		end
 
 		if self.custom_game_meta_version == "688" then
