@@ -1050,7 +1050,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_rubick" or entity:GetName() == "npc_dota_hero_ringmaster" then
 			--  TODO move following abilities to hooks
 			entity:AddAbility("undying_flesh_golem_aura_datadriven"):SetLevel(1)
-			entity:AddAbility("legion_commander_press_the_attack_as_datadriven"):SetLevel(1)
 		elseif entity:GetName() == "npc_dota_hero_troll_warlord" then
 			entity:SetThink(function()
 				entity:FindAbilityByName("troll_warlord_berserkers_rage"):SetLevel(0)
@@ -2052,6 +2051,11 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			particle_ability:ApplyDataDrivenModifier(caster, parent, "modifier_abyssal_underlord_dark_rift_target_datadriven",
 				{ duration = ability:GetSpecialValueFor("teleport_delay") })
 		end
+	elseif event.name_const == "modifier_legion_commander_duel" then
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local duration = ability:GetSpecialValueFor("duration")
+		parent:AddNewModifier(caster, ability, "modifier_legion_commander_duel_ignore_ethreal_lua", { duration = duration })
 	elseif event.name_const == "modifier_lion_impale" and parent:IsMagicImmune() then return false
 	elseif event.name_const == "modifier_fountain_invulnerability" then return false
 	elseif event.name_const == "modifier_eul_cyclone" then return false

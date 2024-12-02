@@ -11243,29 +11243,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
-	"legion_commander_press_the_attack_as_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"AbilityTextureName"	"legion_commander_press_the_attack"
-		"Modifiers"
-		{
-			"modifier_legion_commander_press_the_attack_as_datadriven"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAbilityExecuted"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/hero_legion_commander/press_the_attack.lua"
-						"Function"		"handleAbilityExecuted"
-					}
-				}
-			}
-		}
-	}
 	//=================================================================================================================
 	// Earth Spirit: Stone Caller
 	//=================================================================================================================

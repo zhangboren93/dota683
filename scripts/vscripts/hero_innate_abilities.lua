@@ -32,7 +32,6 @@ hero_innate_abilities["npc_dota_hero_rubick"] = "rubick_spell_steal_limit_one_da
 hero_innate_abilities["npc_dota_hero_wisp"] = "wisp_tether_charge_checker_datadriven"
 hero_innate_abilities["npc_dota_hero_troll_warlord"] = "troll_warload_berserkers_rage_bash_datadriven"
 hero_innate_abilities["npc_dota_hero_tiny"] = "tiny_grow_checker_datadriven"
-hero_innate_abilities["npc_dota_hero_legion_commander"] = "legion_commander_press_the_attack_as_datadriven"
 hero_innate_abilities["npc_dota_hero_marci"] = "marci_am_particle_effects_datadriven"
 hero_innate_abilities["npc_dota_hero_hoodwink"]	= "hoodwink_wr_particle_effects_datadriven"
 hero_innate_abilities["npc_dota_hero_void_spirit"]	  = "void_spirit_es_particle_effect_datadriven"
