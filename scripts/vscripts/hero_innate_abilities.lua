@@ -47,3 +47,5 @@ hero_688_attribute_bonus["npc_dota_hero_snapfire"] = "modifier_mirana_688_attrib
 hero_688_attribute_bonus["npc_dota_hero_dragon_knight"] = "modifier_dragon_knight_688_attribute_bonus"
 hero_688_attribute_bonus["npc_dota_hero_mars"] = "modifier_dragon_knight_688_attribute_bonus"
 hero_688_attribute_bonus["npc_dota_hero_night_stalker"] = "modifier_night_stalker_688_attribute_bonus"
+hero_688_attribute_bonus["npc_dota_hero_sven"] = "modifier_sven_688_attribute_bonus"
+hero_688_attribute_bonus["npc_dota_hero_kez"] = "modifier_sven_688_attribute_bonus"
