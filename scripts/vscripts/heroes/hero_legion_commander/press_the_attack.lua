@@ -4,11 +4,7 @@ function handleAbilityExecuted(keys)
     local ability = keys.ability
     local event_ability = keys.event_ability
     local target = keys.target
-    if event_ability:GetName() == "legion_commander_press_the_attack" then
-        local bonus = unit:FindAbilityByName("legion_commander_press_the_attack_as_datadriven")
-        bonus:SetLevel(event_ability:GetLevel())
-        bonus:ApplyDataDrivenModifier(unit, target, "modifier_legion_press_active_datadriven", {})
-    elseif event_ability:GetName() == "legion_commander_duel" then
+    if event_ability:GetName() == "legion_commander_duel" then
 		local duration = event_ability:GetSpecialValueFor("duration")
 		unit:AddNewModifier(unit, event_ability, "modifier_legion_commander_duel_ignore_ethreal_lua", { duration = duration })
 		target:AddNewModifier(unit, event_ability, "modifier_legion_commander_duel_ignore_ethreal_lua", { duration = duration})
