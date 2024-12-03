@@ -1055,12 +1055,15 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 				entity:FindAbilityByName("troll_warlord_berserkers_rage"):SetLevel(0)
 			end, "troll unset 1st skill", 0.1)
 		elseif entity:GetName() == "npc_dota_hero_bloodseeker" and self.custom_game_meta_version == "688" then
-			entity:AddNewModifier(entity, nil, "modifier_bloodseeker_688_attribute_bonus", {})
 			entity:RemoveAbility("bloodseeker_rupture")
+			entity:AddAbility("bloodseeker_rupture_688")
 		elseif (entity:GetName() == "npc_dota_hero_dragon_knight" or entity:GetName() == "npc_dota_hero_mars")
 			and self.custom_game_meta_version == "688" then
 			entity:RemoveAbility("dragon_knight_dragon_blood_datadriven")
 			entity:AddAbility("dragon_knight_dragon_blood_688_datadriven")
+		elseif entity:GetName() == "npc_dota_hero_tidehunter" and self.custom_game_meta_version == "688" then
+			entity:RemoveAbility("tidehunter_gush_datadriven")
+			entity:AddAbility("tidehunter_gush_688_datadriven")
 		end
 
 		if self.custom_game_meta_version == "688" then

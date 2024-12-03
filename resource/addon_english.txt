@@ -1370,6 +1370,10 @@
 		"DOTA_Tooltip_Ability_tidehunter_anchor_smash_datadriven_AbilityDuration"		"Duration: "
 		"DOTA_Tooltip_modifier_tidehunter_anchor_smash_datadriven"						"Anchor Smash"
 		"DOTA_Tooltip_modifier_tidehunter_anchor_smash_datadriven_Description" 			"Damage reduced"
+		"DOTA_Tooltip_ability_tidehunter_gush_688_datadriven"							"Gush"
+		"DOTA_Tooltip_ability_tidehunter_gush_688_datadriven_Description"				"Summons a gush of water to damage an enemy unit, reducing their movement speed and armor.  Lasts 4 seconds."
+		"DOTA_Tooltip_ability_tidehunter_gush_688_datadriven_movement_speed"			"%SLOW:"
+		"DOTA_Tooltip_ability_tidehunter_gush_688_datadriven_negative_armor"			"ARMOR REDUCTION:"
 		//Tiny
 		"DOTA_Tooltip_ability_tiny_avalanche_datadriven"								"Avalanche"
 		"DOTA_Tooltip_ability_tiny_avalanche_datadriven_Description"					"Bombards an area with rocks, continously doing small intervals of damage and stun to enemy units. Avalanche does %toss_multiplier%x damage to units being tossed."
