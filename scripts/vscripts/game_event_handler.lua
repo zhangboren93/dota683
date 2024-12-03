@@ -111,7 +111,6 @@ function HandleGameStateChange(game_mode, event)
 			end
 		end, "spawn neutral creep", 30)
 	elseif event.new_state == DOTA_GAMERULES_STATE_HERO_SELECTION then
-		CustomGameEventManager:Send_ServerToAllClients("player_ladder_scores", game_mode.playerId2LadderScore)
 		if game_mode.game_mode == 'DM' then
 			deathMatchGameRulesUpdate()
 			-- randoms all player's hero selection
@@ -153,6 +152,7 @@ function HandleGameStateChange(game_mode, event)
 							elseif PlayerResource:GetTeam(i) == DOTA_TEAM_BADGUYS then
 								game_mode.dire_team_mmr_total = game_mode.dire_team_mmr_total + record.mmr
 							end
+							game_mode.playerId2LadderScore[i] = record.mmr
 						end
 					end
 					GameRules:SendCustomMessage("MMR: r" .. game_mode.radiant_team_mmr_total .. ", d" .. game_mode.dire_team_mmr_total, 0, 0)
@@ -215,6 +215,7 @@ function HandleGameStateChange(game_mode, event)
 					})
 				end
 			end
+			CustomGameEventManager:Send_ServerToAllClients("player_ladder_scores", game_mode.playerId2LadderScore)
 		end, "send ladder score to clients", 3)
 	end
 end
