@@ -1653,20 +1653,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_lycan_shapeshift_attackrange", {duration = ability:GetSpecialValueFor("duration")})
-	elseif event.name_const == "modifier_morphling_adaptive_strike" and parent:GetName() ~= "npc_dota_creep_siege" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local damage = ability:GetSpecialValueFor("damage_base")
-		local damage_min = ability:GetSpecialValueFor("damage_min")
-		local damage_max = ability:GetSpecialValueFor("damage_max")
-		local ratio = caster:GetAgility() / caster:GetStrength()
-		if ratio > 1.5 then
-			ratio = 1
-		else
-			ratio = ratio / 1.5
-		end
-		damage = damage + (damage_min + ratio * (damage_max - damage_min)) * caster:GetAgility()
-		ApplyDamage({ victim = parent, attacker = caster, damage = damage, damage_type = DAMAGE_TYPE_MAGICAL })
 	elseif event.name_const == "modifier_abyssal_underlord_firestorm_burn" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local burn_datadriven = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")

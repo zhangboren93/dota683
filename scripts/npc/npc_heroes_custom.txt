@@ -1210,7 +1210,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
-		"Ability2"			"morphling_adaptive_strike_str"
+		"Ability2"			"morphling_adaptive_strike_datadriven"
 		"Ability3"			"morphling_morph_replicate_datadriven"
 		"Ability6"			"morphling_replicate_datadriven"
 		"Ability9"			"morphling_morph_attribute_datadriven"
