@@ -8,7 +8,7 @@
 	</styles>
 	<Panel class="career-icon">
 		<Button onactivate="OnCareerIconPressed()">
-			<Label text="A"/>
+			<Label text="天"/>
 		</Button>
 	</Panel>
 </root>
