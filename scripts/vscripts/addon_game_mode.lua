@@ -1469,7 +1469,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 				self.game_winner = DOTA_TEAM_BADGUYS
         	end
 		end
-		sendEndGameStats(player2BuildingDamage, self.player2assist, self.game_winner)
+		sendEndGameStats(self, player2BuildingDamage, self.player2assist, self.game_winner)
 	end
 	--if IsServer() and entity:IsCreep() and not entity:IsNeutralUnitType() then
 	--	-- find creeps nearby whose target is me, preempty trigger its interval think
@@ -2732,19 +2732,8 @@ function CAddonTemplateGameMode:OnAccountRecordSave(player_id)
 		last_record.game = addToGamesRecord(last_record, player2BuildingDamage, self.player2assist, nil)
 		return last_record
 	end
-	local winning_team_mmr_total, losing_team_mmr_total
-	if self.game_winner == DOTA_TEAM_GOODGUYS then
-		winning_team_mmr_total = self.radiant_team_mmr_total
-		losing_team_mmr_total = self.dire_team_mmr_total
-	else
-		winning_team_mmr_total = self.dire_team_mmr_total
-		losing_team_mmr_total = self.radiant_team_mmr_total
-	end
-	if winning_team_mmr_total == nil then winning_team_mmr_total = 0 end
-	if dire_team_mmr_total == nil then dire_team_mmr_total = 0 end
-	local diff = math.floor(25 - (winning_team_mmr_total - losing_team_mmr_total) / 250)
-	if diff < 0 then diff = 0 end
-	if diff > 50 then diff = 50 end
+
+	local diff = calculateScoreDiff(self)
 
 	if PlayerResource:GetTeam(player_id) == self.game_winner then
 		my_mmr = my_mmr + diff

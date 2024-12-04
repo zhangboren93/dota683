@@ -12,6 +12,8 @@ function fillExtraSummaryInfo(players, slot, titles) {
 		let heroDamage = Players.extraPlayerStats.psm[players[i].toString()].hd
 		if (heroDamage) {
 			$("#hero-damage-" + (i+slot)).text = formatDamage(heroDamage)
+		} else {
+			$("#hero-damage-" + (i+slot)).text = "0"
 		}
 		let netWorth = Players.extraPlayerStats.psm[players[i].toString()].nw
 		if (netWorth) {
@@ -26,6 +28,13 @@ function fillExtraSummaryInfo(players, slot, titles) {
 			$("#assist-" + (i+slot)).text = assist;
 		} else {
 			$("#assist-" + (i+slot)).text = "0";
+		}
+		let diff = Players.extraPlayerStats.dif;
+		if (diff) {
+			let score = Players.extraPlayerStats.psm[players[i].toString()].sc;
+			$("#score-" + (i+slot)).text = score;
+		} else {
+			$("#score-" + (i+slot)).visible = false;
 		}
 
 		if (titles.mvp == players[i]) {
@@ -50,6 +59,9 @@ function fillExtraSummaryInfo(players, slot, titles) {
 }
 
 function fillExtraSummaryInfoForAll() {
+	$.Msg("fillExtraSummaryInfoForAll");
+	$.Msg(Players.extraPlayerStats);
+
 	let radiant_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_GOODGUYS)
 	let dire_players = Game.GetPlayerIDsOnTeam(DOTATeam_t.DOTA_TEAM_BADGUYS)
 
@@ -148,6 +160,10 @@ function fillExtraSummaryInfoForAll() {
 		bu: bu_player_id,
 		hun: hun_player_id
 	};
+	if (Players.extraPlayerStats.dif == 0) {
+		$("#radi-score-column").visible = false;
+		$("#dire-score-column").visible = false;
+	}
 	fillExtraSummaryInfo(radiant_players, 0, titles);
 	fillExtraSummaryInfo(dire_players,    5, titles);
 }

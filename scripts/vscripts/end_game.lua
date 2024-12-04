@@ -20,17 +20,38 @@ local function getHeroDamage(player_id)
 	return heroDamage
 end
 
-function sendEndGameStats(player2BuildingDamage, player2assist, game_winner)
-	sendEndGameStatsToPanorama(player2BuildingDamage, player2assist)
+function sendEndGameStats(game_mode, player2BuildingDamage, player2assist, game_winner)
+	sendEndGameStatsToPanorama(game_mode, player2BuildingDamage, player2assist)
 	sendEndGameStatsToServer(player2BuildingDamage, player2assist, game_winner)
 end
 
-function sendEndGameStatsToPanorama(player2BuildingDamage, player2assist)
+function calculateScoreDiff(game_mode)
+	local winning_team_mmr_total, losing_team_mmr_total
+	if game_mode.game_winner == DOTA_TEAM_GOODGUYS then
+		winning_team_mmr_total = game_mode.radiant_team_mmr_total
+		losing_team_mmr_total = game_mode.dire_team_mmr_total
+	else
+		winning_team_mmr_total = game_mode.dire_team_mmr_total
+		losing_team_mmr_total = game_mode.radiant_team_mmr_total
+	end
+	if winning_team_mmr_total == nil then winning_team_mmr_total = 0 end
+	if dire_team_mmr_total == nil then dire_team_mmr_total = 0 end
+	local diff = math.floor(25 - (winning_team_mmr_total - losing_team_mmr_total) / 250)
+	if diff < 0 then diff = 0 end
+	if diff > 50 then diff = 50 end
+	return diff
+end
+
+function sendEndGameStatsToPanorama(game_mode, player2BuildingDamage, player2assist)
 	print("sendEndGameStats")
 	local playerStatMap = {}
 
 	local radiantPlayers = getTeamPlayerIds(DOTA_TEAM_GOODGUYS)
 	local direPlayers = getTeamPlayerIds(DOTA_TEAM_BADGUYS)
+	local diff = 0
+	if game_mode.isValidRankedGame and game_mode.firstBlood then
+		diff = calculateScoreDiff(game_mode)
+	end
 	for i=1,#radiantPlayers do
 		local slot = i - 1
 		local mainPlayerId = radiantPlayers[i]
@@ -43,12 +64,26 @@ function sendEndGameStatsToPanorama(player2BuildingDamage, player2assist)
 		if assist == nil then
 			assist = 0
 		end
+		local score = 0
+		if diff > 0 then
+			local record = game_mode.player2account_records[mainPlayerId]
+			if record then score = record.mmr end
+			if game_mode.game_winner == DOTA_TEAM_GOODGUYS then
+				score = score + diff
+				score = score .. "(" .. diff ..")"
+			else 
+				score = score - diff
+				if score < 0 then score = 0 end
+				score = score .. "(-" .. diff ..")"
+			end
+		end
 		playerStatMap[mainPlayerId] = {
 			hd = heroDamage,
 			nw = PlayerResource:GetNetWorth(mainPlayerId),
 			bd = player2BuildingDamage[mainPlayerId],
 			tk = PlayerResource:GetTowerKills(mainPlayerId),
-			as = assist
+			as = assist,
+			sc = score
 		}
 	end
 	for i=1,#direPlayers do
@@ -63,15 +98,29 @@ function sendEndGameStatsToPanorama(player2BuildingDamage, player2assist)
 		if assist == nil then
 			assist = 0
 		end
+		local score = 0
+		if diff > 0 then
+			local record = game_mode.player2account_records[mainPlayerId]
+			if record then score = record.mmr end
+			if game_mode.game_winner == DOTA_TEAM_GOODGUYS then
+				score = score + diff
+				score = score .. "(" .. diff ..")"
+			else 
+				score = score - diff
+				if score < 0 then score = 0 end
+				score = score .. "(-" .. diff ..")"
+			end
+		end
 		playerStatMap[mainPlayerId] = {
 			hd = heroDamage,
 			nw = PlayerResource:GetNetWorth(mainPlayerId),
 			bd = player2BuildingDamage[mainPlayerId],
 			tk = PlayerResource:GetTowerKills(mainPlayerId),
-			as = assist
+			as = assist,
+			sc = score
 		}
 	end
-	CustomGameEventManager:Send_ServerToAllClients("end_game_summary_stats", { psm = playerStatMap })	
+	CustomGameEventManager:Send_ServerToAllClients("end_game_summary_stats", { psm = playerStatMap, dif = diff })	
 end
 
 GAME_STATS_SERVER = "localhost"
