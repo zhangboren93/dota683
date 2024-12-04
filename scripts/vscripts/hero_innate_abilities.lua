@@ -60,3 +60,4 @@ hero_688_attribute_bonus["npc_dota_hero_naga_siren"] = "modifier_naga_siren_688_
 hero_688_attribute_bonus["npc_dota_hero_phantom_assassin"] = "modifier_phantom_assassin_688_attribute_bonus"
 hero_688_attribute_bonus["npc_dota_hero_terrorblade"] = "modifier_terrorblade_688_attribute_bonus"
 hero_688_attribute_bonus["npc_dota_hero_vengefulspirit"] = "modifier_vengefulspirit_688_attribute_bonus"
+hero_688_attribute_bonus["npc_dota_hero_beastmaster"] = "modifier_beastmaster_688_attribute_bonus"
