@@ -208,7 +208,6 @@ function Activate()
 	LinkLuaModifier( "modifier_shredder_chakram_death_lua", 			"heroes/hero_shredder/chakram.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_shredder_chakram_remove_rubick_lua", 	"heroes/hero_shredder/chakram.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_spectre_haunt_fix_movespeed_lua", 		"heroes/hero_spectre/modifier_spectre_haunt_fix_movespeed.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_techies_stasis_trap_explode_sound_lua", 	"heroes/hero_techies/modifier_techies_stasis_trap_explode_sound.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_jakiro_liquid_fire_burn_lua", 			"heroes/hero_jakiro/modifier_jakiro_liquid_fire_burn.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_treant_natures_guise_lua", 				"heroes/hero_treant/modifier_treant_natures_guise.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_undying_zombie_deathstrike_active_lua",  "heroes/hero_undying/modifier_undying_zombie_deathstrike_active.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1694,15 +1693,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 				setAltModel(parent)
 			end
 		end
-	elseif event.name_const == "modifier_techies_stasis_trap" then
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		parent:AddNewModifier(parent, nil, "modifier_kill", { duration = ability:GetSpecialValueFor("duration") })
-		parent:AddNewModifier(parent, nil, "modifier_techies_stasis_trap_explode_sound_lua", {})
-	elseif event.name_const == "modifier_techies_stasis_trap_stunned" then
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		parent:AddNewModifier(caster, ability, "modifier_stunned", { duration = ability:GetSpecialValueFor("stun_duration")})
-		return false
 	elseif event.name_const == "modifier_techies_minefield_sign_thinker" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		caster:FindAbilityByName("hero_ability_executed_hook_datadriven"):ApplyDataDrivenModifier(caster, parent, "modifier_techies_minesign_datadriven", {})

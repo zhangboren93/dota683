@@ -4029,7 +4029,7 @@
 		"StatusManaRegen"			"0.02"
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"techies_land_mines_datadriven"
-		"Ability2"		"techies_stasis_trap"
+		"Ability2"		"techies_stasis_trap_datadriven"
 		"Ability3"		"techies_suicide_datadriven"
 		"Ability4"		"techies_focused_detonate_datadriven"
 		"Ability5"		"techies_minefield_sign"
