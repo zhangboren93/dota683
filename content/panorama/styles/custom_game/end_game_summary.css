@@ -35,6 +35,7 @@ DOTAItemImage {
 	height: 40px;	
 	vertical-align: center;
 	margin-left: 10px;
+	width: 55px;
 }
 
 .hero-damage {
@@ -73,6 +74,10 @@ DOTAItemImage {
 	color: green;
 }
 
-.score-column {
+.score-column-title {
 	margin-left: 420px;
+}
+
+.score-column {
+	margin-left: 20px;
 }

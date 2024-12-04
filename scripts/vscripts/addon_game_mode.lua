@@ -1466,7 +1466,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
         	if entity:GetTeam() == DOTA_TEAM_GOODGUYS then
 				self.game_winner = DOTA_TEAM_BADGUYS
         	else
-				self.game_winner = DOTA_TEAM_BADGUYS
+				self.game_winner = DOTA_TEAM_GOODGUYS
         	end
 		end
 		sendEndGameStats(self, player2BuildingDamage, self.player2assist, self.game_winner)

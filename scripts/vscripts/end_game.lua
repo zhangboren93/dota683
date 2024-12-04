@@ -68,9 +68,11 @@ function sendEndGameStatsToPanorama(game_mode, player2BuildingDamage, player2ass
 		if diff > 0 then
 			local record = game_mode.player2account_records[mainPlayerId]
 			if record then score = record.mmr end
+			print("Game_mode winner")
+			print(game_mode.game_winner)
 			if game_mode.game_winner == DOTA_TEAM_GOODGUYS then
 				score = score + diff
-				score = score .. "(" .. diff ..")"
+				score = score .. "(+" .. diff ..")"
 			else 
 				score = score - diff
 				if score < 0 then score = 0 end
@@ -102,9 +104,9 @@ function sendEndGameStatsToPanorama(game_mode, player2BuildingDamage, player2ass
 		if diff > 0 then
 			local record = game_mode.player2account_records[mainPlayerId]
 			if record then score = record.mmr end
-			if game_mode.game_winner == DOTA_TEAM_GOODGUYS then
+			if game_mode.game_winner == DOTA_TEAM_BADGUYS then
 				score = score + diff
-				score = score .. "(" .. diff ..")"
+				score = score .. "(+" .. diff ..")"
 			else 
 				score = score - diff
 				if score < 0 then score = 0 end
