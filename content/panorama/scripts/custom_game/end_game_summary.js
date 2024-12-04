@@ -88,9 +88,9 @@ function fillExtraSummaryInfoForAll() {
 		let death = Players.GetDeaths(winning_players[i]);
 		let assist = Players.extraPlayerStats.psm[winning_players[i].toString()].as;
 		// TODO compare kill streak if kda same
-		if (kill + assist / 2 - death > mvp_score) {
+		if (kill + assist - death > mvp_score) {
 			mvp_player_id = winning_players[i]
-			mvp_score = kill + assist / 2 - death
+			mvp_score = kill + assist - death
 		}
 	}
 	$.Msg("MVP is player " + mvp_player_id + " with score " + mvp_score)
