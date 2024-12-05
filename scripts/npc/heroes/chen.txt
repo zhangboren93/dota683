@@ -26,6 +26,7 @@
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
 			"particle"			"particles/units/heroes/hero_chen/chen_penitence.vpcf"
 			"particle"			"particles/units/heroes/hero_chen/chen_penitence_debuff.vpcf"
+			"particle"			"particles/units/heroes/hero_chen/chen_penitence_proj.vpcf"
 		}
 		
 		// Casting
