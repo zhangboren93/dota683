@@ -4244,6 +4244,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability1"		"chen_penitence_datadriven"
 		"Ability2"		"chen_test_of_faith"
 		"Ability3"		"chen_test_of_faith_teleport_datadriven"
 		"Ability4"		"chen_holy_persuasion_lua"
