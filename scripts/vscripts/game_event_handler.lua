@@ -207,11 +207,33 @@ function HandleGameStateChange(game_mode, event)
 			for i=0,PlayerResource:GetPlayerCount() - 1 do
 				local record = game_mode.player2account_records[tostring(i)]
 				if record ~= nil then
+					local games = record.game
+					local kda = 0
+					local gpm = 0
+					local tdmg = 0
+					if games ~= nil and #games > 0 then
+						for j=1,#games do
+							local game = games[j]
+							if game.play ~= nil and #game.play > 0 then
+								for k = 1, #games.play do
+									local play = games.play[k]
+									if play.acnt == PlayerResource:GetSteamAccountID(i) then
+										kda = kda + (play.kill + play.asst) / play.deth / #game.play
+										gpm = gpm + play.netw / game.time / #game.play
+										tdmg = tdmp + player.bdmg / #game.play
+									end
+								end
+							end
+						end
+					end
  	   				CustomGameEventManager:Send_ServerToAllClients("career_player_stats", {
 						pid 	= i,
 						mmr 	= record.mmr,
 						trg 	= record.trg,
-						trwg 	= record.trwg
+						trwg 	= record.trwg,
+						kda		= math.floor(kda * 10) / 10,
+						gpm		= math.floor(gpm),
+						tdmg	= math.floor(tdmg)
 					})
 				end
 			end

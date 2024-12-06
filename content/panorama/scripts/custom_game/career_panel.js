@@ -7,6 +7,9 @@ function handleCareerPlayerStats(event) {
 		let mmr = event['mmr']
 		let trg = event['trg']
 		let trwg = event['trwg']
+		let kda = event['kda']
+		let gpm = event['gpm']
+		let tdmg = event['tdmg']
 		if (mmr) {
 			$("#mmr").text = mmr
 		}
@@ -16,6 +19,15 @@ function handleCareerPlayerStats(event) {
 		if (trg > 0) {
 			let win_rate = (trwg * 100 / trg) + "%"
 			$("#wins").text = win_rate
+		}
+		if (kda > 0) {
+			$("#kda").text = kda
+		}
+		if (gpm > 0) {
+			$("#gpm").text = gpm
+		}
+		if (tdmg > 0) {
+			$("#tdmg").text = tdmg
 		}
 	}
 }

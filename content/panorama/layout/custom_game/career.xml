@@ -16,5 +16,9 @@
 		<Panel class="career-row"><Label class="career-row-title" text="MMR"/><Label id='mmr' class="carrer-row-value" text="0"/></Panel>
 		<Panel class="career-row"><Label class="career-row-title" text="比赛"/><Label id='games' class="carrer-row-value" text="0"/></Panel>
 		<Panel class="career-row"><Label class="career-row-title" text="胜率"/><Label id='wins' class="carrer-row-value" text="0"/></Panel>
+		<Label text="最近20把场均："/>
+		<Panel class="career-row"><Label class="career-row-title" text="KDA"  /><Label id='kda'  class="carrer-row-value" text="0"/></Panel>
+		<Panel class="career-row"><Label class="career-row-title" text="GPM"  /><Label id='gpm'  class="carrer-row-value" text="0"/></Panel>
+		<Panel class="career-row"><Label class="career-row-title" text="推塔" /><Label id='tdmg'  class="carrer-row-value" text="0"/></Panel>
 	</Panel>
 </root>
