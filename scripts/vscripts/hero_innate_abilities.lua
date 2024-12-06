@@ -62,3 +62,4 @@ hero_688_attribute_bonus["npc_dota_hero_terrorblade"] = "modifier_terrorblade_68
 hero_688_attribute_bonus["npc_dota_hero_vengefulspirit"] = "modifier_vengefulspirit_688_attribute_bonus"
 hero_688_attribute_bonus["npc_dota_hero_beastmaster"] = "modifier_beastmaster_688_attribute_bonus"
 hero_688_attribute_bonus["npc_dota_hero_rattletrap"] = "modifier_rattletrap_688_attribute_bonus"
+hero_688_attribute_bonus["npc_dota_hero_magnataur"] = "modifier_magnataur_688_attribute_bonus"
