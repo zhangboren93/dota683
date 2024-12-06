@@ -2382,6 +2382,16 @@
 		"DOTA_Tooltip_modifier_test_of_faith_teleport_datadriven"				"Rapture"
 		"DOTA_Tooltip_modifier_test_of_faith_teleport_datadriven_Description"	"Teleporting to safety."
 		// Crystal Maiden
+		"DOTA_Tooltip_ability_crystal_maiden_frostbite_datadriven"								"Frostbite"
+		"DOTA_Tooltip_ability_crystal_maiden_frostbite_datadriven_Description"					"Encases an enemy unit in ice, prohibiting movement and attack, while dealing damage over time. Lasts %creep_duration% seconds on creeps."
+		"DOTA_Tooltip_ability_crystal_maiden_frostbite_datadriven_Lore"							"Rylai channels winds from the Blueheart Glacier, imprisoning attackers in thick blocks of ice."
+		"DOTA_Tooltip_ability_crystal_maiden_frostbite_datadriven_Note0"						"Frostbite is considered a root."		
+		"DOTA_Tooltip_ability_crystal_maiden_frostbite_datadriven_damage"						"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_crystal_maiden_frostbite_datadriven_duration"						"HERO DURATION:"
+		"DOTA_Tooltip_ability_crystal_maiden_frostbite_datadriven_creep_duration"				"CREEP DURATION:"	
+		"DOTA_Tooltip_ability_crystal_maiden_frostbite_datadriven_damage_interval"				"DAMAGE INTERVAL:"	
+		"DOTA_Tooltip_modifier_frost_bite_root_datadriven"											"Frostbite"
+		"DOTA_Tooltip_modifier_frost_bite_root_datadriven_Description"								"Cannot move or attack. Taking %dMODIFIER_PROPERTY_TOOLTIP% damage every %fMODIFIER_PROPERTY_TOOLTIP% seconds."
 		"DOTA_Tooltip_Ability_crystal_maiden_freezing_field_Scepter_Description"	"Increases damage and slow."
 		// Dark Seer
 		"DOTA_Tooltip_ability_dark_seer_ion_shell_datadriven"								"Ion Shell"

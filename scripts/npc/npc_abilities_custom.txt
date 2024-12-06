@@ -12,6 +12,7 @@
 #base "heroes/brewmaster.txt"
 #base "heroes/chen.txt"
 #base "heroes/clinkz.txt"
+#base "heroes/crystal_maiden.txt"
 #base "heroes/dazzle.txt"
 #base "heroes/death_prophet.txt"
 #base "heroes/doom_bringer.txt"
@@ -21575,45 +21576,6 @@
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}	
-	//=================================================================================================================
-	// Ability: Crystal Maiden's Frostbite
-	//=================================================================================================================
-	"crystal_maiden_frostbite"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5127"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"hero_Crystal.frostbite"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.5"	// Applies multiple modifiers
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"AbilityCastRange"				"500"
-			"AbilityCastPoint"				"0.3"
-			"AbilityCooldown"				"10 9 8 7"
-			"AbilityManaCost"				"115 125 140 150"
-			"damage_per_second"				"100"
-			"creep_damage_per_second"		"100"
-			"duration"						"1.5 2.0 2.5 3.0"
-			"creep_duration"				"10"
-			"creep_multiplier"				"1"
-			"tick_interval"					"0.5"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}	
 	//=================================================================================================================
 	// Ability: Crystal Maiden's Arcane Aura

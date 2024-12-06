@@ -1,0 +1,127 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	// Rewrite of Crystal Maiden Frostbite
+	// Author: kritth
+	// Date: December 31, 2015
+	// Version: 6.86
+	// Type: Datadriven
+	"crystal_maiden_frostbite_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"crystal_maiden_frostbite"
+		"AbilityProcsMagicStick"		"1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.3"
+		
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"10 9 8 7"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"115 125 140 150"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.5"	// Applies multiple modifiers
+		
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"damage_per_second_tooltip"		"50"
+				"duration"						"1.5 2.0 2.5 3.0"
+				"hero_damage_tooltip"			"150 200 250 300"
+				"creep_duration"				"10"
+				"creep_damage_tooltip"			"1000"
+				"damage"						"100"
+				"stun_duration"					"0.1"
+				"damage_interval"				"0.5"
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+			"particle"				"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+			"particle"				"particles/units/heroes/hero_crystalmaiden/maiden_frostbite.vpcf"
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"heroes/hero_crystal_maiden/frostbite.lua"
+				"Function"			"handleSpellStart"
+			}
+		}
+		
+		"Modifiers"
+		{
+			"modifier_frost_bite_root_datadriven"
+			{
+				"IsPurgable"		"1"
+			
+				"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+			
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_DISABLED"
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"heroes/hero_crystal_maiden/frostbite.lua"
+						"Function"				"handleDestroy"
+					}
+				}
+			}
+			
+			"modifier_frost_bite_damage_datadriven"
+			{
+				"IsPurgable"		"1"
+				"IsHidden"		"1"
+				
+				//"OnCreated"
+				//{
+				//	"Damage"
+				//	{
+				//		"Target"	"TARGET"
+				//		"Damage"	"%damage_per_second_tooltip"
+				//		"Type"		"DAMAGE_TYPE_MAGICAL"
+				//	}
+				//}
+				
+				"ThinkInterval"		"%damage_interval"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Damage"	"%damage_per_second_tooltip"
+						"Type"		"DAMAGE_TYPE_MAGICAL"
+					}
+				}
+			}
+		}
+	}
+	
+}
