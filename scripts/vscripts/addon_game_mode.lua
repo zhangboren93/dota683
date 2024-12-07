@@ -2008,6 +2008,7 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 --	elseif event.name_const == "modifier_nevermore_requiem_fear" then return false
 	elseif event.name_const == "modifier_neutral_sleep_ai" then return false
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_ensare" then return false
+	elseif event.name_const == "modifier_stacked_neutral" then return false
 	end
 
 	end
