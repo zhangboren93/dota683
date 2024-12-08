@@ -6965,48 +6965,6 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Doom Bringer: Scorched Earth
-	//=================================================================================================================
-	"doom_bringer_scorched_earth"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5340"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_DoomBringer.ScorchedEarthAura"
-		"HasShardUpgrade"				"0"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600 600 600 600"
-		"AbilityCooldown"				"60 55 50 45"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"60 65 70 75"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"damage_per_second"		"12 18 24 30"
-				"radius"				"600 600 600 600"
-				"bonus_movement_speed_pct"	"16"
-				"duration"				"10.0 12.0 14.0 16.0"
-				"heal_pct"				"0"
-				"damage_per_hero"		"0"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	}
 	// Rewrite of the Doom Lvl Death ability
 	// Author: Pizzalol
 	// Date: January 27, 2016

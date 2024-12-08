@@ -1772,11 +1772,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		parent:AddNewModifier(caster, ability, "modifier_oracle_false_promise_invis", {});
-	elseif event.name_const == "modifier_doom_bringer_scorched_earth_effect" then
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local duration = ability:GetSpecialValueFor("duration")
-		parent:AddNewModifier(caster, ability, "modifier_doom_bringer_scorched_earth_buff_aura_lua", { duration = duration })
 	elseif event.name_const == "modifier_storm_spirit_electric_vortex_pull" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
