@@ -7523,44 +7523,6 @@
 			"target_sight_radius"	"500"
 		}
 	}
-	//=================================================================================================================
-	// Spirit Breaker: Greater Bash
-	//=================================================================================================================
-	"spirit_breaker_greater_bash"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5355"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"AbilitySound"					"Hero_Spirit_Breaker.GreaterBash"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"1.5 1.5 1.5 1.5"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"	"40"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"chance_pct"			"17 17 17 17"
-				"damage"				"22 28 34 40"
-				"duration"				"1 1.2 1.4 1.6"
-				"knockback_duration"	"0.5 0.5 0.5 0.5"
-				"knockback_distance"	"143 152 158 162"
-				"knockback_height"		"50 50 50 50"
-				"bonus_movespeed_pct"	"15"
-				"movespeed_duration"	"3.0 3.0 3.0 3.0"
-				"creep_multiplier"		"1"
-		}
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-	}
 // Rewrite of Alchemist Acid Spray
 // Author: Noya
 // Date: October 13, 2015

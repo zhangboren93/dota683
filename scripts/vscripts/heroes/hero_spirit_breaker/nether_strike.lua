@@ -11,7 +11,7 @@ function handleSpellStart(event)
     FindClearSpaceForUnit(caster, target:GetAbsOrigin() + 54 * (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized(), true)
  	caster:SetForwardVector((target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized())
 	caster:MoveToTargetToAttack(target)
-    local bash = caster:FindAbilityByName("spirit_breaker_greater_bash")
+    local bash = caster:FindAbilityByName("spirit_breaker_greater_bash_datadriven")
     if bash:GetLevel() == 0 then
         return
     end

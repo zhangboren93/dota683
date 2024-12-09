@@ -233,5 +233,64 @@
 			}
 		}
 	}
+	"spirit_breaker_greater_bash_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"spirit_breaker_greater_bash"
 	
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1.5"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportBonus"	"40"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"chance_pct"			"17"
+				"damage"				"22 28 34 40"
+				"duration"				"1.0 1.2 1.4 1.6"
+				"knockback_duration"	"0.5"
+				"knockback_distance"	"143 152 158 162"
+				"knockback_height"		"50"
+				"bonus_movespeed_pct"	"15"
+				"movespeed_duration"	"3"
+		}
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_spirit_breaker_greater_bash_datadriven"
+			{
+				"IsHidden"			"1"
+				"Passive"			"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_spirit_breaker/greater_bash.lua"
+						"Function"		"handleAttackLanded"
+					}
+				}
+			}
+			"modifier_spirit_breaker_greater_bash_speed_datadriven"
+			{
+				"Duration"		"%movespeed_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movespeed_pct"
+				}
+			}
+		}
+	}
 }

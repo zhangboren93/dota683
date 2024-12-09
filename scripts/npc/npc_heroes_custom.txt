@@ -1954,6 +1954,7 @@
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"spirit_breaker_charge_of_darkness_datadriven"
 		"Ability2"		"spirit_breaker_empowering_haste_datadriven"
+		"Ability3"		"spirit_breaker_greater_bash_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability5"		"generic_hidden"
 		"Ability6"		"spirit_breaker_nether_strike_datadriven"

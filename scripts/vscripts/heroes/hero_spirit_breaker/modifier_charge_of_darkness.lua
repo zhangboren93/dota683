@@ -46,7 +46,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnIntervalThink()
 		end
 		if (self.target:GetAbsOrigin() - parent:GetAbsOrigin()):Length2D() <= 150 then
 			parent:EmitSound("Hero_Spirit_Breaker.Charge.Impact")
-			local bash = parent:FindAbilityByName("spirit_breaker_greater_bash")
+			local bash = parent:FindAbilityByName("spirit_breaker_greater_bash_datadriven")
 			if bash ~= nil and bash:GetLevel() > 0 then
 				local damage = bash:GetSpecialValueFor("damage") * parent:GetMoveSpeedModifier(parent:GetBaseMoveSpeed(), false) / 100 + ability:GetSpecialValueFor("damage")
 				ApplyDamage({
@@ -78,7 +78,7 @@ function modifier_spirit_breaker_charge_of_darkness_lua:OnIntervalThink()
 			ability:ApplyDataDrivenModifier(parent, self.target, "modifier_spirit_breaker_charge_target_vision_datadriven", {})
 		end
 
-		local bash = parent:FindAbilityByName("spirit_breaker_greater_bash")
+		local bash = parent:FindAbilityByName("spirit_breaker_greater_bash_datadriven")
 		if bash == nil or bash:GetLevel() == 0 then return end
 		local damage = bash:GetSpecialValueFor("damage") * parent:GetMoveSpeedModifier(parent:GetBaseMoveSpeed(), false) / 100 + ability:GetSpecialValueFor("damage")
 		local bash_duration = ability:GetSpecialValueFor("stun_duration")

@@ -1680,12 +1680,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 			local ability = EntIndexToHScript(event.entindex_ability_const)
 			parent:AddNewModifier(caster, ability, "modifier_elder_titan_earth_splitter_disarm", {duration = ability:GetSpecialValueFor("slow_duration")})
 		end
-	elseif event.name_const == "modifier_knockback" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		if caster:GetName() == "npc_dota_hero_spirit_breaker" then
-			local ability = EntIndexToHScript(event.entindex_ability_const)
-			caster:AddNewModifier(caster, ability, "modifier_spirit_breaker_greater_bash_speed", {duration = ability:GetSpecialValueFor("movespeed_duration")})
-		end
 	elseif event.name_const == "modifier_illusion" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local hook = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
