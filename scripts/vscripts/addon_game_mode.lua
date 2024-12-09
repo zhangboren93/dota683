@@ -857,6 +857,14 @@ function CAddonTemplateGameMode:OrderFilter(event)
 					return false
 				end
 			end
+		elseif ability:GetName() == "item_tpscroll" then
+			local target_position = Vector(event.position_x, event.position_y, event.position_z)
+			invalid_tp_position = Vector(3495, 3878, 384)
+			local valid_tp_position = Vector(3596, 3971, 384)
+			if (target_position - invalid_tp_position):Length2D() < 150 then
+				event.position_x = valid_tp_position.x
+				event.position_y = valid_tp_position.y
+			end
 		end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
