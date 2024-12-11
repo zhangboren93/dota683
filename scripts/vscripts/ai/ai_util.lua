@@ -1,6 +1,19 @@
 require( "ai/global_ability_data" )
 local gHeroVar = require( "ai/global_hero_data" )
 
+-- openhyperai begin 
+function Init_G(thisEntity)
+	_G["GetBot"] = function() return thisEntity end
+	_G["CDOTA_Bot_Script"] = {}
+	_G["GetTeam"] = function() return thisEntity:GetTeam() end
+	_G["IsPlayerBot"] = function(id) return PlayerResource:GetPlayer(id) ~= nil end
+	_G["GetTeamMember"] = function(n) return PlayerResource:GetNthPlayerIDOnTeam(thisEntity:GetTeam(), n) end
+end
+function GetScriptDirectory()
+	return "openhyperai/bots"
+end
+-- openhyperai end
+
 local function setHeroVar(bot, var, value)
     gHeroVar.SetVar(bot:GetPlayerID(), var, value)
 end
@@ -152,10 +165,6 @@ function updateDebugHero(text)
 		ACTION_DEBUG_HERO = string.sub(text, 7)
 		print("ACTION_DEBUG_HERO " .. ACTION_DEBUG_HERO)
 	end
-end
-
-function GetScriptDirectory()
-	return "ai"
 end
 
 function SetBot(bot)

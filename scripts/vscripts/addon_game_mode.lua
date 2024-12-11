@@ -520,6 +520,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	if text == "-test" then
 		--local hero = PlayerResource:GetPlayer(playerid):GetAssignedHero()
 		--PlayerResource:GetPlayer(0):MakeRandomHeroSelection()
+		--GameRules:AddBotPlayerWithEntityScript("npc_dota_hero_nevermore", "Bot", DOTA_TEAM_BADGUYS, "ai/bot_nevermore.lua", true)
 	end
 	--if text == "-shuffleteam" then
 	--	local game_state = GameRules:State_Get()
