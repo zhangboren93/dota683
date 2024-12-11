@@ -1,6 +1,7 @@
 require( "ai/global_ability_data" )
 local gHeroVar = require( "ai/global_hero_data" )
 
+GAMEMODE_AP = 1
 -- openhyperai begin 
 function Init_G(thisEntity)
 	_G["GetBot"] = function() return thisEntity end
@@ -8,6 +9,26 @@ function Init_G(thisEntity)
 	_G["GetTeam"] = function() return thisEntity:GetTeam() end
 	_G["IsPlayerBot"] = function(id) return PlayerResource:GetPlayer(id) ~= nil end
 	_G["GetTeamMember"] = function(n) return PlayerResource:GetNthPlayerIDOnTeam(thisEntity:GetTeam(), n) end
+	_G["GetItemComponents"] = function(item) 
+		print("TODO GetItemComponents " .. item)
+		return {}
+	end
+	_G["GetGameMode"] = function() return GAMEMODE_AP end
+	thisEntity.NumQueuedActions = function()
+		print("TODO NumQueuedActions")
+		return 0
+	end
+	thisEntity.IsCastingAbility = function()
+		print("TODO IsCastingAbility")
+		return false
+	end
+	thisEntity.IsUsingAbility = function()
+		print("TODO IsUsingAbility")
+		return false
+	end
+	thisEntity.GetAssignedLane = function()
+		return LANE_MID
+	end
 end
 function GetScriptDirectory()
 	return "openhyperai/bots"

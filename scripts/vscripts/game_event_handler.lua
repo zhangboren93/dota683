@@ -278,8 +278,10 @@ function handleGameInProgressTimer(game_mode, player2BuildingDamage)
 			local entity = PlayerResource:GetPlayer(playerid)
 			if entity ~= nil then
 				entity = entity:GetAssignedHero()
-				local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
-				PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
+				if entity ~= nil then
+					local buyback_cost = 100 + entity:GetLevel() * entity:GetLevel() * 1.5 + GameRules:GetDOTATime(false, false) * 0.25
+					PlayerResource:SetCustomBuybackCost(playerid, buyback_cost)
+				end
 			end
 		end
 	end
