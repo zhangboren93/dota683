@@ -2,13 +2,20 @@ require( "ai/global_ability_data" )
 local gHeroVar = require( "ai/global_hero_data" )
 
 GAMEMODE_AP = 1
+LANE_MID = 2
 LANE_MID_LINES = {Vector(-4887, -4322, 384), Vector(4394, 3906, 384)}
+BOT_MODE_LANING = 1
+ITEM_SLOT_TYPE_INVALID = -1 
 -- openhyperai begin 
+local function enhanceUnit(ret, thisEntity)
+	ret.CanBeSeen = function(self)
+		return thisEntity:CanEntityBeSeenByMyTeam(self)
+	end
+	return ret
+end
 local function enhanceUnits(ret, thisEntity)
 	for i=1,#ret do
-		ret[i].CanBeSeen = function(self)
-			return thisEntity:CanEntityBeSeenByMyTeam(self)
-		end
+		enhanceUnit(ret[i], thisEntity)
 	end
 	return ret
 end
@@ -61,10 +68,21 @@ function Init_G(thisEntity)
 		end
 		return front_creep:GetAbsOrigin()
 	end
+	_G["GetTower"] = function(team, towerId)
+		if team == DOTA_TEAM_GOODGUYS then
+			return enhanceUnit(Entities:FindByName(nil, RAD_BUILDING_TYPE_2_NAME[towerId]),  thisEntity)
+		else
+			return enhanceUnit(Entities:FindByName(nil, DIRE_BUILDING_TYPE_2_NAME[towerId]), thisEntity)
+		end
+	end
+
 
 	thisEntity.OriginalGetMaxHealth = function() return thisEntity:GetMaxHealth() end
 	thisEntity.OriginalGetHealth =    function() return thisEntity:GetHealth()	end
 	thisEntity.GetAssignedLane =      function() return LANE_MID end
+	thisEntity.GetActiveMode = 		  function() return thisEntity.bot_active_mode end
+	thisEntity.GetAttackRange = 	  function() return thisEntity:Script_GetAttackRange() end
+	thisEntity.Action_MoveToLocation = function(self, loc) thisEntity:MoveToPosition(loc) end
 	thisEntity.NumQueuedActions = function()
 		print("TODO NumQueuedActions")
 		return 0
@@ -93,11 +111,49 @@ function Init_G(thisEntity)
 			FIND_ANY_ORDER, false)
 		return enhanceUnits(units, thisEntity)
 	end
+	thisEntity.GetAnimActivity = function()
+		if thisEntity:IsAttacking()  then return ACT_DOTA_ATTACK
+		elseif thisEntity:IsMoving() then return ACT_DOTA_RUN
+		else 							  return ACT_DOTA_IDLE    end
+	end
+    thisEntity.FindItemSlot = function(self, item_name)
+        local item = thisEntity:FindItemInInventory(item_name)
+		if item == nil then return ITEM_SLOT_TYPE_INVALID end
+		return item:GetItemSlot()
+    end
+	thisEntity.GetNearbyTowers = function(self, range, is_enemy)
+		local target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
+		if is_enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
+		local buildings = FindUnitsInRadius(self:GetTeam(), self:GetAbsOrigin(), nil, range, 
+			target_team, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+		local towers = {}
+		for i=1,#buildings do
+			if buildings[i]:IsTower() then
+				table.insert(towers, buildings[i])
+			end
+		end
+		return towers
+	end
+	thisEntity.GetNearbyCreeps = function(self, range, enemy)
+		local target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
+		if is_enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
+		return FindUnitsInRadius(self:GetTeam(), self:GetAbsOrigin(), nil, range, target_team,
+			DOTA_UNIT_TARGET_CREEP,	DOTA_UNIT_TARGET_FLAG_NONE,	FIND_CLOSEST, false)
+	end
+	thisEntity.WasRecentlyDamagedByTower = function(self, time)
+		print("TODO WasRecentlyDamagedByTower " .. time)
+		return false
+	end
+	thisEntity.WasRecentlyDamagedByCreep = function(self, time)
+		print("TODO WasRecentlyDamagedByCreep " .. time)
+		return false
+	end
 end
 
 function GetScriptDirectory()
 	return "openhyperai/bots"
 end
+
 -- openhyperai end
 
 local function setHeroVar(bot, var, value)
@@ -220,7 +276,6 @@ DIRE_BUILDING_TYPE_2_NAME = {
 	"bad_rax_range_bot"
 }
 
-ITEM_SLOT_TYPE_INVALID = -1 
 ITEM_SLOT_TYPE_MAIN = 1
 ITEM_SLOT_TYPE_BACKPACK = 2
 ITEM_SLOT_TYPE_STASH = 3
@@ -262,11 +317,6 @@ function SetBot(bot)
 		return self:FindAbilityByName(name)
 	end
 
-    bot.FindItemSlot = function(self, item_name)
-        local item = self:FindItemInInventory(item_name)
-		if item == nil then return ITEM_SLOT_TYPE_INVALID end
-		return item:GetItemSlot()
-    end
     bot.GetItemSlotType = function(self, slot)
         if slot <= DOTA_ITEM_SLOT_6 then
             return ITEM_SLOT_TYPE_MAIN
@@ -479,30 +529,6 @@ function SetBot(bot)
 	bot.SetNextItemPurchaseValue = function(self, value)
 		self.nextItemPurchaseValue = value
 	end
-	bot.GetNearbyTowers = function(self, range, is_enemy, mode)
-		local target_team
-		if is_enemy then
-			target_team = DOTA_UNIT_TARGET_TEAM_ENEMY
-		else
-			target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
-		end
-		local buildings = FindUnitsInRadius(self:GetTeam(),
-			self:GetAbsOrigin(),
-			nil, 
-			range, 
-			target_team,
-			DOTA_UNIT_TARGET_BUILDING,
-			DOTA_UNIT_TARGET_FLAG_NONE,
-			FIND_CLOSEST,
-			false)
-		local towers = {}
-		for i=1,#buildings do
-			if buildings[i]:IsTower() then
-				table.insert(towers, buildings[i])
-			end
-		end
-		return towers
-	end
 	bot.GetNearbyBarracks = function(self, range, is_enemy)
 		local target_team
 		if is_enemy then
@@ -666,7 +692,6 @@ function SetBot(bot)
 	bot.GetActiveMode = function(self) return self.currentModeName end
 	bot.GetTarget = function(self) return getHeroVar(self, "Target") end
 	bot.GetNearbyHeroes = function(self, range, enemy, mode) return GetNearbyHeroes(self, range, enemy, mode) end
-	bot.GetNearbyCreeps = function(self, range, enemy) return GetNearbyCreeps(self, range, enemy) end
 	bot.WasRecentlyDamagedByHero = function(self, hero, time) return WasRecentlyDamagedByHero(self, hero, time) end
 end
 
@@ -714,14 +739,6 @@ function GetHeroLastSeenInfo(pid)
 		location = hero:GetAbsOrigin(),
 		time_since_seen = 0
 	}
-end
-
-function GetTower(team, towerId)
-	if team == DOTA_TEAM_GOODGUYS then
-		return Entities:FindByName(nil, RAD_BUILDING_TYPE_2_NAME[towerId])
-	else
-		return Entities:FindByName(nil, DIRE_BUILDING_TYPE_2_NAME[towerId])
-	end
 end
 
 function GetBarracks(team, towerId)
