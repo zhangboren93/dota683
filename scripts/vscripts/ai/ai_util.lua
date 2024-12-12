@@ -2,7 +2,17 @@ require( "ai/global_ability_data" )
 local gHeroVar = require( "ai/global_hero_data" )
 
 GAMEMODE_AP = 1
+LANE_MID_LINES = {Vector(-4887, -4322, 384), Vector(4394, 3906, 384)}
 -- openhyperai begin 
+local function enhanceUnits(ret, thisEntity)
+	for i=1,#ret do
+		ret[i].CanBeSeen = function(self)
+			return thisEntity:CanEntityBeSeenByMyTeam(self)
+		end
+	end
+	return ret
+end
+
 function Init_G(thisEntity)
 	_G["GetBot"] = function() return thisEntity end
 	_G["CDOTA_Bot_Script"] = {}
@@ -14,6 +24,47 @@ function Init_G(thisEntity)
 		return {}
 	end
 	_G["GetGameMode"] = function() return GAMEMODE_AP end
+	_G["GetOpposingTeam"] = function() 
+		if thisEntity:GetTeam() == DOTA_TEAM_GOODGUYS then
+			return DOTA_TEAM_BADGUYS
+		else
+			return DOTA_TEAM_GOODGUYS
+		end
+	end
+	_G["GetUnitList"] = function(team)
+		local ret = nil
+		if team == UNIT_LIST_ENEMIES then
+			ret = FindUnitsInRadius(thisEntity:GetTeam(), Vector(0, 0, 0), nil, 30000, DOTA_UNIT_TARGET_TEAM_ENEMY, 
+				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 0, 0, false)
+		else
+			print("TODO GetUnitList " .. team)
+			return {}
+		end
+		return enhanceUnits(ret, thisEntity)
+	end
+	_G["GetLaneFrontLocation"] = function(team, lane, delta)
+		if delta ~= 0 or lane ~= LANE_MID or team ~= DOTA_TEAM_BADGUYS then
+			print("TODO GetLaneFrontLocation " .. team .. ", " .. lane .. ", " .. delta)
+			return Vector(0, 0, 0)
+		end
+		local units = FindUnitsInLine(team, LANE_MID_LINES[1], LANE_MID_LINES[2], nil,
+			500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_CREEP, 
+			DOTA_UNIT_TARGET_FLAG_NONE)
+		if #units == 0 then
+			return LANE_MID_LINES[1]
+		end
+		local front_creep = units[1]
+		for i=2,#units do
+			if units[i]:GetAbsOrigin().x < front_creep:GetAbsOrigin().x then
+				front_creep = units[i]
+			end
+		end
+		return front_creep:GetAbsOrigin()
+	end
+
+	thisEntity.OriginalGetMaxHealth = function() return thisEntity:GetMaxHealth() end
+	thisEntity.OriginalGetHealth =    function() return thisEntity:GetHealth()	end
+	thisEntity.GetAssignedLane =      function() return LANE_MID end
 	thisEntity.NumQueuedActions = function()
 		print("TODO NumQueuedActions")
 		return 0
@@ -26,10 +77,24 @@ function Init_G(thisEntity)
 		print("TODO IsUsingAbility")
 		return false
 	end
-	thisEntity.GetAssignedLane = function()
-		return LANE_MID
+	thisEntity.WasRecentlyDamagedByAnyHero = function(self, time)
+		print("TODO Set bot.damagedByTowerTime")
+		if thisEntity.damagedByHeroTime == nil then
+			return false
+		end
+		return (GameRules:GetGameTime() - bot.damagedByHeroTime) < time
+	end
+	thisEntity.GetNearbyHeroes = function(self, distance, isEnemy, mode_unused)
+		local team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY 
+		if isEnemy then team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY end
+		local units = FindUnitsInRadius(self:GetTeam(), self:GetAbsOrigin(), nil,
+			distance, team_filter, DOTA_UNIT_TARGET_HERO, 
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES,
+			FIND_ANY_ORDER, false)
+		return enhanceUnits(units, thisEntity)
 	end
 end
+
 function GetScriptDirectory()
 	return "openhyperai/bots"
 end
@@ -45,11 +110,11 @@ end
 
 LANE_NONE = 0
 LANE_TOP  = 1
-LANE_MID  = 2
+--LANE_MID  = 2
 LANE_BOT  = 3
 LANE_WIDTH = 1000
 LANE_TOP_LINES = {Vector(-6634, -3704, 384), Vector(-5913, 5469, 384), Vector(3705, 5754, 384)}
-LANE_MID_LINES = {Vector(-4887, -4322, 384), Vector(4394, 3906, 384)}
+--LANE_MID_LINES = {Vector(-4887, -4322, 384), Vector(4394, 3906, 384)}
 LANE_BOT_LINES = {Vector(-4227, -6101, 384), Vector(5506, -5569, 384), Vector(6266, 3187, 384)}
 
 GAME_STATE_PRE_GAME = DOTA_GAMERULES_STATE_PRE_GAME
@@ -468,12 +533,6 @@ function SetBot(bot)
 		end
 		return (GameRules:GetGameTime() - bot.damagedByCreepTime) < time
 	end
-	bot.WasRecentlyDamagedByAnyHero = function(self, time)
-		if bot.damagedByHeroTime == nil then
-			return false
-		end
-		return (GameRules:GetGameTime() - bot.damagedByHeroTime) < time
-	end
 	bot.FindAoELocation = function(self, is_enemy, is_hero, loc, range, radius, time, health)
 		local teamFilter = GetTeamFilter(is_enemy)
 		local typeFilter = GetUnitTypeFilter(is_hero)
@@ -674,11 +733,14 @@ function GetBarracks(team, towerId)
 end
 
 function GetAncient(team)
+	local ret = nil
 	if team == DOTA_TEAM_GOODGUYS then
-		return Entities:FindByName(nil, RAD_BUILDING_TYPE_2_NAME[ANCIENT])
+		ret = Entities:FindByName(nil, RAD_BUILDING_TYPE_2_NAME[ANCIENT])
 	else
-		return Entities:FindByName(nil, DIRE_BUILDING_TYPE_2_NAME[ANCIENT])
+		ret = Entities:FindByName(nil, DIRE_BUILDING_TYPE_2_NAME[ANCIENT])
 	end
+	ret.GetLocation = function() return ret:GetAbsOrigin() end
+	return ret
 end
 
 function GetAmountDPos2Line(pos, lstart, lend)
