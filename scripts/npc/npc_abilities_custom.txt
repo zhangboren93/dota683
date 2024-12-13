@@ -72,6 +72,7 @@
 #base "heroes/troll_warlord.txt"
 #base "heroes/tusk.txt"
 #base "heroes/vengefulspirit.txt"
+#base "heroes/venomancer.txt"
 #base "heroes/viper.txt"
 #base "heroes/visage.txt"
 #base "heroes/warlock.txt"
@@ -4090,53 +4091,6 @@
 
 		}
 	}
-	//=================================================================================================================
-	// Venomancer: Venomous Gale
-	//=================================================================================================================
-	"venomancer_venomous_gale"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5178"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_Venomancer.VenomousGale"
-		"HasShardUpgrade"				"0"
-
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
- 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"125"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"duration"				"15.0 15.0 15.0 15.0"
-			"strike_damage"			"25 50 75 100"
-			"tick_damage"			"0 30 60 90"
-			"tick_interval"			"3.0 3.0 3.0 3.0"
-			"movement_slow"			"-50 -50 -50 -50"
-			"radius"				"125"
-			"speed"					"1200 1200 1200 1200"
-			"create_wards"			"0"
-			"AbilityCooldown"		"22"
-		}
-	}
-
 // Rewrite of the Venomancer Poison Sting ability
 // Author: Pizzalol and Rook
 // Date: 22.12.2014.

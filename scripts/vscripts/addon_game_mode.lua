@@ -177,7 +177,6 @@ function Activate()
 	LinkLuaModifier( "modifier_rattletrap_cog_buff_lua",		"heroes/hero_rattletrap/power_cogs.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_electric_vortex_self_slow_lua",  "heroes/hero_storm_spirit/modifier_electric_vortex_self_slow.lua", LUA_MODIFIER_MOTION_NONE)
 	--LinkLuaModifier( "modifier_torrent_slow_lua", 				"heroes/hero_kunkka/modifier_torrent_slow.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_venomancer_venomous_gale_lua", 	"heroes/hero_venomancer/modifier_venomancer_venomous_gale.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_luna_moon_glaive_lua", 			"heroes/hero_luna/modifier_luna_moon_glaive.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_abyssal_underlord_pit_of_malice_thinker_lua",	"heroes/hero_abyssal_underlord/modifier_abyssal_underlord_pit_of_malice_thinker.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_abyssal_underlord_pit_of_malice_ensare_lua",		"heroes/hero_abyssal_underlord/modifier_abyssal_underlord_pit_of_malice_ensare.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1805,12 +1804,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		if not parent:HasModifier("modifier_fountain_aura_buff_adjust_lua") then
 			parent:AddNewModifier(caster, nil, "modifier_fountain_aura_buff_adjust_lua", {})
 		end
-	elseif event.name_const == "modifier_venomancer_venomous_gale" then
-		-- replace default gale modifier to make it undispellable
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		parent:AddNewModifier(caster, ability, "modifier_venomancer_venomous_gale_lua", { duration = ability:GetSpecialValueFor("duration") })
-		return false
 	elseif event.name_const == "modifier_abyssal_underlord_pit_of_malice_thinker" then 
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
