@@ -5,11 +5,17 @@ GAMEMODE_AP = 1
 LANE_MID = 2
 LANE_MID_LINES = {Vector(-4887, -4322, 384), Vector(4394, 3906, 384)}
 BOT_MODE_LANING = 1
+BOT_MODE_ATTACK = 2
+
 ITEM_SLOT_TYPE_INVALID = -1 
 -- openhyperai begin 
 local function enhanceUnit(ret, thisEntity)
 	ret.CanBeSeen = function(self)
-		return thisEntity:CanEntityBeSeenByMyTeam(self)
+		return self:CanEntityBeSeenByMyTeam(self)
+	end
+	ret.GetOffensivePower = function(self)
+		print("TODO GetOffensivePower " .. self:GetUnitName())
+		return 0
 	end
 	return ret
 end
@@ -25,7 +31,12 @@ function Init_G(thisEntity)
 	_G["CDOTA_Bot_Script"] = {}
 	_G["GetTeam"] = function() return thisEntity:GetTeam() end
 	_G["IsPlayerBot"] = function(id) return PlayerResource:GetPlayer(id) ~= nil end
-	_G["GetTeamMember"] = function(n) return PlayerResource:GetNthPlayerIDOnTeam(thisEntity:GetTeam(), n) end
+	_G["GetTeamMember"] = function(n) 
+		local pid = PlayerResource:GetNthPlayerIDOnTeam(thisEntity:GetTeam(), n) 
+		local player = PlayerResource:GetPlayer(pid)
+		if player == nil then return nil end
+		return player:GetAssignedHero()
+	end
 	_G["GetItemComponents"] = function(item) 
 		print("TODO GetItemComponents " .. item)
 		return {}
@@ -82,7 +93,10 @@ function Init_G(thisEntity)
 	thisEntity.GetAssignedLane =      function() return LANE_MID end
 	thisEntity.GetActiveMode = 		  function() return thisEntity.bot_active_mode end
 	thisEntity.GetAttackRange = 	  function() return thisEntity:Script_GetAttackRange() end
+	thisEntity.GetTarget = 			  function() return thisEntity:GetAttackTarget() end
 	thisEntity.Action_MoveToLocation = function(self, loc) thisEntity:MoveToPosition(loc) end
+	thisEntity.GetNetWorth = 		  function() return PlayerResource:GetNetWorth(thisEntity:GetPlayerOwnerID()) end
+	thisEntity.GetAttackPoint = 	  function() return thisEntity:GetAttackAnimationPoint() end
 	thisEntity.NumQueuedActions = function()
 		print("TODO NumQueuedActions")
 		return 0
@@ -140,6 +154,7 @@ function Init_G(thisEntity)
 		return FindUnitsInRadius(self:GetTeam(), self:GetAbsOrigin(), nil, range, target_team,
 			DOTA_UNIT_TARGET_CREEP,	DOTA_UNIT_TARGET_FLAG_NONE,	FIND_CLOSEST, false)
 	end
+	thisEntity.GetNearbyLaneCreeps = function(self, range, enemy) return self:GetNearbyCreeps(range, enemy) end
 	thisEntity.WasRecentlyDamagedByTower = function(self, time)
 		print("TODO WasRecentlyDamagedByTower " .. time)
 		return false
@@ -280,10 +295,8 @@ ITEM_SLOT_TYPE_MAIN = 1
 ITEM_SLOT_TYPE_BACKPACK = 2
 ITEM_SLOT_TYPE_STASH = 3
 
-BOT_MODE_ATTACK = "fight"
 BOT_MODE_DEFEND_ALLY = "defendally"
 BOT_MODE_ROAM = "roam"
-BOT_MODE_LANING = "laning"
 BOT_MODE_PUSH_LANE = "pushlane"
 BOT_MODE_DEFEND_LANE = "defendlane"
 BOT_MODE_RETREAT = "retreat"
