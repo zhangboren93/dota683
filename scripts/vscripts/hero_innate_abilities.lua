@@ -64,3 +64,4 @@ hero_688_attribute_bonus["npc_dota_hero_beastmaster"] = "modifier_beastmaster_68
 hero_688_attribute_bonus["npc_dota_hero_rattletrap"] = "modifier_rattletrap_688_attribute_bonus"
 hero_688_attribute_bonus["npc_dota_hero_magnataur"] = "modifier_magnataur_688_attribute_bonus"
 hero_688_attribute_bonus["npc_dota_hero_sand_king"] = "modifier_sand_king_688_attribute_bonus"
+hero_688_attribute_bonus["npc_dota_hero_jakiro"] = "modifier_jakiro_688_attribute_bonus"
