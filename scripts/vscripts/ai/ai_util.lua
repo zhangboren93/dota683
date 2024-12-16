@@ -10,12 +10,17 @@ BOT_MODE_ATTACK = 2
 ITEM_SLOT_TYPE_INVALID = -1 
 -- openhyperai begin 
 local function enhanceUnit(ret, thisEntity)
-	ret.CanBeSeen = function(self)
-		return self:CanEntityBeSeenByMyTeam(self)
-	end
+	ret.CanBeSeen = 			function(self) return self:CanEntityBeSeenByMyTeam(self) end
+	ret.GetLocation = 			function(self) return self:GetAbsOrigin() end
+	ret.OriginalGetHealth = 	function(self) return self:GetHealth() end
+	ret.OriginalGetMaxHealth = 	function(self) return self:GetMaxHealth() end
 	ret.GetOffensivePower = function(self)
 		print("TODO GetOffensivePower " .. self:GetUnitName())
 		return 0
+	end
+	ret.GetIncomingTrackingProjectiles = function(self)
+		print("TODO GetIncomingTrackingProjectiles " .. self:GetUnitName())
+		return {}
 	end
 	return ret
 end
@@ -88,15 +93,20 @@ function Init_G(thisEntity)
 	end
 
 
-	thisEntity.OriginalGetMaxHealth = function() return thisEntity:GetMaxHealth() end
-	thisEntity.OriginalGetHealth =    function() return thisEntity:GetHealth()	end
-	thisEntity.GetAssignedLane =      function() return LANE_MID end
-	thisEntity.GetActiveMode = 		  function() return thisEntity.bot_active_mode end
-	thisEntity.GetAttackRange = 	  function() return thisEntity:Script_GetAttackRange() end
-	thisEntity.GetTarget = 			  function() return thisEntity:GetAttackTarget() end
-	thisEntity.Action_MoveToLocation = function(self, loc) thisEntity:MoveToPosition(loc) end
-	thisEntity.GetNetWorth = 		  function() return PlayerResource:GetNetWorth(thisEntity:GetPlayerOwnerID()) end
-	thisEntity.GetAttackPoint = 	  function() return thisEntity:GetAttackAnimationPoint() end
+	thisEntity.OriginalGetMaxHealth = 		function() return thisEntity:GetMaxHealth() end
+	thisEntity.OriginalGetHealth =    		function() return thisEntity:GetHealth()	end
+	thisEntity.GetAssignedLane =      		function() return LANE_MID end
+	thisEntity.GetActiveMode = 		  		function() return thisEntity.bot_active_mode end
+	thisEntity.GetActiveModeDesire = 		function() return thisEntity.bot_active_mode_desire end
+	thisEntity.GetAttackRange = 	  		function() return thisEntity:Script_GetAttackRange() end
+	thisEntity.GetTarget = 			  		function() return thisEntity:GetAttackTarget() end
+	thisEntity.GetNetWorth = 		  		function() return PlayerResource:GetNetWorth(thisEntity:GetPlayerOwnerID()) end
+	thisEntity.GetAttackPoint = 	  		function() return thisEntity:GetAttackAnimationPoint() end
+	thisEntity.GetAttackProjectileSpeed = 	function() return thisEntity:GetProjectileSpeed() end
+	thisEntity.SetTarget = 					function(self, target) thisEntity:SetAttacking(target) end
+	thisEntity.Action_MoveToLocation = 		function(self, loc) thisEntity:MoveToPosition(loc) end
+	thisEntity.Action_AttackUnit = 			function(self, target) thisEntity:MoveToTargetToAttack(target) end
+	thisEntity.ActionQueue_AttackMove = 	function(self, loc) thisEntity:MoveToPositionAggressive(loc) end
 	thisEntity.NumQueuedActions = function()
 		print("TODO NumQueuedActions")
 		return 0
@@ -151,8 +161,8 @@ function Init_G(thisEntity)
 	thisEntity.GetNearbyCreeps = function(self, range, enemy)
 		local target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
 		if is_enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
-		return FindUnitsInRadius(self:GetTeam(), self:GetAbsOrigin(), nil, range, target_team,
-			DOTA_UNIT_TARGET_CREEP,	DOTA_UNIT_TARGET_FLAG_NONE,	FIND_CLOSEST, false)
+		return enhanceUnits(FindUnitsInRadius(self:GetTeam(), self:GetAbsOrigin(), nil, range, target_team,
+			DOTA_UNIT_TARGET_CREEP,	DOTA_UNIT_TARGET_FLAG_NONE,	FIND_CLOSEST, false))
 	end
 	thisEntity.GetNearbyLaneCreeps = function(self, range, enemy) return self:GetNearbyCreeps(range, enemy) end
 	thisEntity.WasRecentlyDamagedByTower = function(self, time)
