@@ -15597,9 +15597,6 @@
 			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_caster.vpcf"
 			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_tgt.vpcf"
 			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf"
-			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_searing_chains_cast.vpcf"
-			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_searing_chains_debuff.vpcf"
-			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_searing_chains_start.vpcf"
 			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_remnant_dash.vpcf"
 			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant.vpcf"
 			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_fire_remnant_trail.vpcf"
@@ -22826,21 +22823,6 @@
 				}
 	
 			}
-		}
-	}
-	"ember_spirit_searing_chains"
-	{
-		"AbilityCooldown"				"14 12 10 8"
-		"AbilityManaCost"				"110"
-		"AbilityValues"
-		{
-				"duration"						"1 2 2 3"
-				"radius"						"400"
-				"damage_per_second"				"80 60 120 100"
-				"tick_interval"					"0.5"
-				"unit_count"					"2"
-				"radius_scepter"				"400"
-				"remnant_chains"				"0"
 		}
 	}
 	//=================================================================================================================
