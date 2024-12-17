@@ -242,6 +242,7 @@ function Activate()
 	LinkLuaModifier( "modifier_magnataur_688_attribute_bonus", 			"modifiers/688/modifier_magnataur_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sand_king_688_attribute_bonus", 			"modifiers/688/modifier_sand_king_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_jakiro_688_attribute_bonus", 			"modifiers/688/modifier_jakiro_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_kotl_688_attribute_bonus", 				"modifiers/688/modifier_kotl_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
