@@ -1286,6 +1286,13 @@
 		"DOTA_Tooltip_Ability_slardar_sprint_datadriven_duration"		"Duration: "
 		"DOTA_Tooltip_modifier_sprint_datadriven"				"Sprint"
 		"DOTA_Tooltip_modifier_sprint_datadriven_Description"	"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% but taking %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% more damage."
+		"DOTA_Tooltip_ability_slardar_amplify_damage_datadriven"					"Corrosive Haze"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_datadriven_Description"		"Reduces enemy armor to amplify physical damage and provides True Sight and vision of the targeted unit, revealing invisibility. The enemy unit leaves a trail of water behind it for 8 seconds."
+		"DOTA_Tooltip_ability_slardar_amplify_damage_datadriven_Lore"				"Even the strongest armor counts for little when left to the brine of the sea."
+		"DOTA_Tooltip_ability_slardar_amplify_damage_datadriven_armor_reduction"	"ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_datadriven_duration"			"DURATION:"
+		"DOTA_Tooltip_modifier_amplify_damage_datadriven"							"Corrosive Haze"
+		"DOTA_Tooltip_modifier_amplify_damage_datadriven_Description"				"Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nProvides True Sight to Slardar."
 		// Spirit Breaker
 		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_datadriven"						"Charge of Darkness"
 		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_datadriven_Lore"				"Barathrum erupts from the darkness with unwieldy force."

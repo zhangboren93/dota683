@@ -1953,10 +1953,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_splinter_blast_slow_datadriven", {})
 		return false
-	elseif event.name_const == "modifier_slardar_amplify_damage" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		parent:AddNewModifier(caster, ability, "modifier_slardar_amplify_damage_vision_lua", { duration = 25 })
 	elseif event.name_const == "modifier_bottle_regeneration" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
@@ -2556,7 +2552,9 @@ function CAddonTemplateGameMode:HandleInventoryItemAdded(event)
 	local time = GameRules:GetDOTATime(false, true)
 	print("HandleInventoryItemAdded " .. event.itemname .. " " .. event.inventory_player_id .. " " .. event.is_courier .. " " .. time)
 	if event.itemname == "item_tpscroll" or time < 0 then return end
-	local hero = PlayerResource:GetPlayer(event.inventory_player_id):GetAssignedHero()
+	local player = PlayerResource:GetPlayer(event.inventory_player_id)
+	if player == nil then return end
+	local hero = player:GetAssignedHero()
 	hero:QueueTeamConceptNoSpectators(1, {
 		custom_behaviour = "purchase",
 		itemname = event.itemname
