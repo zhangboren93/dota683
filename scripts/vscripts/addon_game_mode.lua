@@ -1590,6 +1590,7 @@ function CAddonTemplateGameMode:ModifyGoldFilter(event)
 		return false
 	end
 	local hero = PlayerResource:GetPlayer(event.player_id_const):GetAssignedHero()
+	if hero == nil then return true	end
 	if (event.reason_const == DOTA_ModifyGold_Building
 		or event.reason_const == DOTA_ModifyGold_CreepKill
 		or event.reason_const == DOTA_ModifyGold_NeutralKill)
@@ -2293,6 +2294,31 @@ function CAddonTemplateGameMode:TrackingProjectileFilter(event)
 	local ability = EntIndexToHScript(event.entindex_ability_const)
 	if ability ~= nil and ability:GetName() == "winter_wyvern_splinter_blast" then
 		event.dodgeable = 0
+	end
+	if ability == nil and event.is_attack == 1 then
+		local source = EntIndexToHScript(event.entindex_source_const)
+		local target = EntIndexToHScript(event.entindex_target_const)
+		local time = GameRules:GetGameTime()
+		if target.iap == nil then
+			target.iap = {}
+		end
+		local new_iap = {}
+		for i=1,#target.iap do
+			if target.iap[i].expire_at > time then
+				table.insert(new_iap, target.iap[i])
+			end
+		end
+		
+		local distance = (source:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+		local expire_at = distance / event.move_speed + time
+		table.insert(new_iap, {
+			caster_id = event.entindex_source_const,
+			create_at = time,
+			expire_at = expire_at
+		})
+		target.iap = new_iap
+		--print("Tracking projectile created")
+		--DeepPrintTable(target.iap)
 	end
 	return true
 end

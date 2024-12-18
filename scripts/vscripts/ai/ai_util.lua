@@ -19,8 +19,24 @@ local function enhanceUnit(ret, thisEntity)
 		return 0
 	end
 	ret.GetIncomingTrackingProjectiles = function(self)
-		print("TODO GetIncomingTrackingProjectiles " .. self:GetUnitName())
-		return {}
+		local retVal = {}
+		local time = GameRules:GetGameTime()
+		if self.iap == nil then return retVal end
+		for i=1,#self.iap do
+			if self.iap[i].expire_at <= time then
+				local attacker = EntIndexToHScript(self.iap[i].caster_id)
+				if IsValidEntity(attacker) then
+					local duration = time - self.iap[i].create_at
+					local total_duration = self.iap[i].expire_at - self.iap[i].create_at
+					table.insert(retVal, {
+						is_attack = 1,
+						caster = attacker,
+						location = attacker:GetAbsOrigin() + (self:GetAbsOrigin() - attacker:GetAbsOrigin()) * duration / total_duration
+					})
+				end
+			end
+		end
+		return retVal
 	end
 	return ret
 end
@@ -105,8 +121,12 @@ function Init_G(thisEntity)
 	thisEntity.GetAttackProjectileSpeed = 	function() return thisEntity:GetProjectileSpeed() end
 	thisEntity.SetTarget = 					function(self, target) thisEntity:SetAttacking(target) end
 	thisEntity.Action_MoveToLocation = 		function(self, loc) thisEntity:MoveToPosition(loc) end
-	thisEntity.Action_AttackUnit = 			function(self, target) thisEntity:MoveToTargetToAttack(target) end
 	thisEntity.ActionQueue_AttackMove = 	function(self, loc) thisEntity:MoveToPositionAggressive(loc) end
+	thisEntity.Action_AttackUnit = 			function(self, target) 
+		if not thisEntity:IsAttackingEntity(target) then
+			thisEntity:MoveToTargetToAttack(target) 
+		end
+	end
 	thisEntity.NumQueuedActions = function()
 		print("TODO NumQueuedActions")
 		return 0
@@ -156,7 +176,7 @@ function Init_G(thisEntity)
 				table.insert(towers, buildings[i])
 			end
 		end
-		return towers
+		return enhanceUnits(towers)
 	end
 	thisEntity.GetNearbyCreeps = function(self, range, enemy)
 		local target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
