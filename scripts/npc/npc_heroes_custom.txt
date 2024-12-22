@@ -661,20 +661,11 @@
 				"Deprecated"		"false"
 			}
 
-			"faceless_void_time_zone"
+			"faceless_void_aeons"
 			{
 				"Icon"				"chrono_cube"
 				"Color"				"Purple"
 				"GradientID"		"1"
-
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"		"null_facet"
-						"AutoLevelAbility" 	"false"
-					}
-				}
 				"AbilityIconReplacements"
 				{
 					"faceless_void_time_walk_datadriven"	"faceless_void/jewelofaeons/faceless_void_time_walk_1"
@@ -708,6 +699,10 @@
 				}
 			}
 			"faceless_void_chronosphere"
+			{
+				"Deprecated"		"true"
+			}
+			"faceless_void_time_zone"
 			{
 				"Deprecated"		"true"
 			}
