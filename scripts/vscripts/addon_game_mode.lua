@@ -242,6 +242,7 @@ function Activate()
 	LinkLuaModifier( "modifier_magnataur_688_attribute_bonus", 			"modifiers/688/modifier_magnataur_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_sand_king_688_attribute_bonus", 			"modifiers/688/modifier_sand_king_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_jakiro_688_attribute_bonus", 			"modifiers/688/modifier_jakiro_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_kotl_688_attribute_bonus", 				"modifiers/688/modifier_kotl_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_courier_transfer_items_lua", 		"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_courier_transfer_items_active_lua", 	"units/courier_transfer_items.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1590,6 +1591,7 @@ function CAddonTemplateGameMode:ModifyGoldFilter(event)
 		return false
 	end
 	local hero = PlayerResource:GetPlayer(event.player_id_const):GetAssignedHero()
+	if hero == nil then return true	end
 	if (event.reason_const == DOTA_ModifyGold_Building
 		or event.reason_const == DOTA_ModifyGold_CreepKill
 		or event.reason_const == DOTA_ModifyGold_NeutralKill)
@@ -1952,10 +1954,6 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local passive_ability = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		passive_ability:ApplyDataDrivenModifier(caster, parent, "modifier_winter_wyvern_splinter_blast_slow_datadriven", {})
 		return false
-	elseif event.name_const == "modifier_slardar_amplify_damage" then
-		local caster = EntIndexToHScript(event.entindex_caster_const)
-		local ability = EntIndexToHScript(event.entindex_ability_const)
-		parent:AddNewModifier(caster, ability, "modifier_slardar_amplify_damage_vision_lua", { duration = 25 })
 	elseif event.name_const == "modifier_bottle_regeneration" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
@@ -2294,6 +2292,31 @@ function CAddonTemplateGameMode:TrackingProjectileFilter(event)
 	if ability ~= nil and ability:GetName() == "winter_wyvern_splinter_blast" then
 		event.dodgeable = 0
 	end
+	if ability == nil and event.is_attack == 1 then
+		local source = EntIndexToHScript(event.entindex_source_const)
+		local target = EntIndexToHScript(event.entindex_target_const)
+		local time = GameRules:GetGameTime()
+		if target.iap == nil then
+			target.iap = {}
+		end
+		local new_iap = {}
+		for i=1,#target.iap do
+			if target.iap[i].expire_at > time then
+				table.insert(new_iap, target.iap[i])
+			end
+		end
+		
+		local distance = (source:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+		local expire_at = distance / event.move_speed + time
+		table.insert(new_iap, {
+			caster_id = event.entindex_source_const,
+			create_at = time,
+			expire_at = expire_at
+		})
+		target.iap = new_iap
+		--print("Tracking projectile created")
+		--DeepPrintTable(target.iap)
+	end
 	return true
 end
 
@@ -2530,7 +2553,9 @@ function CAddonTemplateGameMode:HandleInventoryItemAdded(event)
 	local time = GameRules:GetDOTATime(false, true)
 	print("HandleInventoryItemAdded " .. event.itemname .. " " .. event.inventory_player_id .. " " .. event.is_courier .. " " .. time)
 	if event.itemname == "item_tpscroll" or time < 0 then return end
-	local hero = PlayerResource:GetPlayer(event.inventory_player_id):GetAssignedHero()
+	local player = PlayerResource:GetPlayer(event.inventory_player_id)
+	if player == nil then return end
+	local hero = player:GetAssignedHero()
 	hero:QueueTeamConceptNoSpectators(1, {
 		custom_behaviour = "purchase",
 		itemname = event.itemname

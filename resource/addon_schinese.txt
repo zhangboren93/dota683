@@ -1294,6 +1294,13 @@
 		"DOTA_Tooltip_Ability_slardar_sprint_datadriven_duration"		"持续时间："
 		"DOTA_Tooltip_modifier_sprint_datadriven"						"冲刺"
 		"DOTA_Tooltip_modifier_sprint_datadriven_Description"			"移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%但受到%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%额外伤害。"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_datadriven"					"侵蚀雾霭"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_datadriven_Description"		"削弱敌人的护甲，加深他受到的物理伤害，同时提供目标的真实视域，显示隐身单位。敌方单位将在身后留下水迹，持续8秒。"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_datadriven_Lore"				"即使是最坚硬的铠甲，一旦遇到海水也是不堪一击。"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_datadriven_armor_reduction"	"护甲削弱："
+		"DOTA_Tooltip_ability_slardar_amplify_damage_datadriven_duration"			"持续时间："
+		"DOTA_Tooltip_modifier_amplify_damage_datadriven"							"侵蚀雾霭"
+		"DOTA_Tooltip_modifier_amplify_damage_datadriven_Description"				"护甲被降低%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。\n为斯拉达提供真实视域。"
 		// Spirit Breaker
 		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_datadriven"						"暗影冲刺"
 		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_datadriven_Lore"				"巴拉森带着一股狂蛮之力从黑暗中冲出。"
