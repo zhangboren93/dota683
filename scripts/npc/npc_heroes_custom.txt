@@ -4249,7 +4249,7 @@
 		"Ability3"		"chen_test_of_faith_teleport_datadriven"
 		"Ability4"		"chen_holy_persuasion_lua"
 		"Ability5"		"generic_hidden"
-		"Ability10"		"special_bonus_unique_688"
+		"Ability10"		"generic_hidden"
 		"Ability11"		"generic_hidden"
 		"Ability12"		"generic_hidden"
 		"Ability13"		"generic_hidden"

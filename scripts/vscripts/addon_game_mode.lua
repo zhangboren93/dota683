@@ -999,6 +999,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
 		if self.custom_game_meta_version == "688" then
 			entity:AddNewModifier(entity, nil, "modifier_attribute_regen_688_lua", {})
+			entity:AddAbility("special_bonus_unique_688"):SetLevel(1)
 		end
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
 		entity:AddNewModifier(entity, nil, "item_tpscroll_clear_tree_modifier", {})
