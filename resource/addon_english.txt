@@ -1785,8 +1785,8 @@
 
 		"DOTA_Tooltip_Facet_faceless_void_temporal_impunity"						"Claszureme Visitor"
 		"DOTA_Tooltip_Facet_faceless_void_temporal_impunity_Description"			"Use Faceless Void ability icons."
-		"DOTA_Tooltip_Facet_faceless_void_time_zone"								"Jewel of Aeons"
-		"DOTA_Tooltip_Facet_faceless_void_time_zone_Description"					"Use Faceless Void Immortal equipment ability icons."
+		"DOTA_Tooltip_Facet_faceless_void_aeons"									"Jewel of Aeons"
+		"DOTA_Tooltip_Facet_faceless_void_aeons_Description"						"Use Faceless Void Immortal equipment ability icons."
 		"DOTA_Tooltip_Facet_faceless_void_arcana"									"Claszian Apostasy"
 		"DOTA_Tooltip_Facet_faceless_void_arcana_Description"						"Use Faceless Void Arcana ability icons, where Backtrack uses Time Dilation icon."	
 		"DOTA_Tooltip_Facet_faceless_void_arcana_2"									"Claszian Supremacy"
@@ -3222,8 +3222,6 @@
 
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction"								"Null"
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"This facet is of NO effect."
-		"DOTA_Tooltip_ability_null_facet"											"Null"
-		"DOTA_Tooltip_ability_null_facet_Description"								"This facet is of NO effect."
 
 		"DOTA_Tooltip_ability_doom_bringer_devils_bargain"				"All Random Deathmatch"
 		"DOTA_Tooltip_ability_doom_bringer_devils_bargain_Description"	"Can sell items for %bonus_item_sellback_percent%%% of their value."

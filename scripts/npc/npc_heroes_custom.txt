@@ -661,20 +661,11 @@
 				"Deprecated"		"false"
 			}
 
-			"faceless_void_time_zone"
+			"faceless_void_aeons"
 			{
 				"Icon"				"chrono_cube"
 				"Color"				"Purple"
 				"GradientID"		"1"
-
-				"Abilities"
-				{
-					"Ability1"
-					{
-						"AbilityName"		"null_facet"
-						"AutoLevelAbility" 	"false"
-					}
-				}
 				"AbilityIconReplacements"
 				{
 					"faceless_void_time_walk_datadriven"	"faceless_void/jewelofaeons/faceless_void_time_walk_1"
@@ -708,6 +699,10 @@
 				}
 			}
 			"faceless_void_chronosphere"
+			{
+				"Deprecated"		"true"
+			}
+			"faceless_void_time_zone"
 			{
 				"Deprecated"		"true"
 			}
@@ -4255,14 +4250,14 @@
 		"Ability3"		"chen_test_of_faith_teleport_datadriven"
 		"Ability4"		"chen_holy_persuasion_lua"
 		"Ability5"		"generic_hidden"
-		"Ability10"		"special_bonus_all_stats_4"
-		"Ability11"		"special_bonus_all_stats_5"
-		"Ability12"		"special_bonus_all_stats_6"
-		"Ability13"		"special_bonus_all_stats_7"
-		"Ability14"		"special_bonus_all_stats_8"
-		"Ability15"		"special_bonus_all_stats_10"
-		"Ability16"		"special_bonus_all_stats_12"
-		"Ability17"		"special_bonus_all_stats_14"
+		"Ability10"		"generic_hidden"
+		"Ability11"		"generic_hidden"
+		"Ability12"		"generic_hidden"
+		"Ability13"		"generic_hidden"
+		"Ability14"		"generic_hidden"
+		"Ability15"		"generic_hidden"
+		"Ability16"		"generic_hidden"
+		"Ability17"		"generic_hidden"
 	}
 	"npc_dota_hero_doom_bringer_683"		
 	{

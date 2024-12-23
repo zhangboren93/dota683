@@ -1803,8 +1803,8 @@
 
 		"DOTA_Tooltip_Facet_faceless_void_temporal_impunity"						"超维来客"
 		"DOTA_Tooltip_Facet_faceless_void_temporal_impunity_Description"			"使用虚空假面技能图标。"
-		"DOTA_Tooltip_Facet_faceless_void_time_zone"								"万世奇珍"
-		"DOTA_Tooltip_Facet_faceless_void_time_zone_Description"					"使用虚空假面不朽饰品技能图标。"	
+		"DOTA_Tooltip_Facet_faceless_void_aeons"									"万世奇珍"
+		"DOTA_Tooltip_Facet_faceless_void_aeons_Description"						"使用虚空假面不朽饰品技能图标。"	
 		"DOTA_Tooltip_Facet_faceless_void_arcana"									"超维逆族"
 		"DOTA_Tooltip_Facet_faceless_void_arcana_Description"						"使用虚空假面至宝技能图标，其中回到过去改用时间膨胀的图标。"	
 		"DOTA_Tooltip_Facet_faceless_void_arcana_2"									"超维神族"
@@ -3261,8 +3261,6 @@
 
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction"								"空"
 		"DOTA_Tooltip_Facet_elder_titan_deconstruction_Description"					"这颗命石没有效果。"
-		"DOTA_Tooltip_ability_null_facet"											"空"
-		"DOTA_Tooltip_ability_null_facet_Description"								"这颗命石没有效果。"
 
 		"DOTA_Tooltip_ability_doom_bringer_devils_bargain"				"全英雄随机死亡竞赛"
 		"DOTA_Tooltip_ability_doom_bringer_devils_bargain_Description"	"能以原价的%bonus_item_sellback_percent%%%出售物品。"

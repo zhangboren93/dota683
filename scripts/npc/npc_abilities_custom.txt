@@ -28156,15 +28156,10 @@
             }
         }
     }
-	"null_facet"
+	"special_bonus_unique_688"
 	{
-		"BaseClass"                     "ability_datadriven"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityValues"
-		{
-			"attack_speed_from_movespeed"	"0"
-			"attack_speed_penalty"			"0"
-        }
+		"BaseClass"						"special_bonus_undefined"
     }
 }
