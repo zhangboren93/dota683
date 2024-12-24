@@ -1,0 +1,14 @@
+"DOTAAbilities"
+{
+	"Version"		"1"
+
+	"item_faerie_fire"
+	{
+		"ItemCost"					"75"
+		"AbilityValues"
+		{
+			"bonus_damage"			"2"
+			"hp_restore"			"75"
+		}
+	}
+}
