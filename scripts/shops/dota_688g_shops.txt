@@ -31,7 +31,6 @@
 		"item"		"item_ogre_axe"
 		"item"		"item_blade_of_alacrity"
 		"item"		"item_staff_of_wizardry"
-		"item"      "item_ultimate_orb"
 	}
 
 	"weapons_armor"
@@ -39,6 +38,9 @@
 		"item"		"item_ring_of_protection"
 		"item"		"item_stout_shield"
 		"item"		"item_quelling_blade_lua"
+		"item"		"item_infused_raindrop"
+		"item"		"item_blight_stone"
+		"item"		"item_orb_of_venom"
 		"item"		"item_blades_of_attack"
 		"item"		"item_chainmail"
 		"item"		"item_quarterstaff"
@@ -47,24 +49,24 @@
 		"item"		"item_claymore"
 		"item"		"item_javelin_datadriven"
 		"item"		"item_mithril_hammer"
-		"item"		"item_platemail"
 	}
 
 	"misc"
 	{
+		"item"		"item_wind_lace"
 		"item"		"item_magic_stick"
 		"item"		"item_sobi_mask_datadriven"
 		"item"		"item_ring_of_regen"
 		"item"		"item_boots"
 		"item"		"item_gloves"
 		"item"		"item_cloak"
+		"item"		"item_void_stone_datadriven"
+		"item"		"item_ring_of_health"
 		"item"		"item_gem"
 		"item"		"item_lifesteal_datadriven"
 		"item"		"item_shadow_amulet_datadriven"
 		"item"		"item_ghost"
 		"item"		"item_blink"
-		"item"		"item_talisman_of_evasion"
-		"item"		"item_wind_lace"
 	}
 	
 	// Level 1 - Green Recipes

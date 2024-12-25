@@ -52,16 +52,6 @@
 		"ItemPurchasable"	"0"
 	}
 
-	"item_infused_raindrop"
-	{
-		"ItemPurchasable"	"0"
-	}
-
-	"item_wind_lace"
-	{
-		"ItemPurchasable"	"0"
-	}
-
 	"item_yasha_and_kaya"
 	{
 		"ItemPurchasable"	"0"
@@ -385,11 +375,6 @@
 	}
 
 	"item_octarine_core"
-	{
-		"ItemPurchasable"	"0"
-	}
-
-	"item_blight_stone"	
 	{
 		"ItemPurchasable"	"0"
 	}
