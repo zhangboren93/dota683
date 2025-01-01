@@ -110,16 +110,7 @@ function HandleGameStateChange(game_mode, event)
 				return 30
 			end
 		end, "spawn neutral creep", 30)
-	elseif event.new_state == DOTA_GAMERULES_STATE_HERO_SELECTION then
-		if game_mode.game_mode == 'DM' then
-			deathMatchGameRulesUpdate()
-			-- randoms all player's hero selection
-			local players = getAllPlayerIds()
-			for i=1,#players do
-				PlayerResource:GetPlayer(players[i][1]):MakeRandomHeroSelection()
-				removeHeroFromDMPool(PlayerResource:GetSelectedHeroName(players[i][1]))
-			end
-		end
+	--elseif event.new_state == DOTA_GAMERULES_STATE_HERO_SELECTION then
 	elseif event.new_state == DOTA_GAMERULES_STATE_SCENARIO_SETUP then -- 2
 		if game_mode.isValidRankedGame then
 			local playerCount = PlayerResource:NumPlayers()
@@ -194,6 +185,15 @@ function HandleGameStateChange(game_mode, event)
 					PlayerResource:GetPlayer(player):SetSelectedHero(ARCANA_HEROES[i])
 				end
 			end, "unassign spectator hero", 3)
+		end
+		if game_mode.game_mode == 'DM' then
+			deathMatchGameRulesUpdate()
+			-- randoms all player's hero selection
+			local players = getAllPlayerIds()
+			for i=1,#players do
+				PlayerResource:GetPlayer(players[i][1]):MakeRandomHeroSelection()
+				removeHeroFromDMPool(PlayerResource:GetSelectedHeroName(players[i][1]))
+			end
 		end
 	elseif event.new_state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		if GetMapName() == "tour" then
