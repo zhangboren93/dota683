@@ -1170,6 +1170,19 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 
 	if entity:GetName() == "npc_dota_creep_lane" then
 		entity:SetThink(function()
+			local pos = entity:GetAbsOrigin()
+			local isSideLaneCreep = (pos[2] < -5460 or pos[2] > 4745) or
+									(pos[1] < SHORT_LANE_RAD_X or pos[1] > SHORT_LANE_DIR_X )
+			if self.game_mode == "DM" then
+				if isSideLaneCreep then
+					entity:ForceKill(false)
+					return 
+				end
+				local factor = PlayerResource:GetPlayerCount() / 2
+				if factor > 1 then
+					entity:SetDeathXP(entity:GetDeathXP() * factor)
+				end
+			end
 			entity:RemoveModifierByName("modifier_creep_bonus_xp")
 			entity:RemoveAbilityFromIndexByName("flagbearer_creep_aura_effect")
 			entity:SetBaseMagicalResistanceValue(0)

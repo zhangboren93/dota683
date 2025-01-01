@@ -109,6 +109,9 @@ DM_HERO_POOL = {
 	"npc_dota_hero_ursa"				
 }
 
+SHORT_LANE_RAD_X = -5975
+SHORT_LANE_DIR_X = 5725
+
 function deathMatchGameRulesUpdate()
 	GameRules:AddHeroToBlacklist("npc_dota_hero_hoodwink")			
 	GameRules:AddHeroToBlacklist("npc_dota_hero_dawnbreaker")		
