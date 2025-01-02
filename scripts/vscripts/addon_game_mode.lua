@@ -2517,13 +2517,11 @@ function HandleItemDestroyed(itemname, heroindex)
 end
 
 function HandleHeroSwap(player1, player2)
-	if not isMapRanked() then
-		if PlayerResource:HasRandomed(player1) then
-			PlayerResource:ModifyGold(player1, -100, false, DOTA_ModifyGold_SelectionPenalty)
-		end
-		if PlayerResource:HasRandomed(player2) then
-			PlayerResource:ModifyGold(player2, -100, false, DOTA_ModifyGold_SelectionPenalty)
-		end
+	if PlayerResource:HasRandomed(player1) then
+		PlayerResource:ModifyGold(player1, -100, false, DOTA_ModifyGold_SelectionPenalty)
+	end
+	if PlayerResource:HasRandomed(player2) then
+		PlayerResource:ModifyGold(player2, -100, false, DOTA_ModifyGold_SelectionPenalty)
 	end
 end
 

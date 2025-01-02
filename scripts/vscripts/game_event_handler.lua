@@ -119,10 +119,10 @@ function HandleGameStateChange(game_mode, event)
 				GameRules:SendCustomMessage("天梯比赛需要10名玩家，本次对局不记录天梯分数!", -1, -1)
 				game_mode.isValidRankedGame = false
 			else
-				for i=1,#all_heroes do
-					GameRules:AddHeroToBlacklist(all_heroes[i])
-				end
-				game_mode.game_mode = "LD"
+				--for i=1,#all_heroes do
+				--	GameRules:AddHeroToBlacklist(all_heroes[i])
+				--end
+				game_mode.game_mode = "AP"
 				GameRules:GetGameModeEntity():SetThink(function()
 					-- randomly assign player team start from either side
 					local players = getAllPlayerIds()
@@ -132,25 +132,25 @@ function HandleGameStateChange(game_mode, event)
 				end, "unassign default player teams", 3)
 				GameRules:GetGameModeEntity():SetThink(function()
 					shuffleTeam()
+					--game_mode.radiant_team_mmr_total = 0
+					--game_mode.dire_team_mmr_total = 0
+					--for i=0,PlayerResource:GetPlayerCount() - 1 do
+					--	local record = game_mode.player2account_records[tostring(i)]
+					--	if record ~= nil and record.mmr ~= nil then
+					--		if PlayerResource:GetTeam(i) == DOTA_TEAM_GOODGUYS then
+					--			game_mode.radiant_team_mmr_total = game_mode.radiant_team_mmr_total + record.mmr
+					--		elseif PlayerResource:GetTeam(i) == DOTA_TEAM_BADGUYS then
+					--			game_mode.dire_team_mmr_total = game_mode.dire_team_mmr_total + record.mmr
+					--		end
+					--		game_mode.playerId2LadderScore[i] = record.mmr
+					--	end
+					--end
+					--GameRules:SendCustomMessage("MMR: r" .. game_mode.radiant_team_mmr_total .. ", d" .. game_mode.dire_team_mmr_total, 0, 0)
 
-					game_mode.radiant_team_mmr_total = 0
-					game_mode.dire_team_mmr_total = 0
-					for i=0,PlayerResource:GetPlayerCount() - 1 do
-						local record = game_mode.player2account_records[tostring(i)]
-						if record ~= nil and record.mmr ~= nil then
-							if PlayerResource:GetTeam(i) == DOTA_TEAM_GOODGUYS then
-								game_mode.radiant_team_mmr_total = game_mode.radiant_team_mmr_total + record.mmr
-							elseif PlayerResource:GetTeam(i) == DOTA_TEAM_BADGUYS then
-								game_mode.dire_team_mmr_total = game_mode.dire_team_mmr_total + record.mmr
-							end
-							game_mode.playerId2LadderScore[i] = record.mmr
-						end
-					end
-					GameRules:SendCustomMessage("MMR: r" .. game_mode.radiant_team_mmr_total .. ", d" .. game_mode.dire_team_mmr_total, 0, 0)
-
-					-- randomly assign player team start from either side
-					--getAllPlayerScores(game_mode)
-					sendPlayerStatsToUI(game_mode.player2account_records)
+					---- randomly assign player team start from either side
+					----getAllPlayerScores(game_mode)
+					--sendPlayerStatsToUI(game_mode.player2account_records)
+					sendMatchStartEventToServer(game_mode)
 				end, "Fetching player scores", 5)
 			end
 		end
@@ -313,4 +313,32 @@ function handleGameInProgressTimer(game_mode, player2BuildingDamage)
 			hero.last_alive_time = currentTime
 		end
 	end
+end
+
+function sendMatchStartEventToServer(game_mode)
+	local player_count = PlayerResource:GetPlayerCount()
+	local sids = {}
+	for pid=0,player_count-1 do
+		local sid = PlayerResource:GetSteamID(pid)
+		table.insert(sids, sid:__tostring())
+	end
+	table.sort(sids, function(a, b) return a < b end);
+	local pskey = ''
+	for i=1,#sids do
+		local sid = tostring(sids[i])
+		sid = string.sub(sid, -4)
+		pskey = pskey .. sid
+	end
+	print("pskey " .. pskey)
+	CreateHTTPRequest("GET", LADDER_HOST .. "register_game_ip?pskey=" .. pskey):Send(
+		function(response)
+			local status_code = response.StatusCode
+			print("register_game_ip response " .. status_code)
+			if status_code == 200 then
+				GameRules:SendCustomMessage("连接服务器成功。", -1, -1);
+			else 
+				GameRules:SendCustomMessage("连接服务器失败，不会记录分数。", -1, -1);
+				game_mode.isValidRankedGame = false
+			end
+		end)
 end
