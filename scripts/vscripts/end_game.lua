@@ -1,3 +1,5 @@
+require("ladder_game_mode")
+json = require("json")
 local function getTeamPlayerIds(team) 
 	local ret = {}
 	for i=1,PlayerResource:GetPlayerCountForTeam(team) do
@@ -22,7 +24,7 @@ end
 
 function sendEndGameStats(game_mode, player2BuildingDamage, player2assist, game_winner)
 	sendEndGameStatsToPanorama(game_mode, player2BuildingDamage, player2assist)
-	sendEndGameStatsToServer(player2BuildingDamage, player2assist, game_winner)
+	sendEndGameStatsToServer(game_mode, player2BuildingDamage, player2assist, game_winner)
 end
 
 function calculateScoreDiff(game_mode)
@@ -126,10 +128,10 @@ function sendEndGameStatsToPanorama(game_mode, player2BuildingDamage, player2ass
 end
 
 GAME_STATS_SERVER = "localhost"
-function sendEndGameStatsToServer(player2BuildingDamage, player2assist, game_winner)
+function sendEndGameStatsToServer(game_mode, player2BuildingDamage, player2assist, game_winner)
 	local game = {}
 	game.gwin = game_winner
-	game.mtch = GameRules:Script_GetMatchID()
+	game.mtch = GameRules:Script_GetMatchID():__tostring()
 	game.time = GameRules:GetDOTATime(false, false)
 	game.radk = PlayerResource:GetTeamKills(DOTA_TEAM_GOODGUYS)
 	game.dirk = PlayerResource:GetTeamKills(DOTA_TEAM_BADGUYS)
@@ -162,7 +164,18 @@ function sendEndGameStatsToServer(player2BuildingDamage, player2assist, game_win
 		table.insert(players, player)
 	end
 	game.play = players
-	print("Sending end game stats to server...")
+	if game_mode.pskey_orig ~= "" then
+		print("Sending end game stats to server...")
+		local request = CreateHTTPRequest("POST", LADDER_HOST.."submit_game_result")
+		local requestPayload = {
+			pskey = game_mode.pskey_orig,
+			result = game
+		}
+		request:SetHTTPRequestRawPostBody("application/json", json.encode(requestPayload))
+		request:Send(function(response)
+			print("submit game result status" .. response.StatusCode)
+		end)
+	end
 	DeepPrintTable(game)
 	return game
 end

@@ -303,6 +303,7 @@ function handleGameInProgressTimer(game_mode, player2BuildingDamage)
 			GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
 			game_mode.game_winner = DOTA_TEAM_BADGUYS
 		end
+		sendEndGameStats(game_mode, player2BuildingDamage, game_mode.player2assist, game_mode.game_winner)
 	end
 	
 	local heroes = HeroList:GetAllHeroes()
@@ -330,6 +331,7 @@ function sendMatchStartEventToServer(game_mode)
 		pskey = pskey .. sid
 	end
 	print("pskey " .. pskey)
+	game_mode.pskey_orig = pskey
 	CreateHTTPRequest("GET", LADDER_HOST .. "register_game_ip?pskey=" .. pskey):Send(
 		function(response)
 			local status_code = response.StatusCode

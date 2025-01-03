@@ -300,6 +300,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.captain_dire_extra_time = 110;
 	self.custom_game_meta_version = "683"
 	self.player2account_records = {}
+	self.pskey_orig = ""
 	if GetMapName() == "dota_688g" then
 		self.custom_game_meta_version = "688"
 	end
@@ -386,7 +387,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		end
 	end
 
-	GameRules:SetCustomGameAccountRecordSaveFunction(Dynamic_Wrap(CAddonTemplateGameMode, "OnAccountRecordSave"), self)
+	--GameRules:SetCustomGameAccountRecordSaveFunction(Dynamic_Wrap(CAddonTemplateGameMode, "OnAccountRecordSave"), self)
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 
 	-- rune 2 bounty at time 0 and 1 bounty & other per spawn afterwards
