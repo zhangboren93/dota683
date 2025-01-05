@@ -140,6 +140,7 @@ function sendEndGameStatsToServer(game_mode, player2BuildingDamage, player2assis
 		local player = {}
 		local player_id = i-1
 		player.acnt = PlayerResource:GetSteamAccountID(player_id)
+		player.stid = PlayerResource:GetSteamID(player_id):__tostring()
 		player.team = PlayerResource:GetTeam(player_id)
 		player.kill = PlayerResource:GetKills(player_id)
 		player.asst = player2assist[player_id]
