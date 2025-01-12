@@ -1,6 +1,8 @@
 // Dota2 Editor
 // Get latest version: https://github.com/zombieJ/nw-dota2editor
 
+#base "items/688_items.txt"
+
 "DOTAAbilities"
 {
 	"Version"		"1"
@@ -46,21 +48,6 @@
 	}
 
 	"item_arcane_blink"
-	{
-		"ItemPurchasable"	"0"
-	}
-
-	"item_faerie_fire"
-	{
-		"ItemPurchasable"	"0"
-	}
-
-	"item_infused_raindrop"
-	{
-		"ItemPurchasable"	"0"
-	}
-
-	"item_wind_lace"
 	{
 		"ItemPurchasable"	"0"
 	}
@@ -126,11 +113,6 @@
 	}
 
 	"item_ring_of_tarrasque"
-	{
-		"ItemPurchasable"	"0"
-	}
-
-	"item_enchanted_mango"
 	{
 		"ItemPurchasable"	"0"
 	}
@@ -396,11 +378,6 @@
 	{
 		"ItemPurchasable"	"0"
 	}
-
-	"item_blight_stone"	
-	{
-		"ItemPurchasable"	"0"
-	}
 	"item_orb_of_corrosion"
 	{
 		"ItemPurchasable"	"0"
@@ -417,11 +394,6 @@
 	}
 	
 	"item_solar_crest"
-	{
-		"ItemPurchasable"	"0"
-	}
-
-	"item_tome_of_knowledge"
 	{
 		"ItemPurchasable"	"0"
 	}

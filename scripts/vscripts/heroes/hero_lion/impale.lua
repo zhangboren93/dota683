@@ -5,7 +5,7 @@ function handleProjectileHitUnit(event)
 	local duration = ability:GetSpecialValueFor("duration")
 
 	if target == nil or target:IsInvulnerable() then return end
-	if target:TriggerSpellAbsorb(self) then return end
+	if target:TriggerSpellAbsorb(ability) then return end
 	
 	target:AddNewModifier(caster, ability, "modifier_lion_impale", { duration = duration }) -- Dota2 Original modifier
 

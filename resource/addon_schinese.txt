@@ -460,8 +460,6 @@
 		"DOTA_Tooltip_modifier_silver_edge_debuff_datadriven_Description"			"被动技能被禁用。"
 		"DOTA_Tooltip_Ability_item_octarine_core_lua"							"玲珑心(6.88f)"
 		"DOTA_Tooltip_ability_item_octarine_core_lua_Description"				"<h1>被动：冷却时间减少</h1>降低所有技能和物品的冷却时间。"
-		"DOTA_Tooltip_ability_item_octarine_core_lua_spell_lifesteal_hero"		"%+技能吸血（英雄）"
-		"DOTA_Tooltip_ability_item_octarine_core_lua_spell_lifesteal_creep"		"%+技能吸血（小兵）"
 		"DOTA_Tooltip_ability_item_octarine_core_lua_Lore"						"位于法术技艺核心的，是只有身负异能之人才能感知的光带。"
 		"DOTA_Tooltip_Ability_item_iron_talon_lua"								"寒铁钢爪(6.88f)"
 		"DOTA_Tooltip_ability_item_iron_talon_lua_Description"					"<h1>主动：砍伐</h1>对非玩家控制的敌方单位使用，移除当前生命值的%creep_damage_pct%%%。<br><br>对树木施放会立刻将其摧毁。 <br><br>砍伐单位施法距离：%abilitycastrange%<br>砍伐树木施法距离：%abilitycastrange%"
