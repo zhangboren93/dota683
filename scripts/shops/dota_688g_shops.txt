@@ -136,7 +136,7 @@
 
 	"weapons"
 	{	
-		"item"		"item_heart"	
+		"item"		"item_lesser_crit"
 		"item"		"item_armlet"
 		"item"		"item_invis_sword"
 		"item"		"item_basher"
@@ -158,6 +158,7 @@
 		"item"		"item_dragon_lance"
 		"item"		"item_sange_datadriven"
 		"item"		"item_yasha"
+		"item"		"item_echo_sabre"
 		"item"		"item_maelstrom_datadriven"
 		"item"		"item_diffusal_blade_datadriven"
 		"item"		"item_desolator_datadriven"
