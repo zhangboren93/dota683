@@ -26,7 +26,7 @@ function StaticField(keys)
 			end
 
 			local damage_flag = DOTA_DAMAGE_FLAG_NONE
-			if ability:GetSpecialValueFor("hp_removal") then
+			if ability:GetSpecialValueFor("hp_removal") > 0 then
 				damage_flag = DOTA_DAMAGE_FLAG_HPLOSS
 			end
 
