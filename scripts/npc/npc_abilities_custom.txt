@@ -2433,8 +2433,16 @@
 		"AbilityManaCost"				"225 325 450"
 		"AbilityValues"
 		{
-			"sight_radius_day"		"900"
-			"sight_radius_night"	"900"
+			"sight_radius_day"
+			{
+				"value"						"900"
+				"special_bonus_shard"		"=500"
+			}
+			"sight_radius_night"
+			{
+				"value"						"900"
+				"special_bonus_shard"		"=500"
+			}
 			"sight_duration"		"3.0"
 			"damage"
 			{
