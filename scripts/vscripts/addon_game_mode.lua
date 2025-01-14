@@ -1008,7 +1008,11 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity:AddNewModifier(entity, nil, "modifier_attribute_regen_adjust" , {})
 		if self.custom_game_meta_version == "688" then
 			entity:AddNewModifier(entity, nil, "modifier_attribute_regen_688_lua", {})
+			if entity:GetName() == "npc_dota_hero_zuus" then
+				entity:AddItemByName("item_aghanims_shard")
+			else
 			entity:AddAbility("special_bonus_unique_688"):SetLevel(1)
+		end
 		end
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
 		entity:AddNewModifier(entity, nil, "item_tpscroll_clear_tree_modifier", {})

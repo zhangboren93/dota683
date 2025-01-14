@@ -2440,6 +2440,7 @@
 			{
 				"value"						"225 350 475"
 				"special_bonus_scepter"		"+215 +190 +165"
+				"special_bonus_shard"		"-0 -25 -50"
 			}
 			"growing_delay"			"0"
 			"grow_kill_amp"			"0"
@@ -12763,7 +12764,15 @@
 	"AbilityValues"
 	{
 			"radius"					"1200"
-			"damage_health_pct"			"5 7 9 11"
+			"damage_health_pct"
+			{
+				"value"					"5 7 9 11"
+				"special_bonus_shard"	"=4 =6 =8 =10"
+			}
+			"hp_removal"
+			{
+				"special_bonus_shard"	"=1"
+			}
 	}
 	
 	"Modifiers"
@@ -25172,7 +25181,6 @@
 	{
 		"AbilityCastRange"				"850"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"1.75"
 		"AbilityManaCost"				"65 70 75 80"
 		"AbilityValues"
 		{
@@ -25239,7 +25247,11 @@
 				"sight_radius_night"		"750"
 				"sight_duration"			"4.5"
 				"spread_aoe"				"325"
-				"ministun_duration"			"0.1"
+				"ministun_duration"
+				{
+					"value"					"0.1"
+					"special_bonus_shard"	"=0.2"
+				}
 				"creep_damage_bonus_pct"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
