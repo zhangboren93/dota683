@@ -136,7 +136,7 @@
 
 	"weapons"
 	{	
-		"item"		"item_heart"	
+		"item"		"item_lesser_crit"
 		"item"		"item_armlet"
 		"item"		"item_invis_sword"
 		"item"		"item_basher"
@@ -155,8 +155,10 @@
 	{	
 		"item"		"item_mask_of_madness_datadriven"
 		"item"		"item_helm_of_the_dominator_datadriven"
+		"item"		"item_dragon_lance"
 		"item"		"item_sange_datadriven"
 		"item"		"item_yasha"
+		"item"		"item_echo_sabre"
 		"item"		"item_maelstrom_datadriven"
 		"item"		"item_diffusal_blade_datadriven"
 		"item"		"item_desolator_datadriven"
@@ -203,15 +205,15 @@
 		"item"		"item_energy_booster"
 		"item"		"item_vitality_booster"
 		"item"		"item_point_booster"
+		"item"		"item_platemail"
+		"item"		"item_talisman_of_evasion"
 		"item"		"item_hyperstone"
+		"item"      "item_ultimate_orb"
 		"item"		"item_demon_edge"
 		"item"		"item_mystic_staff"
 		"item"		"item_reaver"
 		"item"		"item_eagle"
 		"item"		"item_relic"
-		"item"		"item_void_stone_datadriven"
-		"item"		"item_ring_of_health"
-		"item"		"item_orb_of_venom"
 	}
 
 	"pregame"

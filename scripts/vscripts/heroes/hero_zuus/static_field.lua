@@ -24,6 +24,12 @@ function StaticField(keys)
 				-- Plays the sound on the caster
 	    		EmitSoundOn(keys.sound, caster)
 			end
+
+			local damage_flag = DOTA_DAMAGE_FLAG_NONE
+			if ability:GetSpecialValueFor("hp_removal") > 0 then
+				damage_flag = DOTA_DAMAGE_FLAG_HPLOSS
+			end
+
 	    	for i,unit in ipairs(units) do
 	    		-- Attaches the particle
 	    		local particle = ParticleManager:CreateParticle(keys.particle, PATTACH_ABSORIGIN_FOLLOW, unit)
@@ -31,7 +37,8 @@ function StaticField(keys)
 	    		-- Plays the sound on the target
 	    		--EmitSoundOn(keys.sound, unit)
 	    		-- Deals the damage based on the unit's current health
-	    		ApplyDamage({victim = unit, attacker = caster, damage = unit:GetHealth() * damage_health_pct, damage_type = ability:GetAbilityDamageType()})
+	    		ApplyDamage({victim = unit, attacker = caster, damage = unit:GetHealth() * damage_health_pct,
+					damage_flags = damage_flag, damage_type = ability:GetAbilityDamageType()})
 	    	end
 			return
 		end

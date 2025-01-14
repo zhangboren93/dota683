@@ -18,15 +18,6 @@
 		"ItemCost"			"0"
 	}
 
-	"item_recipe_dragon_lance"
-	{
-		"ItemPurchasable"	"0"
-	}
-	"item_dragon_lance"
-	{
-		"ItemPurchasable"	"0"
-	}
-
 	"item_overwhelming_blink"
 	{
 		"ItemPurchasable"	"0"
