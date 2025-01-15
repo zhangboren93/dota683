@@ -1737,7 +1737,11 @@
 				"value"					"0.7 0.6 0.5"	
 				"special_bonus_scepter"	"-0.1"
 			}
-			"armor_reduction"	"1"		
+			"armor_reduction"	"-1"
+			"bypass_block"
+			{
+				"special_bonus_shard"	"=1"
+			}
 		}
 
 		"precache" 
@@ -1790,7 +1794,7 @@
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
 		}

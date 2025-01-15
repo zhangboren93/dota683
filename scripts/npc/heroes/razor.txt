@@ -36,7 +36,11 @@
 			"drain_length"			"8"
 			"drain_duration"		"18"
 			"drain_rate"			"7 14 21 28"
-			"drain_range_buffer"	"100"
+			"drain_range_buffer"
+			{
+				"value"				"100"
+				"special_bonus_shard"	"=200"
+			}
 			"radius"				"200"
 			"vision_radius"			"800"
 			"vision_duration"		"3.34"
