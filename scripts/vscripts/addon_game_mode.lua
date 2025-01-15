@@ -1010,6 +1010,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddNewModifier(entity, nil, "modifier_attribute_regen_688_lua", {})
 			if entity:GetName() == "npc_dota_hero_zuus" then
 				entity:AddItemByName("item_aghanims_shard")
+				entity:RemoveAbility("zuus_thundergods_wrath")
+				entity:AddAbility("zuus_thundergods_wrath_688")
+			elseif entity:GetName() == "npc_dota_hero_razor" then
+				entity:AddItemByName("item_aghanims_shard")
 			else
 			entity:AddAbility("special_bonus_unique_688"):SetLevel(1)
 		end

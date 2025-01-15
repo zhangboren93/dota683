@@ -29,11 +29,18 @@ function handleIntervalThink(event)
 	ability:ApplyDataDrivenModifier(caster, unit_lowest_hp, "modifier_razor_eye_debuff_datadriven", 
 		{duration = caster:FindModifierByName("modifier_razor_eye_datadriven"):GetRemainingTime()})
 
+	local flag = DOTA_DAMAGE_FLAG_NONE
+	if ability:GetSpecialValueFor("bypass_block") ~= 0 then
+		flag = DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK
+	end
+
 	ApplyDamage({
 		victim = unit_lowest_hp,
 		attacker = caster,
 		damage_type = DAMAGE_TYPE_PHYSICAL,
-		damage = ability:GetAbilityDamage()
+		damage = ability:GetAbilityDamage(),
+		ability = ability,
+		damage_flags = flag
 	})
 	unit_lowest_hp:EmitSound("Hero_razor.lightning")
 	local particle = ParticleManager:CreateParticle(

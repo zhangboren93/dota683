@@ -81,6 +81,7 @@
 #base "heroes/windrunner.txt"
 #base "heroes/winter_wyvern.txt"
 #base "heroes/witch_doctor.txt"
+#base "heroes/zeus.txt"
 #base "units/courier.txt"
 #base "units/modes.txt"
 "DOTAAbilities"
@@ -1736,7 +1737,11 @@
 				"value"					"0.7 0.6 0.5"	
 				"special_bonus_scepter"	"-0.1"
 			}
-			"armor_reduction"	"1"		
+			"armor_reduction"	"-1"
+			"bypass_block"
+			{
+				"special_bonus_shard"	"=1"
+			}
 		}
 
 		"precache" 
@@ -1789,7 +1794,7 @@
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
 		}
@@ -2433,22 +2438,13 @@
 		"AbilityManaCost"				"225 325 450"
 		"AbilityValues"
 		{
-			"sight_radius_day"
-			{
-				"value"						"900"
-				"special_bonus_shard"		"=500"
-			}
-			"sight_radius_night"
-			{
-				"value"						"900"
-				"special_bonus_shard"		"=500"
-			}
+			"sight_radius_day"		"900"
+			"sight_radius_night"	"900"
 			"sight_duration"		"3.0"
 			"damage"
 			{
 				"value"						"225 350 475"
 				"special_bonus_scepter"		"+215 +190 +165"
-				"special_bonus_shard"		"-0 -25 -50"
 			}
 			"growing_delay"			"0"
 			"grow_kill_amp"			"0"
