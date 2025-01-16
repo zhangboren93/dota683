@@ -93,4 +93,25 @@
 			"base_attack_range"		"140"
 		}
 	}
+
+	"item_recipe_lotus_orb"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "Model"                         "models/props_gameplay/recipe.vmdl"
+        
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "1"   
+        "ItemShopTags"                  ""
+        
+        // Recipe
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemRecipe"                    "1"
+        "ItemResult"                    "item_lotus_orb"
+        "ItemRequirements"
+        {
+            "01"                        "item_pers;item_platemail_688;item_energy_booster"
+        }
+    }
 }
