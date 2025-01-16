@@ -283,15 +283,6 @@
 		"ItemPurchasable"	"0"
 	}
 
-	"item_recipe_lotus_orb"
-	{
-		"ItemPurchasable"	"0"
-	}
-	"item_lotus_orb"
-	{
-		"ItemPurchasable"	"0"
-	}
-
 	"item_recipe_meteor_hammer"
 	{
 		"ItemPurchasable"	"0"

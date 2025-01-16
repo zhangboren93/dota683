@@ -40,6 +40,9 @@
 		"DOTA_Tooltip_Ability_item_void_stone_datadriven"								"虚无宝石"
 		"DOTA_Tooltip_Ability_item_void_stone_datadriven_bonus_mana_regen_percentage"	"%+$mana_regen"
 
+		"DOTA_Tooltip_Ability_item_platemail_688"								"板甲 (6.88f)"
+		"DOTA_Tooltip_ability_item_platemail_688_Lore"							"保护整个上身的厚重金属板。注意别砸到脚。"
+
 		"DOTA_Tooltip_Ability_item_null_talisman_datadriven"					"空灵挂件"
 		"DOTA_Tooltip_ability_item_null_talisman_datadriven_bonus_strength"		"+$str"
 		"DOTA_Tooltip_ability_item_null_talisman_datadriven_bonus_agility"		"+$agi"
@@ -3135,6 +3138,13 @@
 		"DOTA_Tooltip_Ability_static_field_datadriven_Description"			"宙斯每次施放技能时都会电击附近所有敌方单位，造成他们当前生命一定比例的伤害。"
 		"DOTA_Tooltip_Ability_static_field_datadriven_damage_health_pct"	"%生命减少："
 		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Scepter_Description"	"提高伤害。"
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688"						"雷神之怒"
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688_Description"			"用闪电打击所有敌方英雄，对他们造成伤害，无论他们身在何处。<br><br>雷神之怒还会提供每个受攻击的英雄周围的真实视域。隐身的英雄不会受到伤害，但依然会获得他所在之处的真实视域。"
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688_Lore"					"神王毁灭一切胆敢反抗他的敌人，他们无所遁形。"
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688_damage"				"伤害："
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688_sight_radius_day"		"真实视域范围："
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688_sight_duration"		"持续时间："
+		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_688_Scepter_Description"	"提高伤害。"
 
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"混乱攻击"
 		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven"							"溅射攻击"
