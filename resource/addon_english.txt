@@ -3093,6 +3093,13 @@
 		"DOTA_Tooltip_Ability_static_field_datadriven_Description"			"Zeus shocks all nearby enemy units whenever he casts a spell, causing damage proportional to their current health."
 		"DOTA_Tooltip_Ability_static_field_datadriven_damage_health_pct"	"%HEALTH REDUCTION:"
 		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_Scepter_Description"	"Increases damage."
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688"						"Thundergod's Wrath"
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688_Description"			"Strikes all enemy heroes with a bolt of lightning, dealing damage, no matter where they may be.<br><br>Thundergod's Wrath also provides True Sight around each hero struck.  If an enemy hero is invisible, it takes no damage, but the True Sight is still created at that hero's location."
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688_Lore"					"The Lord of Heaven smites all who oppose him, near or far."
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688_sight_radius_day"		"TRUE SIGHT RADIUS:"
+		"DOTA_Tooltip_ability_zuus_thundergods_wrath_688_sight_duration"		"DURATION:"
+		"DOTA_Tooltip_Ability_zuus_thundergods_wrath_688_Scepter_Description"	"Increases damage."
 
 		"DOTA_Tooltip_Ability_granite_golem_pure_attack"							"Chaos attack"
 		"DOTA_Tooltip_ability_black_dragon_splash_attack_datadriven"						    "Splash Attack"
