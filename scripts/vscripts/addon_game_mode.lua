@@ -899,6 +899,7 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			or event.shop_item_name == "item_infused_raindrop"
 			or event.shop_item_name == "item_blight_stone"
 			or event.shop_item_name == "item_wind_lace"
+			or event.shop_item_name == "item_platemail"
 			or event.shop_item_name == "item_recipe_dragon_lance"
 			or event.shop_item_name == "item_recipe_silver_edge_datadriven" 
 			or event.shop_item_name == "item_recipe_iron_talon_lua" then

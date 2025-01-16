@@ -40,6 +40,9 @@
 		"DOTA_Tooltip_Ability_item_void_stone_datadriven"								"虚无宝石"
 		"DOTA_Tooltip_Ability_item_void_stone_datadriven_bonus_mana_regen_percentage"	"%+$mana_regen"
 
+		"DOTA_Tooltip_Ability_item_platemail_688"								"板甲 (6.88f)"
+		"DOTA_Tooltip_ability_item_platemail_688_Lore"							"保护整个上身的厚重金属板。注意别砸到脚。"
+
 		"DOTA_Tooltip_Ability_item_null_talisman_datadriven"					"空灵挂件"
 		"DOTA_Tooltip_ability_item_null_talisman_datadriven_bonus_strength"		"+$str"
 		"DOTA_Tooltip_ability_item_null_talisman_datadriven_bonus_agility"		"+$agi"
