@@ -10,7 +10,7 @@ function ProcsMagicStick(event)
 		end
 		item = units[i]:FindItemInInventory("item_magic_wand")
 		if item ~= nil and item:GetItemState() == 1 then
-			item:SetCurrentCharges(math.min(20, item:GetCurrentCharges() + 1))
+			item:SetCurrentCharges(math.min(17, item:GetCurrentCharges() + 1))
 		end
 	end
 end
