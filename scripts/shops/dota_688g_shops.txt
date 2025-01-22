@@ -20,7 +20,7 @@
 
 	"attributes"
 	{
-		"item"		"item_branches"
+		"item"		"item_branches_688"
 		"item"		"item_gauntlets"
 		"item"		"item_slippers"
 		"item"		"item_mantle"

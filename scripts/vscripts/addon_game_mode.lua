@@ -892,19 +892,32 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				end
 			end
 		end
-		if 	   event.shop_item_name == "item_recipe_bloodthorn_lua" 
-			or event.shop_item_name == "item_faerie_fire"
-			or event.shop_item_name == "item_enchanted_mango"
-			or event.shop_item_name == "item_tome_of_knowledge"
-			or event.shop_item_name == "item_infused_raindrop"
-			or event.shop_item_name == "item_blight_stone"
-			or event.shop_item_name == "item_wind_lace"
-			or event.shop_item_name == "item_platemail_688"
-			or event.shop_item_name == "item_recipe_dragon_lance"
-			or event.shop_item_name == "item_recipe_silver_edge_datadriven" 
-			or event.shop_item_name == "item_recipe_iron_talon_lua" then
-			if self.custom_game_meta_version ~= '688' then
-				return false
+		if 	self.custom_game_meta_version ~= '688' then
+			if event.shop_item_name == "item_recipe_bloodthorn_lua" 
+				or event.shop_item_name == "item_faerie_fire"
+				or event.shop_item_name == "item_enchanted_mango"
+				or event.shop_item_name == "item_tome_of_knowledge"
+				or event.shop_item_name == "item_branches_688"
+				or event.shop_item_name == "item_infused_raindrop"
+				or event.shop_item_name == "item_blight_stone"
+				or event.shop_item_name == "item_wind_lace"
+				or event.shop_item_name == "item_platemail_688"
+				or event.shop_item_name == "item_recipe_moon_shard"
+				or event.shop_item_name == "item_recipe_guardian_greaves"
+				or event.shop_item_name == "item_recipe_glimmer_cape"
+				or event.shop_item_name == "item_recipe_aether_lens"
+				or event.shop_item_name == "item_recipe_lotus_orb"
+				or event.shop_item_name == "item_recipe_hurricane_pike"
+				or event.shop_item_name == "item_recipe_dragon_lance"
+				or event.shop_item_name == "item_recipe_echo_sabre"
+				or event.shop_item_name == "item_recipe_silver_edge_datadriven" 
+				or event.shop_item_name == "item_recipe_iron_talon_lua" then
+					return false
+			end
+		else
+			if event.shop_item_name == "item_branches"
+				or event.shop_item_name == "item_platemail" then
+					return false
 			end
 		end
 		if event.shop_item_name == "item_recipe_octarine_core_lua" then return false end
@@ -1016,8 +1029,8 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			elseif entity:GetName() == "npc_dota_hero_razor" then
 				entity:AddItemByName("item_aghanims_shard")
 			else
-			entity:AddAbility("special_bonus_unique_688"):SetLevel(1)
-		end
+				entity:AddAbility("special_bonus_unique_688"):SetLevel(1)
+			end
 		end
 		entity:AddNewModifier(entity, nil, "modifier_cancels_item_on_hit" , {})
 		entity:AddNewModifier(entity, nil, "item_tpscroll_clear_tree_modifier", {})

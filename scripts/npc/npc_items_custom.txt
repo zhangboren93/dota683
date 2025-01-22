@@ -1103,6 +1103,10 @@
 	{
 		"ID"							"36"
 		"AbilityCooldown"				"13.0"
+		"AbilityValues"
+		{
+			"max_charges"			"17"
+		}
 	}
 	"item_ghost"
 	{
