@@ -914,8 +914,8 @@ function CAddonTemplateGameMode:OrderFilter(event)
 					return false
 			end
 		else
-			if event.shop_item_name == "item_branches"
-				or event.shop_item_name == "item_platemail" then
+			if event.shop_item_name == "item_branches_688"
+				or event.shop_item_name == "item_platemail_688" then
 					return false
 			end
 		end
