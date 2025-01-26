@@ -35,6 +35,17 @@ function modifier_item_aegis_lua:OnDeath(event)
 	if event.unit ~= parent then return end
 	if event.unit:GetModelName() == "models/creeps/roshan/roshan.vmdl" then return end
 	local aegis = parent:FindItemInInventory("item_aegis_lua")
+	-- if i am wraith king and has ult, then don't remove  myself
+	if parent:GetName() == "npc_dota_hero_skeleton_king" then
+		local reinc_ability = parent:FindAbilityByName("skeleton_king_reincarnation")
+		print("Aagis on Skeleton king.")
+		if reinc_ability:GetLevel() > 0 and 
+			(reinc_ability:IsCooldownReady() or 
+				reinc_ability:GetCooldown(reinc_ability:GetLevel() - 1) - reinc_ability:GetCooldownTimeRemaining()) < 1 then
+			print("Spends reinc ult first.")
+			return
+		end
+	end
 	if aegis ~= nil then
 		parent:RemoveItem(aegis)
 		local pid = ParticleManager:CreateParticle("particles/items_fx/aegis_timer.vpcf", PATTACH_ABSORIGIN, parent)
