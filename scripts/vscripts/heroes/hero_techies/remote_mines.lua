@@ -30,11 +30,12 @@ function RemoteMinesPlant( keys )
 	local model_scale = ability:GetLevelSpecialValueFor("model_scale", ability_level) / 100
 
 	-- Create the land mine and initialize it
-	local remote_mine = CreateUnitByName("npc_dota_techies_remote_mine_datadriven", target_point, false, caster, caster, caster:GetTeamNumber())
+	local remote_mine = CreateUnitByName("npc_dota_techies_remote_mine_datadriven", target_point, false, nil, nil, caster:GetTeamNumber())
 	ability:ApplyDataDrivenModifier(caster, remote_mine, modifier_remote_mine, {})
 	remote_mine:AddNewModifier(caster, ability, "modifier_kill", {Duration = duration})
 	remote_mine:SetModelScale(1 + model_scale)
 	remote_mine:SetControllableByPlayer(player, true)
+	remote_mine.remote_mine_owner = caster
 
 	-- Level it up
 	remote_mine:FindAbilityByName("techies_remote_mines_self_detonate_datadriven"):SetLevel(1)
@@ -91,7 +92,7 @@ function RemoteMinesDeath( keys )
 		for i=1,#units do
 			ApplyDamage({
 				victim = units[i],
-				attacker = target,
+				attacker = target.remote_mine_owner,
 				damage = damage,
 				damage_type = DAMAGE_TYPE_MAGICAL,
 				ability = ability
