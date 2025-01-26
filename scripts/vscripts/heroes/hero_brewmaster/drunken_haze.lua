@@ -15,7 +15,6 @@ function handleSpellStart(event)
 	local ability = event.ability 
 	local radius = ability:GetSpecialValueFor("radius")
 	local duration = ability:GetSpecialValueFor("duration")
-	ProcsMagicStick(event)
 	local heroes = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius,
 		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 	for i=1,#heroes do
@@ -23,4 +22,7 @@ function handleSpellStart(event)
 			ability:ApplyDataDrivenModifier(caster, heroes[i], "modifier_drunken_haze", { duration = duration })
 		end
 	end
+	local pid = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_drunken_haze_projectile.vpcf", 0, caster) 
+	ParticleManager:SetParticleControlEnt(pid, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", Vector(0, 0, 0), false)
+	ParticleManager:SetParticleControlEnt(pid, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
 end
