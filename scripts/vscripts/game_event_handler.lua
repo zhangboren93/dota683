@@ -2,6 +2,7 @@ require('ladder_game_mode')
 require('creepspawn')
 require('death_match')
 require('hero_types')
+json = require('json')
 
 RANK_PLAYER_COUNT_REQ = 10
 
@@ -131,7 +132,6 @@ function HandleGameStateChange(game_mode, event)
 					end
 				end, "unassign default player teams", 3)
 				GameRules:GetGameModeEntity():SetThink(function()
-					shuffleTeam()
 					--game_mode.radiant_team_mmr_total = 0
 					--game_mode.dire_team_mmr_total = 0
 					--for i=0,PlayerResource:GetPlayerCount() - 1 do
@@ -338,9 +338,30 @@ function sendMatchStartEventToServer(game_mode)
 			print("register_game_ip response " .. status_code)
 			if status_code == 200 then
 				GameRules:SendCustomMessage("连接服务器成功。", -1, -1);
+				local body = response.Body
+				local teams = json.decode(body)
+				print("Receiving team assignment")
+				DeepPrintTable(teams)
+				for i=0,PlayerResource:GetPlayerCount() - 1 do
+					local pid = PlayerResource:GetSteamID(i):__tostring()
+					print("Player " .. i .. " has pid " .. pid)
+					for j=1,#teams[1] do
+						if teams[1][j] == pid then
+							print("Assign player " .. i .. " to rad.")
+							PlayerResource:SetCustomTeamAssignment(i, DOTA_TEAM_GOODGUYS)
+						end
+					end
+					for j=1,#teams[2] do
+						if teams[2][j] == pid then
+							print("Assign player " .. i .. " to dire.")
+							PlayerResource:SetCustomTeamAssignment(i, DOTA_TEAM_BADGUYS)
+						end
+					end
+				end
 			else 
 				GameRules:SendCustomMessage("连接服务器失败，不会记录分数。", -1, -1);
 				game_mode.isValidRankedGame = false
+				shuffleTeam()
 			end
 		end)
 end
