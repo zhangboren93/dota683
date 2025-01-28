@@ -5,8 +5,8 @@
 {
 	"npc_dota_hero_base"
 	{
-		"StatusHealth"		"150"
-		"StatusMana"		"0"
+		"StatusHealth"		"%BASE_HEALTH%"
+		"StatusMana"		"%BASE_MANA%"
 		"StatusManaRegen"	"0.01"
 		"StatusHealthRegen"		"0.25"
 	}
