@@ -125,6 +125,7 @@
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"axe_berserkers_call"
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_1"
+		"AbilityProcsMagicStick"		"1"
 	
 		// Precache
 		//-------------------------------------------------------------------------------------------------------------

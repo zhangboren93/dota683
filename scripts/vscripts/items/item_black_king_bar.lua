@@ -78,7 +78,6 @@ function modifier_black_king_bar_immune_lua:DeclareFunctions()
     {
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
         MODIFIER_PROPERTY_MODEL_SCALE,
-		MODIFIER_EVENT_ON_DEATH
     }
     return funcs
 end
@@ -111,6 +110,6 @@ function modifier_black_king_bar_immune_lua:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
 
-function modifier_black_king_bar_immune_lua:OnDeath()
-	self:Destroy()
+function modifier_black_king_bar_immune_lua:RemoveOnDeath()
+    return true
 end
