@@ -68,12 +68,18 @@ local function sendPlayerStatsToUITeam(player2account_records, team)
 			mmr = mmr
 		})
 	end
+	--DeepPrintTable(radiant_players)
 	return radiant_players
 end
 	
 local function sendPlayerStatsToUI(player2account_records)
-	local radi_players = sendPlayerStatsToUITeam(player2account_records, DOTA_TEAM_GOODGUYS)
-	local dire_players = sendPlayerStatsToUITeam(player2account_records, DOTA_TEAM_BADGUYS)
+	local player_score_map = {}
+	for i=1,#player2account_records / 2 do
+		player_score_map[player2account_records[2 * i - 1]] = player2account_records[2 * i]
+	end
+	DeepPrintTable(player2account_records)
+	local radi_players = sendPlayerStatsToUITeam(player_score_map, DOTA_TEAM_GOODGUYS)
+	local dire_players = sendPlayerStatsToUITeam(player_score_map, DOTA_TEAM_BADGUYS)
 	CustomGameEventManager:Send_ServerToAllClients(
 		"team_select_player_stats", { rp = radi_players, dp = dire_players})
 end
@@ -358,6 +364,8 @@ function sendMatchStartEventToServer(game_mode)
 						end
 					end
 				end
+
+				sendPlayerStatsToUI(teams[3])
 			else 
 				GameRules:SendCustomMessage("连接服务器失败，不会记录分数。", -1, -1);
 				game_mode.isValidRankedGame = false
