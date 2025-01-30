@@ -106,7 +106,7 @@
 			<Button onactivate="OnItemSelectItemPressed('item_recipe_ancient_janggo_datadriven')"><DOTAItemImage itemname="item_recipe_ancient_janggo_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_mekansm_2')"><DOTAItemImage itemname="item_mekansm_2"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_vladmir_2')"><DOTAItemImage itemname="item_vladmir_2"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_pipe')"><DOTAItemImage itemname="item_pipe"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_pipe_datadriven')"><DOTAItemImage itemname="item_pipe_datadriven"/></Button>
 		</Panel>
 		<Panel class="fwd-item-select-attribute-row">
 			<Button onactivate="OnItemSelectItemPressed('item_force_staff_datadriven')"><DOTAItemImage itemname="item_force_staff_datadriven"/></Button>

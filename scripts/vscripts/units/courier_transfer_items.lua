@@ -16,7 +16,7 @@ ITEM_RECIPE_RULES = {
 	{"item_vladmir_2", "item_recipe_vladmir_2", "item_ring_of_regen", "item_ring_of_basilius_datadriven", "item_lifesteal_datadriven"},
 	{"item_buckler_2", "item_recipe_buckler_2", "item_chainmail", "item_branches"},
 	{"item_ring_of_basilius_datadriven", "item_sobi_mask_datadriven", "item_ring_of_protection"},
-	{"item_pipe", "item_recipe_pipe", "item_hood_of_defiance_datadriven", "item_headdress_datadriven"},
+	{"item_pipe_datadriven", "item_recipe_pipe_datadriven", "item_hood_of_defiance_datadriven", "item_headdress_datadriven"},
 	{"item_urn_of_shadows_datadriven", "item_recipe_urn_of_shadows_datadriven", "item_sobi_mask_datadriven", "item_gauntlets", "item_gauntlets"},
 	{"item_headdress_datadriven", "item_recipe_headdress_datadriven", "item_ring_of_regen", "item_branches"},
 	{"item_sheepstick", "item_mystic_staff", "item_ultimate_orb", "item_void_stone_datadriven"},

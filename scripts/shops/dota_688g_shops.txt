@@ -100,7 +100,7 @@
 		"item"		"item_ancient_janggo_datadriven"
 		"item"		"item_mekansm_2"		
 		"item"		"item_vladmir_2"
-		"item"		"item_pipe"
+		"item"		"item_pipe_datadriven"
 	}
 
 	"magics"
