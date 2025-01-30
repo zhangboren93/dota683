@@ -133,7 +133,7 @@
 			<Button onactivate="OnItemSelectItemPressed('item_bloodstone_datadriven')"><DOTAItemImage itemname="item_bloodstone_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_manta')"><DOTAItemImage itemname="item_manta"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_sphere')"><DOTAItemImage itemname="item_sphere"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_assault')"><DOTAItemImage itemname="item_assault"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_assault_lua')"><DOTAItemImage itemname="item_assault_lua"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_heart_datadriven')"><DOTAItemImage itemname="item_heart_datadriven"/></Button>
 		</Panel>
 		<Panel class="fwd-item-select-attribute-row">

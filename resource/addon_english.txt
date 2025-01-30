@@ -184,6 +184,17 @@
 		"DOTA_Tooltip_modifier_item_forcestaff_active_lua"						"Force"
 		"DOTA_Tooltip_modifier_item_forcestaff_active_lua_Description"			"Being pushed by Force Staff."
 		
+		"DOTA_Tooltip_Ability_item_assault_lua"						"Assault Cuirass"
+		"DOTA_Tooltip_ability_item_assault_lua_Description"			"<h1>Passive: Assault Aura</h1> Grants %aura_attack_speed% attack speed and %aura_positive_armor% armor to nearby allied units, and decreases nearby enemy unit and structure armor by %aura_negative_armor%.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_assault_lua_Lore"				"Forged in the depths of the nether reaches, this hellish mail provides an army with increased armor and attack speed."
+		"DOTA_Tooltip_ability_item_assault_lua_bonus_attack_speed"	"+$attack"
+		"DOTA_Tooltip_ability_item_assault_lua_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_assault_lua_aura_ally_building"	"Affects Ally Structures"
+		"DOTA_Tooltip_modifier_item_assault_debuf_lua"				"Assault Cuirass"
+		"DOTA_Tooltip_modifier_item_assault_debuf_lua_Description"	"Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+		"DOTA_Tooltip_modifier_item_assault_buff_lua"				"Assault Cuirass"
+		"DOTA_Tooltip_modifier_item_assault_buff_lua_Description"	"Armor enhanced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nAttack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+
 		"DOTA_Tooltip_Ability_item_veil_of_discord_datadriven"						"Veil of Discord"
 		"DOTA_Tooltip_Ability_item_veil_of_discord_datadriven_Description"			"<h1>Active: Magic Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes, reducing %resist_debuff%%% Magic Resistance<br><br>Range: %abilitycastrange%<br>Duration: %resist_debuff_duration% seconds"
 		"DOTA_Tooltip_ability_item_veil_of_discord_Lore"							"The headwear of corrupt magi."

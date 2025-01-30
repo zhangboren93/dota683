@@ -130,7 +130,7 @@
 		"item"		"item_bloodstone_datadriven"
 		"item"		"item_manta"
 		"item"		"item_sphere"
-		"item"		"item_assault"
+		"item"		"item_assault_lua"
 		"item"		"item_heart_datadriven"
 	}
 

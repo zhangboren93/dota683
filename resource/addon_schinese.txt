@@ -472,6 +472,16 @@
 		"DOTA_Tooltip_ability_item_iron_talon_lua_Description"					"<h1>主动：砍伐</h1>对非玩家控制的敌方单位使用，移除当前生命值的%creep_damage_pct%%%。<br><br>对树木施放会立刻将其摧毁。 <br><br>砍伐单位施法距离：%abilitycastrange%<br>砍伐树木施法距离：%abilitycastrange%"
 		"DOTA_Tooltip_ability_item_iron_talon_lua_Note0"					    "对树木使用时冷却时间为4秒。"
 		"DOTA_Tooltip_ability_item_iron_talon_lua_Lore"							"简单却有效的武器，为镇压地狱熊怪的起义而设计。"
+		"DOTA_Tooltip_Ability_item_assault_lua"						"强袭胸甲"
+		"DOTA_Tooltip_ability_item_assault_lua_Description"			"<h1>被动：强袭光环</h1>附近友军单位提升%aura_attack_speed%攻击速度和%aura_positive_armor%点护甲，削弱附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_assault_lua_Lore"				"在三途川的深处锻造而成，这件地狱盔甲能提高整支军队的护甲和攻击速度。"
+		"DOTA_Tooltip_ability_item_assault_lua_bonus_attack_speed"	"+$attack"
+		"DOTA_Tooltip_ability_item_assault_lua_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_assault_lua_aura_ally_building"	"是否影响友军建筑："
+		"DOTA_Tooltip_modifier_item_assault_debuf_lua"				"强袭胸甲"
+		"DOTA_Tooltip_modifier_item_assault_debuf_lua_Description"	"护甲被降低%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+		"DOTA_Tooltip_modifier_item_assault_buff_lua"				"强袭胸甲"
+		"DOTA_Tooltip_modifier_item_assault_buff_lua_Description"	"护甲提升%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。\n攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"
