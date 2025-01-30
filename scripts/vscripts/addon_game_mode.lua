@@ -2663,8 +2663,12 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 			if data.mv ~= GameRules.AddonTemplate.custom_game_meta_version then
 				if data.mv == '683' then
 					GameRules:SendCustomMessage("启用683版本", -1, -1)
+					GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 19)
+					GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 13)
 				elseif data.mv == '688' then
 					GameRules:SendCustomMessage("启用688版本", -1, -1)
+					GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 20)
+					GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_INTELLIGENCE_MANA, 12)
 				end
 				GameRules.AddonTemplate.custom_game_meta_version = data.mv
 				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.PlayerID, mv = data.mv})
