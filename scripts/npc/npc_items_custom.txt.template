@@ -9121,8 +9121,7 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemPurchasable"				"0"
-		"IsObsolete"					"1"
+		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
 		"ItemResult"					"item_ward_dispenser"
 		"ItemRequirements"
 		{
@@ -9138,7 +9137,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1445"
+		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -9159,7 +9158,7 @@
 	}
 	"item_bloodthorn_lua"
 	{
-		"ID"							"1450"
+		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_bloodthorn.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -9199,7 +9198,7 @@
  
  	"item_recipe_silver_edge_datadriven"
 	{
-		"ID"							"1448"
+		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_recipe"
 		// General
@@ -9223,7 +9222,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1449"
+		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
@@ -9344,6 +9343,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
+		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -9366,7 +9366,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1435"
+		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
 		"BaseClass"						"item_lua"	
 		"ScriptFile"					"items/item_octarine_core.lua"
 		"AbilityTextureName"			"item_octarine_core"
@@ -9399,7 +9399,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1438"
+		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -9422,7 +9422,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1439"
+		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_iron_talon.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
