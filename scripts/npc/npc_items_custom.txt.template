@@ -9122,7 +9122,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
-		"IsObsolete"					"%BAN_NEW_ITEMS_FROM_SECRETSHOP%"
+		"IsObsolete"					"%OBSOLETE_IN_683%"
 		"ItemResult"					"item_ward_dispenser"
 		"ItemRequirements"
 		{
