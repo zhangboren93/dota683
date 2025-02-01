@@ -5318,7 +5318,7 @@
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"ultimate orb"
 		"SideShop"						"1"
-		"SecretShop"					"0"
+		"SecretShop"					"%ENABLE_NEW_SECRETSHOP_ITEMS%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
