@@ -5318,7 +5318,7 @@
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"ultimate orb"
 		"SideShop"						"1"
-		"SecretShop"					"0"
+		"SecretShop"					"%SECRETSHOP_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -6653,7 +6653,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_armor"			"3"
+			"bonus_armor"			"%ITEM_RING_OF_PROTECTION_ARMOR%"
 		}
 	}
 
@@ -8806,7 +8806,7 @@
 		"ItemShopTags"					"agi;int;str"
 		"ItemQuality"					"consumable"
 		"ItemAliases"					"gg branch;iron branch"
-		"ShouldBeInitiallySuggested"	"1"
+		"ItemPurchasable"				"%PURCHASABLE_683_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -9121,8 +9121,8 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
-		"IsObsolete"					"%BAN_NEW_ITEMS_FROM_SECRETSHOP%"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"IsObsolete"					"%OBSOLETE_IN_683%"
 		"ItemResult"					"item_ward_dispenser"
 		"ItemRequirements"
 		{
@@ -9138,7 +9138,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -9159,7 +9159,7 @@
 	}
 	"item_bloodthorn_lua"
 	{
-		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_bloodthorn.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -9199,7 +9199,7 @@
  
  	"item_recipe_silver_edge_datadriven"
 	{
-		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_recipe"
 		// General
@@ -9223,7 +9223,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
@@ -9344,7 +9344,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -9367,7 +9367,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
 		"BaseClass"						"item_lua"	
 		"ScriptFile"					"items/item_octarine_core.lua"
 		"AbilityTextureName"			"item_octarine_core"
@@ -9400,7 +9400,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -9423,7 +9423,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_iron_talon.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -9456,4 +9456,34 @@
 		}
 	}
 
+	"item_branches_688"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_branches"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"Model"							"models/props_gameplay/branch.vmdl"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"200"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0.0"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"50"
+		"ItemShopTags"					"agi;int;str"
+		"ItemQuality"					"consumable"
+		"ItemAliases"					"gg branch;iron branch"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_all_stats"		"1"
+			"tree_duration"			"20"
+		}
+	}
 }

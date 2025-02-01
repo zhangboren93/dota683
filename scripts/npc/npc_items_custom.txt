@@ -9454,5 +9454,5 @@
 				"damage_bonus_ranged"		"12"
 		}
 	}
-
+	
 }

@@ -909,7 +909,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				or event.shop_item_name == "item_faerie_fire"
 				or event.shop_item_name == "item_enchanted_mango"
 				or event.shop_item_name == "item_tome_of_knowledge"
-				or event.shop_item_name == "item_branches_688"
 				or event.shop_item_name == "item_infused_raindrop"
 				or event.shop_item_name == "item_blight_stone"
 				or event.shop_item_name == "item_wind_lace"
@@ -927,9 +926,8 @@ function CAddonTemplateGameMode:OrderFilter(event)
 					return false
 			end
 		else
-			if event.shop_item_name == "item_branches"
-				or event.shop_item_name == "item_platemail" then
-					return false
+			if event.shop_item_name == "item_platemail" then
+				return false
 			end
 		end
 		if event.shop_item_name == "item_recipe_octarine_core_lua" then return false end
