@@ -5318,7 +5318,7 @@
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"ultimate orb"
 		"SideShop"						"1"
-		"SecretShop"					"1"
+		"SecretShop"					"0"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -9455,34 +9455,4 @@
 		}
 	}
 	
-	"item_branches_688"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_branches"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"Model"							"models/props_gameplay/branch.vmdl"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"200"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"0.0"
-		"ItemPurchasable"				"%ENABLE_NEW_ITEMS%"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"50"
-		"ItemShopTags"					"agi;int;str"
-		"ItemQuality"					"consumable"
-		"ItemAliases"					"gg branch;iron branch"
-
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"1"
-			"tree_duration"			"20"
-		}
-	}
 }
