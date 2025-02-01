@@ -8806,7 +8806,7 @@
 		"ItemShopTags"					"agi;int;str"
 		"ItemQuality"					"consumable"
 		"ItemAliases"					"gg branch;iron branch"
-		"ShouldBeInitiallySuggested"	"1"
+		"ItemPurchasable"				"%PURCHASABLE_683_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
