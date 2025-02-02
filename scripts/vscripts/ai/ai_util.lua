@@ -14,10 +14,12 @@ local function enhanceUnit(ret, thisEntity)
 	ret.GetLocation = 			function(self) return self:GetAbsOrigin() end
 	ret.OriginalGetHealth = 	function(self) return self:GetHealth() end
 	ret.OriginalGetMaxHealth = 	function(self) return self:GetMaxHealth() end
-	ret.GetOffensivePower = function(self)
-		print("TODO GetOffensivePower " .. self:GetUnitName())
-		return 0
-	end
+    ret.IsCastingAbility =      function(self) return false end
+    ret.IsUsingAbility =        function(self) return false end
+	ret.GetOffensivePower =     function(self) return 0	end
+    ret.GetRawOffensivePower =  function(self) return 0 end
+    ret.IsBot =                 function(self) return false end
+    ret.GetNearbyHeroes = function(self, radius, enemy, botMode) return GetNearbyHeroes(self, radius, enemy, botMode) end
 	ret.GetIncomingTrackingProjectiles = function(self)
 		local retVal = {}
 		local time = GameRules:GetGameTime()
@@ -107,6 +109,9 @@ function Init_G(thisEntity)
 			return enhanceUnit(Entities:FindByName(nil, DIRE_BUILDING_TYPE_2_NAME[towerId]), thisEntity)
 		end
 	end
+    _G["GetHeroLevel"]  = function(pid) return PlayerResource:GetLevel(pid)  end
+    _G["GetHeroKills"]  = function(pid) return PlayerResource:GetKills(pid)  end
+    _G["GetHeroDeaths"] = function(pid) return PlayerResource:GetDeaths(pid) end
 
 
 	thisEntity.OriginalGetMaxHealth = 		function() return thisEntity:GetMaxHealth() end
