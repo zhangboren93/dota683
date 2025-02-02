@@ -710,7 +710,7 @@
 		"ItemShopTags"					"armor"
 		"ItemQuality"					"component"
 		"ItemAliases"					"platemail"
-		"SecretShop"					"0"
+		"SecretShop"					"%SECRETSHOP_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1072,7 +1072,7 @@
 		"ItemShopTags"					"evasion"
 		"ItemQuality"					"component"
 		"ItemAliases"					"talisman of evasion"
-		"SecretShop"					"0"
+		"SecretShop"					"%SECRETSHOP_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
