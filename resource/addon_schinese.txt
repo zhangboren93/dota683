@@ -2461,7 +2461,7 @@
 		"DOTA_Tooltip_Ability_bane_fiends_grip_scepter_description"				"提高每秒伤害和魔法吸取量，并增加持续时间。如果敌人在祸乱之源施放魔爪期间向其攻击，那么他们会马上被施加当前等级的噩梦。"
 		//Chen
 		"DOTA_Tooltip_Ability_chen_hand_of_god_Scepter_Description"				"减少冷却时间至30秒。"
-		"DOTA_Tooltip_ability_chen_hand_of_god_Description"						"治疗地图上的所有友军英雄以及陈控制的所有单位。"
+		"DOTA_Tooltip_ability_chen_hand_of_god_Description"						"完全恢复受陈控制的所有普通单位的生命，并治疗地图上的所有友军英雄。"
 		"DOTA_Tooltip_ability_chen_penitence_datadriven"						"赎罪"
 		"DOTA_Tooltip_Ability_chen_penitence_datadriven_Description"			"迫使一个敌方单位移动变慢，受到的攻击和技能伤害增加。"
 		"DOTA_Tooltip_ability_chen_penitence_datadriven_Lore"					"尽管陈控制动物的能力还没有强到可以控制敌方英雄，不过还是可以用来考验他们的战斗意志。"

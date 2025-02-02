@@ -1701,6 +1701,9 @@ function CAddonTemplateGameMode:HealingFilter(event)
 		event.heal = damage_count * damage_per_unit
 	elseif ability:GetName() == "shadow_shaman_shackles" then return false
 	elseif ability:GetName() == "pudge_dismember" and not target:HasScepter() then return false
+	elseif ability:GetName() == "chen_hand_of_god" and target:IsCreep() then
+		event.heal = 1000000
+		return true
 	end
 	return true
 end
