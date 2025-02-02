@@ -912,7 +912,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				or event.shop_item_name == "item_infused_raindrop"
 				or event.shop_item_name == "item_blight_stone"
 				or event.shop_item_name == "item_wind_lace"
-				or event.shop_item_name == "item_platemail_688"
 				or event.shop_item_name == "item_recipe_moon_shard"
 				or event.shop_item_name == "item_recipe_guardian_greaves"
 				or event.shop_item_name == "item_recipe_glimmer_cape"
@@ -924,10 +923,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				or event.shop_item_name == "item_recipe_silver_edge_datadriven" 
 				or event.shop_item_name == "item_recipe_iron_talon_lua" then
 					return false
-			end
-		else
-			if event.shop_item_name == "item_platemail" then
-				return false
 			end
 		end
 		if event.shop_item_name == "item_recipe_octarine_core_lua" then return false end

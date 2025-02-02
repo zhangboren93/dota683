@@ -57,7 +57,6 @@
 		"ItemShopTags"					"armor"
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"platemail"
-		"SecretShop"					"1"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -111,7 +110,7 @@
         "ItemResult"                    "item_lotus_orb"
         "ItemRequirements"
         {
-            "01"                        "item_pers;item_platemail_688;item_energy_booster"
+            "01"                        "item_pers;item_platemail;item_energy_booster"
         }
     }
 }

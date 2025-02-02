@@ -41,10 +41,6 @@
 		"DOTA_Tooltip_Ability_item_sobi_mask_datadriven_bonus_mana_regen"			"%+$mana_regen"
 		"DOTA_Tooltip_Ability_item_void_stone_datadriven"								"Void stone"
 		"DOTA_Tooltip_Ability_item_void_stone_datadriven_bonus_mana_regen_percentage"	"%+$mana_regen"
-		
-		"DOTA_Tooltip_Ability_item_platemail_688"						"Platemail (6.88f)"
-		"DOTA_Tooltip_ability_item_platemail_688_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_platemail_688_Lore"					"Thick metal plates that protect the entire upper body. Avoid dropping on feet."
 
 		"DOTA_Tooltip_Ability_item_bracer_datadriven"					"Bracer"
 		"DOTA_Tooltip_ability_item_bracer_datadriven_bonus_strength"	"+$str"

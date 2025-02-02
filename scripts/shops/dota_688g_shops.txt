@@ -205,7 +205,7 @@
 		"item"		"item_energy_booster"
 		"item"		"item_vitality_booster"
 		"item"		"item_point_booster"
-		"item"		"item_platemail_688"
+		"item"		"item_platemail"
 		"item"		"item_talisman_of_evasion"
 		"item"		"item_hyperstone"
 		"item"      "item_ultimate_orb"
