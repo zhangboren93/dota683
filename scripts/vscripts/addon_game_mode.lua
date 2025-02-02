@@ -2465,16 +2465,6 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 	end
 end
 
---[[
--- Deprecated
-function CAddonTemplateGameMode:handleHeroBarPingMiss(event)
-	local missing_player_id = event.mpid;
-	local reporting_player_id = event.pid;
-	local missing_hero = PlayerResource:GetPlayer(missing_player_id):GetAssignedHero():GetName()
-	local team = PlayerResource:GetPlayer(reporting_player_id):GetTeam()
-	GameRules:SendCustomMessageToTeam(string.sub(missing_hero, 15) .. "_miss", team, -1, -1)
-end]]--
-
 function handleFWDCommand(userid, event)
 	if GetMapName() ~= "dota" or PlayerResource:GetPlayerCount() ~= 1 then
 		return
