@@ -912,7 +912,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				or event.shop_item_name == "item_infused_raindrop"
 				or event.shop_item_name == "item_blight_stone"
 				or event.shop_item_name == "item_wind_lace"
-				or event.shop_item_name == "item_platemail_688"
 				or event.shop_item_name == "item_recipe_moon_shard"
 				or event.shop_item_name == "item_recipe_guardian_greaves"
 				or event.shop_item_name == "item_recipe_glimmer_cape"
@@ -924,10 +923,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				or event.shop_item_name == "item_recipe_silver_edge_datadriven" 
 				or event.shop_item_name == "item_recipe_iron_talon_lua" then
 					return false
-			end
-		else
-			if event.shop_item_name == "item_platemail" then
-				return false
 			end
 		end
 		if event.shop_item_name == "item_recipe_octarine_core_lua" then return false end
@@ -1706,6 +1701,9 @@ function CAddonTemplateGameMode:HealingFilter(event)
 		event.heal = damage_count * damage_per_unit
 	elseif ability:GetName() == "shadow_shaman_shackles" then return false
 	elseif ability:GetName() == "pudge_dismember" and not target:HasScepter() then return false
+	elseif ability:GetName() == "chen_hand_of_god" and target:IsCreep() then
+		event.heal = 1000000
+		return true
 	end
 	return true
 end
@@ -2469,16 +2467,6 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 		GameRules.AddonTemplate.captain_normal_time = 40
 	end
 end
-
---[[
--- Deprecated
-function CAddonTemplateGameMode:handleHeroBarPingMiss(event)
-	local missing_player_id = event.mpid;
-	local reporting_player_id = event.pid;
-	local missing_hero = PlayerResource:GetPlayer(missing_player_id):GetAssignedHero():GetName()
-	local team = PlayerResource:GetPlayer(reporting_player_id):GetTeam()
-	GameRules:SendCustomMessageToTeam(string.sub(missing_hero, 15) .. "_miss", team, -1, -1)
-end]]--
 
 function handleFWDCommand(userid, event)
 	if GetMapName() ~= "dota" or PlayerResource:GetPlayerCount() ~= 1 then

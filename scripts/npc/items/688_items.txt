@@ -44,29 +44,6 @@
 		}
 	}
 
-	"item_platemail_688"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_platemail"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1400"
-		"ItemShopTags"					"armor"
-		"ItemQuality"					"secret_shop"
-		"ItemAliases"					"platemail"
-		"SecretShop"					"1"
-
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"bonus_armor"			"10"
-		}
-	}
-
 	//=================================================================================================================
 	// Recipe: Dragon Lance
 	//=================================================================================================================
@@ -111,7 +88,7 @@
         "ItemResult"                    "item_lotus_orb"
         "ItemRequirements"
         {
-            "01"                        "item_pers;item_platemail_688;item_energy_booster"
+            "01"                        "item_pers;item_platemail;item_energy_booster"
         }
     }
 }

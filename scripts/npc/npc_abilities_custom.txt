@@ -17168,59 +17168,6 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Faceless Void: Chronosphere
-	// Deprecated
-	//=================================================================================================================
-	"faceless_void_chronosphere"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5185"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_FacelessVoid.Chronosphere"
-		"HasScepterUpgrade"				"1"
-		
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
-		"AbilityCastPoint"				"0.35 0.35 0.35"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_4"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"150 225 300"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportBonus"		"50"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"radius"				"425"
-			"duration"
-			{
-				"value"			"4.0 4.5 5.0"
-				"special_bonus_scepter"	"+0 +0.5 +1"
-			}
-			"vision_radius"			"475"
-			"bonus_attack_speed"	"0"
-			"AbilityCooldown"
-			{
-				"value"					"130 115 100"
-				"special_bonus_scepter"	"-70 -55 -40"
-			}
-		}
-	}
 // Rewrite of Earthshaker Enchant Totem
 // Author: YOLOSPAGHETTI
 // Date: July 30, 2016
