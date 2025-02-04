@@ -9486,4 +9486,51 @@
 			"tree_duration"			"20"
 		}
 	}
+
+	//=================================================================================================================
+	// Infused Raindrop
+	//=================================================================================================================
+	"item_infused_raindrop"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"6.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"225"
+		"ItemShopTags"					"armor"
+		"ItemQuality"					"component"
+		"ItemAliases"					"raindrop"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"6"
+		"ItemHideCharges"				"0"
+		"ItemStockTime"					"1"			  
+		"ItemStockInitial"				"0"
+		"ItemStockMax"					"1"
+		"ItemInitialStockTime"			"270.0"
+		"ItemInitialStockTimeTurbo"		"150.0"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		
+		// Sounden
+		//-------------------------------------------------------------------------------------------------------------			
+		"UIPickupSound"					"Item.PickUpRingShop"
+		"UIDropSound"					"Item.DropRingShop"
+		"WorldDropSound"				"Item.DropRingWorld"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"mana_regen"			"0.85"
+				"magic_damage_block"	"120"
+				"min_damage"			"50"
+				"initial_charges"		"5"
+		}
+	}
 }
