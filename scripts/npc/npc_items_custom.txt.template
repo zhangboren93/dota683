@@ -591,7 +591,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"950"
+		"ItemCost"						"%ITEM_HELM_OF_IRON_WILL_COST%"
 		"ItemShopTags"					"armor;regen_health"
 		"ItemQuality"					"component"
 		"ItemAliases"					"helm of iron will"
