@@ -9533,4 +9533,29 @@
 				"initial_charges"		"5"
 		}
 	}
+
+	//=================================================================================================================
+	// Blight Stone
+	//=================================================================================================================
+	"item_blight_stone"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		
+		"ItemCost"						"300"
+		"ItemShopTags"					"hard_to_tag"
+		"ItemQuality"					"component"
+		"ItemAliases"					"blight stone"
+		"SideShop"						"1"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"corruption_armor"		"-2"
+				"corruption_duration"	"8.0"
+		}
+	}
 }

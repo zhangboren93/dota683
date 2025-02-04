@@ -909,7 +909,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 				or event.shop_item_name == "item_faerie_fire"
 				or event.shop_item_name == "item_enchanted_mango"
 				or event.shop_item_name == "item_tome_of_knowledge"
-				or event.shop_item_name == "item_blight_stone"
 				or event.shop_item_name == "item_wind_lace"
 				or event.shop_item_name == "item_recipe_moon_shard"
 				or event.shop_item_name == "item_recipe_guardian_greaves"
