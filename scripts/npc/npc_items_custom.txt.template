@@ -647,7 +647,7 @@
 			    		"Chance"		"%bonus_chance"
 			    		"OnSuccess"
 			    		{
-			    			"Damage"
+			    			"Damage" // better change to MODIFIER_PROPERTY_PROCATTACK_BONUS_DAMAGE_MAGICAL
 			    			{
 			    				"Target"		"TARGET"
 			    				"Type"			"DAMAGE_TYPE_MAGICAL"
@@ -662,9 +662,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_chance"			"20"
-			"bonus_chance_damage"	"40"
-			"bonus_damage"			"21"
+			"bonus_chance"			"%ITEM_JAVELIN_PROC_CHANCE%"
+			"bonus_chance_damage"	"%ITEM_JAVELIN_PROC_DAMAGE%"
+			"bonus_damage"			"%ITEM_JAVELIN_BONUS_DAMAGE%"
 		}
 	}
 
