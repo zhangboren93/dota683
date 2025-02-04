@@ -521,7 +521,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"450"
+		"ItemCost"						"%ITEM_BLADES_OF_ATTACK_COST%"
 		"ItemShopTags"					"damage;tutorial"
 		"ItemQuality"					"component"
 		"ItemAliases"					"blades of attack"
