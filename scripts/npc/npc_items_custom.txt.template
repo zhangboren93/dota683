@@ -9589,4 +9589,17 @@
 			"replenish_amount"		"150"
 		}
 	}
+
+	"item_tome_of_knowledge"
+	{
+		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"IsObsolete"				"0"
+
+		"ItemCost"					"150"
+		"AbilityValues"
+		{
+			"xp_bonus"				"425"
+			"xp_per_use"			"0"
+		}
+	}
 }
