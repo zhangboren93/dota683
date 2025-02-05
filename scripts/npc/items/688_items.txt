@@ -2,25 +2,6 @@
 {
 	"Version"		"1"
 
-	"item_enchanted_mango"
-	{		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"125"
-		"ItemStackableMax"				"1"
-		"ItemStockMax"					"0"
-		"ItemStockInitial"				"0"
-		"ItemStockTime"					"0"
-
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"hp_regen"				"1"
-			"replenish_amount"		"150"
-		}
-	}
-
 	"item_tome_of_knowledge"
 	{
 		"ItemPurchasable"			"1"
