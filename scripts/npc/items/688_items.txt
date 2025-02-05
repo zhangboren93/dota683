@@ -7,7 +7,7 @@
 	//=================================================================================================================
 	"item_recipe_dragon_lance"
 	{
-		"ItemCost"                      "0"
+		"ItemCost"                      "1"
 		"ItemRequirements"
 		{
 			"01"                        "item_ogre_axe;item_boots_of_elves;item_boots_of_elves"
