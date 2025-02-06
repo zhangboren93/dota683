@@ -9558,4 +9558,48 @@
 				"corruption_duration"	"8.0"
 		}
 	}
+
+	"item_faerie_fire"
+	{
+		"ItemCost"					"75"
+		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"AbilityValues"
+		{
+			"bonus_damage"			"2"
+			"hp_restore"			"75"
+		}
+	}
+
+	"item_enchanted_mango"
+	{		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"125"
+		"ItemStackableMax"				"1"
+		"ItemStockMax"					"0"
+		"ItemStockInitial"				"0"
+		"ItemStockTime"					"0"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"hp_regen"				"1"
+			"replenish_amount"		"150"
+		}
+	}
+
+	"item_tome_of_knowledge"
+	{
+		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"IsObsolete"				"0"
+
+		"ItemCost"					"150"
+		"AbilityValues"
+		{
+			"xp_bonus"				"425"
+			"xp_per_use"			"0"
+		}
+	}
 }
