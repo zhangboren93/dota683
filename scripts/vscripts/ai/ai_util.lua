@@ -10,7 +10,7 @@ BOT_MODE_ATTACK = 2
 ITEM_SLOT_TYPE_INVALID = -1 
 -- openhyperai begin 
 local function enhanceUnit(ret, thisEntity)
-	ret.CanBeSeen = 			function(self) return self:CanEntityBeSeenByMyTeam(self) end
+	ret.CanBeSeen = 			function(self) return thisEntity:CanEntityBeSeenByMyTeam(self) end
 	ret.GetLocation = 			function(self) return self:GetAbsOrigin() end
 	ret.OriginalGetHealth = 	function(self) return self:GetHealth() end
 	ret.OriginalGetMaxHealth = 	function(self) return self:GetMaxHealth() end
@@ -19,7 +19,10 @@ local function enhanceUnit(ret, thisEntity)
 	ret.GetOffensivePower =     function(self) return 0	end
     ret.GetRawOffensivePower =  function(self) return 0 end
     ret.IsBot =                 function(self) return false end
-    ret.GetNearbyHeroes = function(self, radius, enemy, botMode) return GetNearbyHeroes(self, radius, enemy, botMode) end
+	ret.GetAttackRange = 	  	function(self) return self:Script_GetAttackRange() end
+    ret.GetNearbyHeroes = function(self, radius, enemy, botMode) return enhanceUnits(GetNearbyHeroes(self, radius, enemy, botMode), thisEntity) end
+	ret.origin_GetSecondsPerAttack = ret.GetSecondsPerAttack
+	ret.GetSecondsPerAttack = function(self) return self:origin_GetSecondsPerAttack(true) end
 	ret.GetIncomingTrackingProjectiles = function(self)
 		local retVal = {}
 		local time = GameRules:GetGameTime()
@@ -42,7 +45,8 @@ local function enhanceUnit(ret, thisEntity)
 	end
 	return ret
 end
-local function enhanceUnits(ret, thisEntity)
+
+function enhanceUnits(ret, thisEntity)
 	for i=1,#ret do
 		enhanceUnit(ret[i], thisEntity)
 	end
@@ -112,18 +116,77 @@ function Init_G(thisEntity)
     _G["GetHeroLevel"]  = function(pid) return PlayerResource:GetLevel(pid)  end
     _G["GetHeroKills"]  = function(pid) return PlayerResource:GetKills(pid)  end
     _G["GetHeroDeaths"] = function(pid) return PlayerResource:GetDeaths(pid) end
+	_G["GetSelectedHeroName"] = function(pid) return PlayerResource:GetSelectedHeroName(pid) end
+	_G["GetLaneFrontAmount"] = function(team, lane, ignoreTowers)
+		local typeFilter = GetLaneTypeFilter(ignoreTowers)
+		local teamFilter = DOTA_UNIT_TARGET_TEAM_FRIENDLY 
+		if team ~= thisEntity:GetTeam() then
+			teamFilter = DOTA_UNIT_TARGET_TEAM_ENEMY 
+		end
+		if lane == LANE_NONE then
+			return 0
+		end
+		local amount = 0
+		if lane == LANE_MID then
+			if team == DOTA_TEAM_GOODGUYS then
+				amount = findAmountLinesClamped(thisEntity:GetTeam(), teamFilter, LANE_MID_LINES[2], LANE_MID_LINES[1], typeFilter, 2)
+			else
+				amount = 1 - findAmountLinesClamped(thisEntity:GetTeam(), teamFilter, LANE_MID_LINES[1], LANE_MID_LINES[2], typeFilter, 2)
+			end
+		elseif lane == LANE_TOP then
+			if team == DOTA_TEAM_GOODGUYS then
+				amount = findAmountLinesClamped(thisEntity:GetTeam(), teamFilter, LANE_TOP_LINES[3], LANE_TOP_LINES[2], typeFilter, 1)
+				if amount > 0 then
+					amount = 0.5 * (1 + amount)
+				else
+					amount = 0.5 * findAmountLinesClamped(thisEntity:GetTeam(), teamFilter, LANE_TOP_LINES[2], LANE_TOP_LINES[1], typeFilter, 2) 
+				end
+			else -- team == DOTA_TEAM_BADGUYS
+				amount = findAmountLinesClamped(thisEntity:GetTeam(), teamFilter, LANE_TOP_LINES[1], LANE_TOP_LINES[2], typeFilter, 2)
+				if amount > 0 then
+					amount = 0.5 * (1 - amount)
+				else
+					amount = 1 - 0.5 * findAmountLinesClamped(thisEntity:GetTeam(), teamFilter, LANE_TOP_LINES[2], LANE_TOP_LINES[3], typeFilter, 1) 
+				end
+			end
+		elseif lane == LANE_BOT then
+			if team == DOTA_TEAM_GOODGUYS then
+				amount = findAmountLinesClamped(thisEntity:GetTeam(), teamFilter, LANE_BOT_LINES[3], LANE_BOT_LINES[2], typeFilter, 2)
+				if amount > 0 then
+					amount = 0.5 * (1 + amount)
+				else
+					amount = 0.5 * findAmountLinesClamped(thisEntity:GetTeam(), teamFilter, LANE_BOT_LINES[2], LANE_BOT_LINES[1], typeFilter, 1)
+				end
+			else
+				amount = findAmountLinesClamped(thisEntity:GetTeam(), teamFilter, LANE_BOT_LINES[1], LANE_BOT_LINES[2], typeFilter, 1)
+				if amount > 0 then
+					amount = 0.5 * (1 - amount)
+				else
+					amount = 1 - 0.5 * findAmountLinesClamped(thisEntity:GetTeam(), teamFilter, LANE_BOT_LINES[2], LANE_BOT_LINES[3], typeFilter, 2) 
+				end
+			end
+		else
+			print("WARN GetLaneFrontAmount invalid lane")
+			return 0
+		end
+		if thisEntity:GetTeam() == DOTA_TEAM_BADGUYS then
+			amount = 1 - amount
+		end
+		return amount
+	end
 
 
+	enhanceUnit(thisEntity, thisEntity)
 	thisEntity.OriginalGetMaxHealth = 		function() return thisEntity:GetMaxHealth() end
 	thisEntity.OriginalGetHealth =    		function() return thisEntity:GetHealth()	end
 	thisEntity.GetAssignedLane =      		function() return LANE_MID end
 	thisEntity.GetActiveMode = 		  		function() return thisEntity.bot_active_mode end
 	thisEntity.GetActiveModeDesire = 		function() return thisEntity.bot_active_mode_desire end
-	thisEntity.GetAttackRange = 	  		function() return thisEntity:Script_GetAttackRange() end
 	thisEntity.GetTarget = 			  		function() return thisEntity:GetAttackTarget() end
 	thisEntity.GetNetWorth = 		  		function() return PlayerResource:GetNetWorth(thisEntity:GetPlayerOwnerID()) end
 	thisEntity.GetAttackPoint = 	  		function() return thisEntity:GetAttackAnimationPoint() end
 	thisEntity.GetAttackProjectileSpeed = 	function() return thisEntity:GetProjectileSpeed() end
+	thisEntity.GetBoundingRadius = 			function() return thisEntity:GetBoundingMaxs():Length2D()/2 end
 	thisEntity.SetTarget = 					function(self, target) thisEntity:SetAttacking(target) end
 	thisEntity.Action_MoveToLocation = 		function(self, loc) thisEntity:MoveToPosition(loc) end
 	thisEntity.ActionQueue_AttackMove = 	function(self, loc) thisEntity:MoveToPositionAggressive(loc) end
@@ -132,6 +195,7 @@ function Init_G(thisEntity)
 			thisEntity:MoveToTargetToAttack(target) 
 		end
 	end
+	thisEntity.Action_MoveToUnit = function(self, target) thisEntity:MoveToNPC(target) end
 	thisEntity.NumQueuedActions = function()
 		print("TODO NumQueuedActions")
 		return 0
@@ -151,15 +215,6 @@ function Init_G(thisEntity)
 		end
 		return (GameRules:GetGameTime() - bot.damagedByHeroTime) < time
 	end
-	thisEntity.GetNearbyHeroes = function(self, distance, isEnemy, mode_unused)
-		local team_filter = DOTA_UNIT_TARGET_TEAM_FRIENDLY 
-		if isEnemy then team_filter = DOTA_UNIT_TARGET_TEAM_ENEMY end
-		local units = FindUnitsInRadius(self:GetTeam(), self:GetAbsOrigin(), nil,
-			distance, team_filter, DOTA_UNIT_TARGET_HERO, 
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES,
-			FIND_ANY_ORDER, false)
-		return enhanceUnits(units, thisEntity)
-	end
 	thisEntity.GetAnimActivity = function()
 		if thisEntity:IsAttacking()  then return ACT_DOTA_ATTACK
 		elseif thisEntity:IsMoving() then return ACT_DOTA_RUN
@@ -170,6 +225,15 @@ function Init_G(thisEntity)
 		if item == nil then return ITEM_SLOT_TYPE_INVALID end
 		return item:GetItemSlot()
     end
+	thisEntity.GetItemSlotType = function(self, slot)
+		if slot == ITEM_SLOT_TYPE_INVALID then
+			return ITEM_SLOT_TYPE_INVALID
+		elseif slot >= DOTA_ITEM_SLOT_1 and slot <= DOTA_ITEM_SLOT_6 then
+			return ITEM_SLOT_TYPE_MAIN
+		else
+			return ITEM_SLOT_TYPE_STASH
+		end
+	end
 	thisEntity.GetNearbyTowers = function(self, range, is_enemy)
 		local target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
 		if is_enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
@@ -201,7 +265,7 @@ function Init_G(thisEntity)
 end
 
 function GetScriptDirectory()
-	return "openhyperai/bots"
+	return "dota2bot_683/"
 end
 
 -- openhyperai end
@@ -670,61 +734,6 @@ function SetBot(bot)
 		return self:GetAbsOrigin()
 	end
 	bot.GetLaneFrontAmount = function(self, team, lane, ignoreTowers)
-		local typeFilter = GetLaneTypeFilter(ignoreTowers)
-		local teamFilter = DOTA_UNIT_TARGET_TEAM_FRIENDLY 
-		if team ~= self:GetTeam() then
-			teamFilter = DOTA_UNIT_TARGET_TEAM_ENEMY 
-		end
-		if lane == LANE_NONE then
-			return 0
-		end
-		local amount = 0
-		if lane == LANE_MID then
-			if team == DOTA_TEAM_GOODGUYS then
-				amount = findAmountLinesClamped(bot:GetTeam(), teamFilter, LANE_MID_LINES[2], LANE_MID_LINES[1], typeFilter, 2)
-			else
-				amount = 1 - findAmountLinesClamped(bot:GetTeam(), teamFilter, LANE_MID_LINES[1], LANE_MID_LINES[2], typeFilter, 2)
-			end
-		elseif lane == LANE_TOP then
-			if team == DOTA_TEAM_GOODGUYS then
-				amount = findAmountLinesClamped(bot:GetTeam(), teamFilter, LANE_TOP_LINES[3], LANE_TOP_LINES[2], typeFilter, 1)
-				if amount > 0 then
-					amount = 0.5 * (1 + amount)
-				else
-					amount = 0.5 * findAmountLinesClamped(bot:GetTeam(), teamFilter, LANE_TOP_LINES[2], LANE_TOP_LINES[1], typeFilter, 2) 
-				end
-			else -- team == DOTA_TEAM_BADGUYS
-				amount = findAmountLinesClamped(bot:GetTeam(), teamFilter, LANE_TOP_LINES[1], LANE_TOP_LINES[2], typeFilter, 2)
-				if amount > 0 then
-					amount = 0.5 * (1 - amount)
-				else
-					amount = 1 - 0.5 * findAmountLinesClamped(bot:GetTeam(), teamFilter, LANE_TOP_LINES[2], LANE_TOP_LINES[3], typeFilter, 1) 
-				end
-			end
-		elseif lane == LANE_BOT then
-			if team == DOTA_TEAM_GOODGUYS then
-				amount = findAmountLinesClamped(bot:GetTeam(), teamFilter, LANE_BOT_LINES[3], LANE_BOT_LINES[2], typeFilter, 2)
-				if amount > 0 then
-					amount = 0.5 * (1 + amount)
-				else
-					amount = 0.5 * findAmountLinesClamped(bot:GetTeam(), teamFilter, LANE_BOT_LINES[2], LANE_BOT_LINES[1], typeFilter, 1)
-				end
-			else
-				amount = findAmountLinesClamped(bot:GetTeam(), teamFilter, LANE_BOT_LINES[1], LANE_BOT_LINES[2], typeFilter, 1)
-				if amount > 0 then
-					amount = 0.5 * (1 - amount)
-				else
-					amount = 1 - 0.5 * findAmountLinesClamped(bot:GetTeam(), teamFilter, LANE_BOT_LINES[2], LANE_BOT_LINES[3], typeFilter, 2) 
-				end
-			end
-		else
-			print("WARN GetLaneFrontAmount invalid lane")
-			return 0
-		end
-		if self:GetTeam() == DOTA_TEAM_BADGUYS then
-			amount = 1 - amount
-		end
-		return amount
 	end
 	bot.GetNearbyTrees = function(self, distance)
 		return GridNav:GetAllTreesAroundPoint(self:GetAbsOrigin(), distance, false)
@@ -739,7 +748,7 @@ function SetBot(bot)
 	end
 	bot.GetActiveMode = function(self) return self.currentModeName end
 	bot.GetTarget = function(self) return getHeroVar(self, "Target") end
-	bot.GetNearbyHeroes = function(self, range, enemy, mode) return GetNearbyHeroes(self, range, enemy, mode) end
+	--bot.GetNearbyHeroes = function(self, range, enemy, mode) return enhanceUnits(GetNearbyHeroes(self, range, enemy, mode), thisEntity) end
 	bot.WasRecentlyDamagedByHero = function(self, hero, time) return WasRecentlyDamagedByHero(self, hero, time) end
 end
 

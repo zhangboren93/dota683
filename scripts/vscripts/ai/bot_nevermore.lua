@@ -6,8 +6,12 @@ function Think(entity, modes)
     GameRules:SendCustomMessage("Bot L"..laning_desire.." A"..attack_desire, -1, -1)
     
     if laning_desire > attack_desire then
+		entity.bot_active_mode = BOT_MODE_LANING
+		entity.bot_active_mode_desire = laning_desire
         modes[1]:Think()
     else
+		entity.bot_active_mode = BOT_MODE_ATTACK
+		entity.bot_active_mode_desire = attack_desire
         modes[2]:Think()
     end
 end
@@ -21,8 +25,8 @@ function Spawn()
     end
 
     Init_G(thisEntity)
-    local laning_mode = require("openhyperai/bots/mode_laning_generic")
-    local attack_mode = require("openhyperai/bots/mode_attack_generic")
+    local laning_mode = require("dota2bot_683/mode_laning_generic")
+    local attack_mode = require("dota2bot_683/mode_attack_generic")
 	--SetBot(thisEntity)
 	
     thisEntity:SetThink(function()
