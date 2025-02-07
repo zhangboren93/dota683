@@ -9602,4 +9602,15 @@
 			"xp_per_use"			"0"
 		}
 	}
+
+	"item_wind_lace"
+	{
+		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"ItemCost"					"235"
+
+		"AbilityValues"
+		{
+			"movement_speed"			"20"
+		}
+	}
 }
