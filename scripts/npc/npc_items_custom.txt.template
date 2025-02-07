@@ -957,7 +957,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"350"
+		"ItemCost"						"%ITEM_RING_OF_REGEN_COST%"
 		"ItemShopTags"					"regen_health"
 		"ItemQuality"					"component"
 		"ItemAliases"					"ring of regen"
