@@ -10,51 +10,158 @@ BOT_MODE_ATTACK = 2
 ITEM_SLOT_TYPE_INVALID = -1 
 -- openhyperai begin 
 local function enhanceUnit(ret, thisEntity)
-	ret.CanBeSeen = 			function(self) return thisEntity:CanEntityBeSeenByMyTeam(self) end
-	ret.GetLocation = 			function(self) return self:GetAbsOrigin() end
-	ret.OriginalGetHealth = 	function(self) return self:GetHealth() end
-	ret.OriginalGetMaxHealth = 	function(self) return self:GetMaxHealth() end
-    ret.IsCastingAbility =      function(self) return false end
-    ret.IsUsingAbility =        function(self) return false end
-	ret.GetOffensivePower =     function(self) return 0	end
-    ret.GetRawOffensivePower =  function(self) return 0 end
-    ret.IsBot =                 function(self) return false end
-	ret.GetAttackRange = 	  	function(self) return self:Script_GetAttackRange() end
-    ret.GetNearbyHeroes = function(self, radius, enemy, botMode) return enhanceUnits(GetNearbyHeroes(self, radius, enemy, botMode), thisEntity) end
-	ret.origin_GetSecondsPerAttack = ret.GetSecondsPerAttack
-	ret.GetSecondsPerAttack = function(self) return self:origin_GetSecondsPerAttack(true) end
-	ret.GetIncomingTrackingProjectiles = function(self)
-		local retVal = {}
-		local time = GameRules:GetGameTime()
-		if self.iap == nil then return retVal end
-		for i=1,#self.iap do
-			if self.iap[i].expire_at <= time then
-				local attacker = EntIndexToHScript(self.iap[i].caster_id)
-				if IsValidEntity(attacker) then
-					local duration = time - self.iap[i].create_at
-					local total_duration = self.iap[i].expire_at - self.iap[i].create_at
-					table.insert(retVal, {
-						is_attack = 1,
-						caster = attacker,
-						location = attacker:GetAbsOrigin() + (self:GetAbsOrigin() - attacker:GetAbsOrigin()) * duration / total_duration
-					})
+	return class({
+		CanBeSeen = 			function(self) return thisEntity:CanEntityBeSeenByMyTeam(ret) end,
+		GetLocation = 			function(self) return ret:GetAbsOrigin() end,
+		GetAbsOrigin = 			function() return ret:GetAbsOrigin() end,
+		GetUnitName = 			function(self) return ret:GetUnitName() end,
+		GetLevel =				function() return ret:GetLevel() end,
+		GetTeam = 				function() return ret:GetTeam() end,
+		GetAttackDamage = 		function() return ret:GetAttackDamage() end,
+		GetPlayerID = 			function() return ret:GetPlayerID() end,
+		GetAttackTarget = 		function() return ret:GetAttackTarget() end,
+		GetHealth = 			function() return ret:GetHealth() end,
+		GetMaxHealth = 			function() return ret:GetMaxHealth() end,
+		GetMana = 				function() return ret:GetMana() end,
+		OriginalGetHealth = 	function(self) return ret:GetHealth() end,
+		OriginalGetMaxHealth = 	function(self) return ret:GetMaxHealth() end,
+    	IsCastingAbility =      function(self) return false end,
+    	IsUsingAbility =        function(self) return false end,
+		IsAlive = 				function(self) return ret:IsAlive() end,
+		IsInvulnerable = 		function() return ret:IsInvulnerable() end,
+		IsChanneling = 			function() return ret:IsChanneling() end,
+		IsStunned = 			function() return ret:IsStunned() end,
+		IsNightmared = 			function() return ret:IsNightmared() end,
+		IsNull = 				function() return ret:IsNull() end,
+		IsHero = 				function() return ret:IsHero() end,
+		HasModifier = 			function(self, modifier) return ret:HasModifier(modifier) end,
+		GetOffensivePower =     function(self) return 0	end,
+    	GetRawOffensivePower =  function(self) return 0 end,
+    	IsBot =                 function(self) return false end,
+		GetAttackRange = 	  	function(self) return ret:Script_GetAttackRange() end,
+    	GetNearbyHeroes = 		function(self, radius, enemy, botMode) return enhanceUnits(GetNearbyHeroes(self, radius, enemy, botMode), thisEntity) end,
+		GetSecondsPerAttack = 	function(self) return ret:GetSecondsPerAttack(true) end,
+		GetIncomingTrackingProjectiles = function(self)
+			local retVal = {}
+			local time = GameRules:GetGameTime()
+			if ret.iap == nil then return retVal end
+			for i=1,#self.iap do
+				if ret.iap[i].expire_at <= time then
+					local attacker = EntIndexToHScript(ret.iap[i].caster_id)
+					if IsValidEntity(attacker) then
+						local duration = time - ret.iap[i].create_at
+						local total_duration = ret.iap[i].expire_at - ret.iap[i].create_at
+						table.insert(retVal, {
+							is_attack = 1,
+							caster = attacker,
+							location = attacker:GetAbsOrigin() + (ret:GetAbsOrigin() - attacker:GetAbsOrigin()) * duration / total_duration
+						})
+					end
 				end
 			end
+			return retVal
+		end,
+		OriginalGetMaxHealth = 		function() return thisEntity:GetMaxHealth() end,
+		OriginalGetHealth =    		function() return thisEntity:GetHealth()	end,
+		GetAssignedLane =      		function() return LANE_MID end,
+		GetActiveMode = 		  	function() return thisEntity.bot_active_mode end,
+		GetActiveModeDesire = 		function() return thisEntity.bot_active_mode_desire end,
+		GetTarget = 			  	function() return thisEntity:GetAttackTarget() end,
+		GetNetWorth = 		  		function() return PlayerResource:GetNetWorth(thisEntity:GetPlayerOwnerID()) end,
+		GetAttackPoint = 	  		function() return thisEntity:GetAttackAnimationPoint() end,
+		GetAttackProjectileSpeed = 	function() return thisEntity:GetProjectileSpeed() end,
+		GetBoundingRadius = 		function() return thisEntity:GetBoundingMaxs():Length2D()/2 end,
+		GetAttackSpeed = 			function() return thisEntity:GetAttackSpeed(false) end,
+		GetCurrentMovementSpeed = 	function() return thisEntity:GetMoveSpeedModifier(thisEntity:GetBaseMoveSpeed(), false) end,
+		SetTarget = 				function(self, target) thisEntity:SetAttacking(target) end,
+		Action_MoveToLocation = 	function(self, loc) thisEntity:MoveToPosition(loc) end,
+		ActionQueue_AttackMove = 	function(self, loc) thisEntity:MoveToPositionAggressive(loc) end,
+		Action_AttackUnit = 		function(self, target) 
+			if not thisEntity:IsAttackingEntity(target) then
+				thisEntity:MoveToTargetToAttack(target) 
+			end
+		end,
+		Action_MoveToUnit = function(self, target) thisEntity:MoveToNPC(target) end,
+		NumQueuedActions = function()
+			print("TODO NumQueuedActions")
+			return 0
+		end,
+		IsCastingAbility = function()
+			print("TODO IsCastingAbility")
+			return false
+		end,
+		IsUsingAbility = function()
+			print("TODO IsUsingAbility")
+			return false
+		end,
+		WasRecentlyDamagedByAnyHero = function(self, time)
+			print("TODO Set bot.damagedByTowerTime")
+			if thisEntity.damagedByHeroTime == nil then
+				return false
+			end
+			return (GameRules:GetGameTime() - bot.damagedByHeroTime) < time
+		end,
+		GetAnimActivity = function()
+			if thisEntity:IsAttacking()  then return ACT_DOTA_ATTACK
+			elseif thisEntity:IsMoving() then return ACT_DOTA_RUN
+			else 							  return ACT_DOTA_IDLE    end
+		end,
+    	FindItemSlot = function(self, item_name)
+    	    local item = thisEntity:FindItemInInventory(item_name)
+			if item == nil then return ITEM_SLOT_TYPE_INVALID end
+			return item:GetItemSlot()
+    	end,
+		GetItemSlotType = function(self, slot)
+			if slot == ITEM_SLOT_TYPE_INVALID then
+				return ITEM_SLOT_TYPE_INVALID
+			elseif slot >= DOTA_ITEM_SLOT_1 and slot <= DOTA_ITEM_SLOT_6 then
+				return ITEM_SLOT_TYPE_MAIN
+			else
+				return ITEM_SLOT_TYPE_STASH
+			end
+		end,
+		GetNearbyTowers = function(self, range, is_enemy)
+			local target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
+			if is_enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
+			local buildings = FindUnitsInRadius(ret:GetTeam(), ret:GetAbsOrigin(), nil, range, 
+				target_team, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+			local towers = {}
+			for i=1,#buildings do
+				if buildings[i]:IsTower() then
+					table.insert(towers, buildings[i])
+				end
+			end
+			return enhanceUnits(towers, thisEntity)
+		end,
+		GetNearbyCreeps = function(self, range, enemy)
+			local target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
+			if is_enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
+			return enhanceUnits(FindUnitsInRadius(ret:GetTeam(), ret:GetAbsOrigin(), nil, range, target_team,
+				DOTA_UNIT_TARGET_CREEP,	DOTA_UNIT_TARGET_FLAG_NONE,	FIND_CLOSEST, false), thisEntity)
+		end,
+		GetNearbyLaneCreeps = function(self, range, enemy) return self:GetNearbyCreeps(range, enemy) end,
+		WasRecentlyDamagedByTower = function(self, time)
+			print("TODO WasRecentlyDamagedByTower " .. time)
+			return false
+		end,
+		WasRecentlyDamagedByCreep = function(self, time)
+			print("TODO WasRecentlyDamagedByCreep " .. time)
+			return false
 		end
-		return retVal
-	end
-	return ret
+	})
 end
 
 function enhanceUnits(ret, thisEntity)
+	local returnVal = {}
 	for i=1,#ret do
-		enhanceUnit(ret[i], thisEntity)
+		table.insert(returnVal, enhanceUnit(ret[i], thisEntity))
 	end
-	return ret
+	return returnVal
 end
 
 function Init_G(thisEntity)
-	_G["GetBot"] = function() return thisEntity end
+	local bot = enhanceUnit(thisEntity, thisEntity)
+	_G["GetBot"] = function() return bot end
 	_G["CDOTA_Bot_Script"] = {}
 	_G["GetTeam"] = function() return thisEntity:GetTeam() end
 	_G["IsPlayerBot"] = function(id) return PlayerResource:GetPlayer(id) ~= nil end
@@ -173,94 +280,6 @@ function Init_G(thisEntity)
 			amount = 1 - amount
 		end
 		return amount
-	end
-
-
-	enhanceUnit(thisEntity, thisEntity)
-	thisEntity.OriginalGetMaxHealth = 		function() return thisEntity:GetMaxHealth() end
-	thisEntity.OriginalGetHealth =    		function() return thisEntity:GetHealth()	end
-	thisEntity.GetAssignedLane =      		function() return LANE_MID end
-	thisEntity.GetActiveMode = 		  		function() return thisEntity.bot_active_mode end
-	thisEntity.GetActiveModeDesire = 		function() return thisEntity.bot_active_mode_desire end
-	thisEntity.GetTarget = 			  		function() return thisEntity:GetAttackTarget() end
-	thisEntity.GetNetWorth = 		  		function() return PlayerResource:GetNetWorth(thisEntity:GetPlayerOwnerID()) end
-	thisEntity.GetAttackPoint = 	  		function() return thisEntity:GetAttackAnimationPoint() end
-	thisEntity.GetAttackProjectileSpeed = 	function() return thisEntity:GetProjectileSpeed() end
-	thisEntity.GetBoundingRadius = 			function() return thisEntity:GetBoundingMaxs():Length2D()/2 end
-	thisEntity.SetTarget = 					function(self, target) thisEntity:SetAttacking(target) end
-	thisEntity.Action_MoveToLocation = 		function(self, loc) thisEntity:MoveToPosition(loc) end
-	thisEntity.ActionQueue_AttackMove = 	function(self, loc) thisEntity:MoveToPositionAggressive(loc) end
-	thisEntity.Action_AttackUnit = 			function(self, target) 
-		if not thisEntity:IsAttackingEntity(target) then
-			thisEntity:MoveToTargetToAttack(target) 
-		end
-	end
-	thisEntity.Action_MoveToUnit = function(self, target) thisEntity:MoveToNPC(target) end
-	thisEntity.NumQueuedActions = function()
-		print("TODO NumQueuedActions")
-		return 0
-	end
-	thisEntity.IsCastingAbility = function()
-		print("TODO IsCastingAbility")
-		return false
-	end
-	thisEntity.IsUsingAbility = function()
-		print("TODO IsUsingAbility")
-		return false
-	end
-	thisEntity.WasRecentlyDamagedByAnyHero = function(self, time)
-		print("TODO Set bot.damagedByTowerTime")
-		if thisEntity.damagedByHeroTime == nil then
-			return false
-		end
-		return (GameRules:GetGameTime() - bot.damagedByHeroTime) < time
-	end
-	thisEntity.GetAnimActivity = function()
-		if thisEntity:IsAttacking()  then return ACT_DOTA_ATTACK
-		elseif thisEntity:IsMoving() then return ACT_DOTA_RUN
-		else 							  return ACT_DOTA_IDLE    end
-	end
-    thisEntity.FindItemSlot = function(self, item_name)
-        local item = thisEntity:FindItemInInventory(item_name)
-		if item == nil then return ITEM_SLOT_TYPE_INVALID end
-		return item:GetItemSlot()
-    end
-	thisEntity.GetItemSlotType = function(self, slot)
-		if slot == ITEM_SLOT_TYPE_INVALID then
-			return ITEM_SLOT_TYPE_INVALID
-		elseif slot >= DOTA_ITEM_SLOT_1 and slot <= DOTA_ITEM_SLOT_6 then
-			return ITEM_SLOT_TYPE_MAIN
-		else
-			return ITEM_SLOT_TYPE_STASH
-		end
-	end
-	thisEntity.GetNearbyTowers = function(self, range, is_enemy)
-		local target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
-		if is_enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
-		local buildings = FindUnitsInRadius(self:GetTeam(), self:GetAbsOrigin(), nil, range, 
-			target_team, DOTA_UNIT_TARGET_BUILDING, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
-		local towers = {}
-		for i=1,#buildings do
-			if buildings[i]:IsTower() then
-				table.insert(towers, buildings[i])
-			end
-		end
-		return enhanceUnits(towers)
-	end
-	thisEntity.GetNearbyCreeps = function(self, range, enemy)
-		local target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
-		if is_enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
-		return enhanceUnits(FindUnitsInRadius(self:GetTeam(), self:GetAbsOrigin(), nil, range, target_team,
-			DOTA_UNIT_TARGET_CREEP,	DOTA_UNIT_TARGET_FLAG_NONE,	FIND_CLOSEST, false))
-	end
-	thisEntity.GetNearbyLaneCreeps = function(self, range, enemy) return self:GetNearbyCreeps(range, enemy) end
-	thisEntity.WasRecentlyDamagedByTower = function(self, time)
-		print("TODO WasRecentlyDamagedByTower " .. time)
-		return false
-	end
-	thisEntity.WasRecentlyDamagedByCreep = function(self, time)
-		print("TODO WasRecentlyDamagedByCreep " .. time)
-		return false
 	end
 end
 
