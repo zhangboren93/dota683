@@ -6409,13 +6409,13 @@
 		"AbilityCastRange"				"600"
 		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"0"
-		"ItemCost"						"1400"
+		"ItemCost"						"%ITEM_SHADOW_AMULET_COST%"
 		"ItemShopTags"					""
 		"ItemAliases"					"shadow amulet"
 		"AbilityValues"
 		{
             "fade_time"             "1.5"
-            "bonus_attackspeed"     "30"
+            "bonus_attackspeed"     "%ITEM_SHADOW_AMULET_ATKSPEED%"
 		}
 		"precache"
 		{
