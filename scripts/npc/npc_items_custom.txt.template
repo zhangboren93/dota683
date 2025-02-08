@@ -909,7 +909,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"15"
+			"bonus_attack_speed"	"%ITEM_GLOVES_ATTACK_SPEED%"
 		}
 	}
 
@@ -957,7 +957,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"350"
+		"ItemCost"						"%ITEM_RING_OF_REGEN_COST%"
 		"ItemShopTags"					"regen_health"
 		"ItemQuality"					"component"
 		"ItemAliases"					"ring of regen"
@@ -1015,7 +1015,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"450"
+		"ItemCost"						"%ITEM_BOOTS_COST%"
 		"ItemShopTags"					"move_speed"
 		"ItemQuality"					"component"
 		"ItemAliases"					"boots of speed"
@@ -1025,7 +1025,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_movement_speed"	"50"
+			"bonus_movement_speed"	"%ITEM_BOOTS_SPEED%"
 		}
 	}
 
@@ -9600,6 +9600,17 @@
 		{
 			"xp_bonus"				"425"
 			"xp_per_use"			"0"
+		}
+	}
+
+	"item_wind_lace"
+	{
+		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"ItemCost"					"235"
+
+		"AbilityValues"
+		{
+			"movement_speed"			"20"
 		}
 	}
 }

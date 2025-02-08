@@ -906,10 +906,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		end
 		if 	self.custom_game_meta_version ~= '688' then
 			if event.shop_item_name == "item_recipe_bloodthorn_lua" 
-				or event.shop_item_name == "item_faerie_fire"
-				or event.shop_item_name == "item_enchanted_mango"
-				or event.shop_item_name == "item_tome_of_knowledge"
-				or event.shop_item_name == "item_wind_lace"
 				or event.shop_item_name == "item_recipe_moon_shard"
 				or event.shop_item_name == "item_recipe_guardian_greaves"
 				or event.shop_item_name == "item_recipe_glimmer_cape"
