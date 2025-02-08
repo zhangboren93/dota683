@@ -1823,10 +1823,11 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"875"
+		"ItemCost"						"%ITEM_VOID_STONE_COST%"
 		"ItemShopTags"					"regen_mana"
 		"ItemQuality"					"component"
 		"ItemAliases"					"void stone"
+		"SideShop"						"%SIDESHOP_688_ONLY%"
 		"SecretShop"					"%SECRETSHOP_683_ONLY%"		
 		"ItemKillable" 			"1"
 		"ItemSellable" 			"1"
