@@ -1111,11 +1111,11 @@
 	"item_ghost"
 	{
 		"ID"							"37"
-		"ItemCost"						"1600"
-		"AbilityCooldown"				"30.0"		 
+		"ItemCost"						"%ITEM_GHOST_SCEPTER_COST%"
+		"AbilityCooldown"				"%ITEM_GHOST_SCEPTER_COOLDOWN%"		 
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"7"
+			"bonus_all_stats"		"%ITEM_GHOST_SCEPTER_ATTRIBUTES%"
 			"duration"				"4.0"
 			"extra_spell_damage_percent"	"-40"
 		}
