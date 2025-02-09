@@ -23,6 +23,15 @@ local function enhanceUnit(ret, thisEntity)
 		GetHealth = 			function() return ret:GetHealth() end,
 		GetMaxHealth = 			function() return ret:GetMaxHealth() end,
 		GetMana = 				function() return ret:GetMana() end,
+		GetMaxMana = 			function() return ret:GetMaxMana() end,
+		GetPhysicalArmorValue = function(self, a) return ret:GetPhysicalArmorValue(a) end,
+		Script_GetMagicalArmorValue = function(self, a, b) return ret:Script_GetMagicalArmorValue(a, b) end,
+		GetLastAttackTime = 	function() return ret:GetLastAttackTime() end,
+		GetPrimaryAttribute =	function() return ret:GetPrimaryAttribute() end,
+		GetHealthRegen =		function() return ret:GetHealthRegen() end,
+		GetActualIncomingDamage = function(self, damage, damage_type)
+			return GetActualIncomingDamage(ret, damage, damage_type)
+		end,
 		OriginalGetHealth = 	function(self) return ret:GetHealth() end,
 		OriginalGetMaxHealth = 	function(self) return ret:GetMaxHealth() end,
     	IsCastingAbility =      function(self) return false end,
@@ -34,6 +43,9 @@ local function enhanceUnit(ret, thisEntity)
 		IsNightmared = 			function() return ret:IsNightmared() end,
 		IsNull = 				function() return ret:IsNull() end,
 		IsHero = 				function() return ret:IsHero() end,
+		IsAttackImmune = 		function() return ret:IsAttackImmune() end,
+		IsIllusion =			function() return ret:IsIllusion() end,
+		IsTower =				function() return ret:IsTower() end,
 		HasModifier = 			function(self, modifier) return ret:HasModifier(modifier) end,
 		GetOffensivePower =     function(self) return 0	end,
     	GetRawOffensivePower =  function(self) return 0 end,
@@ -45,7 +57,7 @@ local function enhanceUnit(ret, thisEntity)
 			local retVal = {}
 			local time = GameRules:GetGameTime()
 			if ret.iap == nil then return retVal end
-			for i=1,#self.iap do
+			for i=1,#ret.iap do
 				if ret.iap[i].expire_at <= time then
 					local attacker = EntIndexToHScript(ret.iap[i].caster_id)
 					if IsValidEntity(attacker) then
@@ -53,13 +65,16 @@ local function enhanceUnit(ret, thisEntity)
 						local total_duration = ret.iap[i].expire_at - ret.iap[i].create_at
 						table.insert(retVal, {
 							is_attack = 1,
-							caster = attacker,
+							caster = enhanceUnit(attacker, thisEntity),
 							location = attacker:GetAbsOrigin() + (ret:GetAbsOrigin() - attacker:GetAbsOrigin()) * duration / total_duration
 						})
 					end
 				end
 			end
 			return retVal
+		end,
+		GetEstimatedDamageToTarget = function(self, available, target, duration, damage_type)
+			return GetEstimatedDamageToTarget(ret, available, target, duration, damage_type)
 		end,
 		OriginalGetMaxHealth = 		function() return thisEntity:GetMaxHealth() end,
 		OriginalGetHealth =    		function() return thisEntity:GetHealth()	end,
@@ -82,20 +97,10 @@ local function enhanceUnit(ret, thisEntity)
 			end
 		end,
 		Action_MoveToUnit = function(self, target) thisEntity:MoveToNPC(target) end,
-		NumQueuedActions = function()
-			print("TODO NumQueuedActions")
-			return 0
-		end,
-		IsCastingAbility = function()
-			print("TODO IsCastingAbility")
-			return false
-		end,
-		IsUsingAbility = function()
-			print("TODO IsUsingAbility")
-			return false
-		end,
+		NumQueuedActions = function() return 0 end,
+		IsCastingAbility = function() return false end,
+		IsUsingAbility = function()	return false end,
 		WasRecentlyDamagedByAnyHero = function(self, time)
-			print("TODO Set bot.damagedByTowerTime")
 			if thisEntity.damagedByHeroTime == nil then
 				return false
 			end
@@ -140,14 +145,8 @@ local function enhanceUnit(ret, thisEntity)
 				DOTA_UNIT_TARGET_CREEP,	DOTA_UNIT_TARGET_FLAG_NONE,	FIND_CLOSEST, false), thisEntity)
 		end,
 		GetNearbyLaneCreeps = function(self, range, enemy) return self:GetNearbyCreeps(range, enemy) end,
-		WasRecentlyDamagedByTower = function(self, time)
-			print("TODO WasRecentlyDamagedByTower " .. time)
-			return false
-		end,
-		WasRecentlyDamagedByCreep = function(self, time)
-			print("TODO WasRecentlyDamagedByCreep " .. time)
-			return false
-		end
+		WasRecentlyDamagedByTower = function(self, time) return false end,
+		WasRecentlyDamagedByCreep = function(self, time) return false end
 	})
 end
 

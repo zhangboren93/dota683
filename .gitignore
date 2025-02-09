@@ -24,3 +24,5 @@ bin-release/
 *.vcss_c
 *.bin
 *.vrman_c
+
+scripts/npc/npc_items_custom.txt
