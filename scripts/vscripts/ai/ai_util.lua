@@ -29,9 +29,9 @@ local function enhanceUnit(ret, thisEntity)
 		GetLastAttackTime = 	function() return ret:GetLastAttackTime() end,
 		GetPrimaryAttribute =	function() return ret:GetPrimaryAttribute() end,
 		GetHealthRegen =		function() return ret:GetHealthRegen() end,
-		GetActualIncomingDamage = function(self, damage, damage_type)
-			return GetActualIncomingDamage(ret, damage, damage_type)
-		end,
+		GetActualIncomingDamage = function(self, damage, damage_type) return GetActualIncomingDamage(ret, damage, damage_type) end,
+		GetEntityIndex = 		function() return ret:GetEntityIndex() end,
+		GetForwardVector =		function() return ret:GetForwardVector() end,
 		OriginalGetHealth = 	function(self) return ret:GetHealth() end,
 		OriginalGetMaxHealth = 	function(self) return ret:GetMaxHealth() end,
     	IsCastingAbility =      function(self) return false end,
@@ -89,14 +89,37 @@ local function enhanceUnit(ret, thisEntity)
 		GetAttackSpeed = 			function() return thisEntity:GetAttackSpeed(false) end,
 		GetCurrentMovementSpeed = 	function() return thisEntity:GetMoveSpeedModifier(thisEntity:GetBaseMoveSpeed(), false) end,
 		SetTarget = 				function(self, target) thisEntity:SetAttacking(target) end,
-		Action_MoveToLocation = 	function(self, loc) thisEntity:MoveToPosition(loc) end,
-		ActionQueue_AttackMove = 	function(self, loc) thisEntity:MoveToPositionAggressive(loc) end,
-		Action_AttackUnit = 		function(self, target) 
-			if not thisEntity:IsAttackingEntity(target) then
-				thisEntity:MoveToTargetToAttack(target) 
+		Action_MoveToLocation = 	function(self, loc) 
+			local current_time = GameRules:GetDOTATime(false, false)
+			if self.last_move_order_time == nil or current_time - self.last_move_order_time > 0.5 then
+				if self.last_attack_order_time ~= nil and current_time - self.last_attack_order_time < 1 then
+					return
+				end
+				thisEntity:MoveToPosition(loc) 
+				self.last_move_order_time = current_time
 			end
 		end,
-		Action_MoveToUnit = function(self, target) thisEntity:MoveToNPC(target) end,
+		ActionQueue_AttackMove = 	function(self, loc) thisEntity:MoveToPositionAggressive(loc) end,
+		Action_AttackUnit = 		function(self, target) 
+			local current_time = GameRules:GetDOTATime(false, false)
+			if self.last_attack_order_time == nil or current_time - self.last_attack_order_time > 1 then
+				--print(thisEntity:GetUnitName().." MoveToAttack " .. target:GetUnitName())
+				ExecuteOrderFromTable({
+					UnitIndex = thisEntity:GetEntityIndex(),
+					OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+					TargetIndex = target:GetEntityIndex()
+				})
+				--thisEntity:MoveToTargetToAttack(target) 
+				self.last_attack_order_time = current_time
+			end
+		end,
+		Action_MoveToUnit = function(self, target)
+			if target:GetTeam() ~= thisEntity:GetTeam() then
+				self:Action_AttackUnit(target)
+				return
+			end
+			thisEntity:MoveToNPC(target)
+		end,
 		NumQueuedActions = function() return 0 end,
 		IsCastingAbility = function() return false end,
 		IsUsingAbility = function()	return false end,
@@ -140,7 +163,7 @@ local function enhanceUnit(ret, thisEntity)
 		end,
 		GetNearbyCreeps = function(self, range, enemy)
 			local target_team = DOTA_UNIT_TARGET_TEAM_FRIENDLY
-			if is_enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
+			if enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
 			return enhanceUnits(FindUnitsInRadius(ret:GetTeam(), ret:GetAbsOrigin(), nil, range, target_team,
 				DOTA_UNIT_TARGET_CREEP,	DOTA_UNIT_TARGET_FLAG_NONE,	FIND_CLOSEST, false), thisEntity)
 		end,
@@ -187,6 +210,12 @@ function Init_G(thisEntity)
 		if team == UNIT_LIST_ENEMIES then
 			ret = FindUnitsInRadius(thisEntity:GetTeam(), Vector(0, 0, 0), nil, 30000, DOTA_UNIT_TARGET_TEAM_ENEMY, 
 				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 0, 0, false)
+		elseif team == UNIT_LIST_ENEMY_HEROES then
+			ret = FindUnitsInRadius(thisEntity:GetTeam(), Vector(0, 0, 0), nil, 30000, DOTA_UNIT_TARGET_TEAM_ENEMY, 
+				DOTA_UNIT_TARGET_HERO, 0, 0, false)
+		elseif team == UNIT_LIST_ALL then
+			ret = FindUnitsInRadius(thisEntity:GetTeam(), Vector(0, 0, 0), nil, 30000, DOTA_UNIT_TARGET_TEAM_BOTH, 
+				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 0, 0, false)
 		else
 			print("TODO GetUnitList " .. team)
 			return {}
@@ -194,15 +223,32 @@ function Init_G(thisEntity)
 		return enhanceUnits(ret, thisEntity)
 	end
 	_G["GetLaneFrontLocation"] = function(team, lane, delta)
-		if delta ~= 0 or lane ~= LANE_MID or team ~= DOTA_TEAM_BADGUYS then
+		if lane ~= LANE_MID then
 			print("TODO GetLaneFrontLocation " .. team .. ", " .. lane .. ", " .. delta)
 			return Vector(0, 0, 0)
 		end
+		if team == DOTA_TEAM_GOODGUYS then
+			local units = FindUnitsInLine(team, LANE_MID_LINES[2], LANE_MID_LINES[1], nil,
+				500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_CREEP, 
+				DOTA_UNIT_TARGET_FLAG_NONE)
+			if #units == 0 then
+				return LANE_MID_LINES[1]
+			end
+			local front_creep = units[1]
+			for i=2,#units do
+				if units[i]:GetAbsOrigin().x > front_creep:GetAbsOrigin().x then
+					front_creep = units[i]
+				end
+			end
+			local returnVal = front_creep:GetAbsOrigin() + delta * ((LANE_MID_LINES[1] - LANE_MID_LINES[2]):Normalized())
+			return returnVal
+		end
+		-- team == bad guys
 		local units = FindUnitsInLine(team, LANE_MID_LINES[1], LANE_MID_LINES[2], nil,
 			500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_CREEP, 
 			DOTA_UNIT_TARGET_FLAG_NONE)
 		if #units == 0 then
-			return LANE_MID_LINES[1]
+			return LANE_MID_LINES[2]
 		end
 		local front_creep = units[1]
 		for i=2,#units do
@@ -210,7 +256,8 @@ function Init_G(thisEntity)
 				front_creep = units[i]
 			end
 		end
-		return front_creep:GetAbsOrigin()
+		local returnVal = front_creep:GetAbsOrigin() + delta * ((LANE_MID_LINES[1] - LANE_MID_LINES[2]):Normalized())
+		return returnVal
 	end
 	_G["GetTower"] = function(team, towerId)
 		if team == DOTA_TEAM_GOODGUYS then

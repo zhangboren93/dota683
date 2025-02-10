@@ -2,18 +2,18 @@ require("ai/ai_util")
 
 function Think(entity, modes)
     local laning_desire = modes[1]:GetDesire()
-    local attack_desire = modes[2]:GetDesire()
+--    local attack_desire = modes[2]:GetDesire()
     --GameRules:SendCustomMessage("Bot L"..laning_desire.." A"..attack_desire, -1, -1)
     
-    if laning_desire > attack_desire then
+ --   if laning_desire > attack_desire then
 		entity.bot_active_mode = BOT_MODE_LANING
 		entity.bot_active_mode_desire = laning_desire
         modes[1]:Think()
-    else
-		entity.bot_active_mode = BOT_MODE_ATTACK
-		entity.bot_active_mode_desire = attack_desire
-        modes[2]:Think()
-    end
+  --  else
+  --  	entity.bot_active_mode = BOT_MODE_ATTACK
+  --  	entity.bot_active_mode_desire = attack_desire
+  --      modes[2]:Think()
+  --  end
 end
 
 function Spawn()
@@ -33,6 +33,6 @@ function Spawn()
         if not thisEntity:IsAlive() then return 1 end
         if GameRules:IsGamePaused() then return 0.5 end
         Think(thisEntity, {laning_mode, attack_mode})
-        return 0.3
+        return 0.1
     end, "WrapThink", 0.1)
 end
