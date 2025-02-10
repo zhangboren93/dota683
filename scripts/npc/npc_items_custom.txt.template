@@ -1111,11 +1111,11 @@
 	"item_ghost"
 	{
 		"ID"							"37"
-		"ItemCost"						"1600"
-		"AbilityCooldown"				"30.0"		 
+		"ItemCost"						"%ITEM_GHOST_SCEPTER_COST%"
+		"AbilityCooldown"				"%ITEM_GHOST_SCEPTER_COOLDOWN%"		 
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"7"
+			"bonus_all_stats"		"%ITEM_GHOST_SCEPTER_ATTRIBUTES%"
 			"duration"				"4.0"
 			"extra_spell_damage_percent"	"-40"
 		}
@@ -1784,7 +1784,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"875"
+		"ItemCost"						"%ITEM_RING_OF_HEALTH_COST%"
 		"ItemShopTags"					"regen_health"
 		"ItemQuality"					"component"
 		"ItemAliases"					"roh;ring of health"
@@ -1802,7 +1802,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_health_regen"	"5"
+			"bonus_health_regen"	"%ITEM_RING_OF_HEALTH_REGEN%"
 		}
 	}
 	//=================================================================================================================
@@ -1823,10 +1823,11 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"875"
+		"ItemCost"						"%ITEM_VOID_STONE_COST%"
 		"ItemShopTags"					"regen_mana"
 		"ItemQuality"					"component"
 		"ItemAliases"					"void stone"
+		"SideShop"						"%SIDESHOP_688_ONLY%"
 		"SecretShop"					"%SECRETSHOP_683_ONLY%"		
 		"ItemKillable" 			"1"
 		"ItemSellable" 			"1"
@@ -6408,13 +6409,13 @@
 		"AbilityCastRange"				"600"
 		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"0"
-		"ItemCost"						"1400"
+		"ItemCost"						"%ITEM_SHADOW_AMULET_COST%"
 		"ItemShopTags"					""
 		"ItemAliases"					"shadow amulet"
 		"AbilityValues"
 		{
             "fade_time"             "1.5"
-            "bonus_attackspeed"     "30"
+            "bonus_attackspeed"     "%ITEM_SHADOW_AMULET_ATKSPEED%"
 		}
 		"precache"
 		{
@@ -8904,7 +8905,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"radius"				"1100"
+			"radius"				"%ITEM_GEM_RADIUS%"
 			"active_radius"			"300"
 			"duration"			"4"
 		}
