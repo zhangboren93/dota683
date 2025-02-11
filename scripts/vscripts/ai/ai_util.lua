@@ -7,6 +7,9 @@ LANE_MID_LINES = {Vector(-4887, -4322, 384), Vector(4394, 3906, 384)}
 BOT_MODE_LANING = 1
 BOT_MODE_ATTACK = 2
 
+BOT_ACTION_TYPE_NONE = 0
+BOT_ACTION_TYPE_MOVE_TO = 2
+
 ITEM_SLOT_TYPE_INVALID = -1 
 -- openhyperai begin 
 local function enhanceUnit(ret, thisEntity)
@@ -32,6 +35,21 @@ local function enhanceUnit(ret, thisEntity)
 		GetActualIncomingDamage = function(self, damage, damage_type) return GetActualIncomingDamage(ret, damage, damage_type) end,
 		GetEntityIndex = 		function() return ret:GetEntityIndex() end,
 		GetForwardVector =		function() return ret:GetForwardVector() end,
+		GetAbilityInSlot = 		function(self, slot)
+			local retVal = ret:GetAbilityByIndex(slot)
+			if retVal == nil then return retVal end
+			retVal.IsTalent = function() return false end
+			return retVal
+		end,
+		GetAbilityByName = 		function(self, name) return ret:FindAbilityByName(name) end,
+		GetTalentList =			function() return {} end,
+		GetAbilityPoints =		function() return ret:GetAbilityPoints() end,
+		GetCurrentActionType = 	function()
+			if ret:IsMoving() then
+				return BOT_ACTION_TYPE_MOVE_TO
+			end
+			return BOT_ACTION_TYPE_NONE
+		end,
 		OriginalGetHealth = 	function(self) return ret:GetHealth() end,
 		OriginalGetMaxHealth = 	function(self) return ret:GetMaxHealth() end,
     	IsCastingAbility =      function(self) return false end,
@@ -46,6 +64,8 @@ local function enhanceUnit(ret, thisEntity)
 		IsAttackImmune = 		function() return ret:IsAttackImmune() end,
 		IsIllusion =			function() return ret:IsIllusion() end,
 		IsTower =				function() return ret:IsTower() end,
+		IsAttackingEntity = 	function(self, target) return ret:IsAttackingEntity(target) end,
+		IsRangedAttacker = 		function() return ret:IsRangedAttacker() end,
 		HasModifier = 			function(self, modifier) return ret:HasModifier(modifier) end,
 		GetOffensivePower =     function(self) return 0	end,
     	GetRawOffensivePower =  function(self) return 0 end,
@@ -119,6 +139,15 @@ local function enhanceUnit(ret, thisEntity)
 				return
 			end
 			thisEntity:MoveToNPC(target)
+		end,
+		ActionImmediate_LevelAbility = function(self, ability_name)
+			print("bot level up " .. ability_name)
+			local ability =	ret:FindAbilityByName(ability_name);
+			local ability_points = ret:GetAbilityPoints()
+			if ability:GetLevel() < ability:GetMaxLevel() and ability_points > 0 then
+				ability:SetLevel(ability:GetLevel() + 1)
+				ret:SetAbilityPoints(ability_points - 1)
+			end
 		end,
 		NumQueuedActions = function() return 0 end,
 		IsCastingAbility = function() return false end,
@@ -326,6 +355,9 @@ function Init_G(thisEntity)
 			amount = 1 - amount
 		end
 		return amount
+	end
+	_G["IsLocationPassable"] = function(location)
+		return true
 	end
 end
 

@@ -1,6 +1,7 @@
 require("ai/ai_util")
 
-function Think(entity, modes)
+function Think(entity, modes, ability_item_usage)
+	ability_item_usage:AbilityLevelUpThink()
     local laning_desire = modes[1]:GetDesire()
 --    local attack_desire = modes[2]:GetDesire()
     --GameRules:SendCustomMessage("Bot L"..laning_desire.." A"..attack_desire, -1, -1)
@@ -26,13 +27,15 @@ function Spawn()
 
     Init_G(thisEntity)
     local laning_mode = require("dota2bot_683/mode_laning_generic")
-    local attack_mode = require("dota2bot_683/mode_attack_generic")
+	local attack_mode = nil
+	local ability_item_usage = require("dota2bot_683/ability_item_usage_generic")
+    --local attack_mode = require("dota2bot_683/mode_attack_generic")
 	--SetBot(thisEntity)
 	
     thisEntity:SetThink(function()
         if not thisEntity:IsAlive() then return 1 end
         if GameRules:IsGamePaused() then return 0.5 end
-        Think(thisEntity, {laning_mode, attack_mode})
+        Think(thisEntity, {laning_mode, attack_mode}, ability_item_usage)
         return 0.1
     end, "WrapThink", 0.1)
 end
