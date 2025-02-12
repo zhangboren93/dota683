@@ -1918,8 +1918,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_mana"			"150"
-			"bonus_health"			"200"
+			"bonus_mana"			"%ITEM_POINT_BOOSTER_MANA%"
+			"bonus_health"			"%ITEM_POINT_BOOSTER_HEALTH%"
 		}
 	}
 
@@ -1940,7 +1940,7 @@
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"vitality booster"
 		"SecretShop"					"1"
-		"SideShop"						"0"
+		"SideShop"						"%SIDESHOP_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
