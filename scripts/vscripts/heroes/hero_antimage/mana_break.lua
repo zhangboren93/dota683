@@ -14,6 +14,10 @@ function ManaBreak( keys )
 	damageTable.damage_type = ability:GetAbilityDamageType()
 	damageTable.ability = ability
 
+	if target:GetTeam() == caster:GetTeam() then
+		return
+	end
+
 	-- If the target is not magic immune then reduce the mana and deal damage
 	if not target:IsMagicImmune() and target:GetMana() > 0 and not caster:PassivesDisabled() then
 		-- Checking the mana of the target and calculating the damage
