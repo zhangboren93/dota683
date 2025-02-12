@@ -1068,7 +1068,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1800"
+		"ItemCost"						"%ITEM_TALISMAN_OF_EVASION_COST%"
 		"ItemShopTags"					"evasion"
 		"ItemQuality"					"component"
 		"ItemAliases"					"talisman of evasion"
