@@ -2587,10 +2587,12 @@ function CAddonTemplateGameMode:HandleInventoryItemAdded(event)
 	local player = PlayerResource:GetPlayer(event.inventory_player_id)
 	if player == nil then return end
 	local hero = player:GetAssignedHero()
-	hero:QueueTeamConceptNoSpectators(1, {
-		custom_behaviour = "purchase",
-		itemname = event.itemname
-	}, nil, hero, nil)
+	if hero ~= nil then
+		hero:QueueTeamConceptNoSpectators(1, {
+			custom_behaviour = "purchase",
+			itemname = event.itemname
+		}, nil, hero, nil)
+	end
 end
 
 function getAllPlayerIds() 

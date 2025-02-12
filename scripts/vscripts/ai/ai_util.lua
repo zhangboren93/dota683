@@ -52,6 +52,7 @@ local function enhanceUnit(ret, thisEntity)
 		end,
 		GetGold =				function() return ret:GetGold() end,
 		GetItemInSlot = 		function(self, idx) return ret:GetItemInSlot(idx) end,
+		GetCourierValue = 		function() return 0 end,
 		OriginalGetHealth = 	function(self) return ret:GetHealth() end,
 		OriginalGetMaxHealth = 	function(self) return ret:GetMaxHealth() end,
     	IsCastingAbility =      function(self) return false end,
@@ -68,6 +69,7 @@ local function enhanceUnit(ret, thisEntity)
 		IsTower =				function() return ret:IsTower() end,
 		IsAttackingEntity = 	function(self, target) return ret:IsAttackingEntity(target) end,
 		IsRangedAttacker = 		function() return ret:IsRangedAttacker() end,
+		IsMuted=function()return ret:IsMuted()end,IsHexed=function()return ret:IsHexed()end,IsInvisible=function()return ret:IsInvisible()end,
 		HasModifier = 			function(self, modifier) return ret:HasModifier(modifier) end,
 		GetOffensivePower =     function(self) return 0	end,
     	GetRawOffensivePower =  function(self) return 0 end,
@@ -162,6 +164,14 @@ local function enhanceUnit(ret, thisEntity)
 			ret:SpendGold(cost, DOTA_ModifyGold_PurchaseItem)
 			ret:AddItemByName(item)
 		end,
+		Action_UseAbilityOnTree = function(self, ability, tree)
+			print(ret:GetName() .. " Use ability " .. ability:GetName() .. " on tree")
+			local current_time = GameRules:GetDOTATime(false, false)
+			if self.last_cast_ability_time == nil or current_time - self.last_cast_ability_time > 1 then
+				ret:CastAbilityOnTarget(tree, ability, ret:GetPlayerID())
+				self.last_cast_ability_time = current_time
+			end
+		end,
 		NumQueuedActions = function() return 0 end,
 		IsCastingAbility = function() return false end,
 		IsUsingAbility = function()	return false end,
@@ -208,6 +218,9 @@ local function enhanceUnit(ret, thisEntity)
 			if enemy then target_team = DOTA_UNIT_TARGET_TEAM_ENEMY end
 			return enhanceUnits(FindUnitsInRadius(ret:GetTeam(), ret:GetAbsOrigin(), nil, range, target_team,
 				DOTA_UNIT_TARGET_CREEP,	DOTA_UNIT_TARGET_FLAG_NONE,	FIND_CLOSEST, false), thisEntity)
+		end,
+		GetNearbyTrees = function(self, distance)
+			return GridNav:GetAllTreesAroundPoint(ret:GetAbsOrigin(), distance, false)
 		end,
 		GetNearbyLaneCreeps = function(self, range, enemy) return self:GetNearbyCreeps(range, enemy) end,
 		WasRecentlyDamagedByTower = function(self, time) return false end,
@@ -618,12 +631,6 @@ function SetBot(bot)
 		end
 		self:MoveToNPC(unit)
 	end
-	bot.Action_UseAbilityOnTree = function(self, ability, tree)
-		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
-			print(self:GetName() .. " Action_UseAbilityOnTree " .. ability:GetName())
-		end
-		self:CastAbilityOnTarget(tree, ability, self:GetPlayerID())
-	end
 	bot.Action_ClearActions = function(self, stop)
 		if stop then
 			self:Stop()
@@ -840,9 +847,6 @@ function SetBot(bot)
 		return self:GetAbsOrigin()
 	end
 	bot.GetLaneFrontAmount = function(self, team, lane, ignoreTowers)
-	end
-	bot.GetNearbyTrees = function(self, distance)
-		return GridNav:GetAllTreesAroundPoint(self:GetAbsOrigin(), distance, false)
 	end
 	bot.HasEmptyItemSlot = function(self) 
 		for i=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_6 do

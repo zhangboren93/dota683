@@ -2,6 +2,7 @@ require("ai/ai_util")
 
 function Think(entity, modes, ability_item_usage, item_purchase_generic)
 	ability_item_usage:AbilityLevelUpThink()
+	ability_item_usage:ItemUsageThink()
 	item_purchase_generic:ItemPurchaseThink()
     local laning_desire = modes[1]:GetDesire()
 --    local attack_desire = modes[2]:GetDesire()
