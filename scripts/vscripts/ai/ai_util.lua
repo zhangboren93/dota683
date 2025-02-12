@@ -50,6 +50,8 @@ local function enhanceUnit(ret, thisEntity)
 			end
 			return BOT_ACTION_TYPE_NONE
 		end,
+		GetGold =				function() return ret:GetGold() end,
+		GetItemInSlot = 		function(self, idx) return ret:GetItemInSlot(idx) end,
 		OriginalGetHealth = 	function(self) return ret:GetHealth() end,
 		OriginalGetMaxHealth = 	function(self) return ret:GetMaxHealth() end,
     	IsCastingAbility =      function(self) return false end,
@@ -109,6 +111,7 @@ local function enhanceUnit(ret, thisEntity)
 		GetAttackSpeed = 			function() return thisEntity:GetAttackSpeed(false) end,
 		GetCurrentMovementSpeed = 	function() return thisEntity:GetMoveSpeedModifier(thisEntity:GetBaseMoveSpeed(), false) end,
 		SetTarget = 				function(self, target) thisEntity:SetAttacking(target) end,
+		SetNextItemPurchaseValue =  function(self, value) end,
 		Action_MoveToLocation = 	function(self, loc) 
 			local current_time = GameRules:GetDOTATime(false, false)
 			if self.last_move_order_time == nil or current_time - self.last_move_order_time > 0.5 then
@@ -148,6 +151,16 @@ local function enhanceUnit(ret, thisEntity)
 				ability:SetLevel(ability:GetLevel() + 1)
 				ret:SetAbilityPoints(ability_points - 1)
 			end
+		end,
+		ActionImmediate_PurchaseItem = function(self, item)
+			print(ret:GetName() .. " purchase ".. item)
+			local cost = GetItemCost(item)
+			if ret:GetGold() < cost then
+				print("WARN no enough gold to buy " .. self:GetGold() .. " " .. cost)
+				return
+			end
+			ret:SpendGold(cost, DOTA_ModifyGold_PurchaseItem)
+			ret:AddItemByName(item)
 		end,
 		NumQueuedActions = function() return 0 end,
 		IsCastingAbility = function() return false end,
@@ -198,7 +211,16 @@ local function enhanceUnit(ret, thisEntity)
 		end,
 		GetNearbyLaneCreeps = function(self, range, enemy) return self:GetNearbyCreeps(range, enemy) end,
 		WasRecentlyDamagedByTower = function(self, time) return false end,
-		WasRecentlyDamagedByCreep = function(self, time) return false end
+		WasRecentlyDamagedByCreep = function(self, time) return false end,
+		DistanceFromFountain = function(self)
+			local fountain_name
+			if ret:GetTeam() == DOTA_TEAM_GOODGUYS then
+				fountain_name = "ent_dota_fountain_good"
+			else
+				fountain_name = "ent_dota_fountain_bad"
+			end
+			return (Entities:FindByName(nil, fountain_name):GetAbsOrigin() - ret:GetAbsOrigin()):Length()
+		end
 	})
 end
 
@@ -244,6 +266,9 @@ function Init_G(thisEntity)
 				DOTA_UNIT_TARGET_HERO, 0, 0, false)
 		elseif team == UNIT_LIST_ALL then
 			ret = FindUnitsInRadius(thisEntity:GetTeam(), Vector(0, 0, 0), nil, 30000, DOTA_UNIT_TARGET_TEAM_BOTH, 
+				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 0, 0, false)
+		elseif team == UNIT_LIST_ALLIES then
+			ret = FindUnitsInRadius(thisEntity:GetTeam(), Vector(0, 0, 0), nil, 30000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
 				DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 0, 0, false)
 		else
 			print("TODO GetUnitList " .. team)
@@ -358,6 +383,9 @@ function Init_G(thisEntity)
 	end
 	_G["IsLocationPassable"] = function(location)
 		return true
+	end
+	_G["GetItemStockCount"] = function(name)
+		return GameRules:GetItemStockCount(thisEntity:GetTeam(), name, thisEntity:GetPlayerID())
 	end
 end
 
@@ -634,16 +662,6 @@ function SetBot(bot)
 			self.lastActionAbilityTime = GameTime()
 		end
 	end
-	bot.ActionImmediate_PurchaseItem = function(self, item)
-		print(self:GetName() .. " purchase ".. item)
-		local cost = GetItemCost(item)
-		if self:GetGold() < cost then
-			print("WARN no enough gold to buy " .. self:GetGold() .. " " .. cost)
-			return
-		end
-		self:SpendGold(cost, DOTA_ModifyGold_PurchaseItem)
-		self:AddItemByName(item)
-	end
 	bot.Action_AttackUnit = function(self, target, once)
 		if string.find(self:GetName(), ACTION_DEBUG_HERO) then
 			print(self:GetName() .. " Action_AttackUnit " .. target:GetName())
@@ -703,15 +721,6 @@ function SetBot(bot)
 			return 0
 		end
 		return bot.nextItemPurchaseValue
-	end
-	bot.DistanceFromFountain = function(self)
-		local fountain_name
-		if self:GetTeam() == DOTA_TEAM_GOODGUYS then
-			fountain_name = "ent_dota_fountain_good"
-		else
-			fountain_name = "ent_dota_fountain_bad"
-		end
-		return (Entities:FindByName(nil, fountain_name):GetAbsOrigin() - self:GetAbsOrigin()):Length()
 	end
 	bot.DistanceFromSecretShop = function(self)
 		local shop_location = Vector(-4499, 1376, 384)
@@ -929,10 +938,6 @@ function GetAmountDPos2Line(pos, lstart, lend)
 	--	distance = (pos - lstart + (pos - lstart):Dot(lineDirection) * lineDirection):Length() 
 	--end
 	return { amount = amount, distance = distance}
-end
-
-function GetItemStockCount(bot, name)
-	return GameRules:GetItemStockCount(bot:GetTeam(), name, bot:GetPlayerID())
 end
 
 function IsItemPurchasedFromSecretShop(item)
