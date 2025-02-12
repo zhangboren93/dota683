@@ -46,7 +46,7 @@ function handleFirstPick(team) {
 function OnGameModeSelectedFromServer(data) {
 	$.Msg("OnGameModeSelectedFromServer")
 	$.Msg(data)
-	if (data.pid != Players.GetLocalPlayer()) {
+	if (data.pid != Players.GetLocalPlayer() || data.gm == "ap") {
 		if (data.sp != null) {
 			$.Msg("Other Client changed sp option " + data.sp)
 			if (data.sp == 1) {

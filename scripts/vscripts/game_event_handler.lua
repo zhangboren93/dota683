@@ -200,6 +200,8 @@ function HandleGameStateChange(game_mode, event)
 				PlayerResource:GetPlayer(players[i][1]):MakeRandomHeroSelection()
 				removeHeroFromDMPool(PlayerResource:GetSelectedHeroName(players[i][1]))
 			end
+		elseif game_mode.game_mode == 'BM' then
+			GameRules:AddBotPlayerWithEntityScript("npc_dota_hero_nevermore", "Bot", DOTA_TEAM_BADGUYS, "ai/bot_nevermore.lua", true)
 		end
 	elseif event.new_state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		if GetMapName() == "tour" then

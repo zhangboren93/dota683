@@ -26,6 +26,7 @@
 						<RadioButton group="mode" id="sp" text="SP" onactivate="handleModeSelect('sp')"/>
 						<RadioButton group="mode" id="cm" text="CM" onactivate="handleModeSelect('cm')"/>
 						<RadioButton group="mode" id="cd" text="CD" onactivate="handleModeSelect('cd')"/>
+						<RadioButton group="mode" id="bm" text="BM" onactivate="handleModeSelect('bm')"/>
 					</Panel>
 				</Panel>
 				<Panel style="flow-children: right;">

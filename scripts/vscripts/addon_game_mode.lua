@@ -56,6 +56,12 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/items_fx/black_king_bar_avatar.vpcf", context )
 	PrecacheResource( "particle", "particles/units/heroes/hero_elder_titan/elder_titan_scepter_disarm.vpcf", context )
 	PrecacheResource( "soundfile", "soundevents/custom_sounds.vsndevts", context)
+	if GetMapName() == "dota" then
+		PrecacheResource( "model", "models/heroes/shadow_fiend/shadow_fiend.vmdl", context)
+		PrecacheResource( "model", "models/heroes/shadow_fiend/shadow_fiend_shoulders.vmdl", context)
+		PrecacheResource( "model", "models/heroes/shadow_fiend/shadow_fiend_arms.vmdl", context)
+		PrecacheResource( "model", "models/heroes/shadow_fiend/shadow_fiend_head.vmdl", context)
+	end
 end
 
 -- Create the game mode when we activate
@@ -2668,7 +2674,8 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 								   (data.gm == "js" and GameRules.AddonTemplate.game_mode ~= "JS") or
 								   (data.gm == "sp" and GameRules.AddonTemplate.game_mode ~= "SP") or
 								   (data.gm == "cm" and GameRules.AddonTemplate.game_mode ~= "CM") or
-								   (data.gm == "cd" and GameRules.AddonTemplate.game_mode ~= "CD") 
+								   (data.gm == "cd" and GameRules.AddonTemplate.game_mode ~= "CD") or
+								   (data.gm == "bm" and GameRules.AddonTemplate.game_mode ~= "BM")
 		if data.gm == 'ap' then
 			GameRules.AddonTemplate.game_mode = "AP"
 			GameRules:SetHeroSelectionTime(80)
@@ -2703,6 +2710,15 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 			GameRules:SetHeroSelectionTime(360)
 			GameRules:GetGameModeEntity():SetPlayerHeroAvailabilityFiltered(true)
 			GameRules:SendCustomMessage("开启CD模式", -1, -1)
+		elseif data.gm == 'bm' then
+			if PlayerResource:GetPlayerCount() > 1 then
+				GameRules:SendCustomMessage("BM模式只适用于单人模式", -1, -1)
+				data.gm = 'ap'
+			else
+				GameRules.AddonTemplate.game_mode = "BM"
+				GameRules:SendCustomMessage("开启BM模式", -1, -1)
+				GameRules:SetSameHeroSelectionEnabled(true)
+			end
 		else
 			print("Invalid game mode selected " .. data.gm)
 			return
