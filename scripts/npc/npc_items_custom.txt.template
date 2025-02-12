@@ -1068,7 +1068,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1800"
+		"ItemCost"						"%ITEM_TALISMAN_OF_EVASION_COST%"
 		"ItemShopTags"					"evasion"
 		"ItemQuality"					"component"
 		"ItemAliases"					"talisman of evasion"
@@ -1706,7 +1706,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3200"
+		"ItemCost"						"%ITEM_REAVER_COST%"
 		"ItemShopTags"					"str"
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"reaver"
@@ -1881,7 +1881,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"
+		"ItemCost"						"%ITEM_ENERGY_BOOSTER_COST%"
 		"ItemShopTags"					"mana_pool"
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"energy booster"
@@ -1918,8 +1918,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_mana"			"150"
-			"bonus_health"			"200"
+			"bonus_mana"			"%ITEM_POINT_BOOSTER_MANA%"
+			"bonus_health"			"%ITEM_POINT_BOOSTER_HEALTH%"
 		}
 	}
 
@@ -1940,7 +1940,7 @@
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"vitality booster"
 		"SecretShop"					"1"
-		"SideShop"						"0"
+		"SideShop"						"%SIDESHOP_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

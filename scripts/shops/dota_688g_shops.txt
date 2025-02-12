@@ -178,10 +178,12 @@
 		"item"		"item_boots"
 		"item"		"item_cloak"
 		"item"		"item_ring_of_health"
+		"item"		"item_void_stone_datadriven"
 		"item"		"item_lifesteal_datadriven"
 		"item"		"item_helm_of_iron_will"
 		"item"		"item_energy_booster"
 		"item"		"item_broadsword"
+		"item"		"item_blight_stone"
 	}
 
 	"sideshop2"
@@ -197,7 +199,8 @@
 		"item"		"item_chainmail"
 		"item"		"item_quarterstaff"
 		"item"		"item_blink"
-		"item"		"item_ultimate_orb"
+		"item"		"item_vitality_booster"
+		"item"		"item_bottle"
 	}
 
 	"secretshop"
