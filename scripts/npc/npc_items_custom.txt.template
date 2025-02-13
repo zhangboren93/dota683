@@ -7772,7 +7772,7 @@
 		"AbilityCooldown"				"30.0"
 		"AbilityHealthCost"				"150"
 		"AbilityManaCost"				"0"
-		"ItemCost"						"800"
+		"ItemCost"						"%iTEM_SOUL_RING_COST%"
 		"ItemShopTags"					"regen_health;boost_mana"
 		"ItemQuality"					"common"
 		"ItemAliases"					"soul ring"
