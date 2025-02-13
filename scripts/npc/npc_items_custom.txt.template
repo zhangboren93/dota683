@@ -9614,4 +9614,17 @@
 			"movement_speed"			"20"
 		}
 	}
+	
+	//=================================================================================================================
+	// Recipe: Dragon Lance
+	//=================================================================================================================
+	"item_recipe_dragon_lance"
+	{
+		"ItemCost"                      "0"
+		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"ItemRequirements"
+		{
+			"01"                        "item_ogre_axe;item_boots_of_elves;item_boots_of_elves"
+		}
+	}
 }
