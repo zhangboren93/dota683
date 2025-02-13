@@ -1094,17 +1094,20 @@
 	"item_recipe_magic_wand"
 	{
 		"ID"							"35"
+		"ItemCost"                      "%ITEM_RECIPE_MAGIC_WAND_COST%"
 		"ItemRequirements"
 		{
-			"01"						"item_branches;item_branches;item_branches;item_magic_stick"
+			"01"						"%ITEM_RECIPE_MAGIC_WAND_CONTEXT%"
 		}
 	}
 	"item_magic_wand"
 	{
 		"ID"							"36"
+		"ItemCost"						"%ITEM_MAGIC_WAND_COST%"
 		"AbilityCooldown"				"13.0"
 		"AbilityValues"
 		{
+			"bonus_all_stats"       "%ITEM_MAGIC_WAND_ALL_STATS%"
 			"max_charges"			"17"
 		}
 	}
