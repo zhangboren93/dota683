@@ -36,6 +36,8 @@ function OnTeamSelectPlayerStats(data) {
 function handleModeSelect(mode) {
 	$.Msg("handle mode select " + mode)
 	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), gm: mode})
+	$("#ModeSelectFirstPickOptions").visible = mode == "cd";
+	$("#ModelSelectToggleOptions").visible = mode == "ap";
 }
 
 function handleFirstPick(team) {
@@ -97,6 +99,8 @@ function OnGameModeSelectedFromServer(data) {
 		} else if (data.gm == "cd") {
 			$("#cd").checked = true
 		}
+		$("#ModeSelectFirstPickOptions").visible = data.gm == "cd";
+		$("#ModelSelectToggleOptions").visible = data.gm == "ap";
 	}
 }
 
@@ -139,6 +143,15 @@ function handleJoinSpectTeam() {
 		if (local_player_info["player_has_host_privileges"]) {
 			$("#mode_select_block_button").visible = false
 		}
+		let all_player_ids = Game.GetAllPlayerIDs();
+		if (all_player_ids.length > 1) {
+			$("#bm").visible = false;
+		}
+		if (all_player_ids.length != 10) {
+			$("#cm").visible = false;
+			$("#cd").visible = false;
+		}
+		$("#ModeSelectFirstPickOptions").visible = false;
 	} else if (mapname == 'maps/rank.vpk') {
 		$('#ShuffleTeamAssignmentButton').visible = false
 		$('#UnassignedPlayerPanel').visible = false

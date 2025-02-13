@@ -29,7 +29,7 @@
 						<RadioButton group="mode" id="bm" text="BM" onactivate="handleModeSelect('bm')"/>
 					</Panel>
 				</Panel>
-				<Panel style="flow-children: right;">
+				<Panel id="ModeSelectFirstPickOptions" style="flow-children: right;">
 					<Label text="#683modeselect_first_pick_team"/>
 					<Panel id="FirstTeamRadios" style="flow-children: down;">
 						<RadioButton group="first_pick" id="random" text="#683modeselect_first_pick_random" onactivate="handleFirstPick('random')"/>
