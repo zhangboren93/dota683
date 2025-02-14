@@ -1624,7 +1624,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1400"
+		"ItemCost"						"%ITEM_PHASE_BOOTS_COST%"
 		"ItemShopTags"					"damage;move_speed;hard_to_tag"
 		"ItemQuality"					"common"
 		"ItemAliases"					"phase boots"
@@ -1635,7 +1635,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_movement_speed"			"50"
+				"bonus_movement_speed"			"%ITEM_BOOTS_SPEED%"
 				"bonus_damage_melee"			"24"
 				"bonus_damage_range"			"24"
 				"damage_block_melee"			"0"
@@ -7772,7 +7772,7 @@
 		"AbilityCooldown"				"30.0"
 		"AbilityHealthCost"				"150"
 		"AbilityManaCost"				"0"
-		"ItemCost"						"%iTEM_SOUL_RING_COST%"
+		"ItemCost"						"%ITEM_SOUL_RING_COST%"
 		"ItemShopTags"					"regen_health;boost_mana"
 		"ItemQuality"					"common"
 		"ItemAliases"					"soul ring"
