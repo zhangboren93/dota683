@@ -2136,7 +2136,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1675"
+		"ItemCost"						"%ITEM_OBLIVION_STAFF_COST%"
 		"ItemShopTags"					"damage;int;attack_speed;regen_mana"
 		"ItemQuality"					"common"
 		"ItemAliases"					"oblivion staff"
