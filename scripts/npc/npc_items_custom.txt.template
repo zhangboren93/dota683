@@ -1493,7 +1493,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"AbilityCooldown"				"50"
+		"AbilityCooldown"				"%ITEM_TRAVEL_BOOTS_COOLDOWN%"
 		"AbilityCastRange"				"0"
 		"AbilitySharedCooldown"			"teleport"
 		"AbilityChannelTime"			"3.0"
@@ -1503,7 +1503,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2450"
+		"ItemCost"						"%ITEM_TRAVEL_BOOTS_COST%"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemShareability" 				"ITEM_NOT_SHAREABLE"
 		"ItemPurchasable"				"1"
