@@ -1094,17 +1094,20 @@
 	"item_recipe_magic_wand"
 	{
 		"ID"							"35"
+		"ItemCost"                      "%ITEM_RECIPE_MAGIC_WAND_COST%"
 		"ItemRequirements"
 		{
-			"01"						"item_branches;item_branches;item_branches;item_magic_stick"
+			"01"						"%ITEM_RECIPE_MAGIC_WAND_CONTEXT%"
 		}
 	}
 	"item_magic_wand"
 	{
 		"ID"							"36"
+		"ItemCost"						"%ITEM_MAGIC_WAND_COST%"
 		"AbilityCooldown"				"13.0"
 		"AbilityValues"
 		{
+			"bonus_all_stats"       "%ITEM_MAGIC_WAND_ALL_STATS%"
 			"max_charges"			"17"
 		}
 	}
@@ -1490,7 +1493,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"AbilityCooldown"				"50"
+		"AbilityCooldown"				"%ITEM_TRAVEL_BOOTS_COOLDOWN%"
 		"AbilityCastRange"				"0"
 		"AbilitySharedCooldown"			"teleport"
 		"AbilityChannelTime"			"3.0"
@@ -1500,7 +1503,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2450"
+		"ItemCost"						"%ITEM_TRAVEL_BOOTS_COST%"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemShareability" 				"ITEM_NOT_SHAREABLE"
 		"ItemPurchasable"				"1"
@@ -1621,7 +1624,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1400"
+		"ItemCost"						"%ITEM_PHASE_BOOTS_COST%"
 		"ItemShopTags"					"damage;move_speed;hard_to_tag"
 		"ItemQuality"					"common"
 		"ItemAliases"					"phase boots"
@@ -1632,15 +1635,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_movement_speed"			"50"
+				"bonus_movement_speed"			"%ITEM_BOOTS_SPEED%"
 				"bonus_damage_melee"			"24"
 				"bonus_damage_range"			"24"
 				"damage_block_melee"			"0"
 				"damage_block_ranged"			"0"
 				"block_chance"					"0"
-				"phase_movement_speed"  		"16"
-				"phase_movement_speed_range"	"16"
-				"phase_duration"				"4.0"
+				"phase_movement_speed"  		"%ITEM_PHASE_BOOTS_PHASE_SPEED%"
+				"phase_movement_speed_range"	"%ITEM_PHASE_BOOTS_PHASE_SPEED_RANGE%"
+				"phase_duration"				"%ITEM_PHASE_BOOTS_PHASE_DURATION%"
 				"bonus_attack_speed"			"0"
 				"bonus_armor"					"0"
 		}
@@ -1962,7 +1965,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1400"
+		"ItemCost"						"%ITEM_POWER_TREADS_COST%"
 		"ItemShopTags"					"attack_speed;move_speed;int;agi;str"
 		"ItemQuality"					"common"
 		"ItemAliases"					"power treads"
@@ -1973,10 +1976,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_movement_speed_ranged"  "50"
+				"bonus_movement_speed_ranged"  "%ITEM_BOOTS_SPEED%"
 				"bonus_movement_speed_melee"  "50"
-				"bonus_stat"			"8"
-				"bonus_attack_speed"			"30"
+				"bonus_stat"			"%ITEM_POWER_TREADS_ATTRIBUTES%"
+				"bonus_attack_speed"	"%ITEM_POWER_TREADS_ATTACK_SPEED%"
 				"bonus_damage"			"0"
 		}
 	}
@@ -2133,7 +2136,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1675"
+		"ItemCost"						"%ITEM_OBLIVION_STAFF_COST%"
 		"ItemShopTags"					"damage;int;attack_speed;regen_mana"
 		"ItemQuality"					"common"
 		"ItemAliases"					"oblivion staff"
@@ -2222,7 +2225,7 @@
 		
 		//-------------------------------------------------------------------------------------------------------------
 		// Item Info
-		"ItemCost"						"1750"
+		"ItemCost"						"%ITEM_PERS_COST%"
 		"ItemShopTags"					"regen_health;regen_mana"		
 		"ItemQuality"					"common"
 		"ItemAliases"					"perseverance"
@@ -2250,7 +2253,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_health_regen"	"5"
+			"bonus_health_regen"	"%ITEM_PERS_HEALTH_REGEN%"
 			"bonus_mana_regen"		"125"
 			"bonus_damage"			"10"
 		}
@@ -7769,7 +7772,7 @@
 		"AbilityCooldown"				"30.0"
 		"AbilityHealthCost"				"150"
 		"AbilityManaCost"				"0"
-		"ItemCost"						"800"
+		"ItemCost"						"%ITEM_SOUL_RING_COST%"
 		"ItemShopTags"					"regen_health;boost_mana"
 		"ItemQuality"					"common"
 		"ItemAliases"					"soul ring"
@@ -9612,6 +9615,19 @@
 		"AbilityValues"
 		{
 			"movement_speed"			"20"
+		}
+	}
+	
+	//=================================================================================================================
+	// Recipe: Dragon Lance
+	//=================================================================================================================
+	"item_recipe_dragon_lance"
+	{
+		"ItemCost"                      "0"
+		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"ItemRequirements"
+		{
+			"01"                        "item_ogre_axe;item_boots_of_elves;item_boots_of_elves"
 		}
 	}
 }
