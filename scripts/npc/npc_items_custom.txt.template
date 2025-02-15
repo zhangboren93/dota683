@@ -9630,4 +9630,14 @@
 			"01"                        "item_ogre_axe;item_boots_of_elves;item_boots_of_elves"
 		}
 	}
+
+	"item_recipe_lotus_orb"
+	{
+		"ItemCost"                      "0"   
+		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"ItemRequirements"
+		{
+			"01"                        "item_pers_datadriven;item_platemail;item_energy_booster"
+		}
+	}
 }
