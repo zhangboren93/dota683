@@ -25,6 +25,23 @@ function OnMSMouseOut() {
 	$("#ms-icon-hero-effect-tooltip").visible=false
 }
 
+function OnMSIconPressed() {
+	$.Msg("OnMSIconPressed");
+	let parentPanel = $.GetContextPanel().GetParent(); // the root panel of the current XML context
+	let fwdPanel = parentPanel.FindChildrenWithClassTraverse("magic-stick-panel")
+	fwdPanel[0].visible = !fwdPanel[0].visible;
+	if (fwdPanel[0].visible) {
+		let hero_id = Players.GetSelectedHeroID(Players.GetLocalPlayer());
+		$.Msg("Hero id: " + hero_id)
+		if (hero_id == 8) {
+			// juggernaut
+			$.Msg("Finds juggernaut.")
+			let children = fwdPanel[0].Children()
+			children[1].visible = false;
+		}
+	}
+}
+
 (function() {
 	$.Schedule(1, showFWDButton);
 })();
