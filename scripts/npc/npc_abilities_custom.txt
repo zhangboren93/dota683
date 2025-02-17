@@ -22235,27 +22235,6 @@
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
-	"shadow_shaman_voodoo"
-	{
-		"AbilityCooldown"				"13"
-		"AbilityManaCost"				"110 140 170 200"
-		"AbilityCastRange"				"500"
-		"AbilityCastPoint"				"0"
-		"AbilityValues"
-		{
-				"movespeed"					"100"
-				"duration"					"1.25 2.0 2.75 3.5"
-				"damage_amp"				"0"
-				"can_target_allies"			"0"
-				"ally_invuln_duration"		"0"
-				"ally_voodoo_duration"		"0"
-				"ally_invuln_vision_radius"	"0"
-				"ally_chicken_images_count"	"0"
-				"ally_chicken_images_take_damage_percent"	"0"
-				"ally_chicken_movement_speed_bonus_pct"		"0"
-				"tooltip_damage_incoming_total_pct"			"0"
-		}
-	}
 	"shadow_shaman_shackles"
 	{
 		"HasShardUpgrade"				"0"
@@ -28125,4 +28104,86 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"BaseClass"						"special_bonus_undefined"
     }
+	"shadow_shaman_voodoo_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"shadow_shaman_voodoo"
+
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_shadowshaman.vsndevts"
+			"particle"			"particles/units/heroes/hero_shadowshaman/shadowshaman_voodoo.vpcf"
+			"model"				"models/props_gameplay/chicken.vmdl"
+		}
+	
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"13"
+	
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"110 140 170 200"
+	
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityModifierSupportValue"	"0.33"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"movespeed"					"100"
+			"duration"					"1.25 2.0 2.75 3.5"
+		}
+	
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_holdout_voodoo"
+				"Target"		"TARGET"
+			}	
+			"FireSound"
+			{
+				"EffectName" "General.Chicken"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_holdout_voodoo"
+			{
+				"EffectName"									 "particles/units/heroes/hero_shadowshaman/shadowshaman_voodoo.vpcf"
+				"ModelName"										 "models/props_gameplay/chicken.vmdl"
+				"Duration"										 "%duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE"	"%movespeed"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_SILENCED"		    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MUTED"			    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"           "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_PASSIVES_DISABLED"  "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_BLOCK_DISABLED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_EVADE_DISABLED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_HEXED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
 }
