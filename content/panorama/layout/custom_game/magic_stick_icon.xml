@@ -1,0 +1,14 @@
+<root>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/fwd_icon.js"/>
+	</scripts>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/fwd.css"/>
+	</styles>
+	<Panel class="ms-icon panel-hidden" style="margin-left: 190px; margin-top:15px;">
+		<Button onactivate="OnMSIconPressed()" onmouseover="OnMSMouseOver()" onmouseout="OnMSMouseOut()">
+			<Image id="menu-magic-stick-image" src="file://{images}/custom_game/magic.png"/>
+		</Button>
+		<Label id="ms-icon-hero-effect-tooltip" text="#ms-icon-hero-effect-tooltip" style="color: white;font-size:18px;margin-top:47px;background-color:#18181B;padding:10px;border-color:black;border-width:3px;visibility:collapse;"/>
+	</Panel>
+</root>

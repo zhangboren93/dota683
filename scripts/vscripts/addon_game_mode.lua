@@ -538,6 +538,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	end
 	if text == "-test" then
 		--GameRules:AddBotPlayerWithEntityScript("npc_dota_hero_nevermore", "Bot", DOTA_TEAM_BADGUYS, "ai/bot_nevermore.lua", true)
+		--local hero = PlayerResource:GetPlayer(0):GetAssignedHero();
+		--local partid = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/jugg_weapon_glow_variation_green.vpcf", PATTACH_POINT_FOLLOW, hero) 
+		--ParticleManager:SetParticleControlEnt(partid, 0, hero, PATTACH_POINT_FOLLOW, "blade_attachment", Vector(0, 0, 0), false)
 	end
 	--if text == "-shuffleteam" then
 	--	local game_state = GameRules:State_Get()

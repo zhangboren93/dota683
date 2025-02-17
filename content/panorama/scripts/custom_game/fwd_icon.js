@@ -17,6 +17,14 @@ function showFWDButton() {
 	$.Schedule(1, showFWDButton)
 }
 
+function OnMSMouseOver() {
+	$("#ms-icon-hero-effect-tooltip").visible=true
+}
+
+function OnMSMouseOut() {
+	$("#ms-icon-hero-effect-tooltip").visible=false
+}
+
 (function() {
 	$.Schedule(1, showFWDButton);
 })();
