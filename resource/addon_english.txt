@@ -3245,6 +3245,12 @@
 		"683modeselect_referee_empty"						"Empty"
 		"ms-icon-hero-effect-tooltip"						"Effects"
 		"ms-panel-hero-no-effect"							"No effects for the hero."
+		"ms-panel-slot-weapon-effect"						"Weapon Effect:"
+		"jugg-we-none"										"None"
+		"jugg-we-default"									"Default"
+		"jugg-we-gold"										"Gold"
+		"jugg-we-custom"									"Custom"
+		"jugg-we-custom-format"								"Custom value as 123456"
 
 		"DOTA_HUD_BackpackHint"			"Backpack has been disabled."
 		"DOTA_Hud_Pregame_Random_Tooltip"   "Randomly picks from a pool of heroes you frequently play. In some game modes, grants extra 200 golds."

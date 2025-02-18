@@ -9,6 +9,6 @@
 		<Button onactivate="OnMSIconPressed()" onmouseover="OnMSMouseOver()" onmouseout="OnMSMouseOut()">
 			<Image id="menu-magic-stick-image" src="file://{images}/custom_game/magic.png"/>
 		</Button>
-		<Label text="#ms-icon-hero-effect-tooltip" style="color: white;font-size:18px;margin-top:47px;background-color:#18181B;padding:10px;border-color:black;border-width:3px;visibility:collapse;"/>
+		<Label id="ms-icon-hero-effect-tooltip" text="#ms-icon-hero-effect-tooltip" style="color: white;font-size:18px;margin-top:47px;background-color:#18181B;padding:10px;border-color:black;border-width:3px;visibility:collapse;"/>
 	</Panel>
 </root>

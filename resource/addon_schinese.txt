@@ -3276,6 +3276,12 @@
 		"683modeselect_mode_selectable_by_host"		"房主正在选择游戏规则..."
 		"ms-icon-hero-effect-tooltip"				"特效"
 		"ms-panel-hero-no-effect"					"该英雄无特效定制。"
+		"ms-panel-slot-weapon-effect"				"默认武器特效:"
+		"jugg-we-none"								"无"
+		"jugg-we-default"							"默认"
+		"jugg-we-gold"								"金"
+		"jugg-we-custom"							"自定义"
+		"jugg-we-custom-format"						"自定义值，如123456"
 
 		"DOTA_HUD_BackpackHint"			"背包已被禁用。"
 		"DOTA_Hud_Pregame_Random_Tooltip"	"从经常使用的英雄中随机选择一个。在部分游戏模式中会获得 200 额外初始金钱。"

@@ -2,11 +2,22 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/magic_stick.js"/>
 	</scripts>
-	<Panel class="magic-stick-panel" style="width: 600px; height: 800px; margin-top: 54px; background-color: #3F4646;">
+	<styles>
+		<include src="file://{resources}/styles/custom_game/radio_button.css"/>
+	</styles>
+	<Panel class="magic-stick-panel" style="width: 600px; height: 800px; margin-top: 54px; background-color: black;">
 		<Button onactivate="OnMSPanelCloseClicked()"
 			    style="margin-left: 575px; padding-left: 6px; padding-right: 4px;">
 			<Label text="x" style="font-size: 24px; color: white;"/>
 		</Button>
 		<Label text="#ms-panel-hero-no-effect" style="font-size:32px; margin: 20px;"/>
+		<Panel id="jugg-magic-stick-panel" style="flow-children: down; visibility: collapse;">
+			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
+			<RadioButton checked="checked" group="jugg-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>
+			<RadioButton group="jugg-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: orange;" onactivate="OnJuggWESelected('deft')"/>
+			<RadioButton group="jugg-weapon-effect" id="jugg-we-gold" text="#jugg-we-gold" style="color: gold;" onactivate="OnJuggWESelected('gold')"/>
+			<RadioButton group="jugg-weapon-effect" id="jugg-we-custom" text="#jugg-we-custom" style="color: white;" onactivate="OnJuggWESelected('cust')"/>
+			<TextEntry id="jugg-weapon-effect-custom-te" maxchars="6" placeholder="#jugg-we-custom-format" oninputsubmit="OnJuggWECustomTESubmit()" />
+		</Panel>
 	</Panel>
 </root>

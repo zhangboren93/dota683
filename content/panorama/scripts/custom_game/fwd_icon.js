@@ -38,6 +38,7 @@ function OnMSIconPressed() {
 			$.Msg("Finds juggernaut.")
 			let children = fwdPanel[0].Children()
 			children[1].visible = false;
+			children[2].visible = true;
 		}
 	}
 }

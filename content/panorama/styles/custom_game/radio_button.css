@@ -1,0 +1,40 @@
+RadioButton {
+	margin-bottom: 5px;
+	margin-left: 5px;
+}
+RadioButton .RadioBox {
+	width: 20px;
+	height: 20px;
+	vertical-align: center;
+	background-color: grey;
+	border-radius: 50%;
+}
+
+RadioButton Label {
+	margin-left: 30px;
+	font-size: 18px;
+}
+
+RadioButton:selected .RadioBox {
+	background-color: white;
+}
+
+TextEntry {
+	height: 36px;
+	padding: 5px;
+	padding-bottom: 0px;
+	margin-left: 30px;
+	color: white;
+	font-size: 20px;
+	border: 1px solid #3d464c;
+	width: 200px;
+}
+
+TextEntry #PlaceholderText {
+	color: #57646d;
+	font-size: 18px;
+}
+
+TextEntry.HasInput #PlaceholderText {
+	visibility: collapse;
+}
