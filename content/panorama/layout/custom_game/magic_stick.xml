@@ -15,9 +15,13 @@
 			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
 			<RadioButton checked="checked" group="jugg-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>
 			<RadioButton group="jugg-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: orange;" onactivate="OnJuggWESelected('deft')"/>
+			<RadioButton group="jugg-weapon-effect" id="jugg-we-red"  text="#jugg-we-red"  style="color: red;" onactivate="OnJuggWESelected('red')"/>
+			<RadioButton group="jugg-weapon-effect" id="jugg-we-gren" text="#jugg-we-gren" style="color: green;" onactivate="OnJuggWESelected('green')"/>
+			<RadioButton group="jugg-weapon-effect" id="jugg-we-blue" text="#jugg-we-blue" style="color: blue;" onactivate="OnJuggWESelected('blue')"/>
+			<RadioButton group="jugg-weapon-effect" id="jugg-we-whit" text="#jugg-we-whit" style="color: white;" onactivate="OnJuggWESelected('whit')"/>
 			<RadioButton group="jugg-weapon-effect" id="jugg-we-gold" text="#jugg-we-gold" style="color: gold;" onactivate="OnJuggWESelected('gold')"/>
-			<RadioButton group="jugg-weapon-effect" id="jugg-we-custom" text="#jugg-we-custom" style="color: white;" onactivate="OnJuggWESelected('cust')"/>
-			<TextEntry id="jugg-weapon-effect-custom-te" maxchars="6" placeholder="#jugg-we-custom-format" oninputsubmit="OnJuggWECustomTESubmit()" />
+			<!--RadioButton group="jugg-weapon-effect" id="jugg-we-custom" text="#jugg-we-custom" style="color: white;" onactivate="OnJuggWESelected('cust')"/>
+			<TextEntry id="jugg-weapon-effect-custom-te" maxchars="6" placeholder="#jugg-we-custom-format" oninputsubmit="OnJuggWECustomTESubmit()" /-->
 		</Panel>
 	</Panel>
 </root>
