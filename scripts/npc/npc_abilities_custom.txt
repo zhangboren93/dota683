@@ -23484,6 +23484,10 @@
 			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury.vpcf"
 			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_null.vpcf"
 			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury_tgt.vpcf"
+
+			//custom weapon effect
+			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_default.vpcf"
+			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_green.vpcf"
 		}
 
 		// Casting

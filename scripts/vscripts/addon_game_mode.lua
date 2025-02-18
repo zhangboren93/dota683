@@ -297,6 +297,9 @@ function Activate()
 	LinkLuaModifier( "modifier_creep_irresolute_alter",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_piercing_alter",			"units/attack_types.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_creep_move_after_reach_t1_lua",  "units/modifier_creep_move_after_reach_t1.lua", LUA_MODIFIER_MOTION_NONE)
+
+	--custom weapon effects
+	LinkLuaModifier( "modifier_juggernaut_weapon_effect_683_lua", "heroes/hero_juggernaut/modifier_juggernaut_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -313,6 +316,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.custom_game_meta_version = "683"
 	self.player2account_records = {}
 	self.pskey_orig = ""
+	self.hero2weaponEffect = {}
 	if GetMapName() == "dota_688g" then
 		self.custom_game_meta_version = "688"
 	end
@@ -468,6 +472,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("captain_client_pick", CAddonTemplateGameMode.handleCaptainClientPick)
 	CustomGameEventManager:RegisterListener("fwd-command-issue", handleFWDCommand)
 	CustomGameEventManager:RegisterListener("game_mode_select", CAddonTemplateGameMode.handleGameModeSelect)
+	CustomGameEventManager:RegisterListener("magic-stick-command-issue", handleMSCommand)
 end
 
 function HandlePlayerChat(self, teamonly, text, playerid)
@@ -1369,6 +1374,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity.intStealOnRespawn:ApplyDataDrivenModifier(entity.intStealOnRespawn:GetCaster(), entity, "modifier_silencer_brain_drain_debuff_datadriven", {})
 		end
 		entity.intStealOnRespawn = nil
+	end
+	if entity:GetName() == "npc_dota_hero_juggernaut" and self.hero2weaponEffect[entity:GetName()] and self.hero2weaponEffect[entity:GetName()] ~= "none" then
+		entity:AddNewModifier(entity, nil, "modifier_juggernaut_weapon_effect_683_lua", { style = self.hero2weaponEffect[entity:GetName()] })
 	end
 end
 
@@ -2497,6 +2505,20 @@ function handleFWDCommand(userid, event)
 		end
 	elseif event.type == 'nocd' then
 		fwdnocdenabled = event.state
+	end
+end
+
+function handleMSCommand(userid, command)
+	local hero = PlayerResource:GetPlayer(userid - 1):GetAssignedHero()
+	if hero and hero:GetName() == "npc_dota_hero_juggernaut" then
+		print("handleMSCommand " .. userid .. " " .. command.style)
+		if hero:HasModifier("modifier_juggernaut_weapon_effect_683_lua") then
+			hero:RemoveModifierByName("modifier_juggernaut_weapon_effect_683_lua")
+		end
+		if command.style ~= "none" then
+			hero:AddNewModifier(hero, nil, "modifier_juggernaut_weapon_effect_683_lua", { style = command.style })
+		end
+		GameRules.AddonTemplate.hero2weaponEffect[hero:GetName()] = command.style
 	end
 end
 
