@@ -26,5 +26,3 @@ bin-release/
 *.vrman_c
 
 scripts/npc/npc_items_custom.txt
-panorama
-particles

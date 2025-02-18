@@ -7,6 +7,14 @@ modifier_juggernaut_weapon_effect_683_lua = class({
 				self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_default.vpcf", PATTACH_POINT_FOLLOW, parent)
 			elseif data.style == "green" then
 				self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_green.vpcf", PATTACH_POINT_FOLLOW, parent)
+			elseif data.style == "red" then
+				self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_red.vpcf", PATTACH_POINT_FOLLOW, parent)
+			elseif data.style == "blue" then
+				self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_blue.vpcf", PATTACH_POINT_FOLLOW, parent)
+			elseif data.style == "whit" then
+				self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_white.vpcf", PATTACH_POINT_FOLLOW, parent)
+			elseif data.style == "gold" then
+				self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_gold.vpcf", PATTACH_POINT_FOLLOW, parent)
 			end
 			ParticleManager:SetParticleControlEnt(self.particleId, 0, parent, PATTACH_POINT_FOLLOW, "attach_sword", Vector(0, 0, 0), true)
 		end

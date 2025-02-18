@@ -1376,7 +1376,9 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity.intStealOnRespawn = nil
 	end
 	if entity:GetName() == "npc_dota_hero_juggernaut" and self.hero2weaponEffect[entity:GetName()] and self.hero2weaponEffect[entity:GetName()] ~= "none" then
-		entity:AddNewModifier(entity, nil, "modifier_juggernaut_weapon_effect_683_lua", { style = self.hero2weaponEffect[entity:GetName()] })
+		if not entity:HasModifier("modifier_juggernaut_weapon_effect_683_lua") then
+			entity:AddNewModifier(entity, nil, "modifier_juggernaut_weapon_effect_683_lua", { style = self.hero2weaponEffect[entity:GetName()] })
+		end
 	end
 end
 

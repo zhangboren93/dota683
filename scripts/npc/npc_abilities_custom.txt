@@ -23488,6 +23488,10 @@
 			//custom weapon effect
 			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_default.vpcf"
 			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_green.vpcf"
+			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_red.vpcf"
+			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_blue.vpcf"
+			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_white.vpcf"
+			"particle"					"particles/units/heroes/hero_juggernaut/juggernaut_blade_generic_gold.vpcf"
 		}
 
 		// Casting
