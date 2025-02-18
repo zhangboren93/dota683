@@ -5525,12 +5525,43 @@
 	// Recipe: Hood of Defiance
 	//=================================================================================================================
 	"item_recipe_hood_of_defiance"
-	{
-		"ItemPurchasable"	"0"
+	{		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"0"	
+		"IsObsolete"					"%OBSOLETE_IN_683%"
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemRequirements"
+		{
+			"01"						"item_ring_of_health;item_cloak;item_ring_of_regen"
+		}
 	}
 	"item_hood_of_defiance"
 	{
-		"ItemPurchasable"	"0"
+		// Stats        
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityCooldown"               "60.0"
+        "AbilityManaCost"               "75"
+
+        // Item Info
+        //-------------------------------------------------------------------------------------------------------------
+        "ItemCost"                      "1725"
+		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+        "IsObsolete"                    "0"
+        
+        // Special  
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityValues"
+        {
+            "bonus_spell_resist"    "30"
+            "bonus_health_regen"    "8"
+            "tooltip_resist"		"30"
+            "barrier_block"         "325"
+            "barrier_duration"      "12.0"
+        }
 	}
 	"item_recipe_hood_of_defiance_datadriven"
 	{
@@ -5543,6 +5574,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
+		"IsObsolete"					"%OBSOLETE_IN_688%"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -5576,6 +5608,7 @@
 		"ItemQuality"					"epic"
 		"ItemAliases"					"hood of defiance"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemPurchasable"				"%PURCHASABLE_683_ONLY%"
 	
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -9628,6 +9661,16 @@
 		"ItemRequirements"
 		{
 			"01"                        "item_ogre_axe;item_boots_of_elves;item_boots_of_elves"
+		}
+	}
+
+	"item_recipe_lotus_orb"
+	{
+		"ItemCost"                      "0"   
+		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"ItemRequirements"
+		{
+			"01"                        "item_pers_datadriven;item_platemail;item_energy_booster"
 		}
 	}
 }

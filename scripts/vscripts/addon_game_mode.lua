@@ -2064,10 +2064,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
-		if inflictor:GetName() == "bounty_hunter_shuriken_toss" then
-			local victim = EntIndexToHScript(event.entindex_victim_const)
-			victim:AddNewModifier(attacker, attacker:FindAbilityByName("bounty_hunter_shuriken_toss"), "modifier_stunned", {duration = 0.03})
-		elseif inflictor:GetName() == "item_cyclone" then
+		if inflictor:GetName() == "item_cyclone" then
 			return false
 		elseif inflictor:GetName() == "item_ethereal_blade" then
 			--print(victim:Script_GetMagicalArmorValue(false, attacker))
@@ -2088,22 +2085,9 @@ function CAddonTemplateGameMode:DamageFilter(event)
 			event.damagetype_const = DAMAGE_TYPE_PURE
 		elseif inflictor:GetName() == "phoenix_sun_ray" then
 			event.damage = event.damage / (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
-		elseif inflictor:GetName() == "earth_spirit_rolling_boulder" and event.damage > 0 then
-			-- fix rolling boulder damage without strength component
-			local victim = EntIndexToHScript(event.entindex_victim_const)
-			event.damage = 100 * (1 - victim:Script_GetMagicalArmorValue(false, inflictor))
-		elseif inflictor:GetName() == "pudge_meat_hook" and victim:IsCreep() then
-			local original_damage = inflictor:GetSpecialValueFor("damage")
-			if event.damage > original_damage then
-				event.damage = original_damage
-			end
 		elseif inflictor:GetName() == "enigma_midnight_pulse" then
 			-- apply damage as pure instead of magical & percentage of max health
 			event.damage = victim:GetMaxHealth() * inflictor:GetSpecialValueFor("damage_percent") / 100
-		elseif inflictor:GetName() == "lion_impale"	then
-			if victim:IsMagicImmune() then
-				event.damage = 0
-			end
 		elseif inflictor:GetName() == "tiny_avalanche" then
 			if victim:HasModifier("modifier_toss_flying_lua") then
 				event.damage = event.damage * 2

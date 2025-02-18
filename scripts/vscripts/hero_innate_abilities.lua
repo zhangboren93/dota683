@@ -11,7 +11,6 @@ hero_innate_abilities["npc_dota_hero_muerta"]		  = "hero_attack_point_adjust_lua
 hero_innate_abilities["npc_dota_hero_necrolyte"]	  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_lina"]			  = "hero_attack_point_adjust_lua"	
 hero_innate_abilities["npc_dota_hero_luna"]			  = "hero_attack_point_adjust_lua"
-hero_innate_abilities["npc_dota_hero_shadow_shaman"]  = "special_bonus_unique_shadow_shaman_7" -- ÑıÊõÊ©¼ÓÆÆ»µ
 hero_innate_abilities["npc_dota_hero_visage"]		  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_weaver"]		  = "hero_attack_point_adjust_lua"
 hero_innate_abilities["npc_dota_hero_zuus"]			  = "hero_attack_point_adjust_lua"
