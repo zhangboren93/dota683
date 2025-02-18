@@ -1704,7 +1704,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
-		"Ability4"		"shadow_shaman_voodoo_datadriven"
+		"Ability2"		"shadow_shaman_voodoo_datadriven"
 		"Ability6"		"shadow_shaman_mass_serpent_ward_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability10"		"generic_hidden"
