@@ -1,3 +1,5 @@
+-- Deprecated
+
 function handleIntervalThink(event)
 	local caster = event.caster
 	local ability = event.ability

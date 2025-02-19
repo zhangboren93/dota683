@@ -12087,9 +12087,9 @@
 		"AbilityCooldown"	"5"
 		"Modifiers"
 		{
+			// Deprecated
 			"modifier_move_speed_cancel_night_datadriven"
 			{
-				"Passive"		"1"
 				"IsHidden"		"1"
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
@@ -25907,9 +25907,9 @@
 					}
 				}
 			}
+			// Deprecated
 			"modifier_move_speed_cancel_night_datadriven"
 			{
-				"Passive"		"1"
 				"IsHidden"		"1"
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
