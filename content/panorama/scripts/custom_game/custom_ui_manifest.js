@@ -68,8 +68,8 @@ function OnEndGameStats(event) {
 }
 (function() {
     var PanelHUD = $.GetContextPanel().GetParent().GetParent().FindChildTraverse("HUDElements");
-    var RadarButton = PanelHUD.FindChildTraverse("RadarButton");
-    RadarButton.style.visibility = "collapse";
+    var RadarButton = PanelHUD.FindChildTraverse("RoshanTimerContainer");
+    RadarButton.visible = false;
     var CenterBlock = PanelHUD.FindChildTraverse("center_block");
     CenterBlock.FindChildTraverse("inventory_composition_layer_container").style.visibility = "collapse";
     GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false);
