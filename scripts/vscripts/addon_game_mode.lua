@@ -717,8 +717,16 @@ function CAddonTemplateGameMode:OnThink()
 		if #roshan > 0 and self.first_roshan_spawned == nil then
 			roshan[1]:ForceKill(false)
 			print("spawn first roshan.")
-			CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
+			local roshan = CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
 			self.first_roshan_spawned = true
+			-- killing 1st rosh will drop aegis
+			roshan:SetThink(function()
+				local aegis = Entities:FindAllByModel("models/props_gameplay/aegis.vmdl")
+				print("Find aegis " .. #aegis)
+				for i=1,#aegis do
+					aegis[i]:Destroy()
+				end
+			end, "remove aegis on the ground", 1)
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		handleGameInProgressTimer(self, player2BuildingDamage)

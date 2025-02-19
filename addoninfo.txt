@@ -7,7 +7,6 @@
 	[
 		"dota",
 		"rank",
-		"tour",
 		"dota_688g"
 	]
 	Default_Keys = 
@@ -32,10 +31,6 @@
 			map = "rank"
 			MinPlayers = 10
 			MaxPlayers = 10
-		},
-		{
-			map = "tour"
-			MaxPlayers = 12
 		},
 		{
 			map = "dota_688g"
