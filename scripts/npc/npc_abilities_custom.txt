@@ -11348,11 +11348,6 @@
 		"AbilityCastPoint"				"0.5"
 		//"AnimationPlaybackRate"			"0.3"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
-
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
 	
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -11362,6 +11357,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"				"16"
 			"illusion_duration"					"32.0"
 			"illusion_outgoing_damage"			"-70 -60 -50 -40"		 
 			"illusion_outgoing_tooltip"			"30 40 50 60"
@@ -16305,6 +16301,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_Tidehunter.KrakenShell"
 
+		"AbilityManaCost"				"0"
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -16313,6 +16311,8 @@
 				"damage_cleanse"			"600 550 500 450"
 				"damage_reset_interval"		"6.0 6.0 6.0 6.0"
 				"bonus_reduction_per_kill"	"0"
+				"AbilityCooldown"			"0"
+			"creep_reduction_penalty_pct"	"50.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
