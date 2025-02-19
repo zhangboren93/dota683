@@ -31,6 +31,10 @@
 		"precache"
 		{
 			"particle"						"particles/units/heroes/hero_antimage/antimage_manavoid.vpcf"
+			// custom weapon effects
+			"particle"						"particles/units/heroes/hero_antimage/antimage_blade_default.vpcf"
+			"particle"						"particles/units/heroes/hero_antimage/antimage_blade_purple.vpcf"
+			"particle"						"particles/units/heroes/hero_antimage/antimage_blade_default_gold.vpcf"
 		}
 
 		"AbilityValues"

@@ -3284,6 +3284,7 @@
 		"jugg-we-blue"								"蓝"
 		"jugg-we-whit"								"白"
 		"jugg-we-gold"								"金"
+		"jugg-we-prpl"								"紫"
 		"jugg-we-custom"							"自定义"
 		"jugg-we-custom-format"						"自定义值，如123456"
 

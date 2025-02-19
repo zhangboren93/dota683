@@ -33,12 +33,16 @@ function OnMSIconPressed() {
 	if (fwdPanel[0].visible) {
 		let hero_id = Players.GetSelectedHeroID(Players.GetLocalPlayer());
 		$.Msg("Hero id: " + hero_id)
+		let children = fwdPanel[0].Children()
 		if (hero_id == 8) {
 			// juggernaut
 			$.Msg("Finds juggernaut.")
-			let children = fwdPanel[0].Children()
 			children[1].visible = false;
 			children[2].visible = true;
+		} else if (hero_id == 1) {
+			// antimage
+			children[1].visible = false;
+			children[3].visible = true;
 		}
 	}
 }
