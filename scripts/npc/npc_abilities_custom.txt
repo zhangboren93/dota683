@@ -11512,6 +11512,7 @@
 				"focal_point_max_multiplier"			"0"
 				"focal_point_start_length_pct"			"0"
 				"focal_point_full_length_tooltip_only"	"0"
+				"focal_point_blind_stack_multiplier"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -22867,7 +22868,10 @@
 			{
 				"value"								"12 11 10 9"
 				"special_bonus_unique_jakiro_6"		"-2.5"
-			}	
+			}
+			"detonate_damage"			"0"
+			"detonate_stun_duration"	"0"
+			"detonate_projectile_speed"	"0"
 		}		
 	}
 	"storm_spirit_electric_vortex"
