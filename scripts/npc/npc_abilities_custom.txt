@@ -16313,7 +16313,7 @@
 				"damage_reset_interval"		"6.0 6.0 6.0 6.0"
 				"bonus_reduction_per_kill"	"0"
 				"AbilityCooldown"			"0"
-			"creep_reduction_penalty_pct"	"50.0"
+			"creep_reduction_penalty_pct"	"0.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
