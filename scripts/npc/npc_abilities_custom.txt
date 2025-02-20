@@ -10454,6 +10454,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityManaCost"				"0"
 			"damage_per_stack"				"20 25 30"
 			"aspd_per_stack"				"0"
 			"move_speed_per_stack"			"3 4 5"
@@ -19031,7 +19032,6 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -19054,6 +19054,7 @@
 					"special_bonus_unique_drow_ranger_gust_selfmovespeed"		"+15"
 				}
 				"AbilityCooldown"				"13"
+				"AbilityManaCost"				"90"
 				"gust_reveals_invis"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
