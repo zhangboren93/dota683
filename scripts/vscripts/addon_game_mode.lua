@@ -33,6 +33,7 @@ local hero2weaponEffectModifier = {
 	npc_dota_hero_juggernaut = "modifier_juggernaut_weapon_effect_683_lua",
 	npc_dota_hero_antimage = "modifier_antimage_weapon_effect_683_lua",
 	npc_dota_hero_spirit_breaker = "modifier_spirit_breaker_weapon_effect_683_lua",
+	npc_dota_hero_chaos_knight = "modifier_chaos_knight_weapon_effect_683_lua",
 }
 
 local function addToGamesRecord(last_record, player2BuildingDamage, player2assist, game_winner)
@@ -317,6 +318,7 @@ function Activate()
 	LinkLuaModifier( "modifier_juggernaut_weapon_effect_683_lua", "heroes/hero_juggernaut/modifier_juggernaut_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_antimage_weapon_effect_683_lua",   "heroes/hero_antimage/modifier_antimage_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_spirit_breaker_weapon_effect_683_lua",   "heroes/hero_spirit_breaker/modifier_spirit_breaker_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_chaos_knight_weapon_effect_683_lua",   	"heroes/hero_chaos_knight/modifier_chaos_knight_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_hero_custom_aura_effect_683_lua",  "modifiers/modifier_hero_custom_aura_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
@@ -565,7 +567,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		--local hero = PlayerResource:GetPlayer(0):GetAssignedHero();
 		--local partid = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/jugg_weapon_glow_variation_green.vpcf", PATTACH_POINT_FOLLOW, hero) 
 		--ParticleManager:SetParticleControlEnt(partid, 0, hero, PATTACH_POINT_FOLLOW, "blade_attachment", Vector(0, 0, 0), false)
-		typedleMSCommand(1, { aura = 1 })
+		handleMSCommand(1, { slot = "we", style = "gold" })
 	end
 	--if text == "-shuffleteam" then
 	--	local game_state = GameRules:State_Get()
@@ -1403,21 +1405,11 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
 		entity.intStealOnRespawn = nil
 	end
-	if entity:GetName() == "npc_dota_hero_juggernaut" and self.hero2weaponEffect[entity:GetName()] and self.hero2weaponEffect[entity:GetName()] ~= "none" then
-		if not entity:HasModifier("modifier_juggernaut_weapon_effect_683_lua") then
-			entity:AddNewModifier(entity, nil, "modifier_juggernaut_weapon_effect_683_lua", { style = self.hero2weaponEffect[entity:GetName()] })
-		end
-	elseif entity:GetName() == "npc_dota_hero_antimage" and self.hero2weaponEffect[entity:GetName()] and self.hero2weaponEffect[entity:GetName()] ~= "none" then
-		if not entity:HasModifier("modifier_antimage_weapon_effect_683_lua") then
-			entity:AddNewModifier(entity, nil, "modifier_antimage_weapon_effect_683_lua", { style = self.hero2weaponEffect[entity:GetName()] })
-		end
-	elseif entity:GetName() == "npc_dota_hero_spirit_breaker" then
-		local style = self.hero2weaponEffect[entity:GetName()]
-		if style ~= nil and style ~= "none" then
-			local modifier_name = "modifier_spirit_breaker_weapon_effect_683_lua"
-			if not entity:HasModifier(modifier_name) then
-				entity:AddNewModifier(entity, nil, modifier_name, { style = style })
-			end
+	if hero2weaponEffectModifier[entity:GetName()] then
+		if self.hero2weaponEffect[entity:GetName()] == nil then	self.hero2weaponEffect[entity:GetName()] = "deft" end
+		local modifier_name = hero2weaponEffectModifier[entity:GetName()]
+		if not entity:HasModifier(modifier_name) then
+			entity:AddNewModifier(entity, nil, modifier_name, { style = self.hero2weaponEffect[entity:GetName()] })
 		end
 	end
 	if entity:IsHero() then

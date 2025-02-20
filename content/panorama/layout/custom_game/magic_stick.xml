@@ -15,7 +15,7 @@
 			<RadioButton checked="checked" group="aura-effect" id="jugg-we-none" text="#jugg-we-none" style="color: white;" onactivate="OnAuraSelected(0)"/>
 			<RadioButton group="aura-effect" id="jugg-we-style1" text="#jugg-ae-style1" style="color: white;" onactivate="OnAuraSelected(1)"/>
 		</Panel>
-		<Panel id="jugg-magic-stick-panel" style="flow-children: down; visibility: collapse;">
+		<Panel id="jugg-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 90px;">
 			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
 			<RadioButton checked="checked" group="jugg-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>
 			<RadioButton group="jugg-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: orange;" onactivate="OnJuggWESelected('deft')"/>
@@ -27,18 +27,24 @@
 			<!--RadioButton group="jugg-weapon-effect" id="jugg-we-custom" text="#jugg-we-custom" style="color: white;" onactivate="OnJuggWESelected('cust')"/>
 			<TextEntry id="jugg-weapon-effect-custom-te" maxchars="6" placeholder="#jugg-we-custom-format" oninputsubmit="OnJuggWECustomTESubmit()" /-->
 		</Panel>
-		<Panel id="am-magic-stick-panel" style="flow-children: down; visibility: collapse;">
+		<Panel id="am-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 90px;">
 			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
 			<RadioButton checked="checked" group="jugg-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>
 			<RadioButton group="jugg-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: blue;" onactivate="OnJuggWESelected('deft')"/>
 			<RadioButton group="jugg-weapon-effect" id="jugg-we-prpl" text="#jugg-we-prpl" style="color: purple;" onactivate="OnJuggWESelected('prpl')"/>
 			<RadioButton group="jugg-weapon-effect" id="jugg-we-gold" text="#jugg-we-gold" style="color: gold;" onactivate="OnJuggWESelected('gold')"/>
 		</Panel>
-		<Panel id="sb-magic-stick-panel" style="flow-children: down; visibility: collapse;">
+		<Panel id="sb-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 90px;">
 			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
 			<RadioButton checked="checked" group="sb-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>
 			<RadioButton group="sb-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: aqua;" onactivate="OnJuggWESelected('deft')"/>
 			<RadioButton group="sb-weapon-effect" id="jugg-we-red" text="#jugg-we-red" style="color: red;" onactivate="OnJuggWESelected('red')"/>
+		</Panel>
+		<Panel id="ck-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 90px;">
+			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
+			<RadioButton checked="checked" group="sb-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>
+			<RadioButton group="sb-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: orange;" onactivate="OnJuggWESelected('deft')"/>
+			<RadioButton group="sb-weapon-effect" id="jugg-we-gold" text="#jugg-we-gold" style="color: gold;" onactivate="OnJuggWESelected('gold')"/>
 		</Panel>
 	</Panel>
 </root>

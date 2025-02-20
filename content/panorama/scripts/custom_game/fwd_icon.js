@@ -47,6 +47,9 @@ function OnMSIconPressed() {
 			// spirit breaker
 			//children[1].visible = false;
 			children[4].visible = true;
+		} else if (hero_id == 81) {
+			// chaos knight
+			children[5].visible = true;
 		}
 	}
 }

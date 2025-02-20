@@ -19618,6 +19618,9 @@
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_chaos_knight.vsndevts"
 			"particle"		"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
 			"particle"		"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift_buff.vpcf"
+			// custom particle effect
+			"particle"		"particles/units/heroes/hero_chaos_knight/chaos_knight_ambient_mace_default.vpcf"
+			"particle"		"particles/units/heroes/hero_chaos_knight/chaos_knight_ambient_mace_gold.vpcf"
 		}
 		
 		// Casting

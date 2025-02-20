@@ -1,0 +1,48 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf61:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_POINT_FOLLOW"
+					m_attachmentName = "attach_attack1"
+					m_entityName = "parent"
+				},
+			]
+			m_previewState = 
+			{
+				m_previewModel = "models/heroes/chaos_knight/chaos_knight_mace.vmdl"
+			}
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_nCP1 = 5
+			m_vecCP1Pos = [ 0.0, 0.0, 0.0 ]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_chaos_knight/chaos_knight_ambient_mace_d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_chaos_knight/chaos_knight_ambient_mace_gold_c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_chaos_knight/chaos_knight_ambient_mace_e.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/units/heroes/hero_chaos_knight/chaos_knight_ambient_mace_a.vpcf"
+		},
+	]
+}
