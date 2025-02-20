@@ -34,6 +34,7 @@ local hero2weaponEffectModifier = {
 	npc_dota_hero_antimage = "modifier_antimage_weapon_effect_683_lua",
 	npc_dota_hero_spirit_breaker = "modifier_spirit_breaker_weapon_effect_683_lua",
 	npc_dota_hero_chaos_knight = "modifier_chaos_knight_weapon_effect_683_lua",
+	npc_dota_hero_doom_bringer = "modifier_doom_bringer_weapon_effect_683_lua"
 }
 
 local function addToGamesRecord(last_record, player2BuildingDamage, player2assist, game_winner)
@@ -319,6 +320,7 @@ function Activate()
 	LinkLuaModifier( "modifier_antimage_weapon_effect_683_lua",   "heroes/hero_antimage/modifier_antimage_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_spirit_breaker_weapon_effect_683_lua",   "heroes/hero_spirit_breaker/modifier_spirit_breaker_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_chaos_knight_weapon_effect_683_lua",   	"heroes/hero_chaos_knight/modifier_chaos_knight_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_doom_bringer_weapon_effect_683_lua",   	"heroes/hero_doom_bringer/modifier_doom_bringer_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_hero_custom_aura_effect_683_lua",  "modifiers/modifier_hero_custom_aura_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 end
 

@@ -1,0 +1,22 @@
+modifier_doom_bringer_weapon_effect_683_lua = class({
+	OnCreated = function(self, data)
+		local parent = self:GetParent()
+		if data.style ~= nil and parent ~= nil then
+			if data.style == "deft" then
+				self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_ambient_default.vpcf", PATTACH_POINT_FOLLOW, parent)
+			elseif data.style == "prpl" then
+				self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_ambient_purple.vpcf", PATTACH_POINT_FOLLOW, parent)
+			elseif data.style == "gold" then
+				self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_ambient_gold.vpcf", PATTACH_POINT_FOLLOW, parent)
+			end
+			ParticleManager:SetParticleControlEnt(self.particleId, 0, parent, PATTACH_POINT_FOLLOW, "attach_attack1", Vector(0, 0, 0), true)
+		end
+	end,
+	GetAttributes = function() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end,
+	OnDestroy = function(self)
+		if self.particleId ~= nil then
+			ParticleManager:DestroyParticle(self.particleId, false)
+		end
+	end,
+	IsHidden = function() return true end
+})

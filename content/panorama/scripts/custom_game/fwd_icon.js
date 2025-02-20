@@ -50,6 +50,9 @@ function OnMSIconPressed() {
 		} else if (hero_id == 81) {
 			// chaos knight
 			children[5].visible = true;
+		} else if (hero_id == 69) {
+			// doom bringer
+			children[6].visible = true;
 		}
 	}
 }
