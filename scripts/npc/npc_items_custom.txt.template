@@ -196,6 +196,7 @@
 		"ItemPurchasable"			"1"
 		"ItemIsNeutralDrop"			"0"
 		"ItemSellable"				"1"
+		"ItemIsNeutralActiveDrop"	"0"
 		"AbilityValues"
 		{
 			"bonus_agility"			"6"
