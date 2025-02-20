@@ -2605,6 +2605,7 @@
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Ability.LagunaBladeImpact"
 		"HasScepterUpgrade"				"1"
+		"HasShardUpgrade"				"0"
 
 		
 		// Casting
@@ -11065,7 +11066,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22.0 18.0 14.0 10.0"
+		
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -11075,6 +11076,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"			"22.0 18.0 14.0 10.0"
 				"radius"				"180"	// NOTE: This radius must match the radius for geomagnetic grip
 				"rock_search_aoe"		"200"
 				"rock_damage"			"125"
