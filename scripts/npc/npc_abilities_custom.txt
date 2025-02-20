@@ -5592,7 +5592,7 @@
 		{
 			"latch_radius"		"125 125 125"
 			"stun_radius"		"175 175 175"
-			"stun_radius_ally"	"175"
+			"radius_ally"		"175"
 			"cooldown_refund_ally"		"0"
 			"ally_shield_duration"		"0"
 			"duration"			"1 1.5 2.0"
@@ -18289,6 +18289,7 @@
 				"spread_radius"			"0"
 				"slow_step_pct_of_max"	"100"
 				"slow_tooltip"			"70"
+				"reset_cooldown_on_kill"	"0"
 		}
 	}
 	// Rewrite of the Lifestealer Feast ability
@@ -22255,18 +22256,25 @@
 	}
 	"shadow_shaman_shackles"
 	{
+		"HasScepterUpgrade"				"0"
 		"HasShardUpgrade"				"0"
-		"AbilityCastRange"				"400"
 		"AbilityChannelTime"			"2.75 3.5 4.25 5"
 		"AbilityCooldown"				"16"
 		"AbilityManaCost"				"140 150 160 170"
 		"AbilityValues"
 		{
+			"AbilityCastRange"		"400"
 				"tick_interval"		"0.1 0.1 0.1 0.1"
 				"total_damage"		"110 140 170 200"
 				"channel_time"		"2.75 3.5 4.25 5"
 				"AbilityCooldown"				"16"
 				"AbilityManaCost"				"140 150 160 170"
+			"ward_linger_duration"	"0"
+			"scepter_shock_pct"		"0"
+			"scepter_shock_radius"	"0"
+			"scepter_shock_interval""10000"
+			"alt_cast_on_allies"	"0"
+			"ally_break_range"		"400"
 		}
 	}
 
