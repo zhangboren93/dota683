@@ -30,5 +30,11 @@
 			<RadioButton group="jugg-weapon-effect" id="jugg-we-prpl" text="#jugg-we-prpl" style="color: purple;" onactivate="OnJuggWESelected('prpl')"/>
 			<RadioButton group="jugg-weapon-effect" id="jugg-we-gold" text="#jugg-we-gold" style="color: gold;" onactivate="OnJuggWESelected('gold')"/>
 		</Panel>
+		<Panel id="sb-magic-stick-panel" style="flow-children: down; visibility: collapse;">
+			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
+			<RadioButton checked="checked" group="sb-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>
+			<RadioButton group="sb-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: aqua;" onactivate="OnJuggWESelected('deft')"/>
+			<RadioButton group="sb-weapon-effect" id="jugg-we-red" text="#jugg-we-red" style="color: red;" onactivate="OnJuggWESelected('red')"/>
+		</Panel>
 	</Panel>
 </root>

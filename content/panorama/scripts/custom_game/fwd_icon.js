@@ -43,6 +43,10 @@ function OnMSIconPressed() {
 			// antimage
 			children[1].visible = false;
 			children[3].visible = true;
+		} else if (hero_id == 71) {
+			// spirit breaker
+			children[1].visible = false;
+			children[4].visible = true;
 		}
 	}
 }

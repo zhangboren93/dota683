@@ -29,6 +29,11 @@ fwdnocdenabled = 0
 sameHeroPickEnabled = false
 custom_game_first_pick = "random"
 player_last_order_time = {}
+local hero2weaponEffectModifier = {
+	npc_dota_hero_juggernaut = "modifier_juggernaut_weapon_effect_683_lua",
+	npc_dota_hero_antimage = "modifier_antimage_weapon_effect_683_lua",
+	npc_dota_hero_spirit_breaker = "modifier_spirit_breaker_weapon_effect_683_lua",
+}
 
 local function addToGamesRecord(last_record, player2BuildingDamage, player2assist, game_winner)
 	local game = last_record.game
@@ -301,6 +306,7 @@ function Activate()
 	--custom weapon effects
 	LinkLuaModifier( "modifier_juggernaut_weapon_effect_683_lua", "heroes/hero_juggernaut/modifier_juggernaut_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_antimage_weapon_effect_683_lua",   "heroes/hero_antimage/modifier_antimage_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_spirit_breaker_weapon_effect_683_lua",   "heroes/hero_spirit_breaker/modifier_spirit_breaker_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -547,7 +553,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		--local hero = PlayerResource:GetPlayer(0):GetAssignedHero();
 		--local partid = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/jugg_weapon_glow_variation_green.vpcf", PATTACH_POINT_FOLLOW, hero) 
 		--ParticleManager:SetParticleControlEnt(partid, 0, hero, PATTACH_POINT_FOLLOW, "blade_attachment", Vector(0, 0, 0), false)
-	--	handleMSCommand(1, { style = "gold" })
+		handleMSCommand(1, { style = "red" })
 	end
 	--if text == "-shuffleteam" then
 	--	local game_state = GameRules:State_Get()
@@ -1392,6 +1398,14 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 	elseif entity:GetName() == "npc_dota_hero_antimage" and self.hero2weaponEffect[entity:GetName()] and self.hero2weaponEffect[entity:GetName()] ~= "none" then
 		if not entity:HasModifier("modifier_antimage_weapon_effect_683_lua") then
 			entity:AddNewModifier(entity, nil, "modifier_antimage_weapon_effect_683_lua", { style = self.hero2weaponEffect[entity:GetName()] })
+		end
+	elseif entity:GetName() == "npc_dota_hero_spirit_breaker" then
+		local style = self.hero2weaponEffect[entity:GetName()]
+		if style ~= nil and style ~= "none" then
+			local modifier_name = "modifier_spirit_breaker_weapon_effect_683_lua"
+			if not entity:HasModifier(modifier_name) then
+				entity:AddNewModifier(entity, nil, modifier_name, { style = style })
+			end
 		end
 	end
 end
@@ -2526,26 +2540,20 @@ function handleFWDCommand(userid, event)
 		fwdnocdenabled = event.state
 	end
 end
-
 function handleMSCommand(userid, command)
 	local hero = PlayerResource:GetPlayer(userid - 1):GetAssignedHero()
 	print("handleMSCommand " .. userid .. " " .. command.style)
-	if hero and hero:GetName() == "npc_dota_hero_juggernaut" then
-		if hero:HasModifier("modifier_juggernaut_weapon_effect_683_lua") then
-			hero:RemoveModifierByName("modifier_juggernaut_weapon_effect_683_lua")
+	if hero then
+		local modifier_name = hero2weaponEffectModifier[hero:GetName()]
+		if modifier_name ~= nil then
+			if hero:HasModifier(modifier_name) then
+				hero:RemoveModifierByName(modifier_name)
+			end
+			if command.style ~= "none" then
+				hero:AddNewModifier(hero, nil, modifier_name, { style = command.style })
+			end
+			GameRules.AddonTemplate.hero2weaponEffect[hero:GetName()] = command.style
 		end
-		if command.style ~= "none" then
-			hero:AddNewModifier(hero, nil, "modifier_juggernaut_weapon_effect_683_lua", { style = command.style })
-		end
-		GameRules.AddonTemplate.hero2weaponEffect[hero:GetName()] = command.style
-	elseif hero and hero:GetName() == "npc_dota_hero_antimage" then
-		if hero:HasModifier("modifier_antimage_weapon_effect_683_lua") then
-			hero:RemoveModifierByName("modifier_antimage_weapon_effect_683_lua")
-		end
-		if command.style ~= "none" then
-			hero:AddNewModifier(hero, nil, "modifier_antimage_weapon_effect_683_lua", { style = command.style })
-		end
-		GameRules.AddonTemplate.hero2weaponEffect[hero:GetName()] = command.style
 	end
 end
 
