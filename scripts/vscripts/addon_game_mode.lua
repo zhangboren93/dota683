@@ -67,6 +67,16 @@ function Precache( context )
 		PrecacheResource( "model", "models/heroes/shadow_fiend/shadow_fiend_arms.vmdl", context)
 		PrecacheResource( "model", "models/heroes/shadow_fiend/shadow_fiend_head.vmdl", context)
 	end
+	PrecacheResource( "particle", "particles/items_fx/aura_assault_p1.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/aura_assault_p2.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/aura_assault_p3.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/aura_assault_p4.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/aura_assault_p5.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/aura_assault_p6.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/aura_assault_p7.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/aura_assault_p8.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/aura_assault_p9.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/aura_assault_p10.vpcf", context )
 end
 
 -- Create the game mode when we activate
@@ -307,6 +317,7 @@ function Activate()
 	LinkLuaModifier( "modifier_juggernaut_weapon_effect_683_lua", "heroes/hero_juggernaut/modifier_juggernaut_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_antimage_weapon_effect_683_lua",   "heroes/hero_antimage/modifier_antimage_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_spirit_breaker_weapon_effect_683_lua",   "heroes/hero_spirit_breaker/modifier_spirit_breaker_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_hero_custom_aura_effect_683_lua",  "modifiers/modifier_hero_custom_aura_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -324,6 +335,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.player2account_records = {}
 	self.pskey_orig = ""
 	self.hero2weaponEffect = {}
+	self.player2heroAuraEffect = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	if GetMapName() == "dota_688g" then
 		self.custom_game_meta_version = "688"
 	end
@@ -553,7 +565,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		--local hero = PlayerResource:GetPlayer(0):GetAssignedHero();
 		--local partid = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/jugg_weapon_glow_variation_green.vpcf", PATTACH_POINT_FOLLOW, hero) 
 		--ParticleManager:SetParticleControlEnt(partid, 0, hero, PATTACH_POINT_FOLLOW, "blade_attachment", Vector(0, 0, 0), false)
-		handleMSCommand(1, { style = "red" })
+		typedleMSCommand(1, { aura = 1 })
 	end
 	--if text == "-shuffleteam" then
 	--	local game_state = GameRules:State_Get()
@@ -1405,6 +1417,18 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			local modifier_name = "modifier_spirit_breaker_weapon_effect_683_lua"
 			if not entity:HasModifier(modifier_name) then
 				entity:AddNewModifier(entity, nil, modifier_name, { style = style })
+			end
+		end
+	end
+	if entity:IsHero() then
+		local playerid = entity:GetPlayerID()
+		if playerid >= 0 then
+			local custom_aura_effect = self.player2heroAuraEffect[playerid + 1]
+			if custom_aura_effect > 0 then
+				local modifier_name = "modifier_hero_custom_aura_effect_683_lua"
+				if not entity:HasModifier(modifier_name) then
+					entity:AddNewModifier(entity, nil, modifier_name, { aura = custom_aura_effect, userid = playerid + 1 })
+				end
 			end
 		end
 	end
@@ -2541,18 +2565,32 @@ function handleFWDCommand(userid, event)
 	end
 end
 function handleMSCommand(userid, command)
+	if command.style then
+		print("handleMSCommand " .. userid .. " " .. command.slot .. " " .. command.style)
+	end
 	local hero = PlayerResource:GetPlayer(userid - 1):GetAssignedHero()
-	print("handleMSCommand " .. userid .. " " .. command.style)
 	if hero then
-		local modifier_name = hero2weaponEffectModifier[hero:GetName()]
-		if modifier_name ~= nil then
+		if command.slot == "ar" then
+			local modifier_name = "modifier_hero_custom_aura_effect_683_lua"
 			if hero:HasModifier(modifier_name) then
 				hero:RemoveModifierByName(modifier_name)
 			end
-			if command.style ~= "none" then
-				hero:AddNewModifier(hero, nil, modifier_name, { style = command.style })
+			if command.style > 0 then
+				hero:AddNewModifier(hero, nil, modifier_name, { aura = command.style, userid = userid })
 			end
-			GameRules.AddonTemplate.hero2weaponEffect[hero:GetName()] = command.style
+			GameRules.AddonTemplate.player2heroAuraEffect[userid] = command.style
+			return
+		elseif command.slot == "we" then
+			local modifier_name = hero2weaponEffectModifier[hero:GetName()]
+			if modifier_name ~= nil then
+				if hero:HasModifier(modifier_name) then
+					hero:RemoveModifierByName(modifier_name)
+				end
+				if command.style ~= "none" then
+					hero:AddNewModifier(hero, nil, modifier_name, { style = command.style })
+				end
+				GameRules.AddonTemplate.hero2weaponEffect[hero:GetName()] = command.style
+			end
 		end
 	end
 end

@@ -9,6 +9,13 @@ function OnJuggWESelected(style) {
 		style: style
 	})
 }
+function OnAuraSelected(type) {
+	GameEvents.SendCustomGameEventToServer("magic-stick-command-issue", {
+		pid: Players.GetLocalPlayer(),
+		slot: "ar",
+		style: type
+	})
+}
 (function(){
 	$.Schedule(1, function() {
 		$.GetContextPanel().visible=false;

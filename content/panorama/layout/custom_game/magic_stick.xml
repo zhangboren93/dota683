@@ -10,7 +10,11 @@
 			    style="margin-left: 575px; padding-left: 6px; padding-right: 4px;">
 			<Label text="x" style="font-size: 24px; color: white;"/>
 		</Button>
-		<Label text="#ms-panel-hero-no-effect" style="font-size:32px; margin: 20px;"/>
+		<Panel id="common-magic-stick-panel" style="flow-children: down;">
+			<Label text="#ms-panel-slot-aura-effect" style="color: white;font-size: 24px; margin: 5px;"/>
+			<RadioButton checked="checked" group="aura-effect" id="jugg-we-none" text="#jugg-we-none" style="color: white;" onactivate="OnAuraSelected(0)"/>
+			<RadioButton group="aura-effect" id="jugg-we-style1" text="#jugg-ae-style1" style="color: white;" onactivate="OnAuraSelected(1)"/>
+		</Panel>
 		<Panel id="jugg-magic-stick-panel" style="flow-children: down; visibility: collapse;">
 			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
 			<RadioButton checked="checked" group="jugg-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>

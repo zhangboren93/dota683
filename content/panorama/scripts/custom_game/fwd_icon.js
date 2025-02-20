@@ -37,15 +37,15 @@ function OnMSIconPressed() {
 		if (hero_id == 8) {
 			// juggernaut
 			$.Msg("Finds juggernaut.")
-			children[1].visible = false;
+			//children[1].visible = false;
 			children[2].visible = true;
 		} else if (hero_id == 1) {
 			// antimage
-			children[1].visible = false;
+			//children[1].visible = false;
 			children[3].visible = true;
 		} else if (hero_id == 71) {
 			// spirit breaker
-			children[1].visible = false;
+			//children[1].visible = false;
 			children[4].visible = true;
 		}
 	}

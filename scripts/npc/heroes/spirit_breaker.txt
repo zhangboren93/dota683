@@ -47,6 +47,9 @@
 		{
 			"particle"	"particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf"
 			"particle"	"particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge_target.vpcf"
+			// custom weapon effect
+			"particle"	"particles/units/heroes/hero_spirit_breaker/spirit_breaker_ambient_flame_default.vpcf"
+			"particle"	"particles/units/heroes/hero_spirit_breaker/spirit_breaker_ambient_flame_red.vpcf"
 		}
 	
 		"Modifiers"
