@@ -283,6 +283,15 @@
 		"ItemPurchasable"	"0"
 	}
 
+	"item_ultimate_scepter"
+	{
+		"AbilityCastRange"	"600"
+	}
+	"item_orb_of_frost"
+	{
+		"ItemPurchasable"	"0"
+	}
+
 	"item_recipe_meteor_hammer"
 	{
 		"ItemPurchasable"	"0"
@@ -8365,6 +8374,8 @@
 				"bash_cooldown"			"2"
 				"bonus_chance_damage"	"0"
 				"stun_duration"			"2"
+				"slow_resistance"		"0"
+				"hp_regen_amp"			"0"
 		}
 	}
 	//=================================================================================================================
