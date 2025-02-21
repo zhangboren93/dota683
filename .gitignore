@@ -26,3 +26,4 @@ bin-release/
 *.vrman_c
 
 scripts/npc/npc_items_custom.txt
+scripts/npc/npc_heroes_custom.txt

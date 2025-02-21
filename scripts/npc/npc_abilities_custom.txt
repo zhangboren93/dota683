@@ -15517,18 +15517,18 @@
 			"particle"		"particles/units/heroes/hero_antimage/antimage_manavoid.vpcf"
 		}
 	}
-	"storm_spirit_custom_particle_effect_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"precache"
-		{
-			"particle"		"particles/units/heroes/hero_stormspirit/stormspirit_head_ambient_default.vpcf"
-			"particle"		"particles/units/heroes/hero_stormspirit/stormspirit_head_ambient_red.vpcf"
-			"particle"		"particles/units/heroes/hero_stormspirit/stormspirit_head_ambient_green.vpcf"
-			"particle"		"particles/units/heroes/hero_stormspirit/stormspirit_head_ambient_gold.vpcf"
-		}
-	}
+//	"storm_spirit_custom_particle_effect_datadriven"
+//	{
+//		"BaseClass"			"ability_datadriven"
+//		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+//		"precache"
+//		{
+//			"particle"		"particles/units/heroes/hero_stormspirit/stormspirit_head_ambient_default.vpcf"
+//			"particle"		"particles/units/heroes/hero_stormspirit/stormspirit_head_ambient_red.vpcf"
+//			"particle"		"particles/units/heroes/hero_stormspirit/stormspirit_head_ambient_green.vpcf"
+//			"particle"		"particles/units/heroes/hero_stormspirit/stormspirit_head_ambient_gold.vpcf"
+//		}
+//	}
 	"darkwillow_puck_particle_effects_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"
