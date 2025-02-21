@@ -2605,6 +2605,7 @@
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Ability.LagunaBladeImpact"
 		"HasScepterUpgrade"				"1"
+		"HasShardUpgrade"				"0"
 
 		
 		// Casting
@@ -5485,7 +5486,6 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60 45 30 15"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -5498,6 +5498,7 @@
 				"duration"			"5.0"
 				"fx_halo_height"	"350"
 				"heal_amplify"		"0"
+			"AbilityCooldown"		"60 45 30 15"
 		}
 	}
 	//=================================================================================================================
@@ -5591,7 +5592,7 @@
 		{
 			"latch_radius"		"125 125 125"
 			"stun_radius"		"175 175 175"
-			"stun_radius_ally"	"175"
+			"radius_ally"		"175"
 			"cooldown_refund_ally"		"0"
 			"ally_shield_duration"		"0"
 			"duration"			"1 1.5 2.0"
@@ -6753,6 +6754,7 @@
 				"value"	"160 140 120"
 				"special_bonus_scepter"	"-130 -110 -90"
 			}
+			"full_heal_on_chen_and_creeps"		"0"
 		}
 	}
 	//=================================================================================================================
@@ -10452,6 +10454,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityManaCost"				"0"
 			"damage_per_stack"				"20 25 30"
 			"aspd_per_stack"				"0"
 			"move_speed_per_stack"			"3 4 5"
@@ -11065,7 +11068,7 @@
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"22.0 18.0 14.0 10.0"
+		
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -11075,6 +11078,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"			"22.0 18.0 14.0 10.0"
 				"radius"				"180"	// NOTE: This radius must match the radius for geomagnetic grip
 				"rock_search_aoe"		"200"
 				"rock_damage"			"125"
@@ -11508,6 +11512,7 @@
 				"focal_point_max_multiplier"			"0"
 				"focal_point_start_length_pct"			"0"
 				"focal_point_full_length_tooltip_only"	"0"
+				"focal_point_blind_stack_multiplier"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -12382,6 +12387,9 @@
 			"castable_while_disabled"	"0"
 			"does_reflect"				"0"
 			"AbilityCooldown"			"0"
+			"mana_drain_percent"		"0"
+			"damage_from_mana_drain_percent"	"0"
+			"max_damage_from_mana_drain"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityCastGestureSlot"		"DEFAULT"
@@ -15662,7 +15670,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"20.0 16.0 12.0 8.0"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -15699,6 +15706,7 @@
 				"RequiresScepter"	"1"
 			}
 			"essence_stacks"	"0"
+			"AbilityCooldown"	"20.0 16.0 12.0 8.0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -16676,6 +16684,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Magnataur.Skewer.Cast"
+		"HasShardUpgrade"				"0"
 		"HasScepterUpgrade"			"0"
 
 		// Casting
@@ -18280,6 +18289,7 @@
 				"spread_radius"			"0"
 				"slow_step_pct_of_max"	"100"
 				"slow_tooltip"			"70"
+				"reset_cooldown_on_kill"	"0"
 		}
 	}
 	// Rewrite of the Lifestealer Feast ability
@@ -19024,7 +19034,6 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"90"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -19047,6 +19056,7 @@
 					"special_bonus_unique_drow_ranger_gust_selfmovespeed"		"+15"
 				}
 				"AbilityCooldown"				"13"
+				"AbilityManaCost"				"90"
 				"gust_reveals_invis"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
@@ -21356,6 +21366,9 @@
 			"dragon_cast_range"			"400"
 			"projectile_speed"			"16000"
 			"damage"					"25 50 75 100"
+			"damage_pct"				"0"
+			"dragon_aoe"				"0"
+			"physical_damage_type"		"0"
 		}
 	}
 	//=================================================================================================================
@@ -22246,18 +22259,25 @@
 	}
 	"shadow_shaman_shackles"
 	{
+		"HasScepterUpgrade"				"0"
 		"HasShardUpgrade"				"0"
-		"AbilityCastRange"				"400"
 		"AbilityChannelTime"			"2.75 3.5 4.25 5"
 		"AbilityCooldown"				"16"
 		"AbilityManaCost"				"140 150 160 170"
 		"AbilityValues"
 		{
+			"AbilityCastRange"		"400"
 				"tick_interval"		"0.1 0.1 0.1 0.1"
 				"total_damage"		"110 140 170 200"
 				"channel_time"		"2.75 3.5 4.25 5"
 				"AbilityCooldown"				"16"
 				"AbilityManaCost"				"140 150 160 170"
+			"ward_linger_duration"	"0"
+			"scepter_shock_pct"		"0"
+			"scepter_shock_radius"	"0"
+			"scepter_shock_interval""10000"
+			"alt_cast_on_allies"	"0"
+			"ally_break_range"		"400"
 		}
 	}
 
@@ -22859,7 +22879,10 @@
 			{
 				"value"								"12 11 10 9"
 				"special_bonus_unique_jakiro_6"		"-2.5"
-			}	
+			}
+			"detonate_damage"			"0"
+			"detonate_stun_duration"	"0"
+			"detonate_projectile_speed"	"0"
 		}		
 	}
 	"storm_spirit_electric_vortex"
