@@ -27337,10 +27337,18 @@
 				"value"			"1"
 				"levelkey"		"exortlevel"
 			}
-			"spirit_count"				"1"
+			//"spirit_count"				"1"
 			"spirit_attack_speed"		"0"
-			"extra_spirit_count_quas"	"0 0 0 1 1 1 1 1"
-			"extra_spirit_count_exort"	"0 0 0 1 1 1 1 1"
+			"extra_spirit_count_quas"	
+			{
+				"value" 				"1 1 1 2 2 2 2"
+				"levelkey"		"quaslevel"
+			}
+			"extra_spirit_count_exort"
+			{
+				"value" 				"1 1 1 2 2 2 2"
+				"levelkey"		"exortlevel"
+			}
 		}
 			
 	}
@@ -27400,6 +27408,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Invoker.IceWall.Cast"
+		"HasShardUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27433,6 +27442,10 @@
 			"wall_element_spacing"	"80"
 			"wall_element_radius"	"105"
 			"vector_cast_range"		"0"
+			"bonus_wall_radius"		"0"
+			"root_delay"			"10000"
+			"root_duration"			"0"
+			"root_damage"			"0"
 		}
 	}
 
