@@ -26900,6 +26900,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"7"
+		"HasScepterUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -26911,6 +26912,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"max_level"						"7"
+			"upgrade_at_level"				"0"
+			"scepter_bonus_levels"			"0"
+
 			"health_regen_per_instance"		"1 2 3 4 5 6 7"
 			"spell_lifesteal"				"0"
 			"strength_bonus"				"2"
@@ -26936,6 +26941,7 @@
 		"AbilitySound"					"Hero_Invoker.SunStrike.Charge"
 
 		"HasScepterUpgrade"				"0"
+		"HasShardUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -26943,13 +26949,13 @@
 		"AbilityCastPoint"				"0"
 		"AbilityCastAnimation"			"ACT_INVALID"
 
-		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"175"
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"			"30"
 			"delay"						"1.7"
 			"area_of_effect"			"175"
 			"damage"
@@ -26980,6 +26986,8 @@
 				"value"					"200"
 				"RequiresScepter"		"1"
 			}
+			"cataclysm_damage_pct"		"0"
+			"create_forged_spirit_on_hero_damage"	"0"
 		}
 	}
 	//=================================================================================================================
@@ -26996,6 +27004,7 @@
 		"MaxLevel"						"1"
 		"HotKeyOverride"				"V"
 		"AbilitySound"					"Hero_Invoker.GhostWalk"
+		"HasScepterUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27031,6 +27040,9 @@
 				"value"					"0"
 				"levelkey"				"wexlevel"
 			}
+			"ally_cast_area_of_effect"	"0"
+			"ally_duration"				"0"
+			"ally_fadetime"				"0"
 		}
 	}
 	//=================================================================================================================
@@ -27048,6 +27060,7 @@
 		"HotKeyOverride"				"X"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilitySound"					"Hero_Invoker.Tornado"
+		"HasScepterUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27090,6 +27103,12 @@
 				"value"				"45 90 135 180 225 270 315"
 				"levelkey"			"wexlevel"
 			}
+
+			"twister_distance_interval"	"0"
+			"twister_radius"			"0"
+			"twister_damage"			"0"
+			"twister_duration"			"0"
+			"twister_tick_rate"			"0"
 		}
 	}
 	//=================================================================================================================
@@ -27135,7 +27154,7 @@
 				
 			}
 			"damage_per_mana_pct"		"50"
-			"shard_drag_speed"
+			"drag_speed"
 			{
 				"value"					"0"
 				"RequiresShard"			"1"
@@ -27189,6 +27208,7 @@
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"duration"					"9"
+			"bonus_attack_range"		"0"
 		}
 	}
 	//=================================================================================================================
@@ -27487,6 +27507,7 @@
 		"LevelsBetweenUpgrades" 		"5"
 		"AbilitySound"					"Hero_Invoker.Invoke"
 		"HasScepterUpgrade"				"1"
+		"Innate"						"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27521,6 +27542,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"7"
+		"HasScepterUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27531,6 +27553,10 @@
 		// Special
 		"AbilityValues"
 		{
+			"max_level"						"7"
+			"upgrade_at_level"				"0"
+			"scepter_bonus_levels"			"0"
+
 			"attack_speed_per_instance"	"2 4 6 8 10 12 14"
 			"move_speed_per_instance"	"1 2 3 4 5 6 7"
 			"agility_bonus"				"2"
@@ -27548,6 +27574,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"7"
+		"HasScepterUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27559,6 +27586,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"max_level"						"7"
+			"upgrade_at_level"				"0"
+			"scepter_bonus_levels"			"0"
+
 			"bonus_damage_per_instance"	"3 6 9 12 15 18 21"
 			"magic_amp"					"0"
 			"resist_debuff_duration"	"0"
