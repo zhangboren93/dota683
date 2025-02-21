@@ -730,7 +730,6 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.5"
-		"AbilityCastRange"				"600"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AnimationPlaybackRate"			"0.4"
 		// Time		
@@ -750,7 +749,8 @@
 			"shard_secondary_target_heal_pct"
 			{
 				"special_bonus_shard"				"+25"
-			}			
+			}
+			"AbilityCastRange"				"600"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -1444,6 +1444,7 @@
 				"duration"				"15.0"
 				"bonus_movement_speed"		"0"
 				"evasion"		"0"
+				"bonus_outgoing_damage_pct"	"0"
 		}
 	}
     "pudge_dismember"
@@ -3661,7 +3662,6 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -3671,7 +3671,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			
+			"AbilityCooldown"					"40"
 			"duration"							"60"
 			"boar_base_max_health"				"200 300 400 500"
 			"boar_base_damage"					"15 30 45 60"
@@ -14254,6 +14254,10 @@
 				"value"					"1200"
 				"RequiresShard"			"1"
 			}
+			"additional_charges"	"0"
+			"crit_damage_pct"		"0"
+			"root_radius"			"0"
+			"root_duration"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -15288,6 +15292,7 @@
 				"value"						"0"
 				"RequiresScepter"			"1"
 			}
+			"illusion_lance_damage_pct"		"0"
 		}	
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -20225,6 +20230,13 @@
 				"scepter_rot_damage_bonus"			"0"
 				"scepter_rot_radius_bonus"			"0"
 				"scepter_rot_regen_reduction_pct"			"0"
+				"attack_damage_per_stack"			"0"
+				"max_total_stacks"					"0"
+				"stacks_decrement_per_rot_off_tick"	"0"
+				"attack_damage_per_second_tooltip"	"0"
+				"max_bonus_damage_tooltip"			"0"
+				"time_for_max_stacks_tooltip"		"0"
+				"time_for_decay_tooltip"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -20688,6 +20700,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"		
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"HasScepterUpgrade"				"0"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -20709,6 +20722,7 @@
 				}
 				"arrow_count"				"1 2 3 4"
 				"split_shot_bonus_range"		"100"
+			"process_procs"						"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -21341,6 +21355,9 @@
 				"value"										"100 150 200 250"
 				"special_bonus_unique_crystal_maiden_2"		"+240"
 			}
+			"physical_barrier_amount"		"0"
+			"physical_barrier_self_amount"	"0"
+			"physical_barrier_duration"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}	
@@ -21360,6 +21377,13 @@
 			"self_cast_range_bonus"			"0"
 			"aoe_bonus"						"0"
 			"mana_battery_mana_pct"			"0"
+
+			"activatable"					"0"
+			"activation_spell_amp_pct"		"0"
+			"activation_mana_cost_increase_pct"	"0"
+			"mana_battery_radius"			"0"
+			"activation_duration"			"0"
+			"activation_cooldown"			"0"
 		}
 	}
 	"dragon_knight_dragon_tail"
@@ -23616,7 +23640,6 @@
 		"AbilityCastRange"				"600"
 		"AbilityCastPoint"				"0.4 0.4 0.4 0.4"
 		"AnimationPlaybackRate"			"0.75"
-		"AbilityDamage"					"50 100 150 200"
 		"AbilityManaCost"				"125 150 170 190"
 		"AbilityValues"
 		{	
@@ -23630,6 +23653,7 @@
 				"value"		"200 200 200 200"
 				"special_bonus_unique_lich_6" "+125"
 			}
+			"damage"				"50 100 150 200"
 			"slow_movement_speed"	"-30"
 			"slow_attack_speed_primary"		"-20"
 			"aoe_damage"			
@@ -26899,6 +26923,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"7"
+		"HasScepterUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -26910,6 +26935,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"max_level"						"7"
+			"upgrade_at_level"				"0"
+			"scepter_bonus_levels"			"0"
+
 			"health_regen_per_instance"		"1 2 3 4 5 6 7"
 			"spell_lifesteal"				"0"
 			"strength_bonus"				"2"
@@ -26935,6 +26964,7 @@
 		"AbilitySound"					"Hero_Invoker.SunStrike.Charge"
 
 		"HasScepterUpgrade"				"0"
+		"HasShardUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -26942,13 +26972,13 @@
 		"AbilityCastPoint"				"0"
 		"AbilityCastAnimation"			"ACT_INVALID"
 
-		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"175"
 			
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"AbilityCooldown"			"30"
 			"delay"						"1.7"
 			"area_of_effect"			"175"
 			"damage"
@@ -26979,6 +27009,8 @@
 				"value"					"200"
 				"RequiresScepter"		"1"
 			}
+			"cataclysm_damage_pct"		"0"
+			"create_forged_spirit_on_hero_damage"	"0"
 		}
 	}
 	//=================================================================================================================
@@ -26995,6 +27027,7 @@
 		"MaxLevel"						"1"
 		"HotKeyOverride"				"V"
 		"AbilitySound"					"Hero_Invoker.GhostWalk"
+		"HasScepterUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27030,6 +27063,9 @@
 				"value"					"0"
 				"levelkey"				"wexlevel"
 			}
+			"ally_cast_area_of_effect"	"0"
+			"ally_duration"				"0"
+			"ally_fadetime"				"0"
 		}
 	}
 	//=================================================================================================================
@@ -27047,6 +27083,7 @@
 		"HotKeyOverride"				"X"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilitySound"					"Hero_Invoker.Tornado"
+		"HasScepterUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27089,6 +27126,12 @@
 				"value"				"45 90 135 180 225 270 315"
 				"levelkey"			"wexlevel"
 			}
+
+			"twister_distance_interval"	"0"
+			"twister_radius"			"0"
+			"twister_damage"			"0"
+			"twister_duration"			"0"
+			"twister_tick_rate"			"0"
 		}
 	}
 	//=================================================================================================================
@@ -27134,7 +27177,7 @@
 				
 			}
 			"damage_per_mana_pct"		"50"
-			"shard_drag_speed"
+			"drag_speed"
 			{
 				"value"					"0"
 				"RequiresShard"			"1"
@@ -27188,6 +27231,7 @@
 				"CalculateSpellDamageTooltip"	"0"
 			}
 			"duration"					"9"
+			"bonus_attack_range"		"0"
 		}
 	}
 	//=================================================================================================================
@@ -27316,10 +27360,18 @@
 				"value"			"1"
 				"levelkey"		"exortlevel"
 			}
-			"spirit_count"				"1"
+			//"spirit_count"				"1"
 			"spirit_attack_speed"		"0"
-			"extra_spirit_count_quas"	"0 0 0 1 1 1 1 1"
-			"extra_spirit_count_exort"	"0 0 0 1 1 1 1 1"
+			"extra_spirit_count_quas"	
+			{
+				"value" 				"1 1 1 2 2 2 2"
+				"levelkey"		"quaslevel"
+			}
+			"extra_spirit_count_exort"
+			{
+				"value" 				"1 1 1 2 2 2 2"
+				"levelkey"		"exortlevel"
+			}
 		}
 			
 	}
@@ -27379,6 +27431,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"FightRecapLevel"				"1"
 		"AbilitySound"					"Hero_Invoker.IceWall.Cast"
+		"HasShardUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27412,6 +27465,10 @@
 			"wall_element_spacing"	"80"
 			"wall_element_radius"	"105"
 			"vector_cast_range"		"0"
+			"bonus_wall_radius"		"0"
+			"root_delay"			"10000"
+			"root_duration"			"0"
+			"root_damage"			"0"
 		}
 	}
 
@@ -27486,6 +27543,7 @@
 		"LevelsBetweenUpgrades" 		"5"
 		"AbilitySound"					"Hero_Invoker.Invoke"
 		"HasScepterUpgrade"				"1"
+		"Innate"						"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27520,6 +27578,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"7"
+		"HasScepterUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27530,6 +27589,10 @@
 		// Special
 		"AbilityValues"
 		{
+			"max_level"						"7"
+			"upgrade_at_level"				"0"
+			"scepter_bonus_levels"			"0"
+
 			"attack_speed_per_instance"	"2 4 6 8 10 12 14"
 			"move_speed_per_instance"	"1 2 3 4 5 6 7"
 			"agility_bonus"				"2"
@@ -27547,6 +27610,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"7"
+		"HasScepterUpgrade"				"0"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
@@ -27558,6 +27622,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			"max_level"						"7"
+			"upgrade_at_level"				"0"
+			"scepter_bonus_levels"			"0"
+
 			"bonus_damage_per_instance"	"3 6 9 12 15 18 21"
 			"magic_amp"					"0"
 			"resist_debuff_duration"	"0"
