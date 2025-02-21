@@ -1444,6 +1444,7 @@
 				"duration"				"15.0"
 				"bonus_movement_speed"		"0"
 				"evasion"		"0"
+				"bonus_outgoing_damage_pct"	"0"
 		}
 	}
     "pudge_dismember"
@@ -14254,6 +14255,10 @@
 				"value"					"1200"
 				"RequiresShard"			"1"
 			}
+			"additional_charges"	"0"
+			"crit_damage_pct"		"0"
+			"root_radius"			"0"
+			"root_duration"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
 	}
@@ -15288,6 +15293,7 @@
 				"value"						"0"
 				"RequiresScepter"			"1"
 			}
+			"illusion_lance_damage_pct"		"0"
 		}	
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
@@ -20680,6 +20686,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"		
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"HasScepterUpgrade"				"0"
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
@@ -20701,6 +20708,7 @@
 				}
 				"arrow_count"				"1 2 3 4"
 				"split_shot_bonus_range"		"100"
+			"process_procs"						"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
 	}
