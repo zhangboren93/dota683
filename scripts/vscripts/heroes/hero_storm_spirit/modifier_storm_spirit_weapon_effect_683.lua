@@ -11,7 +11,8 @@ modifier_storm_spirit_weapon_effect_683_lua = class({
 			elseif data.style == "gold" then
 				self.particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_stormspirit/stormspirit_head_ambient_gold.vpcf", PATTACH_POINT_FOLLOW, parent)
 			end
-			ParticleManager:SetParticleControlEnt(self.particleId, 0, parent, PATTACH_POINT_FOLLOW, "attach_hat", Vector(0, 0, 0), true)
+			ParticleManager:SetParticleControlEnt(self.particleId, 0, parent, PATTACH_POINT_FOLLOW, "attach_head", Vector(20, 0, 0), false)
+			ParticleManager:SetParticleControlEnt(self.particleId, 2, parent, PATTACH_ABSORIGIN_FOLLOW, "", Vector(-20, 0, 290), false)
 		end
 	end,
 	GetAttributes = function() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end,

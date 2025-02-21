@@ -53,7 +53,11 @@ function OnMSIconPressed() {
 		} else if (hero_id == 69) {
 			// doom bringer
 			children[6].visible = true;
-		}
+		} 
+	//	else if (hero_id == 17) {
+	//		// storm spirit
+	//		children[7].visible = true;
+	//	}
 	}
 }
 
