@@ -569,7 +569,7 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 		--local hero = PlayerResource:GetPlayer(0):GetAssignedHero();
 		--local partid = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/jugg_weapon_glow_variation_green.vpcf", PATTACH_POINT_FOLLOW, hero) 
 		--ParticleManager:SetParticleControlEnt(partid, 0, hero, PATTACH_POINT_FOLLOW, "blade_attachment", Vector(0, 0, 0), false)
-		handleMSCommand(1, { slot = "we", style = "gold" })
+		--handleMSCommand(1, { slot = "we", style = "gold" })
 	end
 	--if text == "-shuffleteam" then
 	--	local game_state = GameRules:State_Get()
@@ -2560,9 +2560,9 @@ function handleFWDCommand(userid, event)
 end
 function handleMSCommand(userid, command)
 	if command.style then
-		print("handleMSCommand " .. userid .. " " .. command.slot .. " " .. command.style)
+		GameRules:SendCustomMessage("handleMSCommand " .. command.pid .. " " .. command.slot .. " " .. command.style, -1, -1)
 	end
-	local hero = PlayerResource:GetPlayer(userid - 1):GetAssignedHero()
+	local hero = PlayerResource:GetPlayer(command.pid):GetAssignedHero()
 	if hero then
 		if command.slot == "ar" then
 			local modifier_name = "modifier_hero_custom_aura_effect_683_lua"
@@ -2570,9 +2570,9 @@ function handleMSCommand(userid, command)
 				hero:RemoveModifierByName(modifier_name)
 			end
 			if command.style > 0 then
-				hero:AddNewModifier(hero, nil, modifier_name, { aura = command.style, userid = userid })
+				hero:AddNewModifier(hero, nil, modifier_name, { aura = command.style, userid = command.pid + 1 })
 			end
-			GameRules.AddonTemplate.player2heroAuraEffect[userid] = command.style
+			GameRules.AddonTemplate.player2heroAuraEffect[command.pid + 1] = command.style
 			return
 		elseif command.slot == "we" then
 			local modifier_name = hero2weaponEffectModifier[hero:GetName()]
