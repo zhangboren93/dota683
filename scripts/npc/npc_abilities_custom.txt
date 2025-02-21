@@ -730,7 +730,6 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.5"
-		"AbilityCastRange"				"600"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AnimationPlaybackRate"			"0.4"
 		// Time		
@@ -750,7 +749,8 @@
 			"shard_secondary_target_heal_pct"
 			{
 				"special_bonus_shard"				"+25"
-			}			
+			}
+			"AbilityCastRange"				"600"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
@@ -20210,6 +20210,13 @@
 				"scepter_rot_damage_bonus"			"0"
 				"scepter_rot_radius_bonus"			"0"
 				"scepter_rot_regen_reduction_pct"			"0"
+				"attack_damage_per_stack"			"0"
+				"max_total_stacks"					"0"
+				"stacks_decrement_per_rot_off_tick"	"0"
+				"attack_damage_per_second_tooltip"	"0"
+				"max_bonus_damage_tooltip"			"0"
+				"time_for_max_stacks_tooltip"		"0"
+				"time_for_decay_tooltip"			"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
 	}
