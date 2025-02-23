@@ -6900,6 +6900,7 @@
 		"precache"
 		{
 			"particle"					"particles/items_fx/chain_lightning.vpcf"
+			"particle"				    "particles/items2_fx/mjollnir_shield.vpcf"
 		}
 
 		"AbilityValues"
