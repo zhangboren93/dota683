@@ -13099,7 +13099,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"MaxLevel"		"1"
 	}
-
+	// Deprecated
 	"hero_attack_animation_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"

@@ -2210,7 +2210,8 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 			return true
 		end
 	-- invoker skills aghs won't give extra level
-	elseif ability:GetName() == "invoker_sun_strike" and event.value_name_const == "damage" then
+	-- Deprecated
+--[[	elseif ability:GetName() == "invoker_sun_strike" and event.value_name_const == "damage" then
 		local ability_exort = caster:FindAbilityByName("invoker_exort")
 		if ability_exort ~= nil then
 			event.value = 37.5 + 62.5 * ability_exort:GetLevel()
@@ -2350,7 +2351,7 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 		elseif event.value_name_const == "disarm_duration" then
 			event.value = 0.5 + 0.5 * ability_wex:GetLevel()
 		end
-		return true
+		return true	]]--
 	elseif ability:GetName() == "lone_druid_rabid" then
 		if event.value_name_const == "rabid_duration" then
 			local ability_synergy = caster:FindAbilityByName("lone_druid_synergy_datadriven")
