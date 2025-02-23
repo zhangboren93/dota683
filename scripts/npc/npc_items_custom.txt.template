@@ -9685,4 +9685,22 @@
 			"01"                        "item_pers_datadriven;item_platemail;item_energy_booster"
 		}
 	}
+	"item_quicksilver_amulet"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		
+		"ItemIsNeutralActiveDrop"				"0"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"base_movement"			"0"
+			"base_attack"			"0"
+			"bonus_movement"		"0"
+			"bonus_attack"			"0"
+			"anim_increase"			"100"
+			"projectile_increase"	"0"
+		}
+	}
 }

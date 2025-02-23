@@ -744,6 +744,8 @@ function CAddonTemplateGameMode:OnThink()
 			roshan[1]:ForceKill(false)
 			print("spawn first roshan.")
 			local roshan = CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
+			local roshan = CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
+			roshan::AddItem("item_quicksilver_amulet")
 			self.first_roshan_spawned = true
 			-- killing 1st rosh will drop aegis
 			roshan:SetThink(function()
