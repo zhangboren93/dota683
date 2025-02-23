@@ -599,3 +599,63 @@
 		}
 	}
 }
+"MobaTimeMachine.LoneDruid_Rabid"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			  "sos_reference_stack"
+				"reference_stack"	   "dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							  "value0"		"sounds/weapons/hero/lone_druid/rabid_cast.vsnd"
+						}
+					}
+					"volume"			{   "value"	 "1.00000"  }
+					"pitch_rand_min"	{   "value"	 "-0.05000"  }
+					"pitch_rand_max"	{   "value"	 "0.050000"  }
+					"pitch"				{   "value"	 "1.000000"  }
+					"soundlevel"		{   "value"	 "81.0000" }
+					"distance_max"	  	{   "value"	 "300.0"  }
+				}
+			}
+		}
+	}
+}
+"MobaTimeMachine.LoneDruid_RabidBear"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"			  "sos_reference_stack"
+				"reference_stack"	   "dota_update_default"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							  "value0"		"sounds/weapons/hero/lone_druid/rabid_bear.vsnd"
+						}
+					}
+					"volume"			{   "value"	 "1.00000"  }
+					"pitch_rand_min"	{   "value"	 "-0.05000"  }
+					"pitch_rand_max"	{   "value"	 "0.050000"  }
+					"pitch"				{   "value"	 "1.000000"  }
+					"soundlevel"		{   "value"	 "81.0000" }
+					"distance_max"	  	{   "value"	 "300.0"  }
+				}
+			}
+		}
+	}
+}
