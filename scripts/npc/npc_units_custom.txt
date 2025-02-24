@@ -4630,7 +4630,7 @@
 		"AttackDamageMax"			"65"		// Damage range max.
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.0"			// Speed of attack.
-		"AttackAnimationPoint"		"0.6"		// Normalized time in animation cycle to attack.
+		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
 		"AttackAcquisitionRange"	"600"		// Range within a target can be acquired.
 		"AttackRange"				"128"		// Range within a target can be attacked.
 		"ProjectileModel"			"particles/base_attacks/ranged_goodguy.vpcf" // Particle system model for projectile.
