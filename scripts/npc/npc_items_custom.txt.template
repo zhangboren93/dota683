@@ -2047,6 +2047,7 @@
 		"Model"							"models/props_gameplay/red_box.vmdl" 
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
 		"AbilityTextureName"			"item_hand_of_midas"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
