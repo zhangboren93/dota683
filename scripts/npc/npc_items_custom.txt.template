@@ -3033,7 +3033,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"525"
+		"ItemCost"						"%ITEM_RING_OF_BASILIUS_COST%"
 		"ItemShopTags"					"damage;regen_mana;armor"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"rob;ring of basilius"
@@ -3049,7 +3049,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"6"
-			"bonus_armor"			"1"
+			"bonus_armor"			"%ITEM_RING_OF_BASILIUS_ARMOR%"
 			"aura_radius"			"900"
 			"aura_mana_regen"		"0.65"  //This variable is unused due to an obscure engine bug.
 			"aura_bonus_armor"		"2"
