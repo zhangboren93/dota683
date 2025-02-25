@@ -9453,12 +9453,13 @@
 		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_iron_talon"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"125"
 		"ItemShopTags"					""
+		"IsObsolete"					"%OBSOLETE_IN_683%"
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -9501,8 +9502,8 @@
 				"bonus_armor"				"2"
 				"creep_damage_pct"			"40"
 				"alternative_cooldown"		"4"
-				"damage_bonus"				"32"
-				"damage_bonus_ranged"		"12"
+				"damage_bonus"				"40"
+				"damage_bonus_ranged"		"15"
 		}
 	}
 
