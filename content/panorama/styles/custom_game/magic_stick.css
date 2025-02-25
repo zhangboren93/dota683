@@ -1,0 +1,12 @@
+.panel-hidden {
+	position: -100% 0 0;
+	width: 0px;
+	height: 0px;
+}
+
+.magic-stick-panel {
+	width: 600px;
+	height: 800px;
+	margin-top: 54px;
+	background-color: black;
+}

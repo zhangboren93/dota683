@@ -4,8 +4,9 @@
 	</scripts>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/radio_button.css"/>
+		<include src="file://{resources}/styles/custom_game/magic_stick.css"/>
 	</styles>
-	<Panel class="magic-stick-panel" style="width: 600px; height: 800px; margin-top: 54px; background-color: black;">
+	<Panel class="magic-stick-panel panel-hidden">
 		<Button onactivate="OnMSPanelCloseClicked()"
 			    style="margin-left: 575px; padding-left: 6px; padding-right: 4px;">
 			<Label text="x" style="font-size: 24px; color: white;"/>

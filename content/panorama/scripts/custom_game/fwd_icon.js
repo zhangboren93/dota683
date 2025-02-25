@@ -29,8 +29,9 @@ function OnMSIconPressed() {
 	$.Msg("OnMSIconPressed");
 	let parentPanel = $.GetContextPanel().GetParent(); // the root panel of the current XML context
 	let fwdPanel = parentPanel.FindChildrenWithClassTraverse("magic-stick-panel")
-	fwdPanel[0].visible = !fwdPanel[0].visible;
-	if (fwdPanel[0].visible) {
+	if (fwdPanel[0].BHasClass("panel-hidden")) {
+		fwdPanel[0].visible = true
+		fwdPanel[0].RemoveClass("panel-hidden")
 		let hero_id = Players.GetSelectedHeroID(Players.GetLocalPlayer());
 		$.Msg("Hero id: " + hero_id)
 		let children = fwdPanel[0].Children()
@@ -58,6 +59,9 @@ function OnMSIconPressed() {
 	//		// storm spirit
 	//		children[7].visible = true;
 	//	}
+	} else {
+		fwdPanel[0].AddClass("panel-hidden")
+		fwdPanel[0].visible = false
 	}
 }
 
