@@ -2890,7 +2890,7 @@
 		{
 			"bonus_armor"			"5"
 			"bonus_all_stats"		"2"
-			"active_radius"			"750"
+			"active_radius"			"%ITEM_BUCKLER_RADIUS%"
 			"active_armor"			"2"
 			"active_duration_unit"	"30.0"
 			"active_duration_hero"	"25.0"
