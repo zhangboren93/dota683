@@ -3299,7 +3299,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"%ITEM_URN_OF_SHADOW_FLAGS%"
 				
 				"Properties"
 				{
