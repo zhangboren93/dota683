@@ -13,9 +13,9 @@ modifier_item_iron_talon_lua = class({
 		local damage = event.damage
 		if not target:IsCreep() then return end
 		if attacker:IsRangedAttacker() then
-			return damage * 12 / 100
+			return damage * 15 / 100
 		else
-			return damage * 32 / 100
+			return damage * 40 / 100
 		end
 	end
 })

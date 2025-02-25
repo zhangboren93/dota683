@@ -25,5 +25,21 @@
 		{
 			"mana_restore"          "1000"
 		}
+	}	
+	"item_quicksilver_amulet"
+	{
+		"ItemIsNeutralActiveDrop"				"0"
+		
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"base_movement"			"0"
+			"base_attack"			"0"
+			"bonus_movement"		"0"
+			"bonus_attack"			"0"
+			"anim_increase"			"100"
+			"projectile_increase"	"0"
+		}
 	}
 }

@@ -1,7 +1,7 @@
 // Dota2 Editor
 // Get latest version: https://github.com/zombieJ/nw-dota2editor
 
-#base "items/688_items.txt"
+#base "items/unusual_items.txt"
 
 "DOTAAbilities"
 {
@@ -1531,7 +1531,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_movement_speed"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"	"%bonus_movement_speed"
 				}
 			}
 			"modifier_item_travel_boots_caster_effect"
@@ -2890,7 +2890,7 @@
 		{
 			"bonus_armor"			"5"
 			"bonus_all_stats"		"2"
-			"active_radius"			"750"
+			"active_radius"			"%ITEM_BUCKLER_RADIUS%"
 			"active_armor"			"2"
 			"active_duration_unit"	"30.0"
 			"active_duration_hero"	"25.0"
@@ -3033,7 +3033,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"525"
+		"ItemCost"						"%ITEM_RING_OF_BASILIUS_COST%"
 		"ItemShopTags"					"damage;regen_mana;armor"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"rob;ring of basilius"
@@ -3049,7 +3049,7 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"6"
-			"bonus_armor"			"1"
+			"bonus_armor"			"%ITEM_RING_OF_BASILIUS_ARMOR%"
 			"aura_radius"			"900"
 			"aura_mana_regen"		"0.65"  //This variable is unused due to an obscure engine bug.
 			"aura_bonus_armor"		"2"
@@ -3299,7 +3299,7 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-				"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Attributes" 		"%ITEM_URN_OF_SHADOW_FLAGS%"
 				
 				"Properties"
 				{
@@ -3457,7 +3457,7 @@
     	
     	// Item Info
     	//-------------------------------------------------------------------------------------------------------------
-    	"ItemCost"						"600"
+    	"ItemCost"						"%ITEM_HEADDRESS_COST%"
     	"ItemShopTags"					"str;int;agi;regen_health"
     	"ItemQuality"					"rare"
     	"ItemAliases"					"headdress"
@@ -3465,7 +3465,7 @@
     	"AbilityValues"
     	{
    			"bonus_all_stats"		"2"
-   			"aura_radius"			"750"
+   			"aura_radius"			"%ITEM_HEADDRESS_RADIUS%"
    			"aura_health_regen"		"3"
     	}
     	
@@ -9453,12 +9453,13 @@
 		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_iron_talon"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"125"
 		"ItemShopTags"					""
+		"IsObsolete"					"%OBSOLETE_IN_683%"
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -9501,8 +9502,8 @@
 				"bonus_armor"				"2"
 				"creep_damage_pct"			"40"
 				"alternative_cooldown"		"4"
-				"damage_bonus"				"32"
-				"damage_bonus_ranged"		"12"
+				"damage_bonus"				"40"
+				"damage_bonus_ranged"		"15"
 		}
 	}
 
@@ -9684,24 +9685,6 @@
 		"ItemRequirements"
 		{
 			"01"                        "item_pers_datadriven;item_platemail;item_energy_booster"
-		}
-	}
-	"item_quicksilver_amulet"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		
-		"ItemIsNeutralActiveDrop"				"0"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"base_movement"			"0"
-			"base_attack"			"0"
-			"bonus_movement"		"0"
-			"bonus_attack"			"0"
-			"anim_increase"			"100"
-			"projectile_increase"	"0"
 		}
 	}
 }
