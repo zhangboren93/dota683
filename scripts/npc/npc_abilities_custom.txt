@@ -15517,6 +15517,17 @@
 			"particle"		"particles/units/heroes/hero_antimage/antimage_manavoid.vpcf"
 		}
 	}
+	"phantom_lancer_custom_particle_effect_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_phantom_lancer/pl_sw_lance_glow.vpcf"
+			"particle"		"particles/units/heroes/hero_phantom_lancer/pl_sw_lance_glow_green.vpcf"
+			"particle"		"particles/units/heroes/hero_phantom_lancer/pl_sw_lance_glow_blue.vpcf"
+		}
+	}
 //	"storm_spirit_custom_particle_effect_datadriven"
 //	{
 //		"BaseClass"			"ability_datadriven"

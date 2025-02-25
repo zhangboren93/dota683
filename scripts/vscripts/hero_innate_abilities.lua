@@ -37,7 +37,8 @@ hero_innate_abilities["npc_dota_hero_void_spirit"]	  = "void_spirit_es_particle_
 hero_innate_abilities["npc_dota_hero_pangolier"]	  = "pangolier_jugg_particle_effects_datadriven"
 hero_innate_abilities["npc_dota_hero_ringmaster"]	= {"ringmaster_rubick_particle_effects_datadriven", "rubick_spell_steal_limit_one_datadriven"}
 hero_innate_abilities["npc_dota_hero_abyssal_underlord"] = "abyssal_underlord_dark_rift_target_particle_datadriven"
-hero_innate_abilities["npc_dota_hero_storm_spirit"] = "storm_spirit_custom_particle_effect_datadriven"
+--hero_innate_abilities["npc_dota_hero_storm_spirit"] = "storm_spirit_custom_particle_effect_datadriven"
+hero_innate_abilities["npc_dota_hero_phantom_lancer"] = "phantom_lancer_custom_particle_effect_datadriven"
 
 hero_688_attribute_bonus = {}
 hero_688_attribute_bonus["npc_dota_hero_mirana"] = "modifier_mirana_688_attribute_bonus"
