@@ -8571,7 +8571,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"
+		"ItemCost"						"%ITEM_TRANQUIL_BOOTS_COST%"
 		"ItemShopTags"					"move_speed;regen_health;armor"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"tranquil boots"
@@ -8583,8 +8583,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_movement_speed"	"90"
-			"bonus_armor"			"4"
+			"bonus_movement_speed"	"%ITEM_TRANQUIL_BOOTS_NORMAL_SPEED%"
+			"bonus_armor"			"%ITEM_TRANQUIL_BOOTS_ARMOR%"
 			"bonus_health_regen"	"12"
 			"break_time"			"13"
 			"broken_movement_speed"	"60"
