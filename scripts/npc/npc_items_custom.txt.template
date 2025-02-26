@@ -7912,7 +7912,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"325"	
+		"ItemCost"						"%ITEM_RECIPE_MEDALLION_OF_COURAGE_COST%"	
 		"ItemShopTags"					""
 		"ItemPurchasable"				"1"
 		"IsObsolete"					"0"
@@ -7923,7 +7923,7 @@
 		"ItemResult"					"item_medallion_of_courage"
 		"ItemRequirements"
 		{
-			"01"						"item_chainmail;item_sobi_mask_datadriven"
+			"01"						"%ITEM_RECIPE_MEDALLION_OF_COURAGE_CONTEXT%"
 		}
 	}
 
@@ -7938,7 +7938,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetFlags"		"%ITEM_MEDALLION_OF_COURAGE_FLAGS%"
+		"SpellImmunityType"				"%ITEM_MEDALLION_OF_COURAGE_IMMUNITY%"
 		"FightRecapLevel"				"1"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ItemPurchasable"				"1"
@@ -7946,13 +7947,13 @@
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"1000"
 		"AbilityCooldown"				"7"
 		"AbilitySharedCooldown"			"medallion"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1200"
+		"ItemCost"						"%ITEM_MEDALLION_OF_COURAGE_COST%"
 		"ItemShopTags"					"armor;regen_mana;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"medallion of courage"
