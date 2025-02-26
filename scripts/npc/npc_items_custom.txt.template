@@ -429,8 +429,7 @@
 		"ShouldBeSuggested"				"0"
 		"ItemSellable"					"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemCost"						"1010"
-
+		"ItemCost"						"%ITEM_RING_OF_AQUILA_COST%"
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
 		"UIPickupSound"					"Item.PickUpRingShop"
@@ -441,11 +440,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"9"
+				"bonus_damage"			"%ITEM_RING_OF_AQUILA_DAMAGE%"
 				"bonus_strength"		"3"
 				"bonus_agility"			"9"
 				"bonus_intellect"		"3"
-				"bonus_armor"			"1"
+				"bonus_armor"			"%ITEM_RING_OF_AQUILA_ARMOR%"
 				"aura_radius"			"900"
 				"aura_mana_regen"		"0.65"
 				"aura_bonus_armor"		"2"
