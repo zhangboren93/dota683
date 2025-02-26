@@ -429,8 +429,7 @@
 		"ShouldBeSuggested"				"0"
 		"ItemSellable"					"1"
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemCost"						"1010"
-
+		"ItemCost"						"%ITEM_RING_OF_AQUILA_COST%"
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
 		"UIPickupSound"					"Item.PickUpRingShop"
@@ -441,11 +440,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"9"
+				"bonus_damage"			"%ITEM_RING_OF_AQUILA_DAMAGE%"
 				"bonus_strength"		"3"
 				"bonus_agility"			"9"
 				"bonus_intellect"		"3"
-				"bonus_armor"			"1"
+				"bonus_armor"			"%ITEM_RING_OF_AQUILA_ARMOR%"
 				"aura_radius"			"900"
 				"aura_mana_regen"		"0.65"
 				"aura_bonus_armor"		"2"
@@ -7874,13 +7873,13 @@
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"55.0"
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"%ITEM_ARCANE_BOOTS_RADIUS%"
 
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"35"
-		"ItemCost"						"1450"
+		"AbilityManaCost"				"%ITEM_ARCANE_BOOTS_MANA_COST%"
+		"ItemCost"						"%ITEM_ARCANE_BOOTS_COST%"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;arcane boots"
@@ -7888,15 +7887,15 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemAlertable"					"1"
 		"ShouldBeSuggested"				"1"
-		
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_movement"		"55"
+			"bonus_movement"		"%ITEM_ARCANE_BOOTS_MOVESPEED%"
 			"bonus_mana"			"250"
 			"replenish_amount"		"135"
-			"replenish_radius"		"600"
+			"replenish_radius"		"%ITEM_ARCANE_BOOTS_RADIUS%"
 			"mana_regen"			"0"
 			"aura_mana_regen"		"0"
 			"aura_radius"			"0"
@@ -7914,7 +7913,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"325"	
+		"ItemCost"						"%ITEM_RECIPE_MEDALLION_OF_COURAGE_COST%"	
 		"ItemShopTags"					""
 		"ItemPurchasable"				"1"
 		"IsObsolete"					"0"
@@ -7925,7 +7924,7 @@
 		"ItemResult"					"item_medallion_of_courage"
 		"ItemRequirements"
 		{
-			"01"						"item_chainmail;item_sobi_mask_datadriven"
+			"01"						"%ITEM_RECIPE_MEDALLION_OF_COURAGE_CONTEXT%"
 		}
 	}
 
@@ -7940,7 +7939,8 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetFlags"		"%ITEM_MEDALLION_OF_COURAGE_FLAGS%"
+		"SpellImmunityType"				"%ITEM_MEDALLION_OF_COURAGE_IMMUNITY%"
 		"FightRecapLevel"				"1"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"ItemPurchasable"				"1"
@@ -7948,13 +7948,13 @@
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"1000"
 		"AbilityCooldown"				"7"
 		"AbilitySharedCooldown"			"medallion"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1200"
+		"ItemCost"						"%ITEM_MEDALLION_OF_COURAGE_COST%"
 		"ItemShopTags"					"armor;regen_mana;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"medallion of courage"
@@ -8572,7 +8572,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"
+		"ItemCost"						"%ITEM_TRANQUIL_BOOTS_COST%"
 		"ItemShopTags"					"move_speed;regen_health;armor"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"tranquil boots"
@@ -8584,8 +8584,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_movement_speed"	"90"
-			"bonus_armor"			"4"
+			"bonus_movement_speed"	"%ITEM_TRANQUIL_BOOTS_NORMAL_SPEED%"
+			"bonus_armor"			"%ITEM_TRANQUIL_BOOTS_ARMOR%"
 			"bonus_health_regen"	"12"
 			"break_time"			"13"
 			"broken_movement_speed"	"60"
@@ -8672,7 +8672,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"875"	
+		"ItemCost"						"%ITEM_RECIPE_JANGGO_COST%"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -8681,10 +8681,10 @@
 		"ItemResult"					"item_ancient_janggo_datadriven"
 		"ItemRequirements"
 		{
-			"01"						"item_bracer_datadriven;item_robe"
+			"01"						"%ITEM_RECIPE_JANGGO_CONTEXT%"
 		}
 	}
-
+	
 	"item_recipe_ancient_janggo_datadriven_refresh"
 	{
 		// General
@@ -8730,10 +8730,10 @@
 	    "AbilityCastPoint"				"0.0"
 	    "AbilityCooldown"				"30"
 	    "AbilityManaCost"				"0"
-	
+
 	    // Item Info
 	    //-------------------------------------------------------------------------------------------------------------
-	    "ItemCost"						"1875"
+	    "ItemCost"						"%ITEM_JANGGO_COST%"
 	    "ItemShopTags"					"str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
 	    "ItemQuality"					"rare"
 	    "ItemAliases"					"drum of endurance"
@@ -8743,12 +8743,15 @@
 	
 	    "AbilityValues"
 	    {
-		    "bonus_stats"							"9"
-		    "bonus_damage"							"3"
+		    "bonus_str"								"%ITEM_JANGGO_STRENGTH%"
+		    "bonus_agi"								"%ITEM_JANGGO_AGILITY%"
+		    "bonus_int"								"9"
+		    "bonus_damage"							"%ITEM_JANGGO_DAMAGE%"
+		    "health_regen"							"%ITEM_JANGGO_HPREGEN%"
 		    "aura_bonus_attack_speed"				"5"
 		    "aura_bonus_movement_speed_pct"			"5"
-		    "endurance_bonus_attack_speed"			"10"
-		    "endurance_bonus_movement_speed_pct"	"10"
+		    "endurance_bonus_attack_speed"			"%ITEM_JANGGO_ATTACK_SPEED%"
+		    "endurance_bonus_movement_speed_pct"	"%ITEM_JANGGO_MOVE_SPEED%"
 		    "endurance_duration"					"6.0"
 		    "aura_radius"							"900"
 		    "endurance_radius"						"900"
@@ -8784,10 +8787,11 @@
 
 			    "Properties"
 			    {
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_stats"
-				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_stats"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_stats"
+				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_str"
+				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_agi"
+				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_int"
 				    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%health_regen"
 			    }
 		    }
 		    "modifier_item_ancient_janggo_datadriven_aura_emitter"
