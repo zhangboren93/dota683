@@ -7872,13 +7872,13 @@
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"55.0"
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"%ITEM_ARCANE_BOOTS_RADIUS%"
 
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"35"
-		"ItemCost"						"1450"
+		"AbilityManaCost"				"%ITEM_ARCANE_BOOTS_MANA_COST%"
+		"ItemCost"						"%ITEM_ARCANE_BOOTS_COST%"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;arcane boots"
@@ -7886,15 +7886,15 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemAlertable"					"1"
 		"ShouldBeSuggested"				"1"
-		
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_movement"		"55"
+			"bonus_movement"		"%ITEM_ARCANE_BOOTS_MOVESPEED%"
 			"bonus_mana"			"250"
 			"replenish_amount"		"135"
-			"replenish_radius"		"600"
+			"replenish_radius"		"%ITEM_ARCANE_BOOTS_RADIUS%"
 			"mana_regen"			"0"
 			"aura_mana_regen"		"0"
 			"aura_radius"			"0"
