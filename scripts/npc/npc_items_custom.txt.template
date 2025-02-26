@@ -8671,7 +8671,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"875"	
+		"ItemCost"						"%ITEM_RECIPE_JANGGO_COST%"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -8680,10 +8680,10 @@
 		"ItemResult"					"item_ancient_janggo_datadriven"
 		"ItemRequirements"
 		{
-			"01"						"item_bracer_datadriven;item_robe"
+			"01"						"%ITEM_RECIPE_JANGGO_CONTEXT%"
 		}
 	}
-
+	
 	"item_recipe_ancient_janggo_datadriven_refresh"
 	{
 		// General
@@ -8729,10 +8729,10 @@
 	    "AbilityCastPoint"				"0.0"
 	    "AbilityCooldown"				"30"
 	    "AbilityManaCost"				"0"
-	
+
 	    // Item Info
 	    //-------------------------------------------------------------------------------------------------------------
-	    "ItemCost"						"1875"
+	    "ItemCost"						"%ITEM_JANGGO_COST%"
 	    "ItemShopTags"					"str;agi;int;damage;move_speed;attack_speed;hard_to_tag"
 	    "ItemQuality"					"rare"
 	    "ItemAliases"					"drum of endurance"
@@ -8742,12 +8742,15 @@
 	
 	    "AbilityValues"
 	    {
-		    "bonus_stats"							"9"
-		    "bonus_damage"							"3"
+		    "bonus_str"								"%ITEM_JANGGO_STRENGTH%"
+		    "bonus_agi"								"%ITEM_JANGGO_AGILITY%"
+		    "bonus_int"								"9"
+		    "bonus_damage"							"%ITEM_JANGGO_DAMAGE%"
+		    "health_regen"							"%ITEM_JANGGO_HPREGEN%"
 		    "aura_bonus_attack_speed"				"5"
 		    "aura_bonus_movement_speed_pct"			"5"
-		    "endurance_bonus_attack_speed"			"10"
-		    "endurance_bonus_movement_speed_pct"	"10"
+		    "endurance_bonus_attack_speed"			"%ITEM_JANGGO_ATTACK_SPEED%"
+		    "endurance_bonus_movement_speed_pct"	"%ITEM_JANGGO_MOVE_SPEED%"
 		    "endurance_duration"					"6.0"
 		    "aura_radius"							"900"
 		    "endurance_radius"						"900"
@@ -8783,10 +8786,11 @@
 
 			    "Properties"
 			    {
-				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_stats"
-				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_stats"
-				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_stats"
+				    "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_str"
+				    "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_agi"
+				    "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_int"
 				    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%health_regen"
 			    }
 		    }
 		    "modifier_item_ancient_janggo_datadriven_aura_emitter"
