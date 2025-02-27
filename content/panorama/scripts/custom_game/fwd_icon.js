@@ -57,6 +57,9 @@ function OnMSIconPressed() {
 		} else if (hero_id == 12) {
 			// phantom lancer
 			children[7].visible = true;
+		} else if (hero_id == 93) {
+			// slark
+			children[8].visible = true;
 		}
 	//	else if (hero_id == 17) {
 	//		// storm spirit

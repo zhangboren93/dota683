@@ -38,6 +38,10 @@
 		"precache"
 		{
 			"particle"			"particles/units/heroes/hero_slark/slark_shadow_dance.vpcf"
+			// custom weapon effect particles
+			"particle"			"particles/units/heroes/hero_slark/slark_blade_generic_red.vpcf"
+			"particle"			"particles/units/heroes/hero_slark/slark_blade_generic_blue.vpcf"
+			"particle"			"particles/units/heroes/hero_slark/slark_blade_generic_gold.vpcf"
 		}
 		"OnSpellStart"
 		{
