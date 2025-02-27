@@ -42,4 +42,23 @@
 			"projectile_increase"	"0"
 		}
 	}
+
+	"item_dummy_tpblock_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "item_datadriven"
+		"ItemBaseLevel"                 "1"
+	}
+	
+	// Deprecated
+	"item_dummy_backpackblock_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                     "item_datadriven"
+		"ItemBaseLevel"                 "1"
+		"ItemPurchasable"				"0"
+		"ItemSellable"					"0"
+	}
 }
