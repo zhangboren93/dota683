@@ -114,6 +114,7 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
 				}
 			}
+			// Deprecated
 			"modifier_shrapnel_instant_vision_datadriven" 
 			{
 				"Passive"		"1"

@@ -928,13 +928,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			end
 		end
 	end
-	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
-		or event.order_type == DOTA_UNIT_ORDER_GIVE_ITEM then
-		local item = EntIndexToHScript(event.entindex_ability)
-		if item:GetName() == "item_dummy_backpackblock_datadriven" then
-			return false
-		end
-	end
 	if event.order_type == DOTA_UNIT_ORDER_PURCHASE_ITEM then
 		if event.shop_item_name == "item_recipe_flying_courier_datadriven" then
 			local target = EntIndexToHScript(event.units["0"])
