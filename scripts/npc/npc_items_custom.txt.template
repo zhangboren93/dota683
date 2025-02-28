@@ -2588,13 +2588,13 @@
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"45.0"
+		"AbilityCooldown"				"%ITEM_MEKANSM_CD%"
 		"AbilityCastRange"				"750"
 		"AbilityManaCost"				"225"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2300"
+		"ItemCost"						"%ITEM_MEKANSM_COST%"
 		"ItemShopTags"					"agi;int;str;armor;boost_health"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mechanism;mekansm"
@@ -2606,10 +2606,10 @@
 		{
 			"bonus_all_stats"		"5"
 			"bonus_armor"			"5"
-			"aura_radius"			"750"
+			"aura_radius"			"%ITEM_MEKANSM_RADIUS%"
 			"aura_health_regen"		"4"
 			"heal_amount"			"250"
-			"heal_radius"			"750"
+			"heal_radius"			"%ITEM_MEKANSM_RADIUS%"
 			"heal_bonus_armor"		"2"
 			"heal_armor_duration"	"25.0"
 		}
