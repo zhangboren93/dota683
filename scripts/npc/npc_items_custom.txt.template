@@ -3762,7 +3762,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"25"
-		"ItemCost"						"2250"
+		"ItemCost"						"%ITEM_FORCE_STAFF_COST%"
 		"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"fs;force staff"
@@ -3778,7 +3778,7 @@
 		"AbilityValues"
 		{
 				"bonus_intellect"		"10"
-				"bonus_health_regen"	"3.0"
+				"bonus_health_regen"	"%ITEM_FORCE_STAFF_HPREGEN%"
 				"push_length"			"600"
 				"push_speed" 			"1500"
 		}
