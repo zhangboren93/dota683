@@ -205,7 +205,7 @@
 		"item"		"item_relic"
 		"item"		"item_void_stone_datadriven"
 		"item"		"item_ring_of_health"
-		"item"		"item_orb_of_venom"
+		"item"		"item_orb_of_venom_lua"
 	}
 
 	"pregame"

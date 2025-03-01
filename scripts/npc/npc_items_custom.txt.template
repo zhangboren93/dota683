@@ -6645,10 +6645,16 @@
 	//=================================================================================================================
 	"item_orb_of_venom"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"181"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"ItemPurchasable"				"0"
+		"IsObsolete"					"1"
+	}
+	"item_orb_of_venom_lua"
+	{
+		"ID"							"1381"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/item_orb_of_venom.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"item_orb_of_venom"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -6659,16 +6665,19 @@
 		"SideShop"						"1"
 		"SecretShop"					"%SECRETSHOP_683_ONLY%"
 
+		"precache"
+		{
+			"particle"					"particles/items2_fx/orb_of_venom.vpcf"
+		}
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"poison_damage_melee"	"3.0"
-			"poison_damage_range"	"3.0"
-			"poison_damage"			"3.0"
+			"poison_damage"						"3.0"
 			"poison_movement_speed_melee"		"-12"
 			"poison_movement_speed_range"		"-4"
-			"poison_duration"		"4.0"
+			"poison_duration"					"4.0"
 		}
 	}
 
@@ -6953,7 +6962,7 @@
 		"ItemResult"					"item_skadi_datadriven"
 		"ItemRequirements"
 		{
-			"01"						"item_ultimate_orb;item_ultimate_orb;item_point_booster;item_orb_of_venom"
+			"01"						"item_ultimate_orb;item_ultimate_orb;item_point_booster;item_orb_of_venom_lua"
 		}
 	}
 	//=================================================================================================================

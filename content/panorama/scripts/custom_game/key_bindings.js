@@ -65,7 +65,7 @@ ITEM_RECIPE_RULES = [
     ["item_satanic_datadriven", "item_helm_of_the_dominator_datadriven", "item_reaver", "item_recipe_satanic_datadriven"],
     ["item_maelstrom_datadriven", "item_gloves", "item_mithril_hammer", "item_recipe_maelstrom_datadriven"],
     ["item_mjollnir_datadriven", "item_maelstrom_datadriven", "item_hyperstone", "item_recipe_mjollnir_datadriven"],
-    ["item_skadi_datadriven", "item_ultimate_orb", "item_ultimate_orb", "item_point_booster", "item_orb_of_venom"],
+    ["item_skadi_datadriven", "item_ultimate_orb", "item_ultimate_orb", "item_point_booster", "item_orb_of_venom_lua"],
     ["item_desolator_datadriven", "item_mithril_hammer", "item_mithril_hammer", "item_recipe_desolator_datadriven"],
     ["item_mask_of_madness_datadriven", "item_lifesteal_datadriven", "item_recipe_mask_of_madness_datadriven"],
     ["item_diffusal_blade_datadriven", "item_blade_of_alacrity", "item_blade_of_alacrity", "item_robe", "item_recipe_diffusal_blade_datadriven"],
@@ -190,7 +190,7 @@ ITEMNAME_2_ITEMID = {
 	"item_recipe_mask_of_madness_datadriven"		:1371,
 	"item_recipe_diffusal_blade_datadriven"		:1373,
 	"item_recipe_soul_ring"		:1377,
-	"item_orb_of_venom": 181,
+	"item_orb_of_venom_lua": 1381,
 	"item_stout_shield": 182,
 	"item_recipe_ancient_janggo_datadriven"		:1384,
 	"item_recipe_medallion_of_courage"		:186,
@@ -215,7 +215,7 @@ SECRET_SHOP_ITEMS = [
 	"item_relic",
 	"item_void_stone_datadriven",
 	"item_ring_of_health",
-	"item_orb_of_venom"]
+	"item_orb_of_venom_lua"]
 
 function OnCustomeGameSelectCourier()
 {

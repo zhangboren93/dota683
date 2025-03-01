@@ -488,6 +488,13 @@
 		"DOTA_Tooltip_modifier_item_assault_buff_lua"				"强袭胸甲"
 		"DOTA_Tooltip_modifier_item_assault_buff_lua_Description"	"护甲提升%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。\n攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
 
+		"DOTA_Tooltip_Ability_item_orb_of_venom_lua"							"淬毒之珠"
+		"DOTA_Tooltip_ability_item_orb_of_venom_lua_Description"				"<h1>被动：毒性攻击</h1>使目标中毒，造成每秒%poison_damage%点魔法伤害，装备的英雄为近战将造成%poison_movement_speed_melee%%%移动速度减缓，装备的英雄为远程将造成%poison_movement_speed_range%%%的移动速度减缓。持续%poison_duration%秒。"
+		"DOTA_Tooltip_ability_item_orb_of_venom_lua_Lore"						"给你的毒器渡上毒蛇的毒液。"
+		"DOTA_Tooltip_ability_item_orb_of_venom_lua_Note0"                   	"不与后续升级物品叠加。"
+		"DOTA_Tooltip_modifier_item_orb_of_venom_ranged_lua"					"淬毒之珠"
+		"DOTA_Tooltip_modifier_item_orb_of_venom_ranged_lua_Description"		"受到%dMODIFIER_PROPERTY_TOOLTIP%点/秒的毒性伤害并降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度。"
+
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"迷雾缠绕"
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven_Description"			"亚巴顿以部分生命为代价，释放带有死亡气息的迷雾缠绕伤害敌方单位或治疗友方单位。"

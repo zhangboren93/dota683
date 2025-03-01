@@ -50,7 +50,8 @@ ORB_PRIORITY_ITEMS = {
 	"item_helm_of_the_dominator_datadriven",
 	"item_mask_of_madness_datadriven",
 	"item_lifesteal_datadriven",
-	"item_desolator_datadriven"
+	"item_desolator_datadriven",
+	"item_orb_of_venom_lua"
 }
 function modifier_generic_orb_effect_item_lua:OnAttack( params )
 	if params.attacker~=self:GetParent() then return end

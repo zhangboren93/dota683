@@ -77,7 +77,7 @@
 			<Button onactivate="OnItemSelectItemPressed('item_relic')"><DOTAItemImage itemname="item_relic"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_void_stone_datadriven')"><DOTAItemImage itemname="item_void_stone_datadriven"/></Button>
 			<Button onactivate="OnItemSelectItemPressed('item_ring_of_health')"><DOTAItemImage itemname="item_ring_of_health"/></Button>
-			<Button onactivate="OnItemSelectItemPressed('item_orb_of_venom')"><DOTAItemImage itemname="item_orb_of_venom"/></Button>
+			<Button onactivate="OnItemSelectItemPressed('item_orb_of_venom_lua')"><DOTAItemImage itemname="item_orb_of_venom_lua"/></Button>
 		</Panel>
 		<Panel class="fwd-item-select-attribute-row">
 			<Button onactivate="OnItemSelectItemPressed('item_magic_wand')"><DOTAItemImage itemname="item_magic_wand"/></Button>

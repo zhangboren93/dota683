@@ -52,7 +52,7 @@ ITEM_RECIPE_RULES = {
 	{"item_sange_and_yasha_datadriven", "item_yasha", "item_sange_datadriven"},
 	{"item_satanic_datadriven", "item_recipe_satanic_datadriven", "item_helm_of_the_dominator_datadriven", "item_reaver"},
 	{"item_mjollnir_datadriven", "item_recipe_mjollnir_datadriven", "item_maelstrom_datadriven", "item_hyperstone"},
-	{"item_skadi_datadriven", "item_ultimate_orb", "item_ultimate_orb", "item_point_booster", "item_orb_of_venom"},
+	{"item_skadi_datadriven", "item_ultimate_orb", "item_ultimate_orb", "item_point_booster", "item_orb_of_venom_lua"},
 	{"item_sange_datadriven", "item_recipe_sange_datadriven", "item_ogre_axe", "item_belt_of_strength"},
 	{"item_helm_of_the_dominator_datadriven", "item_helm_of_iron_will", "item_lifesteal_datadriven"},
 	{"item_maelstrom_datadriven", "item_recipe_maelstrom_datadriven", "item_gloves", "item_mithril_hammer"},
