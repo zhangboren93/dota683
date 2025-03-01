@@ -23,7 +23,8 @@ modifier_item_orb_of_venom_ranged_lua = class({
 			victim = parent,
 			damage = damage,
 			damage_type = DAMAGE_TYPE_MAGICAL,
-			ability = ability
+			ability = ability,
+			damage_flags = DOTA_DAMAGE_FLAG_NON_LETHAL
 		})
 	end,
 	GetEffectName = function() return "particles/items2_fx/orb_of_venom.vpcf" end,
