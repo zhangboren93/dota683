@@ -60,6 +60,9 @@ function OnMSIconPressed() {
 		} else if (hero_id == 93) {
 			// slark
 			children[8].visible = true;
+		} else if (hero_id == 23) {
+			// kunkka
+			children[9].visible = true;
 		}
 	//	else if (hero_id == 17) {
 	//		// storm spirit

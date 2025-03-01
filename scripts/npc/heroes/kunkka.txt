@@ -71,6 +71,11 @@
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_kunkka.vsndevts"
 			"particle"						"particles/units/heroes/hero_kunkka/kunkka_spell_torrent_bubbles.vpcf"
 			"particle"						"particles/units/heroes/hero_kunkka/kunkka_spell_torrent_splash.vpcf"
+			// 683 custom weapon effect
+			"particle"						"content/particles/units/heroes/hero_kunkka/kunkka_weapon_glow_ambient_default.vpcf"	
+			"particle"						"content/particles/units/heroes/hero_kunkka/kunkka_weapon_glow_ambient_gold.vpcf"	
+			"particle"						"content/particles/units/heroes/hero_kunkka/kunkka_weapon_glow_ambient_green.vpcf"	
+			"particle"						"content/particles/units/heroes/hero_kunkka/kunkka_weapon_glow_ambient_purple.vpcf"	
 		}
 	
 		"OnSpellStart"
