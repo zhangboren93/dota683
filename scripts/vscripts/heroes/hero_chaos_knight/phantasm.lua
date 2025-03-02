@@ -47,7 +47,7 @@ function Phantasm( keys )
 		outgoing_damage = outgoingDamage,
 		incoming_damage = incomingDamage,
 		bounty_base = 0,
-		bounty_growth = 0
+		bounty_growth = 0,
 		outgoing_damage_structure = -25
 	}, images_count, 72, true, true )
 end
