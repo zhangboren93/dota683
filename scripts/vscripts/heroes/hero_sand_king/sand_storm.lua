@@ -15,7 +15,9 @@ end
 function handleSpellStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
+	local sound_name = "Ability.SandKing_SandStorm.loop"
 	if ability.sand_storm_unit ~= nil then
+		ability.sand_storm_unit:StopSound(sound_name)
 		ability.sand_storm_unit:ForceKill(false)
 		ability.sand_storm_unit = nil
 	end
