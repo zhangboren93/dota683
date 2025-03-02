@@ -2589,13 +2589,13 @@
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"45.0"
+		"AbilityCooldown"				"%ITEM_MEKANSM_CD%"
 		"AbilityCastRange"				"750"
 		"AbilityManaCost"				"225"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2300"
+		"ItemCost"						"%ITEM_MEKANSM_COST%"
 		"ItemShopTags"					"agi;int;str;armor;boost_health"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mechanism;mekansm"
@@ -2607,10 +2607,10 @@
 		{
 			"bonus_all_stats"		"5"
 			"bonus_armor"			"5"
-			"aura_radius"			"750"
+			"aura_radius"			"%ITEM_MEKANSM_RADIUS%"
 			"aura_health_regen"		"4"
 			"heal_amount"			"250"
-			"heal_radius"			"750"
+			"heal_radius"			"%ITEM_MEKANSM_RADIUS%"
 			"heal_bonus_armor"		"2"
 			"heal_armor_duration"	"25.0"
 		}
@@ -2961,24 +2961,6 @@
 		"ID"                            "2001"
 		"BaseClass"                     "item_datadriven"
 		"ItemBaseLevel"                 "1"
-	}
-	
-	"item_dummy_tpblock_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"                     "item_datadriven"
-		"ItemBaseLevel"                 "1"
-	}
-
-	"item_dummy_backpackblock_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"                     "item_datadriven"
-		"ItemBaseLevel"                 "1"
-		"ItemPurchasable"				"0"
-		"ItemSellable"					"0"
 	}
 
 	"item_recipe_ring_of_basilius"
@@ -3781,7 +3763,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"25"
-		"ItemCost"						"2250"
+		"ItemCost"						"%ITEM_FORCE_STAFF_COST%"
 		"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"fs;force staff"
@@ -3797,7 +3779,7 @@
 		"AbilityValues"
 		{
 				"bonus_intellect"		"10"
-				"bonus_health_regen"	"3.0"
+				"bonus_health_regen"	"%ITEM_FORCE_STAFF_HPREGEN%"
 				"push_length"			"600"
 				"push_speed" 			"1500"
 		}

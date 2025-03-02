@@ -746,21 +746,11 @@ function CAddonTemplateGameMode:OnThink()
 			GameRules:SetTimeOfDay(0.250005)
 			self.timeofdayset = true
 		end
-		local roshan = Entities:FindAllByClassname("npc_dota_roshan")
-		if #roshan > 0 and self.first_roshan_spawned == nil then
-			roshan[1]:ForceKill(false)
+
+		if self.first_roshan_spawned == nil then
 			print("spawn first roshan.")
 			local roshan = CreateUnitByName("npc_dota_roshan_datadriven", Vector(4320, -1824, 160), true, nil, nil, DOTA_TEAM_NEUTRALS)
-			--roshan:AddItemByName("item_quicksilver_amulet")
 			self.first_roshan_spawned = true
-			-- killing 1st rosh will drop aegis
-			roshan:SetThink(function()
-				local aegis = Entities:FindAllByModel("models/props_gameplay/aegis.vmdl")
-				print("Find aegis " .. #aegis)
-				for i=1,#aegis do
-					aegis[i]:Destroy()
-				end
-			end, "remove aegis on the ground", 1)
 		end
 	elseif GameRules:State_Get() == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
 		handleGameInProgressTimer(self, player2BuildingDamage)
@@ -935,13 +925,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 			end
 		end
 	end
-	if event.order_type == DOTA_UNIT_ORDER_DROP_ITEM 
-		or event.order_type == DOTA_UNIT_ORDER_GIVE_ITEM then
-		local item = EntIndexToHScript(event.entindex_ability)
-		if item:GetName() == "item_dummy_backpackblock_datadriven" then
-			return false
-		end
-	end
 	if event.order_type == DOTA_UNIT_ORDER_PURCHASE_ITEM then
 		if event.shop_item_name == "item_recipe_flying_courier_datadriven" then
 			local target = EntIndexToHScript(event.units["0"])
@@ -1077,8 +1060,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:AddNewModifier(entity, nil, "modifier_attribute_regen_688_lua", {})
 			if entity:GetName() == "npc_dota_hero_zuus" then
 				entity:AddItemByName("item_aghanims_shard")
-				entity:RemoveAbility("zuus_thundergods_wrath")
-				entity:AddAbility("zuus_thundergods_wrath_688")
 			elseif entity:GetName() == "npc_dota_hero_razor" then
 				entity:AddItemByName("item_aghanims_shard")
 			else
@@ -1094,7 +1075,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
 
 		-- remove useless abilities
-		entity:RemoveAbility("ability_pluck_famango")	-- 摘莲花
+		entity:RemoveAbility("ability_pluck_lotus")		-- 摘莲花
 		entity:RemoveAbility("ability_lamp_use")		-- 占领观察者
 		entity:RemoveAbility("ability_capture")			-- 占领前哨
 		entity:RemoveAbility("abyssal_underlord_portal_warp")	-- 使用孽主的“恶魔之扉”传送门
@@ -1245,7 +1226,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity.roshanNo = self.roshanCount
 		self.roshanCount = self.roshanCount + 1
 		entity:AddNewModifier(entity, nil, "modifier_roshan_cancel_status_resistance_lua", {})
-		entity:AddNewModifier(entity, nil, "modifier_counter_healthbar", {})
+		--entity:AddNewModifier(entity, nil, "modifier_counter_healthbar", {})
 		if self.custom_game_meta_version == "688" then
 			entity:AddNewModifier(entity, nil, "modifier_roshan_inherent_buff_688_lua", {})
 		end
@@ -1462,7 +1443,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		print("next rosh respawn time is " .. self.nextRoshanTime);
 		local team = attacker:GetTeam()
 		if team == DOTA_TEAM_GOODGUYS or team == DOTA_TEAM_BADGUYS then
-			if team == DOTA_TEAM_GOODGUYS then
+--[[			if team == DOTA_TEAM_GOODGUYS then
 				GameRules:GetAnnouncer(team):SpeakConcept({
 					announce_event = "roshan_killed_good"
 				})
@@ -1470,7 +1451,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 				GameRules:GetAnnouncer(team):SpeakConcept({
 					announce_event = "roshan_killed_bad"
 				})
-			end
+			end]]--
 			local n = PlayerResource:GetPlayerCountForTeam(team)
 			for i=1,n do
 				local playerid = PlayerResource:GetNthPlayerIDOnTeam(team, i)
@@ -1493,9 +1474,9 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			end, "", {}, entity:GetLevel() * 4 + 30)
 		end
 	end
-	if entity:HasModifier("modifier_doom_bringer_devour") then
+--[[	if entity:HasModifier("modifier_doom_bringer_devour") then
 		entity:RemoveModifierByName("modifier_doom_bringer_devour")
-	end
+	end]]--
 	if IsServer() and entity:IsRealHero() and (not entity:IsReincarnating()) then
 		if entity:HasModifier("modifier_winter_wyvern_winters_curse_aura") and attacker:GetTeam() == entity:GetTeam() then
 			print("Crediting WW on Winters curse team kill")
