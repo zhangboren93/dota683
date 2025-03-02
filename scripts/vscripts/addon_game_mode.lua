@@ -1078,7 +1078,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		end
 
 		-- remove useless abilities
-		entity:RemoveAbility("ability_pluck_famango")	-- 摘莲花
+		entity:RemoveAbility("ability_pluck_lotus")		-- 摘莲花
 		entity:RemoveAbility("ability_lamp_use")		-- 占领观察者
 		entity:RemoveAbility("ability_capture")			-- 占领前哨
 		entity:RemoveAbility("abyssal_underlord_portal_warp")	-- 使用孽主的“恶魔之扉”传送门
@@ -1477,9 +1477,9 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 			end, "", {}, entity:GetLevel() * 4 + 30)
 		end
 	end
-	if entity:HasModifier("modifier_doom_bringer_devour") then
+--[[	if entity:HasModifier("modifier_doom_bringer_devour") then
 		entity:RemoveModifierByName("modifier_doom_bringer_devour")
-	end
+	end]]--
 	if IsServer() and entity:IsRealHero() and (not entity:IsReincarnating()) then
 		if entity:HasModifier("modifier_winter_wyvern_winters_curse_aura") and attacker:GetTeam() == entity:GetTeam() then
 			print("Crediting WW on Winters curse team kill")
