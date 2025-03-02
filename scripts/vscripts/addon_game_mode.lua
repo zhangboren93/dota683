@@ -1229,7 +1229,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		entity.roshanNo = self.roshanCount
 		self.roshanCount = self.roshanCount + 1
 		entity:AddNewModifier(entity, nil, "modifier_roshan_cancel_status_resistance_lua", {})
-		entity:AddNewModifier(entity, nil, "modifier_counter_healthbar", {})
+		--entity:AddNewModifier(entity, nil, "modifier_counter_healthbar", {})
 		if self.custom_game_meta_version == "688" then
 			entity:AddNewModifier(entity, nil, "modifier_roshan_inherent_buff_688_lua", {})
 		end
@@ -1446,7 +1446,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		print("next rosh respawn time is " .. self.nextRoshanTime);
 		local team = attacker:GetTeam()
 		if team == DOTA_TEAM_GOODGUYS or team == DOTA_TEAM_BADGUYS then
-			if team == DOTA_TEAM_GOODGUYS then
+--[[			if team == DOTA_TEAM_GOODGUYS then
 				GameRules:GetAnnouncer(team):SpeakConcept({
 					announce_event = "roshan_killed_good"
 				})
@@ -1454,7 +1454,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 				GameRules:GetAnnouncer(team):SpeakConcept({
 					announce_event = "roshan_killed_bad"
 				})
-			end
+			end]]--
 			local n = PlayerResource:GetPlayerCountForTeam(team)
 			for i=1,n do
 				local playerid = PlayerResource:GetNthPlayerIDOnTeam(team, i)
