@@ -1,6 +1,6 @@
 <root>
 	<scripts>
-		<include src="file://{resources}/scripts/custom_game/fwd_icon.js"/>
+		<include src="file://{resources}/scripts/custom_game/magic_stick_icon.js"/>
 	</scripts>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/fwd.css"/>
