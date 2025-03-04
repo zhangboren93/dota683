@@ -48,6 +48,10 @@
 			"particle"	"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_base_attack.vpcf"
 			"particle"	"particles/units/heroes/hero_terrorblade/terrorblade_metamorphosis_ambient.vpcf"
 			"model"		"models/heroes/terrorblade/demon.vmdl"
+			// 683 custom weapon effect
+			"particle"  "particles/units/heroes/hero_terrorblade/terrorblade_ambient_sword_default.vpcf"
+			"particle"	"particles/units/heroes/hero_terrorblade/terrorblade_ambient_sword_blade_default.vpcf"
+			"particle"	"particles/units/heroes/hero_terrorblade/terrorblade_ambient_sword_blade_2_default.vpcf"
 		}
 	
 		"OnSpellStart"
