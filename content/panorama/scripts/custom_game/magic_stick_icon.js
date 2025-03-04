@@ -44,6 +44,9 @@ function OnMSIconPressed() {
 		} else if (hero_id == 23) {
 			// kunkka
 			children[9].visible = true;
+		} else if (hero_id == 104) {
+			// lc
+			children[10].visible = true;
 		}
 	//	else if (hero_id == 17) {
 	//		// storm spirit

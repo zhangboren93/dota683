@@ -52,6 +52,9 @@
 			"particle"				"particles/units/heroes/hero_legion_commander/legion_commander_press.vpcf"
 			"particle"				"particles/units/heroes/hero_legion_commander/legion_commander_press_hands.vpcf"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
+			// 683 custom weapon effect
+			"particle"				"particles/units/heroes/hero_legion_commander/legion_blade_white.vpcf"
+			"particle"				"particles/units/heroes/hero_legion_commander/legion_blade_gold.vpcf"
 		}
 
 		"OnSpellStart"
