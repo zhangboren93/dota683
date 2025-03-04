@@ -251,7 +251,8 @@ function Activate()
 	LinkLuaModifier( "modifier_slark_shadow_dance_particle_lua", 		"heroes/hero_slark/modifier_slark_shadow_dance_particle.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_broodmother_web_dummy_aura_lua", 		"heroes/hero_broodmother/modifier_broodmother_web_dummy_aura.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_broodmother_spin_web_lua", 				"heroes/hero_broodmother/modifier_broodmother_spin_web.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_spirit_breaker_charge_of_darkness_lua", 		"heroes/hero_spirit_breaker/modifier_charge_of_darkness.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_spirit_breaker_charge_of_darkness_lua", 	"heroes/hero_spirit_breaker/modifier_charge_of_darkness.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_bane_nightmare_cancel_self_lua",			"heroes/hero_bane/modifier_bane_nightmare_cancel_self.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- 688 heroes
 	LinkLuaModifier( "modifier_arc_warden_688_attribute_bonus", 		"modifiers/688/modifier_arc_warden_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1809,14 +1810,17 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		return false
 	elseif event.name_const == "modifier_bane_nightmare" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
+		local ability = EntIndexToHScript(event.entindex_ability_const)
+		local duration = ability:GetSpecialValueFor("duration")
 		local nightmare_damage = caster:FindAbilityByName("hero_ability_executed_hook_datadriven")
 		if caster:GetTeam() ~= parent:GetTeam() then
 			caster:SetThink(function()
 				if parent:HasModifier("modifier_bane_nightmare") then
-					ApplyDamage({victim = parent, attacker = caster, damage = 20, damage_type = DAMAGE_TYPE_PURE})
+					ApplyDamage({victim = parent, attacker = caster, damage = 20, damage_type = DAMAGE_TYPE_PURE, ability = ability})
 					nightmare_damage:ApplyDataDrivenModifier(caster, parent, "modifier_bane_nightmare_damage_active", {})
+					parent:AddNewModifier(caster, ability, "modifier_bane_nightmare_cancel_self_lua", { duration = duration - 1 })
 				end
-			end, "nightmare_damage later", 1.5)
+			end, "nightmare_damage later", 1.1)
 		end
 	elseif event.name_const == "modifier_bane_fiends_grip" then 
 		local caster = EntIndexToHScript(event.entindex_caster_const)
