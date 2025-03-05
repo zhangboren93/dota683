@@ -341,4 +341,91 @@
 			}
 		}
 	}
+	// Rewrite of the Troll Warlord Berserkers Rage ability
+	// Author: Pizzalol
+	// Date: 14.03.2015.
+	// NOTE: --------------------------------------------- THIS ABILITY REQUIRES troll_warlord_whirling_axes_ranged_datadriven AND troll_warlord_whirling_axes_melee_datadriven TO WORK CORRECTLY ---------------------------------
+	"troll_warlord_berserkers_rage_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"troll_warlord_berserkers_rage"
+	
+		// Precache
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_troll_warlord.vsndevts"
+			"particle"			"particles/units/heroes/hero_troll_warlord/troll_warlord_berserk_buff.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2 0.2 0.2 0.2"
+	
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_damage"			"15"
+				"bonus_move_speed"		"10 20 30 40"
+				"bonus_range"			"-372"
+				"base_attack_time"		"1.55"
+				"bonus_hp"				"100"
+				"bonus_armor"			"3"
+				"bash_chance"			"10"
+				"bash_duration"			"0.8 1.2 1.6 2.0"
+				"bash_damage"			"20 30 40 50"
+		}
+	
+		"OnToggleOn"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_TrollWarlord.BerserkersRage.Toggle"
+				"Target" 		"CASTER"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_troll_warlord/berserkers_rage.lua"
+				"Function"		"handleToggleOn"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_troll_warlord/berserkers_rage.lua"
+				"Function"		"SwapAbilities"
+				"main_ability_name"	"troll_warlord_whirling_axes_ranged_datadriven"
+				"sub_ability_name"	"troll_warlord_whirling_axes_melee_datadriven"
+			}
+		}
+	
+		"OnToggleOff"
+		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_TrollWarlord.BerserkersRage.Toggle"
+				"Target" 		"CASTER"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_troll_warlord/berserkers_rage.lua"
+				"Function"		"handleToggleOff"
+			}
+	
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_troll_warlord/berserkers_rage.lua"
+				"Function"		"SwapAbilities"
+				"main_ability_name"	"troll_warlord_whirling_axes_melee_datadriven"
+				"sub_ability_name"	"troll_warlord_whirling_axes_ranged_datadriven"
+			}
+		}
+	}
+	
 }

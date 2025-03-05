@@ -255,6 +255,7 @@ function Activate()
 	LinkLuaModifier( "modifier_broodmother_spin_web_lua", 				"heroes/hero_broodmother/modifier_broodmother_spin_web.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_spirit_breaker_charge_of_darkness_lua", 	"heroes/hero_spirit_breaker/modifier_charge_of_darkness.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bane_nightmare_cancel_self_lua",			"heroes/hero_bane/modifier_bane_nightmare_cancel_self.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_troll_warlord_berserkers_rage_lua", 		"heroes/hero_troll_warlord/modifier_troll_warlord_berserkers_rage.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- 688 heroes
 	LinkLuaModifier( "modifier_arc_warden_688_attribute_bonus", 		"modifiers/688/modifier_arc_warden_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1131,10 +1132,10 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 		elseif entity:GetName() == "npc_dota_hero_rubick" or entity:GetName() == "npc_dota_hero_ringmaster" then
 			--  TODO move following abilities to hooks
 			entity:AddAbility("undying_flesh_golem_aura_datadriven"):SetLevel(1)
-		elseif entity:GetName() == "npc_dota_hero_troll_warlord" then
-			entity:SetThink(function()
-				entity:FindAbilityByName("troll_warlord_berserkers_rage"):SetLevel(0)
-			end, "troll unset 1st skill", 0.1)
+		--elseif entity:GetName() == "npc_dota_hero_troll_warlord" then
+		--	entity:SetThink(function()
+		--		entity:FindAbilityByName("troll_warlord_berserkers_rage"):SetLevel(0)
+		--	end, "troll unset 1st skill", 0.1)
 		elseif entity:GetName() == "npc_dota_hero_bloodseeker" and self.custom_game_meta_version == "688" then
 			entity:RemoveAbility("bloodseeker_rupture")
 			entity:AddAbility("bloodseeker_rupture_688")
