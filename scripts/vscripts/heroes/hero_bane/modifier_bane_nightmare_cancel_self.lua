@@ -23,5 +23,6 @@ modifier_bane_nightmare_cancel_self_lua = class({
 			print("nightmare_end cast")
 			nightmare_end:ToggleAbility()
 		end
-	end
+	end,
+	IsHidden = function() return true end
 })
