@@ -85,6 +85,7 @@ function Precache( context )
 	PrecacheResource( "particle", "particles/items_fx/aura_assault_p8.vpcf", context )
 	PrecacheResource( "particle", "particles/items_fx/aura_assault_p9.vpcf", context )
 	PrecacheResource( "particle", "particles/items_fx/aura_assault_p10.vpcf", context )
+	PrecacheResource( "particle", "particles/items_fx/aura_endurance_custom.vpcf", context )
 end
 
 -- Create the game mode when we activate
