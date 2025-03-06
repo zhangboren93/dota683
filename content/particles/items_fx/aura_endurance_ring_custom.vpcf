@@ -91,7 +91,7 @@
 			_class = "C_INIT_RemapTransformToVector"
 			m_nFieldOutput = 6
 			m_vInputMax = [ 255.0, 255.0, 255.0 ]
-			m_vOutputMax = [ 255.0, 255.0, 255.0 ]
+			m_vOutputMax = [ 1.0, 1.0, 1.0 ]
 			m_TransformInput = 
 			{
 				m_nControlPoint = 15
