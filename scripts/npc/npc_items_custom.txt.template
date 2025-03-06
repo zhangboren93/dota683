@@ -8024,7 +8024,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1250"	
+		"ItemCost"						"%ITEM_RECIPE_VEIL_OF_DISCORD_COST%"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -8033,7 +8033,7 @@
 		"ItemResult"					"item_veil_of_discord_datadriven"
 		"ItemRequirements"
 		{
-			"01"						"item_helm_of_iron_will;item_null_talisman_datadriven"
+			"01"						"%ITEM_RECIPE_VEIL_OF_DISCORD_CONTEXT%"
 		}
 	}
 	
@@ -8054,15 +8054,15 @@
 	
 	// Stats		
 	//-------------------------------------------------------------------------------------------------------------
-	"AbilityCooldown"				"30"
+	"AbilityCooldown"				"%ITEM_VEIL_OF_DISCORD_COOLDOWN%"
 	"AbilityCastRange"				"1000"
 	"AbilityCastPoint"				"0.0"
-	"AbilityManaCost"				"75"
+	"AbilityManaCost"				"%ITEM_VEIL_OF_DISCORD_MANA_COST%"
 	"AOEradius"						"600"
 	
 	// Item Info
 	//-------------------------------------------------------------------------------------------------------------
-	"ItemCost"						"2675"
+	"ItemCost"						"%ITEM_VEIL_OF_DISCORD_COST%"
 	"ItemShopTags"					"int;armor;regen_health;hard_to_tag"
 	"ItemQuality"					"rare"
 	"ItemAliases"					"vod;veil of discord"
@@ -8071,11 +8071,13 @@
 	"AbilityValues"
 	{
 		"bonus_health_regen"		"6"
-		"bonus_stats"				"6"
+		"bonus_int"					"%ITEM_VEIL_OF_DISCORD_INT%"
+		"bonus_agi"					"6"
+		"bonus_str"					"6"
 		"bonus_damage"				"6"
 		"bonus_armor"				"6"
 		"debuff_radius"				"600"  //Be sure to change AOEradius if debuff_radius is.
-		"resist_debuff_duration"	"25.0"
+		"resist_debuff_duration"	"%ITEM_VEIL_OF_DISCORD_DURATION%"
 		"resist_debuff"				"-25"
 	}
 	
@@ -8125,13 +8127,14 @@
 		{
 			"Passive"			"1"
 			"IsHidden"			"1"
+			"IsPurgable"		"%ITEM_VEIL_OF_DISCORD_PURGABLE%"
 			"Attributes" 		"MODIFIER_ATTRIBUTE_MULTIPLE"
 			
 			"Properties"
 			{
-				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"			"%bonus_stats"
-				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_stats"
-				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_stats"
+				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"			"%bonus_str"
+				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agi"
+				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_int"
 				"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"			"%bonus_health_regen"
 				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
 				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%bonus_armor"
