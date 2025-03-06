@@ -1,5 +1,6 @@
 function OnMSPanelCloseClicked() {
 	$.GetContextPanel().visible=false;
+	$.GetContextPanel().AddClass("panel-hidden")
 }
 function OnJuggWESelected(style) {
 	$.Msg("OnJuggWESelected " + style);
