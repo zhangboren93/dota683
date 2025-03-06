@@ -800,8 +800,9 @@
 		"Ability2"					"courier_go_to_secretshop_datadriven"		
 		"Ability4"					"courier_burst_datadriven"
 		"Ability5"					"courier_transfer_items_lua"
-		"Ability6"					"courier_use_clarity_datadriven"
-		"Ability7"					"courier_flying_upgrade_datadriven"		
+		"Ability6"					"courier_transfer_items_to_other_player_datadriven"
+		"Ability7"					"courier_use_clarity_datadriven"
+		"Ability8"					"courier_flying_upgrade_datadriven"		
 		"StatusHealth"				"75"		// Base health.
 		"VisionDaytimeRange"		"350"		// Range of vision during day light.
 		"VisionNighttimeRange"		"300"		// Range of vision at night time.

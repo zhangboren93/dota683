@@ -1329,6 +1329,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			CustomGameEventManager:Send_ServerToTeam(entity:GetTeam(), "courier_spawned", { id = tostring(entity:GetEntityIndex()), respawn = 1 })
 		end
 		entity:FindAbilityByName("courier_use_clarity_datadriven"):SetLevel(1)
+		entity:FindAbilityByName("courier_transfer_items_to_other_player_datadriven"):SetLevel(1)
 		-- Creates another minimap icon unit that moves with the courier
 		if is_respawn == 0 then
 			entity:SetThink(function()
