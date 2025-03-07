@@ -12085,14 +12085,6 @@
 			}
 		}
 	}
-	"courier_transfer_items_to_other_player_datadriven"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"courier_autodeliver"
-		"AbilityCooldown"				"1.0"
-	}
 	"unit_intrinstic_mechanism_datadriven"
 	{
 		"BaseClass"			"ability_datadriven"

@@ -571,6 +571,7 @@
 		"DOTA_Tooltip_modifier_courier_take_stash_return_to_base"					"Retrieving items"
 		"DOTA_Tooltip_ability_courier_use_clarity_datadriven"						"Use Clarity"
 		"DOTA_Tooltip_ability_courier_use_clarity_datadriven_Description"			"Use Clarity in the inventory on a hero"
+		"DOTA_Tooltip_ability_courier_transfer_items_to_other_player_datadriven"	"Transfer to Other Player"
 
 		// Abaddon
 		"DOTA_Tooltip_Ability_abaddon_death_coil_datadriven"						"Death Coil"

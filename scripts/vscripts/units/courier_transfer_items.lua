@@ -340,10 +340,51 @@ function modifier_courier_transfer_items_active_lua:OnOrder(event)
 		-- order executed by ability itself
 		return
 	end
+
+	local courier = event.unit
+	if courier:HasModifier("modifier_courier_transfer_items_active_lua") then
+		local issuer_player_id = event.issuer_player_index
+		local hero = PlayerResource:GetPlayer(issuer_player_id):GetAssignedHero()
+		if courier.target_hero ~= hero:GetEntityIndex() then
+			courier.prev_target_hero = courier.target_hero
+			print("Setting courier prev target as " .. courier.prev_target_hero)
+		end
+	end
+
 	if event.ability == nil or not (event.ability:GetName() == "courier_transfer_items_lua" 
 							     or event.ability:GetName() == "courier_burst_datadriven") then
 		CustomGameEventManager:Send_ServerToTeam(
 			event.unit:GetTeam(), "courier_end_transfer", { id = tostring(event.unit:GetEntityIndex()) })
 		self:GetParent():RemoveModifierByName("modifier_courier_transfer_items_active_lua")
 	end
+end
+
+function handleTransferToOther(event)
+	local caster = event.caster
+	local target_hero = caster.prev_target_hero
+	if target_hero == nil then
+		print("target hero nil")
+		return
+	end
+	local target_hero_entity = EntIndexToHScript(target_hero)
+	if not target_hero_entity:IsAlive() then
+		print("target hero death")
+		return
+	end
+	local has_item_to_transfer = false
+	local courier = caster
+	for i=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_9 do
+		local item = courier:GetItemInSlot(i)
+		if item ~= nil and item:GetPurchaser() == target_hero_entity and not item:IsCombineLocked() then
+			print("Has item to transfer " .. item:GetName())
+			has_item_to_transfer = true
+		end
+	end
+	if not has_item_to_transfer then
+		print("courier no item")
+		return
+	end
+	caster:CastAbilityNoTarget(
+		caster:FindAbilityByName("courier_transfer_items_lua"), 
+		target_hero_entity:GetPlayerID())
 end
