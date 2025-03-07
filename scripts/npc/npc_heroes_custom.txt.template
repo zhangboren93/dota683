@@ -4119,7 +4119,7 @@
 		"Ability3"		"static_field_datadriven"
 		"Ability4"		"hero_attack_point_adjust_lua"
 		"Ability5"		"generic_hidden"
-		"Ability5"		"%NPC_HERO_ZUUS_ABILITY6%"
+		"Ability6"		"%NPC_HERO_ZUUS_ABILITY6%"
 		"Ability7"		"generic_hidden"	
 		"Ability10"		"generic_hidden"
 		"Ability11"		"generic_hidden"
