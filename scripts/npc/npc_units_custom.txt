@@ -75,6 +75,7 @@
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"55"		// Damage range max.	
 		"StatusHealth"				"1100"		// Base health.
+		"StatusManaRegen"			"0"
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"68"		// Gold earned min.
 		"BountyGoldMax"				"75"		// Gold earned max.
@@ -109,6 +110,7 @@
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"55"		// Damage range max.	
 		"StatusHealth"				"950"		// Base health.
+		"StatusManaRegen"			"0"
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"81"		// Gold earned min.
 		"BountyGoldMax"				"83"		// Gold earned max.
@@ -163,6 +165,7 @@
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
 		"StatusHealth"				"600"		// Base health.
+		"StatusManaRegen"			"0"
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"48"		// Gold earned min.
 		"BountyGoldMax"				"53"		// Gold earned max.
@@ -218,6 +221,7 @@
 		"AttackDamageMin"			"50"		// Damage range min.
 		"AttackDamageMax"			"56"		// Damage range max.	
 		"StatusHealth"				"950"		// Base health.
+		"StatusManaRegen"			"0"
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"73"		// Gold earned min.
 		"BountyGoldMax"				"80"		// Gold earned max.
@@ -232,6 +236,7 @@
 		"AttackDamageMin"			"24"		// Damage range min.
 		"AttackDamageMax"			"27"		// Damage range max.	
 		"StatusHealth"				"600"		// Base health.
+		"StatusManaRegen"			"0"
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"27"		// Gold earned min.
 		"BountyGoldMax"				"32"		// Gold earned max.
@@ -244,6 +249,7 @@
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"55"		// Damage range max.	
 		"StatusHealth"				"1100"		// Base health.
+		"StatusManaRegen"			"0"
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"104"		// Gold earned min.
 		"BountyGoldMax"				"107"		// Gold earned max.
@@ -296,6 +302,7 @@
 		"AttackDamageMin"			"49"		// Damage range min.
 		"AttackDamageMax"			"54"		// Damage range max.	
 		"StatusHealth"				"1100"		// Base health.
+		"StatusManaRegen"			"0"
 		"BountyXP"					"119"		// Experience earn.
 		"BountyGoldMin"				"59"		// Gold earned min.
 		"BountyGoldMax"				"59"		// Gold earned max.
@@ -316,6 +323,7 @@
 		"BountyXP"					"62"		// Experience earn.
 		"BountyGoldMin"				"37"		// Gold earned min.
 		"BountyGoldMax"				"38"		// Gold earned max.
+		"StatusManaRegen"			"0"
 	}
 	"npc_dota_dark_troll_warlord_skeleton_warrior"
 	{
@@ -335,6 +343,7 @@
 		"AttackDamageMin"			"7"		// Damage range min.
 		"AttackDamageMax"			"10"		// Damage range max.	
 		"StatusHealth"				"300"		// Base health.
+		"StatusManaRegen"			"0"
 		"BountyXP"					"41"		// Experience earn.
 		"BountyGoldMin"				"15"		// Gold earned min.
 		"BountyGoldMax"				"17"		// Gold earned max.
