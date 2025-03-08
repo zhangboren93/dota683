@@ -22,6 +22,9 @@ modifier_hero_custom_aura_effect_683_lua = class({
 			elseif data.aura == 2 then
 				self.particleId = ParticleManager:CreateParticle("particles/items_fx/aura_endurance_custom.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
 				ParticleManager:SetParticleControl(self.particleId, 15, USER2COLOR[userid])
+			elseif data.aura == 3 then
+				self.particleId = ParticleManager:CreateParticle("particles/items_fx/aura_shivas_custom.vpcf", PATTACH_ABSORIGIN_FOLLOW, parent)
+				ParticleManager:SetParticleControl(self.particleId, 15, USER2COLOR[userid])
 			end
 			--ParticleManager:SetParticleControlEnt(self.particleId, 0, parent, PATTACH_POINT_FOLLOW, "attach_sword", Vector(0, 0, 0), true)
 		end

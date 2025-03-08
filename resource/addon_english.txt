@@ -3269,6 +3269,7 @@
 		"jugg-we-custom-format"								"Custom value as 123456"
 		"jugg-ae-style1"									"Style 1"
 		"jugg-ae-style2"									"Style 2"
+		"jugg-ae-style3"									"Style 3"
 		"ms-panel-slot-aura-effect"							"Aura Effect:"
 
 		"DOTA_HUD_BackpackHint"			"Backpack has been disabled."

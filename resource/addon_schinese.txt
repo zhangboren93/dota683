@@ -3292,6 +3292,7 @@
 		"jugg-we-custom-format"						"自定义值，如123456"
 		"jugg-ae-style1"									"样式1"
 		"jugg-ae-style2"									"样式2"
+		"jugg-ae-style2"									"样式3"
 		"ms-panel-slot-aura-effect"							"光环效果："
 
 		"DOTA_HUD_BackpackHint"			"背包已被禁用。"
