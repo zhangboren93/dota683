@@ -407,7 +407,8 @@ local function isCampEmpty(campIdx)
 	for j=1,#units do
 		if spawn_trigger:IsTouching(units[j]) 
 			and units[j]:GetName() ~= "npc_dota_templar_assassin_psionic_trap" 
-			and units[j]:GetName() ~= "npc_dota_techies_mines" then
+			and units[j]:GetName() ~= "npc_dota_techies_mines" 
+			and not units[j]:HasModifier("modifier_fire_remnant_dummy_buff_lua") then
 			return false
 		end
 	end
@@ -1011,7 +1012,8 @@ local function isCampBlockedByTechiesMine(trigger_name)
 	for j=1,#units do
 		if spawn_trigger:IsTouching(units[j]) then
 			if units[j]:GetName() == "npc_dota_techies_mines" 
-				or units[j]:GetUnitName() == "npc_dota_techies_remote_mine_datadriven" then
+				or units[j]:GetUnitName() == "npc_dota_techies_remote_mine_datadriven"
+				or units[j]:HasModifier("modifier_fire_remnant_dummy_buff_lua") then
 				blockedByMine = true
 			elseif units[j]:GetName() ~= "npc_dota_templar_assassin_psionic_trap" then
 				return false
