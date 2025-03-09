@@ -91,6 +91,11 @@
 			<RadioButton group="tb-weapon-effect" id="jugg-we-whit" text="#jugg-we-whit" style="color: white;" onactivate="OnJuggWESelected('whit')"/>
 			<RadioButton group="tb-weapon-effect" id="jugg-we-red" text="#jugg-we-red" style="color: red;" onactivate="OnJuggWESelected('red')"/>
 		</Panel>
+		<Panel id="sf-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 130px;">
+			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
+			<RadioButton checked="checked" group="sf-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: brown;" onactivate="OnJuggWESelected('deft')"/>
+			<!--RadioButton group="sf-weapon-effect" id="jugg-we-whit" text="#jugg-we-whit" style="color: white;" onactivate="OnJuggWESelected('whit')"/-->
+		</Panel>
 		<!--Panel id="storm-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 130px;">
 			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
 			<RadioButton checked="checked" group="storm-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>

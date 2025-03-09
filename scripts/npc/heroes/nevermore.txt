@@ -27,6 +27,9 @@
 	{
 		"particle"  "particles/units/heroes/hero_nevermore/nevermore_necro_souls.vpcf"
 		"soundfile" "soundevents/game_sounds_heroes/game_sounds_nevermore.vsndevts"
+		// custom 683 ambient effect
+		"particle"	"particles/units/heroes/hero_nevermore/nevermore_trail_default.vpcf"
+		"particle"	"particles/units/heroes/hero_nevermore/nevermore_trail_custom.vpcf"
 	}
 
 	"OnOwnerDied"

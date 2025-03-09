@@ -50,6 +50,9 @@ function OnMSIconPressed() {
 		} else if (hero_id == 109) {
 			// tb
 			children[11].visible = true;
+		} else if (hero_id == 11) {
+			// sf
+			children[12].visible = true;
 		}
 	//	else if (hero_id == 17) {
 	//		// storm spirit
