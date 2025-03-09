@@ -3,11 +3,11 @@ function handleIntervalThink(event)
 	caster:RemoveItem(caster:FindItemInInventory("item_aghanims_shard_roshan"))
 	caster:RemoveItem(caster:FindItemInInventory("item_ultimate_scepter_roshan"))
 	caster:RemoveItem(caster:FindItemInInventory("item_refresher_shard"))
-	--print("roshanNo " .. caster.roshanNo)
+	print("roshanNo " .. caster.roshanNo)
 	if caster.roshanNo == nil then
 		return
 	end
-	if caster.roshanNo > 3 and not caster:HasItemInInventory("item_cheese") then
+	if caster.roshanNo > 2 and not caster:HasItemInInventory("item_cheese") then
 		caster:AddItemByName("item_cheese")
 	end
 
