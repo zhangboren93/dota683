@@ -2179,8 +2179,8 @@
 		"DOTA_Tooltip_Ability_slark_shadow_dance_datadriven_bonus_movement_speed"			"%MOVEMENT SPEED:"
 		"DOTA_Tooltip_modifier_slark_shadow_dance_passive_active"							"Barracuda Regen"
 		"DOTA_Tooltip_modifier_slark_shadow_dance_passive_active_Description"				"Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% bonus movement speed and regenerating a certain percentage of max HP per second."
-		"DOTA_Tooltip_modifier_slark_shadow_dance_active"									"Shadow Dance"
-		"DOTA_Tooltip_modifier_slark_shadow_dance_active_Description"						"Invisible within your cloud of smoke."
+		"DOTA_Tooltip_modifier_slark_shadow_dance_active_lua"									"Shadow Dance"
+		"DOTA_Tooltip_modifier_slark_shadow_dance_active_lua_Description"						"Invisible within your cloud of smoke."
 		//Sniper
 		"DOTA_Tooltip_ability_sniper_headshot_datadriven"										"Headshot"
 		"DOTA_Tooltip_ability_sniper_headshot_datadriven_Description"							"Sniper increases his accuracy, giving him a chance to deal extra damage. Headshots briefly slow enemy movement and attack speed by 100%%. Attacks which proc cannot miss."

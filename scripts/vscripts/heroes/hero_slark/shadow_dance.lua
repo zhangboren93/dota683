@@ -1,3 +1,4 @@
+
 function handleIntervalThink(event)
 	local caster = event.caster
 	local team = caster:GetTeam()
@@ -7,8 +8,17 @@ function handleIntervalThink(event)
 	if team == DOTA_TEAM_GOODGUYS then
 		enemy_team = DOTA_TEAM_BADGUYS
 	end
-	if (caster:IsInvisible() or not IsLocationVisible(enemy_team, caster:GetAbsOrigin()))
-		and not caster:HasModifier("modifier_slark_shadow_dance_disabled_by_neutral") then
+	local shouldApplyPassive = false
+	if caster:HasModifier("modifier_slark_shadow_dance_active_lua") then
+		shouldApplyPassive = true
+	elseif caster:HasModifier("modifier_slark_shadow_dance_disabled_by_neutral") then
+		shouldApplyPassive = false
+	elseif not IsLocationVisible(enemy_team, caster:GetAbsOrigin()) then
+		shouldApplyPassive = true
+	elseif caster:IsInvisible() and not caster:HasModifier("modifier_truesight") then
+		shouldApplyPassive = true
+	end
+	if shouldApplyPassive then
 		if    not caster:HasModifier("modifier_slark_shadow_dance_passive_active") 
 		  and not caster:HasModifier("modifier_slark_shadow_dance_passive_activating") then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_slark_shadow_dance_passive_activating", { duration = 0.5})
@@ -57,7 +67,8 @@ end
 function handleSpellStart(event)
 	local caster = event.caster
 	local ability = event.ability
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_slark_shadow_dance_active", { duration = 4 })
+	caster:AddNewModifier(caster, ability, "modifier_slark_shadow_dance_active_lua", { duration = 4 })
+	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_slark_shadow_dance_active", { duration = 4 })
 	caster:EmitSound("Hero_Slark.ShadowDance")
 	if caster.shadow_dance_pid ~= nil then
 		ParticleManager:DestroyParticle(caster.shadow_dance_pid, false)
@@ -70,12 +81,4 @@ function handleSpellStart(event)
 		unit:AddNewModifier(caster, unit, "modifier_slark_shadow_dance_particle_lua", {})
 		unit:AddNewModifier(caster, unit, "modifier_kill", { duration = 4 })
 	end)
-end
-
-function handleActiveDestroy(event)
-	local caster = event.caster
-	if caster.shadow_dance_pid ~= nil then
-		ParticleManager:DestroyParticle(caster.shadow_dance_pid, false)
-		caster.shadow_dance_pid = nil
-	end
 end

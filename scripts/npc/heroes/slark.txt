@@ -119,21 +119,6 @@
 					}
 				}
 			}
-			"modifier_slark_shadow_dance_active"
-			{
-				"States"
-				{
-					"MODIFIER_STATE_INVISIBLE"		"MODIFIER_STATE_VALUE_ENABLED"	
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"heroes/hero_slark/shadow_dance.lua"
-						"Function"			"handleActiveDestroy"
-					}
-				}
-			}
 		}
 	}
 }
