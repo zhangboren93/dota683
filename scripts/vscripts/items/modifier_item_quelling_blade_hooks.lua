@@ -14,7 +14,7 @@ function modifier_item_quelling_blade_hooks_lua:GetModifierProcAttack_BonusDamag
 	local attacker = event.attacker
 	local target = event.target
 	local damage = event.damage
-	if not target:IsCreep() then return end
+	if not target:IsCreep() or target:GetTeam() == attacker:GetTeam() then return end
 	if attacker:IsRangedAttacker() then
 		return damage * 12 / 100
 	else
