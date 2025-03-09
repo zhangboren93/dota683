@@ -2168,6 +2168,7 @@
 		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven_duration"			"DURATION:"
 		"DOTA_Tooltip_modifier_slark_essence_shift_datadriven_buff_counter"		"Essence Shift"
 		"DOTA_Tooltip_modifier_slark_essence_shift_datadriven_debuff_counter"	"Essence Shift"
+		"DOTA_Tooltip_Ability_slark_pounce_pounce_damage"						"DAMAGE:"
 		"DOTA_Tooltip_modifier_slark_pounce_leash_lua"							"Leashed"
 		"DOTA_Tooltip_modifier_slark_pounce_leash_lua_Description"				"Leashed to Slark, can only move a limited distance away."
 		"DOTA_Tooltip_ability_slark_shadow_dance_datadriven"								"Shadow Dance"

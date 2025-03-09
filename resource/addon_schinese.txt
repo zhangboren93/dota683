@@ -2182,6 +2182,7 @@
 		"DOTA_Tooltip_Ability_slark_essence_shift_datadriven_duration"					"持续时间："
 		"DOTA_Tooltip_modifier_slark_essence_shift_datadriven_buff_counter"				"能量转移"
 		"DOTA_Tooltip_modifier_slark_essence_shift_datadriven_debuff_counter"			"能量转移"
+		"DOTA_Tooltip_Ability_slark_pounce_pounce_damage"								"伤害："
 		"DOTA_Tooltip_modifier_slark_pounce_leash_lua"									"被束缚"
 		"DOTA_Tooltip_modifier_slark_pounce_leash_lua_Description"						"被斯拉克束缚了，只能在有限距离内移动。"
 		"DOTA_Tooltip_ability_slark_shadow_dance_datadriven"							"暗影之舞"
@@ -3292,7 +3293,7 @@
 		"jugg-we-custom-format"						"自定义值，如123456"
 		"jugg-ae-style1"									"样式1"
 		"jugg-ae-style2"									"样式2"
-		"jugg-ae-style2"									"样式3"
+		"jugg-ae-style3"									"样式3"
 		"ms-panel-slot-aura-effect"							"光环效果："
 
 		"DOTA_HUD_BackpackHint"			"背包已被禁用。"
