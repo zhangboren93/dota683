@@ -116,12 +116,11 @@ function modifier_rattletrap_cog_buff_lua:OnAttacked(keys)
 		parent:Kill(nil, caster)
 	else
 		self.health = self.health - 1
-		
 		if self.health <= 0 then
 			parent:EmitSound("Hero_Rattletrap.Power_Cog.Destroy")
 			parent:Kill(nil, keys.attacker)
-		else
-			parent:SetHealth(self.health)
+		--else
+		--	parent:SetHealth(self.health)
 		end
 	end
 end
