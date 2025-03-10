@@ -163,7 +163,7 @@ function Activate()
 	LinkLuaModifier( "modifier_bounty_hunter_track_aura_lua", 	"heroes/hero_bounty_hunter/modifier_bounty_hunter_track_aura.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bounty_hunter_track_effect_lua",	"heroes/hero_bounty_hunter/modifier_bounty_hunter_track_effect.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_beastmaster_wild_axes_damage_lua", "heroes/hero_beastmaster/modifier_beastmaster_wild_axes_damage.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_lone_druid_rabid_lua", 			"heroes/hero_lone_druid/modifier_lone_druid_rabid.lua", LUA_MODIFIER_MOTION_NONE)
+	--LinkLuaModifier( "modifier_lone_druid_rabid_lua", 			"heroes/hero_lone_druid/modifier_lone_druid_rabid.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_thunder_strike_after_death_lua", "heroes/hero_disruptor/modifier_thunder_strike_after_death.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_blood_rage_lua",					"heroes/hero_bloodseeker/bloodrage.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_death_prophet_silence_lua",					"heroes/hero_death_prophet/silence.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1887,10 +1887,10 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		parent:AddNewModifier(caster, ability, "modifier_beastmaster_wild_axes_damage_lua", {})
-	elseif event.name_const == "modifier_lone_druid_rabid" then
+--[[	elseif event.name_const == "modifier_lone_druid_rabid" then
 		local ability = EntIndexToHScript(event.entindex_ability_const)
 		local caster = EntIndexToHScript(event.entindex_caster_const)
-		parent:AddNewModifier(caster, ability, "modifier_lone_druid_rabid_lua", {})
+		parent:AddNewModifier(caster, ability, "modifier_lone_druid_rabid_lua", {})]]--
 	elseif event.name_const == "modifier_fountain_aura_buff" then
 		local caster = EntIndexToHScript(event.entindex_caster_const)
 		if not parent:HasModifier("modifier_fountain_aura_tp_persist_datadriven") then
@@ -2333,7 +2333,7 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 		elseif event.value_name_const == "disarm_duration" then
 			event.value = 0.5 + 0.5 * ability_wex:GetLevel()
 		end
-		return true	]]--
+		return true
 	elseif ability:GetName() == "lone_druid_rabid" then
 		if event.value_name_const == "rabid_duration" then
 			local ability_synergy = caster:FindAbilityByName("lone_druid_synergy_datadriven")
@@ -2342,7 +2342,7 @@ function CAddonTemplateGameMode:AbilityTuningValueFilter(event)
 			end
 			event.value = event.value + ability_synergy:GetSpecialValueFor("rabid_duration_bonus")
 			return true
-		end
+		end	]]--
 	elseif ability:GetName() == "item_manta" then
 		if event.value_name_const == "images_take_damage_percent" then
 			if caster:IsRangedAttacker() then
