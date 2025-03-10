@@ -92,9 +92,10 @@
 			<RadioButton group="tb-weapon-effect" id="jugg-we-red" text="#jugg-we-red" style="color: red;" onactivate="OnJuggWESelected('red')"/>
 		</Panel>
 		<Panel id="sf-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 130px;">
-			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
-			<RadioButton checked="checked" group="sf-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: brown;" onactivate="OnJuggWESelected('deft')"/>
-			<!--RadioButton group="sf-weapon-effect" id="jugg-we-whit" text="#jugg-we-whit" style="color: white;" onactivate="OnJuggWESelected('whit')"/-->
+			<Label text="#ms-panel-slot-attack-projectile" style="color: white;font-size: 24px; margin: 5px;"/>
+			<RadioButton checked="checked" group="sf-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: grey;" onactivate="OnJuggWESelected('deft')"/>
+			<RadioButton group="sf-weapon-effect" id="jugg-we-orange" text="#jugg-we-style-1" style="color: orange;" onactivate="OnJuggWESelected('orange')"/>
+			<RadioButton group="sf-weapon-effect" id="jugg-we-red" text="#jugg-we-red" style="color: red;" onactivate="OnJuggWESelected('red')"/>
 		</Panel>
 		<!--Panel id="storm-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 130px;">
 			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>

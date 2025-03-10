@@ -3294,8 +3294,10 @@
 		"jugg-ae-style1"									"样式1"
 		"jugg-ae-style2"									"样式2"
 		"jugg-ae-style3"									"样式3"
+		"jugg-we-style-1"									"样式1"
 		"ms-panel-slot-aura-effect"							"光环效果："
-
+		"ms-panel-slot-attack-projectile"					"弹道："
+		
 		"DOTA_HUD_BackpackHint"			"背包已被禁用。"
 		"DOTA_Hud_Pregame_Random_Tooltip"	"从经常使用的英雄中随机选择一个。在部分游戏模式中会获得 200 额外初始金钱。"
 
