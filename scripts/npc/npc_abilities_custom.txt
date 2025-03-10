@@ -16352,6 +16352,8 @@
 		{
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ursa.vsndevts"
 			"particle"						"particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
+			// 683 custom weapon effect
+			"particle"						"particles/units/heroes/hero_ursa/ursa_wendigo_arms_ambient_custom.vpcf"
 		}
 		
 		"OnSpellStart"

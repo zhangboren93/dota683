@@ -97,6 +97,12 @@
 			<RadioButton group="sf-weapon-effect" id="jugg-we-orange" text="#jugg-we-style-1" style="color: orange;" onactivate="OnJuggWESelected('orange')"/>
 			<RadioButton group="sf-weapon-effect" id="jugg-we-red" text="#jugg-we-red" style="color: red;" onactivate="OnJuggWESelected('red')"/>
 		</Panel>
+		<Panel id="ursa-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 130px;">
+			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
+			<RadioButton checked="checked" group="ursa-weapon-effect" id="jugg-we-default" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('deft')"/>
+			<RadioButton group="ursa-weapon-effect" id="jugg-we-blue" text="#jugg-we-blue" style="color: blue;" onactivate="OnJuggWESelected('blue')"/>
+			<RadioButton group="ursa-weapon-effect" id="jugg-we-red"  text="#jugg-we-red"  style="color: red;"  onactivate="OnJuggWESelected('red')"/>
+		</Panel>
 		<!--Panel id="storm-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 130px;">
 			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
 			<RadioButton checked="checked" group="storm-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>

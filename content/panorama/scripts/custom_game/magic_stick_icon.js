@@ -53,6 +53,9 @@ function OnMSIconPressed() {
 		} else if (hero_id == 11) {
 			// sf
 			children[12].visible = true;
+		} else if (hero_id == 70) {
+			// ursa
+			children[13].visible = true;
 		}
 	//	else if (hero_id == 17) {
 	//		// storm spirit
