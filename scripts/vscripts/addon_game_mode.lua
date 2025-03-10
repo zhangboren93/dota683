@@ -1595,7 +1595,7 @@ function HandleEntityKilled(self, entityIdx, attackerIdx, inflictorIdx)
 		and attacker:IsControllableByAnyPlayer()
 		and attacker:GetTeam() ~= entity:GetTeam() then
 		local kpid = attacker:GetPlayerOwnerID()
-		CustomGameEventManager:Send_ServerToAllClients("player_ward_killed", {
+		CustomGameEventManager:Send_ServerToTeam(attacker:GetTeam(), "player_ward_killed", {
 			kpid = kpid, ward = entity:GetName() })
 	end
 end
