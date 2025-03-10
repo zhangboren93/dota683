@@ -199,6 +199,18 @@ ember_spirit_activate_fire_remnant_datadriven = class({
             caster:GiveMana(150)
 			return
 		end
+		if caster:HasModifier("modifier_ember_spirit_sleight_of_fist_in_progress") then
+			print("Casting activate_remnant during sleigth of fist.")
+			-- wait sleight of fist ends
+            caster:GiveMana(150)
+			caster:AddNewModifier(caster, self, "modifier_ember_spirit_activate_remnant_cast_after_sleight_lua", {
+				duration = 5,
+				target_x = target.x,
+				target_y = target.y,
+			})
+			return 
+		end
+
 		-- Inherit variables
 		local ability = self
 		print("Adding activate modifier " .. index)
