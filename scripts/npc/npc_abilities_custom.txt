@@ -8161,44 +8161,6 @@
 				"min_slow"			"20.0"
 		}
 	}
-	//=================================================================================================================
-	// Lone Druid: Rabid
-	//=================================================================================================================
-	"lone_druid_rabid"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5413"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"FightRecapLevel"				"1"
-		"AbilitySound"					"Hero_LoneDruid.Rabid"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_2"
-		"AbilityCastGestureSlot"		"DEFAULT"
-		"AbilityCastPoint"				"0.5 0.5 0.5 0.5"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30"
-	
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"50 50 50 50"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"bonus_attack_speed"			"0"		
-				"bonus_move_speed"				"0"
-				"bonus_attack_speed_tooltip"	"10 20 30 40"
-				"bonus_move_speed_tooltip"		"5 10 15 20"
-				"rabid_duration"		"10"
-		}
-	}
 	// Rewrite of Lone Druid Synergy
 	// Author: Noya
 	// Date: 16.01.2015.

@@ -3607,7 +3607,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
-		"ItemCost"						"4125"
+		"ItemCost"						"%ITEM_ORCHID_COST%"
 		"ItemShopTags"					"attack_speed;damage;regen_mana;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"orchid malevolence;silence"
@@ -3653,7 +3653,7 @@
 		"ItemResult"					"item_cyclone"
 		"ItemRequirements"
 		{
-			"01"						"item_staff_of_wizardry;item_void_stone_datadriven;item_sobi_mask_datadriven"
+			"01"						"%ITEM_RECIPE_CYCLONE_CONTEXT%"
 		}
 	}
 
@@ -3673,7 +3673,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"700"
+		"AbilityCastRange"				"%ITEM_CYCLONE_CAST_RANGE%"
 		"AbilityCastPoint"				"0.0"
 
 		// Stats		
@@ -3683,8 +3683,8 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"75"
-		"ItemCost"						"2850"
+		"AbilityManaCost"				"%ITEM_CYCLONE_MANA_COST%"
+		"ItemCost"						"%ITEM_CYCLONE_COST%"
 		"ItemShopTags"					"int;regen_mana;move_speed;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"cyclone euls;eul's scepter of divinity"
@@ -8240,7 +8240,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{		
-			"bonus_intellect"		"25"
+			"bonus_intellect"		"%ITEM_ROD_OF_ATOS_INT%"
 			"duration"				"4.0"
 			"bonus_health"			"350"
 			"slow_percentage_active"	"-60"
