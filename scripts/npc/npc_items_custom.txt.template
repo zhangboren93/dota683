@@ -3530,13 +3530,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"35.0"
-
+		"AbilityCooldown"				"%ITEM_SHEEPSTICK_COOLDOWN%"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
-		"ItemCost"						"5675"
+		"ItemCost"						"%ITEM_SHEEPSTICK_COST%"
 		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"hex;sheepstick;scythe of vyse"
@@ -4588,7 +4587,7 @@
 		"AbilityTextureName"			"item_recipe_refresher"
 		"ItemRequirements"
 		{
-			"01"						"item_pers_datadriven;item_oblivion_staff_datadriven"
+			"01"						"%ITEM_RECIPE_REFRESHER_CONTEXT%"
 		}
 		
 	}
@@ -4612,7 +4611,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"375"
-		"ItemCost"						"5225"
+		"ItemCost"						"%ITEM_REFRESHER_COST%"
 		"ItemShopTags"					"regen_health;regen_mana;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"refresher orb"
@@ -4628,11 +4627,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_health_regen"			"5"
-			"bonus_damage"					"40"
+			"bonus_health_regen"			"%ITEM_REFRESHER_HP_REGEN%"
+			"bonus_damage"					"%ITEM_REFRESHER_DAMAGE%"
 			"bonus_mana_regen_percentage"	"200"
-			"bonus_attack_speed"			"10"
-			"bonus_intellect"				"6"
+			"bonus_attack_speed"			"%ITEM_REFRESHER_ATK_SPEED%"
+			"bonus_intellect"				"%ITEM_REFRESHER_INT%"
 		}
 
 		"Modifiers"
@@ -5366,7 +5365,7 @@
 		"ScriptFile"					"items/item_vanguard.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"item_vanguard"
-		"ItemCost"						"2225"
+		"ItemCost"						"%ITEM_VANGUARD_COST%"
 		"ItemShopTags"					"regen_health;block;health_pool"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"vg;vanguard"
@@ -5375,10 +5374,11 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"250"
-			"bonus_health_regen"	"6.0"
-			"block_damage_melee"	"40"
-			"block_damage_ranged"	"20"
-			"block_chance"			"67"
+			"bonus_health_regen"	"%ITEM_VANGUARD_HP_REGEN%"
+			"block_damage_melee"	"%ITEM_VANGUARD_BLOCK_MELEE%"
+			"block_damage_ranged"	"%ITEM_VANGUARD_BLOCK_RANGED%"
+			"block_chance"			"%ITEM_VANGUARD_PROC_CHANCE%"
+			"work_for_illusion"		"%ITEM_VANGUARD_ILLUSION%"
 		}
 	}
 

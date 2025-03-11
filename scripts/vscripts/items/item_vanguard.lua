@@ -14,6 +14,7 @@ function modifier_item_vanguard_lua:OnCreated()
 	self.block_damage_melee = ability:GetSpecialValueFor("block_damage_melee")
 	self.block_damage_ranged = ability:GetSpecialValueFor("block_damage_ranged")
 	self.block_chance		= ability:GetSpecialValueFor("block_chance")
+	self.work_for_illusion	= ability:GetSpecialValueFor("work_for_illusion")
 end
 
 function modifier_item_vanguard_lua:DeclareFunctions()
@@ -34,7 +35,7 @@ end
 
 function modifier_item_vanguard_lua:GetModifierPhysical_ConstantBlock(event)
 	local parent = self:GetParent()
-	if parent:IsIllusion() then return 0 end
+	if parent:IsIllusion() and self.work_for_illusion == 0 then return 0 end
 
 	if bit.band(event.damage_flags, DOTA_DAMAGE_FLAG_BYPASSES_PHYSICAL_BLOCK) ~= 0 then return end
 
