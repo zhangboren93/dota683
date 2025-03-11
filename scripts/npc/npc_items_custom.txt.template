@@ -3530,13 +3530,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"35.0"
-
+		"AbilityCooldown"				"%ITEM_SHEEPSTICK_COOLDOWN%"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
-		"ItemCost"						"5675"
+		"ItemCost"						"%ITEM_SHEEPSTICK_COST%"
 		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"hex;sheepstick;scythe of vyse"
