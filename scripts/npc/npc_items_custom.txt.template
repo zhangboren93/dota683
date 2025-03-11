@@ -4587,7 +4587,7 @@
 		"AbilityTextureName"			"item_recipe_refresher"
 		"ItemRequirements"
 		{
-			"01"						"item_pers_datadriven;item_oblivion_staff_datadriven"
+			"01"						"%ITEM_RECIPE_REFRESHER_CONTEXT%"
 		}
 		
 	}
@@ -4611,7 +4611,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"375"
-		"ItemCost"						"5225"
+		"ItemCost"						"%ITEM_REFRESHER_COST%"
 		"ItemShopTags"					"regen_health;regen_mana;hard_to_tag"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"refresher orb"
@@ -4627,11 +4627,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_health_regen"			"5"
-			"bonus_damage"					"40"
+			"bonus_health_regen"			"%ITEM_REFRESHER_HP_REGEN%"
+			"bonus_damage"					"%ITEM_REFRESHER_DAMAGE%"
 			"bonus_mana_regen_percentage"	"200"
-			"bonus_attack_speed"			"10"
-			"bonus_intellect"				"6"
+			"bonus_attack_speed"			"%ITEM_REFRESHER_ATK_SPEED%"
+			"bonus_intellect"				"%ITEM_REFRESHER_INT%"
 		}
 
 		"Modifiers"
