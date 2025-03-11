@@ -5365,7 +5365,7 @@
 		"ScriptFile"					"items/item_vanguard.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"item_vanguard"
-		"ItemCost"						"2225"
+		"ItemCost"						"%ITEM_VANGUARD_COST%"
 		"ItemShopTags"					"regen_health;block;health_pool"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"vg;vanguard"
@@ -5374,10 +5374,11 @@
 		"AbilityValues"
 		{
 			"bonus_health"			"250"
-			"bonus_health_regen"	"6.0"
-			"block_damage_melee"	"40"
-			"block_damage_ranged"	"20"
-			"block_chance"			"67"
+			"bonus_health_regen"	"%ITEM_VANGUARD_HP_REGEN%"
+			"block_damage_melee"	"%ITEM_VANGUARD_BLOCK_MELEE%"
+			"block_damage_ranged"	"%ITEM_VANGUARD_BLOCK_RANGED%"
+			"block_chance"			"%ITEM_VANGUARD_PROC_CHANCE%"
+			"work_for_illusion"		"%ITEM_VANGUARD_ILLUSION%"
 		}
 	}
 
