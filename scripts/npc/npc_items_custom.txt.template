@@ -6209,14 +6209,14 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"165"
+		"AbilityManaCost"				"%ITEM_MANTA_MANA_COST%"
 		"ItemCost"						"4950"
 		"ItemShopTags"					"agi;str;int;attack_speed;move_speed;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"manta style"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -6236,7 +6236,7 @@
 			"tooltip_damage_outgoing_ranged"			"28"
 			"invuln_duration"		"0.1"
 			"vision_radius"			"1000"
-			"cooldown_ranged"		"50"
+			"cooldown_ranged"		"%ITEM_MANTA_COOLDOWN_RANGED%"
 			"tooltip_images_take_damage_percent_ranged"	"400"
 		}
 	}
