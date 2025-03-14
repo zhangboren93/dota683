@@ -4908,7 +4908,7 @@
 		"ItemShopTags"					"str;damage;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bkb;black king bar"
-		"ItemSellable"					"0"
+		"ItemSellable"					"%ITEM_BKB_SELLABLE%"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
 		"AbilityValues"
