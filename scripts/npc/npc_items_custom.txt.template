@@ -5242,7 +5242,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1325"	
+		"ItemCost"						"%ITEM_RECIPE_LINKEN_COST%"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -5270,12 +5270,12 @@
 
 		
 		"AbilityCastRange"				"700"
-		"AbilityCooldown"				"17.0"
+		"AbilityCooldown"				"%ITEM_LINKEN_COOLDOWN%"
 
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5175"
+		"ItemCost"						"%ITEM_LINKEN_COST%"
 		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"ls;linken's sphere"
@@ -5285,14 +5285,14 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"						"10"
+			"bonus_damage"						"%ITEM_LINKEN_DAMAGE%"
 			"bonus_mana_regen_percentage"		"150"
 			"bonus_mana_regen"					"0"
-			"bonus_health_regen"				"6"
+			"bonus_health_regen"				"%ITEM_LINKEN_HP_REGEN%"
 			"bonus_all_stats"					"15"
 			"upgrade_absorb_duration"			"0.0"
 			"damage_absorb"						"0"
-			"block_cooldown"					"17.0"
+			"block_cooldown"					"%ITEM_LINKEN_COOLDOWN%"
 		}
 	}
 
