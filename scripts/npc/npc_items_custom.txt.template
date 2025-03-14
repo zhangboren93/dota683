@@ -9115,7 +9115,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3300"
+		"ItemCost"						"%ITEM_SOUL_BOOSTER_COST%"
 		"ItemShopTags"					"regen_health;regen_mana;health_pool;mana_pool"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"soul booster"
@@ -9124,10 +9124,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_health"			"450"
-			"bonus_mana"			"400"
+			"bonus_health"			"%ITEM_SOUL_BOOSTER_HEALTH%"
+			"bonus_mana"			"%ITEM_SOUL_BOOSTER_MANA%"
 			"bonus_mana_regen_pct"	"100"
-			"bonus_health_regen"	"4"
+			"bonus_health_regen"	"%ITEM_SOUL_BOOSTER_HP_REGEN%"
 		}
 		"Modifiers"
 		{
