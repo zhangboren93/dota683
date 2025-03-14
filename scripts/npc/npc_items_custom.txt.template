@@ -5018,7 +5018,7 @@
 			"bonus_hp_regen"		"0"
 			"bonus_armor"			"15"
 			"aura_radius"			"900"
-			"aura_attack_speed"		"-40"
+			"aura_attack_speed"		"%ITEM_SHIVAS_GUARD_ATTACK_SPEED%"
 			"blast_damage"			"200"
 			"blast_movement_speed"	"-40"
 			"blast_debuff_duration"	"4.0"
