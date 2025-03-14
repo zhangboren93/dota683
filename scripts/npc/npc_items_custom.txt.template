@@ -4750,7 +4750,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1200"	
+		"ItemCost"						"%ITEM_RECIPE_HEART_COST%"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4779,7 +4779,7 @@
 		
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.0"
+		"AbilityCooldown"				"%ITEM_HEART_COOLDOWN_RANGED%"
 			
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4793,12 +4793,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"					"40"
-			"bonus_health"						"300"
-			"health_regen_percent_per_second"	"2"
-			"cooldown_melee"					"4"
+			"bonus_strength"					"%ITEM_HEART_COOLDOWN_STR%"
+			"bonus_health"						"%ITEM_HEART_COOLDOWN_HEALTH%"
+			"health_regen_percent_per_second"	"%ITEM_HEART_COOLDOWN_HP_REGEN_PERCENT%"
+			"cooldown_melee"					"%ITEM_HEART_COOLDOWN_MELEE%"
 		}
-		
+
 		"Modifiers"
 		{
 			"modifier_item_heart_datadriven"
@@ -4908,7 +4908,7 @@
 		"ItemShopTags"					"str;damage;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bkb;black king bar"
-		"ItemSellable"					"0"
+		"ItemSellable"					"%ITEM_BKB_SELLABLE%"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
 		"AbilityValues"
@@ -5018,7 +5018,7 @@
 			"bonus_hp_regen"		"0"
 			"bonus_armor"			"15"
 			"aura_radius"			"900"
-			"aura_attack_speed"		"-40"
+			"aura_attack_speed"		"%ITEM_SHIVAS_GUARD_ATTACK_SPEED%"
 			"blast_damage"			"200"
 			"blast_movement_speed"	"-40"
 			"blast_debuff_duration"	"4.0"
@@ -5242,7 +5242,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1325"	
+		"ItemCost"						"%ITEM_RECIPE_LINKEN_COST%"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -5270,12 +5270,12 @@
 
 		
 		"AbilityCastRange"				"700"
-		"AbilityCooldown"				"17.0"
+		"AbilityCooldown"				"%ITEM_LINKEN_COOLDOWN%"
 
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5175"
+		"ItemCost"						"%ITEM_LINKEN_COST%"
 		"ItemShopTags"					"regen_health;regen_mana;str;agi;int;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"ls;linken's sphere"
@@ -5285,14 +5285,14 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"						"10"
+			"bonus_damage"						"%ITEM_LINKEN_DAMAGE%"
 			"bonus_mana_regen_percentage"		"150"
 			"bonus_mana_regen"					"0"
-			"bonus_health_regen"				"6"
+			"bonus_health_regen"				"%ITEM_LINKEN_HP_REGEN%"
 			"bonus_all_stats"					"15"
 			"upgrade_absorb_duration"			"0.0"
 			"damage_absorb"						"0"
-			"block_cooldown"					"17.0"
+			"block_cooldown"					"%ITEM_LINKEN_COOLDOWN%"
 		}
 	}
 
@@ -6209,14 +6209,14 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"165"
+		"AbilityManaCost"				"%ITEM_MANTA_MANA_COST%"
 		"ItemCost"						"4950"
 		"ItemShopTags"					"agi;str;int;attack_speed;move_speed;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"manta style"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -6236,7 +6236,7 @@
 			"tooltip_damage_outgoing_ranged"			"28"
 			"invuln_duration"		"0.1"
 			"vision_radius"			"1000"
-			"cooldown_ranged"		"50"
+			"cooldown_ranged"		"%ITEM_MANTA_COOLDOWN_RANGED%"
 			"tooltip_images_take_damage_percent_ranged"	"400"
 		}
 	}
@@ -9115,7 +9115,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3300"
+		"ItemCost"						"%ITEM_SOUL_BOOSTER_COST%"
 		"ItemShopTags"					"regen_health;regen_mana;health_pool;mana_pool"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"soul booster"
@@ -9124,10 +9124,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_health"			"450"
-			"bonus_mana"			"400"
+			"bonus_health"			"%ITEM_SOUL_BOOSTER_HEALTH%"
+			"bonus_mana"			"%ITEM_SOUL_BOOSTER_MANA%"
 			"bonus_mana_regen_pct"	"100"
-			"bonus_health_regen"	"4"
+			"bonus_health_regen"	"%ITEM_SOUL_BOOSTER_HP_REGEN%"
 		}
 		"Modifiers"
 		{
