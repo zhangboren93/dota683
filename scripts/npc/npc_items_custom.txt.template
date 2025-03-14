@@ -4750,7 +4750,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1200"	
+		"ItemCost"						"%ITEM_RECIPE_HEART_COST%"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -4779,7 +4779,7 @@
 		
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"6.0"
+		"AbilityCooldown"				"%ITEM_HEART_COOLDOWN_RANGED%"
 			
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4793,12 +4793,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"					"40"
-			"bonus_health"						"300"
-			"health_regen_percent_per_second"	"2"
-			"cooldown_melee"					"4"
+			"bonus_strength"					"%ITEM_HEART_COOLDOWN_STR%"
+			"bonus_health"						"%ITEM_HEART_COOLDOWN_HEALTH%"
+			"health_regen_percent_per_second"	"%ITEM_HEART_COOLDOWN_HP_REGEN_PERCENT%"
+			"cooldown_melee"					"%ITEM_HEART_COOLDOWN_MELEE%"
 		}
-		
+
 		"Modifiers"
 		{
 			"modifier_item_heart_datadriven"
