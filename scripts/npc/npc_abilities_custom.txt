@@ -28128,7 +28128,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"FightRecapLevel"				"1"
 		"AbilityTextureName"			"shadow_shaman_voodoo"
 
@@ -28182,6 +28182,7 @@
 			{
 				"EffectName"									 "particles/units/heroes/hero_shadowshaman/shadowshaman_voodoo.vpcf"
 				"ModelName"										 "models/props_gameplay/chicken.vmdl"
+				"IsPurgable"									 "1"
 				"Duration"										 "%duration"
 				"Properties"
 				{
