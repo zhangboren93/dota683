@@ -1,5 +1,5 @@
 modifier_courier_minimap_icon_follow_lua = class({
-	OnCreated = function(self) self:StartIntervalThink(1) end,
+	OnCreated = function(self) self:StartIntervalThink(0.5) end,
 	OnIntervalThink = function(self) 
 		if not IsServer() then return end
 		self:GetParent():SetAbsOrigin(self:GetCaster():GetAbsOrigin())
