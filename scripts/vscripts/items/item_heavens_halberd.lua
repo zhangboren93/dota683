@@ -30,5 +30,4 @@ function item_heavens_halberd_datadriven_on_spell_start(keys)
 		duration = keys.DisarmDurationRanged
 	end
 	keys.target:AddNewModifier(keys.caster, keys.ability, "modifier_item_heavens_halberd_datadriven_disarm", { duration = duration })
-	keys.target:AddNewModifier(keys.caster, keys.ability, "modifier_disarmed", { duration = duration })
 end

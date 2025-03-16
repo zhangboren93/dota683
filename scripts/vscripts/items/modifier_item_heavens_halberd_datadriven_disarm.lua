@@ -27,12 +27,9 @@ function modifier_item_heavens_halberd_datadriven_disarm:OnIntervalThink()
 	end
 end
 
-function modifier_item_heavens_halberd_datadriven_disarm:OnDestroy()
-	local parent = self:GetParent()
-	local modifiers = parent:FindAllModifiersByName("modifier_disarmed")
-	for i=1,#modifiers do
-		if modifiers[i]:GetAbility() == self:GetAbility() then
-			modifiers[i]:Destroy()
-		end
-	end
+function modifier_item_heavens_halberd_datadriven_disarm:CheckState()
+	return
+	{
+		[MODIFIER_STATE_DISARMED] = true
+	}
 end
