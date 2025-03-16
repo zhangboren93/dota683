@@ -6332,27 +6332,27 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2500"
+		"ItemCost"						"%ITEM_ARMLET_COST%"
 		"ItemShopTags"					"damage;attack_speed;armor;regen_health;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"armlet of mordiggian"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			"bonus_damage"			"9"
-			"bonus_attack_speed"	"15"
+			"bonus_attack_speed"	"%ITEM_ARMLET_NORMAL_ATTACK_SPEED%"
 			"bonus_armor"			"5"
 			"bonus_health_regen"	"7"
 			"unholy_bonus_damage"	"31"
-			"unholy_bonus_attack_speed"	"10"
+			"unholy_bonus_attack_speed"	"%ITEM_ARMLET_UNHOLY_ATTACK_SPEED%"
 			"unholy_bonus_strength"	"25"
-			"unholy_bonus_armor"	"0"
+			"unholy_bonus_armor"	"%ITEM_ARMLET_UNHOLY_ARMOR%"
 			"unholy_bonus_slow_resistance"	"0"
-			"unholy_health_drain_per_second"	"40"
+			"unholy_health_drain_per_second"	"%ITEM_ARMLET_UNHOLY_HP_COST%"
 			"toggle_cooldown"		"0.036f"
 		}
 	}
