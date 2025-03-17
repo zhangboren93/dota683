@@ -2,7 +2,7 @@ modifier_broodmother_web_dummy_aura_lua = class({
 	OnCreated = function(self)
 		local parent = self:GetParent()
 		local pid = ParticleManager:CreateParticle("particles/units/heroes/hero_broodmother/broodmother_web.vpcf", PATTACH_ABSORIGIN, parent)
-		ParticleManager:SetParticleControl(pid, 1, Vector(900, 0, 150))
+		ParticleManager:SetParticleControl(pid, 1, Vector(900, 0, 0))
 	end,
 	CheckState = function()
 		return {
