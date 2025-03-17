@@ -200,25 +200,12 @@
     			}
     		}
     
-    		"ActOnTargets"
-    		{
-    			"Target"
-    			{
-    				"Center"	"POINT"
-    				"Radius"	"%radius"
-    				"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY" 
-    				"Types"		"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-    			}
-    
-    			"Action"
-    			{
-    				"ApplyModifier"
-    				{
-    					"Target"		"TARGET"
-    					"ModifierName"	"modifier_fire_spirit_damage_datadriven"
-    				}
-    			}
-    		}
+			"RunScript"
+			{
+				"ScriptFile"	"heroes/hero_phoenix/fire_spirits.lua"
+				"Function"		"handleProjectileFinish"
+				"Target"		"POINT"
+			}
     	}
     
     	"OnUpgrade"
@@ -237,6 +224,7 @@
     		{
     			"IsDebuff"	"1"
     			"Duration"	"%duration"
+				"IsPurgable"		"1"
 
     			"EffectName"		"particles/units/heroes/hero_phoenix/phoenix_fire_spirit_burn.vpcf"
     			"EffectAttachType"	"follow_origin"

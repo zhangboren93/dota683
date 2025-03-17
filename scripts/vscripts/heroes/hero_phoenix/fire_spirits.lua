@@ -118,3 +118,26 @@ function LevelUpAbility( event )
 		ability_handle:SetLevel(this_abilityLevel)
 	end
 end
+
+function handleProjectileFinish(event)
+	print("handleProjectileFinish ")
+	print(event.target_points)
+	local target_point = event.target_points[1]
+	local ability = event.ability
+	local caster = event.caster
+	local radius = ability:GetSpecialValueFor("radius")
+	local units = FindUnitsInRadius(
+		caster:GetTeam(),
+		target_point, nil,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 0, 0, false)
+	for i=1,#units do
+		print(units[i]:GetUnitName())
+		if units[i]:GetUnitName() == "npc_dota_roshan_datadriven" or
+			units[i]:IsAncient() then
+		else
+			ability:ApplyDataDrivenModifier(caster, units[i], "modifier_fire_spirit_damage_datadriven", {})
+		end
+	end
+end
