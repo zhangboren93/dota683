@@ -1,103 +1,4 @@
 --[[
-	Author: Ractidous
-	Date: 28.01.2015.
-	Cast Fire Spirts.
-]]
-require("../../items/item_magic_stick")
-function CastFireSpirits( event )
-	local caster	= event.caster
-	local ability	= event.ability
-	local modifierStackName	= event.modifier_stack_name
-
-	local hpCost		= event.hp_cost_perc
-	local numSpirits	= event.spirit_count
-
-	ProcsMagicStick(event)
-	-- Create particle FX
-	local particleName = "particles/units/heroes/hero_phoenix/phoenix_fire_spirits.vpcf"
-	pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, caster )
-	ParticleManager:SetParticleControl( pfx, 1, Vector( numSpirits, 0, 0 ) )
-	ParticleManager:SetParticleControl( pfx, 6, Vector( numSpirits, 0, 0 ) )
-	for i=1, numSpirits do
-		ParticleManager:SetParticleControl( pfx, 8+i, Vector( 1, 0, 0 ) )
-	end
-
-	caster.fire_spirits_numSpirits	= numSpirits
-	caster.fire_spirits_pfx			= pfx
-
-	-- Set the stack count
-	caster:SetModifierStackCount( modifierStackName, ability, numSpirits )
-
-	-- Apply HP removal
---	ApplyDamage( {
---		victim = caster,
---		attacker = caster,
---		damage = caster:GetHealth() * hpCost / 100,
---		damage_type = DAMAGE_TYPE_PURE,		-- will show the pure damage indicator popup
---	} )
-
-	caster:SetHealth( caster:GetHealth() * ( 100 - hpCost ) / 100 )
-
-	-- Swap sub ability
-	local sub_ability_name	= event.sub_ability_name
-	local main_ability_name	= ability:GetAbilityName()
-	caster:SwapAbilities( main_ability_name, sub_ability_name, false, true )
-end
-
---[[
-	Author: Ractidous
-	Date: 28.01.2015.
-	Launch a fire spirit.
-]]
-function LaunchFireSpirit( event )
-	local caster		= event.caster
-	local ability		= event.ability
-	local modifierName	= event.modifier_stack_name
-
-	-- Update spirits count
-	local mainAbility	= caster:FindAbilityByName( event.main_ability_name )
-	local currentStack	= caster:GetModifierStackCount( modifierName, mainAbility )
-	currentStack = currentStack - 1
-	caster:SetModifierStackCount( modifierName, mainAbility, currentStack )
-
-	-- Update the particle FX
-	local pfx = caster.fire_spirits_pfx
-	ParticleManager:SetParticleControl( pfx, 1, Vector( currentStack, 0, 0 ) )
-	ParticleManager:SetParticleControl( pfx, 6, Vector( currentStack, 0, 0 ) )
-	for i=1, caster.fire_spirits_numSpirits do
-		local radius = 0
-		if i <= currentStack then
-			radius = 1
-		end
-
-		ParticleManager:SetParticleControl( pfx, 8+i, Vector( radius, 0, 0 ) )
-	end
-
-	-- Remove the stack modifier if all the spirits has been launched.
-	if currentStack == 0 then
-		caster:RemoveModifierByName( modifierName )
-	end
-end
-
---[[
-	Author: Ractidous
-	Date: 28.01.2015.
-	Remove fire spirits' FX.
-]]
-function RemoveFireSpirits( event )
-	local caster	= event.caster
-	local ability	= event.ability
-
-	local pfx = caster.fire_spirits_pfx
-	ParticleManager:DestroyParticle( pfx, false )
-
-	-- Swap main ability
-	local main_ability_name	= ability:GetAbilityName()
-	local sub_ability_name	= event.sub_ability_name
-	caster:SwapAbilities( main_ability_name, sub_ability_name, true, false )
-end
-
---[[
 	Author: Noya
 	Date: 16.01.2015.
 	Levels up the ability_name to the same level of the ability that runs this
@@ -111,6 +12,7 @@ function LevelUpAbility( event )
 	-- The ability to level up
 	local ability_name = event.ability_name
 	local ability_handle = caster:FindAbilityByName(ability_name)	
+	if ability_handle == nil then return end
 	local ability_level = ability_handle:GetLevel()
 
 	-- Check to not enter a level up loop
@@ -119,25 +21,60 @@ function LevelUpAbility( event )
 	end
 end
 
-function handleProjectileFinish(event)
-	print("handleProjectileFinish ")
-	print(event.target_points)
-	local target_point = event.target_points[1]
-	local ability = event.ability
-	local caster = event.caster
-	local radius = ability:GetSpecialValueFor("radius")
-	local units = FindUnitsInRadius(
-		caster:GetTeam(),
-		target_point, nil,
-		radius,
-		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, 0, 0, false)
-	for i=1,#units do
-		print(units[i]:GetUnitName())
-		if units[i]:GetUnitName() == "npc_dota_roshan_datadriven" or
-			units[i]:IsAncient() then
-		else
-			ability:ApplyDataDrivenModifier(caster, units[i], "modifier_fire_spirit_damage_datadriven", {})
+phoenix_fire_spirits_lua = class({
+	GetAssociatedSecondaryAbilities = function() return "phoenix_launch_fire_spirit_lua" end,
+	ProcsMagicStick = function() return true end,
+	OnSpellStart = function(self)
+		local caster = self:GetCaster()
+		local ability = self
+		local duration = self:GetSpecialValueFor("spirit_duration")
+		local modifierStackName	= "modifier_phoenix_fire_spirit_stack_lua"
+		local hpCost = self:GetSpecialValueFor("hp_cost_perc")
+		local numSpirits = self:GetSpecialValueFor("spirit_count")
+		local particleName = "particles/units/heroes/hero_phoenix/phoenix_fire_spirits.vpcf"
+		local sub_ability_name	= "phoenix_launch_fire_spirit_lua"
+		local main_ability_name	= self:GetAbilityName()
+		caster:EmitSound("Hero_Phoenix.FireSpirits.Cast")
+		caster:AddNewModifier(caster, self, modifierStackName, { duration = duration })
+
+		-- Create particle FX
+		if caster.fire_spirits_pfx then
+			ParticleManager:DestroyParticle(caster.fire_spirits_pfx, false)
+		end
+		pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, caster )
+		ParticleManager:SetParticleControl( pfx, 1, Vector( numSpirits, 0, 0 ) )
+		ParticleManager:SetParticleControl( pfx, 6, Vector( numSpirits, 0, 0 ) )
+		for i=1, numSpirits do
+			ParticleManager:SetParticleControl( pfx, 8+i, Vector( 1, 0, 0 ) )
+		end
+
+		caster.fire_spirits_numSpirits	= numSpirits
+		caster.fire_spirits_pfx			= pfx
+
+		-- Set the stack count
+		caster:SetModifierStackCount( modifierStackName, ability, numSpirits )
+
+		caster:SetHealth( caster:GetHealth() * ( 100 - hpCost ) / 100 )
+
+		-- Swap sub ability
+		caster:SwapAbilities( main_ability_name, sub_ability_name, false, true )
+	end,
+	OnUpgrade = function(self)
+		local caster = self:GetCaster()
+		local this_ability = self		
+		local ability_name = "phoenix_launch_fire_spirit_lua"
+
+		local this_abilityName = this_ability:GetAbilityName()
+		local this_abilityLevel = this_ability:GetLevel()
+	
+		-- The ability to level up
+		local ability_handle = caster:FindAbilityByName(ability_name)	
+		if ability_handle == nil then return end
+		local ability_level = ability_handle:GetLevel()
+	
+		-- Check to not enter a level up loop
+		if ability_level ~= this_abilityLevel then
+			ability_handle:SetLevel(this_abilityLevel)
 		end
 	end
-end
+})
