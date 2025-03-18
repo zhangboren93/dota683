@@ -521,6 +521,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("fwd-command-issue", handleFWDCommand)
 	CustomGameEventManager:RegisterListener("game_mode_select", CAddonTemplateGameMode.handleGameModeSelect)
 	CustomGameEventManager:RegisterListener("magic-stick-command-issue", handleMSCommand)
+	CustomGameEventManager:RegisterListener("custom_ping_hero_missing", CAddonTemplateGameMode.handleCustomPingHeroMissing)
 end
 
 function HandlePlayerChat(self, teamonly, text, playerid)
@@ -2522,6 +2523,22 @@ function CAddonTemplateGameMode:handleCaptainClientPick(event)
 		GameRules.AddonTemplate.captain_pick_phase = captain_pick_phase + 1
 		GameRules.AddonTemplate.captain_normal_time = 40
 	end
+end
+
+local function getEnemyTeam(team) if team == DOTA_TEAM_GOODGUYS then return DOTA_TEAM_BADGUYS else return DOTA_TEAM_GOODGUYS end end
+
+function CAddonTemplateGameMode:handleCustomPingHeroMissing(data)
+	print("handleCustomPingHeroMissing")
+	DeepPrintTable(data)
+	local player_id = data.snd
+	local team = PlayerResource:GetTeam(player_id)
+	local enemy_team = getEnemyTeam(team)
+	local target_hero_pid = PlayerResource:GetNthPlayerIDOnTeam(enemy_team, data.num)
+	if target_hero_pid < 0 then return end
+	local hero = PlayerResource:GetPlayer(target_hero_pid):GetAssignedHero()
+	if hero == nil then return end
+	local target_hero_name =  string.sub(hero:GetName(), string.len("npc_dota_hero")+2)
+	GameRules:SendCustomMessageToTeam(target_hero_name .. " MISS!!!", -1, -1, team)
 end
 
 function handleFWDCommand(userid, event)

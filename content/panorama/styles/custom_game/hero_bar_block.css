@@ -2,20 +2,20 @@
 	horizontal-align: center;
 	vertical-align: top;
 
-	height: 50px;
+	height: 45px;
 	width: 830px;
 	/*border: 2px solid #0000FFFF;*/
 }
 
 .hero-bar-block Button {
-	width: 65px;
+	width: 20%;
 	height: 100%;
 	/*border: 2px solid #00FF00FF;*/
 }
 
 #hero-bar-block-buttons {
 	height: 50px;
-	width: 320px;
+	width: 310px;
 	/*border: 2px solid #FFFF00FF;*/
 	flow-children: right;
 	visibility: collapse;

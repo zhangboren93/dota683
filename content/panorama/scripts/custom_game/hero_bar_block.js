@@ -1,8 +1,8 @@
-
-function TrackAltPressed(panel)
-{
-	panel.SetHasClass("AltPressed", IsDotaAltPressed());
-	$.Schedule(0.0, () => TrackAltPressed(panel));
+function handleHeroBarBlockClick(num) {
+	$.Msg("handleHeroBarBlockClick " + num);
+	if (GameUI.IsAltDown()) {
+		GameEvents.SendCustomGameEventToServer("custom_ping_hero_missing", { num: num, snd: Players.GetLocalPlayer() })
+	}
 }
 
 (function ()
@@ -14,5 +14,4 @@ function TrackAltPressed(panel)
 		$("#hero-bar-block-buttons").AddClass("radiant-block");
 		$("#hero-bar-block-buttons").visible = true
 	}
-	TrackAltPressed($("#hero-bar-block-buttons"));
 })();

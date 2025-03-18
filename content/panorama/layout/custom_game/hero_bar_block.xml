@@ -8,11 +8,11 @@
 	</scripts>
 	<Panel class="hero-bar-block">
 		<Panel id="hero-bar-block-buttons" class="Buttons">
-			<Button id="hero-bar-block-button-0"/>
-			<Button id="hero-bar-block-button-1"/>
-			<Button id="hero-bar-block-button-2"/>
-			<Button id="hero-bar-block-button-3"/>
-			<Button id="hero-bar-block-button-4"/>
+			<Button id="hero-bar-block-button-1" onactivate="handleHeroBarBlockClick(1)"/>
+			<Button id="hero-bar-block-button-2" onactivate="handleHeroBarBlockClick(2)"/>
+			<Button id="hero-bar-block-button-3" onactivate="handleHeroBarBlockClick(3)"/>
+			<Button id="hero-bar-block-button-4" onactivate="handleHeroBarBlockClick(4)"/>
+			<Button id="hero-bar-block-button-5" onactivate="handleHeroBarBlockClick(5)"/>
 		</Panel>
     </Panel>
 </root>
