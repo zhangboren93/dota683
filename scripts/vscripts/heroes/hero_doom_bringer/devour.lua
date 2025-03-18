@@ -74,7 +74,7 @@ function Devour( keys )
 			end
 
 			-- Checks if the ability actually exist on the target
-			if ability1 and CheckDevourable(ability1:GetAbilityName()) then
+			if ability1 and CheckDevourable(ability1:GetAbilityName()) and caster:GetName() ~= "npc_dota_hero_rubick" then
 				-- Get the name and add it to the caster
 				local ability1_name = ability1:GetAbilityName()
 				caster:AddAbility(ability1_name)
@@ -86,7 +86,7 @@ function Devour( keys )
 			end
 
 			-- Checks if the ability actually exist on the target
-			if ability2 and CheckDevourable(ability2:GetAbilityName()) then
+			if ability2 and CheckDevourable(ability2:GetAbilityName()) and caster:GetName() ~= "npc_dota_hero_rubick" then
 				-- Get the name and add it to the caster
 				local ability2_name = ability2:GetAbilityName()
 				caster:AddAbility(ability2_name)
