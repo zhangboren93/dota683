@@ -55,6 +55,8 @@
 		"precache"
 		{
 			"particle"						"particles/units/heroes/hero_axe/axe_battle_hunger.vpcf"
+			// custom weapon effect particle
+			"particle"						"particles/units/heroes/hero_axe/axe_weapon_ambient_orange.vpcf"
 		}
 
 		"OnSpellStart"

@@ -3266,6 +3266,7 @@
 		"jugg-we-whit"										"White"
 		"jugg-we-gold"										"Gold"
 		"jugg-we-prpl"										"Purple"
+		"jugg-we-orange"									"Orange"
 		"jugg-we-custom"									"Custom"
 		"jugg-we-custom-format"								"Custom value as 123456"
 		"jugg-ae-style1"									"Style 1"

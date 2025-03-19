@@ -41,7 +41,8 @@ local hero2weaponEffectModifier = {
 	npc_dota_hero_legion_commander = "modifier_legion_commander_weapon_effect_683_lua",
 	npc_dota_hero_terrorblade = "modifier_terrorblade_weapon_effect_683_lua",
 	npc_dota_hero_nevermore = "modifier_nevermore_status_effect_683_lua",
-	npc_dota_hero_ursa = "modifier_ursa_weapon_effect_683_lua"
+	npc_dota_hero_ursa = "modifier_ursa_weapon_effect_683_lua",
+	npc_dota_hero_axe = "modifier_axe_weapon_effect_683_lua"
 	--npc_dota_hero_storm_spirit = "modifier_storm_spirit_weapon_effect_683_lua"
 }
 
@@ -346,6 +347,7 @@ function Activate()
 	LinkLuaModifier( "modifier_terrorblade_weapon_effect_683_lua", 		"heroes/hero_terrorblade/modifier_terrorblade_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_nevermore_status_effect_683_lua", 		"heroes/hero_nevermore/modifier_nevermore_status_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_ursa_weapon_effect_683_lua", 			"heroes/hero_ursa/modifier_ursa_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_axe_weapon_effect_683_lua", 				"heroes/hero_axe/modifier_axe_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_hero_custom_aura_effect_683_lua",  "modifiers/modifier_hero_custom_aura_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
