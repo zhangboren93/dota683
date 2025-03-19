@@ -42,7 +42,8 @@ local hero2weaponEffectModifier = {
 	npc_dota_hero_terrorblade = "modifier_terrorblade_weapon_effect_683_lua",
 	npc_dota_hero_nevermore = "modifier_nevermore_status_effect_683_lua",
 	npc_dota_hero_ursa = "modifier_ursa_weapon_effect_683_lua",
-	npc_dota_hero_axe = "modifier_axe_weapon_effect_683_lua"
+	npc_dota_hero_axe = "modifier_axe_weapon_effect_683_lua",
+	npc_dota_hero_queenofpain = "modifier_queenofpain_attack_project_683_lua",
 	--npc_dota_hero_storm_spirit = "modifier_storm_spirit_weapon_effect_683_lua"
 }
 
@@ -348,6 +349,7 @@ function Activate()
 	LinkLuaModifier( "modifier_nevermore_status_effect_683_lua", 		"heroes/hero_nevermore/modifier_nevermore_status_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_ursa_weapon_effect_683_lua", 			"heroes/hero_ursa/modifier_ursa_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_axe_weapon_effect_683_lua", 				"heroes/hero_axe/modifier_axe_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_queenofpain_attack_project_683_lua",		"heroes/hero_queenofpain/modifier_queenofpain_attack_project_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_hero_custom_aura_effect_683_lua",  "modifiers/modifier_hero_custom_aura_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
@@ -621,9 +623,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			if hero ~= nil and player_last_order_time[player_id] ~= nil then
 				local hero_name = string.sub(hero:GetName(), string.len("npc_dota_hero")+2)
 				local afk_time = time - player_last_order_time[player_id]
-				GameRules:SendCustomMessageToTeam("Player "..player_id.." "..hero_name.." afk for "..math.floor(afk_time).."s.", -1, -1, team)
+				GameRules:SendCustomMessageToTeam("Player "..player_id.." "..hero_name.." afk for "..math.floor(afk_time).."s.", team, -1, team)
 				if afk_time > 300 then
-					GameRules:SendCustomMessageToTeam("Type '-kickafk "..player_id.."' to kick player.", -1, -1, team)
+					GameRules:SendCustomMessageToTeam("Type '-kickafk "..player_id.."' to kick player.", team, -1, team)
 				end
 			end
 		end
@@ -2540,7 +2542,7 @@ function CAddonTemplateGameMode:handleCustomPingHeroMissing(data)
 	local hero = PlayerResource:GetPlayer(target_hero_pid):GetAssignedHero()
 	if hero == nil then return end
 	local target_hero_name =  string.sub(hero:GetName(), string.len("npc_dota_hero")+2)
-	GameRules:SendCustomMessageToTeam(target_hero_name .. " MISS!!!", -1, -1, team)
+	GameRules:SendCustomMessageToTeam(target_hero_name .. " MISS!!!", team, -1, team)
 end
 
 function handleFWDCommand(userid, event)

@@ -15520,6 +15520,16 @@
 			"particle"		"particles/units/heroes/hero_dragon_knight/dragon_knight_dragon_tail_knightform.vpcf"
 		}
 	}
+	"queenofpain_custom_attack_particle_effects_datadriven"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_queeofpain/queen_base_attack_blue.vpcf"
+			"particle"		"particles/units/heroes/hero_queeofpain/queen_base_attack_gold.vpcf"
+		}
+	}
 	//=================================================================================================================
 	// Slark: Dark Pact
 	//=================================================================================================================

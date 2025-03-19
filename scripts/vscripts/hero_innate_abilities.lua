@@ -39,6 +39,7 @@ hero_innate_abilities["npc_dota_hero_ringmaster"]	= {"ringmaster_rubick_particle
 hero_innate_abilities["npc_dota_hero_abyssal_underlord"] = "abyssal_underlord_dark_rift_target_particle_datadriven"
 --hero_innate_abilities["npc_dota_hero_storm_spirit"] = "storm_spirit_custom_particle_effect_datadriven"
 hero_innate_abilities["npc_dota_hero_phantom_lancer"] = "phantom_lancer_custom_particle_effect_datadriven"
+hero_innate_abilities["npc_dota_hero_queenofpain"] = "queenofpain_custom_attack_particle_effects_datadriven"
 
 hero_688_attribute_bonus = {}
 hero_688_attribute_bonus["npc_dota_hero_mirana"] = "modifier_mirana_688_attribute_bonus"
