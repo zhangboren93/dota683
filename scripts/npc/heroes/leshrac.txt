@@ -28,6 +28,8 @@
 		{
 			"soundfile"         "soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
 			"particle"			"particles/units/heroes/hero_leshrac/leshrac_diabolic_edict.vpcf"
+			// custom attack projectile particles
+			"particle"			"particles/units/heroes/hero_leshrac/leshrac_base_attack_green.vpcf"
 		}
 	
 		// Casting
