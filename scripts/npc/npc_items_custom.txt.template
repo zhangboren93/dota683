@@ -5956,9 +5956,9 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"	
+		"ItemCost"						"%ITEM_RECIPE_BASHER_COST%"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -5982,30 +5982,30 @@
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.0"
+		"AbilityCooldown"				"%ITEM_BASHER_COOLDOWN%"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2950"
+		"ItemCost"						"%ITEM_BASHER_COST%"
 		"ItemShopTags"					"damage;str;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"skull basher"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"InvalidHeroes" 				"npc_dota_hero_spirit_breaker;npc_dota_hero_faceless_void;npc_dota_hero_slardar;npc_dota_hero_troll_warlord"
-		
+		"InvalidHeroes" 				"%ITEM_BASHER_BANLIST%"
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"40"
-			"bonus_strength"		"6"
+			"bonus_damage"			"%ITEM_BASHER_ATK_DAMAGE%"
+			"bonus_strength"		"%ITEM_BASHER_STR%"
 			"bash_chance_melee"		"25"
 			"bash_chance_ranged"	"10"
 			"bash_duration"			"1.4"
-			"bash_cooldown"			"2.0"
-			"bonus_chance_damage"	"0"
+			"bash_cooldown"			"%ITEM_BASHER_COOLDOWN%"
+			"bonus_chance_damage"	"%ITEM_BASHER_BASH_DAMAGE%"
 		}
 	}
 	//=================================================================================================================
