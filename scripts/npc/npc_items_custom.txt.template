@@ -5928,7 +5928,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5550"
+		"ItemCost"						"%ITEM_DAEDALUS_COST%"
 		"ItemShopTags"					"damage;crit"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"daedalus"
@@ -5940,8 +5940,8 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"81"
-				"crit_chance"			"25"
-				"crit_multiplier"		"240"
+				"crit_chance"			"%ITEM_DAEDALUS_PROC_CHANCE%"
+				"crit_multiplier"		"%ITEM_DAEDALUS_PROC_PERCENT%"
 		}
 	}
 	//=================================================================================================================
