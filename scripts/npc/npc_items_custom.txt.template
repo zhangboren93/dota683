@@ -5596,10 +5596,10 @@
     	//-------------------------------------------------------------------------------------------------------------
     	"AbilityValues"
     	{
-   			"bonus_damage"			"88"
+   			"bonus_damage"			"%ITEM_MKB_BONUS_DAMAGE%"
    			"bonus_attack_speed"	"15"
    			"bash_chance"			"35"
-			"bash_damage"			"100"
+			"bash_damage"			"%ITEM_MKB_BASH_DAMAGE%"
    			"bash_stun"				"0.01"
     	}
     	
