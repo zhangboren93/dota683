@@ -1558,11 +1558,6 @@
 				"Target"		"CASTER"
 				"ModifierName"	"modifier_item_travel_boots_caster_effect"
 			}
-    		"FireSound"
-    		{
-    			"EffectName"		"Portal.Loop_Disappear"
-    			"Target"			"CASTER"
-    		}
 		}
 		"OnChannelSucceeded"
 		{

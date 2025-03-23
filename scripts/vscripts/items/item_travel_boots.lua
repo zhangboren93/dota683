@@ -18,12 +18,18 @@ function handleSpellStart(event)
         local unit = units[1]
         print(unit:GetName())
         ability.teleportUnit = unit
-        unit:EmitSound("Portal.Loop_Appear")
         ability.particleId = ParticleManager:CreateParticle("particles/items2_fx/teleport_end.vpcf", PATTACH_POINT_FOLLOW, unit)
         ParticleManager:SetParticleControlEnt(ability.particleId, 0, unit, PATTACH_POINT_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
         ParticleManager:SetParticleControlEnt(ability.particleId, 1, unit, PATTACH_POINT_FOLLOW, "attach_origin", unit:GetAbsOrigin(), true)
 		-- remove particle when the unit is killed
 		unit:AddNewModifier(caster, ability, "modifier_item_travel_boots_target_lua", { duration = 3 })
+
+        unit:EmitSound("Portal.Loop_Appear")
+        caster:EmitSound("Portal.Loop_Disappear")
+        caster:SetThink(function()
+            unit:StopSound("Portal.Loop_Appear")
+            caster:StopSound("Portal.Loop_Disappear")
+        end, "stop loop sound eventually", 3.5)
     end
 end
 
