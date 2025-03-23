@@ -8901,7 +8901,7 @@
 		{
 				"bonus_spell_amp"		"0"
 				"bonus_damage"			"0"
-				"bonus_damage_base"		"300"
+				"bonus_damage_base"		"%ITEM_RAPIER_DAMAGE%"
 		}
 	}
 	"item_aegis_lua"
