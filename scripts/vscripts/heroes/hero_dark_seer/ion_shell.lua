@@ -43,3 +43,20 @@ function IonShell( keys )
 		end
 	end
 end
+
+function handleIonShellCreated(event)
+	local target = event.target
+	local caster = event.caster
+	target:EmitSound("Hero_Dark_Seer.Ion_Shield_Start")
+	local particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_dark_seer/dark_seer_ion_shell.vpcf",
+													  PATTACH_POINT_FOLLOW,
+													  caster)
+	ParticleManager:SetParticleControlEnt(particleId, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), true) 
+	ParticleManager:SetParticleControl(particleId, 1, Vector(50, 50, 50))
+	target.ion_shell_particle_id = particleId
+end
+
+function handleIonShellDestroy(event)
+	local target = event.target
+	ParticleManager:DestroyParticle(target.ion_shell_particle_id, false)
+end

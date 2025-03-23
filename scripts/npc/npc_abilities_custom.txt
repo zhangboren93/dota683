@@ -24928,27 +24928,20 @@
 
 				"OnCreated"
 				{
-					"FireSound"
+					"RunScript"
 					{
-						"EffectName"	"Hero_Dark_Seer.Ion_Shield_Start"
-						"Target" 		"TARGET"
-					}
-
-					"AttachEffect"
-					{
-						"EffectName"        "particles/units/heroes/hero_dark_seer/dark_seer_ion_shell.vpcf"
-						"EffectAttachType"  "attach_hitloc"
-						"Target"            "TARGET"
-
-						"ControlPoints"
-						{
-							"01"	"100 100 100"
-						}
+						"ScriptFile"	"heroes/hero_dark_seer/ion_shell.lua"
+						"function"		"handleIonShellCreated"
 					}
 				}
 
 				"OnDestroy"
 				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_dark_seer/ion_shell.lua"
+						"Function"		"handleIonShellDestroy"
+					}
 					"FireSound"
 					{
 						"EffectName"	"Hero_Dark_Seer.Ion_Shield_end"
