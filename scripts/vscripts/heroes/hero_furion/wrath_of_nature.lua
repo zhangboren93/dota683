@@ -33,6 +33,17 @@ function WrathOfNature( event )
 	print(#visible_enemies)
 	-- Main target first. 
 	-- Deal damage and play particle
+	
+	-- won't hit siege creeps
+	local tmp = {}
+	for i=1,#visible_enemies do
+		if visible_enemies[i]:GetName() == "npc_dota_creep_siege" then
+		else
+			table.insert(tmp, visible_enemies[i])
+		end
+	end
+	visible_enemies = tmp
+
 	local target_number = 1
 	local main_target = visible_enemies[target_number]
 	local damage_table = {}
