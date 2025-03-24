@@ -142,17 +142,21 @@ function deathMatchSpawnHero(entity)
 		respawnCount[1] = respawnCount[1] + 1
 		if respawnCount[1] > RESPAWN_MAX then
 			GameRules:SendCustomMessage("天辉没命了，玩家".. entity:GetPlayerOwnerID() .."永久死亡。", -1, -1)
+			SetCustomRadiantScore(0)
 			return
 		else
 			GameRules:SendCustomMessage("天辉剩".. (44 - respawnCount[1]).."条命。", -1, -1)
+			SetCustomRadiantScore(44 - respawnCount[1])
 		end
 	else
 		respawnCount[2] = respawnCount[2] + 1
 		if respawnCount[2] > RESPAWN_MAX then
 			GameRules:SendCustomMessage("夜魇没命了，玩家".. entity:GetPlayerOwnerID() .."永久死亡。", -1, -1)
+			SetCustomDireScore(0)
 			return
 		else
 			GameRules:SendCustomMessage("夜魇剩".. (44 - respawnCount[2]).."条命。", -1, -1)
+			SetCustomDireScore(44 - respawnCount[2])
 		end
 	end
 	

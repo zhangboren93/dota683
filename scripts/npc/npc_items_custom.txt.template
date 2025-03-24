@@ -5596,10 +5596,10 @@
     	//-------------------------------------------------------------------------------------------------------------
     	"AbilityValues"
     	{
-   			"bonus_damage"			"88"
+   			"bonus_damage"			"%ITEM_MKB_BONUS_DAMAGE%"
    			"bonus_attack_speed"	"15"
    			"bash_chance"			"35"
-			"bash_damage"			"100"
+			"bash_damage"			"%ITEM_MKB_BASH_DAMAGE%"
    			"bash_stun"				"0.01"
     	}
     	
@@ -5773,7 +5773,7 @@
     // Rewrite of Butterfly
     // Author: Rook
     // Date: February 1, 2015
-    
+
     "item_butterfly_datadriven"
     {
     	// General
@@ -5787,13 +5787,13 @@
     	
     	// Stats		
     	//-------------------------------------------------------------------------------------------------------------
-    	"AbilityCooldown"				"35.0"
+    	"AbilityCooldown"				"%ITEM_BUTTERFLY_FLUTTER_COOLDOWN%"
     	"AbilityCastPoint"				"0.0"
     	"AbilityManaCost"				"0"
     	
     	// Item Info
     	//-------------------------------------------------------------------------------------------------------------
-    	"ItemCost"						"6000"
+    	"ItemCost"						"%ITEM_BUTTERFLY_COST%"
     	"ItemShopTags"					"agi;damage;evasion;attack_speed"
     	"ItemQuality"					"epic"
     	"ItemAliases"					"bfly;butterfly"
@@ -5807,12 +5807,12 @@
     	//-------------------------------------------------------------------------------------------------------------
     	"AbilityValues"
     	{
-			"bonus_agility"					"30"
+			"bonus_agility"					"%ITEM_BUTTERFLY_AGILITY%"
    			"bonus_damage"					"30"
 			"bonus_evasion"					"35"
    			"bonus_attack_speed"			"30"
-   			"duration"						"8"
-   			"bonus_move_speed_percent"		"20"
+   			"duration"						"%ITEM_BUTTERFLY_FLUTTER_DURATION%"
+   			"bonus_move_speed_percent"		"%ITEM_BUTTERFLY_FLUTTER_SPEED%"
     	}
     	
     	"OnSpellStart"
@@ -5928,7 +5928,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5550"
+		"ItemCost"						"%ITEM_DAEDALUS_COST%"
 		"ItemShopTags"					"damage;crit"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"daedalus"
@@ -5940,8 +5940,8 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"81"
-				"crit_chance"			"25"
-				"crit_multiplier"		"240"
+				"crit_chance"			"%ITEM_DAEDALUS_PROC_CHANCE%"
+				"crit_multiplier"		"%ITEM_DAEDALUS_PROC_PERCENT%"
 		}
 	}
 	//=================================================================================================================
@@ -5956,9 +5956,9 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1000"	
+		"ItemCost"						"%ITEM_RECIPE_BASHER_COST%"	
 		"ItemShopTags"					""
-		
+
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
@@ -5982,30 +5982,30 @@
 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"2.0"
+		"AbilityCooldown"				"%ITEM_BASHER_COOLDOWN%"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2950"
+		"ItemCost"						"%ITEM_BASHER_COST%"
 		"ItemShopTags"					"damage;str;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"skull basher"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"InvalidHeroes" 				"npc_dota_hero_spirit_breaker;npc_dota_hero_faceless_void;npc_dota_hero_slardar;npc_dota_hero_troll_warlord"
-		
+		"InvalidHeroes" 				"%ITEM_BASHER_BANLIST%"
+
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"40"
-			"bonus_strength"		"6"
+			"bonus_damage"			"%ITEM_BASHER_ATK_DAMAGE%"
+			"bonus_strength"		"%ITEM_BASHER_STR%"
 			"bash_chance_melee"		"25"
 			"bash_chance_ranged"	"10"
 			"bash_duration"			"1.4"
-			"bash_cooldown"			"2.0"
-			"bonus_chance_damage"	"0"
+			"bash_cooldown"			"%ITEM_BASHER_COOLDOWN%"
+			"bonus_chance_damage"	"%ITEM_BASHER_BASH_DAMAGE%"
 		}
 	}
 	//=================================================================================================================
@@ -8901,7 +8901,7 @@
 		{
 				"bonus_spell_amp"		"0"
 				"bonus_damage"			"0"
-				"bonus_damage_base"		"300"
+				"bonus_damage_base"		"%ITEM_RAPIER_DAMAGE%"
 		}
 	}
 	"item_aegis_lua"
