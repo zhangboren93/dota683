@@ -1,13 +1,18 @@
 modifier_phoenix_fire_spirit_stack_lua = class({
 	IsBuff = function() return true end,
+	IsPurgable = function() return false end,
 	OnDestroy = function(self)
+		if not IsServer() then return end
+
 		local caster	= self:GetCaster()
 		local ability	= self:GetAbility()
 
 		local pfx = caster.fire_spirits_pfx
 		if pfx then
-			ParticleManager:DestroyParticle( pfx, false )
+			ParticleManager:DestroyParticle( pfx, true )
 		end
+
+		StopSoundOn( "Hero_Phoenix.FireSpirits.Loop", caster )
 
 		if ability == nil then return end
 		-- Swap main ability

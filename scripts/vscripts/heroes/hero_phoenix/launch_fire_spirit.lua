@@ -1,7 +1,10 @@
 phoenix_launch_fire_spirit_lua = class({
 	IsStealable = function() return false end,
 	OnSpellStart = function(self)
+		if not IsServer() then return end
+
 		local caster = self:GetCaster()
+		caster:StartGesture( ACT_DOTA_OVERRIDE_ABILITY_2 )
 		caster:EmitSound("Hero_Phoenix.FireSpirits.Launch")
 		local ability		= self
 		local modifierName	= "modifier_phoenix_fire_spirit_stack_lua"
@@ -51,7 +54,7 @@ phoenix_launch_fire_spirit_lua = class({
     	local pid = ParticleManager:CreateParticle("particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf",
 			PATTACH_WORLDORIGIN, caster)
 		ParticleManager:SetParticleControl(pid, 0, location)
-		ParticleManager:SetParticleControl(pid, 1, Vector(radius, 0, 0))
+		ParticleManager:SetParticleControl(pid, 1, Vector(radius, radius, radius))
 		local units = FindUnitsInRadius(
 			caster:GetTeam(),
 			location, nil,
