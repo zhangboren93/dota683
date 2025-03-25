@@ -9587,6 +9587,22 @@
 		}
 	}
 
+	//=================================================================================================================
+	// Dragon Lance
+	//=================================================================================================================
+	"item_dragon_lance"
+	{
+		"ItemCost"					"1900"
+		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+
+		"AbilityValues"
+		{
+			"bonus_agility"			"13"
+			"bonus_strength"		"13"
+			"base_attack_range"		"140"
+		}
+	}
+
 	"item_recipe_lotus_orb"
 	{
 		"ItemCost"                      "0"   

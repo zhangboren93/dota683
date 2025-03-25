@@ -2,21 +2,6 @@
 {
 	"Version"		"1"
 
-	//=================================================================================================================
-	// Dragon Lance
-	//=================================================================================================================
-	"item_dragon_lance"
-	{
-		"ItemCost"					"1900"
-
-		"AbilityValues"
-		{
-			"bonus_agility"			"13"
-			"bonus_strength"		"13"
-			"base_attack_range"		"140"
-		}
-	}
-
 	"item_cheese"
 	{
 		// Special  
@@ -24,22 +9,6 @@
 		"AbilityValues"
 		{
 			"mana_restore"          "1000"
-		}
-	}	
-	"item_quicksilver_amulet"
-	{
-		"ItemIsNeutralActiveDrop"				"0"
-		
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"base_movement"			"0"
-			"base_attack"			"0"
-			"bonus_movement"		"0"
-			"bonus_attack"			"0"
-			"anim_increase"			"100"
-			"projectile_increase"	"0"
 		}
 	}
 
