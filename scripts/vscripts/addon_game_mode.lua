@@ -304,7 +304,6 @@ function Activate()
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
-	--LinkLuaModifier( "modifier_primal_beast_attack_animation_lua",	"heroes/hero_primal_beast/modifier_primal_beast_attack_animation.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_hero_attack_point_adjust_lua", 	"heroes/modifier_hero_attack_point_adjust.lua", LUA_MODIFIER_MOTION_NONE)
  
 	-- horizontal motion controllers

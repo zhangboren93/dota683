@@ -13779,30 +13779,7 @@
 			}
 		}
 	}
-	//Primal Beast
-	"primal_beast_attack_animation_datadriven"
-	{
-		"BaseClass"			"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"MaxLevel"			"1"
-		"Modifiers"
-		{
-			"modifier_primal_beast_attack_animation_datadriven"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_primal_beast/modifier_primal_beast_attack_animation.lua"
-						"Function"		"HandleAttackStart"
-					}
-				}
-			}
-		}
-		
-	}
+
 	//=================================================================================================================
 	// Ability: Mirana Leap
 	//=================================================================================================================
