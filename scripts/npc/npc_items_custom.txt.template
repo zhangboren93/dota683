@@ -7372,8 +7372,8 @@
 	{
 		"lifesteal_percent"								"20"
 		"berserk_bonus_attack_speed"					"100"
-		"berserk_bonus_movement_speed_percentage"		"30"
-		"berserk_extra_incoming_damage_percentage"		"30"
+		"berserk_bonus_movement_speed_percentage"		"%ITEM_MASK_OF_MADNESS_MOVESPEED%"
+		"berserk_extra_incoming_damage_percentage"		"%ITEM_MASK_OF_MADNESS_DAMAGE_AMPLIFY%"
 		"berserk_duration"								"12.0"
 	}
 }
