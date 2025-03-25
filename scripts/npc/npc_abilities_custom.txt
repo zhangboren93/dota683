@@ -2117,40 +2117,6 @@
 			}
 		}
 	}
-    "tiny_grow"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"					"5109"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		"AbilitySound"					"Tiny.Grow"
-		"AbilityCastAnimation"		"ACT_INVALID"
-		"HasScepterUpgrade"			"1"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"bonus_armor"				"0"
-				"bonus_damage"				"50 100 150"
-				"tree_bonus_damage_pct"		"0"
-				"attack_speed_reduction"	"0"
-				"toss_bonus_damage"			"0"
-				"move_speed"				"40 50 60"
-				"attack_speed_reduction_tooltip"	"-20 -35 -50"
-				"toss_bonus_damage_pct"
-				{
-					"value"					"35 50 65"
-					"special_bonus_scepter"	"+15"	
-					"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
-				}
-				"slow_resistance"			"0"
-		}
-	}
 	//=================================================================================================================
 	// Ability: Tiny Toss Tree
 	//=================================================================================================================
