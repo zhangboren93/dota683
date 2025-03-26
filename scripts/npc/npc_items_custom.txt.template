@@ -6712,7 +6712,7 @@
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6150"
+		"ItemCost"						"%ITEM_SATANIC_COST%"
 		"ItemShopTags"					"damage;str;armor;unique;hard_to_tag"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"satanic"
@@ -6721,7 +6721,7 @@
 		{
 			"particle"					"particles/items2_fx/satanic_buff.vpcf"
 		}
-		
+
 		"AbilityValues"
 		{
 			"bonus_damage"				"20"
@@ -6729,7 +6729,7 @@
 			"bonus_armor"				"5"
 			"lifesteal_percent"			"25"
 			"unholy_lifesteal_percent"	"175"
-			"unholy_duration"			"3.5"
+			"unholy_duration"			"%ITEM_SATANIC_DURATION%"
 		}
 	}
 	//=================================================================================================================
