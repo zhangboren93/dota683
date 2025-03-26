@@ -6884,12 +6884,12 @@
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"25"
-			"bonus_health"			"250"
+			"bonus_health"			"%ITEM_SKADI_HEALTH%"
 			"bonus_mana"			"250"
 			"cold_movement_speed"	"-35"
 			"cold_attack_speed"		"-45"
 			"cold_duration_melee"	"5.0"
-			"cold_duration_ranged"	"3.0"
+			"cold_duration_ranged"	"%ITEM_SKADI_COLD_DURATION_RANGED%"
 		}
 
 		"Modifiers"
