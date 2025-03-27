@@ -6712,7 +6712,7 @@
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6150"
+		"ItemCost"						"%ITEM_SATANIC_COST%"
 		"ItemShopTags"					"damage;str;armor;unique;hard_to_tag"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"satanic"
@@ -6721,7 +6721,7 @@
 		{
 			"particle"					"particles/items2_fx/satanic_buff.vpcf"
 		}
-		
+
 		"AbilityValues"
 		{
 			"bonus_damage"				"20"
@@ -6729,7 +6729,7 @@
 			"bonus_armor"				"5"
 			"lifesteal_percent"			"25"
 			"unholy_lifesteal_percent"	"175"
-			"unholy_duration"			"3.5"
+			"unholy_duration"			"%ITEM_SATANIC_DURATION%"
 		}
 	}
 	//=================================================================================================================
@@ -6884,12 +6884,12 @@
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"25"
-			"bonus_health"			"250"
+			"bonus_health"			"%ITEM_SKADI_HEALTH%"
 			"bonus_mana"			"250"
 			"cold_movement_speed"	"-35"
 			"cold_attack_speed"		"-45"
 			"cold_duration_melee"	"5.0"
-			"cold_duration_ranged"	"3.0"
+			"cold_duration_ranged"	"%ITEM_SKADI_COLD_DURATION_RANGED%"
 		}
 
 		"Modifiers"
@@ -7215,7 +7215,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"900"	
+		"ItemCost"						"%ITEM_RECIPE_DESOLATOR_COST%"	
 		"ItemShopTags"					""
 		
 		// Recipe
@@ -7224,7 +7224,7 @@
 		"ItemResult"					"item_desolator_datadriven"
 		"ItemRequirements"
 		{
-			"01"						"item_mithril_hammer;item_mithril_hammer"
+			"01"						"%ITEM_RECIPE_DESOLATOR_CONTEXT%"
 		}
 	}
 	//=================================================================================================================
@@ -7252,7 +7252,7 @@
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4100"
+		"ItemCost"						"%ITEM_DESOLATOR_COST%"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"desolator"
@@ -7262,11 +7262,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"60"
+			"bonus_damage"			"%ITEM_DESOLATOR_DAMAGE%"
 			"corruption_armor"		"-7"
 			"corruption_duration"	"15.0"
 		}
-
+		
 		"precache"
 		{
 			"particle"	"particles/items_fx/desolator_projectile.vpcf"
