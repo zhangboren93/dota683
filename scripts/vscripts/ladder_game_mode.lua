@@ -1,4 +1,4 @@
-LADDER_HOST = "http://115.120.241.70:9581/dota683_ladder/"
+LADDER_HOST = "http://94.74.123.22:9581/dota683_ladder/"
 
 ladder_heroes_2_ban = {}
 slot_2_heroes = {}

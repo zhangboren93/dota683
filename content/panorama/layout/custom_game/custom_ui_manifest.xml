@@ -22,6 +22,7 @@
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/tour_spectator.xml"/>
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/magic_stick_icon.xml"/>
 		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/magic_stick.xml"/>
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/gear_setting.xml"/>
 		<!--CustomUIElement type="Hud"	layoutfile="file://{resources}/layout/custom_game/spectator.xml"/-->
 		<CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/end_game_summary.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/team_select_683.xml"/>

@@ -267,6 +267,9 @@ function Activate()
 	LinkLuaModifier( "modifier_spirit_breaker_charge_of_darkness_lua", 	"heroes/hero_spirit_breaker/modifier_charge_of_darkness.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bane_nightmare_cancel_self_lua",			"heroes/hero_bane/modifier_bane_nightmare_cancel_self.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_troll_warlord_berserkers_rage_lua", 		"heroes/hero_troll_warlord/modifier_troll_warlord_berserkers_rage.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_setting_aa_datadriven_0", 				"modifiers/modifier_setting_aa_n.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_setting_aa_datadriven_1", 				"modifiers/modifier_setting_aa_n.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_setting_aa_datadriven_2", 				"modifiers/modifier_setting_aa_n.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- 688 heroes
 	LinkLuaModifier( "modifier_arc_warden_688_attribute_bonus", 		"modifiers/688/modifier_arc_warden_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
@@ -462,7 +465,7 @@ function CAddonTemplateGameMode:InitGameMode()
 		end
 	end
 
-	--GameRules:SetCustomGameAccountRecordSaveFunction(Dynamic_Wrap(CAddonTemplateGameMode, "OnAccountRecordSave"), self)
+	GameRules:SetCustomGameAccountRecordSaveFunction(Dynamic_Wrap(CAddonTemplateGameMode, "OnAccountRecordSave"), self)
 	GameRules:GetGameModeEntity():SetExecuteOrderFilter(Dynamic_Wrap(CAddonTemplateGameMode, "OrderFilter"), self)
 
 	-- rune 2 bounty at time 0 and 1 bounty & other per spawn afterwards
@@ -526,6 +529,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("fwd-command-issue", handleFWDCommand)
 	CustomGameEventManager:RegisterListener("game_mode_select", CAddonTemplateGameMode.handleGameModeSelect)
 	CustomGameEventManager:RegisterListener("magic-stick-command-issue", handleMSCommand)
+	CustomGameEventManager:RegisterListener("gear-setting-command-issue", handleGSCommand)
 	CustomGameEventManager:RegisterListener("custom_ping_hero_missing", CAddonTemplateGameMode.handleCustomPingHeroMissing)
 end
 
@@ -1195,6 +1199,18 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 			entity:SetAbsOrigin(Vector(-100000, -100000, -100000))
 			entity:AddNewModifier(entity, nil, "modifier_spectator_dummy_unit_lua", {})
 		end
+
+		-- setup autoattack
+		local playerId = entity:GetPlayerID()
+		local gameAccountRecord = GameRules:GetPlayerCustomGameAccountRecord(playerId)
+		local autoAttackMode = 0
+		if gameAccountRecord ~= nil and gameAccountRecord['saa'] ~= nil then
+			autoAttackMode = gameAccountRecord['saa']
+		end
+		print("HandleNpcSpawned player " .. playerId .. " has attack mode " .. autoAttackMode)
+		entity:AddNewModifier(entity, nil, 
+							 "modifier_setting_aa_datadriven_" .. autoAttackMode, 
+							 { duration = 0.3 }):SetStackCount(playerId+1)
 	end
 
 	if entity:HasAbility("creep_siege_alter") then
@@ -2623,6 +2639,24 @@ function handleMSCommand(userid, command)
 	end
 end
 
+function handleGSCommand(userid, command)
+	local hero = PlayerResource:GetPlayer(command.pid):GetAssignedHero()
+	if command.slot == "aa" then
+		local modifier = hero:AddNewModifier(hero, {}, "modifier_setting_aa_datadriven_" .. command.style, { duration = 0.3 })
+		modifier:SetStackCount(command.pid+1)
+
+		-- store to game recrod
+		local record = GameRules.AddonTemplate.player2account_records[tostring(command.pid)]
+		if record == nil then
+			GameRules.AddonTemplate.player2account_records[tostring(command.pid)] = {
+				saa = command.style
+			}
+		else
+			record['saa'] = command.style
+		end
+	end
+end
+
 function HandleBuyback(entindex, player_id)
 	local entity = EntIndexToHScript(entindex)
 	entity.buybacked = true
@@ -2843,59 +2877,61 @@ function CAddonTemplateGameMode:OnAccountRecordSave(player_id)
 	print("OnAccountRecordSave called with " .. player_id)
 	local last_record = self.player2account_records[tostring(player_id)]
 	if last_record == nil then
-		last_record = {}
+		last_record = {
+			saa = 0 -- enable setting autoattack as always
+		}
 	end
-	if not self.isValidRankedGame then
-		print("not saving record for normal games.")
-		return last_record
-	end
-	if self.firstBlood == nil then
-		print("not valid game without first blood")
-		return last_record
-	end
-
-	local my_mmr = last_record.mmr
-	local total_rank_game = last_record.trg
-	local total_rank_win_game = last_record.trwg
-	if my_mmr == nil then my_mmr = 0 end
-	if total_rank_game == nil then total_rank_game = 0 end
-	if total_rank_win_game == nil then total_rank_win_game = 0 end
-
-	print("my old mmr is " .. my_mmr)
-	if self.game_winner == nil then
-		print("game winner is nil.")
-		if my_mmr > 25 then
-			my_mmr = my_mmr - 25
-		else
-			my_mmr = 0
-		end
-		print("my new mmr is " .. my_mmr)
-		GameRules:SendCustomMessage("Player " .. player_id  .. " MMR change to " .. my_mmr, 0, 0)
-		last_record.mmr = my_mmr
-		last_record.trg = total_rank_game + 1
-		last_record.game = addToGamesRecord(last_record, player2BuildingDamage, self.player2assist, nil)
-		return last_record
-	end
-
-	local diff = calculateScoreDiff(self)
-
-	if PlayerResource:GetTeam(player_id) == self.game_winner then
-		my_mmr = my_mmr + diff
-		total_rank_win_game = total_rank_win_game + 1
-	elseif my_mmr > diff then 
-		my_mmr = my_mmr - diff
-	else
-		my_mmr = 0
-	end
-	print("my new mmr is " .. my_mmr .. ", total game to " .. (total_rank_game + 1) .. ", totoal win game to " .. total_rank_win_game)
-	last_record.mmr = my_mmr
-	last_record.trg = total_rank_game + 1
-	last_record.trwg = total_rank_win_game
-	DeepPrintTable(last_record)
-	GameRules:SendCustomMessage("Player " .. player_id  .. " MMR change to " .. my_mmr, 0, 0)
-
-	print("game winner is: " .. self.game_winner)
-	last_record.game = addToGamesRecord(last_record, player2BuildingDamage, self.player2assist, self.game_winner)
+--	if not self.isValidRankedGame then
+--		print("not saving record for normal games.")
+--		return last_record
+--	end
+--	if self.firstBlood == nil then
+--		print("not valid game without first blood")
+--		return last_record
+--	end
+--
+--	local my_mmr = last_record.mmr
+--	local total_rank_game = last_record.trg
+--	local total_rank_win_game = last_record.trwg
+--	if my_mmr == nil then my_mmr = 0 end
+--	if total_rank_game == nil then total_rank_game = 0 end
+--	if total_rank_win_game == nil then total_rank_win_game = 0 end
+--
+--	print("my old mmr is " .. my_mmr)
+--	if self.game_winner == nil then
+--		print("game winner is nil.")
+--		if my_mmr > 25 then
+--			my_mmr = my_mmr - 25
+--		else
+--			my_mmr = 0
+--		end
+--		print("my new mmr is " .. my_mmr)
+--		GameRules:SendCustomMessage("Player " .. player_id  .. " MMR change to " .. my_mmr, 0, 0)
+--		last_record.mmr = my_mmr
+--		last_record.trg = total_rank_game + 1
+--		last_record.game = addToGamesRecord(last_record, player2BuildingDamage, self.player2assist, nil)
+--		return last_record
+--	end
+--
+--	local diff = calculateScoreDiff(self)
+--
+--	if PlayerResource:GetTeam(player_id) == self.game_winner then
+--		my_mmr = my_mmr + diff
+--		total_rank_win_game = total_rank_win_game + 1
+--	elseif my_mmr > diff then 
+--		my_mmr = my_mmr - diff
+--	else
+--		my_mmr = 0
+--	end
+--	print("my new mmr is " .. my_mmr .. ", total game to " .. (total_rank_game + 1) .. ", totoal win game to " .. total_rank_win_game)
+--	last_record.mmr = my_mmr
+--	last_record.trg = total_rank_game + 1
+--	last_record.trwg = total_rank_win_game
+--	DeepPrintTable(last_record)
+--	GameRules:SendCustomMessage("Player " .. player_id  .. " MMR change to " .. my_mmr, 0, 0)
+--
+--	print("game winner is: " .. self.game_winner)
+--	last_record.game = addToGamesRecord(last_record, player2BuildingDamage, self.player2assist, self.game_winner)
 	return last_record
 end
 

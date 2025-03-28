@@ -3275,6 +3275,10 @@
 		"jugg-we-style-1"									"Style 1"
 		"ms-panel-slot-aura-effect"							"Aura Effect:"
 		"ms-panel-slot-attack-projectile"					"Projectile:"
+		"gear-panel-autoattack"								"Auto-attack:"
+		"gear-autoattack-none"								"None"
+		"gear-autoattack-awys"								"Always"
+		"gear-autoattack-stdd"								"Standard"
 
 		"DOTA_HUD_BackpackHint"			"Backpack has been disabled."
 		"DOTA_Hud_Pregame_Random_Tooltip"   "Randomly picks from a pool of heroes you frequently play. In some game modes, grants extra 200 golds."

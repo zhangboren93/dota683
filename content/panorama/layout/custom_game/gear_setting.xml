@@ -1,0 +1,21 @@
+<root>
+	<scripts>
+		<include src="file://{resources}/scripts/custom_game/gear_setting.js"/>
+	</scripts>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/radio_button.css"/>
+		<include src="file://{resources}/styles/custom_game/magic_stick.css"/>
+	</styles>
+	<Panel class="gear-panel panel-hidden" style="width: 600px; height: 800px; margin-top:54px; background-color: black;">
+		<Button onactivate="OnGearPanelCloseClicked()"
+			    style="margin-left: 575px; padding-left: 6px; padding-right: 4px;">
+			<Label text="x" style="font-size: 24px; color: white;"/>
+		</Button>
+		<Panel id="common-gear-panel" style="flow-children: down;">
+			<Label text="#gear-panel-autoattack" style="color: white;font-size: 24px; margin: 5px;"/>
+			<RadioButton group="gear-autoattack" id="gear-aa-awys" text="#gear-autoattack-awys" style="color: white;" onactivate="OnAASelected(0)"/>
+			<RadioButton group="gear-autoattack" id="gear-aa-none" text="#gear-autoattack-none" style="color: white;" onactivate="OnAASelected(1)"/>
+			<RadioButton group="gear-autoattack" id="gear-aa-stdd" text="#gear-autoattack-stdd" style="color: white;" onactivate="OnAASelected(2)"/>
+		</Panel>
+	</Panel>
+</root>
