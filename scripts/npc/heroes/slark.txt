@@ -182,15 +182,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
-				}
-			}
-			"modifier_slark_shadow_dance_passive_active_regen"
-			{
-				"IsHidden" 	 	"1"
-				"Attributes" 	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"0.01"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"		"%bonus_regen_pct"
 				}
 			}
 			"modifier_slark_shadow_dance_disabled_by_neutral"

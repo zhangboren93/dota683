@@ -25,12 +25,6 @@ function handleIntervalThink(event)
 		end
 		if caster:HasModifier("modifier_slark_shadow_dance_passive_active") then
 			local health_regen = math.floor(caster:GetMaxHealth() * bonus_regen_pct)
-			local modifier = caster:FindModifierByName("modifier_slark_shadow_dance_passive_active_regen")
-			if modifier == nil then
-				modifier = ability:ApplyDataDrivenModifier(caster, caster,
-					"modifier_slark_shadow_dance_passive_active_regen", {})
-			end
-			modifier:SetStackCount(health_regen)
 		end
 	else
 		if 			caster:HasModifier("modifier_slark_shadow_dance_passive_active")
@@ -46,7 +40,6 @@ function handleAttacked(event)
 	local caster = event.caster
 	if attacker:IsNeutralUnitType()  then
 		caster:RemoveModifierByName("modifier_slark_shadow_dance_passive_active")
-		caster:RemoveModifierByName("modifier_slark_shadow_dance_passive_active_regen")
 		ability:ApplyDataDrivenModifier(caster, caster, 
 			"modifier_slark_shadow_dance_disabled_by_neutral", { duration =  2 })
 	end
@@ -61,7 +54,6 @@ end
 function handleFadingDestroy(event)
 	local caster = event.caster
 	caster:RemoveModifierByName("modifier_slark_shadow_dance_passive_active")
-	caster:RemoveModifierByName("modifier_slark_shadow_dance_passive_active_regen")
 end
 
 function handleSpellStart(event)
