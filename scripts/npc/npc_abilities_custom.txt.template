@@ -15328,21 +15328,9 @@
 				"LinkedSpecialBonus"	"special_bonus_unique_slark"
 			}
 			"leash_radius"			"325"
-			"max_charges"			
-			{
-				"value"	"1"
-				"RequiresScepter"	"1"
-			}
-			"charge_restore_time"
-			{
-				"value"	"8"
-				"RequiresScepter"	"1"
-			}
-			"pounce_distance_scepter"		
-			{
-				"value"		"700"
-				"RequiresScepter"	"1"
-			}
+			"max_charges"			"1"
+			"charge_restore_time"	"20.0 16.0 12.0 8.0"
+			"pounce_distance_scepter"	"700"
 			"essence_stacks"	"0"
 			"AbilityCooldown"	"20.0 16.0 12.0 8.0"
 		}
