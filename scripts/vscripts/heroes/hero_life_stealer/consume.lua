@@ -7,6 +7,9 @@ life_stealer_consume_datadriven = class({
 		caster:SetAbsOrigin(caster.host:GetAbsOrigin())
 		caster:RemoveModifierByName("modifier_infest_hide")
 		caster:SwapAbilities("life_stealer_infest_datadriven", "life_stealer_consume_datadriven", true, false) 
+		if caster:HasAbility("rubick_spell_steal") then
+			caster:FindAbilityByName("rubick_spell_steal"):SetHidden(false)
+		end
 		caster:FindAbilityByName("life_stealer_control_datadriven"):SetHidden(true)
 		for i = 0, 2 do
 			if caster.removed_spells[i] ~= nil then

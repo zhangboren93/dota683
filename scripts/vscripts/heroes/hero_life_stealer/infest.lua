@@ -64,9 +64,19 @@ function infest_start( keys )
 
     -- Hide the hero underground
   --  caster:SetAbsOrigin(caster.host:GetAbsOrigin() - Vector(0, 0, 322))
+    -- if caster doesn't have consume ability
+	if not caster:HasAbility("life_stealer_consume_datadriven") then
+		caster:AddAbility("life_stealer_consume_datadriven")
+	end
     caster:SwapAbilities("life_stealer_infest_datadriven", "life_stealer_consume_datadriven", false, true) 
+	if caster:HasAbility("rubick_spell_steal") then
+		caster:FindAbilityByName("rubick_spell_steal"):SetHidden(true)
+	end
 	if not target:IsConsideredHero() and not target:IsControllableByAnyPlayer() then
 		local control = caster:FindAbilityByName("life_stealer_control_datadriven")
+		if control == nil then
+			control = caster:AddAbility("life_stealer_control_datadriven")
+		end
 		control:SetLevel(1)
 		control:SetHidden(false)
 	end
@@ -93,6 +103,9 @@ function infest_move_unit( keys )
 	    caster:SetAbsOrigin(caster.host:GetAbsOrigin())
 	    caster:RemoveModifierByName("modifier_infest_hide")
 	    caster:SwapAbilities("life_stealer_infest_datadriven", "life_stealer_consume_datadriven", true, false) 
+		if caster:HasAbility("rubick_spell_steal") then
+			caster:FindAbilityByName("rubick_spell_steal"):SetHidden(false)
+		end
 		caster:FindAbilityByName("life_stealer_control_datadriven"):SetHidden(true)
 	    --return the abilities
 	    for i = 0, 2 do
@@ -194,23 +207,4 @@ function infest_consume(keys)
     --remove the particle
     ParticleManager:DestroyParticle(caster.particleid, true)
 	caster:RemoveNoDraw()
-end
-
-function infest_control(event)
-	print("infest_control")
-	local caster = event.caster
-	local host = caster.host
-	local ability = event.ability
-
-    host:AddNewModifier(caster, ability, "modifier_life_stealer_infest_creep", {}) -- Dota2 Original modifier
-	host:RemoveAbility("life_stealer_consume")
-
-	host:AddNewModifier(caster, ability, "modifier_dominated", {})
-	host:SetTeam(caster:GetTeam())
-	host:SetControllableByPlayer(caster:GetPlayerID(), true)
-	local movespeed = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), true)
-	print("Set movespeed to " .. movespeed)
-	host:SetBaseMoveSpeed(movespeed)
-	host:SetOwner(caster)
-	caster:FindAbilityByName("life_stealer_control_datadriven"):SetHidden(true)
 end

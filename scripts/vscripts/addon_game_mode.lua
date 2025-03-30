@@ -864,7 +864,6 @@ end
 -- Add the order filter to your game mode entity
 function CAddonTemplateGameMode:OrderFilter(event)
 	--print("OrderFilter " .. event.order_type .. " " .. event.issuer_player_id_const)
-	--DeepPrintTable(event)
 	if event.order_type == DOTA_UNIT_ORDER_GLYPH then
 		local player = PlayerResource:GetPlayer(event.issuer_player_id_const)
 		local team = player:GetTeam()
