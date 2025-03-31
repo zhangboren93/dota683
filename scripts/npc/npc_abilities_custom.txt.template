@@ -81,7 +81,6 @@
 #base "heroes/windrunner.txt"
 #base "heroes/winter_wyvern.txt"
 #base "heroes/witch_doctor.txt"
-#base "heroes/zeus.txt"
 #base "units/courier.txt"
 #base "units/modes.txt"
 "DOTAAbilities"
