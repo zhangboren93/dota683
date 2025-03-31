@@ -12480,15 +12480,8 @@
 	"AbilityValues"
 	{
 			"radius"					"1200"
-			"damage_health_pct"
-			{
-				"value"					"5 7 9 11"
-				"special_bonus_shard"	"=4 =6 =8 =10"
-			}
-			"hp_removal"
-			{
-				"special_bonus_shard"	"=1"
-			}
+			"damage_health_pct"			"%ZUUS_STATIC_FIELD_DAMAGE_PCT%"
+			"hp_removal"				"%ZUUS_STATIC_FIELD_IS_HP_REMOVAL%"
 	}
 	
 	"Modifiers"
