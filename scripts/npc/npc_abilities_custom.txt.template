@@ -24756,11 +24756,7 @@
 				"sight_radius_night"		"750"
 				"sight_duration"			"4.5"
 				"spread_aoe"				"325"
-				"ministun_duration"
-				{
-					"value"					"0.1"
-					"special_bonus_shard"	"=0.2"
-				}
+				"ministun_duration"			"%ZUUS_LIGHTNING_BOLT_STUN_DURATION%"
 				"creep_damage_bonus_pct"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
