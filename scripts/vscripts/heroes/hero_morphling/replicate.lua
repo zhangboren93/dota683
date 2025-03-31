@@ -49,20 +49,11 @@ function replicate(event)
 	illusion:SetHealth(target:GetHealth()) -- Set the health of the illusion to be the same as the target HP
     caster.replica = illusion
 
-	caster:FindAbilityByName("morphling_morph_replicate_datadriven"):SetLevel(1)
-	caster:FindAbilityByName("morphling_morph_replicate_datadriven"):SetActivated(true)
+	if not caster:HasAbility("morphling_morph_replicate_datadriven") then
+		caster:AddAbility("morphling_morph_replicate_datadriven"):SetLevel(1)
+	else
+		caster:FindAbilityByName("morphling_morph_replicate_datadriven"):SetLevel(1)
+		caster:FindAbilityByName("morphling_morph_replicate_datadriven"):SetActivated(true)
+	end
 end
 
-function morph_replicate(event)
-	local caster = event.caster
-	local replica = caster.replica
-	if replica ~= nil and replica:IsAlive() then
-		ProcsMagicStick(event)
-		caster:SetAbsOrigin(replica:GetAbsOrigin())
-		replica:ForceKill(false)
-		caster.replica = nil
-	else
-		caster:GiveMana(150)
-	end
-	event.ability:SetActivated(false)
-end
