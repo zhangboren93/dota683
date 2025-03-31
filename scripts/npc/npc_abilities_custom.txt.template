@@ -2179,8 +2179,8 @@
 		"AbilityManaCost"				"225 325 450"
 		"AbilityValues"
 		{
-			"sight_radius_day"		"900"
-			"sight_radius_night"	"900"
+			"sight_radius_day"		"%ZUUS_THUNDERGODS_WRATH_SIGHT_RADIUS%"
+			"sight_radius_night"	"%ZUUS_THUNDERGODS_WRATH_SIGHT_RADIUS%"
 			"sight_duration"		"3.0"
 			"damage"
 			{
