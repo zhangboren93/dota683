@@ -161,4 +161,12 @@
 			}
 		}
 	}
+	"obsidian_destroyer_dummy_skill"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_obsidian_destroyer/dummy_skill.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+	}
 }
