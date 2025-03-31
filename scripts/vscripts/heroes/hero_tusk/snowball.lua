@@ -13,12 +13,15 @@ function handleSpellStart(event)
 						caster:GetTeam())
 	caster:EmitSound("Hero_Tusk.Snowball.Cast")
 	caster:EmitSound("Hero_Tusk.Snowball.Loop")
+	local launchAbility = caster:FindAbilityByName("tusk_launch_snowball_datadriven")
+	if launchAbility == nil then
+		launchAbility = caster:AddAbility("tusk_launch_snowball_datadriven")
+	end
 	ability:ApplyDataDrivenModifier(caster, dummyUnit, "modifier_tusk_snowball_moving_lua", { 
 		duration = 7, target = target:GetEntityIndex() })
 	ability:ApplyDataDrivenModifier(caster, dummyUnit, "modifier_kill", { duration = 7 })
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tusk_snowball_start_datadriven", { duration = windup }) 
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tusk_snowball_follow_datadriven", { duration = 7 })
-	local launchAbility = caster:FindAbilityByName("tusk_launch_snowball_datadriven")
 	launchAbility:SetLevel(1)
 	caster:SwapAbilities("tusk_launch_snowball_datadriven", "tusk_snowball_datadriven", true, false)
 	caster.snowballAllies = {}
@@ -44,11 +47,6 @@ function handleFollowIntervalThink(event)
 	end
 end
 
-function handleLaunch(event)
-	local caster = event.caster
-	caster:RemoveModifierByName("modifier_tusk_snowball_start_datadriven")
-end
-
 function handleStartIntervalThink(event)
 	local caster = event.caster
 	local ability = event.ability
@@ -72,3 +70,12 @@ function gatherAllyHeroes(caster, ability)
 		end
 	end
 end
+
+tusk_launch_snowball_datadriven = class({
+	IsStealable = function() return false end,
+	OnSpellStart = function(self)
+		local caster = self:GetCaster()
+		caster:RemoveModifierByName("modifier_tusk_snowball_start_datadriven")
+	end
+})
+
