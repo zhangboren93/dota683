@@ -1,7 +1,7 @@
 modifier_slark_shadow_dance_active_lua = class({
 	CheckState = function() return {
 		[ MODIFIER_STATE_INVISIBLE ] = true,
-		[ MODIFIER_STATE_UNTARGETABLE ] = true
+		[ MODIFIER_STATE_TRUESIGHT_IMMUNE ] = true
 	} end,
 	OnDestroy = function(self)
 		local parent = self:GetParent()
