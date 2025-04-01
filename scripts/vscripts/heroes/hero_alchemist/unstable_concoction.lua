@@ -74,38 +74,6 @@ function UpdateTimerParticle( event )
 
 end
 
---[[
-	Author: Noya
-	Date: 10.1.2015.
-	When the sub_ability is cast, stops the sound, the particle thinker and sets the time charged
-	Also swaps the abilities back to the original state
-]]
-function EndBrewing( event )
-
-	local caster = event.caster
-	local sub_ability = event.ability
-
-	-- Stops the charging sound
-	caster:StopSound("Hero_Alchemist.UnstableConcoction.Fuse")
-
-	-- Swap the sub_ability back to normal
-	local sub_ability_name = sub_ability:GetAbilityName()
-	local main_ability_name = event.main_ability_name
-
-	caster:SwapAbilities(main_ability_name, sub_ability_name, true, false)
-	print("Swapped "..main_ability_name.." with " ..sub_ability_name)
-
-	-- Get the handle of the main ability to get the time started
-	local ability = caster:FindAbilityByName(main_ability_name)
-
-	-- Set how much time the spell charged
-	ability.time_charged = GameRules:GetGameTime() - ability.brew_start
-
-	-- Remove the brewing modifier
-	caster:RemoveModifierByName("modifier_unstable_concoction_brewing")
-	caster:RemoveGesture(ACT_DOTA_ALCHEMIST_CONCOCTION)
-
-end	
 
 --[[
 	Author: Noya
@@ -191,6 +159,9 @@ function ConcoctionHit( event )
 	end
 	local brew_time = ability:GetLevelSpecialValueFor( "brew_time", ability:GetLevel() - 1 )
 	local mainAbility = caster:FindAbilityByName("alchemist_unstable_concoction_datadriven")
+	if main_ability == nil then
+		return
+	end
 	local mainAbilityDamageType = mainAbility:GetAbilityDamageType()
 	local min_stun = ability:GetLevelSpecialValueFor( "min_stun", ability:GetLevel() - 1 )
 	local max_stun = ability:GetLevelSpecialValueFor( "max_stun", ability:GetLevel() - 1 )
@@ -219,8 +190,6 @@ function ConcoctionHit( event )
 		ApplyDamage({ victim = unit, attacker = caster, damage = damage, damage_type = mainAbilityDamageType })
 		unit:AddNewModifier(caster, ability, "modifier_stunned", { duration = stun_duration})
 	end
-	
-
 end	
 
 --[[
@@ -237,6 +206,9 @@ function LevelUpAbility( event )
 	-- The ability to level up
 	local ability_name = event.ability_name
 	local ability_handle = caster:FindAbilityByName(ability_name)	
+	if ability_handle == nil then
+		ability_handle = caster:AddAbility(ability_name)
+	end
 	local ability_level = ability_handle:GetLevel()
 
 	-- Check to not enter a level up loop
@@ -248,10 +220,72 @@ end
 function handleDeath(event)
 	local caster = event.caster
 	local ability = event.ability
-	if ability:IsHidden() then return end
+	if not ability:IsHidden() then return end
 	caster:StopSound("Hero_Alchemist.UnstableConcoction.Fuse")
-	local sub_ability_name = ability:GetAbilityName()
+	local sub_ability_name = "alchemist_unstable_concoction_throw_datadriven"
 	local main_ability_name = "alchemist_unstable_concoction_datadriven"
 
 	caster:SwapAbilities(main_ability_name, sub_ability_name, true, false)
 end
+
+alchemist_unstable_concoction_throw_datadriven = class({
+	IsStealable = function() return false end,
+	OnSpellStart = function(self)
+		local caster = self:GetCaster()
+		local target = self:GetCursorTarget()
+		caster:EmitSound("Hero_Alchemist.UnstableConcoction.Throw")
+		ProjectileManager:CreateTrackingProjectile({
+			vSourceLoc = caster:GetAbsOrigin(),
+			Target = target,
+			iMoveSpeed = self:GetSpecialValueFor("movement_speed"),
+			bDodgeable = false,
+			iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+			bVisibleToEnemies = true,
+			EffectName = "particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf",
+			Ability = self,
+			Source = caster,
+			bProvidesVision = true,
+			iVisionRadius = self:GetSpecialValueFor("vision_range")
+		})
+		local sub_ability = self
+
+		-- Stops the charging sound
+		caster:StopSound("Hero_Alchemist.UnstableConcoction.Fuse")
+
+		-- Swap the sub_ability back to normal
+		local sub_ability_name = sub_ability:GetAbilityName()
+		local main_ability_name = "alchemist_unstable_concoction_datadriven"
+
+		caster:SwapAbilities(main_ability_name, sub_ability_name, true, false)
+		print("Swapped "..main_ability_name.." with " ..sub_ability_name)
+
+		-- Get the handle of the main ability to get the time started
+		local ability = caster:FindAbilityByName(main_ability_name)
+
+		-- Set how much time the spell charged
+		if ability then
+			ability.time_charged = GameRules:GetGameTime() - ability.brew_start
+		end
+
+		-- Remove the brewing modifier
+		caster:RemoveModifierByName("modifier_unstable_concoction_brewing")
+		caster:RemoveGesture(ACT_DOTA_ALCHEMIST_CONCOCTION)
+	end,
+	OnProjectileHit = function(self, target, location)
+		target:EmitSound("Hero_Alchemist.UnstableConcoction.Stun")
+		ParticleManager:CreateParticle("particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_explosion.vpcf", PATTACH_ABSORIGIN, target)
+		ConcoctionHit({
+			caster = self:GetCaster(),
+			ability = self,
+			target = target
+		})
+		return true
+	end,
+	OnUpgrade = function(self)
+		LevelUpAbility({
+			caster = self:GetCaster(),
+			ability = self,
+			ability_name = "alchemist_unstable_concoction_datadriven"
+		})
+	end
+})
