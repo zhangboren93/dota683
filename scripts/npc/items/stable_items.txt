@@ -2,6 +2,78 @@
 {
 	"Version"		"1"
 	
+	"item_recipe_bracer"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_bracer"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_bracer_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1272"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_bracer"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"210"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_bracer_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_gauntlets;item_circlet"
+		}
+	}
+	"item_bracer_datadriven"
+	{
+		"ID"							"1273"
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"item_bracer"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"525"
+		"ItemShopTags"					"damage;int;agi;str"
+		"ItemQuality"					"common"
+		"ItemAliases"					"bracer"
+		"ShouldBeInitiallySuggested"	"1"
+		"ShouldBeSuggested"				"1"
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_strength"		"6"
+			"bonus_agility"			"3"
+			"bonus_intellect"		"3"
+			"bonus_damage"			"3"
+		}
+		"Modifiers"
+		{
+			"modifier_item_bracer_datadriven"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes" 			"MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" 	"%bonus_agility"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" 	"%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" 	"%bonus_intellect"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" 	"%bonus_damage"
+				}
+			}
+		}
+	}
+
 	//=================================================================================================================
 	// Recipe: Null Talisman
 	//=================================================================================================================
