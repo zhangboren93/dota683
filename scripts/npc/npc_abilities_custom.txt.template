@@ -82,7 +82,6 @@
 #base "heroes/windrunner.txt"
 #base "heroes/winter_wyvern.txt"
 #base "heroes/witch_doctor.txt"
-#base "heroes/zeus.txt"
 #base "units/courier.txt"
 #base "units/modes.txt"
 "DOTAAbilities"
@@ -2181,13 +2180,13 @@
 		"AbilityManaCost"				"225 325 450"
 		"AbilityValues"
 		{
-			"sight_radius_day"		"900"
-			"sight_radius_night"	"900"
+			"sight_radius_day"		"%ZUUS_THUNDERGODS_WRATH_SIGHT_RADIUS%"
+			"sight_radius_night"	"%ZUUS_THUNDERGODS_WRATH_SIGHT_RADIUS%"
 			"sight_duration"		"3.0"
 			"damage"
 			{
-				"value"						"225 350 475"
-				"special_bonus_scepter"		"+215 +190 +165"
+				"value"						"ZUUS_THUNDERGODS_WRATH_BASE_DAMAGE%%"
+				"special_bonus_scepter"		"=440 =540 =640"
 			}
 			"growing_delay"			"0"
 			"grow_kill_amp"			"0"
@@ -12481,15 +12480,8 @@
 	"AbilityValues"
 	{
 			"radius"					"1200"
-			"damage_health_pct"
-			{
-				"value"					"5 7 9 11"
-				"special_bonus_shard"	"=4 =6 =8 =10"
-			}
-			"hp_removal"
-			{
-				"special_bonus_shard"	"=1"
-			}
+			"damage_health_pct"			"%ZUUS_STATIC_FIELD_DAMAGE_PCT%"
+			"hp_removal"				"%ZUUS_STATIC_FIELD_IS_HP_REMOVAL%"
 	}
 	
 	"Modifiers"
@@ -24618,7 +24610,7 @@
 				"value"				"0"
 				"special_bonus_unique_zeus_2"	"+4"
 			}
-			"AbilityCooldown"				"1.75"
+			"AbilityCooldown"				"%ZUUS_ARC_LIGHTNING_COOLDOWN%"
 		}
 	}
 	//=================================================================================================================
@@ -24669,11 +24661,7 @@
 				"sight_radius_night"		"750"
 				"sight_duration"			"4.5"
 				"spread_aoe"				"325"
-				"ministun_duration"
-				{
-					"value"					"0.1"
-					"special_bonus_shard"	"=0.2"
-				}
+				"ministun_duration"			"%ZUUS_LIGHTNING_BOLT_STUN_DURATION%"
 				"creep_damage_bonus_pct"	"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
