@@ -8,5 +8,12 @@ function handleAbilityExecuted(event)
 		if necromastery ~= nil then
 			caster.necromastery_count = necromastery:GetStackCount()
 		end
+	elseif event.event_ability:GetName() == "spectre_haunt" then
+		caster:RemoveAbility("spectre_reality")
+		local reality = caster:FindAbilityByName("spectre_reality_datadriven")
+		if reality == nil then
+			reality = caster:AddAbility("spectre_reality")
+		end
+		reality:SetLevel(1)
 	end
 end

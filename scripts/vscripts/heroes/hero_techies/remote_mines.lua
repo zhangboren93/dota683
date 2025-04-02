@@ -19,10 +19,8 @@ function RemoteMinesPlant( keys )
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
-	ProcsMagicStick(keys)
 	-- Modifiers
 	local modifier_remote_mine = keys.modifier_remote_mine
-	local modifier_remote_mine_invisibility = keys.modifier_remote_mine_invisibility
 
 	-- Ability variables
 	local activation_time = ability:GetLevelSpecialValueFor("activation_time", ability_level)
@@ -31,7 +29,7 @@ function RemoteMinesPlant( keys )
 
 	-- Create the land mine and initialize it
 	local remote_mine = CreateUnitByName("npc_dota_techies_remote_mine_datadriven", target_point, false, nil, nil, caster:GetTeamNumber())
-	ability:ApplyDataDrivenModifier(caster, remote_mine, modifier_remote_mine, {})
+	remote_mine:AddNewModifier(caster, ability, modifier_remote_mine, {})
 	remote_mine:AddNewModifier(caster, ability, "modifier_kill", {Duration = duration})
 	remote_mine:SetModelScale(1 + model_scale)
 	remote_mine:SetControllableByPlayer(player, true)
@@ -44,6 +42,10 @@ function RemoteMinesPlant( keys )
 	caster:SetThink(function()
 		remote_mine:AddNewModifier(caster, ability, "modifier_invisible", {})
 	end, "Add invis to remote boom", activation_time)
+
+	ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_remote_mine.vpcf",
+								   PATTACH_ABSORIGIN_FOLLOW,
+								   remote_mine)
 end
 
 --[[Author: Pizzalol
@@ -103,3 +105,58 @@ function RemoteMinesDeath( keys )
 		ParticleManager:ReleaseParticleIndex(particleId)
 	end, "Detonate Sound", 0.03)
 end
+
+techies_focused_detonate_datadriven = class({
+	IsStealable = function() return false end,
+	GetAOERadius = function() return 700 end,
+	OnSpellStart = function(self)
+		local target_point = self:GetCursorPosition()
+		RemoteMinesFocusedDetonate({
+			caster = self:GetCaster(),
+			target_points = { target_point },
+			ability = self
+		})
+	end
+})
+
+techies_remote_mines_datadriven = class({
+	GetAssociatedSecondaryAbilities = function() return "techies_focused_detonate_datadriven" end,
+	OnUpgrade = function(self)
+		RemoteMinesUpgrade({
+			caster = self:GetCaster(),
+			ability_name = "techies_focused_detonate_datadriven"
+		})
+	end,
+	OnAbilityPhaseStart = function(self)
+		self:GetCaster():EmitSound("Hero_Techies.RemoteMine.Toss")
+		return true
+	end,
+	OnSpellStart = function(self)
+		local caster = self:GetCaster()
+		caster:EmitSound("Hero_Techies.RemoteMine.Plant")
+		local target_point = self:GetCursorPosition()
+		RemoteMinesPlant({
+			target_points = { target_point },
+			modifier_remote_mine = "modifier_remote_mine_datadriven",
+			caster = caster,
+			ability = self
+		})
+	end
+})
+
+modifier_remote_mine_datadriven = class({
+	IsHidden = function() return true end,
+	DeclareFunctions = function() return { MODIFIER_EVENT_ON_DEATH } end,
+	CheckState = function() return {
+		[ MODIFIER_STATE_NO_UNIT_COLLISION ] = true
+		--[ MODIFIER_STATE_NO_INVISIBILITY_VISUALS ] = true
+	} end,
+	OnDeath = function(self, event)
+		if self:GetParent() ~= event.unit then return end 
+		RemoteMinesDeath({
+			unit = self:GetParent(),
+			caster = self:GetCaster(),
+			ability = self:GetAbility()
+		})
+	end
+})
