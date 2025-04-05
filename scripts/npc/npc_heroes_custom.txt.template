@@ -2635,7 +2635,7 @@
 		"AttackAnimationPoint"		"0.466"
 		"AttackDamageMin"			"15"
 		"AttackDamageMax"			"21"
-		"AttackRange"				"630"
+		"AttackRange"				"%NPC_HERO_CLINKZ_ATTACK_RANGE%"
 		"ProjectileSpeed"			"900"
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
