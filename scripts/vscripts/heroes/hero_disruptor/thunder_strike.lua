@@ -32,3 +32,32 @@ function handleDeath(event)
 		dummy:AddNewModifier(caster, ability, "modifier_thunder_strike_after_death_lua", { duration = remainingTime })
 	end
 end
+
+
+function AttachStrikeEffect(event)
+	local particleId = ParticleManager:CreateParticle("particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf",
+													  PATTACH_POINT_FOLLOW,
+													  event.caster)
+	local target = event.target
+	ParticleManager:SetParticleControlEnt(particleId,
+										  1,
+										  target,
+										  PATTACH_POINT_FOLLOW,
+										  "attach_hitloc",
+										  Vector(0, 0, 0),
+										  false)
+	ParticleManager:SetParticleControlEnt(particleId,
+										  0,
+										  target,
+										  PATTACH_OVERHEAD_FOLLOW,
+										  "",
+										  Vector(0, 0, 0),
+										  false)
+	ParticleManager:SetParticleControlEnt(particleId,
+										  2,
+										  target,
+										  PATTACH_POINT_FOLLOW,
+										  "attach_hitloc",
+										  Vector(0, 0, 0),
+										  false)
+end

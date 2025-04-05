@@ -9125,13 +9125,12 @@
 			
 			"OnCreated"
 			{
-				"AttachEffect"
+				"RunScript"
 				{
-					"EffectName"		"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
-					"EffectAttachType"	"attach_hitloc"
-					"Target"			"TARGET"
-					}
-				
+					"ScriptFile"	"heroes/hero_disruptor/thunder_strike.lua"
+					"Function"		"AttachStrikeEffect"
+				}
+
 				"FireSound"
 				{
 					"EffectName"	"Hero_Disruptor.ThunderStrike.Target"
@@ -9168,11 +9167,10 @@
 			"ThinkInterval"		"%strike_interval"
 			"OnIntervalThink"
 			{	
-				"AttachEffect"
+				"RunScript"
 				{
-					"EffectName"		"particles/units/heroes/hero_disruptor/disruptor_thunder_strike_bolt.vpcf"
-					"EffectAttachType"	"attach_hitloc"
-					"Target"			"TARGET"
+					"ScriptFile"	"heroes/hero_disruptor/thunder_strike.lua"
+					"Function"		"AttachStrikeEffect"
 				}
 				
 				"FireSound"
