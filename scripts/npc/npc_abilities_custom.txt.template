@@ -202,7 +202,7 @@
 					"Random"
 					{
 						"Chance"			"%trigger_chance"
-						"PseudoRandom" 		"DOTA_PSEUDO_RANDOM_JUGG_CRIT"
+						"PseudoRandom" 		"DOTA_PSEUDO_RANDOM_AXE_HELIX_ATTACK"
 						"OnSuccess"
 						{
 							"RunScript"
@@ -20603,7 +20603,7 @@
 					"Random"
 					{
 						"Chance"			"10"
-						"PseudoRandom" "DOTA_PSEUDO_RANDOM_JUGG_CRIT"					
+						"PseudoRandom" "DOTA_PSEUDO_RANDOM_ITEM_SANGEKAYA_MAIM"					
 						"OnSuccess"
 						{
 							"FireEffect"
