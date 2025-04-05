@@ -271,7 +271,6 @@ function Activate()
 	-- 688 heroes
 	LinkLuaModifier( "modifier_arc_warden_688_attribute_bonus", 		"modifiers/688/modifier_arc_warden_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_bloodseeker_688_attribute_bonus", 		"modifiers/688/modifier_bloodseeker_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_clinkz_688_attribute_bonus", 			"modifiers/688/modifier_clinkz_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_faceless_void_688_attribute_bonus", 		"modifiers/688/modifier_faceless_void_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_luna_688_attribute_bonus", 				"modifiers/688/modifier_luna_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_medusa_688_attribute_bonus", 			"modifiers/688/modifier_medusa_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)

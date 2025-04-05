@@ -2625,7 +2625,7 @@
 		"AttributeBaseStrength"   	"15"
 		"AttributeStrengthGain"   	"1.6"
 		"AttributeBaseAgility"  	"22"
-		"AttributeAgilityGain"   	"3"  
+		"AttributeAgilityGain"   	"%NPC_HERO_CLINKZ_AGILITY_GAIN%"  
 		"AttributeBaseIntelligence" "16"  
 		"AttributeIntelligenceGain" "1.55"  
 		"MovementSpeed"				"300"
