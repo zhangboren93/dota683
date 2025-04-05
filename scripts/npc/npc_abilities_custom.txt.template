@@ -10623,6 +10623,7 @@
 				"TargetPoint"		"POINT"	
 		        "ControlPoints"
         		{
+					"01" "POINT"
             		"04" "360 0 0"
         		}
 			}
