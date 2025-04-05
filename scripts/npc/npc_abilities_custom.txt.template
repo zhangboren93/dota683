@@ -18667,7 +18667,7 @@
 			"fade_time"					"0.6 0.6 0.6 0.6"
 			"move_speed_bonus_pct"		"11 22 33 44"
 			"skeleton_count"			"0"
-			"AbilityCooldown"				"20"
+			"AbilityCooldown"				"%CLINKZ_WIND_WALK_COOLDOWN%"
 			"skeleton_offset"				"250"
 			"skeleton_offset_min"				"150"
 		}
