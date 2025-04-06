@@ -720,7 +720,7 @@
 		"ItemShopTags"					"armor"
 		"ItemQuality"					"component"
 		"ItemAliases"					"platemail"
-		"SecretShop"					"%SECRETSHOP_688_ONLY%"
+		"SecretShop"					"%TRUE_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1082,7 +1082,7 @@
 		"ItemShopTags"					"evasion"
 		"ItemQuality"					"component"
 		"ItemAliases"					"talisman of evasion"
-		"SecretShop"					"%SECRETSHOP_688_ONLY%"
+		"SecretShop"					"%TRUE_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1798,7 +1798,7 @@
 		"ItemAliases"					"roh;ring of health"
 		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
 		"SideShop"						"1"
-		"SecretShop"					"%SECRETSHOP_683_ONLY%"
+		"SecretShop"					"%TRUE_683_ONLY%"
 		
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -1836,7 +1836,7 @@
 		"ItemQuality"					"component"
 		"ItemAliases"					"void stone"
 		"SideShop"						"%SIDESHOP_688_ONLY%"
-		"SecretShop"					"%SECRETSHOP_683_ONLY%"		
+		"SecretShop"					"%TRUE_683_ONLY%"		
 		"ItemKillable" 			"1"
 		"ItemSellable" 			"1"
 		"ItemPurchasable" 		"1"
@@ -5153,7 +5153,7 @@
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"ultimate orb"
 		"SideShop"						"1"
-		"SecretShop"					"%SECRETSHOP_688_ONLY%"
+		"SecretShop"					"%TRUE_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -6485,7 +6485,7 @@
 		"ItemQuality"					"component"
 		"ItemAliases"					"orb of venom"
 		"SideShop"						"1"
-		"SecretShop"					"%SECRETSHOP_683_ONLY%"
+		"SecretShop"					"%TRUE_683_ONLY%"
 
 		"precache"
 		{
