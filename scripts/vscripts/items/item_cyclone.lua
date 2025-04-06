@@ -14,7 +14,12 @@ function handleAbilityExecuted(keys)
 		local RemoveStuns = false
 		local RemoveExceptions = false
 		target:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
-		ability2:ApplyDataDrivenModifier(unit, target, "modifier_eul_cyclone_datadriven", {}):SetDuration(2.5, true)
+		target:EmitSound("DOTA_Item.Cyclone.Activate")
+		target:AddNewModifier(unit, event_ability, "modifier_eul_cyclone_datadriven", { duration = 2.5 })
+		modifier_invoker_tornado_datadriven_cyclone_on_created({
+			caster = unit,
+			target = target
+		})
 	end
 end
 
@@ -22,7 +27,8 @@ function handleDestroy(event)
 	local target = event.target
 	local caster = event.caster
 	local ability = event.ability
-	if target:GetTeam() ~= caster:GetTeam() then
+	local modifier = event.modifier
+	if target:GetTeam() ~= caster:GetTeam() and modifier:GetElapsedTime() > 2.4 then
 		ApplyDamage({
 			victim = target,
 			attacker = caster,
@@ -47,7 +53,6 @@ end
 function modifier_invoker_tornado_datadriven_cyclone_on_created(keys)
     local caster = keys.caster
     local target = keys.target
-    local ability = keys.ability
 
     -- Position variables
     local target_origin = target:GetAbsOrigin()

@@ -152,6 +152,8 @@ function Activate()
 	LinkLuaModifier( "modifier_item_assault_debuf_lua", 				"items/modifier_item_assault_debuf.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_pipe_barrier_lua", 					"items/modifier_item_pipe_barrier.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_item_orb_of_venom_ranged_lua",			"items/modifier_item_orb_of_venom_ranged.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_eul_cyclone_datadriven",					"modifiers/modifier_eul_cyclone.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_eul_cyclone_fall_datadriven",			"modifiers/modifier_eul_cyclone.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
@@ -2150,9 +2152,7 @@ function CAddonTemplateGameMode:DamageFilter(event)
 
 	if event.entindex_inflictor_const ~= nil then
 		local inflictor = EntIndexToHScript(event.entindex_inflictor_const)
-		if inflictor:GetName() == "item_cyclone" then
-			return false
-		elseif inflictor:GetName() == "item_ethereal_blade" then
+		if inflictor:GetName() == "item_ethereal_blade" then
 			--print(victim:Script_GetMagicalArmorValue(false, attacker))
 			if attacker:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then
 				event.damage = (attacker:GetStrength() * 2 + 75) * (1 - victim:Script_GetMagicalArmorValue(false, attacker))
