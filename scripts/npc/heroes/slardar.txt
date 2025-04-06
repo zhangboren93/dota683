@@ -92,17 +92,10 @@
 				"ThinkInterval"  "0.5"
 				"OnIntervalThink"
 				{
-					"RemoveModifier"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_amplify_damage_reveal_datadriven"
-						"Target" 		"TARGET"
-					}
-	
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_amplify_damage_reveal_datadriven"
-						"Target" 		"TARGET"
-						"Duration"		"0.5"
+						"ScriptFile"	"heroes/hero_slardar/amplify_damage.lua"
+						"Function"		"handleIntervalThink"
 					}
 				}
 	
@@ -114,16 +107,6 @@
 				"States"
 				{
 					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-	
-			"modifier_amplify_damage_reveal_datadriven"
-			{
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-				"States"
-				{
-					"MODIFIER_STATE_INVISIBLE" 			"MODIFIER_STATE_VALUE_DISABLED"
 				}
 			}
 		}

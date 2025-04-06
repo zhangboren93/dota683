@@ -18,3 +18,10 @@ function handleDestroy(event)
 		target.amplify_dp = nil
 	end
 end
+
+function handleIntervalThink(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	target:AddNewModifier(caster, ability, "modifier_truesight", { duration = 0.6 })
+end
