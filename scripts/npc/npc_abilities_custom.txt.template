@@ -17349,6 +17349,7 @@
 				"IsHidden"		"0"
 				"IsPurgable" 	"0"
 				"Passive"		"0"
+				"Duration"		"0.3"
 			}
 		}
 	}

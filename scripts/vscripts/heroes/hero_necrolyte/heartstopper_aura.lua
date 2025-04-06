@@ -16,7 +16,7 @@ function HeartstopperAura( keys )
 	-- Shows the debuff on the target's modifier bar only if Necrophos is visible
 	local visibility_modifier = keys.visibility_modifier
 	if target:CanEntityBeSeenByMyTeam(caster) then
-		ability:ApplyDataDrivenModifier(caster, target, visibility_modifier, {})
+		ability:ApplyDataDrivenModifier(caster, target, visibility_modifier, { duration = 0.3 })
 	else
 		target:RemoveModifierByName(visibility_modifier)
 	end
