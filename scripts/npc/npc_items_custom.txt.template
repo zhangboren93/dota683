@@ -5361,7 +5361,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
-		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"IsObsolete"					"%TRUE_683_ONLY%"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -5406,7 +5406,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
-		"IsObsolete"					"%OBSOLETE_IN_688%"
+		"IsObsolete"					"%TRUE_688_ONLY%"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -9011,7 +9011,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemPurchasable"				"%TRUE_688_ONLY%"
-		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"IsObsolete"					"%TRUE_683_ONLY%"
 		"ItemResult"					"item_ward_dispenser"
 		"ItemRequirements"
 		{
@@ -9298,7 +9298,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"125"
 		"ItemShopTags"					""
-		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"IsObsolete"					"%TRUE_683_ONLY%"
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -9510,7 +9510,7 @@
 	"item_recipe_dragon_lance"
 	{
 		"ItemCost"                      "0"
-		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"IsObsolete"					"%TRUE_683_ONLY%"
 		"ItemRequirements"
 		{
 			"01"                        "item_ogre_axe;item_boots_of_elves;item_boots_of_elves"
@@ -9536,7 +9536,7 @@
 	"item_recipe_lotus_orb"
 	{
 		"ItemCost"                      "0"   
-		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"IsObsolete"					"%TRUE_683_ONLY%"
 		"ItemRequirements"
 		{
 			"01"                        "item_pers_datadriven;item_platemail;item_energy_booster"
