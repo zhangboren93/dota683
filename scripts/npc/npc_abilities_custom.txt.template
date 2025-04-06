@@ -2185,7 +2185,7 @@
 			"sight_duration"		"3.0"
 			"damage"
 			{
-				"value"						"ZUUS_THUNDERGODS_WRATH_BASE_DAMAGE%%"
+				"value"						"%ZUUS_THUNDERGODS_WRATH_BASE_DAMAGE%"
 				"special_bonus_scepter"		"=440 =540 =640"
 			}
 			"growing_delay"			"0"
