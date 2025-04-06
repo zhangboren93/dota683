@@ -1,11 +1,20 @@
-
 GameEvents.Subscribe( "courier_shared", OnCourierShared);
-GameEvents.Subscribe( "error_message_clear", ClearErrorMsg);
 
-function OnCourierShared() {
-    $("#courier_shared_label").text = "信使已分享";
+let message_hide_time = 5;
+function OnCourierShared(data) {
+    $("#courier_shared_label").text = data.text;
+	message_hide_time = 5;
 }
 
 function ClearErrorMsg() {
-    $("#courier_shared_label").text = "";
+	if (message_hide_time <= 0) {
+    	$("#courier_shared_label").text = "";
+	} else {
+		message_hide_time = message_hide_time - 1;
+	}
+	$.Schedule(1, ClearErrorMsg);
 }
+
+(function() {
+	$.Schedule(1, ClearErrorMsg);
+})()

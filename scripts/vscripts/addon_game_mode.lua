@@ -2552,7 +2552,8 @@ function CAddonTemplateGameMode:handleCustomPingHeroMissing(data)
 	local hero = PlayerResource:GetPlayer(target_hero_pid):GetAssignedHero()
 	if hero == nil then return end
 	local target_hero_name =  string.sub(hero:GetName(), string.len("npc_dota_hero")+2)
-	GameRules:SendCustomMessageToTeam(target_hero_name .. " MISS!!!", team, -1, team)
+	--GameRules:SendCustomMessageToTeam(target_hero_name .. " MISS!!!", team, -1, team)
+	CustomGameEventManager:Send_ServerToTeam(team, "courier_shared", { text = target_hero_name .. " MISS!!!" })
 end
 
 function handleFWDCommand(userid, event)

@@ -35,7 +35,7 @@ modifier_eul_cyclone_datadriven = class({
 			ability = ability,
 			modifier = self
 		})
-		parent:AddNewModifier(caster, ability, "modifier_eul_cyclone_fall_datadriven", { duration = 0.1 })
+	--	parent:AddNewModifier(caster, ability, "modifier_eul_cyclone_fall_datadriven", { duration = 0.1 })
 	end,
 	GetOverrideAnimation = function() return ACT_DOTA_FLAIL end
 })

@@ -14,6 +14,7 @@ function handleAbilityExecuted(keys)
 		local RemoveStuns = false
 		local RemoveExceptions = false
 		target:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
+		print("Emitting sound")
 		target:EmitSound("DOTA_Item.Cyclone.Activate")
 		target:AddNewModifier(unit, event_ability, "modifier_eul_cyclone_datadriven", { duration = 2.5 })
 		modifier_invoker_tornado_datadriven_cyclone_on_created({

@@ -3,7 +3,7 @@
 		<include src="file://{resources}/scripts/custom_game/custom_ui_manifest.js" />
 	</scripts>
 	<Panel>
-		<!--CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/error_message.xml" /-->
+		<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/error_message.xml" />
 		<CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/ladder_hero_selection.xml"/>
 		<CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/captain_hero_selection.xml"/>
 		<CustomUIElement type="HeroSelection" layoutfile="file://{resources}/layout/custom_game/ladder_hero_scores.xml"/>
