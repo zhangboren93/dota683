@@ -76,6 +76,19 @@ function OnMSIconPressed() {
 	}
 }
 
+function OnGearIconPressed() {
+	$.Msg("OnMSIconPressed");
+	let parentPanel = $.GetContextPanel().GetParent(); // the root panel of the current XML context
+	let fwdPanel = parentPanel.FindChildrenWithClassTraverse("gear-panel")
+	if (fwdPanel[0].BHasClass("panel-hidden")) {
+		fwdPanel[0].visible = true
+		fwdPanel[0].RemoveClass("panel-hidden")
+	} else {
+		fwdPanel[0].AddClass("panel-hidden")
+		fwdPanel[0].visible = false
+	}
+}
+
 function showMSButton() {
 	let map_name = Game.GetMapInfo().map_name
 
@@ -87,6 +100,7 @@ function showMSButton() {
 	}
 	$.Schedule(1, showMSButton)
 }
+
 (function() {
 	$.Schedule(1, showMSButton);
 })();

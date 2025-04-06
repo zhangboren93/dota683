@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+	"Version"	"1"
+	"life_stealer_consume_datadriven"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_life_stealer/consume.lua"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"life_stealer_consume"
+		"MaxLevel"						"1"
+		"AbilityCastPoint"				"0"
+	    "AbilityCastRange"              "0"
+	}
+	"life_stealer_control_datadriven"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_life_stealer/control.lua"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED"
+		"FightRecapLevel"				"1"
+		"AbilityTextureName"			"life_stealer_control"
+		"MaxLevel"						"1"
+		"AbilityCastPoint"				"0"
+	    "AbilityCastRange"              "0"
+	}
+}

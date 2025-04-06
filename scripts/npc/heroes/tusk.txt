@@ -119,7 +119,8 @@
 	}
 	"tusk_launch_snowball_datadriven"
 	{
-		"BaseClass"					"ability_datadriven"
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"heroes/hero_tusk/snowball.lua"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"AbilityTextureName"		"tusk_snowball"
 

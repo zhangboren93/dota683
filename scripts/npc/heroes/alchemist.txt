@@ -118,6 +118,19 @@
     				}
     			}
     		}
+			"modifier_alchemist_unstable_concoction_throw_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_alchemist/unstable_concoction.lua"
+						"Function"		"handleDeath"
+					}
+				}
+			}
     	}
     }
 
@@ -125,7 +138,8 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"				"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_alchemist/unstable_concoction.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -165,100 +179,6 @@
 			"particle"	"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf"
 			"particle"	"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_explosion.vpcf"
 			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
-		}
-
-		"OnSpellStart"
-		{
-			"TrackingProjectile"
-	        {
-	            "Target"			"TARGET"
-	            "EffectName"        "particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_projectile.vpcf"
-	            "Dodgeable"         "0"
-	            "ProvidesVision"    "1"
-	            "VisionRadius"      "%vision_range"
-	            "MoveSpeed"         "%movement_speed"
-	            "SourceAttachment"  "DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
-	        }
-
-	        "FireSound"
-	        {
-	        	"EffectName"		"Hero_Alchemist.UnstableConcoction.Throw"
-	        	"Target"			"CASTER"
-	        }
-
-	        "RunScript"
-			{
-				"ScriptFile"			"heroes/hero_alchemist/unstable_concoction.lua"
-				"Function"				"EndBrewing"
-				"main_ability_name"		"alchemist_unstable_concoction_datadriven"
-			}
-		}
-
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"1"
-
-			"FireSound"
-			{
-				"EffectName"	"Hero_Alchemist.UnstableConcoction.Stun"
-				"Target" 		"TARGET"
-			}
-
-			"FireEffect"
-			{
-				"EffectName"		"particles/units/heroes/hero_alchemist/alchemist_unstable_concoction_explosion.vpcf"
-				"EffectAttachType" 	"attach_hitloc"
-				"Target" 			"TARGET"
-
-				//This is required for the explosion to actually attach on the projectile hit location
-				"ControlPointEntities"
-				{
-					"TARGET"	"attach_hitloc"	
-					"TARGET"	"attach_hitloc"
-					"TARGET"	"attach_hitloc"
-					"TARGET"	"attach_hitloc"
-				}			
-			}
-
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_alchemist/unstable_concoction.lua"
-				"Function"		"ConcoctionHit"
-				"Target"
-		        {
-		        	"Center"  		"TARGET"
-		        	"Radius" 		"%midair_explosion_radius"
-		        	"Teams" 		"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		        	"Types" 		"DOTA_UNIT_TARGET_HERO"
-		        }
-			}
-		}
-
-		"OnUpgrade"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"heroes/hero_alchemist/unstable_concoction.lua"
-				"Function"		"LevelUpAbility"
-				"ability_name"	"alchemist_unstable_concoction_datadriven"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_alchemist_unstable_concoction_throw_datadriven"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"heroes/hero_alchemist/unstable_concoction.lua"
-						"Function"		"handleDeath"
-					}
-				}
-			}
 		}
 	}
 }

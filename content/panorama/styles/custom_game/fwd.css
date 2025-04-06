@@ -122,3 +122,10 @@ ToggleButton:selected .TickBox {
 #menu-magic-stick-image:hover {
 	opacity: 1;
 }
+
+#menu-gear-image {
+	opacity: 0.5;
+}
+#menu-gear-image:hover {
+	opacity: 1;
+}

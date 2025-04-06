@@ -79,7 +79,8 @@
 
 	"spectre_reality_datadriven"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_spectre/reality.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"MaxLevel"						"1"
@@ -87,14 +88,5 @@
 		"AbilityTextureName"			"spectre_reality"
 		"AbilityCastPoint"				"0"
 		"AbilityCooldown"				"0"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"			"heroes/hero_spectre/reality.lua"
-				"Function"				"handleSpellStart"
-				"Target"				"POINT"
-			}
-		}
 	}
 }
