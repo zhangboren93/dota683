@@ -1835,7 +1835,7 @@
 		"ItemShopTags"					"regen_mana"
 		"ItemQuality"					"component"
 		"ItemAliases"					"void stone"
-		"SideShop"						"%SIDESHOP_688_ONLY%"
+		"SideShop"						"%TRUE_688_ONLY%"
 		"SecretShop"					"%TRUE_683_ONLY%"		
 		"ItemKillable" 			"1"
 		"ItemSellable" 			"1"
@@ -1948,7 +1948,7 @@
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"vitality booster"
 		"SecretShop"					"1"
-		"SideShop"						"%SIDESHOP_688_ONLY%"
+		"SideShop"						"%TRUE_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -5152,7 +5152,7 @@
 		"ItemShopTags"					"agi;int;str"
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"ultimate orb"
-		"SideShop"						"1"
+		"SideShop"						"%TRUE_683_ONLY%"
 		"SecretShop"					"%TRUE_688_ONLY%"
 
 		// Special	
