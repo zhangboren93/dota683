@@ -5381,7 +5381,7 @@
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "1725"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
         "IsObsolete"                    "0"
         
         // Special  
@@ -5440,7 +5440,7 @@
 		"ItemQuality"					"epic"
 		"ItemAliases"					"hood of defiance"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemPurchasable"				"%PURCHASABLE_683_ONLY%"
+		"ItemPurchasable"				"%TRUE_683_ONLY%"
 	
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -8695,7 +8695,7 @@
 		"ItemShopTags"					"agi;int;str"
 		"ItemQuality"					"consumable"
 		"ItemAliases"					"gg branch;iron branch"
-		"ItemPurchasable"				"%PURCHASABLE_683_ONLY%"
+		"ItemPurchasable"				"%TRUE_683_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -9010,7 +9010,7 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"IsObsolete"					"%OBSOLETE_IN_683%"
 		"ItemResult"					"item_ward_dispenser"
 		"ItemRequirements"
@@ -9027,7 +9027,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -9048,7 +9048,7 @@
 	}
 	"item_bloodthorn_lua"
 	{
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_bloodthorn.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -9088,7 +9088,7 @@
  
  	"item_recipe_silver_edge_datadriven"
 	{
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_recipe"
 		// General
@@ -9112,7 +9112,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
@@ -9233,7 +9233,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -9256,7 +9256,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_lua"	
 		"ScriptFile"					"items/item_octarine_core.lua"
 		"AbilityTextureName"			"item_octarine_core"
@@ -9289,7 +9289,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_iron_talon"
@@ -9313,7 +9313,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_iron_talon.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -9359,7 +9359,7 @@
 		"AbilityCastRange"				"200"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0.0"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9405,7 +9405,7 @@
 		"ItemStockMax"					"1"
 		"ItemInitialStockTime"			"270.0"
 		"ItemInitialStockTimeTurbo"		"150.0"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		
 		// Sounden
 		//-------------------------------------------------------------------------------------------------------------			
@@ -9437,7 +9437,7 @@
 		"ItemQuality"					"component"
 		"ItemAliases"					"blight stone"
 		"SideShop"						"1"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		// Special	
@@ -9452,7 +9452,7 @@
 	"item_faerie_fire"
 	{
 		"ItemCost"					"75"
-		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"			"%TRUE_688_ONLY%"
 		"AbilityValues"
 		{
 			"bonus_damage"			"2"
@@ -9469,7 +9469,7 @@
 		"ItemStockMax"					"0"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"0"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -9482,7 +9482,7 @@
 
 	"item_tome_of_knowledge"
 	{
-		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"			"%TRUE_688_ONLY%"
 		"IsObsolete"				"0"
 
 		"ItemCost"					"150"
@@ -9495,7 +9495,7 @@
 
 	"item_wind_lace"
 	{
-		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"			"%TRUE_688_ONLY%"
 		"ItemCost"					"235"
 
 		"AbilityValues"
@@ -9523,7 +9523,7 @@
 	"item_dragon_lance"
 	{
 		"ItemCost"					"1900"
-		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"			"%TRUE_688_ONLY%"
 
 		"AbilityValues"
 		{
