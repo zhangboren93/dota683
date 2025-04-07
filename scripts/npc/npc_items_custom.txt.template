@@ -1139,11 +1139,11 @@
 		"ItemStockMax"					"0"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"0"
-		"AbilityCastRange"				"100"
+		"AbilityCastRange"				"%ITEM_CLARITY_CAST_RANGE%"
 		"AbilityValues"
 		{
-				"mana_regen"			"3.75"
-				"buff_duration"			"40"
+				"mana_regen"			"%ITEM_CLARITY_MANA_REGEN%"
+				"buff_duration"			"%ITEM_CLARITY_DURATION%"
 		}
 	}
 	"item_flask"
