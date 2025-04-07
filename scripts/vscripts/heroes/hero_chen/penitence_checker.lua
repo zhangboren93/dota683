@@ -1,3 +1,5 @@
+-- Deprecated
+
 function handleAbilityExecuted(keys)
     local unit = keys.unit
     local ability = keys.ability

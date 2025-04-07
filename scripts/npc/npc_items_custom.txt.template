@@ -720,7 +720,7 @@
 		"ItemShopTags"					"armor"
 		"ItemQuality"					"component"
 		"ItemAliases"					"platemail"
-		"SecretShop"					"%SECRETSHOP_688_ONLY%"
+		"SecretShop"					"%TRUE_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1082,7 +1082,7 @@
 		"ItemShopTags"					"evasion"
 		"ItemQuality"					"component"
 		"ItemAliases"					"talisman of evasion"
-		"SecretShop"					"%SECRETSHOP_688_ONLY%"
+		"SecretShop"					"%TRUE_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -1798,7 +1798,7 @@
 		"ItemAliases"					"roh;ring of health"
 		"ItemShareability"				"ITEM_PARTIALLY_SHAREABLE"
 		"SideShop"						"1"
-		"SecretShop"					"%SECRETSHOP_683_ONLY%"
+		"SecretShop"					"%TRUE_683_ONLY%"
 		
 		// Sound
 		//-------------------------------------------------------------------------------------------------------------			
@@ -1835,8 +1835,8 @@
 		"ItemShopTags"					"regen_mana"
 		"ItemQuality"					"component"
 		"ItemAliases"					"void stone"
-		"SideShop"						"%SIDESHOP_688_ONLY%"
-		"SecretShop"					"%SECRETSHOP_683_ONLY%"		
+		"SideShop"						"%TRUE_688_ONLY%"
+		"SecretShop"					"%TRUE_683_ONLY%"		
 		"ItemKillable" 			"1"
 		"ItemSellable" 			"1"
 		"ItemPurchasable" 		"1"
@@ -1948,7 +1948,7 @@
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"vitality booster"
 		"SecretShop"					"1"
-		"SideShop"						"%SIDESHOP_688_ONLY%"
+		"SideShop"						"%TRUE_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -5152,8 +5152,8 @@
 		"ItemShopTags"					"agi;int;str"
 		"ItemQuality"					"secret_shop"
 		"ItemAliases"					"ultimate orb"
-		"SideShop"						"1"
-		"SecretShop"					"%SECRETSHOP_688_ONLY%"
+		"SideShop"						"%TRUE_683_ONLY%"
+		"SecretShop"					"%TRUE_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -5361,7 +5361,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
-		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"IsObsolete"					"%TRUE_683_ONLY%"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -5381,7 +5381,7 @@
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
         "ItemCost"                      "1725"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
         "IsObsolete"                    "0"
         
         // Special  
@@ -5406,7 +5406,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"0"	
-		"IsObsolete"					"%OBSOLETE_IN_688%"
+		"IsObsolete"					"%TRUE_688_ONLY%"
 		
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -5440,7 +5440,7 @@
 		"ItemQuality"					"epic"
 		"ItemAliases"					"hood of defiance"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemPurchasable"				"%PURCHASABLE_683_ONLY%"
+		"ItemPurchasable"				"%TRUE_683_ONLY%"
 	
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -6485,7 +6485,7 @@
 		"ItemQuality"					"component"
 		"ItemAliases"					"orb of venom"
 		"SideShop"						"1"
-		"SecretShop"					"%SECRETSHOP_683_ONLY%"
+		"SecretShop"					"%TRUE_683_ONLY%"
 
 		"precache"
 		{
@@ -8695,7 +8695,7 @@
 		"ItemShopTags"					"agi;int;str"
 		"ItemQuality"					"consumable"
 		"ItemAliases"					"gg branch;iron branch"
-		"ItemPurchasable"				"%PURCHASABLE_683_ONLY%"
+		"ItemPurchasable"				"%TRUE_683_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -9010,8 +9010,8 @@
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
-		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
+		"IsObsolete"					"%TRUE_683_ONLY%"
 		"ItemResult"					"item_ward_dispenser"
 		"ItemRequirements"
 		{
@@ -9027,7 +9027,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -9048,7 +9048,7 @@
 	}
 	"item_bloodthorn_lua"
 	{
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_bloodthorn.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -9088,7 +9088,7 @@
  
  	"item_recipe_silver_edge_datadriven"
 	{
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_recipe"
 		// General
@@ -9112,7 +9112,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
@@ -9233,7 +9233,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe"
@@ -9256,7 +9256,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_lua"	
 		"ScriptFile"					"items/item_octarine_core.lua"
 		"AbilityTextureName"			"item_octarine_core"
@@ -9289,7 +9289,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_iron_talon"
@@ -9298,7 +9298,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"125"
 		"ItemShopTags"					""
-		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"IsObsolete"					"%TRUE_683_ONLY%"
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
@@ -9313,7 +9313,7 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_lua"
 		"ScriptFile"					"items/item_iron_talon.lua"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -9359,7 +9359,7 @@
 		"AbilityCastRange"				"200"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0.0"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -9405,7 +9405,7 @@
 		"ItemStockMax"					"1"
 		"ItemInitialStockTime"			"270.0"
 		"ItemInitialStockTimeTurbo"		"150.0"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		
 		// Sounden
 		//-------------------------------------------------------------------------------------------------------------			
@@ -9437,7 +9437,7 @@
 		"ItemQuality"					"component"
 		"ItemAliases"					"blight stone"
 		"SideShop"						"1"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
 		// Special	
@@ -9452,7 +9452,7 @@
 	"item_faerie_fire"
 	{
 		"ItemCost"					"75"
-		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"			"%TRUE_688_ONLY%"
 		"AbilityValues"
 		{
 			"bonus_damage"			"2"
@@ -9469,7 +9469,7 @@
 		"ItemStockMax"					"0"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"0"
-		"ItemPurchasable"				"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"				"%TRUE_688_ONLY%"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -9482,7 +9482,7 @@
 
 	"item_tome_of_knowledge"
 	{
-		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"			"%TRUE_688_ONLY%"
 		"IsObsolete"				"0"
 
 		"ItemCost"					"150"
@@ -9495,7 +9495,7 @@
 
 	"item_wind_lace"
 	{
-		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"			"%TRUE_688_ONLY%"
 		"ItemCost"					"235"
 
 		"AbilityValues"
@@ -9510,7 +9510,7 @@
 	"item_recipe_dragon_lance"
 	{
 		"ItemCost"                      "0"
-		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"IsObsolete"					"%TRUE_683_ONLY%"
 		"ItemRequirements"
 		{
 			"01"                        "item_ogre_axe;item_boots_of_elves;item_boots_of_elves"
@@ -9523,7 +9523,7 @@
 	"item_dragon_lance"
 	{
 		"ItemCost"					"1900"
-		"ItemPurchasable"			"%PURCHASABLE_688_ONLY%"
+		"ItemPurchasable"			"%TRUE_688_ONLY%"
 
 		"AbilityValues"
 		{
@@ -9536,7 +9536,7 @@
 	"item_recipe_lotus_orb"
 	{
 		"ItemCost"                      "0"   
-		"IsObsolete"					"%OBSOLETE_IN_683%"
+		"IsObsolete"					"%TRUE_683_ONLY%"
 		"ItemRequirements"
 		{
 			"01"                        "item_pers_datadriven;item_platemail;item_energy_booster"
