@@ -147,10 +147,13 @@ end
 
 function modifier_spirit_breaker_charge_of_darkness_lua:OnOrder(event)
 	if event.unit == self:GetParent() then
-		if event.order_type == DOTA_UNIT_ORDER_CAST_NO_TARGET then
-			return
-		end	
-		self:Destroy()
+		if     event.order_type == DOTA_UNIT_ORDER_HOLD_POSITION 
+			or event.order_type == DOTA_UNIT_ORDER_STOP 
+			or event.order_type == DOTA_UNIT_ORDER_MOVE_TO_TARGET 
+			or event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET 
+			or event.order_type == DOTA_UNIT_ORDER_CAST_TARGET then
+			self:Destroy()
+		end
 	end
 end
 
