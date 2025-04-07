@@ -7818,12 +7818,12 @@
 																																																																												 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"90.0"
+		"AbilityCooldown"				"%ITEM_SMOKE_COOLDOWN%"
 		"AbilityCastRange"				"1200"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"100"
+		"ItemCost"						"%ITEM_SMOKE_COST%"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemAliases"					"smoke of deceit"
@@ -7834,7 +7834,7 @@
 		"ItemDisplayCharges"			"1"
 		"ItemStockInitial"				"3"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"720.0"			  
+		"ItemStockTime"					"%ITEM_SMOKE_STOCK_TIME%"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemSupport"					"1"
 		"ItemAlertable"					"1"
