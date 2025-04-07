@@ -1171,7 +1171,7 @@
 		"AbilityCastPoint"              "0"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilityCastRange"				"100"
+		"AbilityCastRange"				"%ITEM_FLASK_CAST_RANGE%"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1185,9 +1185,9 @@
 		
 		"AbilityValues"
 		{
-				"buff_duration"			"10"
+				"buff_duration"			"%ITEM_FLASK_DURATION%"
 				"total_health_regen"	"400"
-				"health_per_second"		"40"
+				"health_per_second"		"%ITEM_FLASK_HEALTH_REGEN%"
 		}
 		
 		"OnSpellStart"
