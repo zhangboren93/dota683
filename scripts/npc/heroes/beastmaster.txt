@@ -46,4 +46,76 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// Beastmaster: Call of the Wild Hawk
+	//=================================================================================================================
+	"beastmaster_call_of_the_wild_hawk_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilitySound"					"Hero_Beastmaster.Call.Hawk"
+		"AbilityTextureName"			"beastmaster_call_of_the_wild_hawk"
+		"AbilityProcsMagicStick"		"1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCooldown"				"40"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"0"
+		"AbilityCastPoint"				"0.3"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"15"
+
+		"precache"
+		{
+			"model"						"models/heroes/beastmaster/beastmaster_bird.vmdl"	// Model.
+		}
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"duration"						"60"
+			"hawk_base_max_health"			"40 60 80 100"
+			"hawk_base_movespeed"			"250 300 350 400"
+			"hawk_base_vision_range"		"700 800 900 1000" // night vision
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"				"heroes/hero_beastmaster/hawk.lua"
+				"Function"					"LevelUpAbility"
+				"ability_name"				"beastmaster_call_of_the_wild_boar"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"				"heroes/hero_beastmaster/hawk.lua"
+				"Function"					"handleSpellStart"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_beastmaster_hawk_level_up_with_boar"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"heroes/hero_beastmaster/hawk.lua"
+						"Function"			"handleLevelUpThink"
+					}
+				}
+			}
+		}
+	}
 }

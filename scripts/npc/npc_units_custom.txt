@@ -5195,6 +5195,250 @@
 		
 		"WakesNeutrals"				"0"
 	}	
+	"npc_dota_beastmaster_hawk_1"
+	{										
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/beastmaster/beastmaster_bird.vmdl"	// Model.
+		"BaseClass"					"npc_dota_beastmaster_hawk"
+		"SoundSet"					"0"			// Name of sound set.
+		"Level"						"6"
+		"ModelScale"				"1.2"
+		"IsSummoned"				"1"
+		"UnitLabel"					"hawk"
+		"IgnoreAddSummonedToSelection" "0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"beastmaster_hawk_invisibility_datadriven"			// Ability 1
+		"Ability2"					"creep_weak"			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"HealthBarOffset"			"165"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"77"		// Experience earn.
+		"BountyGoldMin"				"30"		// Gold earned min.
+		"BountyGoldMax"				"30"		// Gold earned max.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"250"		// Speed.
+		"MovementTurnRate"			"0.6"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"40"		// Base health.
+		"StatusHealthRegen"			"1.5"		// Health regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"700"		// Range of vision during day light.
+		"VisionNighttimeRange"		"700"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"WakesNeutrals"				"0"
+	}	
+	"npc_dota_beastmaster_hawk_2"
+	{										
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/beastmaster/beastmaster_bird.vmdl"	// Model.
+		"BaseClass"					"npc_dota_beastmaster_hawk"
+		"SoundSet"					"0"			// Name of sound set.
+		"Level"						"6"
+		"ModelScale"				"1.2"
+		"IsSummoned"				"1"
+		"UnitLabel"					"hawk"
+		"IgnoreAddSummonedToSelection" "0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"beastmaster_hawk_invisibility_datadriven"			// Ability 1
+		"Ability2"					"creep_weak"			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"HealthBarOffset"			"165"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"77"		// Experience earn.
+		"BountyGoldMin"				"40"		// Gold earned min.
+		"BountyGoldMax"				"40"		// Gold earned max.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"300"		// Speed.
+		"MovementTurnRate"			"0.6"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"60"		// Base health.
+		"StatusHealthRegen"			"1.5"		// Health regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1000"		// Range of vision during day light.
+		"VisionNighttimeRange"		"800"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"WakesNeutrals"				"0"
+	}	
+	"npc_dota_beastmaster_hawk_3"
+	{										
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/beastmaster/beastmaster_bird.vmdl"	// Model.
+		"BaseClass"					"npc_dota_beastmaster_hawk"
+		"SoundSet"					"0"			// Name of sound set.
+		"Level"						"6"
+		"ModelScale"				"1.2"
+		"IsSummoned"				"1"
+		"UnitLabel"					"hawk"
+		"IgnoreAddSummonedToSelection" "0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"beastmaster_hawk_invisibility_datadriven"			// Ability 1
+		"Ability2"					"creep_weak"			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"HealthBarOffset"			"165"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"77"		// Experience earn.
+		"BountyGoldMin"				"50"		// Gold earned min.
+		"BountyGoldMax"				"50"		// Gold earned max.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"350"		// Speed.
+		"MovementTurnRate"			"0.6"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"80"		// Base health.
+		"StatusHealthRegen"			"1.5"		// Health regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1300"		// Range of vision during day light.
+		"VisionNighttimeRange"		"900"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"WakesNeutrals"				"0"
+	}	
+	"npc_dota_beastmaster_hawk_4"
+	{										
+		// General
+		//----------------------------------------------------------------
+		"Model"						"models/heroes/beastmaster/beastmaster_bird.vmdl"	// Model.
+		"BaseClass"					"npc_dota_beastmaster_hawk"
+		"SoundSet"					"0"			// Name of sound set.
+		"Level"						"6"
+		"ModelScale"				"1.2"
+		"IsSummoned"				"1"
+		"UnitLabel"					"hawk"
+		"IgnoreAddSummonedToSelection" "0"
+
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"beastmaster_hawk_invisibility_datadriven"			// Ability 1
+		"Ability2"					"creep_weak"			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"5"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"HealthBarOffset"			"165"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"77"		// Experience earn.
+		"BountyGoldMin"				"60"		// Gold earned min.
+		"BountyGoldMax"				"60"		// Gold earned max.
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"400"		// Speed.
+		"MovementTurnRate"			"0.6"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"100"		// Base health.
+		"StatusHealthRegen"			"1.5"		// Health regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"1600"		// Range of vision during day light.
+		"VisionNighttimeRange"		"1000"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"WakesNeutrals"				"0"
+	}	
 //=================================================================================
 // Creeps: Healing Ward 
 //=================================================================================

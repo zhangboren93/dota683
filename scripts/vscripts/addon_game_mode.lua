@@ -1367,11 +1367,6 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 					end)
 			end, "spawn team minimap icon", 0.1)
 		end
-	elseif entity:GetName() == "npc_dota_beastmaster_hawk" then
-		--print("owned by " .. entity:GetPlayerOwnerID())
-		entity:SetControllableByPlayer(entity:GetPlayerOwnerID(), false)
-		entity:FindAbilityByName("beastmaster_hawk_invisibility_datadriven"):SetLevel(
-			entity:GetPlayerOwner():GetAssignedHero():FindAbilityByName("beastmaster_call_of_the_wild_hawk"):GetLevel())
 	elseif entity:GetName() == "npc_dota_venomancer_plagueward" then
 		entity:SetThink(function()
 			local hero_veno = entity:GetOwner()

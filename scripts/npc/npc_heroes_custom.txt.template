@@ -281,6 +281,7 @@
 		"StatusHealthRegen"			"0.25"
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
+		"Ability3"		"beastmaster_call_of_the_wild_hawk_datadriven"
 		"Ability4"		"beastmaster_inner_beast_datadriven"
 		"Ability5"		"generic_hidden"
 		"Ability7"		"generic_hidden"
