@@ -10,6 +10,7 @@
 #base "heroes/bounty_hunter.txt"
 #base "heroes/broodmother.txt"
 #base "heroes/brewmaster.txt"
+#base "heroes/centaur.txt"
 #base "heroes/chen.txt"
 #base "heroes/clinkz.txt"
 #base "heroes/crystal_maiden.txt"
@@ -9825,52 +9826,6 @@
 				"DamageTypeTooltip"				"DAMAGE_TYPE_PHYSICAL"
 			}
 			"speed_boost"						"0"
-		}
-	}
-    "centaur_stampede"
-	{
-		"MaxLevel"              "3"
-		"RequiredLevel"         "6"
-		"LevelsBetweenUpgrades" "5"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5517"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES_ENEMIES_NO"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"FightRecapLevel"				"2"
-		"AbilitySound"					"Hero_Centaur.Stampede"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
-		
-        //"HasScepterUpgrade"             "1"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityModifierSupportValue"	"0.2"	// hits everything on the map
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"duration"			"3.75"
-			"base_damage"		"0"
-			"strength_damage"	
-			{
-				"value"							"1 2 3"			
-				"CalculateSpellDamageTooltip"	"1"
-			}
-			"slow_duration"		"1.5"
-			"radius"			"105"
-			"slow_movement_speed"			"100"
-			"damage_reduction"	"0"
-			"AbilityCooldown"	"90 75 60"
-			"has_flying_movement"	"0"
 		}
 	}
     "magnataur_reverse_polarity"
@@ -20646,31 +20601,6 @@
 			"max_damage_increase_pct"		"0"
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
-	}
-	//=================================================================================================================
-	// Centaur Warchief: Return (Retaliate)
-	//=================================================================================================================
-	"centaur_return"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"5516"														// unique ID number for this ability.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
-		"AbilityCastGestureSlot"		"DEFAULT"
-
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"return_damage"				"16 18 20 22"
-				"return_damage_str"			"26 34 42 50"
-				"aura_radius"				"1200"
-		}
 	}
 	//=================================================================================================================
 	// Ability: Crystal Maiden's Crystal Nova
