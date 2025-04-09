@@ -13,6 +13,6 @@ morphling_morph_replicate_datadriven = class({
 		else
 			caster:GiveMana(150)
 		end
-		event.ability:SetActivated(false)
+		self:SetActivated(false)
 	end
 })
