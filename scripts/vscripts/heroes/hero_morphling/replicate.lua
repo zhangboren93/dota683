@@ -47,7 +47,7 @@ function replicate(event)
 
 	illusion:MakeIllusion() 
 	illusion:SetHealth(target:GetHealth()) -- Set the health of the illusion to be the same as the target HP
-    caster.replica = illusion
+    	caster.replica = illusion
 
 	if not caster:HasAbility("morphling_morph_replicate_datadriven") then
 		caster:AddAbility("morphling_morph_replicate_datadriven"):SetLevel(1)
@@ -55,5 +55,7 @@ function replicate(event)
 		caster:FindAbilityByName("morphling_morph_replicate_datadriven"):SetLevel(1)
 		caster:FindAbilityByName("morphling_morph_replicate_datadriven"):SetActivated(true)
 	end
+
+	illusion:AddNewModifier(caster, ability, "modifier_morphling_morph_visual_lua", { duration = ability:GetSpecialValueFor("duration") })
 end
 
