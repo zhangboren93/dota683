@@ -460,9 +460,9 @@ function CAddonTemplateGameMode:InitGameMode()
 	GameRules:SetCreepSpawningEnabled(true)
 	GameRules:SetRuneSpawnTime(120)
 	if GetMapName() == "tour" then
-		GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_1, 2)
-		SetTeamCustomHealthbarColor(DOTA_TEAM_GOODGUYS, 0, 255, 0)
-		SetTeamCustomHealthbarColor(DOTA_TEAM_BADGUYS, 255, 0, 0)
+		GameRules:SetCustomGameTeamMaxPlayers(DOTA_TEAM_CUSTOM_1, 5)
+		--SetTeamCustomHealthbarColor(DOTA_TEAM_GOODGUYS, 0, 255, 0)
+		--SetTeamCustomHealthbarColor(DOTA_TEAM_BADGUYS, 255, 0, 0)
 		for i=1,#ARCANA_HEROES do
 			GameRules:AddHeroToBlacklist(ARCANA_HEROES[i])
 		end

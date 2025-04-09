@@ -7,7 +7,7 @@
 	[
 		"dota",
 		"rank",
-		"dota_688g"
+		"tour"
 	]
 	Default_Keys = 
 	[
@@ -20,7 +20,7 @@
 	HeroGuidesSupported = false
 	MinimalPrecache = false
 	MinPlayers = 1
-	MaxPlayers = 10
+	MaxPlayers = 15
 	map_options = 
 	[
 		{
@@ -33,8 +33,9 @@
 			MaxPlayers = 10
 		},
 		{
-			map = "dota_688g"
-			MaxPlayers = 10
+			map = "tour"
+			MinPlayers = 10
+			MaxPlayers = 15
 		}
 	]
 	PenaltiesEnabled = false
