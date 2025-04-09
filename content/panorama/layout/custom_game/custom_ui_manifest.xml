@@ -39,6 +39,7 @@
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_player_streak_shutdown.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_roshan_killed.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_rune_activated.xml" />
+		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_hero_suicide.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/minimap_lane_creep_team_2.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_rune_denied.xml" /-->
 	</Panel>
