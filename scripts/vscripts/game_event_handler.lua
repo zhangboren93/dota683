@@ -408,6 +408,7 @@ function sendMatchStartEventToServer(game_mode)
 					assignPlayersWithNoTeam()
 				else
 					GameRules:SendCustomMessage("连接服务器成功。", -1, -1);
+					game_mode.rankGameId = teams[4]
 					sendPlayerStatsToUI(teams[3])
 				end
 			else 

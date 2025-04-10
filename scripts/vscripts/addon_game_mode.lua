@@ -373,7 +373,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.captain_dire_extra_time = 110;
 	self.custom_game_meta_version = "683"
 	self.player2account_records = {}
-	self.pskey_orig = ""
+	self.rankGameId = nil
 	self.hero2weaponEffect = {}
 	self.player2heroAuraEffect = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	if GetMapName() == "dota_688g" then
