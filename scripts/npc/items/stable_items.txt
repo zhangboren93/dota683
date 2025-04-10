@@ -1,4 +1,4 @@
-"DOTAAbilities"
+﻿"DOTAAbilities"
 {
 	"Version"		"1"
 	
@@ -156,6 +156,92 @@
 			"bonus_agility"			"3"
 			"bonus_strength"			"3"
 			"bonus_intellect"			"6"
+			"bonus_damage"			"3"
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: Wraith Band
+	//=================================================================================================================
+	"item_recipe_wraith_band"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_wraith_band"
+	{
+		"ItemPurchasable"	"0"
+	}
+	"item_recipe_wraith_band_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1274"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_datadriven"
+		"AbilityTextureName"			"item_recipe_wraith_band"
+		
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"170"	
+		"ItemShopTags"					""
+		
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_wraith_band_datadriven"
+		"ItemRequirements"
+		{
+			"01"						"item_circlet;item_slippers"
+		}
+	}
+
+	//=================================================================================================================
+	// Wraith Band
+	//=================================================================================================================
+	"item_wraith_band_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"1275"
+		"BaseClass"           			"item_datadriven"
+		"AbilityTextureName" 			"item_wraith_band"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"485"
+		"ItemShopTags"					"damage;int;agi;str"
+		"ItemQuality"					"common"
+		"ItemAliases"					"wraith band"
+		"ShouldBeInitiallySuggested"	"1"
+		"ShouldBeSuggested"				"1"
+		"ItemKillable" 					"1"
+		"ItemSellable" 					"1"
+		"ItemPurchasable" 				"1"
+		"ItemDroppable" 				"1"
+
+		"Modifiers"
+		{
+			"item_custom_modifier"
+			{
+				"Passive" 				"1"
+				"IsHidden" 				"1"
+				"Attributes" 			"MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%bonus_agility"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%bonus_damage"
+				}
+			}
+		}
+		// Special	
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_agility"			"6"
+			"bonus_strength"			"3"
+			"bonus_intellect"			"3"
 			"bonus_damage"			"3"
 		}
 	}
