@@ -165,11 +165,11 @@ function sendEndGameStatsToServer(game_mode, player2BuildingDamage, player2assis
 		table.insert(players, player)
 	end
 	game.play = players
-	if game_mode.pskey_orig ~= "" then
+	if game_mode.rankGameId then
 		print("Sending end game stats to server...")
 		local request = CreateHTTPRequest("POST", LADDER_HOST.."submit_game_result")
 		local requestPayload = {
-			pskey = game_mode.pskey_orig,
+			pskey = game_mode.rankGameId,
 			result = game
 		}
 		request:SetHTTPRequestRawPostBody("application/json", json.encode(requestPayload))

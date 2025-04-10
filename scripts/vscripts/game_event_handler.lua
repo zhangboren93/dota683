@@ -102,6 +102,26 @@ function shuffleTeam()
 	end
 end
 
+function assignPlayersWithNoTeam()
+	local players = getAllPlayerIds()
+	local startTeam = DOTA_TEAM_GOODGUYS
+	while #players > 0 do
+		local player = players[1][1]
+		table.remove(players, 1)
+		if PlayerResource:GetTeam(player) == DOTA_TEAM_NOTEAM then
+			-- if radiant team has empty space, assign to radiant
+			if PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_GOODGUYS) < 5 then
+				print("Assigning player " .. player .. " with no team to RADI.")
+				PlayerResource:SetCustomTeamAssignment(player, DOTA_TEAM_GOODGUYS)
+			elseif PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_BADGUYS) < 5 then
+				print("Assigning player " .. player .. " with no team to DIRE.")
+				PlayerResource:SetCustomTeamAssignment(player, DOTA_TEAM_BADGUYS)
+			end
+			-- if dire team has empty spaece, assign to dire
+		end
+	end
+end
+
 function HandleGameStateChange(game_mode, event)
 	if event.new_state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
 		local first_creep_spawned = false
@@ -327,47 +347,70 @@ end
 function sendMatchStartEventToServer(game_mode)
 	local player_count = PlayerResource:GetPlayerCount()
 	local sids = {}
+	local host_pid = -1
 	for pid=0,player_count-1 do
 		local sid = PlayerResource:GetSteamID(pid)
 		table.insert(sids, sid:__tostring())
+		if GameRules:PlayerHasCustomGameHostPrivileges(PlayerResource:GetPlayer(pid)) then
+			host_pid = pid
+		end
 	end
-	table.sort(sids, function(a, b) return a < b end);
-	local pskey = ''
-	for i=1,#sids do
-		local sid = tostring(sids[i])
-		sid = string.sub(sid, -4)
-		pskey = pskey .. sid
-	end
-	print("pskey " .. pskey)
-	game_mode.pskey_orig = pskey
-	CreateHTTPRequest("GET", LADDER_HOST .. "register_game_ip?pskey=" .. pskey):Send(
+	print("Host player id is " .. host_pid)
+	--table.sort(sids, function(a, b) return a < b end);
+	--local pskey = ''
+	--for i=1,#sids do
+	--	local sid = tostring(sids[i])
+	--	sid = string.sub(sid, -4)
+	--	pskey = pskey .. sid
+	--end
+	--print("pskey " .. pskey)
+	--game_mode.pskey_orig = pskey
+	local url = LADDER_HOST .. "register_game_ip?host_pid=" .. sids[host_pid + 1]
+	print("Sending request to " .. url)
+	CreateHTTPRequest("GET", url):Send(
 		function(response)
 			local status_code = response.StatusCode
 			print("register_game_ip response " .. status_code)
 			if status_code == 200 then
-				GameRules:SendCustomMessage("连接服务器成功。", -1, -1);
 				local body = response.Body
 				local teams = json.decode(body)
 				print("Receiving team assignment")
 				DeepPrintTable(teams)
+				
+				local has_invalid_player = false
 				for i=0,PlayerResource:GetPlayerCount() - 1 do
 					local pid = PlayerResource:GetSteamID(i):__tostring()
 					print("Player " .. i .. " has pid " .. pid)
+					local team = nil
 					for j=1,#teams[1] do
 						if teams[1][j] == pid then
 							print("Assign player " .. i .. " to rad.")
-							PlayerResource:SetCustomTeamAssignment(i, DOTA_TEAM_GOODGUYS)
+							team = DOTA_TEAM_GOODGUYS
 						end
 					end
 					for j=1,#teams[2] do
 						if teams[2][j] == pid then
 							print("Assign player " .. i .. " to dire.")
-							PlayerResource:SetCustomTeamAssignment(i, DOTA_TEAM_BADGUYS)
+							team = DOTA_TEAM_BADGUYS
 						end
 					end
+					if team then
+						PlayerResource:SetCustomTeamAssignment(i, DOTA_TEAM_GOODGUYS)
+					else
+						print("Warning no team assignment")
+						has_invalid_player = true
+						break
+					end
 				end
-
-				sendPlayerStatsToUI(teams[3])
+				if has_invalid_player then
+					GameRules:SendCustomMessage("发现乱入玩家，不会记录分数。", -1, -1);
+					game_mode.isValidRankedGame = false
+					assignPlayersWithNoTeam()
+				else
+					GameRules:SendCustomMessage("连接服务器成功。", -1, -1);
+					game_mode.rankGameId = teams[4]
+					sendPlayerStatsToUI(teams[3])
+				end
 			else 
 				GameRules:SendCustomMessage("连接服务器失败，不会记录分数。", -1, -1);
 				game_mode.isValidRankedGame = false
