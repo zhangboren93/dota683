@@ -103,7 +103,7 @@ function CheckSelfStun( event )
 		local main_ability_name = ability:GetAbilityName()
 		local sub_ability_name = event.sub_ability_name
 
-		caster:SwapAbilities(sub_ability_name, main_ability_name, false, true)
+		caster:SwapAbilities(main_ability_name, sub_ability_name, true, false)
 		print("Swapped "..sub_ability_name.." with " ..main_ability_name)
 
 		-- Launch the projectile hit on the caster, which will do the effect on enemies
@@ -159,7 +159,7 @@ function ConcoctionHit( event )
 	end
 	local brew_time = ability:GetLevelSpecialValueFor( "brew_time", ability:GetLevel() - 1 )
 	local mainAbility = caster:FindAbilityByName("alchemist_unstable_concoction_datadriven")
-	if main_ability == nil then
+	if mainAbility == nil then
 		return
 	end
 	local mainAbilityDamageType = mainAbility:GetAbilityDamageType()
