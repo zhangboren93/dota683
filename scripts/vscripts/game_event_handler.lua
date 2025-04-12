@@ -321,7 +321,11 @@ function handleGameInProgressTimer(game_mode, player2BuildingDamage)
 	end
 
 	-- respawn base trees in rank map
-	if game_mode.isValidRankedGame and game_mode.game_winner == nil and game_mode.firstBlood ~= nil then
+	if      game_mode.game_winner == nil
+		and ( 
+			  (game_mode.isValidRankedGame and game_mode.firstBlood ~= nil)
+			or game_mode.valid_normal_game
+		) then
 		local radiant_connected = getConnectedPlayerCount(DOTA_TEAM_GOODGUYS)
 		local dire_connected = getConnectedPlayerCount(DOTA_TEAM_BADGUYS)
 		if radiant_connected - dire_connected >= 4 then

@@ -176,6 +176,18 @@ function sendEndGameStatsToServer(game_mode, player2BuildingDamage, player2assis
 		request:Send(function(response)
 			print("submit game result status" .. response.StatusCode)
 		end)
+	elseif game_mode.valid_normal_game then
+		print("Sending normal end game stats to server...")
+		local request = CreateHTTPRequest("POST", LADDER_HOST.."submit_game_result")
+		local requestPayload = {
+			result = game,
+			is_normal_game = 1,
+			mtchid = tostring(GameRules.Script_GetMatchID())
+		}
+		request:SetHTTPRequestRawPostBody("application/json", json.encode(requestPayload))
+		request:Send(function(response)
+			print("submit game result status" .. response.StatusCode)
+		end)
 	end
 	DeepPrintTable(game)
 	return game

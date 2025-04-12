@@ -376,6 +376,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.rankGameId = nil
 	self.hero2weaponEffect = {}
 	self.player2heroAuraEffect = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+	self.valid_normal_game = false
 	if GetMapName() == "dota_688g" then
 		self.custom_game_meta_version = "688"
 	end
@@ -2754,7 +2755,28 @@ end
 
 function CAddonTemplateGameMode:handleFirstBlood()
 	self.firstBlood = true
-end
+	if GetMapName() == "dota" and
+		PlayerResource:GetPlayerCount() == 10 and
+		(self.game_mode == nil or
+		 self.game_mode == "AP" or
+		 self.game_mode == "RD" or
+		 self.game_mode == "LD") then
+		local hasAbandonedPlayer = false
+		for i=0,PlayerResource:GetPlayerCount() - 1 do
+	 		if 		PlayerResource:GetConnectionState(i) == DOTA_CONNECTION_STATE_DISCONNECTED
+				or 	PlayerResource:GetConnectionState(i) == DOTA_CONNECTION_STATE_ABANDONED then
+				hasAbandonedPlayer = true
+				break
+			end
+		end
+		if hasAbandonedPlayer then
+			GameRules:SendCustomMessage("有人断开连接了，不会计算普通游戏分数。", -1, -1)
+		else
+			GameRules:SendCustomMessage("识别有效游戏，计算普通游戏分数。", -1, -1)
+			self.valid_normal_game = true
+		end
+	end
+ end
 
 function CAddonTemplateGameMode:handleGameModeSelect(data)
 	print("handleGameModeSelect")
