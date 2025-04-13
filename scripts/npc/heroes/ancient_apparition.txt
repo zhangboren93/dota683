@@ -140,6 +140,7 @@
 	
 				"EffectName"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_cold_feet.vpcf"
 				"EffectAttachType"	"follow_overhead"
+				"IsPurgable"		"1"
 	
 				"OnCreated"
 				{
