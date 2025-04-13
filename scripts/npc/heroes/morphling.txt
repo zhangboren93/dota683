@@ -53,7 +53,7 @@
 				"damage_min"					"0.25"
 				"damage_max"					"0.50 1.0 1.5 2.0"
 				"stun_min"						"0.25"
-				"stun_max"						"0.75 1.5 2.25 3.0"
+				"stun_max"						"1.25 2.25 3.25 4.25"
 				"knockback_min"					"100"
 				"knockback_max"					"300"
 		}
