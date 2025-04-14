@@ -67,7 +67,7 @@
 				"States"
 				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"					"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY" 	"MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY" 	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"EffectName" 		"particles/units/heroes/hero_centaur/centaur_stampede.vpcf"
 				"EffectAttachType"	"follow_origin"
