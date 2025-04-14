@@ -33,7 +33,7 @@ function modifier_toss_flying_lua:OnDestroy()
 			local toss_damage = ability:GetSpecialValueFor("toss_damage")
 			local units = FindUnitsInRadius(
 				caster:GetTeamNumber(),
-				parent:GetAbsOrigin(),
+				parent.toss_to_target:GetAbsOrigin(),
 				nil,
 				damage_radius,
 				DOTA_UNIT_TARGET_TEAM_ENEMY, 
