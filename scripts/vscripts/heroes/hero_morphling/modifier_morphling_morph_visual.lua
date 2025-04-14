@@ -6,6 +6,11 @@ modifier_morphling_morph_visual_lua = class({
 	end,
 	OnIntervalThink = function(self)
 		local parent = self:GetParent()
+		local caster = self:GetCaster()
+		if not caster:IsAlive() then
+			self:Destroy()
+			parent:ForceKill(false)
+		end
 		local pid = ParticleManager:CreateParticleForTeam(
 				"particles/units/heroes/hero_morphling/morphling_replicate_overhead_timer.vpcf", 
 				PATTACH_OVERHEAD_FOLLOW, 
@@ -14,7 +19,6 @@ modifier_morphling_morph_visual_lua = class({
 		ParticleManager:SetParticleControl(pid, 1, Vector(0, math.floor(self:GetRemainingTime()), 0))
 		ParticleManager:SetParticleControl(pid, 2, Vector(2, 0, 0))
 
-		local caster = self:GetCaster()
 		local pid = ParticleManager:CreateParticleForTeam(
 				"particles/units/heroes/hero_morphling/morphling_replicate_overhead_timer.vpcf", 
 				PATTACH_OVERHEAD_FOLLOW, 
