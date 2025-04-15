@@ -18,6 +18,7 @@ require("game_mode/random_draft")
 require("game_mode/single_pick")
 require("alt_model")
 require("game_event_handler")
+json = require("json")
 
 if CAddonTemplateGameMode == nil then
 	CAddonTemplateGameMode = class({})
@@ -377,6 +378,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	self.hero2weaponEffect = {}
 	self.player2heroAuraEffect = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	self.valid_normal_game = false
+	self.playerNormalWinRate = {}
 	if GetMapName() == "dota_688g" then
 		self.custom_game_meta_version = "688"
 	end
@@ -677,6 +679,37 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 			GameRules:SendCustomMessage("Custom game record nil.", PlayerResource:GetTeam(playerid), 0)
 		else
 			GameRules:SendCustomMessage(tableToString(record), PlayerResource:GetTeam(playerid), 0)
+		end
+	end
+	if text == '-wr' then
+		if #self.playerNormalWinRate == 0 then
+			local psid = {}
+			local url = LADDER_HOST .. "players?normal=1"
+			for i=0,PlayerResource:GetPlayerCount() - 1 do
+				table.insert(psid, PlayerResource:GetSteamAccountID(i))
+				url = url .. '&p' .. i .. '=' .. PlayerResource:GetSteamAccountID(i)
+			end
+			-- fetch player score
+			print("Sending request to " .. url)
+			CreateHTTPRequest("GET", url):Send(function(response)
+				print("Getting normal score returns " .. response.StatusCode)
+				local body = response.Body
+				print(body)
+				local scores = json.decode(body)
+				for i=1,#scores do
+					if scores[i][1] ~= "-1" then
+						print("player " .. (i-1) .. " scores are m" .. scores[i][1] .. " w" .. scores[i][2] .. " l" .. scores[i][3])
+					end
+				end
+				self.playerNormalWinRate = scores
+			end)
+		else
+			local scores = self.playerNormalWinRate
+			for i=1,#scores do
+				if scores[i][1] ~= "-1" then
+					print("player " .. (i-1) .. " scores are m" .. scores[i][1] .. " w" .. scores[i][2] .. " l" .. scores[i][3])
+				end
+			end
 		end
 	end
 end
