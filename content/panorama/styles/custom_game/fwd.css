@@ -116,16 +116,9 @@ ToggleButton:selected .TickBox {
 	font-size: 24px;
 }
 
-#menu-magic-stick-image {
+.menu-image-opac {
 	opacity: 0.5;
 }
-#menu-magic-stick-image:hover {
-	opacity: 1;
-}
-
-#menu-gear-image {
-	opacity: 0.5;
-}
-#menu-gear-image:hover {
+.menu-image-opac:hover {
 	opacity: 1;
 }

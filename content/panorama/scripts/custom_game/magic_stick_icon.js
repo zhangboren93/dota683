@@ -89,6 +89,18 @@ function OnGearIconPressed() {
 	}
 }
 
+function OnHistoryIconPressed() {
+	let parentPanel = $.GetContextPanel().GetParent(); // the root panel of the current XML context
+	let fwdPanel = parentPanel.FindChildrenWithClassTraverse("history-panel")
+	if (fwdPanel[0].BHasClass("panel-hidden")) {
+		fwdPanel[0].visible = true
+		fwdPanel[0].RemoveClass("panel-hidden")
+	} else {
+		fwdPanel[0].AddClass("panel-hidden")
+		fwdPanel[0].visible = false
+	}
+}
+
 function showMSButton() {
 	let map_name = Game.GetMapInfo().map_name
 

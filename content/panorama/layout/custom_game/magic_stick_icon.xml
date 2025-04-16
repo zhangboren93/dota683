@@ -7,11 +7,14 @@
 	</styles>
 	<Panel class="ms-icon panel-hidden" style="margin-left: 190px; margin-top:15px;">
 		<Button onactivate="OnMSIconPressed()" onmouseover="OnMSMouseOver()" onmouseout="OnMSMouseOut()">
-			<Image id="menu-magic-stick-image" src="file://{images}/custom_game/magic.png"/>
+			<Image class="menu-image-opac" src="file://{images}/custom_game/magic.png"/>
 		</Button>
 		<Label id="ms-icon-hero-effect-tooltip" text="#ms-icon-hero-effect-tooltip" style="color: white;font-size:18px;margin-top:47px;background-color:#18181B;padding:10px;border-color:black;border-width:3px;visibility:collapse;"/>
 		<Button onactivate="OnGearIconPressed()" style="margin-left: 40px;">
-			<Image id="menu-gear-image" src="file://{images}/custom_game/gear.png" style="height: 24px; width: 24px;"/>
+			<Image class="menu-image-opac" src="file://{images}/custom_game/gear.png" style="height: 24px; width: 24px;"/>
+		</Button>
+		<Button onactivate="OnHistoryIconPressed()" style="margin-left: 80px;">
+			<Image class="menu-image-opac" src="file://{images}/custom_game/bar-chart-fill.png" style="height: 24px; width: 24px;"/>
 		</Button>
 	</Panel>
 </root>
