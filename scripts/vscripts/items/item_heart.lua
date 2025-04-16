@@ -59,6 +59,10 @@ function modifier_item_heart_regen_lua:DeclareFunctions()
 	}
 end
 
+function modifier_item_heart_regen_lua:IsHidden()
+	return true
+end
+
 function modifier_item_heart_regen_lua:GetModifierConstantHealthRegen()
 	return self:GetAbility():GetSpecialValueFor("health_regen_percent_per_second") * self:GetParent():GetMaxHealth() / 100
 end
