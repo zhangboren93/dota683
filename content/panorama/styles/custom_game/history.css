@@ -1,0 +1,17 @@
+.panel-hidden {
+/**	position: -100% 0 0;
+	width: 0px;
+	height: 0px; */
+}
+.history-panel {
+	width: 600px;
+	height: 800px;
+	margin-top: 54px;
+	background-color: black;
+}
+.title-panel {
+	flow-children: right;
+}
+.player-panel {
+	flow-children: right;
+}
