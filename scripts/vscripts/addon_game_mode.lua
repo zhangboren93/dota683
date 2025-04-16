@@ -539,6 +539,19 @@ function CAddonTemplateGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("custom_ping_hero_missing", CAddonTemplateGameMode.handleCustomPingHeroMissing)
 end
 
+local function sendWinRateMessage(scores)
+	for i=1,#scores do
+		if scores[i][1] ~= "-1" then
+			print("player " .. (i-1) .. " scores are m" .. scores[i][1] .. " w" .. scores[i][2] .. " l" .. scores[i][3])
+			local player = PlayerResource:GetPlayer(i-1)
+			local hero = player:GetAssignedHero()
+			local hero_name = string.sub(hero:GetName(), string.len("npc_dota_hero")+2)
+			local team = player:GetTeam()
+			GameRules:SendCustomMessage('t' .. team .. ' ' .. hero_name .. ' s' .. scores[i][1] .. ' w' .. scores[i][2] .. ' l' .. scores[i][3], -1, -1)
+		end
+	end
+end
+
 function HandlePlayerChat(self, teamonly, text, playerid)
 	--print("HandlePlayerChat " .. teamonly .. " " .. text .. " " .. playerid)
 	if teamonly == 0 and GameRules:State_Get() == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP then
@@ -696,20 +709,12 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 				local body = response.Body
 				print(body)
 				local scores = json.decode(body)
-				for i=1,#scores do
-					if scores[i][1] ~= "-1" then
-						print("player " .. (i-1) .. " scores are m" .. scores[i][1] .. " w" .. scores[i][2] .. " l" .. scores[i][3])
-					end
-				end
 				self.playerNormalWinRate = scores
+				sendWinRateMessage(scores)
 			end)
 		else
 			local scores = self.playerNormalWinRate
-			for i=1,#scores do
-				if scores[i][1] ~= "-1" then
-					print("player " .. (i-1) .. " scores are m" .. scores[i][1] .. " w" .. scores[i][2] .. " l" .. scores[i][3])
-				end
-			end
+			sendWinRateMessage(scores)
 		end
 	end
 end
