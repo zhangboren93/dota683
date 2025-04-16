@@ -8894,15 +8894,6 @@
 					"MODIFIER_PROPERTY_MANA_BONUS"				"%bonus_mana"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
 				}
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_soul_booster.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
 			}
 		}
 	}
@@ -9153,8 +9144,9 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1"
+		"ItemCost"						"0"
 		"ItemShopTags"					""
+		"IsObsolete"					"%TRUE_683_ONLY%"
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------

@@ -981,7 +981,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 					return false
 			end
 		end
-		if event.shop_item_name == "item_recipe_octarine_core_lua" then return false end
 	end
 	if event.order_type == DOTA_UNIT_ORDER_MOVE_ITEM then
 		local item = EntIndexToHScript(event.entindex_ability)
