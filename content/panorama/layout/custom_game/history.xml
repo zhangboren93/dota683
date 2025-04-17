@@ -11,8 +11,12 @@
 			<Label text="x" style="font-size: 24px; color: white;"/>
 		</Button>
 		<Panel style="flow-children: down;">
-			<Label text="#radiant-team"/>
-			<Panel class="title-panel"><Label text="score" class="score"/><Label text="games" class="count"/><Label text='win rate' class="winrate"/></Panel>
+			<Panel class="title-panel">
+				<Label text="#683modeselect_first_pick_rad" style="color: white; font-size: 18px;"/>
+				<Label text="score" class="score"/>
+				<Label text="games" class="count"/>
+				<Label text='win rate' class="winrate"/>
+			</Panel>
 			<Panel class="player-panel">
 				<DOTAHeroImage id='rdhi1' heroname='npc_dota_hero_antimage'/>
 				<DOTAUserName id='rdun1' steamid='local'/>
@@ -48,7 +52,7 @@
 				<Label text="0" id='rcount5' class="count"/>
 				<Label text='50%' id='rwinr5' class="winrate"/>
 			</Panel>
-			<Label text="#dire-team"/>
+			<Label text="#683modeselect_first_pick_dire" style="color: white; font-size: 18px;"/>
 			<Panel class="title-panel">
 				<Label text="score" class="score"/>
 				<Label text="games" class="count"/>

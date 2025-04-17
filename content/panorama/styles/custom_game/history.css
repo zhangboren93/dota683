@@ -1,7 +1,7 @@
 .panel-hidden {
-/**	position: -100% 0 0;
+	position: -100% 0 0;
 	width: 0px;
-	height: 0px; */
+	height: 0px; 
 }
 .history-panel {
 	width: 600px;
@@ -11,6 +11,8 @@
 }
 .title-panel {
 	flow-children: right;
+	margin-top: 8px;
+	margin-left: 10px;
 }
 .player-panel {
 	flow-children: right;
