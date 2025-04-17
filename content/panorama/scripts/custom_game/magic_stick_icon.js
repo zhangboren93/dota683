@@ -95,6 +95,10 @@ function OnHistoryIconPressed() {
 	if (fwdPanel[0].BHasClass("panel-hidden")) {
 		fwdPanel[0].visible = true
 		fwdPanel[0].RemoveClass("panel-hidden")
+		// sends a signal to server to fetch user score
+		GameEvents.SendCustomGameEventToServer("history-panel-show", {
+			pid: Players.GetLocalPlayer()
+		})
 	} else {
 		fwdPanel[0].AddClass("panel-hidden")
 		fwdPanel[0].visible = false

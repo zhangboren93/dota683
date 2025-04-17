@@ -537,6 +537,7 @@ function CAddonTemplateGameMode:InitGameMode()
 	CustomGameEventManager:RegisterListener("magic-stick-command-issue", handleMSCommand)
 	CustomGameEventManager:RegisterListener("gear-setting-command-issue", handleGSCommand)
 	CustomGameEventManager:RegisterListener("custom_ping_hero_missing", CAddonTemplateGameMode.handleCustomPingHeroMissing)
+	CustomGameEventManager:RegisterListener("history-panel-show", handleHistoryShow)
 end
 
 local function sendWinRateMessage(scores)
@@ -2680,6 +2681,38 @@ function handleGSCommand(userid, command)
 		else
 			record['saa'] = command.style
 		end
+	end
+end
+
+local function sendScoresToHistoryPanel(pid, scores)
+	CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(pid),
+		"history-panel-scores",
+		scores)
+end
+
+function handleHistoryShow(userid, command)
+	local pid = command.pid
+	local game_mode = GameRules.AddonTemplate
+	if #game_mode.playerNormalWinRate == 0 then
+		local psid = {}
+		local url = LADDER_HOST .. "players?normal=1"
+		for i=0,PlayerResource:GetPlayerCount() - 1 do
+			table.insert(psid, PlayerResource:GetSteamAccountID(i))
+			url = url .. '&p' .. i .. '=' .. PlayerResource:GetSteamAccountID(i)
+		end
+		-- fetch player score
+		print("Sending request to " .. url)
+		CreateHTTPRequest("GET", url):Send(function(response)
+			print("Getting normal score returns " .. response.StatusCode)
+			local body = response.Body
+			print(body)
+			local scores = json.decode(body)
+			game_mode.playerNormalWinRate = scores
+			sendScoresToHistoryPanel(pid, scores)
+		end)
+	else
+		local scores = game_mode.playerNormalWinRate
+		sendScoresToHistoryPanel(pid, scores)
 	end
 end
 
