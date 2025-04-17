@@ -50,3 +50,25 @@ end
 function modifier_item_heart_datadriven_regen_on_destroy(keys)
 	keys.caster:RemoveModifierByName("modifier_item_heart_regen_lua")
 end
+
+modifier_item_heart_regen_lua = class({})
+
+function modifier_item_heart_regen_lua:DeclareFunctions()
+	return {
+		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE
+	}
+end
+
+function modifier_item_heart_regen_lua:OnCreated()
+	if IsServer() then
+		self.regen_pct = self:GetAbility():GetSpecialValueFor("health_regen_percent_per_second")
+	end
+end
+
+function modifier_item_heart_regen_lua:IsHidden()
+	return true
+end
+
+function modifier_item_heart_regen_lua:GetModifierHealthRegenPercentage()
+	return self.regen_pct
+end

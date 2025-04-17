@@ -1139,11 +1139,11 @@
 		"ItemStockMax"					"0"
 		"ItemStockInitial"				"0"
 		"ItemStockTime"					"0"
-		"AbilityCastRange"				"100"
+		"AbilityCastRange"				"%ITEM_CLARITY_CAST_RANGE%"
 		"AbilityValues"
 		{
-				"mana_regen"			"3.75"
-				"buff_duration"			"40"
+				"mana_regen"			"%ITEM_CLARITY_MANA_REGEN%"
+				"buff_duration"			"%ITEM_CLARITY_DURATION%"
 		}
 	}
 	"item_flask"
@@ -1171,7 +1171,7 @@
 		"AbilityCastPoint"              "0"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilityCastRange"				"100"
+		"AbilityCastRange"				"%ITEM_FLASK_CAST_RANGE%"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -1185,9 +1185,9 @@
 		
 		"AbilityValues"
 		{
-				"buff_duration"			"10"
+				"buff_duration"			"%ITEM_FLASK_DURATION%"
 				"total_health_regen"	"400"
-				"health_per_second"		"40"
+				"health_per_second"		"%ITEM_FLASK_HEALTH_REGEN%"
 		}
 		
 		"OnSpellStart"
@@ -2288,93 +2288,6 @@
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"2"
-		}
-	}
-
-	
-	//=================================================================================================================
-	// Recipe: Wraith Band
-	//=================================================================================================================
-	"item_recipe_wraith_band"
-	{
-		"ItemPurchasable"	"0"
-	}
-	"item_wraith_band"
-	{
-		"ItemPurchasable"	"0"
-	}
-	"item_recipe_wraith_band_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1274"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_recipe_wraith_band"
-		
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"170"	
-		"ItemShopTags"					""
-		
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_wraith_band_datadriven"
-		"ItemRequirements"
-		{
-			"01"						"item_circlet;item_slippers"
-		}
-	}
-
-	//=================================================================================================================
-	// Wraith Band
-	//=================================================================================================================
-	"item_wraith_band_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1275"
-		"BaseClass"           			"item_datadriven"
-		"AbilityTextureName" 			"item_wraith_band"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"485"
-		"ItemShopTags"					"damage;int;agi;str"
-		"ItemQuality"					"common"
-		"ItemAliases"					"wraith band"
-		"ShouldBeInitiallySuggested"	"1"
-		"ShouldBeSuggested"				"1"
-		"ItemKillable" 					"1"
-		"ItemSellable" 					"1"
-		"ItemPurchasable" 				"1"
-		"ItemDroppable" 				"1"
-
-		"Modifiers"
-		{
-			"item_custom_modifier"
-			{
-				"Passive" 				"1"
-				"IsHidden" 				"1"
-				"Attributes" 			"MODIFIER_ATTRIBUTE_MULTIPLE" //This makes duplicate items stack their properties
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%bonus_agility"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%bonus_strength"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%bonus_intellect"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%bonus_damage"
-				}
-			}
-		}
-		// Special	
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"bonus_agility"			"6"
-			"bonus_strength"			"3"
-			"bonus_intellect"			"3"
-			"bonus_damage"			"3"
 		}
 	}
 	
@@ -7818,12 +7731,12 @@
 																																																																												 
 		// Stats		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"90.0"
+		"AbilityCooldown"				"%ITEM_SMOKE_COOLDOWN%"
 		"AbilityCastRange"				"1200"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"100"
+		"ItemCost"						"%ITEM_SMOKE_COST%"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemAliases"					"smoke of deceit"
@@ -7834,7 +7747,7 @@
 		"ItemDisplayCharges"			"1"
 		"ItemStockInitial"				"3"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"720.0"			  
+		"ItemStockTime"					"%ITEM_SMOKE_STOCK_TIME%"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemSupport"					"1"
 		"ItemAlertable"					"1"
@@ -8981,15 +8894,6 @@
 					"MODIFIER_PROPERTY_MANA_BONUS"				"%bonus_mana"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
 				}
-				"ThinkInterval"	"1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/item_soul_booster.lua"
-						"Function"		"handleIntervalThink"
-					}
-				}
 			}
 		}
 	}
@@ -9240,8 +9144,9 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1"
+		"ItemCost"						"0"
 		"ItemShopTags"					""
+		"IsObsolete"					"%TRUE_683_ONLY%"
 
 		// Recipe
 		//-------------------------------------------------------------------------------------------------------------
