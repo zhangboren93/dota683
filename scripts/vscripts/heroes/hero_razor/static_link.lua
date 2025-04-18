@@ -3,12 +3,16 @@ function handleSpellStart(event)
 	local target = event.target
 	local ability = event.ability
 	local caster = event.caster
+	local drain_duration = ability:GetSpecialValueFor("drain_duration")
 	ProcsMagicStick(event)
 	if target:TriggerSpellAbsorb(ability) then
 		return
 	end
 	caster:EmitSound("Ability.static.start")
 	caster:EmitSound("Ability.static.loop")
+	caster:SetThink(function()
+		caster:StopSound("Ability.static.loop")
+	end, "Stop sound cap", drain_duration + 1)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_razor_static_link_datadriven", {})
 	if caster.static_link_particle ~= nil then
 		ParticleManager:DestroyParticle(caster.static_link_particle, false)
@@ -38,8 +42,8 @@ end
 
 function handleDestory(event)
 	local caster = event.caster
-	caster:EmitSound("Ability.static.end")
 	caster:StopSound("Ability.static.loop")
+	caster:EmitSound("Ability.static.end")
 	if caster.static_link_particle ~= nil then
 		ParticleManager:DestroyParticle(caster.static_link_particle, false)
 		ParticleManager:ReleaseParticleIndex(caster.static_link_particle)
