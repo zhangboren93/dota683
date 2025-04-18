@@ -94,7 +94,7 @@ end
 
 function pudge_meat_hook_lua:OnProjectileHit( hTarget, vLocation )
 	if hTarget == self:GetCaster() then	return false end
-	if hTarget:GetUnitName() == "witch_doctor_death_ward_datadriven" then return false end
+	if hTarget ~= nil and hTarget:GetUnitName() == "witch_doctor_death_ward_datadriven" then return false end
 
 	if self.bRetracting == false then
 		if hTarget ~= nil and ( not ( hTarget:IsCreep() or hTarget:IsConsideredHero() ) ) then
