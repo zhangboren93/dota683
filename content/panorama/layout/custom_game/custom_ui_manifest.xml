@@ -27,7 +27,7 @@
 		<CustomUIElement type="EndScreen" layoutfile="file://{resources}/layout/custom_game/end_game_summary.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/team_select_683.xml"/>
 		<!-- Dummy stuff to trigger load of custom event scripts -->
-		<!--CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_aegis.xml" />
+		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_aegis.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_aegis_destroyed.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_building_destroyed.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_buyback.xml" />
@@ -41,6 +41,6 @@
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_rune_activated.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_hero_suicide.xml" />
 		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/minimap_lane_creep_team_2.xml" />
-		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_rune_denied.xml" /-->
+		<CustomUIElement type="GameSetup" layoutfile="file://{resources}/layout/custom_game/combat_event_rune_denied.xml" />
 	</Panel>
 </root>

@@ -182,7 +182,7 @@ function sendEndGameStatsToServer(game_mode, player2BuildingDamage, player2assis
 		local requestPayload = {
 			result = game,
 			is_normal_game = 1,
-			mtchid = tostring(GameRules.Script_GetMatchID())
+			mtchid = tostring(GameRules:Script_GetMatchID())
 		}
 		request:SetHTTPRequestRawPostBody("application/json", json.encode(requestPayload))
 		request:Send(function(response)
