@@ -29,13 +29,29 @@ DOTAHeroImage {
 
 .score {
 	width: 100px;
+	vertical-align: center;
 }
 
 .count {
 	width: 100px;
+	vertical-align: center;
+}
+
+.winrate {
+	vertical-align: center;
 }
 
 Label {
 	font-size: 18px;
 	color: white;
+}
+
+DOTAUserName {
+	vertical-align: center;
+	margin-left: 10px;
+	width: 200px;
+}
+
+.subpanel-hidden {
+	visibility: collapse;
 }

@@ -17,78 +17,78 @@
 				<Label text="场次" class="count"/>
 				<Label text='胜率' class="winrate"/>
 			</Panel>
-			<Panel class="player-panel">
+			<Panel class="player-panel subpanel-hidden" id="rpp1">
 				<DOTAHeroImage id='rdhi1' heroname='npc_dota_hero_antimage'/>
-				<DOTAUserName id='rdun1' steamid='local'/>
+				<DOTAUserName id='rdun1'/>
 				<Label text="1000" id='rscore1' class="score"/>
 				<Label text="0" id='rcount1' class="count"/>
 				<Label text='50%' id='rwinr1' class="winrate"/>
 			</Panel>
-			<Panel class="player-panel">
+			<Panel class="player-panel subpanel-hidden" id="rpp2">
 				<DOTAHeroImage id='rdhi2' heroname='npc_dota_hero_antimage'/>
-				<DOTAUserName id='rdun2' steamid='local'/>
+				<DOTAUserName id='rdun2'/>
 				<Label text="1000" id='rscore2' class="score"/>
 				<Label text="0" id='rcount2' class="count"/>
 				<Label text='50%' id='rwinr2' class="winrate"/>
 			</Panel>
-			<Panel class="player-panel">
+			<Panel class="player-panel subpanel-hidden" id="rpp3">
 				<DOTAHeroImage id='rdhi3' heroname='npc_dota_hero_antimage'/>
-				<DOTAUserName id='rdun3' steamid='local'/>
+				<DOTAUserName id='rdun3'/>
 				<Label text="1000" id='rscore3' class="score"/>
 				<Label text="0" id='rcount3' class="count"/>
 				<Label text='50%' id='rwinr3' class="winrate"/>
 			</Panel>
-			<Panel class="player-panel">
+			<Panel class="player-panel subpanel-hidden" id="rpp4">
 				<DOTAHeroImage id='rdhi4' heroname='npc_dota_hero_antimage'/>
-				<DOTAUserName id='rdun4' steamid='local'/>
+				<DOTAUserName id='rdun4'/>
 				<Label text="1000" id='rscore4' class="score"/>
 				<Label text="0" id='rcount4' class="count"/>
 				<Label text='50%' id='rwinr4' class="winrate"/>
 			</Panel>
-			<Panel class="player-panel">
+			<Panel class="player-panel subpanel-hidden" id="rpp5">
 				<DOTAHeroImage id='rdhi5' heroname='npc_dota_hero_antimage'/>
-				<DOTAUserName id='rdun5' steamid='local'/>
+				<DOTAUserName id='rdun5'/>
 				<Label text="1000" id='rscore5' class="score"/>
 				<Label text="0" id='rcount5' class="count"/>
 				<Label text='50%' id='rwinr5' class="winrate"/>
 			</Panel>
 			<Panel class="title-panel">
-				<Label text="#683modeselect_first_pick_dire" style="color: white; font-size: 18px;"/>
-				<Label text="score" class="score"/>
-				<Label text="games" class="count"/>
-				<Label text='win rate' class="winrate"/>
+				<Label text="#683modeselect_first_pick_dire" style="color: red; font-size: 18px; width: 300px;"/>
+				<Label text="积分" class="score"/>
+				<Label text="场次" class="count"/>
+				<Label text='胜率' class="winrate"/>
 			</Panel>
-			<Panel class="player-panel">
+			<Panel class="player-panel subpanel-hidden" id="dpp1">
 				<DOTAHeroImage id='ddhi1' heroname='npc_dota_hero_antimage'/>
-				<DOTAUserName id='ddun1' steamid='local'/>
+				<DOTAUserName id='ddun1'/>
 				<Label text="1000" id='dscore1' class="score"/>
 				<Label text="0" id='dcount1' class="count"/>
 				<Label text='50%' id='dwinr1' class="winrate"/>
 			</Panel>
-			<Panel class="player-panel">
+			<Panel class="player-panel subpanel-hidden" id="dpp2">
 				<DOTAHeroImage id='ddhi2' heroname='npc_dota_hero_antimage'/>
-				<DOTAUserName id='ddun2' steamid='local'/>
+				<DOTAUserName id='ddun2'/>
 				<Label text="1000" id='dscore2' class="score"/>
 				<Label text="0" id='dcount2' class="count"/>
 				<Label text='50%' id='dwinr2' class="winrate"/>
 			</Panel>
-			<Panel class="player-panel">
+			<Panel class="player-panel subpanel-hidden" id="dpp3">
 				<DOTAHeroImage id='ddhi3' heroname='npc_dota_hero_antimage'/>
-				<DOTAUserName id='ddun3' steamid='local'/>
+				<DOTAUserName id='ddun3'/>
 				<Label text="1000" id='dscore3' class="score"/>
 				<Label text="0" id='dcount3' class="count"/>
 				<Label text='50%' id='dwinr3' class="winrate"/>
 			</Panel>
-			<Panel class="player-panel">
+			<Panel class="player-panel subpanel-hidden" id="dpp4">
 				<DOTAHeroImage id='ddhi4' heroname='npc_dota_hero_antimage'/>
-				<DOTAUserName id='ddun4' steamid='local'/>
+				<DOTAUserName id='ddun4'/>
 				<Label text="1000" id='dscore4' class="score"/>
 				<Label text="0" id='dcount4' class="count"/>
 				<Label text='50%' id='dwinr4' class="winrate"/>
 			</Panel>
-			<Panel class="player-panel">
+			<Panel class="player-panel subpanel-hidden" id="dpp5">
 				<DOTAHeroImage id='ddhi5' heroname='npc_dota_hero_antimage'/>
-				<DOTAUserName id='ddun5' steamid='local'/>
+				<DOTAUserName id='ddun5'/>
 				<Label text="1000" id='dscore5' class="score"/>
 				<Label text="0" id='dcount5' class="count"/>
 				<Label text='50%' id='dwinr5' class="winrate"/>

@@ -21,6 +21,7 @@ function OnHistoryPanelScores(data) {
 		let hero = Players.GetPlayerSelectedHero(pid)
 		let score = data[pid+1]['1']
 		let game = parseInt(data[pid+1]['2']) + parseInt(data[pid+1]['3'])
+    	$("#"+pref+"pp"+(i+1)).RemoveClass("subpanel-hidden");
     	$("#"+pref+"count"+(i+1)).text = game;
 		if (game == 0) {
 			game = 1;
@@ -45,6 +46,7 @@ function OnHistoryPanelScores(data) {
 		let hero = Players.GetPlayerSelectedHero(pid)
 		let score = data[pid+1]['1']
 		let game = parseInt(data[pid+1]['2']) + parseInt(data[pid+1]['3'])
+    	$("#"+pref+"pp"+(i+1)).RemoveClass("subpanel-hidden");
     	$("#"+pref+"count"+(i+1)).text = game;
 		if (game == 0) {
 			game = 1;
