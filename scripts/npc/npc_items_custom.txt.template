@@ -122,13 +122,13 @@
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"120"
+		"ItemCost"						"%ITEM_COURIER_COST%"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemAliases"					"donkey;chicken;animal courier"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemStockMax"					"1"
-		"ItemStockTime"					"7.0"
+		"ItemStockTime"					"%ITEM_COURIER_STACK_TIME%"
 		"ItemSupport"					"1"
 		"ItemPurchasable"				"1"
 		"ItemPermanent" 				"0"
