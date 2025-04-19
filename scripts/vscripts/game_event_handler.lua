@@ -328,11 +328,11 @@ function handleGameInProgressTimer(game_mode, player2BuildingDamage)
 		) then
 		local radiant_connected = getConnectedPlayerCount(DOTA_TEAM_GOODGUYS)
 		local dire_connected = getConnectedPlayerCount(DOTA_TEAM_BADGUYS)
-		if radiant_connected - dire_connected >= 4 then
+		if radiant_connected - dire_connected >= 4 or dire_connected == 0 then
 			GameRules:SendCustomMessage("近卫军团胜利", -1, -1)
 			game_mode.game_winner = DOTA_TEAM_GOODGUYS
 			sendEndGameStats(game_mode, player2BuildingDamage, game_mode.player2assist, game_mode.game_winner)
-		elseif dire_connected - radiant_connected >= 4 then
+		elseif dire_connected - radiant_connected >= 4 or radiant_connected == 0 then
 			GameRules:SendCustomMessage("天灾军团胜利", -1, -1)
 			game_mode.game_winner = DOTA_TEAM_BADGUYS
 			sendEndGameStats(game_mode, player2BuildingDamage, game_mode.player2assist, game_mode.game_winner)
