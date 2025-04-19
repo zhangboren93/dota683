@@ -1248,7 +1248,7 @@
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60.0"
+		"AbilityCooldown"				"%ITEM_DUST_COOLDOWN%"
 		"AbilityCastRange"				"1050"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
@@ -1273,7 +1273,7 @@
 		{
 				"duration"				"0.1"
 				"radius"				"1050"
-				"movespeed"				"-15"
+				"movespeed"				"%ITEM_DUST_MOVESPEED%"
 				"damage"				"0"
 				"linger_duration"		"12"
 		}
