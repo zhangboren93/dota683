@@ -12,7 +12,7 @@
 		</Button>
 		<Panel style="flow-children: down;">
 			<Panel class="title-panel">
-				<Label text="#683modeselect_first_pick_rad" style="color: white; font-size: 18px; width: 300px;"/>
+				<Label text="#683modeselect_first_pick_rad" style="color: green; font-size: 18px; width: 300px;"/>
 				<Label text="积分" class="score"/>
 				<Label text="场次" class="count"/>
 				<Label text='胜率' class="winrate"/>

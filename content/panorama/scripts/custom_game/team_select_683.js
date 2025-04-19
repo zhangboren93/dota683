@@ -52,9 +52,9 @@ function OnGameModeSelectedFromServer(data) {
 		if (data.sp != null) {
 			$.Msg("Other Client changed sp option " + data.sp)
 			if (data.sp == 1) {
-				$("#sp").SetSelected(true)
+				$("#samep").SetSelected(true)
 			} else {
-				$("#sp").SetSelected(false)
+				$("#samep").SetSelected(false)
 			}
 			return 
 		} else if (data.sf != null) {
@@ -106,8 +106,7 @@ function OnGameModeSelectedFromServer(data) {
 
 function handleSamePickToggle() {
 	$.Msg("handleSamePickToggle")
-	$.Msg($("#sp").IsSelected())
-	let sp = $("#sp").IsSelected()
+	let sp = $("#samep").IsSelected()
 	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), sp: sp})
 }
 
