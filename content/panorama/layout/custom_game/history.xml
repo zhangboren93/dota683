@@ -12,10 +12,10 @@
 		</Button>
 		<Panel style="flow-children: down;">
 			<Panel class="title-panel">
-				<Label text="#683modeselect_first_pick_rad" style="color: white; font-size: 18px;"/>
-				<Label text="score" class="score"/>
-				<Label text="games" class="count"/>
-				<Label text='win rate' class="winrate"/>
+				<Label text="#683modeselect_first_pick_rad" style="color: white; font-size: 18px; width: 300px;"/>
+				<Label text="积分" class="score"/>
+				<Label text="场次" class="count"/>
+				<Label text='胜率' class="winrate"/>
 			</Panel>
 			<Panel class="player-panel">
 				<DOTAHeroImage id='rdhi1' heroname='npc_dota_hero_antimage'/>
@@ -52,8 +52,8 @@
 				<Label text="0" id='rcount5' class="count"/>
 				<Label text='50%' id='rwinr5' class="winrate"/>
 			</Panel>
-			<Label text="#683modeselect_first_pick_dire" style="color: white; font-size: 18px;"/>
 			<Panel class="title-panel">
+				<Label text="#683modeselect_first_pick_dire" style="color: white; font-size: 18px;"/>
 				<Label text="score" class="score"/>
 				<Label text="games" class="count"/>
 				<Label text='win rate' class="winrate"/>
