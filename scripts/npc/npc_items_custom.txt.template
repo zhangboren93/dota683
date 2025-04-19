@@ -152,7 +152,7 @@
 	{
 		"ID"							"1486"
 		"BaseClass"						"item_datadriven"
-		"ItemCost"						"220"	
+		"ItemCost"						"%ITEM_FLYING_COURIER_COST%"	
 		"ItemPurchasable"				"1"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_flying_courier_datadriven"
