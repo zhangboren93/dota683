@@ -696,11 +696,9 @@ function HandlePlayerChat(self, teamonly, text, playerid)
 	end
 	if text == '-wr' then
 		if #self.playerNormalWinRate == 0 then
-			local psid = {}
 			local url = LADDER_HOST .. "players?normal=1"
 			for i=0,PlayerResource:GetPlayerCount() - 1 do
-				table.insert(psid, PlayerResource:GetSteamAccountID(i))
-				url = url .. '&p' .. i .. '=' .. PlayerResource:GetSteamAccountID(i)
+				url = url .. '&p' .. i .. '=' .. tostring(PlayerResource:GetSteamID(i))
 			end
 			-- fetch player score
 			print("Sending request to " .. url)
