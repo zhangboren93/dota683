@@ -18263,6 +18263,14 @@
 						"Function"		"LandMinesTracker"
 					}
 				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_techies/land_mines.lua"
+						"Function"		"LandMinesDeath"
+					}
+				}
 			}
 	
 			"modifier_land_mine_caster_datadriven"

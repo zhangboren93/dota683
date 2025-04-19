@@ -77,6 +77,7 @@ end
 function LandMinesDeath( keys )
 	local caster = keys.caster
 	local unit = keys.unit
+	if unit == nil then unit = keys.target end
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
 
@@ -134,7 +135,7 @@ function LandMinesTracker( keys )
 			target.diesIn = target.diesIn - 1
 		else
 			keys.unit = target
-			LandMinesDeath(keys)
+			--LandMinesDeath(keys)
 			target:ForceKill(true)
 		end
 		return
