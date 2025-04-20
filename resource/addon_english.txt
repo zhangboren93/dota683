@@ -3262,6 +3262,7 @@
 		"683modeselect_gamemode_samepick"					"SAME PICK"
 		"683modeselect_gamemode_shuffle_players"			"SHUFFLE PLAYERS"
 		"683modeselect_gamemode_freecourier"				"FREE COURIER"
+		"683modeselect_gamemode_innateblock"				"MELEE BLOCK"
 		"683modeselect_first_pick_team"						"FRIST PICK(CD): "
 		"683modeselect_first_pick_random"					"Random"
 		"683modeselect_first_pick_rad"						"Radiant"

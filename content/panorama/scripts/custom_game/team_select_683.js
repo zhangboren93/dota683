@@ -103,13 +103,10 @@ function OnGameModeSelectedFromServer(data) {
 		$("#ModelSelectToggleOptions").visible = data.gm == "ap";
 	}
 	if (data.pid != Players.GetLocalPlayer() && data.fc != undefined) {
-		if (data.fc) {
-			$("#freecourier").checked = true;
-			GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, true);
-		} else {
-			$("#freecourier").checked = false;
-			GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false);
-		}
+		$("#freecourier").checked = data.fc == 1;
+	}
+	if (data.pid != Players.GetLocalPlayer() && data.ib != undefined) {
+		$("#damageblock").checked = data.ib == 1;
 	}
 }
 
@@ -142,6 +139,11 @@ function handleJoinSpectTeam() {
 function handleFreeCourierToggle() {
 	let freeCourier = $("#freecourier").IsSelected();
 	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), fc: freeCourier});
+}
+
+function handleInnateBlockToggle() {
+	let ib = $("#innateblock").IsSelected();
+	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), ib: ib});
 }
 
 (function() {
