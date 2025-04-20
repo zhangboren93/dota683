@@ -66,6 +66,7 @@ function flyingUpgradeChecker(event)
 			entity:SetDayTimeVisionRange(400)
 			entity:SetNightTimeVisionRange(400)
 			entity:FindAbilityByName("courier_burst_datadriven"):SetLevel(1)
+			entity:RemoveModifierByName("modifier_ground_courier_movement_cap_lua")
 		else
 			if not entity:HasModifier("modifier_courier_ground_visual") then
 				ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_ground_visual", {})

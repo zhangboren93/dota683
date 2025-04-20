@@ -155,6 +155,7 @@ function Activate()
 	LinkLuaModifier( "modifier_item_orb_of_venom_ranged_lua",			"items/modifier_item_orb_of_venom_ranged.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_eul_cyclone_datadriven",					"modifiers/modifier_eul_cyclone.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_eul_cyclone_fall_datadriven",			"modifiers/modifier_eul_cyclone.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_ground_courier_movement_cap_lua", 		"units/modifier_ground_courier_movement_cap.lua", LUA_MODIFIER_MOTION_NONE)
 
 	LinkLuaModifier( "modifier_counter_healthbar", "modifiers/counter_health.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_tower_bonus_cancel_lua", "modifiers/tower_bonus_cancel.lua", LUA_MODIFIER_MOTION_NONE)
@@ -1404,6 +1405,7 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 						unit:AddNewModifier(entity, nil, "modifier_courier_minimap_icon_follow_lua", {})
 					end)
 			end, "spawn team minimap icon", 0.1)
+			entity:AddNewModifier(entity, nil, "modifier_ground_courier_movement_cap_lua", {})
 		end
 	elseif entity:GetName() == "npc_dota_venomancer_plagueward" then
 		entity:SetThink(function()
