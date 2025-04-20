@@ -2888,6 +2888,19 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.PlayerID, mv = data.mv})
 			end
 			return
+		elseif data.fc ~= nil then
+			if data.fc ~= GameRules.AddonTemplate.custom_game_enable_free_courier then
+				if data.fc == 1 then
+					GameRules:SendCustomMessage("开启免费信使", -1, -1)
+					GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
+				elseif data.fc == 0 then
+					GameRules:SendCustomMessage("关闭免费信使", -1, -1)
+					GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(false)
+				end
+				GameRules.AddonTemplate.custom_game_enable_free_courier = data.fc
+				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.PlayerID, fc = data.fc})
+			end
+			return
 		end
 		GameRules.AddonTemplate.botEnabled = false
 		local hasGameModeChanged = (data.gm == "ap" and GameRules.AddonTemplate.game_mode ~= "AP") or

@@ -1,7 +1,7 @@
 function enableCourier(event)
-    local caster = event.caster
-   -- TODO create courier at base
-    local courier = caster:GetPlayerOwner():SpawnCourierAtPosition(caster:GetAbsOrigin())
+	local caster = event.caster
+	-- TODO create courier at base
+	local courier = caster:GetPlayerOwner():SpawnCourierAtPosition(caster:GetAbsOrigin())
 	CustomGameEventManager:Send_ServerToTeam(caster:GetTeam(), "courier_spawned", { 
 		id = tostring(courier:GetEntityIndex()) ,
 		owner_name = caster:GetName()
@@ -9,9 +9,9 @@ function enableCourier(event)
 end
 
 function enableFlyingCourier(event)
-    local caster = event.caster
-   -- TODO create courier at base
-    local courier = caster:GetPlayerOwner():SpawnCourierAtPosition(caster:GetAbsOrigin())
+	local caster = event.caster
+	-- TODO create courier at base
+	local courier = caster:GetPlayerOwner():SpawnCourierAtPosition(caster:GetAbsOrigin())
 	CustomGameEventManager:Send_ServerToTeam(caster:GetTeam(), "courier_spawned", { 
 		id = tostring(courier:GetEntityIndex()) ,
 		owner_name = caster:GetName()
@@ -20,16 +20,16 @@ function enableFlyingCourier(event)
 end
 
 function go_to_secret(event)
-    if event.caster:GetTeam() == DOTA_TEAM_GOODGUYS then
-        event.caster:MoveToPosition(Vector(-4487, 1253, 384))
-    else
-        event.caster:MoveToPosition(Vector(3462, 235, 384))
-    end
+	if event.caster:GetTeam() == DOTA_TEAM_GOODGUYS then
+		event.caster:MoveToPosition(Vector(-4487, 1253, 384))
+	else
+		event.caster:MoveToPosition(Vector(3462, 235, 384))
+	end
 end
 
 function flyingUpgradeChecker(event)
-    local entity = event.caster
-    local ability = event.ability
+	local entity = event.caster
+	local ability = event.ability
 	
 	-- fountain fills bottle
 	local bottle = entity:FindItemInInventory("item_bottle")
@@ -43,34 +43,37 @@ function flyingUpgradeChecker(event)
 		end
 	end
 
-	-- Level 4 for flying upgrade visual, Level 10 for respawn time as 120
-    if entity:HasModifier("modifier_courier_flying_upgrade_active") then
-		-- Level 20 for respawn time as 180
-		if entity:GetLevel() ~= 20 then
-			entity:UpgradeCourier(20)
+	if 		GameRules.AddonTemplate.custom_game_enable_free_courier == nil
+		or	GameRules.AddonTemplate.custom_game_enable_free_courier == 0 then
+		-- Level 4 for flying upgrade visual, Level 10 for respawn time as 120
+		if entity:HasModifier("modifier_courier_flying_upgrade_active") then
+			-- Level 20 for respawn time as 180
+			if entity:GetLevel() ~= 20 then
+				entity:UpgradeCourier(20)
+			end
+			return
 		end
-        return
-    end
-    if entity:GetLevel() ~= 10 then
-        entity:UpgradeCourier(10)
-    end
-    if entity:HasItemInInventory("item_recipe_flying_courier_datadriven") then
-        ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_flying_upgrade_active", {})
-        entity:SetBaseMaxHealth(150)
-        entity:RemoveItem(entity:FindItemInInventory("item_recipe_flying_courier_datadriven"))
-        entity:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
-        entity:RemoveModifierByName("modifier_courier_ground_visual")
-        entity:AddNewModifier(entity, entity, "modifier_courier_flying", {})
-        entity:SetDayTimeVisionRange(400)
-        entity:SetNightTimeVisionRange(400)
-        entity:FindAbilityByName("courier_burst_datadriven"):SetLevel(1)
-    else
-        if not entity:HasModifier("modifier_courier_ground_visual") then
-            ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_ground_visual", {})
-        end
-        entity:RemoveModifierByName("modifier_courier_flying")
-		entity:FindAbilityByName("courier_burst_datadriven"):SetLevel(0)
-    end
+		if entity:GetLevel() ~= 10 then
+			entity:UpgradeCourier(10)
+		end
+		if entity:HasItemInInventory("item_recipe_flying_courier_datadriven") then
+			ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_flying_upgrade_active", {})
+			entity:SetBaseMaxHealth(150)
+			entity:RemoveItem(entity:FindItemInInventory("item_recipe_flying_courier_datadriven"))
+			entity:SetMoveCapability(DOTA_UNIT_CAP_MOVE_FLY)
+			entity:RemoveModifierByName("modifier_courier_ground_visual")
+			entity:AddNewModifier(entity, entity, "modifier_courier_flying", {})
+			entity:SetDayTimeVisionRange(400)
+			entity:SetNightTimeVisionRange(400)
+			entity:FindAbilityByName("courier_burst_datadriven"):SetLevel(1)
+		else
+			if not entity:HasModifier("modifier_courier_ground_visual") then
+				ability:ApplyDataDrivenModifier(entity, entity, "modifier_courier_ground_visual", {})
+			end
+			entity:RemoveModifierByName("modifier_courier_flying")
+			entity:FindAbilityByName("courier_burst_datadriven"):SetLevel(0)
+		end
+	end
 end
 
 function handleBurstSpellStart(event)

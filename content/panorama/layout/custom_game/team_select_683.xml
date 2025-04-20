@@ -39,6 +39,7 @@
 				</Panel>
 				<Panel id="ModelSelectToggleOptions" style="flow-children: down;">
 					<ToggleButton id="samep" checked="false" text="#683modeselect_gamemode_samepick" onactivate="handleSamePickToggle()" />
+					<ToggleButton id="freecourier" checked="false" text="#683modeselect_gamemode_freecourier" onactivate="handleFreeCourierToggle()"/>
 				</Panel>
 				<!--Panel style="flow-children: right;">
 					<Label text="#683modeselect_meta_version"/>
