@@ -12,7 +12,7 @@ function modifier_sentry_ward_reveal_invis_aura_lua:GetAuraRadius()
 end
 
 function modifier_sentry_ward_reveal_invis_aura_lua:GetAuraSearchFlags()
-	return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+	return DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE 
 end
 
 function modifier_sentry_ward_reveal_invis_aura_lua:GetAuraSearchTeam()
