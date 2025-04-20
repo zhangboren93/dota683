@@ -267,6 +267,30 @@ function HandleGameStateChange(game_mode, event)
 			end
 			CustomGameEventManager:Send_ServerToAllClients("player_ladder_scores", game_mode.playerId2LadderScore)
 		end, "send ladder score to clients", 3)
+		if game_mode.custom_game_enable_free_courier == 1 then
+			GameRules:GetGameModeEntity():SetThink(function()
+				local couriers = Entities:FindAllByName("npc_dota_courier")
+				for pid=0,PlayerResource:GetPlayerCount()-1 do
+					local hero = PlayerResource:GetPlayer(pid):GetAssignedHero()
+					local courier = nil
+					for cid=1,#couriers do
+						if couriers[cid]:GetPlayerOwnerID() == pid then
+							courier = couriers[cid]
+							break
+						end
+					end
+					if hero ~= nil and courier ~= nil then
+						CustomGameEventManager:Send_ServerToPlayer(
+							PlayerResource:GetPlayer(pid), 
+							"courier_spawned", 
+							{
+								id = tostring(courier:GetEntityIndex()),
+								owner_name = hero:GetName()
+							})
+					end
+				end
+			end, "spawn courier panel", 2)
+		end
 	end
 end
 

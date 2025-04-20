@@ -220,15 +220,6 @@ SECRET_SHOP_ITEMS = [
 function OnCustomeGameSelectCourier()
 {
 	if (current_courier_id == -1) {
-		// find courier when free courier mode is enabled
-		let couriers = Entities.GetAllEntitiesByName("npc_dota_courier")
-		for (let i=0; i < couriers.length; i++) {
-			if (Entities.GetPlayerOwnerID(couriers[i]) == Game.GetLocalPlayerID()) {
-				current_courier_id = couriers[i].toString();
-			}
-		}
-	}
-	if (current_courier_id == -1) {
 		return;
 	}
 	let courierId = parseInt(current_courier_id)
