@@ -27,13 +27,18 @@ function modifier_toss_flying_lua:OnDestroy()
 		parent:RemoveHorizontalMotionController(self)
 		parent:RemoveVerticalMotionController(self)
 		if (parent:GetAbsOrigin() - parent.toss_to_target:GetAbsOrigin()):Length2D() < 1000 then
+			-- move parent to target
+			local direction = parent.toss_to_target:GetAbsOrigin() - parent:GetAbsOrigin()
+			direction = direction:Normalized()
+			local new_position = parent.toss_to_target:GetAbsOrigin() - direction * 128
+			FindClearSpaceForUnit(parent, new_position, false)
 			local caster = self:GetAbility():GetCaster()
 			local ability = self:GetAbility()
 			local damage_radius = ability:GetSpecialValueFor("radius")
 			local toss_damage = ability:GetSpecialValueFor("toss_damage")
 			local units = FindUnitsInRadius(
 				caster:GetTeamNumber(),
-				parent.toss_to_target:GetAbsOrigin(),
+				new_position,
 				nil,
 				damage_radius,
 				DOTA_UNIT_TARGET_TEAM_ENEMY, 
@@ -44,15 +49,17 @@ function modifier_toss_flying_lua:OnDestroy()
 				if units[i]:IsBuilding() then
 					damage_building = toss_damage / 3
 				end
-				ApplyDamage({
-					victim = units[i],
-					attacker = caster,
-					damage = damage_building,
-					damage_type = DAMAGE_TYPE_MAGICAL
-				})
+				if units[i] ~= parent then
+					ApplyDamage({
+						victim = units[i],
+						attacker = caster,
+						damage = damage_building,
+						damage_type = DAMAGE_TYPE_MAGICAL
+					})
+				end
 			end
 			if parent:GetTeam() ~= caster:GetTeam() and not parent:IsMagicImmune() and not parent:TriggerSpellAbsorb(ability) then
-				local bonus_damage_pct = ability:GetSpecialValueFor("bonus_damage_pct")
+				local bonus_damage_pct = 100 + ability:GetSpecialValueFor("bonus_damage_pct")
 				local grow = caster:FindAbilityByName("tiny_grow")
 				if grow ~= nil then
 					bonus_damage_pct = bonus_damage_pct + grow:GetLevel() * 15

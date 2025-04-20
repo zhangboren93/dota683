@@ -127,3 +127,5 @@ function tiny_toss_datadriven:GetCustomCastErrorTarget( target )
 
 	return ""
 end
+
+function tiny_toss_datadriven:GetAOERadius() return 275 end
