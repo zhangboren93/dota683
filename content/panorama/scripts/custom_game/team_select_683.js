@@ -149,7 +149,7 @@ function handleInnateBlockToggle() {
 (function() {
 	let mapname = Game.GetMapInfo().map_name
 	$.Msg("Map name: " + mapname)
-	if (mapname == 'maps/dota.vpk' || mapname == 'maps/dota_688g.vpk') {
+	if (mapname == 'maps/dota.vpk' || mapname == 'maps/dota_688g.vpk' || mapname == 'maps/tour.vpk') {
 		$("#ModeSelect").visible = true
 		$("#ap").checked = true
 		$("#random").checked = true
@@ -162,7 +162,7 @@ function handleInnateBlockToggle() {
 		if (all_player_ids.length > 1) {
 			$("#bm").visible = false;
 		}
-		if (all_player_ids.length != 10) {
+		if (all_player_ids.length >= 10) {
 			$("#cm").visible = false;
 			$("#cd").visible = false;
 		}
@@ -171,8 +171,5 @@ function handleInnateBlockToggle() {
 		$('#ShuffleTeamAssignmentButton').visible = false
 		$('#UnassignedPlayerPanel').visible = false
 		$("#mode_select_block_button").visible = false
-	} else if (mapname == 'maps/tour.vpk') {
-		$("#mode_select_block_button").visible = false
-//		$("#SpectTeamsList").visible = true
-	} 
+	}
 })()
