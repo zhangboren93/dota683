@@ -120,6 +120,11 @@
 			<RadioButton checked="checked" group="leshrac-weapon-effect" id="leshrac-we-default" text="#jugg-we-default" style="color: grey;" onactivate="OnJuggWESelected('deft')"/>
 			<RadioButton group="leshrac-weapon-effect" id="jugg-we-gren" text="#jugg-we-gren" style="color: green;" onactivate="OnJuggWESelected('green')"/>
 		</Panel>
+		<Panel id="lina-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 130px;">
+			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
+			<RadioButton checked="checked" group="lina-weapon-effect" id="jugg-we-default" text="#jugg-we-default" style="color: orange;" onactivate="OnJuggWESelected('deft')"/>
+			<RadioButton                   group="lina-weapon-effect" id="jugg-we-blue"    text="#jugg-we-blue"    style="color: blue;" onactivate="OnJuggWESelected('blue')"/>
+		</Panel>
 		<!--Panel id="storm-magic-stick-panel" style="flow-children: down; visibility: collapse; margin-top: 130px;">
 			<Label text="#ms-panel-slot-weapon-effect" style="color: white;font-size: 24px; margin: 5px;"/>
 			<RadioButton checked="checked" group="storm-weapon-effect" id="jugg-we-none" text="#jugg-we-none" style="color: grey;" onactivate="OnJuggWESelected('none')"/>

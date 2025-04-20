@@ -2283,6 +2283,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityDuration"				"10"
 		
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_lina/lina_flame_hand_blue.vpcf"
+			"particle"					"particles/units/heroes/hero_lina/lina_flame_hand_default.vpcf"
+		}
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -2291,7 +2297,6 @@
 				"fiery_soul_move_speed_bonus"	"5 6 7 8"
 				"fiery_soul_max_stacks"		"3"
 		}
-	
 	
 		"Modifiers"
 		{

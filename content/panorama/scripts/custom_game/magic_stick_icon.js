@@ -65,6 +65,9 @@ function OnMSIconPressed() {
 		} else if (hero_id == 52) {
 			// qop
 			children[16].visible = true;
+		} else if (hero_id == 25) {
+			// lina
+			children[17].visible = true;
 		}
 	//	else if (hero_id == 17) {
 	//		// storm spirit
