@@ -50,6 +50,8 @@ DOTAUserName {
 	vertical-align: center;
 	margin-left: 10px;
 	width: 200px;
+	max-width: 200px;
+	text-overflow: ellipsis;
 }
 
 .subpanel-hidden {
