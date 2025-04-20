@@ -122,13 +122,13 @@
 	
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"120"
+		"ItemCost"						"%ITEM_COURIER_COST%"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemAliases"					"donkey;chicken;animal courier"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemStockMax"					"1"
-		"ItemStockTime"					"7.0"
+		"ItemStockTime"					"%ITEM_COURIER_STACK_TIME%"
 		"ItemSupport"					"1"
 		"ItemPurchasable"				"1"
 		"ItemPermanent" 				"0"
@@ -152,7 +152,7 @@
 	{
 		"ID"							"1486"
 		"BaseClass"						"item_datadriven"
-		"ItemCost"						"220"	
+		"ItemCost"						"%ITEM_FLYING_COURIER_COST%"	
 		"ItemPurchasable"				"1"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_flying_courier_datadriven"
@@ -1248,7 +1248,7 @@
 		
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"60.0"
+		"AbilityCooldown"				"%ITEM_DUST_COOLDOWN%"
 		"AbilityCastRange"				"1050"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
@@ -1273,7 +1273,7 @@
 		{
 				"duration"				"0.1"
 				"radius"				"1050"
-				"movespeed"				"-15"
+				"movespeed"				"%ITEM_DUST_MOVESPEED%"
 				"damage"				"0"
 				"linger_duration"		"12"
 		}
@@ -1426,7 +1426,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"0"
-		"AbilityCooldown"				"65.0"
+		"AbilityCooldown"				"%ITEM_TPSCROLL_COOLDOWN%"
 		"AbilitySharedCooldown"			"teleport"
 		"AbilityChannelTime"			"3.0"
 		"AbilityCastPoint"				"0.0"
@@ -1434,7 +1434,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"75"
-		"ItemCost"						"100"
+		"ItemCost"						"%ITEM_TPSCROLL_COST%"
 		"ItemShopTags"					"consumable;tutorial"
 		"ItemQuality"					"consumable"
 		"ItemAliases"					"tp;town portal scroll"
@@ -3591,7 +3591,7 @@
 		"ID"							"1303"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_dagon"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4039,7 +4039,7 @@
 		"ID"							"1305"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_necronomicon"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -4427,7 +4427,7 @@
 		"BaseClass"						"item_datadriven"
 		"ID"							"1311"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_assault"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5560,7 +5560,7 @@
 		"ItemAliases"					"radiance"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDisassembleRule"			""
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------
@@ -8934,7 +8934,7 @@
 		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_bloodthorn"
 		
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -8994,7 +8994,7 @@
 	{
 		"ItemPurchasable"				"%TRUE_688_ONLY%"
 		"BaseClass"						"item_datadriven"
-		"AbilityTextureName"			"item_recipe"
+		"AbilityTextureName"			"item_recipe_silver_edge"
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 
