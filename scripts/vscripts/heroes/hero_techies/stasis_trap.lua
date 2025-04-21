@@ -33,7 +33,6 @@ end
 	Date: 25.03.2015.
 	Tracks if there are any enemy units within the trigger radius]]
 function StasisTrapTracker( keys )
-	print("StasisTrapTracker")
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability

@@ -1,8 +1,15 @@
 item_quelling_blade_lua = class({})
 function item_quelling_blade_lua:CastFilterResultTarget( target )
+	if not IsServer() then return end
+	local caster = self:GetCaster()
     if target:GetClassname() == "ent_dota_tree" then
 		return UF_SUCCESS
 	elseif target:GetName() == "npc_dota_ward_base" or target:GetName() == "npc_dota_ward_base_truesight" then
+		if target:GetTeam() == caster:GetTeam() then
+			return UF_FAIL_FRIENDLY
+		end
+		return UF_SUCCESS
+	elseif target:GetName() == "npc_dota_techies_mines" and target:GetTeam() ~= caster:GetTeam() then
 		return UF_SUCCESS
 	elseif target:IsCreep() then
 		return UF_FAIL_CREEP
@@ -26,7 +33,7 @@ function item_quelling_blade_lua:OnSpellStart()
 		return
     end
 	--TODO require 2 count to cut down ward
-    if target:GetName() == "npc_dota_ward_base" or target:GetName() == "npc_dota_ward_base_truesight" then
+    if target:GetName() == "npc_dota_ward_base" or target:GetName() == "npc_dota_ward_base_truesight" or target:GetName() == "npc_dota_techies_mines" then
 		ApplyDamage({
 			victim = target,
 			attacker = self:GetCaster(),
