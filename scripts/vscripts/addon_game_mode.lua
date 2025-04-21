@@ -309,7 +309,10 @@ function Activate()
 	LinkLuaModifier( "modifier_courier_minimap_icon_follow_lua", 	"units/courier_minimap_icon_follow.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_roshan_cancel_status_resistance_lua",	"units/modifier_roshan_cancel_statresist.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_unstuck_timer_lua",					"modifiers/modifier_unstuck_timer.lua", LUA_MODIFIER_MOTION_NONE)
+
+    -- spectators
 	LinkLuaModifier( "modifier_spectator_dummy_unit_lua", 			"modifiers/modifier_spectator_dummy_unit.lua", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier( "modifier_spect_ward_lua",                     "modifiers/modifier_spect_ward.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -2027,6 +2030,16 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
 		if is_sentry then
 			new_ward:AddNewModifier(fountain, nil, "modifier_sentry_ward_reveal_invis_aura_lua", {})
 		end
+        -- Adds dummy ward for spectators
+        if PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_CUSTOM_1) > 0 then
+            local spectUnitName = "npc_dota_observer_wards_spectator"
+            local newSpectWard  = CreateUnitByName(spectUnitName, parent:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1)
+            newSpectWard:AddNewModifier(newSpectWard, nil, "modifier_spect_ward_lua", { team = parent:GetTeam(), sentry = is_sentry, track = new_ward:GetEntityIndex() })
+			newSpectWard:AddNewModifier(newSpectWard, nil, "modifier_kill", { duration = lifetime })
+			if is_sentry then
+				newSpectWard:SetMaterialGroup("1")
+			end
+        end
 		parent:Destroy()
 		return false
 	elseif event.name_const == "modifier_rubick_fade_bolt_debuff" then 
