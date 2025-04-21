@@ -2911,7 +2911,7 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 					GameRules:SendCustomMessage("开启近战先天伤害格挡(16, 50%)", -1, -1)
 					GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockAmount(16)
 					GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockPercent(50)
-				elseif data.ib then
+				elseif data.ib == 0 then
 					GameRules:SendCustomMessage("关闭近战先天伤害格挡" -1, -1)
 					GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockAmount(0)
 					GameRules:GetGameModeEntity():SetInnateMeleeDamageBlockPercent(0)
