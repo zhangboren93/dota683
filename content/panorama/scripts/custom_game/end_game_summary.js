@@ -134,7 +134,7 @@ function fillExtraSummaryInfoForAll() {
 	let fu_score = 1000
 	for (let i=0;i<winning_players.length;i++) {
 		let networth = Players.extraPlayerStats.psm[winning_players[i].toString()].nw;
-		if (networth > po_score) {
+		if (networth > fu_score) {
 			fu_player_id = winning_players[i]
 			fu_score = networth
 		}

@@ -43,3 +43,14 @@ function handleDestroyed(event)
 		ability:ApplyDataDrivenModifier(caster, units[i], modifier, {})
 	end
 end
+
+function handleMarkerCreated(event)
+	local target = event.target
+	local caster = event.caster
+	local ability = event.ability
+	local radius = ability:GetSpecialValueFor("radius")
+	local pid = ParticleManager:CreateParticleForTeam("particles/units/heroes/hero_gyrocopter/gyro_calldown_marker.vpcf",
+			PATTACH_ABSORIGIN, target, caster:GetTeam())
+	--ParticleManager:SetParticleControl(pid, 0, Vector(0, 0, 0))
+	ParticleManager:SetParticleControl(pid, 1, Vector(radius, radius, radius))
+end

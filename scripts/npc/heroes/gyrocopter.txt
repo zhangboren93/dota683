@@ -107,18 +107,11 @@
 		
 			"OnCreated"
 			{
-				"AttachEffect"
+				"RunScript"
 				{
-					"EffectName"		"particles/units/heroes/hero_gyrocopter/gyro_calldown_marker.vpcf"
-					"EffectAttachType"	"attach_origin"
-					"Target"			"TARGET"
-					"ControlPoints"
-					{
-						"00" "0 0 0"
-						"01" "%radius %radius %radius"
-					}
+					"ScriptFile"		"heroes/hero_gyrocopter/call_down.lua"
+					"Function"			"handleMarkerCreated"
 				}
-				
 				"TrackingProjectile"
 				{
 					"Target"           	"TARGET"
@@ -172,16 +165,10 @@
 		
 			"OnCreated"
 			{
-				"AttachEffect"
+				"RunScript"
 				{
-					"EffectName"		"particles/units/heroes/hero_gyrocopter/gyro_calldown_marker.vpcf"
-					"EffectAttachType"	"attach_origin"
-					"Target"			"TARGET"
-					"ControlPoints"
-					{
-						"00" "0 0 0"
-						"01" "%radius %radius %radius"
-					}
+					"ScriptFile"		"heroes/hero_gyrocopter/call_down.lua"
+					"Function"			"handleMarkerCreated"
 				}
 			}
 			
