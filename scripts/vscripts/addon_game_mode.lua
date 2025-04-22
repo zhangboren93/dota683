@@ -2919,6 +2919,18 @@ function CAddonTemplateGameMode:handleGameModeSelect(data)
 				GameRules.AddonTemplate.custom_game_enable_free_courier = data.ib
 				CustomGameEventManager:Send_ServerToAllClients("game_mode_selected_from_server", { pid = data.PlayerID, ib = data.ib})
 			end
+			return
+		elseif data.sf then
+			-- shuffle players
+			-- move all players in radiant and dire to no team,
+			for i=0,PlayerResource:GetPlayerCount() - 1 do
+				if     PlayerResource:GetTeam(i) == DOTA_TEAM_GOODGUYS 
+					or PlayerResource:GetTeam(i) == DOTA_TEAM_BADGUYS then
+					PlayerResource:SetCustomTeamAssignment(i, DOTA_TEAM_NOTEAM)
+				end
+			end
+			GameRules:GetGameModeEntity():SetThink(function() shuffleTeam()	end, "shuffle team in 1s", 1 )
+			return
 		end
 		GameRules.AddonTemplate.botEnabled = false
 		local hasGameModeChanged = (data.gm == "ap" and GameRules.AddonTemplate.game_mode ~= "AP") or

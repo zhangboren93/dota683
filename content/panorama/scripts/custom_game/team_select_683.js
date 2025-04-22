@@ -117,10 +117,7 @@ function handleSamePickToggle() {
 }
 
 function handleShufflePlayers() {
-	$.Msg("handleShufflePlayers")
-	$.Msg($("#sf").IsSelected())
-	let sf = $("#sf").IsSelected()
-	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), sf: sf})
+	GameEvents.SendCustomGameEventToServer("game_mode_select", { pid: Players.GetLocalPlayer(), sf: 1})
 }
 
 function handleMetaVersion(version) {
