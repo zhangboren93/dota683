@@ -49,8 +49,16 @@ function handleMarkerCreated(event)
 	local caster = event.caster
 	local ability = event.ability
 	local radius = ability:GetSpecialValueFor("radius")
-	local pid = ParticleManager:CreateParticleForTeam("particles/units/heroes/hero_gyrocopter/gyro_calldown_marker.vpcf",
+	caster.calldown_pid = ParticleManager:CreateParticleForTeam("particles/units/heroes/hero_gyrocopter/gyro_calldown_marker.vpcf",
 			PATTACH_ABSORIGIN, target, caster:GetTeam())
 	--ParticleManager:SetParticleControl(pid, 0, Vector(0, 0, 0))
-	ParticleManager:SetParticleControl(pid, 1, Vector(radius, radius, radius))
+	ParticleManager:SetParticleControl(caster.calldown_pid, 1, Vector(radius, 0, -radius))
+end
+
+function RemoveMarkerParticle(event)
+	local caster = event.caster
+	if caster.calldown_pid ~= nil then
+		ParticleManager:DestroyParticle(caster.calldown_pid, true)
+		caster.calldown_pid = nil
+	end
 end

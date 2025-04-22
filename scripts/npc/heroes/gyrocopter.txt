@@ -187,6 +187,12 @@
 					"Modifier"		"modifier_missile_slow_second"
 					"Damage"		"%damage_second"
 				}
+
+				"RunScript"
+				{
+					"ScriptFile"	"heroes/hero_gyrocopter/call_down.lua"
+					"Function"		"RemoveMarkerParticle"
+				}
 			}
 		}
 	
