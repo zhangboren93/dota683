@@ -311,8 +311,9 @@ function Activate()
 	LinkLuaModifier( "modifier_unstuck_timer_lua",					"modifiers/modifier_unstuck_timer.lua", LUA_MODIFIER_MOTION_NONE)
 
     -- spectators
-	LinkLuaModifier( "modifier_spectator_dummy_unit_lua", 			"modifiers/modifier_spectator_dummy_unit.lua", LUA_MODIFIER_MOTION_NONE)
-    LinkLuaModifier( "modifier_spect_ward_lua",                     "modifiers/modifier_spect_ward.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_spectator_dummy_unit_lua",			"modifiers/modifier_spectator_dummy_unit.lua", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier( "modifier_spect_ward_lua",						"modifiers/modifier_spect_ward.lua", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier( "modifier_spect_ward_dire_lua",				"modifiers/modifier_spect_ward.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- attack animations
 	LinkLuaModifier( "modifier_clinkz_attack_animation", 		"heroes/hero_clinkz/clinkz_attack_animation_trigger.lua", LUA_MODIFIER_MOTION_NONE)
@@ -2033,8 +2034,15 @@ function CAddonTemplateGameMode:ModifierGainedFilter(event)
         -- Adds dummy ward for spectators
         if PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_CUSTOM_1) > 0 then
             local spectUnitName = "npc_dota_observer_wards_spectator"
+			if parent:GetTeam() == DOTA_TEAM_BADGUYS then spectUnitName = spectUnitName .. "_dire" end
             local newSpectWard  = CreateUnitByName(spectUnitName, parent:GetAbsOrigin(), true, nil, nil, DOTA_TEAM_CUSTOM_1)
-            newSpectWard:AddNewModifier(newSpectWard, nil, "modifier_spect_ward_lua", { team = parent:GetTeam(), sentry = is_sentry, track = new_ward:GetEntityIndex() })
+			if parent:GetTeam() == DOTA_TEAM_GOODGUYS then
+         		newSpectWard:AddNewModifier(newSpectWard, nil, "modifier_spect_ward_lua", { 
+					team = parent:GetTeam(), sentry = is_sentry, track = new_ward:GetEntityIndex(), duration = lifetime })
+			else
+         		newSpectWard:AddNewModifier(newSpectWard, nil, "modifier_spect_ward_dire_lua", { 
+					team = parent:GetTeam(), sentry = is_sentry, track = new_ward:GetEntityIndex(), duration = lifetime })
+			end
 			newSpectWard:AddNewModifier(newSpectWard, nil, "modifier_kill", { duration = lifetime })
 			if is_sentry then
 				newSpectWard:SetMaterialGroup("1")
