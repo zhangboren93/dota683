@@ -38,3 +38,65 @@ TextEntry #PlaceholderText {
 TextEntry.HasInput #PlaceholderText {
 	visibility: collapse;
 }
+
+.DefaultValveButtonClass
+{
+	width: 60px;
+	
+	min-width: 60px;
+	min-height: 36px;
+	
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #373d45 ), to( #4d5860 ) );
+	border-style: solid;
+	border-width: 1px;
+	
+	padding: 4px 10px;
+	
+	border-top-color: #555555;
+	border-left-color: #494949;
+	border-bottom-color: #333333;
+	border-right-color: #404040;
+	
+	transition-property: background-color;
+	transition-duration: 0.05s;
+	transition-timing-function: linear;
+	
+	horizontal-align: center;
+}
+.DefaultValveButtonClass Label
+{
+	margin-top: 2px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	color: #FFFFFF;
+	text-align: center;
+	horizontal-align: center;
+	vertical-align: middle;
+	text-shadow: 2px 2px 0px 1.0 #000000;
+	
+	transition-property: color;
+	transition-duration: 0.35s;
+	transition-timing-function: ease-in-out;
+	
+	font-size: 18px;
+	font-family: defaultFont;
+}
+.DefaultValveButtonClass:hover
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #4c5561 ), to( #6c7d88 ) );
+	border-top-color: #aaaaaa77;
+	border-left-color: #aaaaaa33;
+	border-bottom-color: #333333;
+	border-right-color: #404040;
+}
+
+.DefaultValveButtonClass:active
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #393939), to( #555555 ) );
+	border-top-color: #222222;
+	border-left-color: #303030;
+	border-bottom-color: #666666;
+	border-right-color: #444444;
+	sound: "ui_generic_button_click";
+}
+

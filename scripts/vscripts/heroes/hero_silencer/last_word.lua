@@ -13,6 +13,11 @@ function LastWordStopSound( keys )
 		print("Won't trigger last word on item use " .. event_ability:GetName())
 		return
 	end
+	if 		event_ability:GetName() == "invoker_quas"
+		or	event_ability:GetName() == "invoker_wex"
+		or	event_ability:GetName() == "invoker_exort" then
+		return
+	end
 
 	StopSoundEvent(sound_name, unit)
 	unit:EmitSound("Hero_Silencer.LastWord.Damage")

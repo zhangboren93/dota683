@@ -3,7 +3,7 @@
 		<!--include src="file://{resources}/styles/dotastyles.css" />
 		<include src="file://{resources}/styles/battle_pass/current_battle_pass.css" />	
 		<include src="file://{resources}/styles/play.css" /-->
-		<include src="file://{resources}/styles/custom_game/menu_item_common.css"/>
+		<include src="file://{resources}/styles/custom_game/radio_button.css" />
 		<include src="file://{resources}/styles/custom_game/team_select.css" />
 		<include src="file://{resources}/styles/custom_game/team_select_683.css" />
 	</styles>
@@ -42,7 +42,7 @@
 					<ToggleButton id="samep" checked="false" text="#683modeselect_gamemode_samepick" onactivate="handleSamePickToggle()" />
 					<ToggleButton id="freecourier" checked="false" text="#683modeselect_gamemode_freecourier" onactivate="handleFreeCourierToggle()"/>
 					<ToggleButton id="innateblock" checked="false" text="#683modeselect_gamemode_innateblock" onactivate="handleInnateBlockToggle()"/>
-					<Button onactivate="handleShufflePlayers()"><Label text="#683modeselect_gamemode_shuffle"/></Button>
+					<Button class="DefaultValveButtonClass" onactivate="handleShufflePlayers()" style="width: 165px;"><Label text="#683modeselect_gamemode_shuffle"/></Button>
 				</Panel>
 				<!--Panel style="flow-children: right;">
 					<Label text="#683modeselect_meta_version"/>
