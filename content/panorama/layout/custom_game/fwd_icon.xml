@@ -7,7 +7,7 @@
 	</styles>
 	<Panel class="fwd-icon panel-hidden">
 		<Button onactivate="OnFWDIconPressed()">
-			<Label text="#fwd_icon_text"/>
+			<Image class="menu-image-opac" src="file://{images}/custom_game/terminal-fill.png"/>
 		</Button>
 	</Panel>
 </root>
