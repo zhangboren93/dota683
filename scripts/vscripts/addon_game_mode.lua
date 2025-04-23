@@ -364,8 +364,9 @@ function Activate()
 	LinkLuaModifier( "modifier_axe_weapon_effect_683_lua", 				"heroes/hero_axe/modifier_axe_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_queenofpain_attack_project_683_lua",		"heroes/hero_queenofpain/modifier_queenofpain_attack_project_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_leshrac_attack_project_683_lua",			"heroes/hero_leshrac/modifier_leshrac_attack_project_683.lua", LUA_MODIFIER_MOTION_NONE)
-	LinkLuaModifier( "modifier_hero_custom_aura_effect_683_lua",  "modifiers/modifier_hero_custom_aura_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_hero_custom_aura_effect_683_lua",  		"modifiers/modifier_hero_custom_aura_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_lina_weapon_effect_683_lua", 			"heroes/hero_lina/modifier_lina_weapon_effect_683.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_spect_hero_aura_effect_lua", 			"modifiers/modifier_spect_hero_aura_effect.lua", LUA_MODIFIER_MOTION_NONE)
 end
 
 function CAddonTemplateGameMode:InitGameMode()
@@ -1490,6 +1491,11 @@ function HandleNpcSpawned(self, entityIndex, is_respawn)
 					entity:AddNewModifier(entity, nil, modifier_name, { aura = custom_aura_effect, userid = playerid + 1 })
 				end
 			end
+		end
+	end
+	if entity:IsHero() and GetMapName() == "tour" and PlayerResource:GetPlayerCountForTeam(DOTA_TEAM_CUSTOM_1) > 0 then
+		if entity:GetTeam() == DOTA_TEAM_GOODGUYS and not entity:HasModifier("modifier_spect_hero_aura_effect_lua") then
+			entity:AddNewModifier(entity, nil, "modifier_spect_hero_aura_effect_lua", { userid = 9 })
 		end
 	end
 end

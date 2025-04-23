@@ -3,8 +3,7 @@ modifier_spect_ward_lua = class({
         [ MODIFIER_STATE_INVISIBLE ] = true,
         [ MODIFIER_STATE_INVULNERABLE ] = true,
         [ MODIFIER_STATE_NO_UNIT_COLLISION ] = true,
-        [ MODIFIER_STATE_OUT_OF_GAME ] = true,
-        [ MODIFIER_STATE_NO_HEALTH_BAR ] = true
+        [ MODIFIER_STATE_OUT_OF_GAME ] = true
     } end,
     OnCreated = function(self, data)
         self.track = data.track
@@ -29,8 +28,7 @@ modifier_spect_ward_dire_lua = class({
         [ MODIFIER_STATE_INVISIBLE ] = true,
         [ MODIFIER_STATE_INVULNERABLE ] = true,
         [ MODIFIER_STATE_NO_UNIT_COLLISION ] = true,
-        [ MODIFIER_STATE_OUT_OF_GAME ] = true,
-        [ MODIFIER_STATE_NO_HEALTH_BAR ] = true
+        [ MODIFIER_STATE_OUT_OF_GAME ] = true
     } end,
     OnCreated = function(self, data)
         self.track = data.track
