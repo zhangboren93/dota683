@@ -55,6 +55,9 @@
 			<Button onactivate='fwdLevelUpPressed()'><Label text="#selected_target_level_up"/></Button>
 			<Button onactivate='fwdLevelMaxPressed()'><Label text="#selected_target_level_max"/></Button>
 		</Panel>
+		<Panel id="refresh-status-button">
+			<Button onactivate="fwdRefreshStatus()"><Label text="#refresh_status_button_label"/></Button>
+		</Panel>
 		<Panel>
 			<Label text="#global_settings"/>
 		</Panel>

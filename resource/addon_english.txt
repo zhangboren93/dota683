@@ -3310,6 +3310,7 @@
 		"selected_target"					"Selected Target:"
 		"selected_target_level_up"			"+ Lv"
 		"selected_target_level_max"			"Max Lv"
+		"refresh_status_button_label"		"Refresh Status"
 		"global_settings"					"Global Settings:"
 		"fwd_disable_cooldown_toggle"		"No cooldown"
 		"fwd_icon_text"						"P"

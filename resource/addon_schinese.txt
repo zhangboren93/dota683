@@ -3331,6 +3331,7 @@
 		"selected_target"					"选中的单位："
 		"selected_target_level_up"			"+等级"
 		"selected_target_level_max"			"最大等级"
+		"refresh_status_button_label"		"刷新状态"
 		"global_settings"					"全局设定"
 		"fwd_disable_cooldown_toggle"		"无CD"
 		"fwd_icon_text"						"测"	

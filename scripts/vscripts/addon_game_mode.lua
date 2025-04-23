@@ -2664,6 +2664,22 @@ function handleFWDCommand(userid, event)
 		end
 	elseif event.type == 'nocd' then
 		fwdnocdenabled = event.state
+	elseif event.type == 'rs' then
+		for _,val in pairs(event.entities) do
+			local currentEntity = EntIndexToHScript(val);
+			currentEntity:GetAbilityByIndex(0):EndCooldown()
+			currentEntity:GetAbilityByIndex(1):EndCooldown()
+			currentEntity:GetAbilityByIndex(2):EndCooldown()
+			currentEntity:GetAbilityByIndex(5):EndCooldown()
+			currentEntity:SetMana(currentEntity:GetMaxMana())
+			currentEntity:SetHealth(currentEntity:GetMaxHealth())
+			for slot=DOTA_ITEM_SLOT_1,DOTA_ITEM_SLOT_6 do
+				local item = currentEntity:GetItemInSlot(slot)
+				if item ~= nil then
+					item:EndCooldown()
+				end
+			end
+		end
 	end
 end
 function handleMSCommand(userid, command)

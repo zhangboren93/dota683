@@ -96,6 +96,14 @@ function OnCooldownToggled() {
 	})
 }
 
+function fwdRefreshStatus() {
+	let entities = Players.GetSelectedEntities(Players.GetLocalPlayer())
+	GameEvents.SendCustomGameEventToServer("fwd-command-issue", {
+		type: 'rs',
+		entities: entities
+	})
+}
+
 (function () {
 	$.GetContextPanel().visible = false;
 })();
