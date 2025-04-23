@@ -1,0 +1,14 @@
+""
+{
+    "TextureData"
+    {
+        "observer_ward_dire_minimap_icon" //EDIT THIS
+        {
+            "file"     "materials/vgui/hud/observer_ward_dire_minimap_icon.vmat" //EDIT THIS
+            "x"        "0"
+            "y"        "0"
+            "width"    "32"
+            "height"   "32"
+        }
+    }
+}
