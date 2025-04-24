@@ -16,6 +16,17 @@ function DeathCoil( event )
 	local projectile_speed = ability:GetSpecialValueFor( "projectile_speed" )
 	local particle_name = "particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
 
+	ProjectileManager:CreateTrackingProjectile({
+		vSourceLoc = caster:GetAbsOrigin(),
+		Target = target,
+		iMoveSpeed = 2000,
+		bDodgeable = false,
+		iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
+		bVisibleToEnemies = true,
+		EffectName = particle_name,
+		Ability = ability,
+		Source = caster
+	})
 	ProcsMagicStick(event)
 
 	-- Play the ability sound
@@ -34,7 +45,7 @@ function DeathCoil( event )
 	-- Self Damage
 	ApplyDamage({ victim = caster, attacker = caster, damage = self_damage,	damage_type = DAMAGE_TYPE_PURE, ability = ability })
 
-	local particle_id = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_death_coil_explosion.vpcf", PATTACH_POINT_FOLLOW, target)
-	ParticleManager:SetParticleControlEnt(particle_id, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
-	ParticleManager:ReleaseParticleIndex(particle_id)
+	--local particle_id = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_death_coil_explosion.vpcf", PATTACH_POINT_FOLLOW, target)
+	--ParticleManager:SetParticleControlEnt(particle_id, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(0, 0, 0), false)
+	--ParticleManager:ReleaseParticleIndex(particle_id)
 end
