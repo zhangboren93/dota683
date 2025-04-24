@@ -8,7 +8,7 @@ modifier_spectre_haunt_fix_movespeed_lua = class({
 		end
 	end,
 	DeclareFunctions = function() return { MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE } end,
-	GetModifierMoveSpeed_Absolute = function()
+	GetModifierMoveSpeed_Absolute = function(self)
 		local boot_speed = 0
 		local parent = self:GetParent()
 		if parent ~= nil then
