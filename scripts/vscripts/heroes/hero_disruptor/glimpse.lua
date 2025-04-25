@@ -10,4 +10,10 @@ end
 
 function handleIntervalThink(event)
 	-- TODO record all hero's position
+	local heroes = HeroList:GetAllHeroes()
+	for i=1,#heroes do
+		if not heroes[i]:IsIllusion() and heroes[i]:GetTeam() ~= DOTA_TEAM_CUSTOM_1 and heroes[i]:IsAlive() then
+			if heroes[i]:
+		end
+	end
 end
