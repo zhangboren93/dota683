@@ -115,6 +115,7 @@ function fillExtraSummaryInfoForAll() {
 		let tower_kills = Players.extraPlayerStats.psm[all_players[i].toString()].tk;
 		if (tower_kills > po_score) {
 			po_player_id = all_players[i]
+			po_score = tower_kills
 		}
 	}
 	$.Msg("Po is player " + po_player_id + " with score " + po_score)
@@ -147,7 +148,7 @@ function fillExtraSummaryInfoForAll() {
 		let denies = Players.GetDenies(winning_players[i]);
 		if (denies > bu_score) {
 			bu_player_id = winning_players[i]
-			bu_score = bu_score
+			bu_score = denies
 		}
 	}
 	$.Msg("Bu is player " + bu_player_id + " with score " + bu_score)
