@@ -16666,8 +16666,9 @@
 	"BaseClass"						"ability_datadriven"
 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	"AbilityTextureName"			"earthshaker_enchant_totem"
-	"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
-	"AnimationPlaybackRate"  	"0.7"
+	"AbilityCastAnimation"			"ACT_DOTA_IDLE"
+	"AbilityProcsMagicStick"		"1"
+	//"AnimationPlaybackRate"  	"0.7"
 	
 	"precache"
 	{
@@ -16681,7 +16682,6 @@
 	"AbilityCastRange"				"0"
 	"AbilityCastPoint"				"0.69"
 	"FightRecapLevel"				"1"
-	"AbilityTextureName"			"earthshaker_enchant_totem"
 
 	// Time		
 	//-------------------------------------------------------------------------------------------------------------
@@ -16703,6 +16703,24 @@
 			"totem_damage_percentage"	"100 200 300 400"
 			"tooltip_duration"			"14.0 14.0 14.0 14.0"
 	}
+
+	"OnAbilityPhaseStart"
+	{
+		"RunScript"
+		{
+			"ScriptFile"				"heroes/hero_earthshaker/enchant_totem.lua"
+			"Function"					"handleAbilityPhaseStart"
+		}
+	}
+
+	"OnAbilityPhaseInterrupted"
+	{
+		"RunScript"
+		{
+			"ScriptFile"				"heroes/hero_earthshaker/enchant_totem.lua"
+			"Function"					"handleOrder"
+		}
+	}
 	
 	"OnSpellStart"
 	{
@@ -16716,12 +16734,6 @@
 		{
 			"ModifierName"	"modifier_enchant_totem_datadriven"
 			"Target"		"CASTER"
-		}
-
-		"RunScript"
-		{
-			"ScriptFile"	"items/item_magic_stick.lua"
-			"Function"		"ProcsMagicStick"
 		}
 	}
 	
