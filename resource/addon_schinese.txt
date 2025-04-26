@@ -2579,7 +2579,10 @@
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strikes"					"打击次数："
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_interval"			"打击间隔："
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_damage"			"打击伤害："
-		"DOTA_Tooltip_ability_disruptor_glimpse_Description"								"将目标英雄传送回他4秒前所在位置。瞬间杀死幻象单位。"
+		"DOTA_Tooltip_ability_disruptor_glimpse_datadriven"									"恶念瞥视"
+		"DOTA_Tooltip_ability_disruptor_glimpse_datadriven_Description"						"将目标英雄传送回他4秒前所在位置。瞬间杀死幻象单位。"
+		"DOTA_Tooltip_ability_disruptor_glimpse_datadriven_Lore"							"对电流的把玩能产生出人意料的结果。"
+		"DOTA_Tooltip_ability_disruptor_glimpse_datadriven_cast_range"						"施法距离："
 		// Enchantress
 		"DOTA_Tooltip_ability_enchantress_enchant_lua"										"魅惑"
 		"DOTA_Tooltip_ability_enchantress_enchant_lua_Description"							"魅惑魔女诱惑一个敌人，使其为己所用（非英雄单位）或者减速（英雄单位）。"

@@ -2716,6 +2716,7 @@
 		"StatusManaRegen"			"0.01"
 		"BaseAttackSpeed"			"100"
 		"Ability1"		"disruptor_thunder_strike_datadriven"
+		"Ability2"		"disruptor_glimpse_datadriven"
 		"Ability4"		"generic_hidden"
 		"Ability10"		"generic_hidden"
 		"Ability11"		"generic_hidden"

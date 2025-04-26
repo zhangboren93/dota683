@@ -2560,6 +2560,10 @@
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strikes"					"STRIKES:"
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_interval"			"STRIKE INTERVAL:"
 		"DOTA_Tooltip_ability_disruptor_thunder_strike_datadriven_strike_damage"			"STRIKE DAMAGE:"
+		"DOTA_Tooltip_ability_disruptor_glimpse_datadriven"									"Glimpse"
+		"DOTA_Tooltip_ability_disruptor_glimpse_datadriven_Description"						"Teleports the target hero back to where it was 4 seconds ago.  Instantly kills illusions."
+		"DOTA_Tooltip_ability_disruptor_glimpse_datadriven_Lore"							"Playing with electricity can have unexpected results."
+		"DOTA_Tooltip_ability_disruptor_glimpse_datadriven_cast_range"						"CAST RANGE:"
 		// Enchantress
 		"DOTA_Tooltip_ability_enchantress_enchant_lua"										"Enchant"
 		"DOTA_Tooltip_ability_enchantress_enchant_lua_Description"							"Enchantress charms an enemy, bringing it under her control (if a creep) or slowing it (if a hero)."
