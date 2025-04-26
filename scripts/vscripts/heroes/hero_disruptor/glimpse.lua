@@ -23,13 +23,13 @@ function handleSpellStart(event)
 		speed = 600
 	end
 	local duration = (caster:GetAbsOrigin() - loc):Length2D() / speed
-	print("glimpse target to loc: " .. speed)
+	print("glimpse target to loc: " .. speed .. " " .. duration)
 	print(loc)
 	-- Creates a dummy unit at the glimpse location to throw the projectile at
 	local dummy = CreateUnitByName("npc_dummy_unit", loc, false, caster, caster, caster:GetTeamNumber())
 	-- Applies a modifier that removes it health bar
 	ability:ApplyDataDrivenModifier(caster, dummy, "modifier_dummy", {})
-	ability:ApplyDataDrivenModifier(caster, dummy, "modiifer_kill", { duration = 2 })
+	ability:ApplyDataDrivenModifier(caster, dummy, "modifier_kill", { duration = 2 })
 	
 	-- Renders the glimpse location particle
 	ability.particle = ParticleManager:CreateParticle(
@@ -43,7 +43,7 @@ function handleSpellStart(event)
 		Target = dummy,
 		Source = target,
 		Ability = ability,
-		EffectName = "particles/units/heroes/hero_disruptor/disruptor_glimpse_travel.vpcf",
+		--EffectName = "particles/units/heroes/hero_disruptor/disruptor_glimpse_travel.vpcf",
 		bDodgeable = false,
 	--[[Provides the caster's team with permanent vision over the starting position
 	bProvidesVision = true,
@@ -53,6 +53,10 @@ function handleSpellStart(event)
 		iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION
 	}
 	ProjectileManager:CreateTrackingProjectile( info )
+	local pid = ParticleManager:CreateParticle("particles/units/heroes/hero_disruptor/disruptor_glimpse_travel.vpcf",
+		PATTACH_ABSORIGIN, target)
+	ParticleManager:SetParticleControlEnt(pid, 1, dummy, PATTACH_ABSORIGIN, "", Vector(0, 0, 0), false)
+	ParticleManager:SetParticleControl(pid, 2, Vector(duration / 2, 0, 0))
 end
 
 function handleIntervalThink(event)
