@@ -278,6 +278,7 @@ function Activate()
 	LinkLuaModifier( "modifier_setting_aa_datadriven_2", 				"modifiers/modifier_setting_aa_n.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_remote_mine_datadriven",					"heroes/hero_techies/remote_mines.lua", LUA_MODIFIER_MOTION_NONE)
 	LinkLuaModifier( "modifier_morphling_morph_visual_lua", 			"heroes/hero_morphling/modifier_morphling_morph_visual.lua", LUA_MODIFIER_MOTION_NONE)
+	LinkLuaModifier( "modifier_venomancer_venomous_gale_lua", 			"heroes/hero_venomancer/modifier_venomancer_venomous_gale.lua", LUA_MODIFIER_MOTION_NONE)
 
 	-- 688 heroes
 	LinkLuaModifier( "modifier_arc_warden_688_attribute_bonus", 		"modifiers/688/modifier_arc_warden_688_attribute_bonus.lua", LUA_MODIFIER_MOTION_NONE)

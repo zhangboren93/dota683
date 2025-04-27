@@ -86,5 +86,6 @@ function handleProjectileHitUnit(event)
 	local caster = event.caster
 	caster.glimpse_target:RemoveModifierByName("modifier_eul_cyclone_datadriven")
 	FindClearSpaceForUnit(caster.glimpse_target, caster.glimpse_loc, false)
+	caster.glimpse_target:StopSound("Hero_Disruptor.Glimpse.Target")
 	caster.glimpse_target:EmitSound("Hero_Disruptor.Glimpse.End")
 end

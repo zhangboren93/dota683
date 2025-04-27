@@ -98,35 +98,7 @@
 			{
 				"ScriptFile"	"heroes/hero_venomancer/venomous_gale.lua"
 				"Function"		"VenomousGaleImpact"
-				"modifier"		"modifier_venomous_gale_debuff_datadriven"
 			}	
-		}
-	
-		"Modifiers"
-		{
-			"modifier_venomous_gale_debuff_datadriven"
-			{
-				"IsDebuff"	"1"			
-	
-				"EffectName"	"particles/units/heroes/hero_venomancer/venomancer_gale_poison_debuff.vpcf"
-				"EffectAttachType"	"follow_origin"
-	
-				"ThinkInterval"		"%tick_interval"
-				"OnIntervalThink"
-				{
-					"Damage"
-					{
-						"Target"	"TARGET"
-						"Type"		"DAMAGE_TYPE_MAGICAL"
-						"Damage"	"%tick_damage"
-					}
-				}
-	
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-1"
-				}
-			}
 		}
 	}
 }

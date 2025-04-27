@@ -758,6 +758,7 @@
 	"item_quelling_blade"
 	{
 		"ItemPurchasable"	"0"
+		"SuggestPregame"	"0"
 	}
 
 	"item_quelling_blade_lua"
@@ -790,6 +791,7 @@
 		"ItemSellable" 					"1"
 		"ItemPurchasable" 				"1"
 		"ItemDroppable" 				"1"
+		"SuggestPregame"				"1"
 
 		// Special	
 		//-------------------------------------------------------------------------------------------------------------

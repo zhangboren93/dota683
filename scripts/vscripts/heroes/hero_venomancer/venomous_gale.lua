@@ -8,7 +8,7 @@ function VenomousGaleImpact( keys )
 	local target = keys.target
 
 	-- Ability variables
-	local modifier = keys.modifier
+	--local modifier = keys.modifier
 	local duration = ability:GetLevelSpecialValueFor("duration", ability_level)
 	local movement_slow = ability:GetLevelSpecialValueFor("movement_slow", ability_level) * -1 -- Turn it into a positive value
 
@@ -17,18 +17,19 @@ function VenomousGaleImpact( keys )
 	local slow_rate = 1 / slow_per_second
 
 	-- Apply the Venomous Gale modifier and set the slow amount
-	ability:ApplyDataDrivenModifier(caster, target, modifier, {duration = duration})
-	target:SetModifierStackCount(modifier, caster, movement_slow)
+	target:AddNewModifier(caster, ability, "modifier_venomancer_venomous_gale_lua", { duration = duration })
+	--ability:ApplyDataDrivenModifier(caster, target, modifier, {duration = duration})
+	--target:SetModifierStackCount(modifier, caster, movement_slow)
 
 	-- Create the timer thats responsible for the decaying movement slow
 	-- Save it to the target so that we can remove it later
-	target:SetThink(function()
-		if IsValidEntity(target) and target:HasModifier(modifier) then
-			local current_slow = target:GetModifierStackCount(modifier, caster)
-			if current_slow > 0 then
-				target:SetModifierStackCount(modifier, caster, current_slow - 1)
-				return slow_rate
-			end
-		end
-	end, "calculate gale slow", slow_rate)
+	--target:SetThink(function()
+	--	if IsValidEntity(target) and target:HasModifier(modifier) then
+	--		local current_slow = target:GetModifierStackCount(modifier, caster)
+	--		if current_slow > 0 then
+	--			target:SetModifierStackCount(modifier, caster, current_slow - 1)
+	--			return slow_rate
+	--		end
+	--	end
+	--end, "calculate gale slow", slow_rate)
 end
