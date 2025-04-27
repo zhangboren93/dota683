@@ -6,6 +6,10 @@ morphling_morph_replicate_datadriven = class({
 		local caster = self:GetCaster()
 		local replica = caster.replica
 		if replica ~= nil and replica:IsAlive() then
+			local pid = ParticleManager:CreateParticle("particles/units/heroes/hero_morphling/morphling_replicate_finish.vpcf",
+				PATTACH_ABSORIGIN, caster)
+			ParticleManager:SetParticleControlEnt(pid, 0, caster, PATTACH_ABSORIGIN, "attach_hitloc", Vector(0, 0, 0), false)
+
 			ProcsMagicStick({ caster = caster })
 			caster:SetAbsOrigin(replica:GetAbsOrigin())
 			replica:ForceKill(false)
