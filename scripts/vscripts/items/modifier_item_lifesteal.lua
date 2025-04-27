@@ -1,3 +1,4 @@
+require("items/lifesteal_common")
 modifier_item_lifesteal_lua = class({
 	OnCreated = function(self, data)
 		if data.lifesteal then
@@ -12,6 +13,7 @@ modifier_item_lifesteal_lua = class({
 		if self:GetParent() ~= attacker then return end
 		local target = event.target
 		if target:IsIllusion() or target:IsBuilding() or target:GetTeam() == attacker:GetTeam() then return end
+		if not IsUnitLifeStealable(target) then return end
 		local lifesteal = self.lifesteal
 		if attacker:HasModifier("modifier_item_satanic_datadriven_unholy_rage") then
 			lifesteal = lifesteal + 175

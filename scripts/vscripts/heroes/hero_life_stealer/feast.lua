@@ -1,3 +1,4 @@
+require("items/lifesteal_common")
 --[[
     author: jacklarnes, Pizzalol
     email: christucket@gmail.com
@@ -9,6 +10,7 @@ function feast_attack( keys )
     if target:IsBuilding() or target:GetModelName() == "models/creeps/roshan/roshan.vmdl" or attacker:PassivesDisabled() or target:IsWard() then
         return
     end 
+	if not IsUnitLifeStealable(target) then return end
     local ability = keys.ability
 
     ability.hp_leech_percent = ability:GetLevelSpecialValueFor("hp_leech_percent", ability:GetLevel() - 1)
