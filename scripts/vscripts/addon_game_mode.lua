@@ -917,9 +917,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		glyph:CastAbility()
 		return false
 	end
-	if event.order_type == DOTA_UNIT_ORDER_RADAR then
-		return false
-	end
 	if event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 		local target = EntIndexToHScript(event.entindex_target)
 		if target:GetClassname() == "dota_item_drop" or target:GetClassname() == "dota_item_rune" then
