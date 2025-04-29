@@ -17,12 +17,20 @@ modifier_huskar_berserkers_blood_lua = class({
 	IsHidden							 = function(self) return false end,
 	GetModifierModelScale				 = function(self) return 3 * self:GetStackCount() + 1 end,
 	GetActivityTranslationModifiers		 = function(self)
-		if self:GetParent():GetHealthPercent() <= 99.99 then 
+		if self:GetParent():GetHealthPercent() <= 99.99 and not self:GetParent():PassivesDisabled() then 
 			return "berserkers_blood"
 		end
 	end,
-	GetModifierAttackSpeedBonus_Constant = function(self) return self.attack_speed_bonus_per_stack * self:GetStackCount() end,
-	GetModifierMagicalResistanceBonus	 = function(self) return self.resistance_per_stack * self:GetStackCount() end
+	GetModifierAttackSpeedBonus_Constant = function(self)
+		if not self:GetParent():PassivesDisabled() then
+			return self.attack_speed_bonus_per_stack * self:GetStackCount()
+		end
+	end,
+	GetModifierMagicalResistanceBonus	 = function(self)
+		if not self:GetParent():PassivesDisabled() then
+			return self.resistance_per_stack * self:GetStackCount()
+		end
+	end
 })
 
 function modifier_huskar_berserkers_blood_lua:OnCreated(keys)
