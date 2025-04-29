@@ -928,9 +928,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 		glyph:CastAbility()
 		return false
 	end
-	if event.order_type == DOTA_UNIT_ORDER_RADAR then
-		return false
-	end
 	if event.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET then
 		local target = EntIndexToHScript(event.entindex_target)
 		if target:GetClassname() == "dota_item_drop" or target:GetClassname() == "dota_item_rune" then
@@ -1015,21 +1012,6 @@ function CAddonTemplateGameMode:OrderFilter(event)
 						return true
 					end
 				end
-			end
-		end
-		if 	self.custom_game_meta_version ~= '688' then
-			if event.shop_item_name == "item_recipe_bloodthorn_lua" 
-				or event.shop_item_name == "item_recipe_moon_shard"
-				or event.shop_item_name == "item_recipe_guardian_greaves"
-				or event.shop_item_name == "item_recipe_glimmer_cape"
-				or event.shop_item_name == "item_recipe_aether_lens"
-				or event.shop_item_name == "item_recipe_lotus_orb"
-				or event.shop_item_name == "item_recipe_hurricane_pike"
-				or event.shop_item_name == "item_recipe_dragon_lance"
-				or event.shop_item_name == "item_recipe_echo_sabre"
-				or event.shop_item_name == "item_recipe_silver_edge_datadriven" 
-				or event.shop_item_name == "item_recipe_iron_talon_lua" then
-					return false
 			end
 		end
 	end

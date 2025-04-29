@@ -1,3 +1,4 @@
+-- Deprecated
 if item_orchid_regen_percentage_modifier == nil then
     item_orchid_regen_percentage_modifier = class({})
 end

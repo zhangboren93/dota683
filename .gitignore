@@ -30,3 +30,4 @@ scripts/npc/npc_items_custom.txt
 scripts/npc/npc_heroes_custom.txt
 
 *.lnk
+*.sublime-workspace
