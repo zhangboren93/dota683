@@ -25,7 +25,7 @@ function StasisTrapPlant( keys )
 	-- Apply the invisibility after the fade time
 	caster:SetThink(function()
 		ability:ApplyDataDrivenModifier(caster, stasis_trap, modifier_tracker, {})
-		stasis_trap:AddNewModifier(caster, ability, "modifier_invisible", {})
+		stasis_trap:AddNewModifier(caster, ability, "modifier_land_mine_invis_lua", {})
 	end, "stasis trap fade", fade_time)
 end
 

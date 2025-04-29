@@ -67,7 +67,7 @@ function LandMinesPlant( keys )
 
 	-- Apply the invisibility after the fade time
 	land_mine:SetThink(function()
-		land_mine:AddNewModifier(caster, ability, "modifier_invisible", {})
+		land_mine:AddNewModifier(caster, ability, "modifier_land_mine_invis_lua", {})
 	end, "land mine invis", fade_time)
 end
 

@@ -40,7 +40,7 @@ function RemoteMinesPlant( keys )
 
 	-- Apply the invisibility after the activation time
 	caster:SetThink(function()
-		remote_mine:AddNewModifier(caster, ability, "modifier_invisible", {})
+		remote_mine:AddNewModifier(caster, ability, "modifier_land_mine_invis_lua", {})
 	end, "Add invis to remote boom", activation_time)
 
 	ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_remote_mine.vpcf",
