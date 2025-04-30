@@ -40,18 +40,33 @@ DOTAItemImage {
 
 .hero-damage {
 	width: 70px;
+	margin-left: 5px;
+} 
+.hero-damage Label {
+	horizontal-align: center;
 } 
 
+.level-column {
+	width: 40px;
+}
 .kill-column {
 	width: 35px;
 }
 
 .kda-column {
-	width: 60px;
+	width: 200px;
+	flow-children: right;
+	vertical-align: center;
+	margin-left: 5px;
 }
 
 .gpm-column {
 	width: 150px;
+}
+
+.kda-column Label {
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .title-mvp {
@@ -80,4 +95,8 @@ DOTAItemImage {
 
 .score-column {
 	margin-left: 20px;
+}
+
+.title-hidden {
+	visibility: collapse;
 }

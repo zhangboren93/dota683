@@ -96,7 +96,7 @@ local function hasEmptyItemSlotForItem(hero, item_to_add)
 			return true
 		else
 			if item:GetName() == item_to_add:GetName() and item:IsStackable() then return true end
-			if isWardItem(item) and isWardItem(item_to_add) then return true end
+			--if isWardItem(item) and isWardItem(item_to_add) then return true end
 		end
 	end
 	return false

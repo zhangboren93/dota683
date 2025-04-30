@@ -34,7 +34,7 @@
 		},
 		{
 			map = "tour"
-			MinPlayers = 10
+			MinPlayers = 3
 			MaxPlayers = 15
 		}
 	]

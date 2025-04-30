@@ -38,22 +38,22 @@ function fillExtraSummaryInfo(players, slot, titles) {
 		}
 
 		if (titles.mvp == players[i]) {
-			$("#kda-" + (i+slot)).text = "MVP";
-			$("#kda-" + (i+slot)).AddClass("title-mvp")
-		} else if (titles.hun == players[i]) {
-			$("#kda-" + (i+slot)).text = "魂";
-		} else if (titles.jun == players[i]) {
-			$("#kda-" + (i+slot)).text = "军";
-			$("#kda-" + (i+slot)).AddClass("title-jun")
-		} else if (titles.po == players[i]) {
-			$("#kda-" + (i+slot)).text = "破";
-			$("#kda-" + (i+slot)).AddClass("title-po")
-		} else if (titles.fu == players[i]) {
-			$("#kda-" + (i+slot)).text = "富";
-			$("#kda-" + (i+slot)).AddClass("title-fu")
-		} else if (titles.bu == players[i]) {
-			$("#kda-" + (i+slot)).text = "补";
-			$("#kda-" + (i+slot)).AddClass("title-bu");
+			$("#title-mvp-" + (i+slot)).RemoveClass("title-hidden")
+		} 
+		if (titles.hun == players[i]) {
+			$("#title-hun-" + (i+slot)).RemoveClass("title-hidden");
+		}
+		if (titles.jun == players[i]) {
+			$("#title-jun-" + (i+slot)).RemoveClass("title-hidden");
+		} 
+		if (titles.po == players[i]) {
+			$("#title-po-" + (i+slot)).RemoveClass("title-hidden");
+		}
+		if (titles.fu == players[i]) {
+			$("#title-fu-" + (i+slot)).RemoveClass("title-hidden");
+		}
+		if (titles.bu == players[i]) {
+			$("#title-bu-" + (i+slot)).RemoveClass("title-hidden");
 		}
 	}
 }
