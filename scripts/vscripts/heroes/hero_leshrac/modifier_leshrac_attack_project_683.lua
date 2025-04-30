@@ -14,6 +14,10 @@ modifier_leshrac_attack_project_683_lua = class({
 	IsHidden = function() return true end,
 	DeclareFunctions = function() return { MODIFIER_PROPERTY_PROJECTILE_NAME } end,
 	GetModifierProjectileName = function(self)
+		local item = self:GetParent():FindItemInInventory("item_desolator_datadriven")
+		if item ~= nil then
+			return item:GetProjectileName()
+		end
 		return self.mpn
 	end
 })

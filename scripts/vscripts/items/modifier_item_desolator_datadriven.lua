@@ -24,3 +24,8 @@ end
 function modifier_item_desolator_datadriven:IsHidden()
 	return true
 end
+
+function modifier_item_desolator_datadriven:OnDestroy()
+	if not IsServer() then return end
+	self:GetCaster():SetRangedProjectileName(self:GetCaster():GetRangedProjectileName())
+end
