@@ -41,6 +41,7 @@ modifier_item_diffusal_lua = class({
 			damage_type = DAMAGE_TYPE_PHYSICAL,
 			ability = ability
 		})
+		ParticleManager:CreateParticle("particles/generic_gameplay/generic_manaburn.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	end,
 	new = function(self, o)
       o = o or {}

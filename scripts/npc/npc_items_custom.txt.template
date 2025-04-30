@@ -7347,6 +7347,7 @@
 		"precache"
 		{
 			"particle"					"particles/items_fx/diffusal_slow.vpcf"
+			"particle"					"particles/generic_gameplay/generic_manaburn.vpcf"
 			"particle"					"particles/generic_gameplay/generic_purge.vpcf"
 		}
 		
@@ -7417,6 +7418,7 @@
 		"precache"
 		{
 			"particle"					"particles/items_fx/diffusal_slow.vpcf"
+			"particle"					"particles/generic_gameplay/generic_manaburn.vpcf"
 			"particle"					"particles/generic_gameplay/generic_purge.vpcf"
 		}
 
