@@ -129,7 +129,30 @@ techies_remote_mines_datadriven = class({
 	end,
 	OnAbilityPhaseStart = function(self)
 		self:GetCaster():EmitSound("Hero_Techies.RemoteMine.Toss")
+
+		local caster = self:GetCaster()
+		local pos = self:GetCursorPosition()
+		self.mine = CreateUnitByName("npc_dota_techies_remote_mine_datadriven", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
+		self.mine:AddNoDraw()
+		self.mine:SetControllableByPlayer(caster:GetPlayerID(), false)
+		self.mine:AddNewModifier(caster, self, "modifier_kill", {duration = 1.5})
+		self.pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_remote_mine_plant.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControlEnt(self.pfx, 0, caster, PATTACH_POINT_FOLLOW, "attach_remote", caster:GetAbsOrigin(), true)
+		ParticleManager:SetParticleControl(self.pfx, 1, pos)
+		ParticleManager:SetParticleControlForward(self.pfx, 1, caster:GetUpVector())
+		ParticleManager:SetParticleControlEnt(self.pfx, 2, self.mine, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", self.mine:GetAbsOrigin(), true)
 		return true
+	end,
+	OnAbilityPhaseInterrupted = function(self)
+		if self.pfx then
+			ParticleManager:DestroyParticle(self.pfx, true)
+			ParticleManager:ReleaseParticleIndex(self.pfx)
+			self.pfx = nil
+		end
+		if self.mine then
+			self.mine:ForceKill(false)
+			self.mine = nil
+		end
 	end,
 	OnSpellStart = function(self)
 		local caster = self:GetCaster()
